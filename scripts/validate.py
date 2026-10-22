@@ -88,6 +88,18 @@ def main():
         newest = max(n["date"] for n in nw["items"] if is_date(n.get("date")))
         nage = (_dt.date.today() - _dt.date.fromisoformat(newest)).days
         if nage > 3: print(f"WARN news.json newest item is {nage} days old ({newest}); run the news update (README)")
+    _cfg = J("config.json") if os.path.exists(os.path.join(ROOT, "config.json")) else {}
+    for k, v in ((_cfg.get("verification") or {}).items()):
+        if k.startswith("_") or not v: continue
+        if "<" in v or '"' in v or "content=" in v or not re.fullmatch(r"[A-Za-z0-9_\-]{8,100}", v):
+            errs.append(f"config verification.{k}: paste only the content value (letters, digits, - and _), not the whole meta tag")
+    sp = J("data", "sponsors.json")
+    for slot, items in sp.items():
+        if not isinstance(items, list): continue
+        for it in items:
+            for k in ("name", "url", "headline"):
+                if not it.get(k): errs.append(f"sponsors {slot}: missing {k}")
+            if it.get("url") and not str(it["url"]).startswith("https://"): errs.append(f"sponsors {slot}: url must be https")
     for e in errs: print("ERROR", e)
     print(f"validate: {len(ucs)} use cases, {len(J('data','blueprints.json'))} blueprints, {len(errs)} errors")
     return 1 if errs else 0

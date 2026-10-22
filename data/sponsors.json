@@ -1,6 +1,8 @@
 {
- "_help": "Add objects to a slot to show a paid placement. Fields: name, url (https), headline, body, cta, categories (optional list of category slugs). Empty slot = house ad pointing to /sponsor/.",
+ "_help": "Add objects to a slot to show a paid placement. Fields: name, url (https, with UTM tags), headline, body, cta. featured_category/use_case_sidebar take categories; featured_tool takes blueprints (slugs) and/or categories; run_for_less_tile also takes big + unit (e.g. '$20', 'free credit'). Empty slot = house ad pointing to /advertise/ (featured_tool and run_for_less_tile show nothing when empty). Everything is labeled Sponsored automatically.",
  "featured_home": [],
  "featured_category": [],
- "use_case_sidebar": []
+ "use_case_sidebar": [],
+ "featured_tool": [],
+ "run_for_less_tile": []
 }

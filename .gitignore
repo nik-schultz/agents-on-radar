@@ -9,3 +9,6 @@ art/incoming/
 *.key
 research/*.json.txt
 research/x_posts_full.json
+# business drafts kept off the public repo until Nik approves them
+research/sponsor_pricing.md
+ops/launch_drafts.md

@@ -17,5 +17,10 @@
     "email_field": "email",
     "_help": "Paste your email provider's form POST URL into form_action (beehiiv/Buttondown/Kit). While empty, the form is shown but disabled with a 'signups open soon' note and submits nothing."
   },
-  "meta_description": "See what AI agents are doing for real people, with sources and real popularity numbers. Then build your own with copy-paste bot blueprints. Updated daily."
+  "meta_description": "See what AI agents are doing for real people, with sources and real popularity numbers. Then build your own with copy-paste bot blueprints. Updated daily.",
+  "verification": {
+    "google": "",
+    "bing": "",
+    "_help": "Paste only the content value of each tag. Google Search Console > Add property > URL prefix > HTML tag gives <meta name=\"google-site-verification\" content=\"XXXX\">: paste XXXX into google. Bing Webmaster Tools > HTML Meta Tag gives msvalidate.01: paste its content into bing. Empty = no tag is output."
+  }
 }

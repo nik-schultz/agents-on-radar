@@ -393,3 +393,18 @@ div.bp-art.art-slot{border-radius:50%}
 .less-callout>div{flex:1;min-width:200px}.less-callout p{margin:0}.lco-ico{font-size:1.6rem}.lco-k{font-weight:700}
 .nt-less{position:relative;z-index:2;font-size:.8rem;font-weight:700;color:var(--good);text-decoration:none}.nt-less:hover{color:#fff}
 @media (prefers-reduced-motion:reduce){.lt a:hover{transform:none}.calc-bar i{transition:none}}
+
+/* ---- Monetization: paid labels, advertise page, sponsored slots (2026-10-21) ---- */
+.paid-label{display:inline-block;font:700 .66rem/1.6 var(--mono);text-transform:uppercase;letter-spacing:.12em;padding:0 .6em;border-radius:999px;text-decoration:none;vertical-align:middle;border:1px solid rgba(255,200,87,.55);color:#ffd88a;background:rgba(255,200,87,.08)}
+.paid-label.paid-affiliate{border-color:rgba(124,140,255,.55);color:#c5ccff;background:rgba(124,140,255,.1)}
+.paid-label:hover{color:#fff}
+.featured.sponsored .paid-label,.tool-listing .paid-label{margin-bottom:8px}
+.tool-listing{padding:18px;margin:20px 0;border-color:rgba(255,200,87,.35)}.tool-listing h3{margin:.2em 0}
+.lt--sponsored a{border-color:rgba(255,200,87,.4);background:linear-gradient(160deg,rgba(255,200,87,.08),rgba(12,16,34,.6))}
+.lt-paid{margin:6px 2px 0;font-size:.75rem;color:var(--muted)}
+.adv-honest{padding:clamp(16px,3vw,26px);margin:22px 0}.adv-honest h2{margin-top:0}
+.adv-stats{list-style:none;padding:0;margin:14px 0 18px;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr))}
+.adv-stats li{padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(5,7,15,.4)}
+.adv-stats b{display:block;font-size:1.8rem;font-weight:850;letter-spacing:-.02em;background:linear-gradient(90deg,var(--c1),var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.adv-stats span{font-size:.82rem;color:var(--muted)}
+.adv .tier .eyebrow{margin:0 0 4px}.adv-cta{padding:clamp(18px,3vw,28px);margin:26px 0;text-align:center;border-color:rgba(94,242,214,.35)}

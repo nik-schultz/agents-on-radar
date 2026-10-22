@@ -1,5 +1,18 @@
 # Ops changelog
 
+## 2026-10-21 (late night) — Monetization groundwork: Advertise, disclosure, paid labels, Search Console prep
+- **New /advertise/ page.** Audience is described honestly ("New and growing", live since Oct 21, no visitor numbers until measured), with real content counts. It explains what we will measure: Search Console/Bing impressions and clicks, sponsor UTM clicks, newsletter stats once it sends.
+  - Three options: newsletter sponsor slot, featured tool listing on matching blueprints and guides, and a sponsored tile in the homepage Run-for-less band.
+  - Rules and an FAQ (with FAQPage schema). No prices: "Contact us for launch pricing" goes to `contact_email`, or to GitHub issues while that's empty.
+  - /sponsor/ is now a noindex redirect to /advertise/.
+- **New /disclosure/ page.** Its "Right now" line is computed from data/sponsors.json, so today it says there are no sponsors and no affiliate links.
+- **Reusable labels in build.py:** `paid_label("sponsored"|"affiliate")` and `aff_link(url, text)` (rel="sponsored", labeled, links to /disclosure/). The existing sponsored slot uses the label.
+- **New sponsor slots in data/sponsors.json:** `featured_tool` (on blueprints and use cases by slug or category) and `run_for_less_tile` (homepage band). Both render nothing while empty. They were tested with a dummy entry, then reverted.
+- **Footer:** Advertise plus "Affiliate & sponsor disclosure". About and llms.txt link to both.
+- **Search Console and Bing prep:** config.json `verification.google` and `verification.bing`. When set, every page outputs `google-site-verification` / `msvalidate.01` meta tags. validate.py rejects a pasted whole tag. Tested with dummy values, then reverted to empty.
+- **Private research and drafts.** research/affiliate_programs.md is in the repo. research/sponsor_pricing.md (proposed prices for Nik to approve) and ops/launch_drafts.md (X, Reddit, Show HN and Product Hunt drafts) are gitignored, so they stay off the public repo.
+- **Nothing was applied for, signed up for, posted or emailed.**
+
 ## 2026-10-21 (night) — "Run your bots for less" is now the #2 feature, plus a bot cost calculator
 - Homepage: a new band right after Trending, headed "Same bot. A fraction of the bill." It has 4 tip tiles linking to guides: up to 100× cheaper with a small model (OpenAI gpt-6-luna $0.10/$0.50 vs gpt-6-astra $10/$50), 50% off with batch (Anthropic, Google, Mistral, OpenAI), cached reads at 0.1× (Anthropic), and $0 to test on Google's free tier. It also has a live cheapest-vs-top-model table per provider (from data/ai-pricing.json, checked Oct 21, 2026), a mini calculator and buttons to the hub.
 - "What will my bot cost?" calculator on /run-your-bots-for-less/#calculator, in vanilla JS (app.js), server-rendered so it works without JS.

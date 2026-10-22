@@ -143,4 +143,5 @@ Data as of 2026-10-21. Popularity numbers are real counts (X likes/reposts, Redd
 
 ## About
 - [About and how we measure](https://nik-schultz.github.io/agents-on-radar/about/)
-- [Sponsor](https://nik-schultz.github.io/agents-on-radar/sponsor/)
+- [Advertise](https://nik-schultz.github.io/agents-on-radar/advertise/)
+- [Affiliate and sponsor disclosure](https://nik-schultz.github.io/agents-on-radar/disclosure/)

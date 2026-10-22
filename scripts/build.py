@@ -20,9 +20,22 @@ BP = (cfg.get("base_path") or _bu.path).rstrip("/")
 CONTACT = cfg.get("contact_email", "")
 CONTACT_HREF = f"mailto:{CONTACT}" if CONTACT else cfg.get("contact_url", "")
 CONTACT_TXT = CONTACT or "open an issue on GitHub"
+ADV_HREF = f"mailto:{CONTACT}?subject=Advertising%20launch%20pricing" if CONTACT else cfg.get("contact_url", "")
+_vg, _vb = (cfg.get("verification") or {}).get("google", "").strip(), (cfg.get("verification") or {}).get("bing", "").strip()
+DISCLOSE = "/disclosure/"
+
+# Reusable paid-placement labels. Unused until a real sponsor or affiliate link exists.
+def paid_label(kind="sponsored"):
+    t = {"sponsored": "Sponsored", "affiliate": "Affiliate link"}[kind]
+    return f'<a class="paid-label paid-{kind}" href="{u(DISCLOSE)}" title="What this means">{t}</a>'
+def aff_link(url, text, cls=""):
+    """An affiliate link: rel=sponsored, labeled, and pointing readers to the disclosure page."""
+    return f'<a class="{e(cls)}" href="{e(url)}" rel="sponsored noopener" target="_blank">{e(text)}</a> {paid_label("affiliate")}'
+
 BUILD_DATE = cfg.get("as_of") or datetime.date.today().isoformat()
 TODAY = datetime.date.fromisoformat(BUILD_DATE)
 e = lambda s: html.escape(str(s), quote=True)
+VERIFY_META = (f'<meta name="google-site-verification" content="{e(_vg)}">' if _vg else "") + (f'<meta name="msvalidate.01" content="{e(_vb)}">' if _vb else "")
 def u(p): return BP + p
 def absu(p): return BASE + p
 SITEMAP = []
@@ -96,7 +109,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <meta property="og:image" content="{e(og)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{e(og)}">
 {'<meta name="robots" content="noindex">' if noindex else ''}
-<link rel="icon" href="{u('/assets/favicon.svg')}" type="image/svg+xml">
+{VERIFY_META}<link rel="icon" href="{u('/assets/favicon.svg')}" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="{e(NAME)}: new use cases" href="{u('/feed.xml')}">
 <link rel="stylesheet" href="{u('/assets/style.css')}">{head_extra}
 <script>{INTRO_JS}</script>
@@ -111,9 +124,9 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <main id="main">{body}</main>
 <footer class="foot"><div class="wrap foot-grid">
 <div><p class="logo"><span class="logo-dot" aria-hidden="true"></span>{e(NAME)}</p><p class="small">{e(cfg['tagline'])}</p>
-<p class="small">General information, not legal, medical or financial advice. Popularity numbers are real counts we measured, with the date. Unknown = not shown. Paid placements are labeled “Sponsored”.</p></div>
+<p class="small">General information, not legal, medical or financial advice. Popularity numbers are real counts we measured, with the date. Unknown = not shown. Paid placements are labeled “Sponsored”; affiliate links are labeled “Affiliate link” (<a href="{u(DISCLOSE)}">disclosure</a>).</p></div>
 <div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">All use cases</a></li><li><a href="{u('/blueprints/')}">Build your own bot</a></li><li><a href="{u('/what-can-bots-do/')}">What can bots actually do?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
-<div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/sponsor/')}">Sponsor / get featured</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li><li><a href="{e(CONTACT_HREF)}">Contact</a></li></ul></div>
+<div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/advertise/')}">Advertise</a></li><li><a href="{u(DISCLOSE)}">Affiliate & sponsor disclosure</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li><li><a href="{e(CONTACT_HREF)}">Contact</a></li></ul></div>
 </div><div class="wrap small foot-note">Data as of {nice_date(BUILD_DATE)} · {len(ucs)} use cases · {len(bps)} blueprints</div></footer>
 <script src="{u('/assets/app.js')}" defer></script>
 </body></html>"""
@@ -148,10 +161,10 @@ def featured_slot(slot, cat=None):
     items = [s for s in spons.get(slot, []) if not cat or not s.get("categories") or cat in s["categories"]]
     if items:
         s = items[0]
-        return f"""<aside class="featured glass sponsored"><span class="label">Sponsored</span><h3>{e(s['headline'])}</h3><p>{e(s.get('body',''))}</p>
+        return f"""<aside class="featured glass sponsored">{paid_label()}<h3>{e(s['headline'])}</h3><p>{e(s.get('body',''))}</p>
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
     return f"""<aside class="featured glass house"><span class="label">Featured spot</span><h3>Your agent or tool could be here</h3>
-<p>Reach people who are actively trying to hand a job to a bot. Clearly labeled, one sponsor per spot.</p><a class="btn btn-ghost" href="{u('/sponsor/')}">Get featured</a></aside>"""
+<p>Reach people who are actively trying to hand a job to a bot. Clearly labeled, one sponsor per spot.</p><a class="btn btn-ghost" href="{u('/advertise/')}">Advertise here</a></aside>"""
 
 def newsletter_box():
     act = cfg["newsletter"].get("form_action", "")
@@ -386,12 +399,24 @@ LESS_TIPS = [(f"up to {LESS_RATIO}×", "cheaper", f"Small models can cost up to 
 if _anth_cache: LESS_TIPS.append(("0.1×", "the price", "Instructions that never change can be cached. Anthropic bills cached prompt reads at 0.1× the input price, or less.", "cut-costs-with-caching-and-batch"))
 if _goog_free: LESS_TIPS.append(("$0", "to test", "Try your bot on a free tier first, with nothing private. Google's Gemini API has one, but it uses your content to improve Google's products.", "test-your-bot-on-a-free-tier"))
 less_tiles = "".join(f'<li class="lt"><a href="{u("/use-cases/"+sl+"/")}"><span class="lt-big">{e(big)}</span><span class="lt-unit">{e(unit)}</span><span class="lt-t">{e(t)}</span><span class="lt-go">Read the guide →</span></a></li>' for big, unit, t, sl in LESS_TIPS)
+def sponsored_tile():
+    sp = (spons.get("run_for_less_tile") or [None])[0]
+    if not sp: return ""
+    return (f'<li class="lt lt--sponsored"><a href="{e(sp["url"])}" rel="sponsored noopener"><span class="lt-big">{e(sp.get("big",""))}</span><span class="lt-unit">{e(sp.get("unit",""))}</span>'
+            f'<span class="lt-t">{e(sp["headline"])}. {e(sp.get("body",""))}</span><span class="lt-go">{e(sp.get("cta","Learn more"))} →</span></a>'
+            f'<p class="lt-paid">{paid_label()} Paid placement by {e(sp["name"])}. Prices and rankings above are not affected.</p></li>')
+def tool_listing(blueprint=None, cat=None):
+    items = [t for t in spons.get("featured_tool", []) if (blueprint and blueprint in t.get("blueprints", [])) or (cat and cat in t.get("categories", []))]
+    if not items: return ""
+    t = items[0]
+    return (f'<aside class="tool-listing glass sponsored">{paid_label()}<h3>{e(t["headline"])}</h3><p>{e(t.get("body",""))}</p>'
+            f'<a class="btn btn-sm" rel="sponsored noopener" href="{e(t["url"])}">{e(t.get("cta","Learn more"))}</a><p class="small">Featured tool listing paid for by {e(t["name"])}. It does not change our steps, prices or rankings.</p></aside>')
 less_band = f"""<section class="wrap block less-band" aria-labelledby="less-h"><div class="lb glass">
 <img class="lb-art" src="{u('/assets/img/cat-money.webp')}" alt="" width="640" height="640" loading="lazy" decoding="async">
 <div class="lb-head"><p class="eyebrow">💸 Run your bots for less</p><h2 id="less-h" class="lb-h">Same bot. <span class="k-grad">A fraction of the bill.</span></h2>
 <p class="lead">Every time a bot runs, an AI service bills you, or eats into your plan's limits. Pick the right model, cache and batch, and the same job can cost a small fraction as much. Prices come only from official pages.</p>
 <p class="lb-cta"><a class="btn" href="{u(LESS)}#calculator">Work out what my bot costs</a> <a class="btn btn-ghost" href="{u(LESS)}">All 8 money-saving guides →</a></p></div>
-<ul class="lt-grid">{less_tiles}</ul>
+<ul class="lt-grid">{less_tiles}{sponsored_tile()}</ul>
 <div class="lb-two"><div class="lb-cmp"><h3>Cheapest vs flagship, per provider</h3><p class="small muted">US$ per 1M tokens, input / output. Official pages, checked {nice_date(PR['checked_on'])}.</p>
 <div class="table-wrap"><table class="lc-table"><thead><tr><th scope="col">Provider</th><th scope="col">Cheapest</th><th scope="col">Top model</th><th scope="col"><span class="sr">Price difference</span>×</th></tr></thead><tbody>{less_cmp_rows}</tbody></table></div>
 <p class="small"><a href="{u(PRICING)}">Full price table with sources →</a></p></div>
@@ -552,7 +577,7 @@ for x in ucs:
 <div class="uc-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span><span class="muted small">Added {nice_date(x['date_added'])}</span>{pop_chip(x, long=True)}</div></header>
 <div class="uc-grid"><div class="uc-main">
 <section><h2>What the bot does</h2><ol class="steps">{steps}</ol></section>
-<section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p></section>{less_callout if x['category'] == 'run-for-less' else ''}
+<section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p></section>{less_callout if x['category'] == 'run-for-less' else ''}{tool_listing(cat=x['category'])}
 <section><h2>Copy-paste prompt</h2><p class="muted small">Fill in the [brackets]. Then paste it into any tool below.</p>{copybox(x['prompt'])}
 <p class="small"><a href="{u('/blueprints/#how-to')}">New to this? Here's how to set up a bot in 5 plain steps →</a></p></section>
 {setup}
@@ -641,7 +666,7 @@ for b in bps:
 <section><h2>What it does, step by step</h2><ol class="steps">{steps}</ol></section>
 <section><h2>Paste these starter instructions</h2><p class="muted small">Copy, paste into your tool, and replace the [brackets] with your details.</p>{copybox(b['instructions'], 'Starter instructions', 'instr')}</section>
 <section><h2>Which tool to use</h2>{tool_grid(b['tools'], how_key='how')}</section>
-{cost_html(b)}
+{cost_html(b)}{tool_listing(blueprint=b['slug'])}
 <section class="glass endup"><h2>How to set it up</h2><ol class="plain">{howmini}</ol><p class="small"><a href="{u('/blueprints/#how-to')}">Full 5-step guide with examples →</a></p></section>
 <section class="warn glass"><h2>Safety notes</h2><ul>{safety}</ul></section>
 {('<section><h2>Based on</h2><ul class="sources">'+srcs+'</ul></section>') if srcs else ''}
@@ -839,19 +864,48 @@ page("/about/", f"About {NAME} and how we measure", f"How {NAME} finds real AI a
 <li><b>Heat</b> (for “Trending now”) = (likes + 2 × reposts, or upvotes) ÷ weeks since the post, counting only posts from the last {cfg.get('trending_window_days',60)} days. Newer posts with real engagement rise; old ones fade.</li>
 <li>Numbers are refreshed by a daily routine, so they change over time.</li></ul>
 <h2>Who runs this</h2><p>An editor ({e(cfg.get('owner',''))}) and a team of AI agents that find new use cases, refresh numbers and check links. A human approves what gets published.</p>
-<h2>How we make money</h2><p>Clearly labeled sponsorships (see <a href="{u('/sponsor/')}">sponsor</a>), and possibly affiliate links in future, always disclosed. Money never changes rankings: trending is computed from public numbers.</p>
+<h2>How we make money</h2><p>Clearly labeled sponsorships (see <a href="{u('/advertise/')}">advertise</a>), and possibly affiliate links in future, always labeled and explained on our <a href="{u(DISCLOSE)}">disclosure page</a>. Money never changes rankings: trending is computed from public numbers.</p>
 <h2>Corrections</h2><p>Spotted something wrong? {"Email" if CONTACT else "Please"} <a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>.</p></div>""")
 
 page("/newsletter/", "The weekly radar newsletter", "One email a week: the best new things people got AI agents to do, with sources, plus one copy-paste bot blueprint.",
      f'<div class="wrap narrow"><p class="eyebrow">Newsletter</p><h1 class="kinetic-sm">The weekly radar</h1><p class="lead">Every week: the 5 most useful new agent use cases (with sources), one blueprint to copy, and one thing that went wrong so you don\'t repeat it.</p>{newsletter_box()}</div>')
 
-page("/sponsor/", "Sponsor or get your agent featured", f"Reach people actively trying to hand everyday jobs to AI agents. Clearly labeled sponsorships on {NAME}.",
-     f"""<div class="wrap narrow prose"><p class="eyebrow">Sponsor</p><h1 class="kinetic-sm">Sponsor / get featured</h1><p class="lead">Our readers arrive wanting a specific job done by a bot. If your agent or tool does that job, we can put it in front of them, clearly labeled.</p>
-<div class="tiers"><div class="tier glass"><h2>Category spot</h2><p class="price">Launch pricing on request</p><ul><li>The featured spot on one category and its use cases</li><li>Labeled “Sponsored”, rel="sponsored" link</li><li>Monthly, cancel any time</li></ul></div>
-<div class="tier glass"><h2>Newsletter sponsor</h2><p class="price">Launch pricing on request</p><ul><li>One short block in a weekly issue</li><li>Must match that issue's topic</li><li>Written by you, checked by us</li></ul></div>
-<div class="tier glass"><h2>Homepage feature</h2><p class="price">Launch pricing on request</p><ul><li>The featured spot on the homepage</li><li>One sponsor at a time</li><li>Includes a newsletter mention</li></ul></div></div>
-<h2>Our rules</h2><ul><li>Sponsorship never changes trending rankings or what we recommend.</li><li>Every paid spot says “Sponsored”.</li><li>No “guaranteed AI income”, debt-relief or crypto schemes.</li><li>We never share reader emails.</li></ul>
-<p><a class="btn" href="{e(CONTACT_HREF + ("?subject=Sponsorship%20inquiry" if CONTACT else ""))}">{"Email us" if CONTACT else "Get in touch"} about sponsoring</a></p></div>""")
+_paid_now = sum(len(v) for k, v in spons.items() if isinstance(v, list))
+ADV_FAQ = [("How many visitors do you have?", f"We launched on {nice_date('2026-10-21')}, so the honest answer is: not many yet. We don't publish traffic numbers we haven't measured. When Search Console has data we will share impressions and clicks with you before you pay."),
+           ("Will a sponsorship change your rankings or prices?", "No. Trending is computed from public engagement numbers and prices come from official pages. Paid spots sit beside that content, labeled, and never inside the rankings or the price table."),
+           ("What won't you run?", "Anything we wouldn't tell a friend to use: “guaranteed AI income”, crypto or debt schemes, tools that hide what they do with people's data, or anything that pretends to be editorial.")]
+page("/advertise/", "Advertise to people building their first AI bots", f"Sponsor {NAME}: a newsletter slot, a featured tool listing on matching guides and blueprints, or a labeled tile in Run your bots for less. New and growing; launch pricing on request.",
+     f"""<div class="wrap narrow prose adv"><p class="eyebrow">Advertise</p><h1 class="kinetic-sm">Put your tool in front of people about to build a bot</h1>
+<p class="lead">People come here with a job in mind (sort my inbox, watch a price, answer the phone) and leave with a bot that does it. If your product helps with that job, we can show it to them, clearly labeled.</p>
+<div class="adv-honest glass"><h2>Our audience, honestly</h2><p><b>New and growing.</b> {NAME} went live on {nice_date('2026-10-21')}. We won't quote visitor numbers until we have measured them, and we'll never round up.</p>
+<ul class="adv-stats"><li><b>{len(ucs)}</b><span>real use cases with sources</span></li><li><b>{len(bps)}</b><span>copy-paste bot blueprints</span></li><li><b>{len(CALC_MODELS)}</b><span>models in the cost calculator</span></li><li><b>{len(NEWS)}</b><span>AI news items explained</span></li></ul>
+<h3>What we measure and share with sponsors</h3><ul><li><b>Search:</b> impressions and clicks from Google Search Console and Bing Webmaster Tools, once verified, for the pages your spot appears on.</li>
+<li><b>Your clicks:</b> every sponsored link carries UTM tags, so you count the visits in your own analytics, not ours.</li>
+<li><b>Newsletter:</b> subscriber count, opens and clicks from our email provider once the weekly radar starts sending. Until then, there is no newsletter audience to sell.</li>
+<li><b>Popularity on the site:</b> the X and Reddit numbers we show are public counts with the date measured. They are about the use cases, not about our traffic.</li></ul></div>
+<h2>Ways to sponsor</h2><div class="tiers">
+<div class="tier glass"><p class="eyebrow">📬 Newsletter</p><h2>Newsletter sponsor slot</h2><p class="price">Launch pricing on request</p><ul><li>One short sponsor block in a weekly issue of the radar</li><li>Must match that week's topic</li><li>You write it; we check claims and label it “Sponsored”</li><li>Starts when the newsletter starts sending</li></ul></div>
+<div class="tier glass"><p class="eyebrow">⚙ Guides & blueprints</p><h2>Featured tool listing</h2><p class="price">Launch pricing on request</p><ul><li>A labeled card on the blueprints and use-case guides where your tool actually does the job</li><li>We test that it fits before it runs</li><li>Never inside the steps, the “Which tool to use” list or the rankings</li></ul></div>
+<div class="tier glass"><p class="eyebrow">💸 Run for less</p><h2>Sponsored tile in Run your bots for less</h2><p class="price">Launch pricing on request</p><ul><li>One labeled tile beside the money-saving tips in the homepage’s Run for less band</li><li>For hosting, routers, monitoring or anything that lowers a bot's bill</li><li>The price table and calculator stay ad-free</li></ul></div></div>
+<h2>How every paid spot is labeled</h2><p>Paid spots carry this label: {paid_label()}. Affiliate links carry this one: {paid_label("affiliate")}. Both link to our <a href="{u(DISCLOSE)}">disclosure page</a>, and every paid link uses <code>rel="sponsored"</code>.</p>
+<h2>Our rules</h2><ul><li>Money never changes trending rankings, prices, the calculator or what we recommend.</li><li>One sponsor per spot, and every spot is labeled.</li><li>We never share reader emails.</li></ul>
+<section class="faq" id="faq"><h2>Questions</h2>{"".join(f"<details class='glass'><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in ADV_FAQ)}</section>
+<div class="adv-cta glass"><h2>Launch pricing</h2><p>Early sponsors get low introductory prices that rise only as measured traffic grows. Tell us your product and which spot you want.</p>
+<p><a class="btn" href="{e(ADV_HREF)}">{"Email us" if CONTACT else "Contact us"} for launch pricing</a></p>{'' if CONTACT else '<p class="small muted">This opens our public GitHub issues page. Start a new issue titled “Advertising” and we will reply there. If you would rather talk privately, say so and we will move to email.</p>'}</div></div>""",
+     [{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in ADV_FAQ]}])
+
+page(DISCLOSE, "Affiliate and sponsor disclosure", f"How {NAME} makes money: labeled sponsorships and labeled affiliate links. Money never changes rankings, prices or recommendations.",
+     f"""<div class="wrap narrow prose"><p class="eyebrow">Disclosure</p><h1 class="kinetic-sm">Affiliate and sponsor disclosure</h1>
+<p class="lead">We want you to always know when someone paid to be on this page, and when a link might earn us money.</p>
+<div class="glass adv-honest"><h2>Right now</h2><p>{"There are no sponsors and no affiliate links anywhere on " + e(NAME) + ". Nothing on the site earns us money yet." if not _paid_now else "Some pages carry labeled paid placements. Each one is marked as shown below."}</p><p class="small muted">Last updated {nice_date(BUILD_DATE)}.</p></div>
+<h2>Sponsored</h2><p>{paid_label()} means a company paid for that spot. It sits beside our content, never inside rankings, the price table or the cost calculator. Sponsored links use <code>rel="sponsored"</code>.</p>
+<h2>Affiliate link</h2><p>{paid_label("affiliate")} means that if you sign up or buy through that link, we may earn a commission, at no extra cost to you. We only add affiliate links to tools we would list anyway, and we list free and non-affiliate options next to them.</p>
+<h2>What money never changes</h2><ul><li>Trending is computed from public X and Reddit numbers.</li><li>Prices come from official pricing pages, with the date we checked.</li><li>The cost calculator always shows every model in our table, cheapest first.</li></ul>
+<p>Questions or something looks wrong? <a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>. Want to advertise? See <a href="{u('/advertise/')}">Advertise</a>.</p></div>""")
+
+page("/sponsor/", "Sponsor: moved to Advertise", "This page moved to Advertise.",
+     f'<div class="wrap narrow center"><p class="eyebrow">Moved</p><h1 class="kinetic-sm">This page moved</h1><p class="lead"><a class="btn" href="{u("/advertise/")}">Go to Advertise →</a></p></div>',
+     noindex=True, head_extra=f'<meta http-equiv="refresh" content="0; url={u("/advertise/")}">')
 
 page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wrap narrow center"><p class="eyebrow">404</p><h1 class="kinetic-sm">Lost signal.</h1><p class="lead">That page isn\'t on our radar.</p>{searchbox(id_="q404")}<p><a class="btn" href="{u("/")}">Back to the live feed</a></p></div>', noindex=True)
 
@@ -885,7 +939,7 @@ for c in cats:
     L1 += ["", f"### {c['name']}"] + [f"- [{x['title']}]({absu(u('/use-cases/'+x['slug']+'/'))}): {x['summary']}" for x in ucs if x["category"] == c["slug"]]
 L1 += ["", "## Latest in AI (newest first)"] + [f"- {n['date']} [{n['category']}] {n['headline']}: {n['explainer']} Source: {n['source_url']}" for n in NEWS[:15]]
 L1 += ["", "## Blueprints"] + [f"- [{b['title']}]({absu(u('/blueprints/'+b['slug']+'/'))}): {b['goal']}" for b in bps]
-L1 += ["", "## About", f"- [About and how we measure]({absu(u('/about/'))})", f"- [Sponsor]({absu(u('/sponsor/'))})", ""]
+L1 += ["", "## About", f"- [About and how we measure]({absu(u('/about/'))})", f"- [Advertise]({absu(u('/advertise/'))})", f"- [Affiliate and sponsor disclosure]({absu(u(DISCLOSE))})", ""]
 open(os.path.join(OUT, "llms.txt"), "w").write("\n".join(L1))
 F = [f"# {NAME}: full text", "", cfg["description"], ""]
 for x in ucs:
