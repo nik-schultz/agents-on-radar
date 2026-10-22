@@ -1,5 +1,17 @@
 # Ops changelog
 
+## 2026-10-21 (11:40 PM CT) — Live on https://botsdothat.com/
+- **Domain and DNS:** Nik bought botsdothat.com on Cloudflare. Records are DNS-only: 4 A and 4 AAAA records to GitHub Pages, www as a CNAME to nik-schultz.github.io, and the GitHub challenge TXT. The domain is verified on his GitHub account.
+- **Cutover:** `scripts/domain_cutover.sh apply` set the Pages custom domain, set `cname` and `base_url=https://botsdothat.com/`, and deployed with deploy.sh. The certificate was already approved (Let's Encrypt, botsdothat.com + www, expires 2027-01-19), so `https` turned on Enforce HTTPS right away.
+- **Verified:**
+  - https://botsdothat.com/ returns 200.
+  - http (apex and www) returns 301 to https://botsdothat.com/.
+  - https://www.botsdothat.com/ redirects to the apex and returns 200.
+  - Old github.io URLs (including deep links like /agents-on-radar/advertise/) redirect to the same path on botsdothat.com and return 200.
+  - /robots.txt and /sitemap.xml are served at the root, with sitemap URLs on the new domain.
+  - Canonical, og:url, og:image, JSON-LD, RSS and llms.txt all use https://botsdothat.com/.
+- **Docs:** launch-draft links now point to botsdothat.com, and README, PLAN and the cutover runbook show the live domain.
+
 ## 2026-10-21 (11:30 PM CT) — Rebrand to BotsDoThat ("There's a bot for that. Here's how.")
 - Nik picked **BotsDoThat**. botsdothat.com was unregistered at 11:13 PM CT; Nik is buying it himself at IONOS. We bought nothing.
 - **Config:**

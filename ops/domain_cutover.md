@@ -1,6 +1,8 @@
 # Domain cutover: github.io → botsdothat.com
 
-**Status (Oct 21, 2026, 11:13 PM CT):**
+**DONE (Oct 21, 2026, ~11:30 PM CT):** Nik bought botsdothat.com on **Cloudflare** (not IONOS). The records below are set there as DNS-only (grey cloud) records, and the domain is verified on his GitHub account. `apply` and `https` have been run. The site is live at https://botsdothat.com/, the Let's Encrypt certificate covers botsdothat.com and www.botsdothat.com (expires 2027-01-19, GitHub renews it), and Enforce HTTPS is on.
+
+**Original plan (Oct 21, 2026, 11:13 PM CT):**
 - botsdothat.com is not registered yet. Nik is buying it himself at IONOS. We buy nothing.
 - The site stays at https://nik-schultz.github.io/agents-on-radar/ with `cname` empty and `base_url` unchanged, so nothing breaks before DNS is ready.
 - The DNS values below were checked against GitHub's docs on Oct 21, 2026:

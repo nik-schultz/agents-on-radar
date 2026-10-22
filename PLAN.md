@@ -128,8 +128,8 @@ Guardrails: no "guaranteed AI income", debt-relief or crypto sponsors; never cla
 ## 10. Hosting and launch
 Recommended: **GitHub Pages** via the included Actions workflow (free, simple, versioned). Cloudflare Pages is an equally good free
 alternative with faster global caching and easy DNS if the domain is bought at Cloudflare. Netlify also works, but its free tier has build/bandwidth limits.
-Status (2026-10-21): **LIVE** at https://nik-schultz.github.io/agents-on-radar/ (repo https://github.com/nik-schultz/agents-on-radar, approved by Nik). Deploy with `scripts/deploy.sh "msg"`; routine deploys are approved (README → Deploy).
-Domain (Oct 21, 2026): Nik is buying **botsdothat.com** himself at IONOS. Until DNS points at GitHub Pages the site stays on the github.io URL; the switch is scripted in `ops/domain_cutover.md` / `scripts/domain_cutover.sh`.
+Status (2026-10-21): **LIVE** at https://botsdothat.com/ (custom domain since 11:30 PM CT, HTTPS enforced; github.io URL redirects) (repo https://github.com/nik-schultz/agents-on-radar, approved by Nik). Deploy with `scripts/deploy.sh "msg"`; routine deploys are approved (README → Deploy).
+Domain (Oct 21, 2026): Nik bought **botsdothat.com** on Cloudflare (DNS-only records to GitHub Pages, domain verified on his GitHub account). Cutover done with `scripts/domain_cutover.sh`; runbook in `ops/domain_cutover.md`.
 Still open (older notes from the "Let The Bot" era, kept for history; the brand is now BotsDoThat; nothing purchased by us):
 1. GitHub: log in on the box (`gh auth login`) or give the account/org to use, and approve creating the public repo `letthebot`.
 2. Domain: approve buying letthebot.com (about the standard .com price at a registrar such as Cloudflare or Namecheap; confirm the price at checkout) after a quick trademark check.
