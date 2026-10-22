@@ -1,0 +1,34 @@
+{
+  "slug": "write-a-letter-of-recommendation",
+  "title": "Write a letter of recommendation for someone",
+  "category": "work",
+  "source_date": null,
+  "summary": "Someone asked you for a reference letter and you want it to sound specific and honest, not generic. AI can turn your notes and their resume into a solid first draft.",
+  "problem": "A former employee, student or colleague asked for a letter of recommendation, and you don't know how to start or what to put in it.",
+  "outcome": "A one-page letter with real examples of the person's work, written in your voice, ready for you to sign and send.",
+  "what_the_bot_does": [
+    "Ask the person for their resume, the job or program they're applying to, and any deadline or required format.",
+    "Jot down two or three real moments you saw them do good work. These are what make the letter believable.",
+    "Give the AI your notes, how you know the person and for how long, and let it draft the letter.",
+    "Check every claim in the draft. Delete anything you didn't actually see or can't stand behind.",
+    "Put it on your letterhead or in an email, sign it, and send it the way the employer or school asked."
+  ],
+  "what_you_end_up_with": "A one-page letter with real examples of the person's work, written in your voice, ready for you to sign and send.",
+  "difficulty": "Easy",
+  "tools": [{"id": "chatgpt"}, {"id": "claude"}, {"id": "gemini"}, {"id": "grok"}],
+  "prompt": "Help me write a letter of recommendation.\n\nI am: [YOUR NAME, YOUR TITLE]\nI'm recommending: [THEIR NAME]\nHow I know them and for how long: [e.g. I managed her for 3 years at X]\nWhat they're applying for: [JOB / SCHOOL / PROGRAM]\nReal examples of their work: [2-3 specific things you saw them do]\nStrengths to highlight: [e.g. reliable, great with customers]\nAttached: their resume and the job or program description.\n\nWrite a one-page letter in a warm, professional tone. Use only the examples I gave you and don't invent achievements, numbers or titles. Match the strengths to what the job or program asks for. End with an offer to answer questions and a line for my contact details. Don't send anything; I'll review it.",
+  "watch_out": [
+    "Only sign what's true. You're vouching for the person, and a made-up achievement can hurt them and you.",
+    "Check whether the employer or school wants a specific format, a form, or the letter sent directly by you.",
+    "Ask before sharing personal details like grades, health or family situations, and leave them out of the chat if you don't need them."
+  ],
+  "faq": [
+    {"q": "Can I use AI to write a letter of recommendation?", "a": "Yes, as a first draft. Give it how you know the person and two or three real examples of their work, then read every line and remove anything you can't personally stand behind before you sign it."},
+    {"q": "What should a letter of recommendation include?", "a": "Who you are, how you know the person and for how long, specific examples of their work, why they fit the job or program, and how to reach you with questions."}
+  ],
+  "sources": [
+    {"label": "Google search suggestions for \u201cuse ai to write a letter of recommendation\u201d (checked 2026-10-19)", "url": "https://www.google.com/search?q=use+ai+to+write+a+letter+of+recommendation", "kind": "article"}
+  ],
+  "tags": ["letter of recommendation", "reference letter", "recommendation letter", "career", "school application", "writing"],
+  "popularity": null
+}

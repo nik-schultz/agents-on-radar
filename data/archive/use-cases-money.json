@@ -1,0 +1,819 @@
+[
+ {
+  "slug": "contest-a-traffic-ticket",
+  "title": "Contest a speeding or parking ticket with a written defense",
+  "category": "money",
+  "source_date": "2026-10-18",
+  "summary": "Give your bot a photo of the ticket and your side of the story. It works out how to contest it, writes the defense, and tracks the deadline.",
+  "what_the_bot_does": [
+   "Reads the ticket and pulls out the violation, date, place, fine and the deadline to respond.",
+   "Finds the official way to contest it for that city or state (online, by mail or in person).",
+   "Asks you what actually happened and what proof you have, such as photos, receipts or signs.",
+   "Writes a short, factual written defense and a checklist of what to attach.",
+   "Shows you everything before anything is filed, then reminds you before the deadline."
+  ],
+  "what_you_end_up_with": "A ready-to-submit written defense, the right place to file it, and a reminder before the deadline.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "The shared example used Grok Bot"
+   },
+   {
+    "id": "chatgpt"
+   },
+   {
+    "id": "claude"
+   }
+  ],
+  "prompt": "Here's a photo of my [speeding/parking] ticket from [city, state]. What happened: [your honest account]. Proof I have: [photos, receipts, witnesses]. 1) Tell me the deadline to respond and the official way to contest it, with a link to the official page. 2) Write a short, factual written defense using only what I've told you. Don't invent facts. 3) List what I should attach. Don't submit anything or pay anything without asking me first.",
+  "watch_out": [
+   "One person's win isn't a guarantee. The shared example is a single DC ticket, and rules and odds differ by city and state.",
+   "Only state facts that are true. You sign what gets submitted, not the bot.",
+   "Check the deadline on the ticket itself. Missing it can add late fees.",
+   "Blur or remove your personal details before sharing screenshots. The poster had the bot anonymize his."
+  ],
+  "sources": [
+   {
+    "label": "X post by @congressdj (2026-10-18): Grok Bot contested a Washington DC speeding ticket for him and won, with the ticket, prompt, defense and ruling shown",
+    "url": "https://x.com/congressdj/status/2111862317147099177",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2111862317147099177",
+   "author": "@congressdj",
+   "url": "https://x.com/congressdj/status/2111862317147099177",
+   "posted_at": "2026-10-18",
+   "likes": 228,
+   "reposts": 14,
+   "replies": 38,
+   "bookmarks": 24,
+   "views": 27372,
+   "measured_at": "2026-10-20"
+  },
+  "tags": [
+   "traffic ticket",
+   "speeding ticket",
+   "parking ticket",
+   "contest",
+   "fight a ticket",
+   "save money"
+  ],
+  "date_added": "2026-10-20",
+  "origin": "pipeline",
+  "last_checked": "2026-10-20",
+  "setup": [],
+  "archived_at": "2026-10-21",
+  "archive_reason": "Oct 21 refocus on agentic bots: core value is saving money / bills / deals / disputes (moved to archive, not deleted)"
+ },
+ {
+  "slug": "ask-for-a-lower-bill",
+  "title": "Ask your internet, phone or radio provider for a lower bill",
+  "category": "money",
+  "source_date": "2026-10-18",
+  "summary": "Your bot checks what you pay, finds what new customers get, and asks the provider's chat or support for a better price.",
+  "what_the_bot_does": [
+   "Reads your latest bill and notes the plan, price and contract end date.",
+   "Looks up the provider's current offers and what competitors charge for the same thing.",
+   "Opens the provider's support chat (or drafts the message) and asks for a lower price, citing those offers.",
+   "Reports the offer back to you before accepting anything."
+  ],
+  "what_you_end_up_with": "A lower monthly price, or a clear answer and a list of cheaper alternatives.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "Used in the shared examples"
+   },
+   {
+    "id": "chatgpt-work",
+    "note": "Can use support chat in a cloud browser"
+   },
+   {
+    "id": "claude",
+    "note": "Drafts the script for you to use"
+   }
+  ],
+  "prompt": "Here's my latest [internet/phone/satellite radio] bill from [provider]. 1) Tell me what I'm paying and when my contract or promo ends. 2) Find the provider's current offers and two competitors' prices for the same service. 3) Use the provider's support chat to politely ask for a lower monthly price, mentioning those offers. Don't accept any new contract, equipment or add-on without asking me, and show me the final offer before saying yes.",
+  "watch_out": [
+   "These are self-reported savings from a few users. Results depend on your provider and plan.",
+   "Watch for a lower price that comes with a new contract term or an early-cancellation fee.",
+   "Get the new price in writing (a chat transcript or email) and check the next bill."
+  ],
+  "sources": [
+   {
+    "label": "X post by @BIGRICK_XLDJ (2026-10-18): Grok Bot used a chat session to cut his SiriusXM price from $25.99 to $5.99",
+    "url": "https://x.com/BIGRICK_XLDJ/status/2111969788776141217",
+    "kind": "x"
+   },
+   {
+    "label": "X post by @ShivamPatxl (2026-10-19): Grok Bot negotiated his internet bill down $300 a year",
+    "url": "https://x.com/ShivamPatxl/status/2112216690721489173",
+    "kind": "x"
+   },
+   {
+    "label": "X post by @Ricky_Retard0 (2026-10-18): his bot now shops energy plans, replacing a paid service",
+    "url": "https://x.com/Ricky_Retard0/status/2111675083672740268",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2111969788776141217",
+   "author": "@BIGRICK_XLDJ",
+   "url": "https://x.com/BIGRICK_XLDJ/status/2111969788776141217",
+   "posted_at": "2026-10-18",
+   "likes": 7,
+   "reposts": 0,
+   "replies": 1,
+   "bookmarks": 0,
+   "views": 224,
+   "measured_at": "2026-10-20"
+  },
+  "tags": [
+   "negotiate bill",
+   "internet bill",
+   "phone bill",
+   "SiriusXM",
+   "energy plan",
+   "save money"
+  ],
+  "date_added": "2026-10-20",
+  "origin": "pipeline",
+  "last_checked": "2026-10-20",
+  "setup": [],
+  "archived_at": "2026-10-21",
+  "archive_reason": "Oct 21 refocus on agentic bots: core value is saving money / bills / deals / disputes (moved to archive, not deleted)"
+ },
+ {
+  "slug": "dispute-a-credit-report-error",
+  "title": "Dispute an error on your credit report",
+  "category": "money",
+  "source_date": null,
+  "summary": "Your credit report shows an account, late payment or balance that isn't right. AI can help you spot the mistakes and write a clear dispute letter in minutes.",
+  "problem": "Your credit report shows an account, late payment or balance that isn't right, and you don't know how to get it fixed.",
+  "outcome": "A list of the likely errors on your report, the proof you need for each, and ready-to-send dispute letters for the credit bureau and the business that reported it.",
+  "what_the_bot_does": [
+   "Get your free reports from Equifax, Experian and TransUnion at AnnualCreditReport.com (free every week, and checking doesn't hurt your score).",
+   "Remove your Social Security number, birth date and full account numbers, then paste the report sections into the prompt.",
+   "Let the AI list every item that looks wrong and say what proof would back up each one.",
+   "Have it draft one letter to each credit bureau that shows the mistake, and one to the business that reported it, following the FTC's checklist.",
+   "Send by certified mail with a return receipt (or use the bureau's online dispute form), keep copies, and put a reminder on your calendar for 30 days later."
+  ],
+  "what_you_end_up_with": "A list of the likely errors on your report, the proof you need for each, and ready-to-send dispute letters for the credit bureau and the business that reported it.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt"
+   },
+   {
+    "id": "claude"
+   },
+   {
+    "id": "gemini"
+   },
+   {
+    "id": "grok"
+   }
+  ],
+  "time_saved": "Editor's estimate: about an hour of reading and letter writing",
+  "prompt": "Help me dispute errors on my credit report. I have removed my Social Security number, birth date and full account numbers.\n\nCredit bureau: [EQUIFAX / EXPERIAN / TRANSUNION]\nReport sections I think are wrong: [PASTE]\nWhat I believe is true, and the proof I have: [e.g. 'paid in full on 3/2025, have the bank statement' / 'never opened this account']\n\n1. List each item that looks inaccurate or incomplete, and say why in one line.\n2. For each, tell me what document would best prove it.\n3. Draft a short dispute letter to the credit bureau that names each item, says why it's wrong, asks for it to be corrected or deleted, and lists the copies I'm enclosing. Leave [brackets] for my name and address.\n4. Draft a matching letter to the business that reported it.\nDon't invent facts or laws. If something might be identity theft, tell me to go to IdentityTheft.gov.",
+  "watch_out": [
+   "Correct but negative information (like a real late payment) can't be disputed away. The FTC says most of it can stay on your report for seven years, and bankruptcies for 10.",
+   "Never paste your Social Security number or full account numbers into a chatbot. Add them to the printed letter yourself.",
+   "Disputing is free. Be wary of credit repair companies that charge up front to do what you can do yourself.",
+   "AI can misread a report. Check every item it flags against the report itself before you send anything."
+  ],
+  "faq": [
+   {
+    "q": "How long does a credit bureau have to investigate my dispute?",
+    "a": "The FTC says the credit bureau has 30 days to investigate, however you filed the dispute. It must send you the results in writing, plus a free copy of your report if anything changed."
+   },
+   {
+    "q": "Does it cost anything to dispute a credit report error?",
+    "a": "No. Both the credit bureau and the business that reported the information have to correct wrong or incomplete information for free."
+   },
+   {
+    "q": "Should I dispute with the credit bureau or the business?",
+    "a": "The FTC recommends both: dispute with each credit bureau that shows the mistake, and with the business that supplied the information."
+   },
+   {
+    "q": "Can I use ChatGPT to dispute my credit report?",
+    "a": "Yes, for the reading and the writing: spotting likely errors and drafting the letters. You still send the dispute yourself, by mail or the bureau's own website, and you should leave sensitive numbers out of the chat."
+   }
+  ],
+  "sources": [
+   {
+    "label": "FTC: Disputing errors on your credit reports",
+    "url": "https://consumer.ftc.gov/articles/disputing-errors-your-credit-reports",
+    "kind": "official"
+   },
+   {
+    "label": "AnnualCreditReport.com: free weekly credit reports",
+    "url": "https://www.annualcreditreport.com/index.action",
+    "kind": "official"
+   },
+   {
+    "label": "Google search suggestions for “use chatgpt to dispute credit report” (checked 2026-10-20)",
+    "url": "https://www.google.com/search?q=use+chatgpt+to+dispute+credit+report",
+    "kind": "article"
+   }
+  ],
+  "tags": [
+   "credit report",
+   "credit score",
+   "dispute letter",
+   "Equifax",
+   "Experian",
+   "TransUnion",
+   "identity theft",
+   "FCRA"
+  ],
+  "popularity": null,
+  "date_added": "2026-10-20",
+  "origin": "pipeline",
+  "last_checked": "2026-10-20",
+  "setup": [],
+  "archived_at": "2026-10-21",
+  "archive_reason": "Oct 21 refocus on agentic bots: core value is saving money / bills / deals / disputes (moved to archive, not deleted)"
+ },
+ {
+  "slug": "get-a-refund-on-an-accidental-charge",
+  "title": "Get a refund on a charge you didn't mean to make",
+  "category": "money",
+  "date_added": "2026-10-20",
+  "source_date": "2026-10-02",
+  "summary": "Point an agent at an accidental or unfair charge. It contacts support (sometimes the company's own bot) and asks for a refund.",
+  "what_the_bot_does": [
+   "Reads the bill or receipt and works out what went wrong.",
+   "Finds the right support channel.",
+   "Writes or chats a polite, specific refund request.",
+   "Reports back on what the company offered."
+  ],
+  "what_you_end_up_with": "A refund request sent and a clear answer, without you sitting in a support queue.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "chatgpt-work",
+    "note": "Can use support chat in a cloud browser"
+   },
+   {
+    "id": "instinct"
+   },
+   {
+    "id": "meta-muse"
+   },
+   {
+    "id": "claude",
+    "note": "Drafts the request for you to send"
+   }
+  ],
+  "prompt": "I was charged [amount] by [company] on [date] for [what]. It was a mistake because [reason]. Find their refund or support channel and draft a short, polite request for a refund to my original payment method. 'Resolved' means CASH back to my card, not store credit or a coupon. Show me the message before sending, and tell me if they offer anything other than a refund.",
+  "setup": [],
+  "watch_out": [
+   "Spell out what “resolved” means. One user says his agent accepted $40 store credit when he wanted cash.",
+   "WIRED's reviewer says her agent cancelled a delayed food order and she lost $64, even though she'd said “only if refunded”."
+  ],
+  "sources": [
+   {
+    "label": "X post by @shakoistsLog (2026-10-02): an agent asked a cloud provider's support agent for a refund",
+    "url": "https://x.com/shakoistsLog/status/2105887752437023129",
+    "kind": "x"
+   },
+   {
+    "label": "X post by @_Dripxel (2026-09-14): an agent “resolved” a refund as $40 store credit",
+    "url": "https://x.com/_Dripxel/status/2099545931129762087",
+    "kind": "x"
+   },
+   {
+    "label": "WIRED, Sep 24 2026: “I Think I Found an AI Agent Worth the Risk” (Instinct review)",
+    "url": "https://www.wired.com/story/i-finally-found-an-ai-agent-worth-the-risk/",
+    "kind": "article"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2105887752437023129",
+   "author": "@shakoistsLog",
+   "url": "https://x.com/shakoistsLog/status/2105887752437023129",
+   "posted_at": "2026-10-02",
+   "likes": 149,
+   "reposts": 0,
+   "replies": 13,
+   "bookmarks": 5,
+   "views": 3746,
+   "measured_at": "2026-10-20"
+  },
+  "tags": [
+   "refund",
+   "customer service",
+   "bills"
+  ],
+  "last_checked": "2026-10-20",
+  "origin": "seed-2026-10-20",
+  "archived_at": "2026-10-21",
+  "archive_reason": "Oct 21 refocus on agentic bots: core value is saving money / bills / deals / disputes (moved to archive, not deleted)"
+ },
+ {
+  "slug": "deal-hunting-that-knows-what-you-own",
+  "title": "Shop for deals with a bot that knows what you already own",
+  "category": "shopping",
+  "date_added": "2026-10-20",
+  "source_date": "2026-08-23",
+  "summary": "Ask a bot connected to your email to find deals. It can check your old receipts so you don't buy the same thing twice.",
+  "what_the_bot_does": [
+   "Searches stores for deals on what you asked for.",
+   "Looks through old order receipts in your email.",
+   "Points out what you already own (“you have this in green and blue”).",
+   "Shows the deals with links, without buying anything."
+  ],
+  "what_you_end_up_with": "A short list of real deals, minus duplicates of things you already have.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "grok-bot"
+   },
+   {
+    "id": "gemini-spark",
+    "note": "Reads Gmail receipts"
+   },
+   {
+    "id": "google-universal-cart",
+    "note": "Tracks price drops on saved items"
+   },
+   {
+    "id": "chatgpt-work"
+   }
+  ],
+  "prompt": "Find current deals on [item/brand] in my size [size]. Before you suggest anything, search my email for past order receipts from [store] and tell me what I already own. Give me the 5 best deals with the price, the store and a link. Don't buy anything.",
+  "setup": [],
+  "watch_out": [
+   "Giving a bot access to your email lets it see a lot. Start with one search only if you're comfortable with that."
+  ],
+  "sources": [
+   {
+    "label": "X post by @mikepat711 (2026-08-23): a Grok Bot found his 2023 receipts while deal hunting",
+    "url": "https://x.com/mikepat711/status/2091487956955492861",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2091487956955492861",
+   "author": "@mikepat711",
+   "url": "https://x.com/mikepat711/status/2091487956955492861",
+   "posted_at": "2026-08-23",
+   "likes": 108,
+   "reposts": 0,
+   "replies": 9,
+   "bookmarks": 3,
+   "views": 7568,
+   "measured_at": "2026-10-20"
+  },
+  "tags": [
+   "deals",
+   "receipts",
+   "shopping"
+  ],
+  "last_checked": "2026-10-20",
+  "origin": "seed-2026-10-20",
+  "archived_at": "2026-10-21",
+  "archive_reason": "Oct 21 refocus on agentic bots: core value is saving money / bills / deals / disputes (moved to archive, not deleted)"
+ },
+ {
+  "slug": "find-money-leaking-from-your-inbox",
+  "title": "Find subscriptions and money quietly leaking out of your inbox",
+  "category": "money",
+  "date_added": "2026-10-20",
+  "source_date": "2026-08-25",
+  "summary": "A bot sweeps years of receipts for forgotten subscriptions, unpaid invoices, duplicate charges and claimable delays, then drafts every claim for your OK.",
+  "what_the_bot_does": [
+   "Searches your email for receipts and renewals.",
+   "Flags subscriptions you haven't used in 90+ days.",
+   "Finds invoices you sent but never chased.",
+   "Spots duplicate charges and quiet price hikes.",
+   "Drafts each cancellation or claim and waits for your yes."
+  ],
+  "what_you_end_up_with": "A list of leaks with a draft fix for each one.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "grok-bot"
+   },
+   {
+    "id": "gemini-spark",
+    "note": "Can flag hidden fees in card statements monthly"
+   },
+   {
+    "id": "claude-cowork"
+   },
+   {
+    "id": "chatgpt",
+    "note": "Paste in a statement instead"
+   }
+  ],
+  "prompt": "Search my email from the last [2] years for receipts, renewals and invoices. List: (1) subscriptions with no sign I've used them in 90 days, (2) invoices I sent with no payment, (3) duplicate charges or price increases. For each, draft the cancellation, reminder or claim. Rule: no claim without the original receipt attached. Send nothing until I say yes.",
+  "setup": [],
+  "watch_out": [
+   "The poster says his bot once started a claim against a vendor who owed him nothing, so he added the rule “no claim without the original receipt attached”.",
+   "The poster's dollar figures are his own claim; we haven't verified them."
+  ],
+  "sources": [
+   {
+    "label": "X post by @0xfuckpoverty (2026-08-25): a Grok Bot swept 4 years of email for leaking money",
+    "url": "https://x.com/0xfuckpoverty/status/2092341990868365451",
+    "kind": "x"
+   },
+   {
+    "label": "Google blog: Gemini Spark announcement (May 2026)",
+    "url": "https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/",
+    "kind": "official"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2092341990868365451",
+   "author": "@0xfuckpoverty",
+   "url": "https://x.com/0xfuckpoverty/status/2092341990868365451",
+   "posted_at": "2026-08-25",
+   "likes": 24,
+   "reposts": 1,
+   "replies": 4,
+   "bookmarks": 16,
+   "views": 1548,
+   "measured_at": "2026-10-20"
+  },
+  "tags": [
+   "subscriptions",
+   "refunds",
+   "invoices",
+   "budget"
+  ],
+  "last_checked": "2026-10-20",
+  "origin": "seed-2026-10-20",
+  "archived_at": "2026-10-21",
+  "archive_reason": "Oct 21 refocus on agentic bots: core value is saving money / bills / deals / disputes (moved to archive, not deleted)"
+ },
+ {
+  "slug": "track-prices-across-stores-with-universal-cart",
+  "title": "Track price drops across stores with one cart",
+  "category": "shopping",
+  "date_added": "2026-10-20",
+  "source_date": "2026-10-15",
+  "summary": "Google's Universal Cart (live in the U.S. since Oct 15, 2026) saves items from many stores and alerts you to price drops and restocks.",
+  "what_the_bot_does": [
+   "Save products from different stores into one cart from Search or the Gemini app.",
+   "The cart watches prices and stock for you.",
+   "It suggests promo codes and which of your cards gives the best perk.",
+   "You check out with Google Pay or on the store's own site."
+  ],
+  "what_you_end_up_with": "One cart with price-drop and restock alerts across stores.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "google-universal-cart"
+   },
+   {
+    "id": "gemini"
+   }
+  ],
+  "prompt": "In the Gemini app: 'Add [product] from [store] to my cart and tell me if the price drops below [$] or if it's cheaper at another store.'",
+  "setup": [],
+  "watch_out": [
+   "U.S. only for now.",
+   "You can't check out from several stores at once (per The Verge)."
+  ],
+  "sources": [
+   {
+    "label": "Google blog, Oct 15 2026: Universal Cart launches in the U.S.",
+    "url": "https://blog.google/products-and-platforms/products/shopping/universal-cart-launch/",
+    "kind": "official"
+   },
+   {
+    "label": "The Verge, Oct 15 2026: Google launches its universal shopping cart",
+    "url": "https://www.theverge.com/tech/1011797/google-ai-universal-cart-shopping-tool-launch",
+    "kind": "article"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "price drop",
+   "holiday shopping",
+   "google",
+   "gemini"
+  ],
+  "last_checked": "2026-10-20",
+  "origin": "seed-2026-10-20",
+  "archived_at": "2026-10-21",
+  "archive_reason": "Oct 21 refocus on agentic bots: core value is saving money / bills / deals / disputes (moved to archive, not deleted)"
+ },
+ {
+  "slug": "hidden-subscription-fee-finder",
+  "title": "Check every card statement for new or hidden fees",
+  "category": "money",
+  "date_added": "2026-10-20",
+  "source_date": "2026-05-19",
+  "summary": "Each month a bot reads your card statement and flags new subscriptions, hidden fees and price creep.",
+  "what_the_bot_does": [
+   "Runs when your statement arrives each month.",
+   "Lists every recurring charge.",
+   "Flags anything new, any fees and any price increases.",
+   "Drafts cancellations for the ones you choose."
+  ],
+  "what_you_end_up_with": "A monthly list of new, hidden or rising charges.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "gemini-spark",
+    "note": "Google's own example task"
+   },
+   {
+    "id": "grok-bot"
+   },
+   {
+    "id": "claude-cowork"
+   },
+   {
+    "id": "chatgpt",
+    "note": "Upload a statement PDF"
+   }
+  ],
+  "prompt": "Each month when my [bank] statement email arrives, read it and list: every recurring charge, any new subscription since last month, any fee, and any charge that went up. Show the amount and the date. Draft a cancellation for any I mark CANCEL. Don't contact anyone without my OK.",
+  "setup": [],
+  "watch_out": [
+   "Statements are sensitive. Prefer tools that say they don't train on your data, and remove account numbers if you upload PDFs."
+  ],
+  "sources": [
+   {
+    "label": "Google blog: Gemini Spark announcement (May 2026)",
+    "url": "https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/",
+    "kind": "official"
+   },
+   {
+    "label": "Engadget: Gemini Spark can spot hidden fees in credit card bills",
+    "url": "https://www.engadget.com/2176556/googles-gemini-spark-is-an-agentic-ai-assistant/",
+    "kind": "article"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "subscriptions",
+   "fees",
+   "statements",
+   "budget"
+  ],
+  "last_checked": "2026-10-20",
+  "origin": "seed-2026-10-20",
+  "archived_at": "2026-10-21",
+  "archive_reason": "Oct 21 refocus on agentic bots: core value is saving money / bills / deals / disputes (moved to archive, not deleted)"
+ },
+ {
+  "slug": "replace-a-paid-app-with-a-shortcut",
+  "title": "Replace a paid app with a shortcut your agent helps you build",
+  "category": "money",
+  "date_added": "2026-10-20",
+  "source_date": "2026-10-14",
+  "summary": "Ask your agent whether your phone can already do what a paid app does, and have it walk you through building it.",
+  "what_the_bot_does": [
+   "Asks what the app does for you.",
+   "Checks whether your phone has built-in tools for it, like Apple Shortcuts.",
+   "Walks you through building it step by step.",
+   "Helps you test it before you cancel the subscription."
+  ],
+  "what_you_end_up_with": "A homemade tool and one less subscription.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt"
+   },
+   {
+    "id": "claude"
+   },
+   {
+    "id": "gemini"
+   },
+   {
+    "id": "grok"
+   }
+  ],
+  "prompt": "I pay [$/month] for [app] to do [job]. Can my [iPhone/Android/computer] do this with built-in tools? If yes, walk me through building it one step at a time. Wait for me to say 'done' before the next step. Then help me test it.",
+  "setup": [],
+  "watch_out": [
+   "Test it for a week before cancelling the paid app."
+  ],
+  "sources": [
+   {
+    "label": "X post by @MrBinspire (2026-10-14): an agent walked him through an Apple Shortcut; he cancelled a $10/mo app",
+    "url": "https://x.com/MrBinspire/status/2110401529882513728",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2110401529882513728",
+   "author": "@MrBinspire",
+   "url": "https://x.com/MrBinspire/status/2110401529882513728",
+   "posted_at": "2026-10-14",
+   "likes": 6,
+   "reposts": 0,
+   "replies": 3,
+   "bookmarks": 0,
+   "views": 241,
+   "measured_at": "2026-10-20"
+  },
+  "tags": [
+   "subscriptions",
+   "apple shortcuts",
+   "save money"
+  ],
+  "last_checked": "2026-10-20",
+  "origin": "seed-2026-10-20",
+  "archived_at": "2026-10-21",
+  "archive_reason": "Oct 21 refocus on agentic bots: core value is saving money / bills / deals / disputes (moved to archive, not deleted)"
+ },
+ {
+  "slug": "question-a-medical-bill",
+  "category": "money",
+  "title": "Question a medical bill that looks wrong",
+  "problem": "A doctor or hospital bill is higher than you expected and you can't tell what you're paying for.",
+  "outcome": "A plain-English breakdown of every line, a list of charges worth questioning, and a polite request for a corrected bill.",
+  "prompt": "Help me understand and question a medical bill. Personal details are removed.\n\nItemized bill (codes, descriptions, amounts): [PASTE]\nWhat my insurance paid / my EOB says: [PASTE OR 'NO INSURANCE']\n\n1. Explain each line in plain English.\n2. Flag anything that looks like a duplicate, a service I may not have received, or a charge that doesn't match my EOB.\n3. List questions to ask the billing office.\n4. Draft a short, polite letter asking for a review and a corrected bill, and asking them to hold the bill from collections while it's reviewed.\nMark anything you're unsure about.",
+  "tools": [
+   {
+    "id": "chatgpt"
+   },
+   {
+    "id": "claude"
+   },
+   {
+    "id": "gemini"
+   },
+   {
+    "id": "grok"
+   }
+  ],
+  "time_saved": "Editor's estimate: about 30 minutes to go through a long bill line by line",
+  "difficulty": "Medium",
+  "steps": [
+   "Call the billing office and ask for a fully itemized bill with billing codes.",
+   "Remove personal details and paste the bill and your EOB into the prompt.",
+   "Check each flagged line against your own records and your insurer's EOB.",
+   "Send the letter, and write down who you talked to and when.",
+   "If you were uninsured or got a surprise out-of-network bill, read the federal No Surprises rules at CMS."
+  ],
+  "watch_out": [
+   "AI can be wrong about billing rules. Treat its flags as questions to ask, not facts.",
+   "Remove Social Security numbers, account numbers, member IDs and birth dates before you paste or upload anything. In ChatGPT you can use Temporary Chat or turn off “Improve the model for everyone” under Settings › Data controls."
+  ],
+  "faq": [
+   {
+    "q": "What's an itemized bill?",
+    "a": "A bill that lists each service, supply and medicine separately, usually with billing codes. Summary bills often hide mistakes, so ask for the itemized version."
+   }
+  ],
+  "sources": [
+   {
+    "label": "CMS: No Surprises Act protections",
+    "url": "https://www.cms.gov/nosurprises",
+    "kind": "article"
+   },
+   {
+    "label": "Hacker News: Using AI to negotiate a $195k hospital bill down to $33k",
+    "url": "https://news.ycombinator.com/item?id=45734582",
+    "kind": "article"
+   },
+   {
+    "label": "Google search suggestions for “ai to negotiate medical bills” (checked 2026-10-19)",
+    "url": "https://www.google.com/search?q=ai+to+negotiate+medical+bills",
+    "kind": "article"
+   }
+  ],
+  "real_examples": [
+   {
+    "text": "A widely shared post describes a family using Claude to go through itemized hospital codes and dispute charges; the poster says a $195,000 bill was settled at about $33,000.",
+    "source": "Hacker News discussion",
+    "url": "https://news.ycombinator.com/item?id=45734582",
+    "verification": "Self-reported; not independently verified"
+   }
+  ],
+  "tags": [
+   "medical bill",
+   "hospital",
+   "itemized",
+   "EOB",
+   "billing error",
+   "dispute"
+  ],
+  "flagship": false,
+  "last_checked": "2026-10-19",
+  "date_added": "2026-10-19",
+  "source_date": null,
+  "summary": "A doctor or hospital bill is higher than you expected and you can't tell what you're paying for.",
+  "what_the_bot_does": [
+   "Call the billing office and ask for a fully itemized bill with billing codes.",
+   "Remove personal details and paste the bill and your EOB into the prompt.",
+   "Check each flagged line against your own records and your insurer's EOB.",
+   "Send the letter, and write down who you talked to and when.",
+   "If you were uninsured or got a surprise out-of-network bill, read the federal No Surprises rules at CMS."
+  ],
+  "what_you_end_up_with": "A plain-English breakdown of every line, a list of charges worth questioning, and a polite request for a corrected bill.",
+  "setup": [],
+  "popularity": null,
+  "origin": "migrated-2026-10-19",
+  "archived_at": "2026-10-21",
+  "archive_reason": "Oct 21 refocus on agentic bots: core value is saving money / bills / deals / disputes (moved to archive, not deleted)"
+ },
+ {
+  "slug": "cancel-a-subscription",
+  "category": "money",
+  "title": "Find and cancel subscriptions you forgot about",
+  "problem": "You're paying for apps and memberships you don't use, and cancelling each one is a maze.",
+  "outcome": "A list of every recurring charge, which ones to cancel, and either the cancellation done by an agent or exact steps for each.",
+  "prompt": "Here are my last 2–3 months of card/bank transactions (account numbers removed):\n[PASTE TRANSACTIONS]\n\n1. List every recurring charge: name, amount, how often, and yearly cost.\n2. Mark which look like subscriptions I might not use.\n3. For each one I choose to cancel: [LIST], give me the exact cancellation steps (website path or phone), or if you can use websites, go to the official site and cancel it, asking me before the final click.\n4. Remind me to check for a confirmation email for each.",
+  "tools": [
+   {
+    "id": "chatgpt-work",
+    "note": "Can go through a cancellation flow on the website and ask before the final step."
+   },
+   {
+    "id": "chatgpt"
+   },
+   {
+    "id": "claude"
+   },
+   {
+    "id": "gemini"
+   },
+   {
+    "id": "grok"
+   },
+   {
+    "id": "meta-muse"
+   }
+  ],
+  "time_saved": "Editor's estimate: 15–30 minutes to audit a few months of statements",
+  "difficulty": "Easy",
+  "steps": [
+   "Download or copy 2–3 months of transactions. Remove account numbers.",
+   "Paste them into the prompt and review the recurring list.",
+   "Decide what to cancel. Watch for annual plans that just renewed.",
+   "Cancel through the official site or app store, or let an agent do it with your approval.",
+   "Save each confirmation email until the next statement shows no charge."
+  ],
+  "watch_out": [
+   "Cancel only through the company's real site or your app store, never through a link in an unexpected email.",
+   "Never paste card numbers or passwords into a chat."
+  ],
+  "faq": [
+   {
+    "q": "What about subscriptions billed through my phone?",
+    "a": "Those are managed in your Apple or Google account settings, not on the company's website. Ask the AI for the exact menu path for your phone."
+   }
+  ],
+  "sources": [
+   {
+    "label": "OpenAI Help: Using cloud browser in ChatGPT",
+    "url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+    "kind": "article"
+   },
+   {
+    "label": "Google search suggestions for “use ai to cancel subscription” (checked 2026-10-19)",
+    "url": "https://www.google.com/search?q=use+ai+to+cancel+subscription",
+    "kind": "article"
+   },
+   {
+    "label": "Menlo Ventures, 2025 State of Consumer AI (survey of 5,000+ US adults)",
+    "url": "https://menlovc.com/perspective/2025-the-state-of-consumer-ai/",
+    "kind": "article"
+   }
+  ],
+  "tags": [
+   "subscription",
+   "cancel",
+   "recurring charge",
+   "membership",
+   "free trial"
+  ],
+  "flagship": false,
+  "real_examples": [],
+  "last_checked": "2026-10-19",
+  "date_added": "2026-10-19",
+  "source_date": null,
+  "summary": "You're paying for apps and memberships you don't use, and cancelling each one is a maze.",
+  "what_the_bot_does": [
+   "Download or copy 2–3 months of transactions. Remove account numbers.",
+   "Paste them into the prompt and review the recurring list.",
+   "Decide what to cancel. Watch for annual plans that just renewed.",
+   "Cancel through the official site or app store, or let an agent do it with your approval.",
+   "Save each confirmation email until the next statement shows no charge."
+  ],
+  "what_you_end_up_with": "A list of every recurring charge, which ones to cancel, and either the cancellation done by an agent or exact steps for each.",
+  "setup": [],
+  "popularity": null,
+  "origin": "migrated-2026-10-19",
+  "archived_at": "2026-10-21",
+  "archive_reason": "Oct 21 refocus on agentic bots: core value is saving money / bills / deals / disputes (moved to archive, not deleted)"
+ }
+]

@@ -1,0 +1,820 @@
+#!/usr/bin/env python3
+"""Static site generator for the live agent use-case hub. Stdlib only (Pillow optional, for og.png).
+Reads config.json + data/*.json, writes site/.  Run:  python3 scripts/build.py"""
+import json, os, shutil, html, datetime, re, math, urllib.parse
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT = os.path.join(ROOT, "site")
+J = lambda *p: json.load(open(os.path.join(ROOT, *p)))
+cfg = J("config.json")
+cats, tools, ucs, bps, spons = J("data", "categories.json"), J("data", "tools.json"), J("data", "use-cases.json"), J("data", "blueprints.json"), J("data", "sponsors.json")
+PR = J("data", "ai-pricing.json")
+NEWS = sorted(J("data", "news.json")["items"], key=lambda n: n["date"], reverse=True)  # "Latest in AI"  # official prices only, refreshed weekly (see README)
+LESS = "/run-your-bots-for-less/"; PRICING = "/ai-pricing/"
+CAT = {c["slug"]: c for c in cats}
+UC = {x["slug"]: x for x in ucs}
+NAME = cfg["site_name"]  # WORKING NAME: change it in config.json only
+SLUGNAME = re.sub(r"[^a-z0-9]", "", NAME.lower())
+_bu = urllib.parse.urlparse(cfg.get("base_url") or f"https://{SLUGNAME}.com")
+BASE = f"{_bu.scheme}://{_bu.netloc}"  # origin only; a path in base_url (GitHub project site) becomes the base path
+BP = (cfg.get("base_path") or _bu.path).rstrip("/")
+CONTACT = cfg.get("contact_email", "")
+CONTACT_HREF = f"mailto:{CONTACT}" if CONTACT else cfg.get("contact_url", "")
+CONTACT_TXT = CONTACT or "open an issue on GitHub"
+BUILD_DATE = cfg.get("as_of") or datetime.date.today().isoformat()
+TODAY = datetime.date.fromisoformat(BUILD_DATE)
+e = lambda s: html.escape(str(s), quote=True)
+def u(p): return BP + p
+def absu(p): return BASE + p
+SITEMAP = []
+IMG_DIR = os.path.join(ROOT, "static", "img")
+
+def nice_date(d):
+    if not d: return ""
+    dt = datetime.date.fromisoformat(d[:10]); return dt.strftime("%b %-d, %Y")
+def fmt(n): return f"{n:,}" if isinstance(n, int) else "?"
+
+# ---------- popularity + trending ------------------------------------------------
+def raw_score(p):
+    if not p: return None
+    if p["platform"] == "x": return p.get("likes", 0) + 2 * p.get("reposts", 0)
+    if p["platform"] == "reddit": return p.get("upvotes", 0)
+    return None
+def age_days(x):
+    d = (x.get("popularity") or {}).get("posted_at") or x.get("source_date") or x["date_added"]
+    return max(0, (TODAY - datetime.date.fromisoformat(d[:10])).days)
+def heat(x):
+    s = raw_score(x.get("popularity"))
+    if s is None or age_days(x) > cfg.get("trending_window_days", 60): return 0.0
+    return s / ((age_days(x) + 2) / 7) ** 1.0
+for x in ucs: x["_heat"] = round(heat(x), 2)
+TRENDING = sorted([x for x in ucs if x["_heat"] > 0], key=lambda x: -x["_heat"])
+NEWEST = sorted(ucs, key=lambda x: (x["date_added"], x.get("source_date") or ""), reverse=True)
+DIFF_ORDER = {"Easy": 0, "Medium": 1, "Advanced": 2}
+
+def pop_chip(x, long=False):
+    p = x.get("popularity")
+    if not p:
+        return '<span class="pop pop--none" title="We only show numbers we measured">Popularity: not measured</span>'
+    if p["platform"] == "x":
+        t = f'♥ {fmt(p["likes"])} · ↻ {fmt(p["reposts"])} on X'
+    else:
+        t = f'▲ {fmt(p["upvotes"])} upvotes on Reddit'
+    m = f' · measured {nice_date(p["measured_at"])}' if long else ""
+    return f'<a class="pop" href="{e(p["url"])}" rel="noopener" title="Measured {e(p["measured_at"])}">{t}{m}</a>'
+
+# ---------- art slots --------------------------------------------------------------
+def art(name, cls="art", alt="", w=640, h=640, eager=False):
+    """Use static/img/<name>.webp if present, else a CSS art slot (prompt in art/PROMPTS.md)."""
+    if os.path.exists(os.path.join(IMG_DIR, name + ".webp")):
+        return f'<img class="{cls}" src="{u("/assets/img/"+name+".webp")}" alt="{e(alt)}" width="{w}" height="{h}" {"" if eager else "loading=lazy"} decoding="async">'
+    return f'<div class="{cls} art-slot art-slot--{e(name)}" data-art-slot="{e(name)}" role="img" aria-label="{e(alt)}"></div>' if alt else f'<div class="{cls} art-slot art-slot--{e(name)}" data-art-slot="{e(name)}" aria-hidden="true"></div>'
+
+def jsonld(obj): return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False).replace("</", "<\\/") + "</script>"
+
+INTRO_JS = """(function(){try{var d=document.documentElement;d.classList.add('js');if(d.dataset.page==='home'&&!sessionStorage.getItem('introSeen')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('intro-on');sessionStorage.setItem('introSeen','1')}}catch(e){}})();"""
+
+def mdesc(*parts, limit=155):
+    """Meta description: join parts, cut at a word boundary so search results don't truncate mid-word."""
+    t = " ".join(p.strip() for p in parts if p and p.strip())
+    if len(t) <= limit: return t
+    cut = t[:limit - 1].rsplit(" ", 1)[0].rstrip(",;:·-")
+    return cut + "…"
+
+def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="page", og_type="website", head_extra=""):
+    canon = absu(u(path))
+    # Keep <title> within ~62 chars (Google truncates longer ones); drop the brand suffix when it won't fit.
+    full_title = title if (NAME in title or len(title) + len(NAME) + 3 > 62) else f"{title} · {NAME}"
+    og = absu(u("/assets/og.png"))
+    nav = [("/trending/", "Trending"), ("/use-cases/", "All use cases"), ("/blueprints/", "Build a bot"), ("/what-can-bots-do/", "What can bots do?"), ("/news/", "AI news"), (LESS, "Run for less")]
+    navh = "".join(f'<a href="{u(p)}"{" aria-current=page" if path==p else ""}>{t}</a>' for p, t in nav)
+    doc = f"""<!doctype html><html lang="en" data-page="{kind}"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{e(full_title)}</title><meta name="description" content="{e(desc)}">
+<link rel="canonical" href="{e(canon)}"><meta name="theme-color" content="#05070f">
+<meta property="og:title" content="{e(full_title)}"><meta property="og:description" content="{e(desc)}">
+<meta property="og:type" content="{og_type}"><meta property="og:url" content="{e(canon)}"><meta property="og:site_name" content="{e(NAME)}">
+<meta property="og:image" content="{e(og)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{e(og)}">
+{'<meta name="robots" content="noindex">' if noindex else ''}
+<link rel="icon" href="{u('/assets/favicon.svg')}" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="{e(NAME)}: new use cases" href="{u('/feed.xml')}">
+<link rel="stylesheet" href="{u('/assets/style.css')}">{head_extra}
+<script>{INTRO_JS}</script>
+{''.join(jsonld(x) for x in (ld or []))}
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap nav">
+<a class="logo" href="{u('/')}"><span class="logo-dot" aria-hidden="true"></span>{e(NAME)}</a>
+<nav aria-label="Main" class="menu">{navh}</nav>
+<a class="btn btn-sm nav-cta" href="{u('/newsletter/')}">Get the weekly radar</a>
+</div></header>
+<main id="main">{body}</main>
+<footer class="foot"><div class="wrap foot-grid">
+<div><p class="logo"><span class="logo-dot" aria-hidden="true"></span>{e(NAME)}</p><p class="small">{e(cfg['tagline'])}</p>
+<p class="small">General information, not legal, medical or financial advice. Popularity numbers are real counts we measured, with the date. Unknown = not shown. Paid placements are labeled “Sponsored”.</p></div>
+<div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">All use cases</a></li><li><a href="{u('/blueprints/')}">Build your own bot</a></li><li><a href="{u('/what-can-bots-do/')}">What can bots actually do?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
+<div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/sponsor/')}">Sponsor / get featured</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li><li><a href="{e(CONTACT_HREF)}">Contact</a></li></ul></div>
+</div><div class="wrap small foot-note">Data as of {nice_date(BUILD_DATE)} · {len(ucs)} use cases · {len(bps)} blueprints</div></footer>
+<script src="{u('/assets/app.js')}" defer></script>
+</body></html>"""
+    fp = os.path.join(OUT, path.lstrip("/"), "index.html") if path.endswith("/") else os.path.join(OUT, path.lstrip("/"))
+    os.makedirs(os.path.dirname(fp), exist_ok=True)
+    open(fp, "w").write(doc)
+    if not noindex: SITEMAP.append((canon, lastmod or BUILD_DATE))
+
+def norm(s): return " ".join(re.sub(r"[^a-z0-9 ]", " ", s.lower()).split())
+def search_text(x):
+    return norm(" ".join([x["title"], x["summary"], x["what_you_end_up_with"], CAT[x["category"]]["name"], " ".join(x.get("tags", [])), " ".join(tools[t["id"]]["name"] for t in x["tools"])]))
+
+def tool_names(x, n=3):
+    names = [tools[t["id"]]["name"].split(" (")[0] for t in x["tools"]]
+    more = f' <span class="more">+{len(names)-n}</span>' if len(names) > n else ""
+    return "".join(f'<span class="tchip">{e(t)}</span>' for t in names[:n]) + more
+
+def card(x, rank=None, big=False):
+    c = CAT[x["category"]]
+    r = f'<span class="rank">#{rank}</span>' if rank else ""
+    new = ""
+    extra = ""
+    if big:
+        extra = '<ul class="big-steps">' + "".join(f"<li>{e(st)}</li>" for st in x["what_the_bot_does"][:4]) + "</ul>" + f'<p class="big-end"><b>You end up with:</b> {e(x["what_you_end_up_with"])}</p>'
+    return f"""<li class="card{' card--big' if big else ''}" data-cat="{e(x['category'])}" data-heat="{x['_heat']}" data-added="{e(x['date_added'])}{e(x.get('source_date') or '')}" data-diff="{DIFF_ORDER.get(x['difficulty'],1)}" data-search="{e(search_text(x))}">
+<a class="card-link" href="{u('/use-cases/'+x['slug']+'/')}"><div class="card-top"><span class="cat-tag cat-{e(x['category'])}">{c['icon']} {e(c['name'])}</span>{r}{new}</div>
+<h3>{e(x['title'])}</h3><p class="card-sum">{e(x['summary'])}</p>{extra}
+<div class="card-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span><span class="tools-mini">{tool_names(x)}</span></div></a>
+<div class="card-pop">{pop_chip(x)}</div></li>"""
+
+def featured_slot(slot, cat=None):
+    items = [s for s in spons.get(slot, []) if not cat or not s.get("categories") or cat in s["categories"]]
+    if items:
+        s = items[0]
+        return f"""<aside class="featured glass sponsored"><span class="label">Sponsored</span><h3>{e(s['headline'])}</h3><p>{e(s.get('body',''))}</p>
+<a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
+    return f"""<aside class="featured glass house"><span class="label">Featured spot</span><h3>Your agent or tool could be here</h3>
+<p>Reach people who are actively trying to hand a job to a bot. Clearly labeled, one sponsor per spot.</p><a class="btn btn-ghost" href="{u('/sponsor/')}">Get featured</a></aside>"""
+
+def newsletter_box():
+    act = cfg["newsletter"].get("form_action", "")
+    dis = "" if act else " disabled"
+    note = "" if act else '<p class="small" role="note">Signups open soon. This form doesn\'t send anything yet.</p>'
+    return f"""<section class="news glass reveal" id="newsletter" aria-labelledby="nl-h"><div><p class="eyebrow">Weekly radar</p><h2 id="nl-h">The 5 best new things people got bots to do this week</h2>
+<p>Real examples with sources, one blueprint you can copy, and one thing that went wrong. Free. One email a week.</p></div>
+<form class="nl-form" action="{e(act) or '#'}" method="post"><label class="sr" for="nl-email">Email address</label>
+<input id="nl-email" type="email" name="{e(cfg['newsletter'].get('email_field','email'))}" placeholder="you@example.com" autocomplete="email" required{dis}>
+<button class="btn" type="submit"{dis}>Subscribe</button></form>{note}</section>"""
+
+def searchbox(id_="q", placeholder="Try “groceries”, “phone call”, “school emails”…", home=False):
+    return f"""<form class="search" role="search" action="{u('/use-cases/')}" method="get"><label class="sr" for="{id_}">Search use cases</label>
+<span class="search-icon" aria-hidden="true">⌕</span><input id="{id_}" name="q" type="search" placeholder="{e(placeholder)}" autocomplete="off"{' data-home-search' if home else ''}>
+<button class="btn btn-sm" type="submit">Search</button></form>{'<div class="home-results" aria-live="polite"></div>' if home else ''}"""
+
+def chips(active=None):
+    allc = f'<button class="chip{" on" if not active else ""}" data-filter="all" aria-pressed="{"true" if not active else "false"}">All</button>'
+    return '<div class="chips" role="group" aria-label="Filter by category">' + allc + "".join(
+        f'<button class="chip" data-filter="{e(c["slug"])}" aria-pressed="false">{c["icon"]} {e(c["name"])}</button>' for c in cats) + "</div>"
+
+def crumbs(items):
+    lis = "".join(f'<li><a href="{u(p)}">{e(t)}</a></li>' if p else f'<li aria-current="page">{e(t)}</li>' for t, p in items)
+    ld = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "name": t, **({"item": absu(u(p))} if p else {})} for i, (t, p) in enumerate(items)]}
+    return f'<nav class="crumbs" aria-label="Breadcrumb"><ol>{lis}</ol></nav>', ld
+
+def copybox(text, label="Copy this prompt", id_="prompt"):
+    return f"""<div class="term glass"><div class="term-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="term-title">{e(label)}</span>
+<button class="btn btn-sm copy" type="button" data-copy="#{id_}">Copy</button></div><pre class="term-body" id="{id_}" tabindex="0">{e(text)}</pre></div>"""
+
+def tool_grid(items, how_key="note"):
+    out = []
+    for t in items:
+        tl = tools[t["id"]]
+        note = t.get(how_key) or t.get("note") or ""
+        out.append(f'<li class="tool glass"><a href="{e(tl["url"])}" rel="noopener"><span class="tool-kind kind-{e(tl["kind"])}">{e(tl["kind"])}</span><strong>{e(tl["name"])}</strong>'
+                   f'{"<span class=tool-note>"+e(note)+"</span>" if note else ""}<span class="tool-cost">{e(tl["cost"])}</span></a></li>')
+    return '<ul class="tool-grid">' + "".join(out) + "</ul>"
+
+# ======================================================================= build
+if os.path.exists(OUT): shutil.rmtree(OUT)
+os.makedirs(os.path.join(OUT, "assets"))
+for f in os.listdir(os.path.join(ROOT, "static")):
+    sp = os.path.join(ROOT, "static", f)
+    if os.path.isfile(sp): shutil.copy(sp, os.path.join(OUT, "assets", f))
+if os.path.isdir(IMG_DIR): shutil.copytree(IMG_DIR, os.path.join(OUT, "assets", "img"))
+
+# ---------- HOME -----------------------------------------------------------------
+def radar(items):
+    # place blips on rings by rank; positions are deterministic
+    blips = []
+    for i, x in enumerate(items[:7]):
+        ang = (i * 137.5 + 20) % 360; rad = 18 + (i % 3) * 13 + i * 1.5
+        if os.path.exists(os.path.join(IMG_DIR, "hero-radar.webp")):  # keep blips inside the art's icon ring
+            rad = (16, 27, 31, 21, 30, 11, 25)[i]
+        left = 50 + rad * math.cos(math.radians(ang)); top = 50 + rad * math.sin(math.radians(ang))
+        c = CAT[x["category"]]
+        blips.append(f'<a class="blip" style="--x:{left:.1f}%;--y:{top:.1f}%;--d:{i*0.35:.2f}s" href="{u("/use-cases/"+x["slug"]+"/")}">'
+                     f'<span class="blip-dot" aria-hidden="true"></span><span class="blip-label">{c["icon"]} {e(x["title"])}</span></a>')
+    # Generated hero art (square crop centred on its radar, made by optimize_images.py) replaces the CSS rings/sweep
+    # so the two radars never stack; the live blips and a soft "ping" ring sit on top of the artwork.
+    has_art = os.path.exists(os.path.join(IMG_DIR, "hero-radar.webp"))
+    if has_art:
+        layers = (f'<img class="radar-img" src="{u("/assets/img/hero-radar.webp")}" alt="" width="640" height="640" fetchpriority="high" decoding="async">'
+                  '<div class="radar-ping" aria-hidden="true"></div>')
+    else:
+        layers = '<div class="radar-rings" aria-hidden="true"></div><div class="radar-sweep" aria-hidden="true"></div>'
+    return f"""<div class="radar{' radar--art' if has_art else ''}" role="group" aria-label="Radar of trending use cases">{layers}{''.join(blips)}</div>"""
+
+# Hero headline: "What AI agents [are doing] for real people." (+ lead "And build your own.") The gradient line rotates through plain verbs;
+# the first one ("are doing") is what screen readers, reduced-motion users and the first glance get.
+ROT = ["are doing", "are booking", "are reading", "are calling", "are watching", "are planning", "are drafting"]
+# Four headlines Nik likes, cycled in the hero (CSS only, ~7s each; static.css .hl-*). Only (a) is the real <h1> in the
+# HTML (SEO + screen readers); (b)-(d) are aria-hidden overlays stacked in the same grid cell, so nothing jumps.
+# Each is 3 lines: line 1 / gradient line / line 3, split to fit the desktop column; each has its own subhead.
+HERO_ALTS = [
+    (("Real people are", "handing everyday", "jobs to AI agents."), "See how, and build your own. Every example links to the real post or article, with ready-made bots you can copy and set up in plain English."),
+    (("What AI agents", "actually do for", "everyday people,"), "and the bots you can copy tonight. Every example links to its source, and every bot comes with plain-English setup steps."),
+    (("Real jobs, done by", "AI agents,", "for real people."), "Copy the bot that did it. Every example links to the real post or article, with a ready-made bot you can set up in plain English."),
+]
+HERO_LEAD_A = "And build your own. Real jobs people hand to AI agents, each linked to the post or article it came from, plus ready-made bots you can copy and set up in plain English."
+hero_heads = (f'<h1 class="kinetic hl hl-0"><span class="k-line">What AI agents</span> <span class="rotator" aria-hidden="true">{"".join(f"<span>{e(w)}</span>" for w in ROT)}</span><span class="sr">are doing</span> <span class="k-line">for real people.</span></h1>'
+              + "".join(f'<div class="kinetic hl hl-{i+1}" aria-hidden="true"><span class="k-line">{e(a)}</span> <span class="k-grad">{e(b)}</span> <span class="k-line">{e(c)}</span></div>' for i, ((a, b, c), _) in enumerate(HERO_ALTS)))
+hero_leads = f'<p class="lead hl hl-0">{e(HERO_LEAD_A)}</p>' + "".join(f'<p class="lead hl hl-{i+1}" aria-hidden="true">{e(l)}</p>' for i, (_, l) in enumerate(HERO_ALTS))
+NEWS_CAT_ICON = {"model release": "🧠", "agent launch": "🤖", "feature": "✨", "pricing": "🏷", "industry": "🏢"}
+# company accent colours + text monograms (no logos)
+NEWS_CO = {"OpenAI": ("OA", "#5ef2d6"), "Anthropic": ("An", "#ffb38a"), "Google": ("G", "#7cb2ff"), "xAI": ("xA", "#e6ebff"),
+           "Meta": ("M", "#8f9bff"), "Mistral": ("Mi", "#ffcf6e"), "DeepSeek": ("DS", "#5aa8ff"), "Groq": ("Gq", "#ff8fa3")}
+NEWS_ART = {"model release": "hero-radar", "agent launch": "cat-work", "pricing": "cat-money", "feature": "cat-inbox", "industry": "cat-business"}
+def news_heat(n):
+    x = n.get("x")
+    if not x: return 0.0
+    age = max(0, (TODAY - datetime.date.fromisoformat(x["posted_at"][:10])).days)
+    if age > cfg.get("trending_window_days", 60): return 0.0
+    return (x["likes"] + 2 * x["reposts"]) / ((age + 2) / 7)
+for n in NEWS: n["_heat"] = round(news_heat(n), 1)
+def _recent(days): return [n for n in NEWS if (TODAY - datetime.date.fromisoformat(n["date"])).days <= days]
+# Top story = importance first: the hottest "major" item of the last 14 days (else 30 days, else hottest overall).
+_majors = [n for n in _recent(14) if n.get("impact") == "major"] or [n for n in _recent(30) if n.get("impact") == "major"] or NEWS
+NEWS_TOP = max(_majors, key=lambda n: (n["_heat"], n["date"]))
+# Trending = popularity: highest heat (X engagement decayed by age), top story excluded.
+NEWS_HOT = sorted([n for n in NEWS if n["_heat"] > 0], key=lambda n: -n["_heat"])
+NEWS_TREND = [n for n in NEWS_HOT if n is not NEWS_TOP][:3]
+NEWS_RANK = {n["id"]: i + 1 for i, n in enumerate(NEWS_HOT)}
+def kfmt(v):
+    if v >= 1_000_000: return f"{v/1_000_000:.1f}M".replace(".0M", "M")
+    if v >= 1000: return f"{v/1000:.1f}K".replace(".0K", "K")
+    return str(v)
+def news_tag(n): return f'<span class="news-tag nt-{e(n["category"].split()[0])}">{NEWS_CAT_ICON.get(n["category"], "•")} {e(n["category"])}</span>'
+def news_x(n, long=False):
+    x = n.get("x")
+    if not x: return ""
+    who = "" if x.get("kind") != "coverage" else " (post about it)"
+    extra = f' · {kfmt(x["views"])} views' if long == "xl" and x.get("views") else ""
+    rp = f' · <b>{kfmt(x["reposts"])}</b> reposts' if long else ""
+    return (f'<a class="nt-eng" href="{e(x["url"])}" rel="noopener" title="{fmt(x["likes"])} likes, {fmt(x["reposts"])} reposts on {e(x["author"])}{who}, measured {e(nice_date(x["measured_at"]))}">'
+            f'<b>{kfmt(x["likes"])}</b> likes{rp}{extra} on X</a>')
+def first_sentence(t):
+    m = re.match(r"(.+?[.!?])(\s|$)", t)
+    return m.group(1) if m else t
+def news_tile(n, size="s", link=None, art_on=False, i=0):
+    mono, col = NEWS_CO.get(n.get("company", ""), ("•", "#7c8cff"))
+    rank = NEWS_RANK.get(n["id"]); is_top = n is NEWS_TOP; is_trend = n in NEWS_TREND
+    badges = ""
+    if is_top: badges += '<span class="nt-badge nt-badge--top">★ Top story</span>'
+    if is_trend: badges += f'<span class="nt-badge nt-badge--hot">🔥 Trending #{NEWS_TREND.index(n) + 1}</span>'
+    if n.get("impact") == "major" and not is_top: badges += '<span class="nt-badge nt-badge--major" title="Importance, not popularity">Major</span>'
+    head = "h2" if size in ("xl", "l") else "h3"
+    href = link or ""
+    title = f'<a href="{e(href)}">{e(n["headline"])}</a>' if href else e(n["headline"])
+    expl = e(n["explainer"]) if size == "xl" else e(first_sentence(n["explainer"]))
+    artimg = (f'<img class="nt-art" src="{u("/assets/img/" + NEWS_ART.get(n["category"], "hero-radar") + ".webp")}" alt="" width="640" height="640" loading="lazy" decoding="async">' if art_on else "")
+    src = "" if link else f'<p class="nt-src">Source: <a href="{e(n["source_url"])}" rel="noopener">{e(n["source_name"])}</a>{"" if size == "l" else news_more(n)}</p>'
+    return f"""<article class="nt nt--{size}{' nt--major' if n.get('impact')=='major' else ''}" id="{'' if link else e(n['id'])}" style="--co:{col};--i:{i}" data-cat="{e(n['category'])}" data-heat="{n['_heat']}" data-date="{e(n['date'])}" data-rank="{rank or ''}">{artimg}
+<div class="nt-top"><span class="nt-mono" aria-hidden="true">{e(mono)}</span><span class="nt-co">{e(n.get('company',''))}</span>{news_tag(n)}{badges}</div>
+<{head} class="nt-h">{title}</{head}><p class="nt-x"><b>For you:</b> {expl}</p>
+<div class="nt-foot"><time datetime="{e(n['date'])}">{e(nice_date(n['date']))}</time>{news_x(n, long=size if size in ('xl','l') else False)}</div>{src}</article>""".replace(' id=""', "")
+def news_more(n):
+    m = n.get("more_sources") or []
+    return ("" if not m else " · Also: " + ", ".join(f'<a href="{e(x["url"])}" rel="noopener">{e(x["label"])}</a>' for x in m))
+# homepage strip: top story + 3 trending + newest other item
+_home_rest = [n for n in NEWS if n is not NEWS_TOP and n not in NEWS_TREND][:1]
+news_strip = (f'<div class="nb nb--home">{news_tile(NEWS_TOP, "xl", link=u("/news/#" + NEWS_TOP["id"]), art_on=True)}<div class="nb-side">'
+              + "".join(news_tile(n, "m", link=u("/news/#" + n["id"]), i=k + 1) for k, n in enumerate(NEWS_TREND + _home_rest)) + "</div></div>")
+def tk_n(x):
+    p = x["popularity"]
+    return "♥ " + fmt(p["likes"]) if p["platform"] == "x" else "▲ " + fmt(p["upvotes"])
+ticker = "".join(f'<li><a href="{u("/use-cases/"+x["slug"]+"/")}"><span class="tk-src">{e(x["popularity"]["author"])}</span><span class="tk-n">{tk_n(x)}</span> {e(x["title"])}</a></li>' for x in TRENDING[:12])
+n_sources = len({s["url"] for x in ucs for s in x["sources"]})
+latest_added = NEWEST[0]["date_added"]
+trend_cards = "".join(card(x, rank=i + 1, big=(i == 0)) for i, x in enumerate(TRENDING[:9]))
+feed_rows = "".join(f"""<li class="feed-row reveal"><a href="{u('/use-cases/'+x['slug']+'/')}"><time datetime="{e(x['date_added'])}">{e(x['date_added'])}</time>
+<span class="feed-cat cat-{e(x['category'])}">{CAT[x['category']]['icon']} {e(CAT[x['category']]['name'])}</span><span class="feed-title">{e(x['title'])}</span><span class="feed-pop">{('♥ '+fmt(x['popularity']['likes'])) if x.get('popularity') and x['popularity']['platform']=='x' else ('▲ '+fmt(x['popularity']['upvotes'])) if x.get('popularity') else '·'}</span><span class="feed-go" aria-hidden="true">→</span></a></li>""" for x in NEWEST[:10])
+cat_tiles = "".join(f"""<li class="cat-tile reveal" style="--i:{i}"><a href="{u('/category/'+c['slug']+'/')}">{art(c['art'], cls='cat-art')}<span class="cat-icon" aria-hidden="true">{c['icon']}</span>
+<h3>{e(c['name'])}</h3><p>{e(c['blurb'])}</p><span class="count">{sum(1 for x in ucs if x['category']==c['slug'])} use cases →</span></a></li>""" for i, c in enumerate(cats))
+bp_cards = "".join(f"""<li class="bp-card glass reveal"><a href="{u('/blueprints/'+b['slug']+'/')}">{art(b['art'], cls='bp-art')}<span class="bp-trigger">⏱ {e(b['trigger'])}</span><h3>{e(b['title'])}</h3><p>{e(b['goal'])}</p><span class="diff diff-{e(b['difficulty'].lower())}">{e(b['difficulty'])}</span></a></li>""" for b in bps[:4])
+
+home = f"""
+<div class="intro" id="intro" aria-hidden="true"><div class="intro-radar"><div class="radar-rings"></div><div class="radar-sweep"></div></div>
+<div class="intro-term"><p class="l1">&gt; scanning X, Reddit and the web…</p><p class="l2">&gt; {len(ucs)} real use cases found</p><p class="l3">&gt; {len(bps)} bot blueprints ready_</p></div>
+<button class="intro-skip" type="button" tabindex="-1">Skip intro</button></div>
+<section class="hero"><div class="wrap hero-grid">
+<div class="hero-copy">
+<p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Live feed · updated {nice_date(latest_added)}</p>
+<div class="hl-stack">{hero_heads}</div>
+<div class="hl-stack">{hero_leads}</div>
+{searchbox(home=True)}
+<div class="hero-ctas"><a class="btn" href="#trending">See what's trending</a><a class="btn btn-ghost" href="{u('/blueprints/')}">Build your first bot →</a></div>
+</div>
+{radar(TRENDING)}
+</div>
+<div class="ticker" aria-label="Most-liked recent posts"><ul class="ticker-track">{ticker}{ticker.replace('<li>', '<li aria-hidden="true">')}</ul></div>
+</section>
+
+<section class="wrap stats reveal" aria-label="What's in the feed"><div><b>{len(ucs)}</b><span>use cases</span></div><div><b>{len(TRENDING)}</b><span>with measured popularity</span></div><div><b>{len(bps)}</b><span>bot blueprints</span></div><div><b>{n_sources}</b><span>linked sources</span></div></section>
+
+<section class="wrap block news-block" aria-labelledby="news-h"><div class="block-head"><div><p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Latest in AI</p><h2 id="news-h">New models and agent launches, in plain words</h2>
+<p class="muted">The top story, what's trending on X, and what it means for you and your bots. Every item links to the official announcement or a news report.</p></div><a class="btn btn-ghost btn-sm" href="{u('/news/')}">All AI news →</a></div>
+{news_strip}</section>
+
+<section class="wrap block" id="trending" aria-labelledby="tr-h">
+<div class="block-head"><div><p class="eyebrow">Trending now</p><h2 id="tr-h">What people are getting bots to do right now</h2>
+<p class="muted">Ranked by real likes, reposts and upvotes, weighted toward newer posts (last {cfg.get('trending_window_days',60)} days). <a href="{u('/about/#popularity')}">How we measure</a>.</p></div>
+<a class="btn btn-ghost btn-sm" href="{u('/trending/')}">Full trending list →</a></div>
+<ol class="bento">{trend_cards}</ol></section>
+
+<section class="wrap block" aria-labelledby="new-h">
+<div class="block-head"><div><p class="eyebrow">Just added</p><h2 id="new-h">Fresh off the radar</h2></div><a class="btn btn-ghost btn-sm" href="{u('/feed.xml')}">RSS feed</a></div>
+<div class="feed glass"><div class="term-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="term-title">live-feed — newest first</span></div><ol class="feed-list">{feed_rows}</ol>
+<a class="feed-more" href="{u('/use-cases/?sort=new')}">See all {len(ucs)} use cases →</a></div></section>
+
+<section class="wrap block" aria-labelledby="cat-h"><div class="block-head"><div><p class="eyebrow">Categories</p><h2 id="cat-h">Pick the part of life you want back</h2></div></div>
+<ul class="cats-bento">{cat_tiles}</ul></section>
+
+<section class="wrap block" aria-labelledby="bp-h"><div class="block-head"><div><p class="eyebrow">Build your own bot</p><h2 id="bp-h">Copy a blueprint. Paste. Done.</h2>
+<p class="muted">Each blueprint says what the bot watches, when it runs, which tool to use, and the exact words to paste.</p></div><a class="btn btn-ghost btn-sm" href="{u('/blueprints/')}">All {len(bps)} blueprints →</a></div>
+<ul class="bp-grid">{bp_cards}</ul></section>
+
+<section class="wrap block explain-teaser reveal" aria-labelledby="ex-h"><div class="block-head"><div><p class="eyebrow">New to this?</p><h2 id="ex-h">What can bots actually do?</h2></div></div>
+<div class="three"><div class="glass col good"><h3>✅ Good at today</h3><ul><li>Reading and summarizing your email</li><li>Watching for changes (web pages, letters, flight times)</li><li>Drafting messages and filling forms</li><li>Running the same small job every week</li></ul></div>
+<div class="glass col ok"><h3>👀 OK with you checking</h3><ul><li>Booking tables, haircuts and trips</li><li>Filling grocery carts</li><li>Making customer-service calls</li><li>Filling in long web forms</li></ul></div>
+<div class="glass col no"><h3>🛑 Not safely yet</h3><ul><li>Spending without a limit</li><li>Sharing your address or schedule</li><li>Medical, legal or money decisions</li><li>Anything you can't undo</li></ul></div></div>
+<p><a class="btn" href="{u('/what-can-bots-do/')}">Read the plain-English explainer</a> <a class="btn btn-ghost" href="{u('/ai-agent-examples/')}">See every AI agent example</a></p></section>
+
+<div class="wrap two-up">{featured_slot('featured_home')}{newsletter_box()}</div>
+"""
+ld_home = [{"@context": "https://schema.org", "@type": "WebSite", "name": NAME, "url": absu(u("/")), "description": cfg["description"],
+            "potentialAction": {"@type": "SearchAction", "target": absu(u("/use-cases/")) + "?q={search_term_string}", "query-input": "required name=search_term_string"}},
+           {"@context": "https://schema.org", "@type": "ItemList", "name": "Trending AI agent use cases", "itemListElement": [
+               {"@type": "ListItem", "position": i + 1, "url": absu(u("/use-cases/" + x["slug"] + "/")), "name": x["title"]} for i, x in enumerate(TRENDING[:10])]}]
+page("/", f"{NAME}: see what AI agents are doing for real people", mdesc(cfg.get("meta_description") or cfg["description"]), home, ld_home, kind="home")
+
+# ---------- TRENDING + INDEX + CATEGORIES ------------------------------------------
+trows = "".join(f"""<tr><td class="num">{i+1}</td><td><a href="{u('/use-cases/'+x['slug']+'/')}">{e(x['title'])}</a><div class="small muted">{CAT[x['category']]['icon']} {e(CAT[x['category']]['name'])}</div></td>
+<td>{pop_chip(x)}</td><td class="num">{e(nice_date(x['popularity']['posted_at']))}</td><td class="num">{x['_heat']:.0f}</td></tr>""" for i, x in enumerate(TRENDING))
+page("/trending/", "Trending AI agent use cases this week", "The AI agent use cases people are talking about most right now, ranked by real likes, reposts and upvotes with the date measured.",
+     f"""<div class="wrap page-head"><p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Trending now</p><h1 class="kinetic-sm">Trending now</h1>
+<p class="lead">Ranked by <b>heat</b> = (likes + 2 × reposts, or Reddit upvotes) ÷ weeks since the post. Only posts from the last {cfg.get('trending_window_days',60)} days count. Every number links to the post it came from.</p></div>
+<div class="wrap"><ol class="bento">{''.join(card(x, rank=i+1, big=(i==0)) for i,x in enumerate(TRENDING[:9]))}</ol>
+<h2 class="mt">Full ranking</h2><div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">#</th><th scope="col">Use case</th><th scope="col">Measured popularity</th><th scope="col">Posted</th><th scope="col">Heat</th></tr></thead><tbody>{trows}</tbody></table></div>
+<p class="small muted">Use cases with no measured popularity aren't ranked here. See <a href="{u('/use-cases/')}">all use cases</a>.</p></div>""",
+     lastmod=BUILD_DATE)
+
+allcards = "".join(card(x) for x in TRENDING) + "".join(card(x) for x in NEWEST if x["_heat"] == 0)
+page("/use-cases/", "All AI agent use cases", f"Browse {len(ucs)} real, sourced AI agent use cases for everyday life: what the bot does, what you end up with, tools that can do it today and a copy-paste prompt.",
+     f"""<div class="wrap page-head"><p class="eyebrow">The whole feed</p><h1 class="kinetic-sm">All use cases</h1><p class="lead">{len(ucs)} things real people get bots to do, each with sources.</p>
+{searchbox(id_="q2")}<div class="index-tools">{chips()}<label class="sort"><span>Sort</span><select id="sort"><option value="heat">Trending</option><option value="new">Newest</option><option value="easy">Easiest first</option></select></label></div>
+<p class="small muted" id="count" aria-live="polite"></p></div>
+<div class="wrap"><ul class="grid" id="cards">{allcards}</ul><p class="empty" hidden>No matches. Try a simpler word like “email” or “calendar”.</p></div>""",
+     kind="index")
+
+for c in cats:
+    items = [x for x in TRENDING if x["category"] == c["slug"]] + [x for x in NEWEST if x["category"] == c["slug"] and x["_heat"] == 0]
+    bc, bld = crumbs([("Home", "/"), ("All use cases", "/use-cases/"), (c["name"], None)])
+    rel_bp = [b for b in bps if any(UC[r]["category"] == c["slug"] for r in b["related"] if r in UC)]
+    bph = "".join(f'<li class="bp-card glass"><a href="{u("/blueprints/"+b["slug"]+"/")}">{art(b["art"], cls="bp-art")}<span class="bp-trigger">⏱ {e(b["trigger"])}</span><h3>{e(b["title"])}</h3><p>{e(b["goal"])}</p></a></li>' for b in rel_bp[:3])
+    page(f"/category/{c['slug']}/", f"AI agents for {c['name'].lower()}", f"{c['blurb']} Real AI agent use cases with sources, tools that can do them today and copy-paste prompts.",
+         f"""<div class="wrap page-head cat-head">{bc}<div class="cat-hero">{art(c['art'], cls='cat-hero-art', alt='', eager=True)}<div><p class="eyebrow">{c['icon']} Category</p><h1 class="kinetic-sm">{e(c['name'])}</h1><p class="lead">{e(c['blurb'])}</p></div></div></div>
+<div class="wrap">{('<p><a class="btn" href="'+u(LESS)+'">Run-for-less hub and rules</a> <a class="btn btn-ghost" href="'+u(PRICING)+'">AI price table</a></p>') if c['slug']=='run-for-less' else ''}<ul class="grid">{''.join(card(x) for x in items)}</ul>
+{('<h2 class="mt">Blueprints for this</h2><ul class="bp-grid">'+bph+'</ul>') if bph else ''}
+{featured_slot('featured_category', c['slug'])}</div>""", [bld])
+
+# ---------- USE CASE PAGES --------------------------------------------------------
+bp_by_uc = {}
+for b in bps:
+    for r in b["related"]: bp_by_uc.setdefault(r, []).append(b)
+
+for x in ucs:
+    c = CAT[x["category"]]
+    bc, bld = crumbs([("Home", "/"), (c["name"], f"/category/{c['slug']}/"), (x["title"], None)])
+    steps = "".join(f'<li class="reveal"><span>{e(s)}</span></li>' for s in x["what_the_bot_does"])
+    watch = "".join(f"<li>{e(w)}</li>" for w in x.get("watch_out", []))
+    srcs = "".join(f'<li><span class="src-kind k-{e(s.get("kind","article"))}">{e(s.get("kind","article"))}</span><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' for s in x["sources"])
+    guide = ""
+    if x.get("guide"):
+        g = x["guide"]
+        guide = f'<section class="guide"><h2>Full guide</h2><p>{e(g["intro"])}</p>' + "".join(
+            f'<h3>{e(s["h"])}</h3>' + "".join(f"<p>{e(p)}</p>" for p in s.get("p", [])) + (("<ul>" + "".join(f"<li>{e(li)}</li>" for li in s["li"]) + "</ul>") if s.get("li") else "")
+            for s in g["sections"]) + "</section>"
+    faqs = list(x.get("faq", []))
+    have = {q["q"].lower() for q in faqs}
+    tnames = [tools[t["id"]]["name"] for t in x["tools"]]
+    tlist = ", ".join(tnames[:-1]) + (" or " if len(tnames) > 1 else "") + tnames[-1]
+    derived = [
+        ("Which AI tools can do this?", f"{tlist} can do this today. Paste the copy-paste prompt on this page into any of them and fill in the [brackets]."),
+        ("How hard is it to set up?", f"It's rated {x['difficulty']}." + (" Time it saves, by our editor's estimate: " + x["time_saved"].split(": ", 1)[-1] + "." if x.get("time_saved") else "") + " Start with the steps under “What the bot does”."),
+    ]
+    if x.get("watch_out"): derived.append(("What should I watch out for?", x["watch_out"][0]))
+    faqs += [{"q": q, "a": a.replace("..", ".")} for q, a in derived if q.lower() not in have]
+    faq = '<section><h2>Questions people ask</h2>' + "".join(f'<details class="faq glass"><summary>{e(q["q"])}</summary><p>{e(q["a"])}</p></details>' for q in faqs) + "</section>"
+    reals = ""
+    if x.get("real_examples"):
+        reals = '<section><h2>Real examples</h2><ul class="reals">' + "".join(f'<li class="glass"><p>{e(r["text"])}</p><p class="small"><a href="{e(r["url"])}" rel="noopener">{e(r["source"])}</a> · {e(r["verification"])}</p></li>' for r in x["real_examples"]) + "</ul></section>"
+    p = x.get("popularity")
+    if p:
+        nums = (f'<dl class="popnums"><div><dt>Likes</dt><dd>{fmt(p["likes"])}</dd></div><div><dt>Reposts</dt><dd>{fmt(p["reposts"])}</dd></div>'
+                + (f'<div><dt>Replies</dt><dd>{fmt(p["replies"])}</dd></div>' if p.get("replies") is not None else "")
+                + (f'<div><dt>Bookmarks</dt><dd>{fmt(p["bookmarks"])}</dd></div>' if p.get("bookmarks") is not None else "") + "</dl>") if p["platform"] == "x" else \
+               f'<dl class="popnums"><div><dt>Upvotes</dt><dd>{fmt(p["upvotes"])}</dd></div><div><dt>Comments</dt><dd>{fmt(p.get("comments"))}</dd></div></dl>'
+        popbox = f"""<div class="glass side-box"><h2 class="side-h">Popularity signal</h2>{nums}<p class="small">From <a href="{e(p['url'])}" rel="noopener">{e(p['author'])} on {'X' if p['platform']=='x' else 'Reddit'}</a>, posted {nice_date(p['posted_at'])}. Measured {nice_date(p['measured_at'])}.{(' '+e(p['note'])) if p.get('note') else ''}</p>
+{f'<p class="small">Trending heat: <b>{x["_heat"]:.0f}</b></p>' if x['_heat'] else ''}</div>"""
+    else:
+        popbox = '<div class="glass side-box"><h2 class="side-h">Popularity signal</h2><p class="small">Not measured. We only show real counts with a source and a date, so this stays blank until we have one.</p></div>'
+    rbp = bp_by_uc.get(x["slug"], [])
+    bpbox = ("<div class='glass side-box'><h2 class='side-h'>Build it as a bot</h2><ul class='side-list'>" + "".join(f'<li><a href="{u("/blueprints/"+b["slug"]+"/")}">⚙ {e(b["title"])}</a></li>' for b in rbp) + "</ul></div>") if rbp else ""
+    rel = [y for y in NEWEST if y["category"] == x["category"] and y["slug"] != x["slug"]][:4]
+    relbox = "<div class='glass side-box'><h2 class='side-h'>More in " + e(c["name"]) + "</h2><ul class='side-list'>" + "".join(f'<li><a href="{u("/use-cases/"+y["slug"]+"/")}">{e(y["title"])}</a></li>' for y in rel) + "</ul></div>"
+    setup = ("<section><h2>Setup</h2><ol>" + "".join(f"<li>{e(s)}</li>" for s in x["setup"]) + "</ol></section>") if x.get("setup") else ""
+    body = f"""<article class="wrap uc">{bc}
+<header class="uc-head"><p class="eyebrow"><a class="cat-tag cat-{e(x['category'])}" href="{u('/category/'+c['slug']+'/')}">{c['icon']} {e(c['name'])}</a></p>
+<h1 class="kinetic-sm">{e(x['title'])}</h1><p class="lead">{e(x['summary'])}</p>
+<div class="uc-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span><span class="muted small">Added {nice_date(x['date_added'])}</span>{pop_chip(x, long=True)}</div></header>
+<div class="uc-grid"><div class="uc-main">
+<section><h2>What the bot does</h2><ol class="steps">{steps}</ol></section>
+<section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p></section>
+<section><h2>Copy-paste prompt</h2><p class="muted small">Fill in the [brackets]. Then paste it into any tool below.</p>{copybox(x['prompt'])}
+<p class="small"><a href="{u('/blueprints/#how-to')}">New to this? Here's how to set up a bot in 5 plain steps →</a></p></section>
+{setup}
+<section><h2>Tools that can do it today</h2>{tool_grid(x['tools'])}<p class="small muted">Plans and limits change; check each tool's page.</p></section>
+{('<section class="warn glass"><h2>Watch out</h2><ul>'+watch+'</ul></section>') if watch else ''}
+{guide}{reals}{faq}
+<section><h2>Sources</h2><ul class="sources">{srcs}</ul><p class="small muted">Last checked {nice_date(x.get('last_checked'))}. Self-reported results from posts are the poster's own claims.</p></section>
+</div><aside class="uc-side">{popbox}{bpbox}{featured_slot('use_case_sidebar', x['category'])}{relbox}</aside></div></article>"""
+    ld = [bld, {"@context": "https://schema.org", "@type": "HowTo", "name": x["title"], "description": x["summary"],
+                "datePublished": x["date_added"], "dateModified": x.get("last_checked") or x["date_added"],
+                "step": [{"@type": "HowToStep", "position": i + 1, "text": s} for i, s in enumerate(x["what_the_bot_does"])],
+                "tool": [{"@type": "HowToTool", "name": tools[t["id"]]["name"]} for t in x["tools"]]}]
+    ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in faqs]})
+    page(f"/use-cases/{x['slug']}/", x["title"], mdesc(x["summary"], "You end up with: " + x["what_you_end_up_with"][0].lower() + x["what_you_end_up_with"][1:]), body, ld, lastmod=x.get("last_checked"), kind="uc", og_type="article")
+
+# ---------- AI PRICES + COST NOTES -------------------------------------------------------
+PRICE_ROW = {r["model"]: r for r in PR["api"]}
+def usd(v):
+    if v < 0.005: return "under 1¢"
+    return f"${v:,.2f}"
+def ptok(v): return "–" if v is None else (f"${v:,.3f}".rstrip("0").rstrip(".") if v < 0.1 else f"${v:,.2f}")
+def cost_html(b):
+    c = b.get("cost")
+    chk = nice_date(PR["checked_on"])
+    tail = (f'<p class="small muted">Prices are standard API rates from each provider\'s official pricing page, checked {chk} (<a href="{u(PRICING)}">full price table</a>). '
+            'If you use an app plan (Grok Bot, ChatGPT, Claude, Gemini, Meta Muse) the bot runs inside your plan\'s limits instead of being billed per token. '
+            f'<a href="{u(LESS)}">How to run your bots for less →</a></p>')
+    if not c:
+        return f'<section class="glass endup"><h2>What this costs to run</h2><p>We can\'t estimate this one from published prices.</p>{tail}</section>'
+    if c.get("voice_minutes"):
+        m = c["voice_minutes"]
+        parts = [f'about {usd(m*v["price_per_min"])} on {e(v["what"])} (${v["price_per_min"]:.2f} a minute, <a href="{e(v["source_url"])}" rel="noopener">{e(v["provider"])} pricing</a>)' for v in PR["voice"]]
+        return (f'<section class="glass endup"><h2>What this costs to run</h2><p>Our assumption: {e(c["assumption"])}. On a speech-to-speech voice API that is ' + " or ".join(parts) +
+                '. OpenAI says GPT-Live backend model and tool usage is charged separately. Phone-line or calling-app fees are extra and we haven\'t verified them, so this is only the AI part.</p>' + tail + '</section>')
+    r, i, o = c["runs_per_month"], c["input_tokens"], c["output_tokens"]
+    ti, to = r * i, r * o
+    rows = ""
+    for name in PR["blueprint_models"]:
+        m = PRICE_ROW[name]
+        v = ti / 1e6 * m["input"] + to / 1e6 * m["output"]
+        rows += f'<tr><td>{e(m["provider"])} {e(m["model"])}</td><td class="num">{ptok(m["input"])} / {ptok(m["output"])}</td><td class="num"><b>{usd(v)}</b></td></tr>'
+    return f"""<section class="glass endup"><h2>What this costs to run</h2>
+<p>If you run this bot yourself on an AI API: our assumption is {r} runs a month, each reading about {i:,} tokens and writing about {o:,} ({e(c['assumption'])}). That's about {ti:,} tokens in and {to:,} out a month.</p>
+<div class="table-wrap"><table class="rank-table"><thead><tr><th scope="col">Model</th><th scope="col">Price per 1M tokens (in / out)</th><th scope="col">About per month</th></tr></thead><tbody>{rows}</tbody></table></div>
+<p class="small muted">Token counts are our editor's estimates, not measurements. Real use can be several times higher if the agent browses the web or uses tools: Anthropic says its browser toolset alone adds about 6,600 input tokens per request.</p>{tail}</section>"""
+
+# ---------- BLUEPRINTS ---------------------------------------------------------------
+HOWTO_STEPS = [
+ ("Pick one boring job", "Choose ONE small job you do every week, like reading school emails or checking a web page. Narrow jobs work; “run my life” doesn't. People who kept using agents say the narrow, boring ones are the ones that stuck."),
+ ("Pick your tool", "Use what you already have. Gmail and Google Calendar → Gemini Spark. Want to text your bot → Meta Muse or Instinct. Want routines on a schedule → Grok Bot, Claude Cowork scheduled tasks or ChatGPT dots. Prefer no AI chat at all → Zapier or Make. No agent yet? Paste the instructions into ChatGPT, Claude, Gemini or Grok each time; that works too, just not on autopilot."),
+ ("Paste the instructions and fill in the [brackets]", "Open a new chat in the tool. Copy the blueprint's instructions, paste them, and replace everything in [square brackets] with your details. If the tool asks to connect your email or calendar, say yes only to the apps the blueprint lists."),
+ ("Say “Run this once now and show me the result”", "Don't schedule anything yet. Watch the first run, compare it with your real inbox or page, and tell it what to fix in plain words (“ignore emails from the PTA”, “shorter”)."),
+ ("Then say “Do this every [day/time]” and lock it down", "Once the result looks right, ask it to repeat on a schedule. Keep it read-only or approval-only: it may read and draft, but it must ask you before it sends, buys, books or deletes. Check the first week of results."),
+]
+GLOSSARY = [("Agent", "An AI that can take steps for you: open websites, read your email, fill forms. A chatbot only talks."),
+            ("Connector / connected app", "Permission for the agent to use one of your apps, like Gmail or Calendar. You can turn it off any time."),
+            ("Routine / schedule / scheduled task", "A job the bot repeats on its own, like every Sunday at 6pm."),
+            ("Skill", "Saved instructions the bot reuses, so you don't repeat yourself."),
+            ("Read-only", "It can look, but not change, send, buy or delete anything. Always start here."),
+            ("Approval", "The bot stops and asks you before doing something important.")]
+howto_html = "".join(f'<li class="howto-step glass reveal"><span class="howto-n" aria-hidden="true">{i+1}</span><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>' for i, (t, d) in enumerate(HOWTO_STEPS))
+gloss = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in GLOSSARY)
+bp_all = "".join(f"""<li class="bp-card glass reveal"><a href="{u('/blueprints/'+b['slug']+'/')}">{art(b['art'], cls='bp-art')}<span class="bp-trigger">⏱ {e(b['trigger'])}</span><h3>{e(b['title'])}</h3><p>{e(b['goal'])}</p>
+<span class="diff diff-{e(b['difficulty'].lower())}">{e(b['difficulty'])}</span> <span class="small muted">{e(b['setup_time'])}</span></a></li>""" for b in bps)
+page("/blueprints/", "Build your own bot: blueprints for beginners", f"{len(bps)} copy-paste bot blueprints for everyday life: what each bot watches, when it runs, which tool to use, the exact instructions and safety rules.",
+     f"""<div class="wrap page-head"><p class="eyebrow">Build your own bot</p><h1 class="kinetic-sm">Bot blueprints</h1>
+<p class="lead">Each blueprint is a ready-made bot: what it watches, when it runs, which tool to use, the exact words to paste, and how to keep it safe. No coding.</p></div>
+<section class="wrap block" id="how-to" aria-labelledby="howto-h"><h2 id="howto-h">How to set up any bot, in 5 plain steps</h2><ol class="howto">{howto_html}</ol>
+<details class="glass gloss-box"><summary>Words you'll see (glossary)</summary><dl class="gloss">{gloss}</dl></details></section>
+<section class="wrap block" aria-labelledby="bpl-h"><h2 id="bpl-h">All blueprints</h2><ul class="bp-grid">{bp_all}</ul></section>""",
+     [{"@context": "https://schema.org", "@type": "HowTo", "name": "How to set up an AI agent (bot) for an everyday job", "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(HOWTO_STEPS)]}])
+
+for b in bps:
+    bc, bld = crumbs([("Home", "/"), ("Blueprints", "/blueprints/"), (b["title"], None)])
+    steps = "".join(f'<li class="reveal"><span>{e(s)}</span></li>' for s in b["steps"])
+    safety = "".join(f"<li>{e(s)}</li>" for s in b["safety"])
+    rel = "".join(f'<li><a href="{u("/use-cases/"+r+"/")}">{e(UC[r]["title"])}</a></li>' for r in b["related"] if r in UC)
+    srcs = "".join(f'<li><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' for s in b.get("sources", []))
+    howmini = "".join(f"<li><b>{e(t)}.</b> {e(d.split('. ')[0])}.</li>" for t, d in HOWTO_STEPS)
+    body = f"""<article class="wrap uc">{bc}
+<header class="uc-head bp-head"><div><p class="eyebrow">⚙ Blueprint</p><h1 class="kinetic-sm">{e(b['title'])}</h1><p class="lead">{e(b['goal'])}</p>
+<div class="uc-meta"><span class="diff diff-{e(b['difficulty'].lower())}">{e(b['difficulty'])}</span><span class="muted small">{e(b['setup_time'])}</span></div></div>{art(b['art'], cls='bp-hero-art', eager=True)}</header>
+<dl class="spec glass"><div><dt>Goal</dt><dd>{e(b['goal'])}</dd></div><div><dt>Runs</dt><dd>⏱ {e(b['trigger'])}</dd></div><div><dt>Watches</dt><dd>👁 {e(b['watches'])}</dd></div></dl>
+<div class="uc-grid"><div class="uc-main">
+<section><h2>What it does, step by step</h2><ol class="steps">{steps}</ol></section>
+<section><h2>Paste these starter instructions</h2><p class="muted small">Copy, paste into your tool, and replace the [brackets] with your details.</p>{copybox(b['instructions'], 'Starter instructions', 'instr')}</section>
+<section><h2>Which tool to use</h2>{tool_grid(b['tools'], how_key='how')}</section>
+{cost_html(b)}
+<section class="glass endup"><h2>How to set it up</h2><ol class="plain">{howmini}</ol><p class="small"><a href="{u('/blueprints/#how-to')}">Full 5-step guide with examples →</a></p></section>
+<section class="warn glass"><h2>Safety notes</h2><ul>{safety}</ul></section>
+{('<section><h2>Based on</h2><ul class="sources">'+srcs+'</ul></section>') if srcs else ''}
+</div><aside class="uc-side"><div class="glass side-box"><h2 class="side-h">Real use cases behind it</h2><ul class="side-list">{rel}</ul></div>{featured_slot('use_case_sidebar')}</aside></div></article>"""
+    ld = [bld, {"@context": "https://schema.org", "@type": "HowTo", "name": f"Build a {b['title']} bot", "description": b["goal"],
+                "step": [{"@type": "HowToStep", "position": i + 1, "text": s} for i, s in enumerate(b["steps"])],
+                "tool": [{"@type": "HowToTool", "name": tools[t["id"]]["name"]} for t in b["tools"]]}]
+    page(f"/blueprints/{b['slug']}/", f"{b['title']}: a bot blueprint", mdesc(b["goal"], "A free build-your-own-bot blueprint with copy-paste instructions, a schedule and safety rules."), body, ld, kind="bp")
+
+# ---------- EXPLAINER --------------------------------------------------------------
+L = lambda slug: f'<a href="{u("/use-cases/"+slug+"/")}">{e(UC[slug]["title"].lower())}</a>'
+S = lambda label, url: f'<a href="{e(url)}" rel="noopener">{e(label)}</a>'
+explainer = f"""<article class="wrap narrow explainer">
+<header class="page-head"><p class="eyebrow">Plain English</p><h1 class="kinetic-sm">What can bots actually do?</h1>
+<p class="lead">Short answer: they're good at reading, watching, sorting and drafting. They're getting OK at booking and buying while you watch. They aren't safe to trust with your money, your address or decisions you can't undo.</p></header>
+
+<section class="glass explain-card reveal"><h2>Chatbot vs. agent, in one minute</h2>
+<div class="vs"><div><h3>💬 Chatbot</h3><p>You ask, it answers. It can write a letter, explain a confusing form or make a plan, but <b>you</b> do the clicking. ChatGPT, Claude, Gemini and Grok all work like this for free.</p></div>
+<div><h3>🤖 Agent (a “bot”)</h3><p>You give it a job, and it <b>does the steps</b>: opens websites, reads your email, fills in forms, and can repeat the job on a schedule. Examples: Meta Muse, Gemini Spark, Grok Bot, ChatGPT agent and dots, Claude Cowork, Instinct, plus no-code tools like Zapier, n8n and Make.</p></div></div>
+<p>Most agents run on their own computer in the cloud, so they keep working when your laptop is shut. Google says Gemini Spark “keeps working in the background even when you close your laptop” ({S('Google', 'https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/')}).</p></section>
+
+<section class="reveal"><h2>✅ What they're good at today</h2><ul class="big-list">
+<li><b>Reading and summarizing</b>: inbox briefings, {L('school-email-digest')}, explaining a confusing letter.</li>
+<li><b>Watching for changes</b>: {L('watch-a-web-page-for-changes')}, {L('catch-airline-schedule-changes')}, {L('watch-for-one-important-letter')}.</li>
+<li><b>Drafting</b>: complaints, follow-ups, replies in your style.</li>
+<li><b>Doing the same small job every week</b>: {L('family-meal-plan-and-grocery-order')}, {L('sunday-family-calendar-check')}.</li>
+<li><b>Spotting problems</b>: {L('email-scam-filter')}, {L('flag-only-emails-that-need-a-reply')}.</li></ul></section>
+
+<section class="reveal"><h2>👀 OK if you stay in the loop</h2><p>These work for many people, as long as the bot <b>asks you before it pays or confirms</b>:</p><ul class="big-list">
+<li>{L('restaurant-reservations-by-agent')}, {L('book-a-haircut-by-email')} and {L('plan-and-book-a-whole-trip-by-text')}.</li>
+<li>{L('reorder-your-regular-groceries')}: some stores block agents, so check which ones work.</li>
+<li>{L('make-a-customer-service-call')}: tell it exactly what “resolved” means.</li></ul>
+<p>OpenAI says its agent asks before bookings and payments ({S('OpenAI help', 'https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt')}); Google says Spark asks before “high-stakes actions like spending money or sending emails” ({S('Google', 'https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/')}).</p></section>
+
+<section class="reveal warn glass"><h2>🛑 What they can't do safely yet</h2><ul class="big-list">
+<li><b>Get it right every time.</b> A benchmark of four personal agents found that even when they found the right information, they “often miss what matters, overshare, or make things up” ({S('micro1, Oct 2026', 'https://x.com/aliansarinik/status/2107497652871155953')}).</li>
+<li><b>Follow your exact conditions.</b> WIRED's reviewer said her agent cancelled a delayed food order and she lost $64, even though she'd told it to cancel only with a refund ({S('WIRED', 'https://www.wired.com/story/i-finally-found-an-ai-agent-worth-the-risk/')}).</li>
+<li><b>Keep your private details private.</b> One reported case: an agent selling an item gave a buyer an address and booked a pickup when the seller wasn't home ({S('X post', 'https://x.com/_architected/status/2104442538254123102')}). WIRED also notes reports of an agent keeping inbox copies after being disconnected.</li>
+<li><b>Be faster than you.</b> In one startup's timed test, agents took about 4½ to 14+ minutes to book a dinner the founder booked in 37 seconds ({S('X post', 'https://x.com/MilksandMatcha/status/2105372125288976402')}).</li>
+<li><b>Get in everywhere.</b> Some sites block agents. One user says Amazon blocked his ({S('X post', 'https://x.com/NickADobos/status/2110749518518235276')}).</li>
+<li><b>Replace a professional.</b> Use bots to organize and draft. Medical, legal and money decisions stay with you and a qualified person. Be wary of anyone promising AI miracles; the U.S. FTC has acted against deceptive AI claims ({S('FTC Operation AI Comply', 'https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes')}).</li></ul></section>
+
+<section class="reveal"><h2>7 rules that keep you safe</h2><ol class="rules">
+<li>Start <b>read-only</b>. Let it look before it does anything.</li>
+<li>Make it <b>ask before</b> it sends, buys, books, cancels or deletes.</li>
+<li>Pay with a <b>low-limit or single-use virtual card</b> ({L('pay-with-a-single-use-virtual-card')}).</li>
+<li>Never give it your <b>passwords</b> in a chat. Use the app's official “connect” button.</li>
+<li>Tell it to <b>ignore instructions</b> found inside emails or web pages from strangers.</li>
+<li><b>Check the first week</b> of results against the real thing.</li>
+<li>Keep a way to <b>switch it off</b>, and know which apps it's connected to.</li></ol></section>
+
+<section class="glass explain-card"><h2>Ready to try?</h2><p>Start with something read-only, like the <a href="{u('/blueprints/morning-inbox-briefing/')}">Morning Inbox Briefing</a> or the <a href="{u('/blueprints/scam-checker/')}">Scam Checker</a>.</p>
+<p><a class="btn" href="{u('/blueprints/')}">See all blueprints</a> <a class="btn btn-ghost" href="{u('/trending/')}">See what's trending</a></p><p class="small">Or browse <a href="{u('/ai-agent-examples/')}">every AI agent example on one page</a>.</p></section>
+</article>"""
+page("/what-can-bots-do/", "What can AI bots actually do? A plain-English guide", "What AI agents can and can't do safely yet, in plain words, with real examples and sources. For people who aren't technical.", explainer,
+     [{"@context": "https://schema.org", "@type": "Article", "headline": "What can AI bots actually do?", "datePublished": BUILD_DATE, "author": {"@type": "Organization", "name": NAME}}])
+
+# ---------- AI AGENT EXAMPLES (answer-first hub for "ai agent examples" / "ai agent for everyday life") ----
+ex_groups = ""
+ex_items = []
+for c in cats:
+    items = [x for x in NEWEST if x["category"] == c["slug"]]
+    if not items: continue
+    lis = ""
+    for x in items:
+        ex_items.append(x)
+        tn = ", ".join(tools[t["id"]]["name"] for t in x["tools"][:3])
+        lis += f'<li><a href="{u("/use-cases/"+x["slug"]+"/")}"><b>{e(x["title"])}</b></a>. {e(x["what_you_end_up_with"])} <span class="small muted">Tools: {e(tn)}.</span></li>'
+    ex_groups += f'<section><h2 id="{e(c["slug"])}">{c["icon"]} {e(c["name"])}</h2><ul class="ex-list">{lis}</ul></section>'
+ex_faq = [
+    ("What is an example of an AI agent in everyday life?", "A common one is an inbox agent that reads your new email each morning and sends you a short summary of what needs a reply, without sending anything itself. Others watch a web page and ping you when it changes, plan a week of meals and build the grocery list, or make a customer-service phone call for you."),
+    ("What's the difference between an AI agent and a chatbot?", "A chatbot answers when you ask, and you do the clicking. An agent can take steps for you, like reading your inbox on a schedule, filling a form or watching a page, and it should ask before it sends, buys or deletes anything."),
+    ("What's the best AI agent for everyday use?", "The one that works with apps you already use. If you live in Gmail and Google Calendar, try Gemini Spark. If you want to text your bot, try Meta Muse or Instinct. For routines on a schedule, try Grok Bot, Claude Cowork scheduled tasks or ChatGPT dots. No agent yet? Paste a prompt from this page into ChatGPT, Claude, Gemini or Grok."),
+    ("Are AI agents safe to use?", "They're good at reading, watching, sorting and drafting. Don't trust them yet with your money, your address or anything you can't undo. Start with read-only jobs and have the agent ask before it sends or buys."),
+]
+ex_body = f"""<article class="wrap narrow explainer">{crumbs([("Home", "/"), ("AI agent examples", None)])[0]}
+<p class="eyebrow">Examples</p><h1 class="kinetic-sm">{len(ex_items)} AI agent examples for everyday life</h1>
+<p class="lead">Short answer: an AI agent is an assistant that does a job for you, like reading your email, watching a web page or making a phone call, instead of only answering questions. Here are {len(ex_items)} real, everyday examples, grouped by part of life. Each one links to a plain-English guide with a copy-paste prompt.</p>
+<p class="small muted">Updated {nice_date(BUILD_DATE)}. New to agents? Read <a href="{u('/what-can-bots-do/')}">what bots can and can't do safely</a>.</p>
+{ex_groups}
+<section><h2>Questions people ask</h2>{''.join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in ex_faq)}</section>
+<section class="glass explain-card"><h2>Want it on autopilot?</h2><p>Turn any of these into a bot that runs on a schedule with a <a href="{u('/blueprints/')}">build-your-own-bot blueprint</a>.</p></section>
+</article>"""
+page("/ai-agent-examples/", f"{len(ex_items)} AI agent examples for everyday life", mdesc(f"{len(ex_items)} real AI agent examples for everyday life: inbox, phone calls, shopping, travel, family, health and work, each with a plain-English guide and copy-paste prompt."), ex_body,
+     [crumbs([("Home", "/"), ("AI agent examples", None)])[1],
+      {"@context": "https://schema.org", "@type": "ItemList", "name": "AI agent examples for everyday life", "numberOfItems": len(ex_items),
+       "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": absu(u("/use-cases/" + x["slug"] + "/")), "name": x["title"]} for i, x in enumerate(ex_items)]},
+      {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in ex_faq]}], lastmod=BUILD_DATE)
+
+# ---------- RUN YOUR BOTS FOR LESS (hub) + AI PRICE TABLE ------------------------------
+LC = CAT["run-for-less"]
+less_items = [x for x in NEWEST if x["category"] == "run-for-less"]
+order = ["pick-a-smaller-model-for-simple-jobs", "test-your-bot-on-a-free-tier", "subscription-or-pay-per-use", "cut-costs-with-caching-and-batch",
+         "run-open-models-on-your-own-computer", "schedule-bots-without-burning-tokens", "keep-prompts-and-context-short", "set-ai-spend-limits-and-alerts"]
+less_items.sort(key=lambda x: order.index(x["slug"]) if x["slug"] in order else 99)
+provs = []
+for r in PR["api"]:
+    if r["provider"] not in provs: provs.append(r["provider"])
+cheap = [min((r for r in PR["api"] if r["provider"] == pv), key=lambda r: r["input"] + r["output"]) for pv in provs]
+snap = "".join(f'<tr><td>{e(r["provider"])}</td><td>{e(r["model"])}</td><td class="num">{ptok(r["input"])}</td><td class="num">{ptok(r["output"])}</td></tr>' for r in cheap)
+RULES = [("Use the smallest model that does the job well.", "pick-a-smaller-model-for-simple-jobs"),
+         ("Test on a free tier first, without private data.", "test-your-bot-on-a-free-tier"),
+         ("Check whether a flat monthly plan or pay-per-use is cheaper for you.", "subscription-or-pay-per-use"),
+         ("Cache the parts of the prompt that never change, and batch what can wait.", "cut-costs-with-caching-and-batch"),
+         ("Run simple, private jobs on an open model on your own computer.", "run-open-models-on-your-own-computer"),
+         ("Run bots only as often as things change, or only when you ask.", "schedule-bots-without-burning-tokens"),
+         ("Keep prompts, tools and pasted pages short.", "keep-prompts-and-context-short"),
+         ("Set a spend limit before anything runs on autopilot.", "set-ai-spend-limits-and-alerts")]
+less_ex = "".join(f'<li>{e(t)} <a href="{u("/use-cases/"+sl+"/")}">How →</a></li>' for t, sl in RULES)
+bc, bld = crumbs([("Home", "/"), ("Run your bots for less", None)])
+page(LESS, "Run your AI bots for less: cut what you pay AI services", mdesc(f"How to spend less on {', '.join(provs)}: pick the right model, use free tiers, cache, batch, schedule bots sensibly and set spend limits. Prices checked {nice_date(PR['checked_on'])}."),
+     f"""<div class="wrap page-head cat-head">{bc}<div class="cat-hero">{art(LC['art'], cls='cat-hero-art', alt='', eager=True)}<div><p class="eyebrow">{LC['icon']} Run your bots for less</p><h1 class="kinetic-sm">Run your bots for less</h1>
+<p class="lead">Every time a bot runs, an AI service bills you, or eats into your plan's limits. These {len(less_items)} guides show how to pay less for the same results, with prices taken only from the providers' official pages.</p></div></div></div>
+<div class="wrap"><section class="block"><h2>8 rules that cut your AI bill</h2><ol class="rules">{less_ex}</ol></section>
+<section class="block"><h2>The guides</h2><ul class="grid">{''.join(card(x) for x in less_items)}</ul></section>
+<section class="block"><h2>Cheapest model we list at each provider</h2><p class="muted">Standard API price per 1 million tokens, from official pricing pages, checked {nice_date(PR['checked_on'])}. Cheapest isn't always good enough: test it on your job first.</p>
+<div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">Provider</th><th scope="col">Model</th><th scope="col">Input</th><th scope="col">Output</th></tr></thead><tbody>{snap}</tbody></table></div>
+<p><a class="btn" href="{u(PRICING)}">See the full AI price table</a> <a class="btn btn-ghost" href="{u('/blueprints/')}">See what each blueprint costs to run</a></p></section></div>""",
+     [bld], lastmod=PR["checked_on"])
+
+api_rows = "".join(f'<tr><td>{e(r["provider"])}</td><td>{e(r["model"])}</td><td class="num">{ptok(r["input"])}</td><td class="num">{ptok(r["output"])}</td><td class="num">{ptok(r["cached_input"])}</td><td class="small">{e(r["note"])}</td><td class="small"><a href="{e(r["source_url"])}" rel="noopener">Official page</a><br>checked {e(nice_date(r["checked_on"]))}</td></tr>' for r in PR["api"])
+con_rows = "".join(f'<tr><td>{e(r["provider"])}</td><td>{e(r["plan"])}</td><td class="num">{e(r["price"])}</td><td class="small">{e(r["period"])}{(" "+e(r["note"])) if r["note"] else ""}</td><td class="small"><a href="{e(r["source_url"])}" rel="noopener">Official page</a><br>checked {e(nice_date(r["checked_on"]))}</td></tr>' for r in PR["consumer"])
+disc = "".join(f'<li><b>{e(d["provider"])}</b>: {e(d["what"])} <span class="small">(<a href="{e(d["source_url"])}" rel="noopener">source</a>, checked {e(nice_date(d["checked_on"]))})</span></li>' for d in PR["discounts"])
+nover = "".join(f'<li><b>{e(d["provider"])}</b>: {e(d["what"])}. {e(d["why"])}</li>' for d in PR["not_verified"])
+bc, bld = crumbs([("Home", "/"), ("Run your bots for less", LESS), ("AI price table", None)])
+page(PRICING, "AI API and plan prices compared: OpenAI, Anthropic, Gemini, xAI", mdesc(f"Prices per 1 million tokens for {', '.join(provs)}, plus consumer plan prices, each linked to the official pricing page. Checked {nice_date(PR['checked_on'])}."),
+     f"""<div class="wrap page-head">{bc}<p class="eyebrow">{LC['icon']} Run your bots for less</p><h1 class="kinetic-sm">AI price table</h1>
+<p class="lead">What the major AI services charge, in US dollars, taken only from each provider's official pricing page (or, for a brand-new model, its official launch post). Every row links to its source and shows the date we checked it. If we couldn't verify a price, it isn't here.</p>
+<p class="small muted">Last checked {nice_date(PR['checked_on'])}. Prices change often and some below are time-limited, so check the official page before you commit.</p></div>
+<div class="wrap"><section class="block"><h2>API prices (pay per use)</h2><p class="muted">Per 1 million tokens, standard tier, short prompts. A token is a few characters of text.</p>
+<div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">Provider</th><th scope="col">Model</th><th scope="col">Input</th><th scope="col">Output</th><th scope="col">Cached input</th><th scope="col">Notes</th><th scope="col">Source</th></tr></thead><tbody>{api_rows}</tbody></table></div></section>
+<section class="block"><h2>Discounts you can use</h2><ul class="big-list">{disc}</ul><p><a href="{u('/use-cases/cut-costs-with-caching-and-batch/')}">How to use caching and batch →</a></p></section>
+<section class="block"><h2>Monthly plans (apps)</h2><p class="muted">Flat monthly prices for the chat apps, with usage limits. Only prices we could read on the official page.</p>
+<div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">Provider</th><th scope="col">Plan</th><th scope="col">Price</th><th scope="col">Details</th><th scope="col">Source</th></tr></thead><tbody>{con_rows}</tbody></table></div>
+<p><a href="{u('/use-cases/subscription-or-pay-per-use/')}">Plan or pay-per-use: which is cheaper for you? →</a></p></section>
+<section class="block warn glass"><h2>Left out because we couldn't verify them</h2><ul>{nover}</ul></section></div>""",
+     [bld, {"@context": "https://schema.org", "@type": "Dataset", "name": "AI API and plan prices", "description": "Official per-token API prices and consumer plan prices for major AI providers, with source links and check dates.", "dateModified": PR["checked_on"], "creator": {"@type": "Organization", "name": NAME}}],
+     lastmod=PR["checked_on"])
+
+# ---------- LATEST IN AI (/news/ + /news/feed.xml) -------------------------------------
+NEWS_CATS = J("data", "news.json")["categories"]
+_shown = {NEWS_TOP["id"]} | {n["id"] for n in NEWS_TREND}
+_rest = [n for n in NEWS if n["id"] not in _shown]
+_week = [n for n in _rest if (TODAY - datetime.date.fromisoformat(n["date"])).days <= 6]
+_earlier = [n for n in _rest if n not in _week]
+def _grid(items, off=0): return "".join(news_tile(n, "s", i=off + k) for k, n in enumerate(items))
+NEWS_FILTERS = [("all", "All"), ("trending", "🔥 Trending"), ("model release", "🧠 Model releases"), ("agent launch", "🤖 Agent launches"), ("pricing", "🏷 Pricing"), ("feature", "✨ Features")]
+news_chips = "".join(f'<button type="button" class="chip{" on" if k == "all" else ""}" data-nf="{e(k)}" aria-pressed="{"true" if k == "all" else "false"}">{v}</button>' for k, v in NEWS_FILTERS)
+news_body = f"""<div class="nb nb--top" aria-label="Top story and trending">
+<section class="nb-main" aria-labelledby="ns-top"><h2 class="nb-label" id="ns-top"><span class="pulse" aria-hidden="true"></span> Top story <span class="nb-why">biggest-impact news of the last 2 weeks</span></h2>{news_tile(NEWS_TOP, "xl", art_on=True)}</section>
+<section class="nb-side" aria-labelledby="ns-hot"><h2 class="nb-label" id="ns-hot">🔥 Trending <span class="nb-why">most engagement on X, weighted toward newer posts</span></h2>{"".join(news_tile(n, "l", art_on=True, i=k + 1) for k, n in enumerate(NEWS_TREND))}</section></div>
+{f'<section class="nb-sec" aria-labelledby="ns-week"><h2 class="nb-label" id="ns-week">This week <span class="nb-why">{len(_week)} more stories</span></h2><div class="nt-grid">{_grid(_week, 4)}</div></section>' if _week else ''}
+<section class="nb-sec" aria-labelledby="ns-earlier"><h2 class="nb-label" id="ns-earlier">Earlier <span class="nb-why">the rest of the last month</span></h2><div class="nt-grid">{_grid(_earlier, 4 + len(_week))}</div></section>"""
+cat_counts = " · ".join(f"{NEWS_CAT_ICON.get(c,'')} {e(c)}: {sum(1 for n in NEWS if n['category']==c)}" for c in NEWS_CATS if any(n['category']==c for n in NEWS))
+bc, bld = crumbs([("Home", "/"), ("Latest in AI", None)])
+news_ld = [bld, {"@context": "https://schema.org", "@type": "ItemList", "name": "Latest AI and AI agent news", "numberOfItems": len(NEWS),
+            "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": absu(u("/news/#" + n["id"])), "name": n["headline"]} for i, n in enumerate(NEWS)]}]
+news_ld += [{"@context": "https://schema.org", "@type": "NewsArticle", "headline": n["headline"][:110], "description": n["explainer"], "datePublished": n["date"],
+             "url": absu(u("/news/#" + n["id"])), "isBasedOn": n["source_url"], "image": absu(u("/assets/og.png")),
+             "author": {"@type": "Organization", "name": NAME}, "publisher": {"@type": "Organization", "name": NAME}} for n in NEWS[:20]]
+page("/news/", "Latest in AI: new models and AI agent launches, explained", mdesc(f"AI news for normal people: new models from OpenAI, Anthropic, Google, xAI, Meta, Mistral and DeepSeek, plus AI agent launches, each with what it means for you and a source. Updated {nice_date(NEWS[0]['date'])}."),
+     f"""<div class="wrap page-head news-head">{bc}<p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Latest in AI · updated {nice_date(NEWS[0]['date'])}</p><h1 class="kinetic-sm">Latest in AI</h1>
+<p class="lead">The AI news that matters for you and your bots, in plain words. <b>Top story</b> = most important. <b>Trending</b> = most likes and reposts on X right now. Every story links to its source.</p>
+<p class="small muted">{len(NEWS)} stories · {cat_counts} · {sum(1 for n in NEWS if n.get('x'))} with measured X numbers · <a href="{u('/news/feed.xml')}">RSS feed</a> · Price changes also go into the <a href="{u(PRICING)}">AI price table</a>. <a href="{u('/about/#popularity')}">How we measure</a>.</p>
+<div class="chips news-chips" role="group" aria-label="Filter news" hidden>{news_chips}</div></div>
+<div class="wrap news-wrap"><div id="news-bento">{news_body}</div><div id="news-results" class="nt-grid" hidden></div><p class="empty" id="news-empty" hidden>Nothing in this filter yet.</p>
+<p class="small muted nb-note">How we rank. <b>Heat</b> = (likes + 2 × reposts) on the announcing X post (or the most-engaged post about it), divided by weeks since it was posted. Numbers were measured on the date in each tooltip. Stories with no post we could find get no number. <b>Major</b> means a new flagship model or a big agent launch from OpenAI, Anthropic, Google, Meta or xAI. It describes importance, not popularity.</p></div>""",
+     news_ld, lastmod=NEWS[0]["date"], head_extra=f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)}: Latest in AI" href="{u("/news/feed.xml")}">')
+
+# ---------- ABOUT / NEWSLETTER / SPONSOR / 404 ---------------------------------------
+page("/about/", f"About {NAME} and how we measure", f"How {NAME} finds real AI agent use cases, measures popularity and checks facts.",
+     f"""<div class="wrap narrow prose"><p class="eyebrow">About</p><h1 class="kinetic-sm">About {e(NAME)}</h1>
+<p class="lead">{e(cfg['description'])}</p>
+<h2>Where the use cases come from</h2><p>We look for real people describing real jobs they handed to an AI agent: posts on X and Reddit, plus articles and official product pages. Every use case links to its sources. When a post makes a claim about a result, we say whose claim it is.</p>
+<h2 id="popularity">How we measure popularity</h2><ul>
+<li><b>Only real counts.</b> X likes and reposts come from X's API; Reddit upvotes come from the post. Each number shows where it came from and the date we measured it.</li>
+<li><b>Unknown stays unknown.</b> If we couldn't measure it, we say “not measured”. We never estimate or round up.</li>
+<li><b>Heat</b> (for “Trending now”) = (likes + 2 × reposts, or upvotes) ÷ weeks since the post, counting only posts from the last {cfg.get('trending_window_days',60)} days. Newer posts with real engagement rise; old ones fade.</li>
+<li>Numbers are refreshed by a daily routine, so they change over time.</li></ul>
+<h2>Who runs this</h2><p>An editor ({e(cfg.get('owner',''))}) and a team of AI agents that find new use cases, refresh numbers and check links. A human approves what gets published.</p>
+<h2>How we make money</h2><p>Clearly labeled sponsorships (see <a href="{u('/sponsor/')}">sponsor</a>), and possibly affiliate links in future, always disclosed. Money never changes rankings: trending is computed from public numbers.</p>
+<h2>Corrections</h2><p>Spotted something wrong? {"Email" if CONTACT else "Please"} <a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>.</p></div>""")
+
+page("/newsletter/", "The weekly radar newsletter", "One email a week: the best new things people got AI agents to do, with sources, plus one copy-paste bot blueprint.",
+     f'<div class="wrap narrow"><p class="eyebrow">Newsletter</p><h1 class="kinetic-sm">The weekly radar</h1><p class="lead">Every week: the 5 most useful new agent use cases (with sources), one blueprint to copy, and one thing that went wrong so you don\'t repeat it.</p>{newsletter_box()}</div>')
+
+page("/sponsor/", "Sponsor or get your agent featured", f"Reach people actively trying to hand everyday jobs to AI agents. Clearly labeled sponsorships on {NAME}.",
+     f"""<div class="wrap narrow prose"><p class="eyebrow">Sponsor</p><h1 class="kinetic-sm">Sponsor / get featured</h1><p class="lead">Our readers arrive wanting a specific job done by a bot. If your agent or tool does that job, we can put it in front of them, clearly labeled.</p>
+<div class="tiers"><div class="tier glass"><h2>Category spot</h2><p class="price">Launch pricing on request</p><ul><li>The featured spot on one category and its use cases</li><li>Labeled “Sponsored”, rel="sponsored" link</li><li>Monthly, cancel any time</li></ul></div>
+<div class="tier glass"><h2>Newsletter sponsor</h2><p class="price">Launch pricing on request</p><ul><li>One short block in a weekly issue</li><li>Must match that issue's topic</li><li>Written by you, checked by us</li></ul></div>
+<div class="tier glass"><h2>Homepage feature</h2><p class="price">Launch pricing on request</p><ul><li>The featured spot on the homepage</li><li>One sponsor at a time</li><li>Includes a newsletter mention</li></ul></div></div>
+<h2>Our rules</h2><ul><li>Sponsorship never changes trending rankings or what we recommend.</li><li>Every paid spot says “Sponsored”.</li><li>No “guaranteed AI income”, debt-relief or crypto schemes.</li><li>We never share reader emails.</li></ul>
+<p><a class="btn" href="{e(CONTACT_HREF + ("?subject=Sponsorship%20inquiry" if CONTACT else ""))}">{"Email us" if CONTACT else "Get in touch"} about sponsoring</a></p></div>""")
+
+page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wrap narrow center"><p class="eyebrow">404</p><h1 class="kinetic-sm">Lost signal.</h1><p class="lead">That page isn\'t on our radar.</p>{searchbox(id_="q404")}<p><a class="btn" href="{u("/")}">Back to the live feed</a></p></div>', noindex=True)
+
+# ---------- MACHINE FILES ------------------------------------------------------------
+idx = [{"t": x["title"], "u": u("/use-cases/" + x["slug"] + "/"), "c": CAT[x["category"]]["name"], "i": CAT[x["category"]]["icon"], "d": x["difficulty"], "h": x["_heat"], "s": search_text(x)} for x in ucs]
+idx += [{"t": "Blueprint: " + b["title"], "u": u("/blueprints/" + b["slug"] + "/"), "c": "Blueprint", "i": "⚙", "d": b["difficulty"], "h": 0, "s": norm(b["title"] + " " + b["goal"] + " " + b["watches"])} for b in bps]
+json.dump(idx, open(os.path.join(OUT, "assets", "search-index.json"), "w"), ensure_ascii=False, separators=(",", ":"))
+
+def rfc822(d): return datetime.datetime.combine(datetime.date.fromisoformat(d), datetime.time(12)).strftime("%a, %d %b %Y %H:%M:%S +0000")
+items = "".join(f"""<item><title>{e(x['title'])}</title><link>{e(absu(u('/use-cases/'+x['slug']+'/')))}</link><guid isPermaLink="true">{e(absu(u('/use-cases/'+x['slug']+'/')))}</guid>
+<pubDate>{rfc822(x['date_added'])}</pubDate><category>{e(CAT[x['category']]['name'])}</category><description>{e(x['summary'] + ' You end up with: ' + x['what_you_end_up_with'])}</description></item>""" for x in NEWEST[:40])
+open(os.path.join(OUT, "feed.xml"), "w").write(f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>{e(NAME)}: new AI agent use cases</title><link>{e(absu(u('/')))}</link>
+<atom:link href="{e(absu(u('/feed.xml')))}" rel="self" type="application/rss+xml"/><description>{e(cfg['description'])}</description><language>en</language>
+<lastBuildDate>{rfc822(BUILD_DATE)}</lastBuildDate>{items}</channel></rss>""")
+
+nitems = "".join(f"""<item><title>{e(n['headline'])}</title><link>{e(absu(u('/news/#'+n['id'])))}</link><guid isPermaLink="false">{e(n['id'])}</guid>
+<pubDate>{rfc822(n['date'])}</pubDate><category>{e(n['category'])}</category><description>{e(n['explainer'] + ' Source: ' + n['source_name'] + ' ' + n['source_url'])}</description></item>""" for n in NEWS)
+open(os.path.join(OUT, "news", "feed.xml"), "w").write(f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>{e(NAME)}: Latest in AI</title><link>{e(absu(u('/news/')))}</link>
+<atom:link href="{e(absu(u('/news/feed.xml')))}" rel="self" type="application/rss+xml"/><description>New AI models, agent launches and price changes, explained in plain words.</description><language>en</language>
+<lastBuildDate>{rfc822(NEWS[0]['date'])}</lastBuildDate>{nitems}</channel></rss>""")
+open(os.path.join(OUT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
+    "".join(f"<url><loc>{e(l)}</loc><lastmod>{m}</lastmod></url>" for l, m in SITEMAP) + "</urlset>\n")
+bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "PerplexityBot", "Google-Extended", "Applebot-Extended", "CCBot"]
+open(os.path.join(OUT, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {absu(u('/sitemap.xml'))}\n")
+
+L1 = [f"# {NAME}", "", f"> {cfg['description']}", "", f"Data as of {BUILD_DATE}. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.", "",
+      "## Start here", f"- [What can bots actually do?]({absu(u('/what-can-bots-do/'))}): plain-English explainer", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to pay less for AI services (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", "", "## Use cases by category"]
+for c in cats:
+    L1 += ["", f"### {c['name']}"] + [f"- [{x['title']}]({absu(u('/use-cases/'+x['slug']+'/'))}): {x['summary']}" for x in ucs if x["category"] == c["slug"]]
+L1 += ["", "## Latest in AI (newest first)"] + [f"- {n['date']} [{n['category']}] {n['headline']}: {n['explainer']} Source: {n['source_url']}" for n in NEWS[:15]]
+L1 += ["", "## Blueprints"] + [f"- [{b['title']}]({absu(u('/blueprints/'+b['slug']+'/'))}): {b['goal']}" for b in bps]
+L1 += ["", "## About", f"- [About and how we measure]({absu(u('/about/'))})", f"- [Sponsor]({absu(u('/sponsor/'))})", ""]
+open(os.path.join(OUT, "llms.txt"), "w").write("\n".join(L1))
+F = [f"# {NAME}: full text", "", cfg["description"], ""]
+for x in ucs:
+    p = x.get("popularity")
+    pop = ("Popularity: " + (f"{p['likes']} likes, {p['reposts']} reposts on X" if p["platform"] == "x" else f"{p['upvotes']} upvotes on Reddit") + f" ({p['url']}, measured {p['measured_at']})") if p else "Popularity: not measured"
+    F += [f"## {x['title']}", f"URL: {absu(u('/use-cases/'+x['slug']+'/'))}", f"Category: {CAT[x['category']]['name']} | Difficulty: {x['difficulty']} | Added: {x['date_added']}", pop, "",
+          x["summary"], "", "What the bot does:"] + [f"{i+1}. {s}" for i, s in enumerate(x["what_the_bot_does"])] + ["", f"What you end up with: {x['what_you_end_up_with']}", "",
+          "Tools: " + ", ".join(tools[t["id"]]["name"] for t in x["tools"]), "", "Prompt:", x["prompt"], "", "Watch out:"] + [f"- {w}" for w in x.get("watch_out", [])] + ["", "Sources:"] + [f"- {s['label']}: {s['url']}" for s in x["sources"]] + [""]
+for b in bps:
+    F += [f"## Blueprint: {b['title']}", f"URL: {absu(u('/blueprints/'+b['slug']+'/'))}", f"Goal: {b['goal']}", f"Runs: {b['trigger']}", f"Watches: {b['watches']}", "Instructions:", b["instructions"], "Safety:"] + [f"- {s}" for s in b["safety"]] + [""]
+F += ["## Latest in AI", f"URL: {absu(u('/news/'))}", f"Top story (importance): {NEWS_TOP['headline']} ({NEWS_TOP['date']}). Trending (X engagement decayed by age): " + "; ".join(n['headline'] for n in NEWS_TREND)] + [f"- {n['date']} [{n['category']}, impact: {n.get('impact','')}] {n['headline']} | {n['explainer']} | Source: {n['source_name']} {n['source_url']}" + (f" | X: {n['x']['likes']:,} likes, {n['x']['reposts']:,} reposts ({n['x']['url']}, measured {n['x']['measured_at']})" if n.get('x') else "") for n in NEWS] + [""]
+F += ["## AI price table", f"URL: {absu(u(PRICING))}", f"Checked: {PR['checked_on']}. USD per 1M tokens, standard tier. Official sources only."] + [f"- {r['provider']} {r['model']}: input {r['input']}, output {r['output']}" + (f", cached input {r['cached_input']}" if r['cached_input'] is not None else "") + (f". {r['note']}" if r['note'] else "") + f" Source: {r['source_url']}" for r in PR["api"]] + ["Plans:"] + [f"- {r['provider']} {r['plan']}: {r['price']} {r['period']}".rstrip() + f" Source: {r['source_url']}" for r in PR["consumer"]] + [""]
+open(os.path.join(OUT, "llms-full.txt"), "w").write("\n".join(F))
+open(os.path.join(OUT, ".nojekyll"), "w").write("")
+if cfg.get("cname"): open(os.path.join(OUT, "CNAME"), "w").write(cfg["cname"].strip() + "\n")
+
+# ---------- OG IMAGE (Pillow optional) --------------------------------------------
+def make_og():
+    try:
+        from PIL import Image, ImageDraw, ImageFont, ImageFilter
+    except ImportError:
+        print("Pillow not installed: skipping og.png"); return
+    W, H = 1200, 630
+    bgp = os.path.join(IMG_DIR, "og-bg.webp")
+    if os.path.exists(bgp):
+        im = Image.open(bgp).convert("RGB").resize((W, H))
+        # darken the left side so the headline stays readable over the artwork
+        shade = Image.new("L", (W, 1)); shade.putdata([max(0, int(170 * (1 - x / 760))) for x in range(W)])
+        im = Image.composite(Image.new("RGB", (W, H), (5, 7, 15)), im, shade.resize((W, H)))
+    else:
+        im = Image.new("RGB", (W, H), (5, 7, 15))
+        glow = Image.new("RGB", (W, H), (0, 0, 0)); g = ImageDraw.Draw(glow)
+        g.ellipse((700, 40, 1260, 600), fill=(40, 70, 200)); g.ellipse((820, 260, 1180, 620), fill=(110, 50, 210)); g.ellipse((-200, 380, 400, 900), fill=(0, 120, 140))
+        glow = glow.filter(ImageFilter.GaussianBlur(120)); im = Image.blend(im, glow, 0.75)
+        d = ImageDraw.Draw(im)
+        cx, cy = 960, 315
+        for r in (60, 120, 180, 240): d.ellipse((cx - r, cy - r, cx + r, cy + r), outline=(120, 200, 255), width=2)
+        d.line((cx - 250, cy, cx + 250, cy), fill=(80, 140, 220), width=1); d.line((cx, cy - 250, cx, cy + 250), fill=(80, 140, 220), width=1)
+        for (bx, by, col) in ((1040, 230, (120, 255, 230)), (880, 380, (190, 140, 255)), (1100, 400, (120, 220, 255))):
+            d.ellipse((bx - 9, by - 9, bx + 9, by + 9), fill=col)
+    d = ImageDraw.Draw(im)
+    def font(sz, bold=True):
+        for p in ["/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"]:
+            if os.path.exists(p): return ImageFont.truetype(p, sz)
+        return ImageFont.load_default()
+    d.ellipse((72, 86, 92, 106), fill=(80, 255, 200))
+    d.text((106, 78), "LIVE FEED", font=font(26), fill=(150, 255, 220))
+    d.text((70, 140), NAME, font=font(76), fill=(240, 244, 255))
+    y = 250
+    for line in ["See what AI agents are doing", "for real people, with sources.", "Then build your own."]:
+        d.text((72, y), line, font=font(38, False), fill=(200, 210, 240)); y += 54
+    d.text((72, 540), f"{len(ucs)} use cases · {len(bps)} blueprints · real popularity numbers", font=font(24, False), fill=(140, 160, 210))
+    im.save(os.path.join(OUT, "assets", "og.png"), optimize=True)
+make_og()
+print(f"Built {len(SITEMAP)} indexed pages + 404 into {OUT} (name: {NAME}, base: {BASE}{BP}); trending={len(TRENDING)}")

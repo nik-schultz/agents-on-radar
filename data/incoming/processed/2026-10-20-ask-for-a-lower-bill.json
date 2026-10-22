@@ -1,0 +1,73 @@
+{
+ "slug": "ask-for-a-lower-bill",
+ "title": "Ask your internet, phone or radio provider for a lower bill",
+ "category": "money",
+ "source_date": "2026-10-18",
+ "summary": "Your bot checks what you pay, finds what new customers get, and asks the provider's chat or support for a better price.",
+ "what_the_bot_does": [
+  "Reads your latest bill and notes the plan, price and contract end date.",
+  "Looks up the provider's current offers and what competitors charge for the same thing.",
+  "Opens the provider's support chat (or drafts the message) and asks for a lower price, citing those offers.",
+  "Reports the offer back to you before accepting anything."
+ ],
+ "what_you_end_up_with": "A lower monthly price, or a clear answer and a list of cheaper alternatives.",
+ "difficulty": "Medium",
+ "tools": [
+  {
+   "id": "grok-bot",
+   "note": "Used in the shared examples"
+  },
+  {
+   "id": "chatgpt-work",
+   "note": "Can use support chat in a cloud browser"
+  },
+  {
+   "id": "claude",
+   "note": "Drafts the script for you to use"
+  }
+ ],
+ "prompt": "Here's my latest [internet/phone/satellite radio] bill from [provider]. 1) Tell me what I'm paying and when my contract or promo ends. 2) Find the provider's current offers and two competitors' prices for the same service. 3) Use the provider's support chat to politely ask for a lower monthly price, mentioning those offers. Don't accept any new contract, equipment or add-on without asking me, and show me the final offer before saying yes.",
+ "watch_out": [
+  "These are self-reported savings from a few users. Results depend on your provider and plan.",
+  "Watch for a lower price that comes with a new contract term or an early-cancellation fee.",
+  "Get the new price in writing (a chat transcript or email) and check the next bill."
+ ],
+ "sources": [
+  {
+   "label": "X post by @BIGRICK_XLDJ (2026-10-18): Grok Bot used a chat session to cut his SiriusXM price from $25.99 to $5.99",
+   "url": "https://x.com/BIGRICK_XLDJ/status/2111969788776141217",
+   "kind": "x"
+  },
+  {
+   "label": "X post by @ShivamPatxl (2026-10-19): Grok Bot negotiated his internet bill down $300 a year",
+   "url": "https://x.com/ShivamPatxl/status/2112216690721489173",
+   "kind": "x"
+  },
+  {
+   "label": "X post by @Ricky_Retard0 (2026-10-18): his bot now shops energy plans, replacing a paid service",
+   "url": "https://x.com/Ricky_Retard0/status/2111675083672740268",
+   "kind": "x"
+  }
+ ],
+ "popularity": {
+  "platform": "x",
+  "post_id": "2111969788776141217",
+  "author": "@BIGRICK_XLDJ",
+  "url": "https://x.com/BIGRICK_XLDJ/status/2111969788776141217",
+  "posted_at": "2026-10-18",
+  "likes": 7,
+  "reposts": 0,
+  "replies": 1,
+  "bookmarks": 0,
+  "views": 224,
+  "measured_at": "2026-10-20"
+ },
+ "tags": [
+  "negotiate bill",
+  "internet bill",
+  "phone bill",
+  "SiriusXM",
+  "energy plan",
+  "save money"
+ ]
+}

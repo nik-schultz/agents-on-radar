@@ -1,0 +1,21 @@
+{
+  "site_name": "Agents on Radar",
+  "_site_name_help": "WORKING NAME. Change this one value to rename the whole site (titles, logo, feeds, og image, llms.txt). If base_url is empty, the domain is derived as https://<name-without-spaces>.com.",
+  "tagline": "See what AI agents are doing for real people, and build your own.",
+  "description": "A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.",
+  "base_url": "https://nik-schultz.github.io/agents-on-radar/",
+  "base_path": "",
+  "cname": "",
+  "owner": "Nik Schultz",
+  "contact_email": "",
+  "contact_url": "https://github.com/nik-schultz/agents-on-radar/issues",
+  "_contact_help": "contact_email wins if set. Otherwise contact links point to contact_url (GitHub issues). Never derive an email from an unowned domain.",
+  "as_of": "",
+  "trending_window_days": 60,
+  "newsletter": {
+    "form_action": "",
+    "email_field": "email",
+    "_help": "Paste your email provider's form POST URL into form_action (beehiiv/Buttondown/Kit). While empty, the form is shown but disabled with a 'signups open soon' note and submits nothing."
+  },
+  "meta_description": "See what AI agents are doing for real people, with sources and real popularity numbers. Then build your own with copy-paste bot blueprints. Updated daily."
+}

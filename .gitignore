@@ -1,0 +1,11 @@
+previews/
+__pycache__/
+# never published: raw source art (the site uses the optimised WebP in static/img), logs, secrets, raw API dumps
+art/incoming/
+*.log
+.env
+.env.*
+*.pem
+*.key
+research/*.json.txt
+research/x_posts_full.json

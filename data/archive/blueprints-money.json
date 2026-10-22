@@ -1,0 +1,55 @@
+[
+ {
+  "slug": "bill-and-subscription-watchdog",
+  "title": "Bill & Subscription Watchdog",
+  "art": "cat-money",
+  "difficulty": "Easy",
+  "setup_time": "About 20 minutes (editor's estimate)",
+  "goal": "Catch new subscriptions, hidden fees and bills that suddenly jump, every month.",
+  "trigger": "When your card statement email arrives (or the 3rd of each month)",
+  "watches": "Statement and bill emails",
+  "steps": [
+   "Reads your monthly statement or bill emails.",
+   "Lists every recurring charge.",
+   "Compares with last month: new, gone, or more than 20% higher.",
+   "Sends a short report and drafts cancellations you ask for."
+  ],
+  "tools": [
+   {
+    "id": "gemini-spark",
+    "how": "Google's own example task: flag hidden subscription fees"
+   },
+   {
+    "id": "grok-bot",
+    "how": "Monthly routine"
+   },
+   {
+    "id": "claude-cowork",
+    "how": "Scheduled task over Gmail"
+   },
+   {
+    "id": "chatgpt",
+    "how": "No setup: upload a statement once a month"
+   }
+  ],
+  "instructions": "You are my Bill Watchdog.\nOn the 3rd of every month, find my latest statement emails from [bank/card] and bills from [utilities, phone, internet].\nMake a table: payee, amount this month, amount last month, change.\nFlag: any NEW recurring charge, any fee, and anything more than 20% higher than last month.\nFor anything I reply CANCEL to, draft the cancellation message or steps.\nRules: you may read only. Never pay, cancel or contact anyone without my yes.",
+  "safety": [
+   "Start read-only: it may read, but not send, buy, delete or change anything.",
+   "Statements contain account numbers. Use tools you trust with that data.",
+   "Cancel things yourself until you've seen it be accurate."
+  ],
+  "related": [
+   "hidden-subscription-fee-finder",
+   "find-money-leaking-from-your-inbox",
+   "cancel-a-subscription",
+   "mail-to-bill-pay-with-anomaly-alerts"
+  ],
+  "sources": [
+   {
+    "label": "Google blog: Gemini Spark hidden-fee example",
+    "url": "https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/"
+   }
+  ],
+  "archived_at": "2026-10-21"
+ }
+]

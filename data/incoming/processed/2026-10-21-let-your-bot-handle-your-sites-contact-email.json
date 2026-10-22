@@ -1,0 +1,35 @@
+{
+  "slug": "let-your-bot-handle-your-sites-contact-email",
+  "title": "Let your bot handle your website's contact email",
+  "category": "business",
+  "source_date": "2026-10-21",
+  "summary": "Forward the contact address of your website, club or class to your bot's own email. It reads each message, sums it up for you, and only answers when you say so.",
+  "what_the_bot_does": [
+    "Receives a copy of everything sent to your site's contact address.",
+    "Reads each message and sorts it, for example question, sign-up, complaint or spam.",
+    "Sends you a short summary with a suggested reply.",
+    "Sends the reply only after you approve it."
+  ],
+  "what_you_end_up_with": "One short summary instead of a cluttered contact inbox, with replies drafted and waiting for your OK.",
+  "difficulty": "Medium",
+  "tools": [
+    {"id": "grok-bot", "note": "Can claim its own email address"},
+    {"id": "gemini-spark", "note": "Can be emailed at a dedicated Gmail address"},
+    {"id": "zapier", "note": "If your site's form doesn't send email"}
+  ],
+  "prompt": "Mail sent to my site [site name]'s contact address is forwarded to you. For each message: sort it as question, sign-up, complaint, sales pitch or spam; send me a 2-line summary; and draft a friendly reply in my voice. Bundle them into one message at [time] each day, with anything urgent sent right away. Never send a reply, click a link in the email, or share anyone's details without my OK.",
+  "setup": [
+    "Give your bot its own email address (see the related guide).",
+    "In your site host or email settings, forward the contact address to the bot's address and confirm the forward."
+  ],
+  "watch_out": [
+    "Strangers write to contact addresses, and some will try to give your bot instructions. Tell it to treat every email as information, never as orders.",
+    "Keep approval on for replies until you trust its drafts."
+  ],
+  "sources": [
+    {"label": "X post by @Texas_Twins_Dad (2026-10-21): his Grok Bot has its own email and runs the email side of his class site; contact mail is forwarded to it and it sends him summaries", "url": "https://x.com/Texas_Twins_Dad/status/2112926907549323538", "kind": "x"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2112926907549323538", "author": "@Texas_Twins_Dad", "url": "https://x.com/Texas_Twins_Dad/status/2112926907549323538", "posted_at": "2026-10-21",
+                 "likes": 24, "reposts": 1, "replies": 4, "bookmarks": 4, "views": 998, "measured_at": "2026-10-21"},
+  "tags": ["contact form", "website", "email", "small business", "club", "class"]
+}

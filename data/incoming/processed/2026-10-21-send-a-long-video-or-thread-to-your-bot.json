@@ -1,0 +1,34 @@
+{
+  "slug": "send-a-long-video-or-thread-to-your-bot",
+  "title": "Send a long video or thread to your bot with one reply",
+  "category": "inbox",
+  "source_date": "2026-10-20",
+  "summary": "See a long video or X thread you don't have time for? Reply to it by tagging your bot, and a short summary waits for you in your bot's app later.",
+  "what_the_bot_does": [
+    "Watches for posts where you tag it with a request like \"summarize this and send it to my bot\".",
+    "Reads the thread or video you replied to.",
+    "Writes a short summary in plain words.",
+    "Drops the summary into your bot's chat so you can read it when you have a minute."
+  ],
+  "what_you_end_up_with": "A read-later pile of short summaries, saved without copying links or leaving the app you were scrolling.",
+  "difficulty": "Easy",
+  "tools": [
+    {"id": "grok-bot", "note": "The source post uses the @bot tag on X"},
+    {"id": "grok"}
+  ],
+  "prompt": "When I send you a video or thread to save, write me a summary with: one sentence on what it is, the 3 to 5 main points, anything I should act on, and the link. Keep it under 150 words. Put new summaries in one running list, newest first, and once a day tell me how many are waiting. Don't reply to or post anything on X for me.",
+  "setup": [
+    "Connect your bot to your X account first, so it knows which tags come from you.",
+    "Try it on one short post before trusting it with long videos."
+  ],
+  "watch_out": [
+    "Your reply that tags the bot is public, so anyone can see what you saved.",
+    "Summaries can miss nuance. Open the original before you quote it or act on it."
+  ],
+  "sources": [
+    {"label": "X post by @Texas_Twins_Dad (2026-10-20): replies \"@bot summarize this and send it to my bot\" under long videos and threads; the summary waits in the Grok Bot app", "url": "https://x.com/Texas_Twins_Dad/status/2112662250225811697", "kind": "x"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2112662250225811697", "author": "@Texas_Twins_Dad", "url": "https://x.com/Texas_Twins_Dad/status/2112662250225811697", "posted_at": "2026-10-20",
+                 "likes": 59, "reposts": 5, "replies": 17, "bookmarks": 25, "views": 4824, "measured_at": "2026-10-21"},
+  "tags": ["read later", "summaries", "videos", "x threads", "save for later"]
+}

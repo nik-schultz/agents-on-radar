@@ -1,0 +1,17 @@
+{
+  "slug": "short-kebab-case-title",
+  "title": "Plain-English title starting with a verb",
+  "category": "inbox | money | shopping | travel | family | health | work | business",
+  "source_date": "YYYY-MM-DD (when the source was posted)",
+  "summary": "One or two sentences a non-technical person understands.",
+  "what_the_bot_does": ["Step 1 in plain words.", "Step 2.", "Step 3."],
+  "what_you_end_up_with": "The concrete result.",
+  "difficulty": "Easy | Medium | Advanced",
+  "tools": [{"id": "grok-bot", "note": "optional short note"}, {"id": "gemini-spark"}],
+  "prompt": "Copy-paste prompt with [brackets] for the reader's details. Include 'don't send/buy without asking'.",
+  "watch_out": ["Real risks, citing the source when it comes from one."],
+  "sources": [{"label": "X post by @user (YYYY-MM-DD): what it shows", "url": "https://x.com/user/status/ID", "kind": "x"}],
+  "popularity": {"platform": "x", "post_id": "ID", "author": "@user", "url": "https://x.com/user/status/ID", "posted_at": "YYYY-MM-DD",
+                 "likes": 0, "reposts": 0, "replies": 0, "bookmarks": 0, "views": 0, "measured_at": "YYYY-MM-DD"},
+  "tags": ["keywords", "people", "search"]
+}

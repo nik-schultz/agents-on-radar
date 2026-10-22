@@ -1,0 +1,674 @@
+[
+ {
+  "slug": "morning-inbox-briefing",
+  "title": "Morning Inbox Briefing",
+  "art": "cat-inbox",
+  "difficulty": "Easy",
+  "setup_time": "About 15 minutes (editor's estimate)",
+  "goal": "Wake up to a 2-minute summary of what's in your email and what needs you today.",
+  "trigger": "Every weekday at 7:00am",
+  "watches": "New emails since yesterday morning",
+  "steps": [
+   "Reads every email that arrived since yesterday at 7am.",
+   "Sorts them into: needs a reply today, FYI, and noise.",
+   "Writes a short briefing with the 3 most important items first.",
+   "Drafts replies for the easy ones, without sending them."
+  ],
+  "tools": [
+   {
+    "id": "gemini-spark",
+    "how": "Built-in Gmail access and schedules"
+   },
+   {
+    "id": "grok-bot",
+    "how": "Save it as a skill, then add a daily routine"
+   },
+   {
+    "id": "claude-cowork",
+    "how": "Connect Gmail, then ask it to make a scheduled task"
+   },
+   {
+    "id": "chatgpt-dots",
+    "how": "Always-on agent with connected apps"
+   }
+  ],
+  "instructions": "You are my Morning Inbox Briefing bot.\nEvery weekday at 7:00am, read every email that arrived since 7:00am yesterday.\nSort them into three groups:\n1. NEEDS ME TODAY: someone is waiting on me, or there's a deadline within 48 hours.\n2. FYI: worth knowing, no action.\n3. NOISE: promotions, newsletters, receipts.\nSend me a briefing: group 1 first (max 5 items, one line each, with who and what), then a one-line count of groups 2 and 3.\nFor easy replies in group 1, write a draft and leave it in my Drafts folder.\nRules: never send, delete or archive anything. If you're unsure which group something is in, put it in group 1.",
+  "safety": [
+   "Start read-only: it may read, but not send, buy, delete or change anything.",
+   "Drafts stay in Drafts. You press send.",
+   "Check the first week of briefings against your real inbox."
+  ],
+  "related": [
+   "monday-inbox-recap-and-todo",
+   "flag-only-emails-that-need-a-reply",
+   "clean-up-your-email-inbox"
+  ],
+  "sources": [
+   {
+    "label": "Google: Gemini Spark example schedules",
+    "url": "https://gemini.google/overview/agent/spark/"
+   }
+  ],
+  "cost": {
+   "runs_per_month": 22,
+   "input_tokens": 15000,
+   "output_tokens": 800,
+   "assumption": "about 30 new emails a weekday at roughly 500 tokens each, and a one-screen summary back"
+  }
+ },
+ {
+  "slug": "school-email-digest-bot",
+  "title": "School Email Digest",
+  "art": "cat-family",
+  "difficulty": "Medium",
+  "setup_time": "About 30 minutes (editor's estimate)",
+  "goal": "Never miss a permission slip, payment or deadline buried in school emails again.",
+  "trigger": "Every Sunday at 6:00am",
+  "watches": "Emails with your 'School' label (set up a filter first)",
+  "steps": [
+   "In your email, make a filter that puts a 'School' label on everything from the school.",
+   "The bot reads labeled emails it hasn't processed yet, including newsletter links.",
+   "Pulls out deadlines, forms, payments and events for YOUR kids only.",
+   "Sends a digest, urgent first, and labels each email 'Processed'."
+  ],
+  "tools": [
+   {
+    "id": "claude-cowork",
+    "how": "Gmail connector + scheduled task (step-by-step guide in sources)"
+   },
+   {
+    "id": "gemini-spark",
+    "how": "Google's own example: school updates digest"
+   },
+   {
+    "id": "grok-bot",
+    "how": "Daily or weekly routine"
+   },
+   {
+    "id": "meta-muse",
+    "how": "Ask it to watch school emails"
+   }
+  ],
+  "instructions": "You are my School Email Digest bot.\nEvery Sunday at 6:00am, find emails labeled 'School' that are NOT labeled 'Processed'. Open any newsletter links inside them.\nMy kids: [initials], [grade], [school]. Ignore anything for other grades or for [activities we don't do].\nMake a digest with these sections: 1) Closures and schedule changes, 2) Deadlines this week and next (forms, payments, sign-ups), 3) Events to put on the calendar, 4) Anything asking for a reply.\nRemove duplicates. Put the date first on every line.\nWhen done, add the label 'Processed' to each email you read.\nRules: draft replies to teachers but never send them. Don't share my kids' details anywhere else.",
+  "safety": [
+   "Use initials, not names, if you prefer.",
+   "Drafts only for anything going to the school.",
+   "Check the first two digests against the original emails."
+  ],
+  "related": [
+   "school-email-digest",
+   "sunday-family-calendar-check"
+  ],
+  "sources": [
+   {
+    "label": "Anna Burgess Yang: school email digest with Claude Cowork",
+    "url": "https://tinkeringwithideas.io/school-email-digest-claude-cowork/"
+   },
+   {
+    "label": "Google blog: Gemini Spark school-updates example",
+    "url": "https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/"
+   }
+  ],
+  "cost": {
+   "runs_per_month": 4,
+   "input_tokens": 20000,
+   "output_tokens": 1000,
+   "assumption": "a week of school email (about 40 messages) read once a week"
+  }
+ },
+ {
+  "slug": "web-page-watcher",
+  "title": "Web Page Watcher",
+  "art": "cat-shopping",
+  "difficulty": "Easy",
+  "setup_time": "About 10 minutes (editor's estimate)",
+  "goal": "Get one ping when a page you care about changes (a restock, a new listing, an appointment slot, a status update) and stop refreshing it yourself.",
+  "trigger": "Every morning at 8:00am (or every few hours for time-sensitive pages)",
+  "watches": "The web pages you give it",
+  "steps": [
+   "You paste links and say what matters on each one (back in stock, new listing, slot opens, status changes).",
+   "The bot saves how each page looks today.",
+   "It re-checks on schedule.",
+   "It messages you only when something you care about changes, with the old and new value and the link."
+  ],
+  "tools": [
+   {
+    "id": "grok-bot",
+    "how": "Routine that checks the pages on a schedule"
+   },
+   {
+    "id": "chatgpt-dots",
+    "how": "Ask it to keep watching"
+   },
+   {
+    "id": "make",
+    "how": "No-code scheduled page check"
+   }
+  ],
+  "instructions": "You are my Page Watcher bot.\nWatch these pages:\n- [link 1]: tell me when [it's back in stock / a new listing appears / an appointment slot opens / the status changes]\n- [link 2]: tell me when [what matters]\nEvery morning at 8:00am, check each page. Only message me when something I asked about changes. Include the old value, the new value and the link.\nRules: never buy, book or sign up for anything, never create accounts, never enter my details.",
+  "safety": [
+   "Watching is safe; acting on what it finds is a separate decision you make.",
+   "Some sites block bots. If checks keep failing, use the site's own alerts instead."
+  ],
+  "related": [
+   "watch-a-web-page-for-changes",
+   "catch-airline-schedule-changes",
+   "watch-for-one-important-letter"
+  ],
+  "sources": [
+   {
+    "label": "X: a Grok bot that watches pages and pings only on change",
+    "url": "https://x.com/teeRex247/status/2111981455077466525"
+   }
+  ],
+  "cost": {
+   "runs_per_month": 30,
+   "input_tokens": 7500,
+   "output_tokens": 200,
+   "assumption": "3 pages checked once a day; Anthropic estimates an average 10 kB web page at about 2,500 tokens"
+  }
+ },
+ {
+  "slug": "phone-call-bot",
+  "title": "Phone Call Bot",
+  "art": "cat-work",
+  "difficulty": "Medium",
+  "setup_time": "About 20 minutes once a calling add-on is connected (editor's estimate)",
+  "goal": "Hand off the phone calls you keep putting off: booking a table, a vet visit or a haircut, or a quick customer-service call.",
+  "trigger": "Only when you ask it to (never on its own)",
+  "watches": "Nothing. It waits for your request, then makes one call at a time",
+  "steps": [
+   "You say who to call and what you want, for example \"book Gourmet Italia, 4 people, tonight around 7\".",
+   "It finds the number, asks you for anything missing (name, flexibility, callback number) and reads the plan back.",
+   "It waits for your OK, then calls and says it is an AI assistant calling for you.",
+   "After the call it tells you what happened in plain English, quotes what the other side said, and offers to add it to your calendar."
+  ],
+  "tools": [
+   {
+    "id": "grok-bot",
+    "how": "Needs a phone-calling add-on connected so the bot has its own number (the shared example used one with a free starter tier)"
+   },
+   {
+    "id": "meta-muse",
+    "how": "Can call businesses for you"
+   },
+   {
+    "id": "instinct",
+    "how": "Messages or calls small businesses"
+   }
+  ],
+  "instructions": "You are my Phone Call bot.\nWhen I ask you to call somewhere:\n1. Find the business's official phone number.\n2. Ask me for anything you need: name to use, callback number, how flexible I am, what you may agree to.\n3. Read the whole plan back and wait for my OK before you dial.\n4. Start the call by saying you're an AI assistant calling on behalf of [my name].\n5. Get what I asked for, and agree to nothing else. Never give card or deposit details, never leave a voicemail unless I said so, one call at a time.\n6. Afterwards, tell me what happened, quote what they said, give me any confirmation number, and offer to add it to my calendar.",
+  "safety": [
+   "A phone call is harder to undo than an email. Be specific about what it may agree to.",
+   "Have it say it's an AI right away. One user says a restaurant owner almost hung up until it did.",
+   "Some companies only act for the account holder, so some calls will still need you.",
+   "Never let it share card numbers or deposit details on a call."
+  ],
+  "related": [
+   "call-and-book-by-phone",
+   "make-a-customer-service-call",
+   "restaurant-reservations-by-agent"
+  ],
+  "sources": [
+   {
+    "label": "X post by @BrianRoemmele (2026-10-18): a Grok Bot that calls a restaurant and books the table, with its guardrails",
+    "url": "https://x.com/BrianRoemmele/status/2111812467500458135"
+   },
+   {
+    "label": "X post by @skeptrune (2026-10-20): Grok Bot making a real customer-service call with a phone-calling add-on",
+    "url": "https://x.com/skeptrune/status/2112563230019289456"
+   },
+   {
+    "label": "X post by @james_fowler_ (2026-10-18): a restaurant owner nearly hung up until the bot said it was an AI",
+    "url": "https://x.com/james_fowler_/status/2111888527826813404"
+   }
+  ],
+  "cost": {
+   "voice_minutes": 5,
+   "assumption": "one 5-minute call"
+  }
+ },
+ {
+  "slug": "scam-checker",
+  "title": "Scam Checker",
+  "art": "cat-inbox",
+  "difficulty": "Easy",
+  "setup_time": "About 10 minutes (editor's estimate)",
+  "goal": "Get a plain verdict on suspicious emails and texts before anyone in the family clicks.",
+  "trigger": "Every morning, plus any time you forward something suspicious",
+  "watches": "New email (read-only), or messages you forward to it",
+  "steps": [
+   "Reads new emails, or anything you forward.",
+   "Looks for scam signs: fake sender, lookalike link, urgency, payment request.",
+   "Gives a risk level and the exact red flags.",
+   "Tells you the safe next step."
+  ],
+  "tools": [
+   {
+    "id": "grok-bot",
+    "how": "Daily routine; templates shared publicly"
+   },
+   {
+    "id": "gemini-spark",
+    "how": "Scheduled check over Gmail"
+   },
+   {
+    "id": "chatgpt",
+    "how": "Easiest for parents: paste or screenshot the message"
+   },
+   {
+    "id": "claude",
+    "how": "Paste the message"
+   }
+  ],
+  "instructions": "You are my Scam Checker.\nFor each message you check, answer in this format:\nVERDICT: Confirmed scam / High suspicion / Possible / Looks fine\nRED FLAGS: (sender address, links that don't match, urgency, requests for money, gift cards, passwords or codes)\nWHAT TO DO: one or two safe steps (for example: don't click, delete, report it, or call the company on a number from their official website).\nRules: you are read-only. Never click links, open attachments, reply or delete.",
+  "safety": [
+   "Read-only, always.",
+   "A 'looks fine' verdict isn't a guarantee. When money is involved, call the company on a number you already trust."
+  ],
+  "related": [
+   "email-scam-filter"
+  ],
+  "sources": [
+   {
+    "label": "X: read-only Grok Bot email scam filter",
+    "url": "https://x.com/BrianRoemmele/status/2110008406807568813"
+   }
+  ],
+  "cost": {
+   "runs_per_month": 30,
+   "input_tokens": 3000,
+   "output_tokens": 300,
+   "assumption": "one morning sweep of flagged messages plus the odd forwarded one, about 3,000 tokens a day"
+  }
+ },
+ {
+  "slug": "meal-plan-bot",
+  "title": "Weekly Meal Plan Bot",
+  "art": "cat-shopping",
+  "difficulty": "Easy",
+  "setup_time": "About 20 minutes (editor's estimate)",
+  "goal": "Get a family meal plan and one shopping list every week without thinking about it.",
+  "trigger": "Every Thursday at 5:00pm",
+  "watches": "Your recipe list and what you say is in the fridge",
+  "steps": [
+   "You give it your family's recipes, allergies and budget once.",
+   "Every Thursday it picks dinners that reuse ingredients.",
+   "It sends a printable plan and a shopping list grouped by aisle.",
+   "Optional: a shopping agent fills your grocery cart for you to check out."
+  ],
+  "tools": [
+   {
+    "id": "grok-bot",
+    "how": "Keeps the recipe list and runs weekly"
+   },
+   {
+    "id": "meta-muse",
+    "how": "Weekly reminder plus list"
+   },
+   {
+    "id": "chatgpt-work",
+    "how": "Fills an online grocery cart from the list"
+   },
+   {
+    "id": "claude",
+    "how": "No schedule: ask each week"
+   }
+  ],
+  "instructions": "You are our Meal Plan bot.\nOur family: [who], allergies: [list], budget: $[X] per week, store: [store].\nOur recipes: [paste list].\nEvery Thursday at 5:00pm, ask me what's already in the fridge. Then plan [5] dinners using our recipes, reusing ingredients to cut waste.\nSend: 1) the plan, one line per day, 2) one shopping list grouped by store section.\nRules: never buy anything. If you suggest a new recipe, mark it NEW.",
+  "safety": [
+   "Double-check allergies on every new recipe.",
+   "If an agent fills your cart, you check out yourself."
+  ],
+  "related": [
+   "family-meal-plan-and-grocery-order",
+   "weekly-meal-plan-and-grocery-list",
+   "household-restock-list"
+  ],
+  "sources": [
+   {
+    "label": "X: a Grok bot plans 15 family meals a week",
+    "url": "https://x.com/lyndallschreinr/status/2107888353630908437"
+   }
+  ],
+  "cost": {
+   "runs_per_month": 4,
+   "input_tokens": 6000,
+   "output_tokens": 2000,
+   "assumption": "one weekly plan with your family's notes in and a 7-day plan plus list out"
+  }
+ },
+ {
+  "slug": "family-calendar-guardian",
+  "title": "Family Calendar Guardian",
+  "art": "cat-family",
+  "difficulty": "Easy",
+  "setup_time": "About 15 minutes (editor's estimate)",
+  "goal": "Spot clashes and prep jobs for the next two weeks, every Sunday.",
+  "trigger": "Every Sunday at 6:00pm",
+  "watches": "Your shared family calendar (read-only)",
+  "steps": [
+   "Reads the next 14 days of your family calendar.",
+   "Finds overlaps and impossible pickups.",
+   "Lists what to prepare: forms, kit, gifts, payments.",
+   "Sends one short Sunday note."
+  ],
+  "tools": [
+   {
+    "id": "gemini-spark",
+    "how": "Reads Google Calendar"
+   },
+   {
+    "id": "grok-bot",
+    "how": "Weekly routine"
+   },
+   {
+    "id": "claude-cowork",
+    "how": "Calendar connector + scheduled task"
+   },
+   {
+    "id": "meta-muse",
+    "how": "Reminders and calendar help"
+   }
+  ],
+  "instructions": "You are our Family Calendar Guardian.\nEvery Sunday at 6:00pm, read our family calendar for the next 14 days.\nSend one note with:\n1) CLASHES: two things at the same time, or a pickup nobody can do.\n2) PREPARE: anything that needs a form, payment, gift, outfit or kit.\n3) THIS WEEK: one line per day.\nRules: never add, move or delete events. Just tell me.",
+  "safety": [
+   "Start read-only: it may read, but not send, buy, delete or change anything."
+  ],
+  "related": [
+   "sunday-family-calendar-check",
+   "school-email-digest"
+  ],
+  "sources": [
+   {
+    "label": "X: 7 jobs to give a family bot",
+    "url": "https://x.com/Michael_Fenech_/status/2108579992456327489"
+   }
+  ],
+  "cost": {
+   "runs_per_month": 4,
+   "input_tokens": 8000,
+   "output_tokens": 600,
+   "assumption": "a week of calendar events and school emails checked once a week"
+  }
+ },
+ {
+  "slug": "travel-day-guardian",
+  "title": "Travel Day Guardian",
+  "art": "cat-travel",
+  "difficulty": "Medium",
+  "setup_time": "About 20 minutes (editor's estimate)",
+  "goal": "Hear about schedule changes and delays first, with your options and a request ready to send.",
+  "trigger": "Daily while you have upcoming trips, plus every 2 hours on travel day",
+  "watches": "Airline and booking emails",
+  "steps": [
+   "Finds your upcoming bookings in your email.",
+   "Watches for schedule changes, delays and cancellations.",
+   "When something changes, tells you the old and new time and your options.",
+   "Drafts a rebooking or cancellation request for your OK."
+  ],
+  "tools": [
+   {
+    "id": "instinct",
+    "how": "Caught a schedule change in WIRED's test"
+   },
+   {
+    "id": "grok-bot",
+    "how": "Routine over your email"
+   },
+   {
+    "id": "gemini-spark",
+    "how": "Gmail plus schedules"
+   },
+   {
+    "id": "chatgpt-work",
+    "how": "Rebooks in a cloud browser; asks before paying"
+   }
+  ],
+  "instructions": "You are my Travel Day Guardian.\nEvery morning, look in my email for upcoming flights, trains and hotel bookings in the next 30 days and keep a list.\nWatch for any change: new times, delays, gate or terminal changes, cancellations.\nWhen something changes, message me: what changed, by how much, and my options (wait, rebook, or ask for a refund under the airline's published rules).\nDraft any refund or rebooking request, but never cancel, book or pay without my YES.",
+  "safety": [
+   "Cancelling can lose your seat. Decide first.",
+   "Use a single-use virtual card if you let it book."
+  ],
+  "related": [
+   "catch-airline-schedule-changes",
+   "rebook-a-delayed-flight",
+   "plan-and-book-a-whole-trip-by-text",
+   "pay-with-a-single-use-virtual-card"
+  ],
+  "sources": [
+   {
+    "label": "WIRED: Instinct caught a 90-minute schedule change the reviewer had missed",
+    "url": "https://www.wired.com/story/i-finally-found-an-ai-agent-worth-the-risk/"
+   }
+  ],
+  "cost": {
+   "runs_per_month": 30,
+   "input_tokens": 10000,
+   "output_tokens": 300,
+   "assumption": "one daily check of your bookings and airline emails while a trip is coming up"
+  }
+ },
+ {
+  "slug": "follow-up-finder",
+  "title": "Follow-Up Finder",
+  "art": "cat-work",
+  "difficulty": "Medium",
+  "setup_time": "About 25 minutes (editor's estimate)",
+  "goal": "Never let a client, lead or friend go cold because you forgot to reply.",
+  "trigger": "Every Monday at 8:00am",
+  "watches": "Your sent mail, calendar and task list",
+  "steps": [
+   "Looks at the last 30 days of sent email, meetings and tasks.",
+   "Finds threads where you owe something or nobody replied for 7+ days.",
+   "Drafts a short, friendly nudge for each.",
+   "Sends you the list; you choose which to send."
+  ],
+  "tools": [
+   {
+    "id": "n8n",
+    "how": "A shared 8-node workflow exists (see source)"
+   },
+   {
+    "id": "zapier",
+    "how": "Scheduled Zap + AI step"
+   },
+   {
+    "id": "gemini-spark",
+    "how": "Gmail + Calendar access"
+   },
+   {
+    "id": "grok-bot",
+    "how": "Weekly routine"
+   }
+  ],
+  "instructions": "You are my Follow-Up Finder.\nEvery Monday at 8:00am, look at my sent email and calendar from the last 30 days.\nList: (a) things I promised and haven't sent, (b) questions I asked with no reply after 7 days, (c) meetings with no follow-up email.\nFor each, write a 2-sentence friendly follow-up in my style and leave it as a draft.\nRules: never send. Skip anything marked personal or anything with lawyers, doctors or HR.",
+  "safety": [
+   "Drafts only.",
+   "Some threads went quiet for a reason. Read before sending."
+  ],
+  "related": [
+   "find-dead-conversations-to-follow-up",
+   "chase-an-unpaid-invoice",
+   "time-sensitive-inbox-watcher"
+  ],
+  "sources": [
+   {
+    "label": "X: n8n automation found 19 dead conversations",
+    "url": "https://x.com/BassamDahabra/status/2102701286307119565"
+   }
+  ],
+  "cost": {
+   "runs_per_month": 4,
+   "input_tokens": 30000,
+   "output_tokens": 1000,
+   "assumption": "a week of sent mail and threads scanned once a week"
+  }
+ },
+ {
+  "slug": "job-match-scout",
+  "title": "Job Match Scout",
+  "art": "cat-work",
+  "difficulty": "Medium",
+  "setup_time": "About 30 minutes (editor's estimate)",
+  "goal": "Get a daily shortlist of jobs that fit you, with notes. You apply yourself.",
+  "trigger": "Every weekday at 9:00am",
+  "watches": "New listings on job boards that allow it",
+  "steps": [
+   "Reads your CV and what you want once.",
+   "Each weekday, checks new listings from the last 24 hours.",
+   "Scores each 1–10 for fit and skips ones you've seen.",
+   "Sends the 7+ ones with why they fit and a draft note."
+  ],
+  "tools": [
+   {
+    "id": "gemini-spark",
+    "how": "Its page shows 'find and track' job searches"
+   },
+   {
+    "id": "n8n",
+    "how": "Shared Reddit workflow (job feeds, sheet, email digest)"
+   },
+   {
+    "id": "grok-bot",
+    "how": "Daily routine"
+   },
+   {
+    "id": "chatgpt",
+    "how": "Tailor one application at a time"
+   }
+  ],
+  "instructions": "You are my Job Match Scout.\nMy CV: [paste]. I want: [titles], [location/remote], salary at least [X], not [things to avoid].\nEvery weekday at 9:00am, find roles posted in the last 24 hours. Skip any you've shown me before.\nScore each 1–10 for fit. For 7 and above, send: title, company, link, why it fits, gaps, and a 3-sentence note to the hiring manager.\nRules: never apply, never create accounts, never invent experience I don't have.",
+  "safety": [
+   "Don't let it auto-apply: job sites block bots and can ban accounts.",
+   "Check every tailored CV for made-up claims."
+  ],
+  "related": [
+   "job-match-digest",
+   "tailor-your-resume-to-a-job"
+  ],
+  "sources": [
+   {
+    "label": "Reddit r/n8n: job-matching workflow",
+    "url": "https://www.reddit.com/r/n8n/comments/1ssdtg7/built_a_n8n_linkedin_job_automation_ai_agent/"
+   }
+  ],
+  "cost": {
+   "runs_per_month": 22,
+   "input_tokens": 20000,
+   "output_tokens": 800,
+   "assumption": "about 20 new job listings a weekday at roughly 1,000 tokens each"
+  }
+ },
+ {
+  "slug": "receipt-matcher",
+  "title": "Receipt Matcher (small business)",
+  "art": "cat-business",
+  "difficulty": "Medium",
+  "setup_time": "About 30 minutes (editor's estimate)",
+  "goal": "Have every business expense matched to a receipt before your bookkeeper asks.",
+  "trigger": "Every Friday at 4:00pm",
+  "watches": "A receipts@ inbox and your business card activity (read-only)",
+  "steps": [
+   "Create one inbox (like receipts@yourbusiness.com) and send every receipt there.",
+   "The bot reads this week's card and payment activity.",
+   "Matches each charge to a receipt.",
+   "Sends a list of what's missing."
+  ],
+  "tools": [
+   {
+    "id": "grok-bot",
+    "how": "The source pairs it with a card provider's command-line tool"
+   },
+   {
+    "id": "zapier",
+    "how": "Receipt emails into a sheet"
+   },
+   {
+    "id": "claude-cowork",
+    "how": "Scheduled task"
+   },
+   {
+    "id": "n8n",
+    "how": "Self-hosted workflow"
+   }
+  ],
+  "instructions": "You are my Receipt Matcher.\nEvery Friday at 4:00pm, read this week's business card and payment activity and the receipts@ inbox.\nMake a table: date, merchant, amount, receipt found (yes/no), note.\nList unmatched charges first, then receipts with no matching charge, then fees or refunds.\nRules: read-only. Never change cards, send payouts, move money or delete email.",
+  "safety": [
+   "Start read-only: it may read, but not send, buy, delete or change anything.",
+   "Ask your bookkeeper how they want the output."
+  ],
+  "related": [
+   "small-business-receipt-matching",
+   "chase-an-unpaid-invoice"
+  ],
+  "sources": [
+   {
+    "label": "X: finance admin with Grok Bot + a receipts inbox",
+    "url": "https://x.com/siyabuilt/status/2094755088841457892"
+   }
+  ],
+  "cost": {
+   "runs_per_month": 4,
+   "input_tokens": 15000,
+   "output_tokens": 1000,
+   "assumption": "a week of receipts and card transactions matched once a week"
+  }
+ },
+ {
+  "slug": "lead-logger",
+  "title": "New Inquiry Logger",
+  "art": "cat-business",
+  "difficulty": "Easy",
+  "setup_time": "About 15 minutes (editor's estimate)",
+  "goal": "Every customer inquiry lands in one tracker with a reply drafted.",
+  "trigger": "Whenever a new inquiry email arrives",
+  "watches": "Your business inbox",
+  "steps": [
+   "Spots inquiry emails (“are you available…”, “how much for…”).",
+   "Pulls out name, date, request and budget.",
+   "Adds a row to your tracker sheet.",
+   "Drafts a friendly reply with your availability."
+  ],
+  "tools": [
+   {
+    "id": "gemini-spark",
+    "how": "Google's own example: log leads and create a client folder"
+   },
+   {
+    "id": "zapier",
+    "how": "Classic no-code version: Gmail → AI → Sheets"
+   },
+   {
+    "id": "make",
+    "how": "Same idea as Zapier"
+   },
+   {
+    "id": "grok-bot",
+    "how": "Routine over your inbox"
+   }
+  ],
+  "instructions": "You are my New Inquiry Logger.\nWhen an email arrives asking about my [service], extract: client name, email, requested date, what they want, budget if mentioned.\nAdd a row to my 'Client Tracker' sheet and create a folder named after the client.\nDraft a friendly reply that thanks them and offers my next 3 open slots from my calendar.\nRules: never send replies or quote prices without my OK.",
+  "safety": [
+   "Drafts only until you trust it.",
+   "Check extracted dates; a wrong date loses a booking."
+  ],
+  "related": [
+   "log-new-client-inquiries",
+   "build-a-lead-list-with-approval",
+   "reply-to-customer-reviews"
+  ],
+  "sources": [
+   {
+    "label": "Google: Gemini Spark client-tracker example",
+    "url": "https://gemini.google/overview/agent/spark/"
+   }
+  ],
+  "cost": {
+   "runs_per_month": 40,
+   "input_tokens": 1500,
+   "output_tokens": 200,
+   "assumption": "about 40 inquiry emails a month, one short read and log each"
+  }
+ }
+]

@@ -1,0 +1,77 @@
+[
+{
+ "slug": "dispute-a-credit-report-error",
+ "title": "Dispute an error on your credit report",
+ "category": "money",
+ "source_date": null,
+ "summary": "Your credit report shows an account, late payment or balance that isn't right. AI can help you spot the mistakes and write a clear dispute letter in minutes.",
+ "problem": "Your credit report shows an account, late payment or balance that isn't right, and you don't know how to get it fixed.",
+ "outcome": "A list of the likely errors on your report, the proof you need for each, and ready-to-send dispute letters for the credit bureau and the business that reported it.",
+ "what_the_bot_does": [
+  "Get your free reports from Equifax, Experian and TransUnion at AnnualCreditReport.com (free every week, and checking doesn't hurt your score).",
+  "Remove your Social Security number, birth date and full account numbers, then paste the report sections into the prompt.",
+  "Let the AI list every item that looks wrong and say what proof would back up each one.",
+  "Have it draft one letter to each credit bureau that shows the mistake, and one to the business that reported it, following the FTC's checklist.",
+  "Send by certified mail with a return receipt (or use the bureau's online dispute form), keep copies, and put a reminder on your calendar for 30 days later."
+ ],
+ "what_you_end_up_with": "A list of the likely errors on your report, the proof you need for each, and ready-to-send dispute letters for the credit bureau and the business that reported it.",
+ "difficulty": "Easy",
+ "tools": [{"id": "chatgpt"}, {"id": "claude"}, {"id": "gemini"}, {"id": "grok"}],
+ "time_saved": "Editor's estimate: about an hour of reading and letter writing",
+ "prompt": "Help me dispute errors on my credit report. I have removed my Social Security number, birth date and full account numbers.\n\nCredit bureau: [EQUIFAX / EXPERIAN / TRANSUNION]\nReport sections I think are wrong: [PASTE]\nWhat I believe is true, and the proof I have: [e.g. 'paid in full on 3/2025, have the bank statement' / 'never opened this account']\n\n1. List each item that looks inaccurate or incomplete, and say why in one line.\n2. For each, tell me what document would best prove it.\n3. Draft a short dispute letter to the credit bureau that names each item, says why it's wrong, asks for it to be corrected or deleted, and lists the copies I'm enclosing. Leave [brackets] for my name and address.\n4. Draft a matching letter to the business that reported it.\nDon't invent facts or laws. If something might be identity theft, tell me to go to IdentityTheft.gov.",
+ "watch_out": [
+  "Correct but negative information (like a real late payment) can't be disputed away. The FTC says most of it can stay on your report for seven years, and bankruptcies for 10.",
+  "Never paste your Social Security number or full account numbers into a chatbot. Add them to the printed letter yourself.",
+  "Disputing is free. Be wary of credit repair companies that charge up front to do what you can do yourself.",
+  "AI can misread a report. Check every item it flags against the report itself before you send anything."
+ ],
+ "faq": [
+  {"q": "How long does a credit bureau have to investigate my dispute?", "a": "The FTC says the credit bureau has 30 days to investigate, however you filed the dispute. It must send you the results in writing, plus a free copy of your report if anything changed."},
+  {"q": "Does it cost anything to dispute a credit report error?", "a": "No. Both the credit bureau and the business that reported the information have to correct wrong or incomplete information for free."},
+  {"q": "Should I dispute with the credit bureau or the business?", "a": "The FTC recommends both: dispute with each credit bureau that shows the mistake, and with the business that supplied the information."},
+  {"q": "Can I use ChatGPT to dispute my credit report?", "a": "Yes, for the reading and the writing: spotting likely errors and drafting the letters. You still send the dispute yourself, by mail or the bureau's own website, and you should leave sensitive numbers out of the chat."}
+ ],
+ "sources": [
+  {"label": "FTC: Disputing errors on your credit reports", "url": "https://consumer.ftc.gov/articles/disputing-errors-your-credit-reports", "kind": "official"},
+  {"label": "AnnualCreditReport.com: free weekly credit reports", "url": "https://www.annualcreditreport.com/index.action", "kind": "official"},
+  {"label": "Google search suggestions for \u201cuse chatgpt to dispute credit report\u201d (checked 2026-10-20)", "url": "https://www.google.com/search?q=use+chatgpt+to+dispute+credit+report", "kind": "article"}
+ ],
+ "tags": ["credit report", "credit score", "dispute letter", "Equifax", "Experian", "TransUnion", "identity theft", "FCRA"],
+ "popularity": null
+},
+{
+ "slug": "write-a-resignation-letter",
+ "title": "Write a resignation letter that keeps the door open",
+ "category": "work",
+ "source_date": null,
+ "summary": "You're leaving a job and want to say so clearly and kindly, without oversharing. AI can draft a short, professional resignation letter or email in a couple of minutes.",
+ "problem": "You're leaving a job and don't know how to word it, how much to explain, or what to include.",
+ "outcome": "A short, polite resignation letter or email with your last day, a thank-you and a handover offer, ready to send to your manager.",
+ "what_the_bot_does": [
+  "Tell it your last working day, who it goes to, and the tone you want (warm, neutral or brief).",
+  "Say what you do and don't want to mention, like the new job or the reason you're leaving.",
+  "Let it draft a letter and a shorter email version.",
+  "Check the notice period in your contract or employee handbook and fix the dates if needed.",
+  "Read it once out loud, make it sound like you, and send it after you've told your manager in person or on a call."
+ ],
+ "what_you_end_up_with": "A short, polite resignation letter or email with your last day, a thank-you and a handover offer, ready to send to your manager.",
+ "difficulty": "Easy",
+ "tools": [{"id": "chatgpt"}, {"id": "claude"}, {"id": "gemini"}, {"id": "grok"}],
+ "time_saved": "Editor's estimate: 20\u201330 minutes of staring at a blank page",
+ "prompt": "Write a resignation letter for me.\n\nMy role: [JOB TITLE]\nManager's name: [NAME]\nToday's date: [DATE]\nMy last working day: [DATE]\nTone: [WARM / NEUTRAL / VERY BRIEF]\nThings to mention: [e.g. thanks for the mentoring on X, happy to train my replacement]\nThings NOT to mention: [e.g. where I'm going, why I'm leaving]\n\nKeep it under 150 words, positive and professional. No complaints and no reasons unless I gave one. Then give me a 3-sentence email version. Don't send anything; I'll review it.",
+ "watch_out": [
+  "Check your contract or handbook for the required notice period before you pick a last day.",
+  "Keep it short and positive. A resignation letter usually ends up in your personnel file.",
+  "Don't paste confidential company details into the chat. The AI only needs your role, dates and tone."
+ ],
+ "faq": [
+  {"q": "Can AI write my resignation letter?", "a": "Yes. Give it your last day, your manager's name and the tone you want, and it will draft a short letter. Read it once and change anything that doesn't sound like you before you send it."},
+  {"q": "Do I have to give a reason for resigning?", "a": "Usually not. A resignation letter only needs to say you're resigning and give your last day. A thank-you and a handover offer are a kind extra."}
+ ],
+ "sources": [
+  {"label": "Google search suggestions for \u201cai to write resignation letter\u201d (checked 2026-10-20)", "url": "https://www.google.com/search?q=ai+to+write+resignation+letter", "kind": "article"}
+ ],
+ "tags": ["resignation letter", "quit job", "two weeks notice", "career", "email"],
+ "popularity": null
+}
+]

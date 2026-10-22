@@ -1,0 +1,66 @@
+{
+ "slug": "cancel-a-subscription-by-phone",
+ "title": "Have your bot phone a company to cancel a subscription",
+ "category": "money",
+ "source_date": "2026-10-20",
+ "summary": "Some cancellations are easier by phone than through endless web forms. With a phone-calling add-on, your bot can make the call for you and report back.",
+ "what_the_bot_does": [
+  "Gets a phone number of its own through a calling add-on you connect.",
+  "Looks up the company's cancellation line and the account details it will need.",
+  "Calls, says up front that it's an AI assistant calling for you, and asks to cancel.",
+  "Turns down retention offers unless you said you'd accept one.",
+  "Tells you what was said and saves any confirmation number."
+ ],
+ "what_you_end_up_with": "The subscription cancelled (or a clear answer why not) and a confirmation number, without you sitting on hold.",
+ "difficulty": "Medium",
+ "tools": [
+  {
+   "id": "grok-bot",
+   "note": "Needs a phone-calling add-on connected; the shared example used one"
+  }
+ ],
+ "prompt": "Call [company] at their customer service line and cancel my [subscription name]. My account details: [name on account, email, last 4 of card if needed]. Start the call by saying you're an AI assistant calling on my behalf. Turn down any discount or pause offer unless it's [what you'd accept]. Don't agree to anything that costs money. Afterwards, tell me what they said and give me the confirmation number.",
+ "watch_out": [
+  "Some companies won't act for anyone but the account holder. One user says an airline refused to rebook his flight for exactly that reason.",
+  "Have the bot announce it's an AI. One user says a restaurant owner almost hung up on his bot, thinking it was spam, until it identified itself.",
+  "A phone call is harder to undo than an email, so be specific about what the bot may agree to.",
+  "Check your next statement to make sure the charges actually stopped."
+ ],
+ "sources": [
+  {
+   "label": "X post by @skeptrune (2026-10-20): setup steps and a real Hulu cancellation call made by Grok Bot with a phone-calling add-on",
+   "url": "https://x.com/skeptrune/status/2112563230019289456",
+   "kind": "x"
+  },
+  {
+   "label": "X post by @mike_nopages (2026-10-17): his bot called an airline in Korean, but the airline wouldn't rebook because he wasn't on the call",
+   "url": "https://x.com/mike_nopages/status/2111346928185496016",
+   "kind": "x"
+  },
+  {
+   "label": "X post by @james_fowler_ (2026-10-18): a restaurant owner nearly hung up until the bot said it was an AI",
+   "url": "https://x.com/james_fowler_/status/2111888527826813404",
+   "kind": "x"
+  }
+ ],
+ "popularity": {
+  "platform": "x",
+  "post_id": "2112563230019289456",
+  "author": "@skeptrune",
+  "url": "https://x.com/skeptrune/status/2112563230019289456",
+  "posted_at": "2026-10-20",
+  "likes": 36,
+  "reposts": 3,
+  "replies": 7,
+  "bookmarks": 6,
+  "views": 1365,
+  "measured_at": "2026-10-20"
+ },
+ "tags": [
+  "cancel subscription",
+  "phone call",
+  "customer service",
+  "hold music",
+  "bills"
+ ]
+}

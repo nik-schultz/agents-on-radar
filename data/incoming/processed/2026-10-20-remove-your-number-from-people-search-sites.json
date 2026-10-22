@@ -1,0 +1,55 @@
+{
+ "slug": "remove-your-number-from-people-search-sites",
+ "title": "Get your phone number off people-search sites to cut spam calls",
+ "category": "family",
+ "source_date": "2026-10-19",
+ "summary": "A bot finds where your phone number is listed on people-search and data-broker sites, files the opt-out requests, and checks again later.",
+ "what_the_bot_does": [
+  "Searches people-search and data-broker sites for your name and phone number.",
+  "Submits each site's opt-out form using only the details it needs.",
+  "Clicks the confirmation links those sites email you.",
+  "Re-checks on a schedule you choose, because listings can come back."
+ ],
+ "what_you_end_up_with": "A list of where your number was listed, opt-outs filed, and a regular re-check.",
+ "difficulty": "Medium",
+ "tools": [
+  {
+   "id": "grok-bot",
+   "note": "The shared example is a Grok Bot template"
+  }
+ ],
+ "prompt": "Find where my name and phone number [name, city, phone] are listed on people-search and data-broker sites. Make me a list with links. Then submit each site's official opt-out request using only the minimum details it asks for, and confirm any verification emails. Don't pay for any removal service or create accounts without asking me. Re-check every [month] and tell me what's new.",
+ "watch_out": [
+  "Some opt-out pages ask for more personal info than they had. Share only the minimum.",
+  "Listings can reappear, so the re-check matters.",
+  "This cuts spam calls that come from your number being sold, but won't stop every robocall."
+ ],
+ "sources": [
+  {
+   "label": "X post by @PixelRainbowNFT (2026-10-19): a roundup of Grok Bot templates, including a Spam-Call Scrubber that files people-search opt-outs and re-checks",
+   "url": "https://x.com/PixelRainbowNFT/status/2112256029543329930",
+   "kind": "x"
+  }
+ ],
+ "popularity": {
+  "platform": "x",
+  "post_id": "2112256029543329930",
+  "author": "@PixelRainbowNFT",
+  "url": "https://x.com/PixelRainbowNFT/status/2112256029543329930",
+  "posted_at": "2026-10-19",
+  "likes": 6,
+  "reposts": 0,
+  "replies": 2,
+  "bookmarks": 4,
+  "views": 448,
+  "measured_at": "2026-10-20"
+ },
+ "tags": [
+  "spam calls",
+  "privacy",
+  "data brokers",
+  "people search",
+  "opt out",
+  "robocalls"
+ ]
+}

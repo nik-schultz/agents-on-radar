@@ -1,0 +1,6 @@
+{
+ "_help": "Add objects to a slot to show a paid placement. Fields: name, url (https), headline, body, cta, categories (optional list of category slugs). Empty slot = house ad pointing to /sponsor/.",
+ "featured_home": [],
+ "featured_category": [],
+ "use_case_sidebar": []
+}

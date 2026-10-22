@@ -1,0 +1,2607 @@
+# Agents on Radar: full text
+
+A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
+
+## Send a long video or thread to your bot with one reply
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/send-a-long-video-or-thread-to-your-bot/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-21
+Popularity: 59 likes, 5 reposts on X (https://x.com/Texas_Twins_Dad/status/2112662250225811697, measured 2026-10-21)
+
+See a long video or X thread you don't have time for? Reply to it by tagging your bot, and a short summary waits for you in your bot's app later.
+
+What the bot does:
+1. Watches for posts where you tag it with a request like "summarize this and send it to my bot".
+2. Reads the thread or video you replied to.
+3. Writes a short summary in plain words.
+4. Drops the summary into your bot's chat so you can read it when you have a minute.
+
+What you end up with: A read-later pile of short summaries, saved without copying links or leaving the app you were scrolling.
+
+Tools: Grok Bot (personal agents), Grok
+
+Prompt:
+When I send you a video or thread to save, write me a summary with: one sentence on what it is, the 3 to 5 main points, anything I should act on, and the link. Keep it under 150 words. Put new summaries in one running list, newest first, and once a day tell me how many are waiting. Don't reply to or post anything on X for me.
+
+Watch out:
+- Your reply that tags the bot is public, so anyone can see what you saved.
+- Summaries can miss nuance. Open the original before you quote it or act on it.
+
+Sources:
+- X post by @Texas_Twins_Dad (2026-10-20): replies "@bot summarize this and send it to my bot" under long videos and threads; the summary waits in the Grok Bot app: https://x.com/Texas_Twins_Dad/status/2112662250225811697
+
+## Let your bot handle your website's contact email
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/let-your-bot-handle-your-sites-contact-email/
+Category: Small business & side hustles | Difficulty: Medium | Added: 2026-10-21
+Popularity: 24 likes, 1 reposts on X (https://x.com/Texas_Twins_Dad/status/2112926907549323538, measured 2026-10-21)
+
+Forward the contact address of your website, club or class to your bot's own email. It reads each message, sums it up for you, and only answers when you say so.
+
+What the bot does:
+1. Receives a copy of everything sent to your site's contact address.
+2. Reads each message and sorts it, for example question, sign-up, complaint or spam.
+3. Sends you a short summary with a suggested reply.
+4. Sends the reply only after you approve it.
+
+What you end up with: One short summary instead of a cluttered contact inbox, with replies drafted and waiting for your OK.
+
+Tools: Grok Bot (personal agents), Gemini Spark, Zapier
+
+Prompt:
+Mail sent to my site [site name]'s contact address is forwarded to you. For each message: sort it as question, sign-up, complaint, sales pitch or spam; send me a 2-line summary; and draft a friendly reply in my voice. Bundle them into one message at [time] each day, with anything urgent sent right away. Never send a reply, click a link in the email, or share anyone's details without my OK.
+
+Watch out:
+- Strangers write to contact addresses, and some will try to give your bot instructions. Tell it to treat every email as information, never as orders.
+- Keep approval on for replies until you trust its drafts.
+
+Sources:
+- X post by @Texas_Twins_Dad (2026-10-21): his Grok Bot has its own email and runs the email side of his class site; contact mail is forwarded to it and it sends him summaries: https://x.com/Texas_Twins_Dad/status/2112926907549323538
+
+## Set spend limits and usage alerts on your AI accounts
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/set-ai-spend-limits-and-alerts/
+Category: Run your bots for less | Difficulty: Easy | Added: 2026-10-21
+Popularity: not measured
+
+Before a bot runs on autopilot, put a hard cap on what it can spend and check usage weekly, so a runaway loop can't run up a big bill.
+
+What the bot does:
+1. You set a monthly spend limit in each provider's billing settings.
+2. You give each bot its own workspace or project, with its own lower limit where the provider allows it.
+3. You check the usage dashboard once a week.
+4. When a limit is hit, requests stop instead of costing more.
+
+What you end up with: A known worst-case monthly bill, and an early warning when a bot starts using more than expected.
+
+Tools: Claude, ChatGPT, Gemini
+
+Prompt:
+Help me set safe limits. My providers: [list]. My expected monthly use: [estimate]. For each provider, tell me where in its official billing settings to set a spend limit and usage alerts, and suggest a limit about [1.5x] my estimate. Point me to the provider's own help page for each step.
+
+Watch out:
+- Anthropic says that when you reach a spend limit you set, API requests stop until you raise it or the period resets. Make sure your bot tells you when that happens.
+- On Anthropic you can't set spend limits on the default workspace, so put bots in their own workspace.
+- Consumer plans work differently: you hit usage limits instead of a bill.
+
+Sources:
+- Anthropic docs: spend limits, setting your own limit, workspace limits: https://docs.anthropic.com/en/api/rate-limits
+- Mistral pricing FAQ: the Studio dashboard tracks API usage and costs: https://mistral.ai/pricing
+
+## Keep your bot's prompts, tools and context short
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/keep-prompts-and-context-short/
+Category: Run your bots for less | Difficulty: Medium | Added: 2026-10-21
+Popularity: not measured
+
+You pay for everything the model reads on every run: your instructions, tool definitions, pasted pages and the conversation so far. Trimming those is often the easiest saving.
+
+What the bot does:
+1. Measures how many tokens each run reads (most consoles show this).
+2. Cuts instructions to the rules that matter and removes repeated examples.
+3. Turns off tools the bot doesn't need for this job.
+4. Starts fresh conversations instead of dragging a long history along, and sends only the part of a page it needs.
+
+What you end up with: Smaller, faster runs that cost less, with the same results.
+
+Tools: Claude, ChatGPT, n8n
+
+Prompt:
+Here is my bot's full prompt: [paste]. Shorten it to the fewest words that keep every rule and the output format. List anything you removed so I can check. Then tell me which tools or attachments it doesn't need for this job.
+
+Watch out:
+- Tools aren't free. Anthropic says its browser toolset adds about 6,600 input tokens per request and computer use about 4,500, before any screenshots.
+- Pages add up: Anthropic estimates an average 10 kB web page at about 2,500 tokens and a 500 kB PDF at about 125,000.
+- Don't cut safety rules (like 'ask before sending') to save tokens.
+
+Sources:
+- Anthropic pricing docs: tool overhead, web fetch token examples, tokenizer note: https://docs.anthropic.com/en/docs/about-claude/pricing
+
+## Stop always-on bots from burning tokens: run them less often, or on demand
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/schedule-bots-without-burning-tokens/
+Category: Run your bots for less | Difficulty: Easy | Added: 2026-10-21
+Popularity: 10 likes, 1 reposts on X (https://x.com/sunfellow/status/2112585672657969563, measured 2026-10-21)
+
+Every scheduled run costs tokens, even when nothing has changed. Match the schedule to how often the thing really changes, and switch fun-but-idle bots to run only when you ask.
+
+What the bot does:
+1. Lists every scheduled bot and how often it runs.
+2. Asks how often the thing it watches really changes (daily, weekly, rarely).
+3. Lowers the schedule to match, or switches the bot to on-demand.
+4. Makes each run cheap when nothing changed: a quick check first, a full report only if something did.
+
+What you end up with: The same alerts and reports with far fewer paid runs.
+
+Tools: Grok Bot (personal agents), ChatGPT dots (always-on agents), Claude Cowork, Zapier
+
+Prompt:
+Here are my scheduled bots: [name, what it does, how often it runs]. For each one, suggest the least frequent schedule that still catches what matters, or say if it should run only when I ask. For watchers, rewrite the instructions so each run first checks whether anything changed and stops with a one-line 'no change' if nothing did.
+
+Watch out:
+- One user who set several agents to run multiple times a day says he switched them all to on-demand once he saw what autopilot cost.
+- A slower schedule means slower alerts. Keep fast checks only for things that are really time-sensitive.
+
+Sources:
+- X post by @sunfellow (2026-10-20): moved his Grok Bot agents from several runs a day to on-demand after seeing the cost: https://x.com/sunfellow/status/2112585672657969563
+- Anthropic pricing docs: "Monitor usage patterns: Track token consumption to identify optimization opportunities": https://docs.anthropic.com/en/docs/about-claude/pricing
+
+## Run open models on your own computer (or a cheap host) for simple jobs
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/run-open-models-on-your-own-computer/
+Category: Run your bots for less | Difficulty: Advanced | Added: 2026-10-21
+Popularity: not measured
+
+Open-weight models can run on your own computer with a free tool like Ollama, so routine jobs cost nothing per message. Some hosts also run open models for a fraction of big-model prices.
+
+What the bot does:
+1. Installs a local model runner like Ollama on your computer.
+2. Downloads an open model that fits your machine.
+3. Points your bot's simple, private jobs (sorting, summarizing notes) at the local model.
+4. Keeps a paid cloud model only for jobs the local one can't handle.
+
+What you end up with: Routine bot jobs that run on your own hardware with no per-message bill, and your private text staying on your machine.
+
+Tools: Ollama (local models), n8n
+
+Prompt:
+Help me run [task, e.g. 'sort my notes into categories'] on a local model. My computer: [Mac/Windows, RAM, graphics card if known]. Suggest one open model that fits, the exact Ollama commands to install and run it, and a short test so I can check the quality before relying on it.
+
+Watch out:
+- Local models are usually less capable than top cloud models. Test on real examples first.
+- Your computer has to be on, and big models need a lot of memory.
+- Licences vary. Mistral says its open-weight models are Apache 2.0 for research and individual use, while commercial deployments need a Mistral licence.
+
+Sources:
+- Ollama: "Run AI models locally and in the cloud"; prompts "never stored or trained on": https://ollama.com
+- GroqCloud models and prices: hosted open-weight gpt-oss-120b at $0.15 / $0.60 per million tokens: https://console.groq.com/docs/models
+- Mistral pricing FAQ: self-hosting and open-weight licences: https://mistral.ai/pricing
+
+## Cut your AI bill with prompt caching and batch discounts
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/cut-costs-with-caching-and-batch/
+Category: Run your bots for less | Difficulty: Advanced | Added: 2026-10-21
+Popularity: not measured
+
+If your bot sends the same long instructions every time, caching makes the repeat part much cheaper. If results can wait a few hours, batch processing halves the price at several providers.
+
+What the bot does:
+1. Puts the parts that never change (instructions, examples, reference docs) at the start of the prompt so they can be cached.
+2. Re-uses that cached part on every run instead of paying full price for it.
+3. Collects jobs that aren't urgent (nightly summaries, weekly reports) into one batch.
+4. Sends the batch at the discounted rate and picks up the results later.
+
+What you end up with: The same bot output, with repeated instructions billed at a fraction of the input price and non-urgent work at half price.
+
+Tools: n8n, Claude, Gemini
+
+Prompt:
+Rewrite my bot prompt for caching. Put everything that stays the same on every run (role, rules, examples, reference text) first, and everything that changes (today's emails, today's date) last. Mark where the fixed part ends. My prompt: [paste].
+
+Watch out:
+- Caching only pays if the same prefix is re-used soon: Anthropic's 5-minute cache write costs 1.25x, and a read costs 0.1x the input price on most models.
+- Batch jobs aren't instant. OpenAI says each batch completes within 24 hours.
+- Not every model supports batch; check the provider's model page.
+
+Sources:
+- OpenAI Batch API guide: 50% cost discount, completes within 24 hours: https://platform.openai.com/docs/guides/batch
+- Anthropic pricing: prompt caching multipliers and 50% Batch API discount: https://docs.anthropic.com/en/docs/about-claude/pricing
+- Gemini API pricing: Batch API (50% cost reduction) and context caching: https://ai.google.dev/gemini-api/docs/pricing
+- Mistral pricing FAQ: batch reduces price by 50%, cached input up to 90% off: https://mistral.ai/pricing
+
+## Decide between a monthly AI plan and paying per use
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/subscription-or-pay-per-use/
+Category: Run your bots for less | Difficulty: Easy | Added: 2026-10-21
+Popularity: not measured
+
+A monthly plan (like Claude Pro) gives you a flat price with usage limits. Paying per use through an API costs exactly what you use. Which is cheaper depends on how much your bots run.
+
+What the bot does:
+1. Looks at how often your bots run and roughly how much they read and write.
+2. Estimates a monthly API bill from the providers' official per-token prices.
+3. Compares that with the flat monthly plans you're considering.
+4. Tells you which is cheaper for your usage, and where the limits would bite.
+
+What you end up with: A clear answer for your own usage: stay on a plan, switch to pay-per-use, or mix both.
+
+Tools: Claude, ChatGPT, Gemini
+
+Prompt:
+Help me compare costs. My bots: [list each bot, how often it runs, and roughly how much it reads, e.g. '30 emails a day']. Assume about 4 characters per token. Using these official per-million-token prices: [paste rows from the price table], estimate my monthly API cost for each model. Then compare with these plans: [plan and price]. Show your math.
+
+Watch out:
+- Plans have usage limits. Anthropic says paid plans reset on a rolling five-hour window with weekly limits on top.
+- On Claude, when you hit a plan limit you can turn on usage credits billed at standard API rates, and Max plans include $100 to $200 a month in API credits.
+- Token counts vary. Anthropic says its newer models' tokenizer makes about 30% more tokens for the same text.
+
+Sources:
+- Claude plans and FAQ (official): https://claude.com/pricing
+- Anthropic API pricing (official): https://docs.anthropic.com/en/docs/about-claude/pricing
+- Mistral pricing: Pro $14.99/month, plus how API pricing is calculated: https://mistral.ai/pricing
+
+## Build and test your bot on a free tier before you pay
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/test-your-bot-on-a-free-tier/
+Category: Run your bots for less | Difficulty: Easy | Added: 2026-10-21
+Popularity: not measured
+
+Several AI providers let you try their API or app for free. Use that to prove your bot works before you put a card on file, and know what you give up on the free tier.
+
+What the bot does:
+1. Runs your bot on a free plan or free API tier while you test it.
+2. Uses small, realistic test runs (a day's email, one web page).
+3. Shows you how many tokens each run uses, so you can estimate a real bill.
+4. Moves to a paid plan only once it's doing a job you'd pay for.
+
+What you end up with: A bot you know works, a realistic cost estimate, and no surprise bill while you were experimenting.
+
+Tools: Gemini, Claude, ChatGPT, Grok
+
+Prompt:
+I'm testing a bot on a free tier. After each run, tell me roughly how many input and output tokens you used, and keep a running total for this test. Use only the sample data I give you: [sample].
+
+Watch out:
+- Google says content sent on the Gemini API free tier is used to improve its products; paid-tier content isn't. Don't test with private data on a free tier.
+- Free tiers have lower limits and some models aren't included (Gemini 4 Argon isn't on the free tier).
+
+Sources:
+- Gemini API pricing: free tier, "Content used to improve our products": https://ai.google.dev/gemini-api/docs/pricing
+- Anthropic pricing FAQ: "New users receive a small amount of free credits to test the API": https://docs.anthropic.com/en/docs/about-claude/pricing
+- ChatGPT pricing: "The free version of ChatGPT is available to everyone": https://chatgpt.com/pricing
+- xAI: Grok is "Free to try on the web and in the apps": https://x.ai/grok
+
+## Use a small model for simple jobs and save the big one for hard ones
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/pick-a-smaller-model-for-simple-jobs/
+Category: Run your bots for less | Difficulty: Medium | Added: 2026-10-21
+Popularity: not measured
+
+Most bot jobs (sorting email, summarizing, checking a page) don't need the most powerful model. The small models cost a fraction as much, so route easy work to them and only send hard problems up.
+
+What the bot does:
+1. Sends routine work (summaries, sorting, yes/no checks) to a small, cheap model.
+2. Sends hard work (tricky reasoning, long documents, important drafts) to a bigger model.
+3. Optionally lets the small model decide: if it isn't sure, it hands the job up.
+4. Logs which model handled what, so you can see where the money goes.
+
+What you end up with: The same results on everyday jobs for a fraction of the cost, with the expensive model kept for the jobs that need it.
+
+Tools: n8n, Make, Zapier, Grok Bot (personal agents)
+
+Prompt:
+You are a triage step. Read the task below and answer with one word: SIMPLE (summarize, sort, extract, yes/no) or HARD (multi-step reasoning, legal/medical/financial wording, long documents, anything you're unsure about). Task: [paste task].
+
+Watch out:
+- Test the small model on 10 real examples before switching. Cheap is no good if it gets things wrong.
+- Prices change. Anthropic's small Haiku 5.5 lists $0.10 / $0.50 per million tokens and its top Fable 5.1 $10 / $50 (checked Oct 21, 2026); see our price table for the latest.
+
+Sources:
+- Anthropic pricing docs: "Choose Haiku for simple tasks, Sonnet for most production workloads, and Opus for the most complex reasoning": https://docs.anthropic.com/en/docs/about-claude/pricing
+- OpenAI API pricing (official): https://platform.openai.com/docs/pricing
+- Gemini API pricing (official): https://ai.google.dev/gemini-api/docs/pricing
+
+## Give your agents their own Apple account so they share reminders, notes and calendar
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/give-your-agents-a-shared-apple-account/
+Category: Work & career | Difficulty: Advanced | Added: 2026-10-21
+Popularity: 251 likes, 15 reposts on X (https://x.com/BrianRoemmele/status/2109351823996035338, measured 2026-10-21)
+
+A Mac signed in to a separate Apple Account can become the shared desk where your agents leave each other reminders, notes, calendar events and messages, while your personal account stays private.
+
+What the bot does:
+1. You sign a separate Apple Account into the Mac your agents use.
+2. The agent installs small command-line tools for Reminders, Notes, Calendar and Messages.
+3. You approve each permission in System Settings yourself (the bot can't click Allow).
+4. After that, agents read and write reminders, notes and events in that account, and changes sync through iCloud.
+
+What you end up with: A shared to-do list, notebook and calendar your agents all use, kept apart from your own account.
+
+Tools: Grok Bot (personal agents)
+
+Prompt:
+I've signed a separate Apple Account into this Mac for my agents. Check what's installed, then set up command-line access to Reminders, Notes and Calendar for that account only. Tell me exactly which permission prompts to approve in System Settings. Never touch my personal account, mail or contacts.
+
+Watch out:
+- Keep your personal mail, notes and contacts on your main account. The author has agents write only into the dedicated account.
+- Granting Terminal access to Mail, Messages or Full Disk Access is powerful. Only grant what the agents need.
+
+Sources:
+- X post by @BrianRoemmele (2026-10-11): how he uses a dedicated Apple Account on a Mac as the shared desk for his Grok Bot agents, with a setup script: https://x.com/BrianRoemmele/status/2109351823996035338
+
+## Put a small team of agents on one project, each with its own job
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/team-of-agents-with-roles/
+Category: Small business & side hustles | Difficulty: Advanced | Added: 2026-10-21
+Popularity: 209 likes, 36 reposts on X (https://x.com/Parul_Gautam7/status/2108202625929970077, measured 2026-10-21)
+
+Instead of one chatbot doing everything, give separate agents separate roles (one researches, one builds) and let them hand work to each other in a shared conversation you can watch.
+
+What the bot does:
+1. You set up two or more agents, each with one role, like "market research" and "website builder".
+2. The first agent does its part and shares what it found.
+3. The next agent picks that up and builds on it.
+4. You and your partner watch in the same group conversation and step in when needed.
+
+What you end up with: One finished piece of work (in the source, a simple website) built from a research step and a build step, with every hand-off visible.
+
+Tools: Grok Bot (personal agents), n8n, Make
+
+Prompt:
+We're a team of two agents. Agent 1 (Researcher): research [topic] and write a one-page brief with sources. Agent 2 (Builder): when the brief is ready, use it to build [deliverable]. Post each hand-off in this chat so I can see it. Ask me before publishing, sending or buying anything.
+
+Watch out:
+- The source post promotes a specific product (Teamily); treat it as a pitch, not an independent review.
+- Keep a plain log of which agent decided what, so you can tell where a mistake came from.
+- Keep business and personal agents separate so private details don't flow into the wrong place.
+
+Sources:
+- X post by @Parul_Gautam7 (2026-10-08): a Market Research agent and a Website Builder agent hand work to each other in one shared group conversation: https://x.com/Parul_Gautam7/status/2108202625929970077
+
+## Hand off tasks to your agent by voice while you drive
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/hand-off-tasks-by-voice-while-driving/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-21
+Popularity: 1 likes, 0 reposts on X (https://x.com/nmtalkss/status/2107157837134843995, measured 2026-10-21)
+
+Long drive? Talk to your agent on a voice call and hand off research, follow-ups and to-dos, then find them done when you arrive.
+
+What the bot does:
+1. Takes a hands-free voice call from you.
+2. Turns what you say into tasks: research, drafts, reminders, routine changes.
+3. Works on them while you drive.
+4. Leaves a summary of what's done and what needs your OK.
+
+What you end up with: A list of tasks started or finished during the drive, waiting for your review.
+
+Tools: Grok Bot (personal agents), ChatGPT, Gemini
+
+Prompt:
+I'm driving, so keep replies short and spoken. I'll list tasks one at a time. For each one, repeat it back in one sentence and start it. Research and drafts are fine; don't send, post, buy or book anything until I review it later. When I hang up, write me a summary: done, in progress, waiting for my OK.
+
+Watch out:
+- Use hands-free only, and keep your eyes on the road. Don't read the summaries until you've stopped.
+- Have it hold anything that sends or buys until you can check it properly.
+
+Sources:
+- X post by @nmtalkss (2026-10-05): on a 2-hour drive he talked to his "CEO agent" in Grok Bot and handed off research and other tasks: https://x.com/nmtalkss/status/2107157837134843995
+
+## Get roadside help abroad when nobody speaks your language
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/get-roadside-help-abroad/
+Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-21
+Popularity: 0 likes, 0 reposts on X (https://x.com/farmerathlete/status/2111861042531782681, measured 2026-10-21)
+
+Broken down in another country and the insurer's phone line is in a language you don't speak? An agent can find the right help form, fill it in with your details and get help moving.
+
+What the bot does:
+1. Takes where you are, the car, and what happened.
+2. Finds your insurer's or the rental company's roadside-assistance form or number for that country.
+3. Fills in the form with your details and location.
+4. Tells you what it submitted and what happens next.
+
+What you end up with: A roadside-assistance request filed in the local system, and a plain summary of what comes next.
+
+Tools: Grok Bot (personal agents), ChatGPT agent (cloud browser), Gemini
+
+Prompt:
+My car broke down at [location / share live location] in [country]. Car: [make, model, plate]. Insurer or rental company: [name, policy or booking number]. Find their official roadside-assistance form or number for this country. Fill in the form with my details, translate anything I need to know, and show me what you'll submit before you send it.
+
+Watch out:
+- If you're in danger, call the local emergency number first (112 across the EU).
+- Check the insurer's official site so the bot doesn't use a look-alike form.
+
+Sources:
+- X post by @farmerathlete (2026-10-18): broken down on the Autobahn, Grok Bot found the right insurer form, filled it in and help arrived an hour later: https://x.com/farmerathlete/status/2111861042531782681
+
+## Hand a clunky web form or app to an agent that uses the computer for you
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/hand-a-clunky-web-form-to-an-agent/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-21
+Popularity: 3 likes, 0 reposts on X (https://x.com/brian_a_burns/status/2112326114542858689, measured 2026-10-21)
+
+Some software you only touch once a year. A computer-use agent can click through it for you, from a login you control, while you watch.
+
+What the bot does:
+1. Opens the site or app in its own browser.
+2. Asks you to sign in yourself (or uses a password manager you set up).
+3. Fills in the form from the details you gave it.
+4. Stops before the final submit and shows you what it entered.
+
+What you end up with: The form filled in correctly without you learning the software, ready for your final click.
+
+Tools: ChatGPT agent (cloud browser), Grok Bot (personal agents), Claude Cowork
+
+Prompt:
+Open [website or app] and fill in the [form name] for me. Here are the details: [list everything it needs]. When you reach a login, stop and let me sign in. If any field is unclear, ask me instead of guessing. Stop before the final Submit button and show me a summary of everything you entered.
+
+Watch out:
+- Sign in yourself or use a password manager. Don't paste passwords into the chat.
+- Always check the summary before submitting. Agents can misread a page.
+
+Sources:
+- X post by @brian_a_burns (2026-10-19): ChatGPT with computer use filled in a complicated procurement request in software he had never used: https://x.com/brian_a_burns/status/2112326114542858689
+
+## Have an agent contact tradespeople and line up quotes for a home project
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/line-up-contractors-for-a-home-project/
+Category: Family & home | Difficulty: Medium | Added: 2026-10-21
+Popularity: 9 likes, 0 reposts on X (https://x.com/NaughtyNomad/status/2094720744030642252, measured 2026-10-21)
+
+Instead of calling round electricians, plumbers and roofers yourself, let an agent reach out to all of them, collect their replies and put them side by side.
+
+What the bot does:
+1. Takes your project description and the trades you need.
+2. Finds local tradespeople for each trade.
+3. Contacts each one with the same clear brief.
+4. Collects the replies and puts them in one table: who, when they can start, what's included, what they asked.
+
+What you end up with: One table of replies from every trade, so you can pick who to meet.
+
+Tools: ChatGPT agent (cloud browser), Grok Bot (personal agents), Meta Muse
+
+Prompt:
+I'm planning [project] at [town/area]. I need: [electrician, plumber, roofer...]. Find [5] well-reviewed local businesses for each. Draft one short message per business with this brief: [details, timing, photos]. Show me the drafts and the list first, and only send after I say yes. Then collect the replies in a table: business, trade, earliest start, what's included, questions they asked.
+
+Watch out:
+- Approve every message before it goes out. These are real businesses spending time on your request.
+- Quotes from a message aren't contracts. Check licences and references before you hire.
+
+Sources:
+- X post by @NaughtyNomad (2026-09-01): an agent using ChatGPT contacted every subcontractor on the island for his renovation and compared their quotes: https://x.com/NaughtyNomad/status/2094720744030642252
+
+## Have an agent research a used car from its listing link
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/research-a-used-car-from-a-listing/
+Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-21
+Popularity: 1 likes, 0 reposts on X (https://x.com/IamOnurYilmaz/status/2110811317514940897, measured 2026-10-21)
+
+Drop in a used-car listing link and let an agent dig in: what the model is known for, the car's damage history and the questions to ask before you call the seller.
+
+What the bot does:
+1. Opens the listing and pulls out the make, model, year, mileage and VIN if shown.
+2. Researches common problems for that model and year.
+3. Looks up the car's damage and history record.
+4. Gives you a short report with red flags and questions for the seller.
+
+What you end up with: A one-page report on the car, its history and what to ask, before you spend time on a viewing.
+
+Tools: Grok Bot (personal agents), ChatGPT agent (cloud browser), Gemini
+
+Prompt:
+Research this used car for me: [listing link]. Pull out the make, model, year, mileage and VIN if shown. Tell me the common problems for this model and year, what the history or damage record shows (say which site you checked), and anything in the listing that doesn't add up. End with 5 questions to ask the seller. Don't contact the seller.
+
+Watch out:
+- Some history reports are paid. The agent should tell you which source it used and not buy anything without asking.
+- The source post also had a second agent phone the seller. Decide yourself before letting a bot call anyone for you.
+
+Sources:
+- X post by @IamOnurYilmaz (2026-10-15): Grok Bot researched a used car from a listing link and checked its damage history, then had another agent call the seller: https://x.com/IamOnurYilmaz/status/2110811317514940897
+
+## Get pinged when a prescription is ready, and told when to leave
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/prescription-ready-and-time-to-leave/
+Category: Health & care | Difficulty: Easy | Added: 2026-10-21
+Popularity: 47 likes, 0 reposts on X (https://x.com/WaitWhat/status/2104354985224069224, measured 2026-10-21)
+
+A personal agent can sweep your email every morning for "ready for pickup" notices, and check live traffic before your appointments to tell you when to head out.
+
+What the bot does:
+1. Checks your email every morning for pharmacy notices.
+2. Pings you the moment a prescription is ready for pickup.
+3. Looks at your calendar for today's appointments.
+4. Checks live traffic and tells you exactly when to leave.
+
+What you end up with: A ping when your prescription is ready and a "leave now" nudge before each appointment.
+
+Tools: Meta Muse, Gemini Spark, Grok Bot (personal agents)
+
+Prompt:
+Every morning at [8:00am], check my email for messages from [pharmacy name] saying a prescription is ready, and message me right away if you find one. Also look at my calendar for today. For each appointment with an address, check live traffic from [home/work] and tell me what time to leave to arrive [10] minutes early. Don't reply to any emails or change my calendar.
+
+Watch out:
+- It only works if your pharmacy sends email or text notices to an account the agent can read.
+- Health details are sensitive. Use an agent you trust with your email.
+
+Sources:
+- X post by @WaitWhat (2026-09-27): a summary (written by his Meta Muse agent) of what it does for him, including a morning pharmacy watchdog and traffic-based leave times; the post includes a referral code: https://x.com/WaitWhat/status/2104354985224069224
+
+## Send all your newsletters to your bot and get one daily report
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/newsletter-daily-report/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-21
+Popularity: 212 likes, 24 reposts on X (https://x.com/BrianRoemmele/status/2110433542182457609, measured 2026-10-21)
+
+Subscribe your newsletters to your bot's own email address. It reads every issue and sends you one short report each day, with a score that tells you which ones are worth reading in full.
+
+What the bot does:
+1. Gets its own email address, and you subscribe your newsletters to it.
+2. Reads every issue that arrives, and follows the link when an email is only a teaser.
+3. Writes an executive summary of everything it read, plus one paragraph per issue.
+4. Rates each issue 1 to 10 so you know what to read in full.
+5. Sends you the report every day.
+
+What you end up with: One daily digest in place of a pile of unread newsletters, and a clear signal about which subscriptions earn their place.
+
+Tools: Grok Bot (personal agents), ChatGPT dots (always-on agents), Gemini Spark
+
+Prompt:
+Every morning at [7:00am], read every newsletter that arrived in [your inbox / your own email address] since yesterday. If an email is only a teaser, follow its main link. Start with a 5-bullet summary of the most important points across all of them. Then give one short paragraph per issue and rate it 1 to 10 for how useful and original it was. Don't click unsubscribe links or reply to anyone.
+
+Watch out:
+- Give the bot its own address for newsletters so it never needs access to your personal inbox.
+- Summaries can miss nuance. Read the full issue before acting on anything important.
+
+Sources:
+- X post by @BrianRoemmele (2026-10-14): an "Email Newsletter Daily Report" Grok Bot for 3,400+ newsletter subscriptions: https://x.com/BrianRoemmele/status/2110433542182457609
+
+## Give your bot a phone number so it can call and book for you
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/call-and-book-by-phone/
+Category: Bookings & travel | Difficulty: Medium | Added: 2026-10-21
+Popularity: 859 likes, 93 reposts on X (https://x.com/BrianRoemmele/status/2111812467500458135, measured 2026-10-21)
+
+Plenty of places still only take bookings by phone. Once your bot has its own number, it can call a restaurant, a vet or a salon, book the slot and tell you what was said.
+
+What the bot does:
+1. Finds the business's number on its own.
+2. Asks what it needs: how flexible you are on time, the name to book under, a callback number.
+3. Reads the plan back and waits for your OK before it dials.
+4. Makes the call, says it's an AI calling for you, and books.
+5. Tells you what happened in plain English, quotes what the place said, and offers to add it to your calendar.
+
+What you end up with: A booking made by phone, a plain summary of the call and a calendar entry, without you making the call.
+
+Tools: Grok Bot (personal agents), Meta Muse, Instinct
+
+Prompt:
+Call [restaurant / vet / salon] and book [what] for [number of people / pet's name] on [day] around [time]. I'm flexible between [earliest] and [latest]. Book under [name], callback number [number]. Before you dial, read the plan back to me and wait for my OK. Say you're an AI assistant calling for me. Don't give any card or deposit details and don't leave a voicemail. Afterwards, tell me exactly what they said and add it to my calendar.
+
+Watch out:
+- The bot needs its own phone number first, through a calling add-on you connect. Check that service's limits and terms.
+- A phone call is harder to undo than an email. One user who had his bot book a vet appointment says exactly that.
+- Have it say it's an AI right away. The author of the restaurant bot built in rules: no card details, no voicemails unless asked, one call at a time, never calling on its own.
+
+Sources:
+- X post by @BrianRoemmele (2026-10-18): his Grok Bot calls the restaurant, books the table and reports back; guardrails and other uses listed: https://x.com/BrianRoemmele/status/2111812467500458135
+- X post by @RetiredArmy_Guy (2026-10-19): his Grok Bot got its own phone number and booked his dog's vet appointment by phone: https://x.com/RetiredArmy_Guy/status/2112154131028652535
+
+## Write a letter of recommendation for someone
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/write-a-letter-of-recommendation/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-21
+Popularity: not measured
+
+Someone asked you for a reference letter and you want it to sound specific and honest, not generic. AI can turn your notes and their resume into a solid first draft.
+
+What the bot does:
+1. Ask the person for their resume, the job or program they're applying to, and any deadline or required format.
+2. Jot down two or three real moments you saw them do good work. These are what make the letter believable.
+3. Give the AI your notes, how you know the person and for how long, and let it draft the letter.
+4. Check every claim in the draft. Delete anything you didn't actually see or can't stand behind.
+5. Put it on your letterhead or in an email, sign it, and send it the way the employer or school asked.
+
+What you end up with: A one-page letter with real examples of the person's work, written in your voice, ready for you to sign and send.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+Help me write a letter of recommendation.
+
+I am: [YOUR NAME, YOUR TITLE]
+I'm recommending: [THEIR NAME]
+How I know them and for how long: [e.g. I managed her for 3 years at X]
+What they're applying for: [JOB / SCHOOL / PROGRAM]
+Real examples of their work: [2-3 specific things you saw them do]
+Strengths to highlight: [e.g. reliable, great with customers]
+Attached: their resume and the job or program description.
+
+Write a one-page letter in a warm, professional tone. Use only the examples I gave you and don't invent achievements, numbers or titles. Match the strengths to what the job or program asks for. End with an offer to answer questions and a line for my contact details. Don't send anything; I'll review it.
+
+Watch out:
+- Only sign what's true. You're vouching for the person, and a made-up achievement can hurt them and you.
+- Check whether the employer or school wants a specific format, a form, or the letter sent directly by you.
+- Ask before sharing personal details like grades, health or family situations, and leave them out of the chat if you don't need them.
+
+Sources:
+- Google search suggestions for “use ai to write a letter of recommendation” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+write+a+letter+of+recommendation
+
+## Get your phone number off people-search sites to cut spam calls
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/remove-your-number-from-people-search-sites/
+Category: Family & home | Difficulty: Medium | Added: 2026-10-20
+Popularity: 6 likes, 0 reposts on X (https://x.com/PixelRainbowNFT/status/2112256029543329930, measured 2026-10-21)
+
+A bot finds where your phone number is listed on people-search and data-broker sites, files the opt-out requests, and checks again later.
+
+What the bot does:
+1. Searches people-search and data-broker sites for your name and phone number.
+2. Submits each site's opt-out form using only the details it needs.
+3. Clicks the confirmation links those sites email you.
+4. Re-checks on a schedule you choose, because listings can come back.
+
+What you end up with: A list of where your number was listed, opt-outs filed, and a regular re-check.
+
+Tools: Grok Bot (personal agents)
+
+Prompt:
+Find where my name and phone number [name, city, phone] are listed on people-search and data-broker sites. Make me a list with links. Then submit each site's official opt-out request using only the minimum details it asks for, and confirm any verification emails. Don't pay for any removal service or create accounts without asking me. Re-check every [month] and tell me what's new.
+
+Watch out:
+- Some opt-out pages ask for more personal info than they had. Share only the minimum.
+- Listings can reappear, so the re-check matters.
+- This cuts spam calls that come from your number being sold, but won't stop every robocall.
+
+Sources:
+- X post by @PixelRainbowNFT (2026-10-19): a roundup of Grok Bot templates, including a Spam-Call Scrubber that files people-search opt-outs and re-checks: https://x.com/PixelRainbowNFT/status/2112256029543329930
+
+## Log your meals by talking and get a daily weight check-in
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/log-meals-and-weight-by-voice/
+Category: Health & care | Difficulty: Easy | Added: 2026-10-20
+Popularity: 66 likes, 3 reposts on X (https://x.com/RayFernando1337/status/2112529809557401660, measured 2026-10-21)
+
+Tell your bot what you ate, out loud, and it keeps the food log for you. It can also check in on your weight each morning.
+
+What the bot does:
+1. Listens when you say what you ate and writes it into a simple food log.
+2. Estimates the basics you care about, like calories or protein, and labels them as estimates.
+3. Checks in each morning about your weight (or reads it from your scale's app if you connect it).
+4. Sends a short weekly summary of trends.
+
+What you end up with: A food and weight log that fills itself in, without typing into a tracking app.
+
+Tools: Grok Bot (personal agents), ChatGPT, Gemini
+
+Prompt:
+Be my food and weight log. When I tell you what I ate, add it to a log with the date, time and a rough estimate of [calories / protein]; label estimates as estimates. Every morning at [time], ask me for my weight and add it. Every [Sunday], send me a short summary of the week's trends. Don't give medical advice; tell me to ask my doctor if something looks off.
+
+Watch out:
+- Calorie and nutrition numbers from a description are rough estimates.
+- This is health data. Check what your bot's app stores and who can see it.
+- It's not a doctor. Talk to one before big diet changes, especially with a health condition.
+
+Sources:
+- X post by @RayFernando1337 (2026-10-20): his Grok Bot logs his food when he talks, gets a morning check-in from his Withings scale and does his receipts (video): https://x.com/RayFernando1337/status/2112529809557401660
+
+## Have your bot make a customer-service phone call for you
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/make-a-customer-service-call/
+Category: Inbox, calls & paperwork | Difficulty: Medium | Added: 2026-10-20
+Popularity: 63 likes, 3 reposts on X (https://x.com/skeptrune/status/2112563230019289456, measured 2026-10-21)
+
+Some jobs still need a phone call, like cancelling a service or sorting out an account. With a phone-calling add-on, your bot can make the call, sit on hold and report back.
+
+What the bot does:
+1. Gets a phone number of its own through a calling add-on you connect.
+2. Looks up the company's customer-service line and the account details it will need.
+3. Calls, says up front that it's an AI assistant calling for you, and asks for exactly what you said (in the shared example, cancelling a streaming service).
+4. Sticks to your rules: it turns down offers and agrees to nothing you didn't approve.
+5. Tells you what was said and saves any confirmation number.
+
+What you end up with: The call handled (for example, a service cancelled), a plain summary of what was said and any confirmation number, without you sitting on hold.
+
+Tools: Grok Bot (personal agents)
+
+Prompt:
+Call [company] at their customer service line and cancel my [subscription name]. My account details: [name on account, email, last 4 of card if needed]. Start the call by saying you're an AI assistant calling on my behalf. Turn down any offers unless it's [what you'd accept], and don't agree to anything else. Afterwards, tell me what they said and give me the confirmation number.
+
+Watch out:
+- Some companies won't act for anyone but the account holder. One user says an airline refused to rebook his flight for exactly that reason.
+- Have the bot announce it's an AI. One user says a restaurant owner almost hung up on his bot, thinking it was spam, until it identified itself.
+- A phone call is harder to undo than an email, so be specific about what the bot may agree to.
+- Check afterwards that the change really happened (for example, the next charge doesn't appear).
+
+Sources:
+- X post by @skeptrune (2026-10-20): setup steps and a real Hulu cancellation call made by Grok Bot with a phone-calling add-on: https://x.com/skeptrune/status/2112563230019289456
+- X post by @mike_nopages (2026-10-17): his bot called an airline in Korean, but the airline wouldn't rebook because he wasn't on the call: https://x.com/mike_nopages/status/2111346928185496016
+- X post by @james_fowler_ (2026-10-18): a restaurant owner nearly hung up until the bot said it was an AI: https://x.com/james_fowler_/status/2111888527826813404
+
+## Write a resignation letter that keeps the door open
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/write-a-resignation-letter/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-20
+Popularity: not measured
+
+You're leaving a job and want to say so clearly and kindly, without oversharing. AI can draft a short, professional resignation letter or email in a couple of minutes.
+
+What the bot does:
+1. Tell it your last working day, who it goes to, and the tone you want (warm, neutral or brief).
+2. Say what you do and don't want to mention, like the new job or the reason you're leaving.
+3. Let it draft a letter and a shorter email version.
+4. Check the notice period in your contract or employee handbook and fix the dates if needed.
+5. Read it once out loud, make it sound like you, and send it after you've told your manager in person or on a call.
+
+What you end up with: A short, polite resignation letter or email with your last day, a thank-you and a handover offer, ready to send to your manager.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+Write a resignation letter for me.
+
+My role: [JOB TITLE]
+Manager's name: [NAME]
+Today's date: [DATE]
+My last working day: [DATE]
+Tone: [WARM / NEUTRAL / VERY BRIEF]
+Things to mention: [e.g. thanks for the mentoring on X, happy to train my replacement]
+Things NOT to mention: [e.g. where I'm going, why I'm leaving]
+
+Keep it under 150 words, positive and professional. No complaints and no reasons unless I gave one. Then give me a 3-sentence email version. Don't send anything; I'll review it.
+
+Watch out:
+- Check your contract or handbook for the required notice period before you pick a last day.
+- Keep it short and positive. A resignation letter usually ends up in your personnel file.
+- Don't paste confidential company details into the chat. The AI only needs your role, dates and tone.
+
+Sources:
+- Google search suggestions for “ai to write resignation letter” (checked 2026-10-20): https://www.google.com/search?q=ai+to+write+resignation+letter
+
+## Plan a week of family meals and fill the grocery cart
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/family-meal-plan-and-grocery-order/
+Category: Shopping & groceries | Difficulty: Medium | Added: 2026-10-20
+Popularity: 1013 likes, 30 reposts on X (https://x.com/lyndallschreinr/status/2107888353630908437, measured 2026-10-21)
+
+A bot keeps your recipe list, writes the week's meal plan and turns it into a shopping list that fills your grocery cart.
+
+What the bot does:
+1. Keeps a simple list of the recipes your family actually eats.
+2. Every week, picks meals that fit your schedule and budget.
+3. Prints a meal plan you can stick on the fridge.
+4. Turns the plan into one shopping list, grouped by aisle.
+5. Hands the list to a shopping agent that fills your Instacart cart. You check out yourself.
+
+What you end up with: A printed weekly meal plan and a filled grocery cart waiting for your OK.
+
+Tools: Grok Bot (personal agents), ChatGPT agent (cloud browser), Claude, Gemini Spark
+
+Prompt:
+Every Thursday, plan [5] dinners for [2 adults and 2 kids]. Use only recipes from my recipe list below, avoid [allergies], keep the week under [$ budget]. Reuse ingredients so little goes to waste. Give me: (1) a one-page meal plan I can print, (2) one shopping list grouped by store section, leaving out what I said we already have. Don't buy anything.
+
+My recipes: [paste a list or link]
+Already in the fridge: [list]
+
+Watch out:
+- Do the checkout yourself. Read the cart before you pay.
+- Some stores block shopping agents. One user says Amazon blocked his agent, so he moved his groceries to Instacart.
+
+Sources:
+- X post by @lyndallschreinr (2026-10-07): a custom Grok bot plans 15 family meals a week and feeds a shopping list into Instacart: https://x.com/lyndallschreinr/status/2107888353630908437
+- X post by @NickADobos (2026-10-15): Amazon blocked his agent, so groceries moved to Instacart: https://x.com/NickADobos/status/2110749518518235276
+- X post by @elijahbuildsai (2026-09-25): Claude meal plan from fridge photos plus Instacart: https://x.com/elijahbuildsai/status/2103607960996086113
+
+## Catch family calendar clashes before the week starts
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/sunday-family-calendar-check/
+Category: Family & home | Difficulty: Easy | Added: 2026-10-20
+Popularity: 507 likes, 34 reposts on X (https://x.com/Michael_Fenech_/status/2108579992456327489, measured 2026-10-21)
+
+Every Sunday a bot reads the next two weeks of your family calendar and school notices and flags the clashes.
+
+What the bot does:
+1. Reads your shared family calendar for the next 14 days.
+2. Reads recent school notices for dates you haven't added yet.
+3. Spots clashes between work, school and activities.
+4. Lists anything you need to prepare, like forms, payments or kit.
+
+What you end up with: A short Sunday note: what's coming up, what clashes, and what to prepare.
+
+Tools: Grok Bot (personal agents), Gemini Spark, Claude Cowork, Meta Muse
+
+Prompt:
+Every Sunday at 6pm, review our family calendar for the next 14 days. Highlight important events, scheduling conflicts, missing information and anything we need to prepare. Keep it under 10 bullet points. Don't change or delete any calendar events. Just tell me.
+
+Watch out:
+- Give it read-only calendar access to start.
+- Use initials instead of your kids' names if you prefer.
+
+Sources:
+- X post by @Michael_Fenech_ (2026-10-09): 7 jobs to give a family bot, with prompts: https://x.com/Michael_Fenech_/status/2108579992456327489
+
+## Hand your most-hated weekly chores to a personal agent
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/hand-your-most-hated-chores-to-a-personal-agent/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
+Popularity: 678 likes, 35 reposts on X (https://x.com/AlexFinn/status/2107254007412756589, measured 2026-10-21)
+
+Personal agents like Meta Muse, Grok Bot and Gemini Spark work in the background on a schedule. Start with the chore you hate most.
+
+What the bot does:
+1. Asks what you'd like help with and which apps it may use.
+2. Works through the task in the background on its own computer and browser.
+3. Repeats on a schedule you set, like every morning or every Friday.
+4. Messages you only when something needs your decision.
+
+What you end up with: One recurring chore that now happens without you, plus a message when it needs a yes or no.
+
+Tools: Meta Muse, Grok Bot (personal agents), Gemini Spark, ChatGPT dots (always-on agents), Instinct
+
+Prompt:
+I want to hand you one boring chore. Here it is: [describe the chore, e.g. 'every Friday, check my email for school forms and deadlines due next week and list them']. Before you start, ask me any questions you need answered. Show me the first result before you set it to repeat. Never send, buy, delete or book anything without asking me first.
+
+Watch out:
+- Pick ONE chore first. Users who tried a general “do everything” assistant say they stopped using it within weeks; narrow tasks stuck.
+- Meta's own help page says Muse “may be inaccurate or take unexpected actions”. Check what it does.
+
+Sources:
+- X post by @AlexFinn (2026-10-05): video: 6 everyday use cases for Meta Muse: https://x.com/AlexFinn/status/2107254007412756589
+- Meta Help Center: How to get started with Muse: https://www.meta.com/help/artificial-intelligence/1331373868832401/
+- Reddit r/AI_Agents: “What AI agents are actually worth running for personal use?” (archived snapshot, Sep 5 2026): https://reddit.sentinel-team.org/posts/1w4e3ji/snapshots/2026-09-05T09%3A24%3A43.696105Z
+
+## Get a daily scam check on your inbox
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/email-scam-filter/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
+Popularity: 203 likes, 18 reposts on X (https://x.com/BrianRoemmele/status/2110008406807568813, measured 2026-10-21)
+
+A read-only bot reads your new email each morning and gives each suspicious message a risk score and the red flags.
+
+What the bot does:
+1. Every morning, reads the new mail in your inbox. It can only read; it can't change anything.
+2. Checks each message for phishing, fake invoices, impostor “IT” alerts and prize scams.
+3. Keeps up with the latest scam alerts from public sources.
+4. Gives each suspicious email a risk level and the exact red flags, like a lookalike link.
+
+What you end up with: A morning list: “Confirmed scam / High suspicion / Possible / Clear”, with what to do next.
+
+Tools: Grok Bot (personal agents), Gemini Spark, Claude Cowork, ChatGPT
+
+Prompt:
+Every morning at 7am, check new emails in my inbox for scams: phishing, fake invoices, fake prize offers, blackmail emails and fake 'IT department' alerts. For each suspicious email give a risk level (Confirmed scam / High suspicion / Possible / Clear), the exact red flags (sender address, lookalike links, urgency, payment requests) and safe next steps. You are read-only: never click links, never reply, never delete.
+
+Watch out:
+- Keep it read-only. It should never click links or reply.
+- A bot can miss scams too. If in doubt, call the company using a number you already trust.
+
+Sources:
+- X post by @BrianRoemmele (2026-10-13): a read-only Grok Bot that scores email scam risk every morning: https://x.com/BrianRoemmele/status/2110008406807568813
+
+## Run family logistics from the family group chat
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/run-family-logistics-from-the-group-chat/
+Category: Family & home | Difficulty: Easy | Added: 2026-10-20
+Popularity: 162 likes, 14 reposts on X (https://x.com/saviomartin/status/2109330165381910817, measured 2026-10-21)
+
+New “family agents” sit in your family chat and handle the small jobs: restocking, booking the dentist and reminders.
+
+What the bot does:
+1. Lives in your family group chat, so anyone can ask it for something.
+2. Restocks groceries on a shared shopping account.
+3. Books appointments like the dentist.
+4. Sends reminders, for example to Grandma about her meds.
+
+What you end up with: Fewer “did anyone book…?” messages, and one place where family requests get done.
+
+Tools: Meta Muse, Instinct, Grok Bot (personal agents)
+
+Prompt:
+You're our family assistant in this group chat. Jobs you can do: keep a shared shopping list, remind people about appointments, and draft bookings for my approval. Rules: confirm with me before booking or buying anything; never share our address or schedule with anyone outside this chat; reply in one short message.
+
+Watch out:
+- Agree as a family what it may book or buy. Set a spending limit.
+- This is a new product category. Coral was announced on Oct 11, 2026, and we haven't tested it.
+- Ask everyone in the chat before adding an agent. It can remember what people post, and not everyone may want that (several X users raised this when Wabi 2.0 launched on Oct 19-21, 2026).
+
+Sources:
+- X post by @saviomartin (2026-10-11): launch of Coral, a family agent that works from the family chat: https://x.com/saviomartin/status/2109330165381910817
+- X post by @RoundtableSpace (2026-10-21): Wabi 2.0 launched, one AI agent a whole group chat shares; updates everyone's calendar when pickup changes and books tickets: https://x.com/RoundtableSpace/status/2112918077314920688
+
+## Let an agent reorder your regular groceries
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/reorder-your-regular-groceries/
+Category: Shopping & groceries | Difficulty: Medium | Added: 2026-10-20
+Popularity: 96 likes, 4 reposts on X (https://x.com/NickADobos/status/2110749518518235276, measured 2026-10-21)
+
+Some people now let an agent handle their weekly grocery order and switch stores when a better offer appears.
+
+What the bot does:
+1. Knows your usual items and brands.
+2. Builds the weekly order on a grocery site that allows agents.
+3. Swaps in a better offer when it finds one.
+4. Asks for your OK (“confirm”) before paying.
+
+What you end up with: Groceries ordered after a quick chat and one confirm tap.
+
+Tools: ChatGPT agent (cloud browser), Meta Muse, Instinct, Gemini Spark
+
+Prompt:
+Here's my usual weekly grocery list: [list with brands and sizes]. Build this order on [Instacart / store site]. If an item is out of stock, pick the closest match and tell me. Stop at checkout and show me the total.
+
+Watch out:
+- Some sites block agents. Amazon's Conditions of Use now include rules for AI agents, and since mid-October Grok Bot users (and Meta Muse users in September) report being blocked there. Don't ask a bot to get around it: use another store or finish the Amazon order yourself.
+- Always review substitutions and the final total before paying.
+
+Sources:
+- X post by @NickADobos (2026-10-15): groceries moved to Instacart after Amazon blocked his agent: https://x.com/NickADobos/status/2110749518518235276
+- X post by @mulhollandsr (2026-09-25): Amazon blocked Muse from his cart: https://x.com/mulhollandsr/status/2103533570203717674
+- Teslarati, Oct 15 2026: Amazon shuts out Grok Bot shoppers; Musk says buy elsewhere: https://www.teslarati.com/elon-musk-grok-bot-amazon-shopping/
+- TechCrunch, Sep 21 2026: Meta's AI agent has been blocked from using Amazon.com: https://techcrunch.com/2026/09/21/metas-ai-agent-has-been-blocked-from-using-amazon-com/
+
+## Plan and book a whole trip by texting your bot
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/plan-and-book-a-whole-trip-by-text/
+Category: Bookings & travel | Difficulty: Medium | Added: 2026-10-20
+Popularity: 63 likes, 11 reposts on X (https://x.com/Teslaconomics/status/2110721195817509068, measured 2026-10-21)
+
+One parent says his bot booked the flight, the rental car, the vacation rental, a restaurant and event tickets, all over text.
+
+What the bot does:
+1. Takes your dates, budget and who's coming.
+2. Finds and compares flights, cars and places to stay.
+3. Books each piece after you say yes.
+4. Makes restaurant bookings and buys event tickets.
+5. Keeps every confirmation in one thread.
+
+What you end up with: A booked trip with every confirmation in one chat.
+
+Tools: Grok Bot (personal agents), Instinct, Meta Muse, ChatGPT agent (cloud browser)
+
+Prompt:
+Plan a trip for [who] to [place] from [date] to [date], budget [$]. I need: a flight from [city] (no red-eyes), a car, a place to stay near [area] with [needs], one dinner reservation on [night] and tickets to [event]. Show me 2 options for each with prices. Book only after I reply YES for that item, and send me every confirmation number in one list.
+
+Watch out:
+- Use a card with a low limit, or a single-use virtual card.
+- Double-check dates, names and cancellation rules before you say yes.
+
+Sources:
+- X post by @Teslaconomics (2026-10-15): a Grok bot booked flight, Turo, Vrbo, dinner and event tickets by text: https://x.com/Teslaconomics/status/2110721195817509068
+
+## Get rebooked fast when your flight is delayed
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/rebook-a-delayed-flight/
+Category: Bookings & travel | Difficulty: Medium | Added: 2026-10-20
+Popularity: 17 likes, 1 reposts on X (https://x.com/su_adeline_k/status/2098109328112636407, measured 2026-10-21)
+
+When a flight slips, an agent can find the fastest alternative that still gets you there on time and book it for you.
+
+What the bot does:
+1. Notices the delay from your airline email or what you tell it.
+2. Searches for the fastest flight that gets you there on time.
+3. Books it, if you've allowed that.
+4. Sends you the new confirmation and a note on what to do with the old ticket.
+
+What you end up with: A new flight confirmation in your chat, without hours on hold or in the app.
+
+Tools: Instinct, ChatGPT agent (cloud browser), Grok Bot (personal agents), Meta Muse
+
+Prompt:
+My flight [flight number] from [city] to [city] is delayed by [hours]. I need to arrive by [time]. Find the 3 fastest options on any airline, with on-time risk. If I reply with a number, book that one with my saved card. Then tell me what the airline's rules say about my original ticket.
+
+Watch out:
+- Decide ahead of time whether it may book without asking. One user's agent did, and it worked out. Yours might not.
+- What happens to the original ticket depends on the airline, the fare and the country.
+
+Sources:
+- X post by @su_adeline_k (2026-09-10): agent booked the only on-time flight and got the delayed one refunded: https://x.com/su_adeline_k/status/2098109328112636407
+- WIRED, Sep 24 2026: “I Think I Found an AI Agent Worth the Risk” (Instinct review): https://www.wired.com/story/i-finally-found-an-ai-agent-worth-the-risk/
+
+## Get alerted the moment your airline changes your flight
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/catch-airline-schedule-changes/
+Category: Bookings & travel | Difficulty: Medium | Added: 2026-10-20
+Popularity: not measured
+
+Airlines quietly move flight times. An agent watching your inbox spots the change, tells you what moved, and lays out your options.
+
+What the bot does:
+1. Watches your email for airline itinerary changes.
+2. Compares the new times with your original booking.
+3. Checks the airline's rules for what you can do: keep it, rebook, or cancel.
+4. Drafts the rebooking or cancellation request for you to approve.
+
+What you end up with: An alert when your flight changes, your options under the airline's rules, and a request drafted for whichever one you pick.
+
+Tools: Instinct, Gemini Spark, Grok Bot (personal agents), ChatGPT
+
+Prompt:
+Watch my email for any message from an airline about a schedule change, a time change or a cancellation. When you find one, tell me the old and new times and the size of the change, and check that airline's published rules for my options (keep, rebook, cancel). Draft the request for the option I pick, but don't change or cancel anything without my OK.
+
+Watch out:
+- Cancelling may give up your seat. Decide before you send anything.
+- WIRED's reviewer says her agent caught a 90-minute change she had missed.
+
+Sources:
+- WIRED, Sep 24 2026: “I Think I Found an AI Agent Worth the Risk” (Instinct review): https://www.wired.com/story/i-finally-found-an-ai-agent-worth-the-risk/
+- Assistant Benchmark: Instinct profile (quotes and test notes): https://assistantbenchmark.com/agents/instinct
+
+## Book restaurant tables by message, even at phone-only places
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/restaurant-reservations-by-agent/
+Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-20
+Popularity: 533 likes, 23 reposts on X (https://x.com/MilksandMatcha/status/2105372125288976402, measured 2026-10-21)
+
+Restaurant bookings are the gateway task for many agent users, including small places that only take WhatsApp or calls.
+
+What the bot does:
+1. Takes where you'll be, when, and what you like.
+2. Finds places nearby and checks availability.
+3. Books online, or messages the restaurant if there's no booking site.
+4. Sends you the confirmation.
+
+What you end up with: A table booked and a confirmation in your chat.
+
+Tools: Gemini + OpenTable, Instinct, Meta Muse, Grok Bot (personal agents)
+
+Prompt:
+Book dinner for [number] people on [date] around [time] near [address]. I like [cuisine], budget about [$ per person]. Give me 3 options first. After I pick, book it under my name, and tell me the cancellation policy.
+
+Watch out:
+- It can be slower than doing it yourself. One startup timed agents taking 4 to 14+ minutes for a dinner booking; the founder did it in 37 seconds.
+- Don't let it hold tables you won't use. WIRED reports one investor got banned from Resy after his bot hit it about 200 times an hour.
+
+Sources:
+- WIRED, Sep 24 2026: “I Think I Found an AI Agent Worth the Risk” (Instinct review): https://www.wired.com/story/i-finally-found-an-ai-agent-worth-the-risk/
+- X post by @MilksandMatcha (2026-09-30): timed comparison of agents making a dinner reservation: https://x.com/MilksandMatcha/status/2105372125288976402
+
+## Book a haircut or appointment, even when the form won't work
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/book-a-haircut-by-email/
+Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-20
+Popularity: 20 likes, 4 reposts on X (https://x.com/startupideaspod/status/2100245612910571873, measured 2026-10-21)
+
+When the online booking needs a local phone number, an agent can just email the business instead.
+
+What the bot does:
+1. Finds salons or providers and reads reviews.
+2. Shows you options with photos.
+3. Tries online booking, or writes the business a normal email.
+4. Confirms the slot with you.
+
+What you end up with: A confirmed appointment without the back-and-forth.
+
+Tools: Instinct, Meta Muse, Grok Bot (personal agents), ChatGPT
+
+Prompt:
+Find 3 well-reviewed [salons/barbers/dentists] near [area] that can do [service]. Show me reviews and prices. After I pick, book [day/time range]. If online booking doesn't work, email them asking for that slot, sign it with my name, and say I'm using an assistant. Tell me when it's confirmed.
+
+Watch out:
+- Be honest that an assistant is writing. One user said the salon didn't realize an AI wrote the email.
+
+Sources:
+- X post by @startupideaspod (2026-09-16): Instinct emailed a salon when online booking needed a Danish number: https://x.com/startupideaspod/status/2100245612910571873
+
+## Match every business expense to its receipt, weekly
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/small-business-receipt-matching/
+Category: Small business & side hustles | Difficulty: Advanced | Added: 2026-10-20
+Popularity: 68 likes, 2 reposts on X (https://x.com/siyabuilt/status/2094755088841457892, measured 2026-10-21)
+
+A read-only bot checks your card and payment activity against the receipts in a dedicated inbox and lists what's missing.
+
+What the bot does:
+1. Gets read-only access to your business card activity and a receipts@ inbox.
+2. Every week, matches each charge to a receipt.
+3. Lists charges with no receipt and receipts with no charge.
+4. Flags odd fees, refunds and pending items.
+
+What you end up with: A weekly reconciliation list with the gaps to chase.
+
+Tools: Grok Bot (personal agents), Claude Cowork, Zapier, n8n
+
+Prompt:
+Pull this week's business card and payment activity. Match each expense to a receipt in the receipts@ inbox. Give me a table: date, merchant, amount, receipt found (yes/no), notes. List unmatched charges first. You are read-only: never change cards, send payouts or move money.
+
+Watch out:
+- Keep it read-only. The person who shared this says the bot “does not need permission to change cards, send payouts, or move money.”
+- Ask your accountant before changing how you keep your books.
+
+Sources:
+- X post by @siyabuilt (2026-09-01): finance admin automated with Grok Bot + a receipts inbox, read-only: https://x.com/siyabuilt/status/2094755088841457892
+
+## Set up a “chief of staff” bot that plans your other bots
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/hire-a-chief-of-staff-bot/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-20
+Popularity: 104 likes, 6 reposts on X (https://x.com/coreyganim/status/2099808193178485185, measured 2026-10-21)
+
+Instead of building lots of bots, start with one that asks what you do and suggests which helpers you need.
+
+What the bot does:
+1. Lists what a human chief of staff would handle for you.
+2. Writes its own job description (the “system prompt”).
+3. Suggests the first 1–3 helper bots and what each one does.
+4. Briefs those helpers so you don't have to.
+
+What you end up with: A short, sensible plan for which bots you need, often fewer than you thought.
+
+Tools: Grok Bot (personal agents), ChatGPT dots (always-on agents), Gemini Spark, Claude Cowork
+
+Prompt:
+You're my Chief of Staff bot. Give me a list of all the things a typical chief of staff would be responsible for, then suggest a system prompt you can install for yourself.
+
+About me: [who you are and what you do].
+What I want help with: [goals].
+Suggest the first bots you'd hire and what each one owns.
+
+Watch out:
+- Start small. The poster says a friend's 5-bot setup “nothing ran”; two bots were enough.
+
+Sources:
+- X post by @coreyganim (2026-09-15): the 2-sentence chief-of-staff prompt: https://x.com/coreyganim/status/2099808193178485185
+
+## Run several brands or jobs with one bot each
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/one-bot-per-brand/
+Category: Small business & side hustles | Difficulty: Advanced | Added: 2026-10-20
+Popularity: 61 likes, 7 reposts on X (https://x.com/Sarut0biSasuke/status/2107076101293969587, measured 2026-10-21)
+
+If you juggle several brands or clients, give each its own bot with its own tools, plus a coordinator that collects a daily note.
+
+What the bot does:
+1. Each bot connects only to one brand's email, files and chat.
+2. Each writes one short daily note, even if it's just “no updates”.
+3. A coordinator bot reads the notes and passes tasks to the right helper.
+4. Heavier jobs go to specialist tools, which report back.
+
+What you end up with: One daily note per brand, and tasks that never land in the wrong account.
+
+Tools: Grok Bot (personal agents), Claude Cowork, n8n
+
+Prompt:
+You are the bot for [Brand]. You only use [Brand]'s email, drive and chat. Every weekday at 5pm, write a note in [folder]: new requests, decisions needed, deadlines this week. Write 'no updates' if nothing changed. Never act on another brand's accounts.
+
+Watch out:
+- Keeping accounts separate is the point. Don't connect one bot to everything.
+
+Sources:
+- X post by @Sarut0biSasuke (2026-10-05): a multi-brand Grok Bot fleet with daily notes: https://x.com/Sarut0biSasuke/status/2107076101293969587
+
+## Catch offers and deadlines the moment they land in your inbox
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/time-sensitive-inbox-watcher/
+Category: Work & career | Difficulty: Medium | Added: 2026-10-20
+Popularity: 37 likes, 1 reposts on X (https://x.com/DMAC_19/status/2105719791751487542, measured 2026-10-21)
+
+For fast-moving work (real estate, sales, hiring), a bot in your inbox and calendar texts you when something time-sensitive arrives.
+
+What the bot does:
+1. Watches your inbox for offers, counteroffers and deadlines.
+2. Texts you who sent it and the key numbers before you open the email.
+3. Builds your follow-up list every Monday.
+4. Flags clashing dates, like a closing that collides with a funding deadline.
+5. Drafts routine emails for your OK.
+
+What you end up with: No missed offers, a Monday follow-up list and early warnings on deadline clashes.
+
+Tools: Grok Bot (personal agents), Gemini Spark, Claude Cowork, Zapier
+
+Prompt:
+Watch my inbox for offers, counteroffers and deadline changes on my active files: [list]. When one arrives, text me: who, price and terms, and the deadline. Every Monday at 8am, give me a follow-up list of everyone waiting on me. Flag any two dates on my calendar that conflict. Draft replies but never send them.
+
+Watch out:
+- Don't let it send anything to clients without your review.
+- Check the numbers it reports against the actual document.
+
+Sources:
+- X post by @DMAC_19 (2026-10-01): 8 days with an agent in a commercial real estate inbox: https://x.com/DMAC_19/status/2105719791751487542
+
+## Have a bot sort your scanned paper mail and flag what needs you
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/sort-scanned-paper-mail-with-alerts/
+Category: Inbox, calls & paperwork | Difficulty: Advanced | Added: 2026-10-20
+Popularity: 0 likes, 0 reposts on X (https://x.com/mikekamo/status/2102768278812680522, measured 2026-10-21)
+
+A virtual mailbox service scans your paper mail to email. The bot reads every letter, queues up the routine ones for your OK, and pulls you in only when something looks unusual.
+
+What the bot does:
+1. A virtual mailbox service opens and scans your paper mail to PDF.
+2. The bot reads each scanned letter in your email.
+3. Sorts it: routine (like a usual monthly payment), needs a reply, or just information.
+4. Compares routine items with past ones and flags anything unusual (the person who shared this uses "more than 20% different").
+5. Queues routine items for your OK and messages you about the rest.
+
+What you end up with: Your paper mail read and sorted, routine items queued for one quick approval, and only the unusual ones in front of you.
+
+Tools: Claude Cowork, Gemini Spark, Grok Bot (personal agents)
+
+Prompt:
+Each time a scanned letter arrives in my email from [mail service], read it and add it to my mail log: sender, what it is, any due date, what it asks me to do. If it's a routine item I've approved before, compare it with the last 3 from that sender. If it's more than 20% different, or the sender is new, stop and message me. Otherwise add it to my 'ready to approve' list. Do not pay, reply or sign anything until I approve.
+
+Watch out:
+- Start by approving every action. Only loosen that once you trust it.
+- Scanned mail contains account numbers and personal details. Use tools you trust with that data.
+- The person who shared this adds his own caveats about the hype; read the full post.
+
+Sources:
+- X post by @mikekamo (2026-09-23): Claude reads scanned paper mail, handles routine items and flags anything more than 20% different: https://x.com/mikekamo/status/2102768278812680522
+
+## Have a bot watch any web page and ping you when it changes
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/watch-a-web-page-for-changes/
+Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-20
+Popularity: 2 likes, 1 reposts on X (https://x.com/teeRex247/status/2111981455077466525, measured 2026-10-21)
+
+Instead of refreshing a page, tell a bot what matters on it. It checks on a schedule and pings you only when that changes.
+
+What the bot does:
+1. Takes a link and what you care about, like a restock, a new listing or an appointment slot opening.
+2. Saves how the page looks now.
+3. Checks again on a schedule.
+4. Messages you only when that thing changes.
+
+What you end up with: One ping when it matters, and no more refreshing.
+
+Tools: Grok Bot (personal agents), ChatGPT dots (always-on agents), Make, Zapier
+
+Prompt:
+Watch this page: [link]. What matters: [back in stock / new listing / appointment slot opens / status or policy change]. Check it [every morning]. Message me only when that changes, with the old and new value and the link. Don't buy, book or sign up for anything.
+
+Watch out:
+- Some sites block automated checks. Use official alerts where they exist.
+- A Reddit user says a narrow watcher like this is the one they kept using; general assistants didn't stick.
+
+Sources:
+- X post by @teeRex247 (2026-10-19): a Grok bot that watches pages and pings only on change: https://x.com/teeRex247/status/2111981455077466525
+- Reddit r/AI_Agents: “What AI agents are actually worth running for personal use?” (archived snapshot, Sep 5 2026): https://reddit.sentinel-team.org/posts/1w4e3ji/snapshots/2026-09-05T09%3A24%3A43.696105Z
+
+## Find the conversations you forgot to follow up on
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/find-dead-conversations-to-follow-up/
+Category: Work & career | Difficulty: Medium | Added: 2026-10-20
+Popularity: 5 likes, 2 reposts on X (https://x.com/BassamDahabra/status/2102701286307119565, measured 2026-10-21)
+
+A weekly automation reads your calendar, inbox and tasks and lists people still waiting to hear back, with drafted nudges.
+
+What the bot does:
+1. Looks at recent meetings, email threads and tasks.
+2. Finds threads where you owe a reply or the other person went quiet.
+3. Drafts a short, friendly follow-up for each one.
+4. Puts it all in one morning brief.
+
+What you end up with: A list of dropped threads with a ready-to-send nudge for each.
+
+Tools: n8n, Zapier, Gemini Spark, Grok Bot (personal agents)
+
+Prompt:
+Every Monday at 8am, look at my sent email, my calendar from the last 30 days and my task list. List conversations where (a) I promised something and haven't sent it, or (b) I asked something and got no reply in 7+ days. For each, draft a 2-sentence friendly follow-up. Don't send anything.
+
+Watch out:
+- Read each draft. Some threads went quiet for a reason.
+
+Sources:
+- X post by @BassamDahabra (2026-09-23): an n8n automation found 19 dead conversations: https://x.com/BassamDahabra/status/2102701286307119565
+
+## Build a list of local leads and approve every email
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/build-a-lead-list-with-approval/
+Category: Small business & side hustles | Difficulty: Advanced | Added: 2026-10-20
+Popularity: 72 likes, 4 reposts on X (https://x.com/Teevince_Ben/status/2090800086477389964, measured 2026-10-21)
+
+A workflow finds businesses in your niche and area, researches each one and drafts a personal email. Nothing goes out until you approve it.
+
+What the bot does:
+1. Finds businesses by type and location.
+2. Identifies the decision maker and a public contact.
+3. Researches each business and drafts a personal note.
+4. Saves everything to a spreadsheet for you to review.
+5. Sends only approved emails, slowly.
+
+What you end up with: A spreadsheet of researched leads with drafted, approved outreach.
+
+Tools: n8n, Make, Zapier, Grok Bot (personal agents)
+
+Prompt:
+Find [20] [type of business] in [city] that might need [your service]. For each: name, website, decision maker if public, one specific detail about them, and a 3-sentence personal email draft. Put it all in a sheet. Do not send anything.
+
+Watch out:
+- Follow anti-spam law (in the U.S., CAN-SPAM) and each platform's rules.
+- Never send in bulk without reading each message.
+
+Sources:
+- X post by @Teevince_Ben (2026-08-21): lead-finding workflow with human approval before sending: https://x.com/Teevince_Ben/status/2090800086477389964
+
+## Give your agent its own email address
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/give-your-agent-its-own-email-address/
+Category: Inbox, calls & paperwork | Difficulty: Medium | Added: 2026-10-20
+Popularity: 17 likes, 1 reposts on X (https://x.com/pvergadia/status/2110022751247556669, measured 2026-10-21)
+
+Give your agent an inbox of its own. Then you or anyone else can forward it jobs, like a meeting request it turns into a calendar invite with prep notes.
+
+What the bot does:
+1. Gets its own email address.
+2. Reads whatever arrives there.
+3. Turns requests into actions, like adding a calendar invite.
+4. Researches the sender and adds prep notes.
+
+What you end up with: A forwarding address for chores. Forward it a request and it gets handled.
+
+Tools: Grok Bot (personal agents), Gemini Spark, Claude
+
+Prompt:
+When an email arrives at your address: if it's a meeting request, find a 30-minute slot in my calendar next week, create a draft invite and add 3 bullet points of research about the sender. If it's anything else, summarize it and ask me what to do. Never reply to the sender without my OK.
+
+Watch out:
+- Anyone who knows the address can email it. Tell it to ignore instructions from strangers.
+
+Sources:
+- X post by @pvergadia (2026-10-13): gave an agent its own inbox; it turned an email into a prepped calendar invite: https://x.com/pvergadia/status/2110022751247556669
+- X post by @TheReal_BCM (2026-10-20): step by step, claimed a Grok Bot email address and set Gmail to forward a copy of every email to it: https://x.com/TheReal_BCM/status/2112514178871345362
+
+## Get a daily digest of jobs that actually fit you
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/job-match-digest/
+Category: Work & career | Difficulty: Advanced | Added: 2026-10-20
+Popularity: 48 upvotes on Reddit (https://www.reddit.com/r/n8n/comments/1ssdtg7/built_a_n8n_linkedin_job_automation_ai_agent/, measured 2026-10-20)
+
+A scheduled workflow pulls new listings, scores them against your CV and emails you the best matches with draft notes. You still apply.
+
+What the bot does:
+1. Reads your CV and preferences once.
+2. Twice a day, pulls new listings from job boards.
+3. Skips ones you've already seen.
+4. Scores each job for fit and keeps the good ones.
+5. Emails you a digest with a draft note for each.
+
+What you end up with: A short daily email of well-matched jobs, ready for you to apply.
+
+Tools: n8n, Gemini Spark, Grok Bot (personal agents), ChatGPT
+
+Prompt:
+Every weekday at 9am, find new [job title] roles in [location/remote] posted in the last 24 hours. Score each 1–10 against my CV below. For any 7 or above, give me: the link, why it fits, gaps to address, and a 3-sentence note to the hiring manager. Don't apply to anything.
+
+My CV: [paste]
+
+Watch out:
+- Don't auto-apply. Redditors report job sites block bots and can ban accounts; review every application yourself.
+- Make sure tailored CVs don't invent experience.
+
+Sources:
+- Reddit r/n8n: LinkedIn job-matching workflow that scores jobs against your CV (Apr 2026): https://www.reddit.com/r/n8n/comments/1ssdtg7/built_a_n8n_linkedin_job_automation_ai_agent/
+- Reddit r/n8n: Can n8n realistically auto-apply to jobs? (discussion of bans and fragile submission): https://www.reddit.com/r/n8n/comments/1u30kw5/can_n8n_realistically_power_an_automated_job/
+- X post by @siddaniagi (2026-09-28): Career Agent: evaluate jobs, tailor resumes, track applications: https://x.com/siddaniagi/status/2104457847010693524
+
+## Turn the flood of school emails into one weekly digest
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/school-email-digest/
+Category: Family & home | Difficulty: Medium | Added: 2026-10-20
+Popularity: not measured
+
+Label school emails and let an agent read them weekly. It pulls out deadlines, forms, payments and events, without duplicates.
+
+What the bot does:
+1. Reads emails with your “School” label, including linked newsletters.
+2. Pulls out deadlines, permission slips, payments and events.
+3. Ignores grades and activities that aren't your kids'.
+4. Removes duplicates and puts urgent things first.
+5. Can add events to your calendar and to-dos to your list.
+
+What you end up with: One digest a week with nothing important buried in a newsletter link.
+
+Tools: Claude Cowork, Gemini Spark, Meta Muse, Grok Bot (personal agents)
+
+Prompt:
+Every Sunday at 6am, read all emails labeled 'School' that aren't labeled 'Processed'. Open any newsletter links. Extract permission slips, payments, deadlines, events and anything needing a reply. My kids: [initials, grades, schools]. Ignore other grades and [sports]. Put district-wide closures at the top, remove duplicates, and label each email 'Processed' when done. Draft replies for my approval; don't send.
+
+Watch out:
+- Use initials instead of names if you prefer (the source author does).
+- Have it draft, not send, replies to teachers.
+
+Sources:
+- Anna Burgess Yang: How I created a digest of school emails with Claude Cowork: https://tinkeringwithideas.io/school-email-digest-claude-cowork/
+- Meta: “How We Designed Muse” (launch essay): https://introducing.muse.ai/
+- Google blog: Gemini Spark announcement (May 2026): https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/
+- X post by @Michael_Fenech_ (2026-10-09): school email manager prompt: https://x.com/Michael_Fenech_/status/2108579992456327489
+
+## Get a Monday recap of your inbox and a to-do list
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/monday-inbox-recap-and-todo/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
+Popularity: not measured
+
+Every Monday a bot reviews last week's email, recaps what matters and suggests a ranked to-do list.
+
+What the bot does:
+1. Reads the past week's email.
+2. Pulls out decisions, requests and deadlines.
+3. Writes a short recap.
+4. Suggests a ranked to-do list and blocks focus time.
+
+What you end up with: A 2-minute Monday briefing and a ranked to-do list.
+
+Tools: Gemini Spark, Grok Bot (personal agents), Claude Cowork, ChatGPT dots (always-on agents)
+
+Prompt:
+Every Monday at 9:00 AM, scan my inbox and review my emails from the past week. Give me a quick recap of the most important updates and a suggested, prioritized to-do list for this week. Also suggest calendar blocks for focused work, but ask before adding them.
+
+Watch out:
+- Start with summaries only, then let it draft replies once you trust it.
+
+Sources:
+- Google: Gemini Spark overview page (example tasks and schedules): https://gemini.google/overview/agent/spark/
+- X post by @Jinfeng_tlqm (2026-10-10): beginner list of daily Grok Bot jobs: https://x.com/Jinfeng_tlqm/status/2108849705367327126
+
+## Only see the emails that actually need a reply
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/flag-only-emails-that-need-a-reply/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
+Popularity: not measured
+
+A simple triage bot flags anything needing a reply within 24 hours and moves the noise out of the way.
+
+What the bot does:
+1. Reads new email as it arrives.
+2. Flags messages that need a reply from you within a day.
+3. Labels newsletters, receipts and promos.
+4. Leaves everything else alone.
+
+What you end up with: An inbox where the flagged emails are the only ones you need to answer.
+
+Tools: Gemini Spark, Grok Bot (personal agents), Zapier, Claude Cowork
+
+Prompt:
+Go through my new email every hour. If a message needs a reply from me within 24 hours, star it and add a one-line reason. Label newsletters 'Read later', receipts 'Receipts' and promotions 'Promos', and archive them. Never delete or reply.
+
+Watch out:
+- Archive, don't delete, while you're testing. You can always undo an archive.
+
+Sources:
+- Reddit r/AI_Agents: “What AI agents are actually worth running for personal use?” (archived snapshot, Sep 5 2026): https://reddit.sentinel-team.org/posts/1w4e3ji/snapshots/2026-09-05T09%3A24%3A43.696105Z
+- Original Reddit thread: https://www.reddit.com/r/AI_Agents/comments/1w4e3ji/what_ai_agents_are_actually_worth_running_for/
+
+## Teach a bot to write emails that sound like you
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/email-ghostwriter-style-guide/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-20
+Popularity: not measured
+
+Have the bot read your last 50 sent emails, write a style guide, then use it for every draft.
+
+What the bot does:
+1. Reads a sample of your sent emails.
+2. Writes a short style guide: tone, length, greetings, sign-offs.
+3. Saves it as a reusable skill.
+4. Uses it whenever it drafts for you.
+
+What you end up with: Drafts that sound like you, so you edit less.
+
+Tools: Gemini Spark, Grok Bot (personal agents), Claude
+
+Prompt:
+Read through the last 50 emails I wrote and turn them into a style guide for how I write emails. Turn that into a skill that gets used every time I ask you to draft an email. Call the skill 'ghostwriter'. Drafts only; never send.
+
+Watch out:
+- Sent emails are private. Skip threads with other people's sensitive details.
+
+Sources:
+- Google: Gemini Spark overview page (example tasks and schedules): https://gemini.google/overview/agent/spark/
+- X post by @mikekamo (2026-09-23): had Claude read 12 months of sent email so drafts sound like him: https://x.com/mikekamo/status/2102768278812680522
+
+## Log every new client inquiry automatically
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/log-new-client-inquiries/
+Category: Small business & side hustles | Difficulty: Easy | Added: 2026-10-20
+Popularity: not measured
+
+When an inquiry email arrives, the bot pulls out the client's name and requested date, logs it in your tracker and sets up a folder.
+
+What the bot does:
+1. Watches for inquiry emails (“are you available on…”).
+2. Pulls out the name, date and what they want.
+3. Adds a row to your client tracker sheet.
+4. Creates a folder named after the client.
+
+What you end up with: A client tracker that fills itself in, so no inquiry slips.
+
+Tools: Gemini Spark, Zapier, Make, Grok Bot (personal agents)
+
+Prompt:
+When I receive an email asking about my [service], extract the client's name, requested date and request, and log it in my 'Client Tracker' sheet. Then create a new folder named after the client. Draft a friendly reply with my availability, but don't send it.
+
+Watch out:
+- Check the dates it pulls out. A wrong date costs you a booking.
+
+Sources:
+- Google: Gemini Spark overview page (example tasks and schedules): https://gemini.google/overview/agent/spark/
+
+## Get a 2-minute morning digest on topics you care about
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/morning-news-digest/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
+Popularity: not measured
+
+A bot reads the news on your topics every morning and sends you a short plain-English digest, or even an audio version.
+
+What the bot does:
+1. Checks news on your chosen topics every morning.
+2. Picks the few stories that matter.
+3. Explains each in plain English.
+4. Sends it as a message, a document or audio.
+
+What you end up with: A short daily briefing instead of doom-scrolling.
+
+Tools: Meta Muse, Grok Bot (personal agents), Gemini Spark, ChatGPT dots (always-on agents)
+
+Prompt:
+Every morning at 7am, send me the 5 most important stories about [topics] from the last 24 hours, in plain English, 2 sentences each, with a link to the original source. Skip anything that's just opinion.
+
+Watch out:
+- Click through on anything important; summaries can be wrong.
+
+Sources:
+- Meta Help Center: How Muse works with skills (morning news digest): https://www.meta.com/help/artificial-intelligence/2797651547267109/
+- X post by @Jinfeng_tlqm (2026-10-10): “Every morning, send me the 5 biggest AI stories in plain English”: https://x.com/Jinfeng_tlqm/status/2108849705367327126
+
+## Watch your email for one important letter or reply
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/watch-for-one-important-letter/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
+Popularity: not measured
+
+Waiting on a visa decision, a parcel or a reply from the landlord? Have a bot watch for it and ping you.
+
+What the bot does:
+1. Takes who or what you're waiting for.
+2. Checks your inbox daily.
+3. Pings you when it arrives, with a summary.
+4. Tells you if a deadline is attached.
+
+What you end up with: A ping the moment it arrives, so you stop checking.
+
+Tools: Grok Bot (personal agents), Gemini Spark, Zapier
+
+Prompt:
+Check my email daily for a message from [sender/organization] about [topic]. When it arrives, message me a 3-line summary and any deadline or action it asks for. Stop checking once it arrives.
+
+Watch out:
+- Look in spam yourself too; some bots can't see it.
+
+Sources:
+- Reddit r/AI_Agents: “What AI agents are actually worth running for personal use?” (archived snapshot, Sep 5 2026): https://reddit.sentinel-team.org/posts/1w4e3ji/snapshots/2026-09-05T09%3A24%3A43.696105Z
+
+## Sell on Marketplace with an agent, with safety rules set first
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/sell-on-marketplace-with-rules/
+Category: Small business & side hustles | Difficulty: Medium | Added: 2026-10-20
+Popularity: 10 likes, 0 reposts on X (https://x.com/_architected/status/2104442538254123102, measured 2026-10-21)
+
+Agents can answer buyers and schedule pickups, but set rules first. One story tells of an agent sharing an address and booking a pickup when the seller was out.
+
+What the bot does:
+1. Answers buyer questions using your listing details.
+2. Proposes pickup times from your calendar.
+3. Asks you before sharing any address or agreeing a price.
+4. Keeps a log of every buyer conversation.
+
+What you end up with: Buyer messages handled, with you in charge of price, address and timing.
+
+Tools: Meta Muse, Grok Bot (personal agents), ChatGPT
+
+Prompt:
+Help me sell [item] on [Marketplace]. You may answer questions about condition and size using this description: [details]. You may NOT: share my address, agree a price under [$], or schedule a pickup, without asking me first. Only offer pickup times from my calendar where I'm marked 'home'.
+
+Watch out:
+- Never let a bot share your home address without your OK.
+- Meet in a public place for higher-value items.
+
+Sources:
+- X post by @_architected (2026-09-28): a reported Muse Marketplace mix-up (address shared, pickup when seller was out): https://x.com/_architected/status/2104442538254123102
+
+## Keep a household essentials list and reorder on time
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/household-restock-list/
+Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-20
+Popularity: not measured
+
+A bot keeps a running list of essentials, asks once a week what's low and builds the reorder.
+
+What the bot does:
+1. Keeps a list of your usual essentials.
+2. Once a week, asks what's running low.
+3. Builds a reorder list or cart.
+4. Reminds you about anything you forgot last time.
+
+What you end up with: No more running out of toilet paper or lunchbox snacks.
+
+Tools: Grok Bot (personal agents), Meta Muse, ChatGPT agent (cloud browser), Google Universal Cart
+
+Prompt:
+Maintain a list of our household essentials: [list]. Every Saturday morning, ask me what we're running low on. Build a cart with those items at [store] and stop before checkout. Remember what we bought and when, and remind me if something usually runs out by now.
+
+Watch out:
+- Review the cart before paying.
+
+Sources:
+- X post by @Michael_Fenech_ (2026-10-09): household restocking manager prompt: https://x.com/Michael_Fenech_/status/2108579992456327489
+
+## Get 5 weekend activity ideas that fit your kids and the weather
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/weekend-family-activities/
+Category: Family & home | Difficulty: Easy | Added: 2026-10-20
+Popularity: not measured
+
+Every Friday, get activity ideas matched to your kids' ages, the weather and your budget, with a rainy-day backup.
+
+What the bot does:
+1. Checks the weekend forecast for your area.
+2. Finds activities that fit your kids' ages and interests.
+3. Adds costs and whether booking is needed.
+4. Includes a wet-weather alternative.
+
+What you end up with: A Friday list of 5 doable weekend plans.
+
+Tools: Grok Bot (personal agents), Meta Muse, Gemini Spark, ChatGPT
+
+Prompt:
+Every Friday, suggest 5 family activities for this weekend based on our children's ages [ages], interests [interests], location [town], the weather and a budget of [$]. Include estimated costs, booking requirements and a wet-weather alternative.
+
+Watch out:
+- Check opening hours before you go; listings go out of date.
+
+Sources:
+- X post by @Michael_Fenech_ (2026-10-09): family activities planner prompt: https://x.com/Michael_Fenech_/status/2108579992456327489
+
+## Set up medication and appointment reminders for a parent
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/medication-reminders-for-a-parent/
+Category: Health & care | Difficulty: Easy | Added: 2026-10-20
+Popularity: not measured
+
+Family agents can remind an older parent about medication and book routine appointments, with the family kept in the loop.
+
+What the bot does:
+1. Sends medication reminders at set times.
+2. Asks for a quick “done” reply and tells the family if there's no reply.
+3. Books routine appointments, like the dentist, after a family member approves.
+4. Keeps a simple log.
+
+What you end up with: Reminders that actually reach Mum or Dad, and a family that knows they did.
+
+Tools: Meta Muse, Grok Bot (personal agents), Instinct
+
+Prompt:
+Remind [Mum] at [8am and 8pm] to take her [medication] by message. Ask her to reply 'done'. If she hasn't replied within 1 hour, message me. Once a month, ask me whether any appointments need booking. Never change medication instructions and never give medical advice.
+
+Watch out:
+- Reminders only. Never let a bot change doses or give medical advice. Ask the pharmacist.
+
+Sources:
+- X post by @saviomartin (2026-10-11): family agent: “remind Grandma to take her meds”, book dentist appointments: https://x.com/saviomartin/status/2109330165381910817
+
+## Give your agent a single-use card before it books or buys anything
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/pay-with-a-single-use-virtual-card/
+Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-20
+Popularity: 9 likes, 0 reposts on X (https://x.com/robbieklages/status/2105830877259346021, measured 2026-10-21)
+
+When an agent books or buys for you, give it a one-time virtual card so it can't be charged again.
+
+What the bot does:
+1. You create a single-use or merchant-locked virtual card in your bank or card app.
+2. The agent uses that card for one booking.
+3. The card stops working after one use or past its limit.
+
+What you end up with: Agent purchases with a built-in spending limit.
+
+Tools: ChatGPT agent (cloud browser), Instinct, Grok Bot (personal agents), Meta Muse
+
+Prompt:
+For this booking, use only the virtual card ending in [last 4]. Its limit is [$]. If the total is higher, stop and ask me. Never save this card to the site.
+
+Watch out:
+- Check whether your bank offers single-use or merchant-locked cards before you start.
+
+Sources:
+- X post by @robbieklages (2026-10-02): agent booked a hotel with a one-time-use virtual card: https://x.com/robbieklages/status/2105830877259346021
+
+## Get your ads and sales numbers every morning without logging in
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/daily-ads-and-sales-report/
+Category: Small business & side hustles | Difficulty: Medium | Added: 2026-10-20
+Popularity: 4 likes, 0 reposts on X (https://x.com/johnmccoyx/status/2108012315602034988, measured 2026-10-21)
+
+A bot logs into your ad and sales dashboards (read-only) and sends a morning summary with what changed.
+
+What the bot does:
+1. Checks your ad accounts and sales dashboard each morning.
+2. Compares yesterday with the past week.
+3. Highlights big changes and the likely reason.
+4. Sends one short report.
+
+What you end up with: A 1-minute morning report instead of 5 dashboards.
+
+Tools: Claude Cowork, Grok Bot (personal agents), Zapier, Make
+
+Prompt:
+Every morning at 7am, pull yesterday's results from [ad platforms] and [store/sales platform]. Give me: spend, sales, cost per sale, and anything that changed more than 20% from the 7-day average, with a likely reason. Read-only: never change budgets or ads.
+
+Watch out:
+- Read-only access first. Don't let it change budgets until you've watched it for weeks.
+
+Sources:
+- X post by @johnmccoyx (2026-10-08): Grok bot team sends an ads report every morning: https://x.com/johnmccoyx/status/2108012315602034988
+- X post by @LorenHogueInc (2026-10-13): Apple and Meta ad reports every morning via Claude Cowork: https://x.com/LorenHogueInc/status/2110083294792716367
+
+## Appeal a health insurance denial with AI
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/appeal-a-health-insurance-denial/
+Category: Health & care | Difficulty: Medium | Added: 2026-10-19
+Popularity: not measured
+
+Your health insurance said no to a treatment, test or medicine, and the letter is full of codes and jargon.
+
+What the bot does:
+1. Find the denial letter or Explanation of Benefits (EOB) and your plan's appeal instructions.
+2. Remove personal details, then paste the letter and your situation into the prompt below.
+3. Ask your doctor's office for a letter supporting the treatment and any records the AI's checklist mentions.
+4. Read the draft line by line. Fix anything that isn't true, then send it the way your plan asks (portal, mail or fax) and keep copies.
+5. Put the decision deadline on your calendar. If the internal appeal fails, ask for an external review.
+
+What you end up with: A clear, polite appeal letter that answers the insurer's exact reason for saying no, a checklist of documents to attach, and your deadlines on a calendar.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+You are helping me appeal a health insurance denial. I am not a lawyer or doctor, so explain things simply.
+
+Here is the denial letter (personal details removed):
+[PASTE DENIAL LETTER OR EXPLANATION OF BENEFITS]
+
+My situation in plain words:
+[WHAT TREATMENT, WHY MY DOCTOR ORDERED IT, WHAT I'VE ALREADY TRIED]
+
+Please:
+1. Tell me in 3 bullet points why they said no, quoting the exact reason from the letter.
+2. List my deadline to appeal and any other dates mentioned in the letter. If no date is in the letter, say so.
+3. Make a checklist of documents I should gather (for example a letter from my doctor, medical records, the plan's coverage policy).
+4. Write a one-page appeal letter that answers each stated reason, asks for a written decision, and leaves [BLANKS] for anything I need to fill in. Do not invent medical facts, studies or policy wording. If you are unsure, say so.
+5. List 3 questions I should ask my doctor's office to make the appeal stronger.
+
+Watch out:
+- AI can invent studies, policy quotes or facts. Never send anything you haven't checked against your own papers.
+- Remove Social Security numbers, account numbers, member IDs and birth dates before you paste or upload anything. In ChatGPT you can use Temporary Chat or turn off “Improve the model for everyone” under Settings › Data controls.
+- This is help with paperwork, not medical or legal advice. Your state's Consumer Assistance Program can help for free.
+
+Sources:
+- HealthCare.gov: Internal appeals: https://www.healthcare.gov/appeal-insurance-company-decision/internal-appeals/
+- HealthCare.gov: External review: https://www.healthcare.gov/appeal-insurance-company-decision/external-review/
+- KFF: Claims Denials and Appeals in ACA Marketplace Plans in 2024 (Mar 2026): https://www.kff.org/patient-consumer-protections/claims-denials-and-appeals-in-aca-marketplace-plans-in-2024/
+- Reddit r/AgingParents: discharge appeal written with ChatGPT help (Feb 2026): https://www.reddit.com/r/AgingParents/comments/1r1eimf/
+- Hacker News comment: parent used ChatGPT to work through an external appeal: https://news.ycombinator.com/item?id=45734582
+- Google search suggestions for “using ai to appeal insurance denial” (checked 2026-10-19): https://www.google.com/search?q=using+ai+to+appeal+insurance+denial
+
+## Understand a confusing letter or notice (and know what to do next)
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/understand-a-confusing-letter/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-19
+Popularity: not measured
+
+A letter from a government office, insurer, bank or landlord landed in your mailbox and you can't tell if it's important, a bill, a scam, or nothing.
+
+What the bot does:
+1. Cover or remove personal numbers (Social Security, account, case numbers) before taking a photo or pasting text.
+2. Paste the letter into the prompt and read the summary.
+3. Look up the sender's official website or phone number yourself, and confirm the letter is real before you pay or share anything.
+4. Put any deadline on your calendar right away.
+5. If a reply is needed, edit the AI's draft so every detail is true, then send it the way the letter asks.
+
+What you end up with: A plain-English summary, the action you need to take (if any), the deadline, a scam check, and a ready-to-send reply if one is needed.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+I got this letter and I don't fully understand it. Personal details are removed.
+
+[PASTE THE LETTER TEXT, OR UPLOAD A PHOTO WITH PERSONAL DETAILS COVERED]
+
+Please answer in plain English, at about an 8th-grade reading level:
+1. Who is this from and what is it about, in 2 sentences?
+2. Do I need to do anything? If yes, what exactly, and by what date?
+3. What happens if I do nothing?
+4. Are there signs this could be a scam (pressure, threats, odd payment methods, strange links)? Tell me how to check it using the organization's official website, not the contact details in the letter.
+5. If a reply is needed, write a short, polite reply I can send, with [BLANKS] for anything you don't know.
+If anything is unclear or you are guessing, say so.
+
+Watch out:
+- Scammers send official-looking letters too. The IRS warns that impersonators demand payment “now or else”, threaten arrest, and use odd links.
+- Remove Social Security numbers, account numbers, member IDs and birth dates before you paste or upload anything. In ChatGPT you can use Temporary Chat or turn off “Improve the model for everyone” under Settings › Data controls.
+- For anything with legal consequences (court papers, eviction, immigration, debt lawsuits), use the AI to understand it, then talk to a legal aid office or a lawyer.
+
+Sources:
+- IRS: Recognize tax scams and fraud: https://www.irs.gov/help/tax-scams/recognize-tax-scams-and-fraud
+- OpenAI Help: Data controls in ChatGPT: https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt
+- Google search suggestions for “ai to read my pdf” (checked 2026-10-19): https://www.google.com/search?q=ai+to+read+my+pdf
+- Google search suggestions for “use ai to write a letter” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+write+a+letter
+
+## Have an AI agent find and book an appointment for you
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/book-an-appointment-with-an-ai-agent/
+Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-19
+Popularity: not measured
+
+You need a DMV slot, a restaurant table or a service appointment, and you don't have time to click through booking sites or keep checking for openings.
+
+What the bot does:
+1. Pick an agent that can actually use websites (see the tools list). Chat-only AIs can find options but you'll book yourself.
+2. Copy the prompt and fill in what, where, when and your must-haves.
+3. If the agent asks you to sign in, use its secure sign-in form. Never type passwords or card numbers into the chat.
+4. Review its top options and the exact details on the confirmation screen.
+5. Say yes, then check the confirmation email and add it to your calendar.
+
+What you end up with: The agent finds options that fit your times and rules, shows you its pick, and books it only after you say yes.
+
+Tools: ChatGPT agent (cloud browser), Gemini + OpenTable, Claude, Grok, Instinct, Meta Muse
+
+Prompt:
+Find and book an appointment for me. Ask me before you confirm anything or pay.
+
+What: [E.G. DMV LICENSE RENEWAL / DINNER FOR 4 / OIL CHANGE]
+Where: [CITY OR NEIGHBORHOOD, MAX DISTANCE]
+When I can go: [DAYS AND TIME WINDOWS]
+Must-haves: [E.G. WHEELCHAIR ACCESS, KID-FRIENDLY, UNDER $X]
+Website to use, if I have a preference: [SITE OR 'YOUR CHOICE']
+
+Rules:
+- Show me your top 3 options with date, time, address and any fees before booking.
+- Stop at the final confirmation screen and wait for my OK.
+- Don't add paid extras, insurance or memberships.
+- If a site needs me to sign in, pause and let me do it through the secure sign-in.
+- If you can't finish, tell me exactly where you stopped and give me the link.
+
+Watch out:
+- OpenAI says some websites block automated agents. If that happens, the agent should hand the task back to you.
+- Double-check the date, time, location and total price before you approve. Agents can misread a page.
+- Never paste passwords, security codes or payment details into the conversation. OpenAI's own guidance says the same.
+
+Sources:
+- OpenAI Help: Using cloud browser in ChatGPT: https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt
+- Google Gemini Help: Find, book & manage reservations on OpenTable: https://support.google.com/gemini/answer/17090712
+- Search Engine Watch on Channel V Media's AI Barometer (June 2026 survey, 7,675 US adults): https://searchenginewatch.com/four-in-ten-americans-would-hand-ai-a-chore-survey-finds/
+- EY AI Sentiment Study, wave 4 (2026): https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/insights/ai/documents/ey-gl-ai-sentiment-study-wave-04-2026.pdf
+- Google search suggestions for “ai agent to book appointments” (checked 2026-10-19): https://www.google.com/search?q=ai+agent+to+book+appointments
+
+## Write a complaint that actually gets a problem fixed
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/write-a-complaint-that-gets-fixed/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-19
+Popularity: not measured
+
+A company messed up (late delivery, broken product, wrong charge, bad repair) and customer service keeps going in circles.
+
+What the bot does:
+1. Write down the timeline: dates, order numbers, who you talked to.
+2. Fill in the prompt and read the draft.
+3. Remove anything emotional or untrue; keep it factual.
+4. Send it through the channel the AI suggests and note the date.
+5. If the deadline passes, escalate using the official route.
+
+What you end up with: A short, firm, factual complaint with a clear ask and a deadline, plus where to escalate if they ignore it.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+Help me write a complaint to [COMPANY].
+
+What happened, with dates: [TIMELINE]
+What I already tried: [CALLS, CHATS, TICKET NUMBERS]
+What I want: [REFUND / REPLACEMENT / REPAIR / CREDIT]
+
+Write a calm, factual complaint under 200 words with a clear request and a reasonable deadline. Then tell me: the best channel to send it (email, web form, executive contact), and where I can escalate if they don't respond (for example a regulator or my card issuer), with official links I can check.
+
+Watch out:
+- Don't make threats you won't follow through on. Calm and specific works better.
+- Check any regulator or escalation link the AI gives you; it may be out of date.
+
+Sources:
+- EY AI Sentiment Study, wave 4 (2026): https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/insights/ai/documents/ey-gl-ai-sentiment-study-wave-04-2026.pdf
+- Google search suggestions for “use ai to write a letter of complaint” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+write+a+letter+of+complaint
+
+## Get through a long form without the headache
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/fill-out-a-long-form/
+Category: Inbox, calls & paperwork | Difficulty: Medium | Added: 2026-10-19
+Popularity: not measured
+
+A long application or government form is confusing, and you're not sure what each question is really asking.
+
+What the bot does:
+1. Get the official form and its official instructions.
+2. Use the prompt to understand each question and gather documents.
+3. Enter your answers yourself on the official site or paper form.
+4. Ask the AI to double-check your answers for consistency (without ID numbers).
+5. Keep a copy of what you submitted.
+
+What you end up with: A question-by-question explanation, a list of documents to have ready, and draft answers for you to check and enter yourself.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+I need to fill out this form: [FORM NAME AND WHO IT'S FOR]
+Here are the questions or a copy of the form (personal info removed): [PASTE OR UPLOAD]
+
+1. Explain what each question is asking in plain English.
+2. List every document or number I'll need before I start.
+3. Point out questions where a wrong answer could cause problems or delays.
+4. Where I give you my details, draft an answer, but never guess. If you don't know, write [ASK ME].
+My details: [ONLY THE FACTS NEEDED, NO ID NUMBERS]
+
+Watch out:
+- You're responsible for every answer on an official form. Don't let an AI guess.
+- Read the official instructions too; the AI may not know the latest version of the form.
+- Remove Social Security numbers, account numbers, member IDs and birth dates before you paste or upload anything. In ChatGPT you can use Temporary Chat or turn off “Improve the model for everyone” under Settings › Data controls.
+
+Sources:
+- Google search suggestions for “can ai fill out forms for me” (checked 2026-10-19): https://www.google.com/search?q=can+ai+fill+out+forms+for+me
+- Google search suggestions for “can ai fill out pdf forms” (checked 2026-10-19): https://www.google.com/search?q=can+ai+fill+out+pdf+forms
+
+## Review a rental lease before you sign
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/review-a-lease-before-signing/
+Category: Inbox, calls & paperwork | Difficulty: Medium | Added: 2026-10-19
+Popularity: not measured
+
+The lease is long, the landlord wants it signed this week, and you're worried about what's buried in it.
+
+What the bot does:
+1. Get the full lease, including any addenda.
+2. Remove names and addresses and paste it into the prompt.
+3. Check any 'depends on your state' points with your state or local tenant resources.
+4. Send your questions to the landlord in writing.
+5. Keep a signed copy and photos of the unit on move-in day.
+
+What you end up with: A plain-English summary, a list of unusual or one-sided clauses, and polite questions to ask before you sign.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+Review this residential lease for me as a renter in [CITY, STATE]. Personal info removed.
+[PASTE LEASE]
+
+1. Summarize rent, deposit, fees, term, renewal and move-out rules.
+2. List clauses that are unusual, one-sided, or could cost me money (for example automatic renewal, repair duties, penalties, entry rules).
+3. Tell me which points may depend on my state's or city's tenant laws, so I can check them.
+4. Write 5 polite questions or change requests for the landlord.
+This is not legal advice; flag anything I should ask a tenant-rights group about.
+
+Watch out:
+- AI isn't a lawyer and may not know your local rules. Confirm anything important.
+- Don't sign under pressure if key questions are unanswered.
+
+Sources:
+- HUD: Tenant rights, laws and protections: https://www.hud.gov/topics/rental_assistance/tenantrights
+- Google search suggestions for “chatgpt lease review” (checked 2026-10-19): https://www.google.com/search?q=chatgpt+lease+review
+
+## Make a moving checklist and change your address everywhere
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/moving-checklist-and-change-of-address/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-19
+Popularity: 8 likes, 1 reposts on X (https://x.com/tomchris/status/2072663153532666045, measured 2026-10-21)
+
+Moving means telling dozens of companies and offices your new address, and something always gets missed.
+
+What the bot does:
+1. Fill in the prompt with your move date and accounts.
+2. Do the USPS change of address on the official USPS site only.
+3. Work through the AI's list, ticking off each organization.
+4. Set reminders for utility stop/start dates.
+5. A month after the move, ask the AI which items are still open.
+
+What you end up with: A personal moving checklist by week, a list of everyone to notify, and the official USPS change of address done for the official fee.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+I'm moving from [CITY/STATE] to [CITY/STATE] on [DATE]. My household: [WHO, PETS, CAR?]
+Here are my recurring bills/accounts (no account numbers): [LIST OR PASTE A STATEMENT]
+
+1. Make a week-by-week moving checklist starting today.
+2. List every organization I should give my new address to, grouped (government, money, utilities, health, subscriptions, work/school).
+3. Tell me which utilities to stop or transfer and when.
+4. Write a short, reusable message I can send to update my address.
+
+Watch out:
+- USPS warns that some third-party sites charge $40 or more to file a change of address. The official online fee is $1.25 for identity verification.
+- Never give an AI your account numbers; just the company names.
+
+Sources:
+- USPS: Standard Forward Mail & Change of Address: https://www.usps.com/manage/forward.htm
+- USPS FAQ: Change of Address – The Basics: https://faq.usps.com/articles/Knowledge/Change-of-Address-The-Basics
+- X post: using an AI agent for moving-out admin: https://x.com/tomchris/status/2072663153532666045
+
+## Plan a trip itinerary that fits your pace
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/plan-a-trip-itinerary/
+Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-19
+Popularity: not measured
+
+Planning a trip means 30 open tabs, and you still aren't sure the days fit together.
+
+What the bot does:
+1. Fill in the prompt with dates, people, budget and interests.
+2. Ask follow-ups: “make day 2 less walking”, “swap in a kid-friendly lunch”.
+3. Check opening hours and prices on official sites.
+4. Book the urgent items first.
+5. Save the final plan to your phone or a shared doc.
+
+What you end up with: A day-by-day plan with realistic travel times, a budget estimate, and a booking checklist with links to verify.
+
+Tools: ChatGPT, Claude, Gemini, Grok, ChatGPT agent (cloud browser), Grok Bot (personal agents)
+
+Prompt:
+Plan a [NUMBER]-day trip to [PLACE] for [WHO, AGES] in [MONTH].
+Budget: [TOTAL OR PER DAY]. Pace: [RELAXED / BUSY]. We like: [INTERESTS]. Avoid: [THINGS].
+Getting there from: [CITY].
+
+1. Day-by-day plan with morning/afternoon/evening, grouped by neighborhood to cut travel time.
+2. Rough costs per day, marked as estimates.
+3. What to book ahead, in order of urgency.
+4. A rainy-day backup for each day.
+Tell me what I should double-check (opening hours, prices, closures) because it may be out of date.
+
+Watch out:
+- AI can list places that have closed or changed hours. Verify before you go.
+- Prices are estimates. Check the real price at booking.
+
+Sources:
+- Google search suggestions for “use chatgpt to plan a trip” (checked 2026-10-19): https://www.google.com/search?q=use+chatgpt+to+plan+a+trip
+- Use.AI survey of 2,400 US/UK adults (press release): https://cooperative-agency.prowly.com/447243-why-more-people-are-outsourcing-their-thinking-to-ai
+- OpenAI Help: Using cloud browser in ChatGPT: https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt
+
+## Prepare for a doctor's appointment in 10 minutes
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/prepare-for-a-doctor-visit/
+Category: Health & care | Difficulty: Easy | Added: 2026-10-19
+Popularity: not measured
+
+Appointments are short, and you forget half your questions or can't explain your symptoms clearly.
+
+What the bot does:
+1. Jot down symptoms and medicines as you notice them.
+2. Run the prompt the day before the appointment.
+3. Print or save the summary and bring it.
+4. Fill in the template right after the visit.
+5. Ask the AI to explain any terms from your visit summary in plain English.
+
+What you end up with: A one-page summary of symptoms, medicines and questions to bring, plus a way to capture what the doctor said afterwards.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+Help me prepare for a doctor's appointment. This is to organize my thoughts, not to diagnose me.
+
+Reason for visit: [WHAT'S GOING ON]
+Symptoms, when they started, what makes them better/worse: [DETAILS]
+Medicines and supplements I take: [LIST]
+What I'm worried about: [CONCERNS]
+
+1. Turn this into a clear one-page summary I can hand to the doctor.
+2. Suggest the 5 most useful questions to ask, in priority order.
+3. Make a short template for writing down what the doctor tells me and any next steps.
+
+Watch out:
+- AI can't examine you and may be wrong. Use it to prepare, not to replace your doctor.
+- Leave your name, birth date and insurance ID out of the chat.
+
+Sources:
+- Menlo Ventures, 2025 State of Consumer AI (survey of 5,000+ US adults): https://menlovc.com/perspective/2025-the-state-of-consumer-ai/
+- AHRQ: Questions to ask your doctor: https://www.ahrq.gov/questions/index.html
+
+## Organize an aging parent's care and paperwork
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/organize-a-parents-care-paperwork/
+Category: Health & care | Difficulty: Medium | Added: 2026-10-19
+Popularity: not measured
+
+You're helping a parent with doctors, insurance, medicines and bills, and the details live in a dozen places.
+
+What the bot does:
+1. Collect what you have: pill bottles, insurance cards, recent letters.
+2. Run the prompt without ID numbers.
+3. Fill in the gaps it lists.
+4. Keep the binder in a shared doc with siblings or caregivers.
+5. Log every call; it helps a lot if you ever need to appeal a decision.
+
+What you end up with: One organized care binder: contacts, medicines, appointments, insurance details, and a running log of calls and decisions.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+I'm helping my [MOM/DAD], age [AGE], with their care. Here's what I know so far (no ID numbers):
+[DOCTORS, MEDICINES, INSURANCE TYPE, UPCOMING APPOINTMENTS, OPEN ISSUES]
+
+1. Organize this into a care binder with sections: contacts, medicines (dose, time, prescriber), appointments, insurance, open issues.
+2. List what's missing that I should collect.
+3. Make a call-log template (date, who, what was said, next step).
+4. Suggest questions to ask at the next appointment or care meeting.
+
+Watch out:
+- Double-check medicine names and doses against the labels. Errors here matter.
+- Get your parent's permission and any required forms (like a HIPAA authorization) before talking to their providers.
+
+Sources:
+- Reddit r/AgingParents: ChatGPT helped with an insurance discharge appeal: https://www.reddit.com/r/AgingParents/comments/1r1eimf/
+
+## Make a weekly meal plan and grocery list in 5 minutes
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/weekly-meal-plan-and-grocery-list/
+Category: Family & home | Difficulty: Easy | Added: 2026-10-19
+Popularity: not measured
+
+Deciding what's for dinner every night is exhausting, and you keep buying food that goes to waste.
+
+What the bot does:
+1. List what's in your fridge and pantry.
+2. Fill in the prompt and swap any meals you don't like.
+3. Copy the grocery list to your phone or a grocery app.
+4. Save the prompt and reuse it every week.
+
+What you end up with: Seven dinners your household will actually eat, using what you already have, plus one grocery list sorted by store aisle.
+
+Tools: ChatGPT, Claude, Gemini, Grok, Grok Bot (personal agents)
+
+Prompt:
+Plan [NUMBER] dinners for [NUMBER] people this week.
+Likes: [FOODS]. Dislikes/allergies: [LIST]. Weeknight cooking time: [MINUTES].
+Already in my fridge/pantry: [LIST].
+Budget: [AMOUNT OR 'KEEP IT CHEAP'].
+
+1. Give me the plan, reusing ingredients across meals so nothing goes to waste.
+2. Make one grocery list grouped by store section, minus what I already have.
+3. Note which meals make good leftovers for lunch.
+
+Watch out:
+- Double-check anything allergy-related yourself. AI can miss hidden ingredients.
+
+Sources:
+- Menlo Ventures, 2025 State of Consumer AI (survey of 5,000+ US adults): https://menlovc.com/perspective/2025-the-state-of-consumer-ai/
+- Google search suggestions for “use ai to plan meals” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+plan+meals
+
+## Use AI for homework help that teaches instead of cheats
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/homework-help-that-teaches/
+Category: Family & home | Difficulty: Easy | Added: 2026-10-19
+Popularity: not measured
+
+Your kid is stuck on homework, you don't remember how to do it, and you don't want the AI to just hand over answers.
+
+What the bot does:
+1. Check your child's school rules on AI use first.
+2. Paste the prompt and the problem.
+3. Sit with your child for the first few sessions.
+4. Ask the AI to explain the idea to you too, so you can help next time.
+
+What you end up with: A patient, step-by-step tutor that asks your child questions and explains the idea, without doing the work for them.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+Act as a patient tutor for my [GRADE]-grade child. Topic: [SUBJECT/TOPIC].
+Here is the problem they're stuck on: [PASTE OR PHOTO]
+
+Rules:
+- Do NOT give the final answer.
+- Ask one question at a time to help them figure out the next step.
+- If they're stuck twice, give a hint or a similar example with different numbers.
+- Use simple words and short sentences.
+- At the end, give them one practice problem to try on their own.
+
+Watch out:
+- AI can make math and fact mistakes. Check the final work.
+- Many schools have AI rules. Follow your child's school policy.
+
+Sources:
+- Google search suggestions for “ai to help with homework” (checked 2026-10-19): https://www.google.com/search?q=ai+to+help+with+homework
+- Menlo Ventures, 2026 State of Consumer AI: https://menlovc.com/wp-content/uploads/2026/09/menlo_ventures_consumer_ai_report-2026.pdf
+
+## Get your email inbox under control
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/clean-up-your-email-inbox/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-19
+Popularity: not measured
+
+Thousands of unread emails, and the important ones get buried under newsletters and promos.
+
+What the bot does:
+1. Export or copy your top senders (most email apps can sort by sender).
+2. Run the prompt and set up the suggested filters.
+3. Unsubscribe from the senders on the list.
+4. Use the AI for drafts; read every reply before sending.
+
+What you end up with: A simple folder or label system, a list of senders to unsubscribe from, and short replies drafted for the emails that matter.
+
+Tools: ChatGPT, Claude, Gemini, Grok, Gemini Spark, Grok Bot (personal agents)
+
+Prompt:
+Help me get my inbox under control. Here's a list of my most frequent senders and some recent subject lines (no personal details):
+[PASTE LIST]
+
+1. Group senders into: must read, nice to read, unsubscribe, and archive.
+2. Suggest 4–6 labels or folders and simple rules/filters to sort new mail automatically, with steps for [GMAIL / OUTLOOK / APPLE MAIL].
+3. For these emails I need to answer: [PASTE], draft short, friendly replies.
+
+Watch out:
+- If you connect an AI to your email account, check what it can read and do, and require it to ask before sending.
+- Don't paste emails that contain passwords, codes or financial details.
+
+Sources:
+- Menlo Ventures, 2025 State of Consumer AI (survey of 5,000+ US adults): https://menlovc.com/perspective/2025-the-state-of-consumer-ai/
+- Menlo Ventures, 2026 State of Consumer AI: https://menlovc.com/wp-content/uploads/2026/09/menlo_ventures_consumer_ai_report-2026.pdf
+- Google search suggestions for “use ai to organize gmail” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+organize+gmail
+
+## Tailor your resume and cover letter to a job in 15 minutes
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/tailor-your-resume-to-a-job/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-19
+Popularity: not measured
+
+Every job wants a slightly different resume, and rewriting yours each time takes forever.
+
+What the bot does:
+1. Copy the job posting and your resume.
+2. Run the prompt and fill in any [ADD NUMBER] spots with real figures.
+3. Read every line; remove anything that isn't true.
+4. Save each version with the company name.
+5. Practice the interview questions out loud.
+
+What you end up with: A resume version that matches the job's key words using only your real experience, plus a short cover letter.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+Here's a job posting: [PASTE]
+Here's my current resume (contact details removed): [PASTE]
+
+1. List the 8 most important skills and keywords in the posting.
+2. Show which ones my resume already proves and which are missing.
+3. Rewrite my bullet points to match the posting using ONLY true experience from my resume. Don't invent jobs, numbers or skills. Where a number would help, write [ADD NUMBER].
+4. Write a cover letter under 200 words.
+5. Give me 3 likely interview questions for this job.
+
+Watch out:
+- Never let AI add skills or results you don't have. It can cost you the job later.
+- Remove your phone, email and address before pasting.
+
+Sources:
+- Google search suggestions for “ai to help with resume” (checked 2026-10-19): https://www.google.com/search?q=ai+to+help+with+resume
+- Google search suggestions for “can ai fill out job applications for me” (checked 2026-10-19): https://www.google.com/search?q=can+ai+fill+out+job+applications+for+me
+
+## Write listings that sell your stuff faster
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/sell-your-stuff-online/
+Category: Small business & side hustles | Difficulty: Easy | Added: 2026-10-19
+Popularity: not measured
+
+You have things to sell, but writing listings, pricing them and answering buyers is a chore.
+
+What the bot does:
+1. Take clear photos in good light.
+2. Run the prompt for each item.
+3. Check real sold prices on the marketplace before you set the price.
+4. Post, then use the saved replies for messages.
+
+What you end up with: A clear title, honest description and price range for each item, plus ready replies for common buyer messages.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+Help me sell this on [FACEBOOK MARKETPLACE / EBAY / ETSY / OTHER].
+Item: [WHAT IT IS, BRAND, MODEL, AGE, CONDITION, FLAWS]
+Photos: [UPLOAD IF YOU CAN]
+Pickup/shipping: [DETAILS]
+
+1. Write a searchable title and an honest description (mention flaws).
+2. Suggest a price range and tell me how to check it against sold listings on the site.
+3. Write short replies to: 'Is this still available?', lowball offers, and 'Can you hold it?'
+4. List safety tips for meeting buyers and getting paid.
+
+Watch out:
+- AI price guesses can be way off. Check sold listings.
+- Be honest about flaws; it avoids returns and bad reviews.
+- Watch for buyer scams like overpayment or fake payment screenshots.
+
+Sources:
+- Google search suggestions for “use ai to sell on facebook marketplace” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+sell+on+facebook+marketplace
+- Google search suggestions for “ai to write listing description” (checked 2026-10-19): https://www.google.com/search?q=ai+to+write+listing+description
+
+## Test a side hustle idea before you commit
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/test-a-side-hustle-idea/
+Category: Small business & side hustles | Difficulty: Medium | Added: 2026-10-19
+Popularity: not measured
+
+You have an idea to earn extra money, but you don't know if anyone will pay, and ads promise 'easy AI income'.
+
+What the bot does:
+1. Write the idea in one sentence.
+2. Run the prompt and push back on anything vague.
+3. Run the cheap test before buying tools or courses.
+4. Decide using real results, not hype.
+
+What you end up with: A one-page reality check: who would pay, what it really costs, a cheap 2-week test, and a list of red flags to avoid.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+I'm thinking about this side hustle: [IDEA]
+My skills/time/budget: [DETAILS]
+
+Be honest, not encouraging. Please:
+1. Who exactly would pay for this, and how would I reach them?
+2. Realistic costs and time per week. Mark guesses as guesses.
+3. Design a 2-week test that costs under [AMOUNT] to see if anyone will pay.
+4. What would make me stop?
+5. Red flags if someone is selling me a course, 'done-for-you store' or 'AI income' system for this.
+
+Watch out:
+- The FTC has sued several schemes that promised big passive income from 'AI-powered' online stores. Be very wary of anyone guaranteeing earnings.
+- AI can't know your local market. Treat its numbers as guesses.
+
+Sources:
+- FTC: Crackdown on deceptive AI claims and schemes (Operation AI Comply, Sep 2024): https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes
+- FTC: Air AI banned from marketing business opportunities (Mar 2026): https://www.ftc.gov/news-events/news/press-releases/2026/03/air-ai-its-owners-will-be-banned-marketing-business-opportunities-settle-ftc-charges-company-misled
+- Google search suggestions for “use ai to start a side hustle” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+start+a+side+hustle
+
+## Reply to customer reviews (even the angry ones)
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/reply-to-customer-reviews/
+Category: Small business & side hustles | Difficulty: Easy | Added: 2026-10-19
+Popularity: not measured
+
+Reviews pile up on Google and you don't have time to answer, or a harsh review has you stuck on what to say.
+
+What the bot does:
+1. Copy new reviews from your Google Business Profile (or other site).
+2. Run the prompt and edit each reply so it sounds like you.
+3. Post replies from your verified Business Profile.
+4. Do it weekly so it never piles up.
+
+What you end up with: Short, personal replies for each review, including a calm, professional reply to a negative one.
+
+Tools: ChatGPT, Claude, Gemini, Grok, Zapier
+
+Prompt:
+I run [BUSINESS TYPE] called [NAME]. Write replies to these reviews:
+[PASTE REVIEWS]
+
+Rules:
+- Under 60 words each, warm and specific to what the customer said.
+- For negative reviews: thank them, acknowledge the issue without arguing, say what we're doing about it, and invite them to contact [EMAIL/PHONE] offline.
+- No discounts or incentives, no customer private details.
+- Vary the wording so replies don't look copy-pasted.
+
+Watch out:
+- Google checks replies against its content policies before posting. Keep replies polite and free of private information.
+- Don't let AI invent facts about what happened.
+
+Sources:
+- Google Business Profile Help: Manage customer reviews: https://support.google.com/business/answer/3474050?hl=en
+- Google search suggestions for “ai to respond to google reviews” (checked 2026-10-19): https://www.google.com/search?q=ai+to+respond+to+google+reviews
+
+## Chase an unpaid invoice without burning the relationship
+URL: https://nik-schultz.github.io/agents-on-radar/use-cases/chase-an-unpaid-invoice/
+Category: Small business & side hustles | Difficulty: Easy | Added: 2026-10-19
+Popularity: not measured
+
+A client is late paying and you're not sure how firm to be.
+
+What the bot does:
+1. Gather the invoice, agreed terms and any emails about the work.
+2. Run the prompt and send the first reminder.
+3. Put the follow-up dates on your calendar.
+4. Update your invoice template for future clients.
+
+What you end up with: A sequence of three reminders (friendly, firm, final) and a clean invoice template for next time.
+
+Tools: ChatGPT, Claude, Gemini, Grok, Grok Bot (personal agents), Zapier
+
+Prompt:
+A client owes me [AMOUNT] for [WORK], invoice [NUMBER] dated [DATE], due [DATE]. Our relationship: [GOOD / NEW / TENSE].
+Payment terms we agreed: [TERMS, IF ANY].
+
+1. Write 3 short emails: a friendly reminder, a firm follow-up a week later, and a final notice that states next steps.
+2. Keep them professional and factual; include invoice number, amount and how to pay.
+3. Suggest clearer payment terms for my future invoices.
+4. Give me a simple invoice template with the fields I should always include.
+
+Watch out:
+- Only state next steps (late fees, collections) that your agreement and local law allow.
+- Keep client names and bank details out of the chat; add them yourself.
+
+Sources:
+- Google search suggestions for “use ai to make invoices” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+make+invoices
+
+## Blueprint: Morning Inbox Briefing
+URL: https://nik-schultz.github.io/agents-on-radar/blueprints/morning-inbox-briefing/
+Goal: Wake up to a 2-minute summary of what's in your email and what needs you today.
+Runs: Every weekday at 7:00am
+Watches: New emails since yesterday morning
+Instructions:
+You are my Morning Inbox Briefing bot.
+Every weekday at 7:00am, read every email that arrived since 7:00am yesterday.
+Sort them into three groups:
+1. NEEDS ME TODAY: someone is waiting on me, or there's a deadline within 48 hours.
+2. FYI: worth knowing, no action.
+3. NOISE: promotions, newsletters, receipts.
+Send me a briefing: group 1 first (max 5 items, one line each, with who and what), then a one-line count of groups 2 and 3.
+For easy replies in group 1, write a draft and leave it in my Drafts folder.
+Rules: never send, delete or archive anything. If you're unsure which group something is in, put it in group 1.
+Safety:
+- Start read-only: it may read, but not send, buy, delete or change anything.
+- Drafts stay in Drafts. You press send.
+- Check the first week of briefings against your real inbox.
+
+## Blueprint: School Email Digest
+URL: https://nik-schultz.github.io/agents-on-radar/blueprints/school-email-digest-bot/
+Goal: Never miss a permission slip, payment or deadline buried in school emails again.
+Runs: Every Sunday at 6:00am
+Watches: Emails with your 'School' label (set up a filter first)
+Instructions:
+You are my School Email Digest bot.
+Every Sunday at 6:00am, find emails labeled 'School' that are NOT labeled 'Processed'. Open any newsletter links inside them.
+My kids: [initials], [grade], [school]. Ignore anything for other grades or for [activities we don't do].
+Make a digest with these sections: 1) Closures and schedule changes, 2) Deadlines this week and next (forms, payments, sign-ups), 3) Events to put on the calendar, 4) Anything asking for a reply.
+Remove duplicates. Put the date first on every line.
+When done, add the label 'Processed' to each email you read.
+Rules: draft replies to teachers but never send them. Don't share my kids' details anywhere else.
+Safety:
+- Use initials, not names, if you prefer.
+- Drafts only for anything going to the school.
+- Check the first two digests against the original emails.
+
+## Blueprint: Web Page Watcher
+URL: https://nik-schultz.github.io/agents-on-radar/blueprints/web-page-watcher/
+Goal: Get one ping when a page you care about changes (a restock, a new listing, an appointment slot, a status update) and stop refreshing it yourself.
+Runs: Every morning at 8:00am (or every few hours for time-sensitive pages)
+Watches: The web pages you give it
+Instructions:
+You are my Page Watcher bot.
+Watch these pages:
+- [link 1]: tell me when [it's back in stock / a new listing appears / an appointment slot opens / the status changes]
+- [link 2]: tell me when [what matters]
+Every morning at 8:00am, check each page. Only message me when something I asked about changes. Include the old value, the new value and the link.
+Rules: never buy, book or sign up for anything, never create accounts, never enter my details.
+Safety:
+- Watching is safe; acting on what it finds is a separate decision you make.
+- Some sites block bots. If checks keep failing, use the site's own alerts instead.
+
+## Blueprint: Phone Call Bot
+URL: https://nik-schultz.github.io/agents-on-radar/blueprints/phone-call-bot/
+Goal: Hand off the phone calls you keep putting off: booking a table, a vet visit or a haircut, or a quick customer-service call.
+Runs: Only when you ask it to (never on its own)
+Watches: Nothing. It waits for your request, then makes one call at a time
+Instructions:
+You are my Phone Call bot.
+When I ask you to call somewhere:
+1. Find the business's official phone number.
+2. Ask me for anything you need: name to use, callback number, how flexible I am, what you may agree to.
+3. Read the whole plan back and wait for my OK before you dial.
+4. Start the call by saying you're an AI assistant calling on behalf of [my name].
+5. Get what I asked for, and agree to nothing else. Never give card or deposit details, never leave a voicemail unless I said so, one call at a time.
+6. Afterwards, tell me what happened, quote what they said, give me any confirmation number, and offer to add it to my calendar.
+Safety:
+- A phone call is harder to undo than an email. Be specific about what it may agree to.
+- Have it say it's an AI right away. One user says a restaurant owner almost hung up until it did.
+- Some companies only act for the account holder, so some calls will still need you.
+- Never let it share card numbers or deposit details on a call.
+
+## Blueprint: Scam Checker
+URL: https://nik-schultz.github.io/agents-on-radar/blueprints/scam-checker/
+Goal: Get a plain verdict on suspicious emails and texts before anyone in the family clicks.
+Runs: Every morning, plus any time you forward something suspicious
+Watches: New email (read-only), or messages you forward to it
+Instructions:
+You are my Scam Checker.
+For each message you check, answer in this format:
+VERDICT: Confirmed scam / High suspicion / Possible / Looks fine
+RED FLAGS: (sender address, links that don't match, urgency, requests for money, gift cards, passwords or codes)
+WHAT TO DO: one or two safe steps (for example: don't click, delete, report it, or call the company on a number from their official website).
+Rules: you are read-only. Never click links, open attachments, reply or delete.
+Safety:
+- Read-only, always.
+- A 'looks fine' verdict isn't a guarantee. When money is involved, call the company on a number you already trust.
+
+## Blueprint: Weekly Meal Plan Bot
+URL: https://nik-schultz.github.io/agents-on-radar/blueprints/meal-plan-bot/
+Goal: Get a family meal plan and one shopping list every week without thinking about it.
+Runs: Every Thursday at 5:00pm
+Watches: Your recipe list and what you say is in the fridge
+Instructions:
+You are our Meal Plan bot.
+Our family: [who], allergies: [list], budget: $[X] per week, store: [store].
+Our recipes: [paste list].
+Every Thursday at 5:00pm, ask me what's already in the fridge. Then plan [5] dinners using our recipes, reusing ingredients to cut waste.
+Send: 1) the plan, one line per day, 2) one shopping list grouped by store section.
+Rules: never buy anything. If you suggest a new recipe, mark it NEW.
+Safety:
+- Double-check allergies on every new recipe.
+- If an agent fills your cart, you check out yourself.
+
+## Blueprint: Family Calendar Guardian
+URL: https://nik-schultz.github.io/agents-on-radar/blueprints/family-calendar-guardian/
+Goal: Spot clashes and prep jobs for the next two weeks, every Sunday.
+Runs: Every Sunday at 6:00pm
+Watches: Your shared family calendar (read-only)
+Instructions:
+You are our Family Calendar Guardian.
+Every Sunday at 6:00pm, read our family calendar for the next 14 days.
+Send one note with:
+1) CLASHES: two things at the same time, or a pickup nobody can do.
+2) PREPARE: anything that needs a form, payment, gift, outfit or kit.
+3) THIS WEEK: one line per day.
+Rules: never add, move or delete events. Just tell me.
+Safety:
+- Start read-only: it may read, but not send, buy, delete or change anything.
+
+## Blueprint: Travel Day Guardian
+URL: https://nik-schultz.github.io/agents-on-radar/blueprints/travel-day-guardian/
+Goal: Hear about schedule changes and delays first, with your options and a request ready to send.
+Runs: Daily while you have upcoming trips, plus every 2 hours on travel day
+Watches: Airline and booking emails
+Instructions:
+You are my Travel Day Guardian.
+Every morning, look in my email for upcoming flights, trains and hotel bookings in the next 30 days and keep a list.
+Watch for any change: new times, delays, gate or terminal changes, cancellations.
+When something changes, message me: what changed, by how much, and my options (wait, rebook, or ask for a refund under the airline's published rules).
+Draft any refund or rebooking request, but never cancel, book or pay without my YES.
+Safety:
+- Cancelling can lose your seat. Decide first.
+- Use a single-use virtual card if you let it book.
+
+## Blueprint: Follow-Up Finder
+URL: https://nik-schultz.github.io/agents-on-radar/blueprints/follow-up-finder/
+Goal: Never let a client, lead or friend go cold because you forgot to reply.
+Runs: Every Monday at 8:00am
+Watches: Your sent mail, calendar and task list
+Instructions:
+You are my Follow-Up Finder.
+Every Monday at 8:00am, look at my sent email and calendar from the last 30 days.
+List: (a) things I promised and haven't sent, (b) questions I asked with no reply after 7 days, (c) meetings with no follow-up email.
+For each, write a 2-sentence friendly follow-up in my style and leave it as a draft.
+Rules: never send. Skip anything marked personal or anything with lawyers, doctors or HR.
+Safety:
+- Drafts only.
+- Some threads went quiet for a reason. Read before sending.
+
+## Blueprint: Job Match Scout
+URL: https://nik-schultz.github.io/agents-on-radar/blueprints/job-match-scout/
+Goal: Get a daily shortlist of jobs that fit you, with notes. You apply yourself.
+Runs: Every weekday at 9:00am
+Watches: New listings on job boards that allow it
+Instructions:
+You are my Job Match Scout.
+My CV: [paste]. I want: [titles], [location/remote], salary at least [X], not [things to avoid].
+Every weekday at 9:00am, find roles posted in the last 24 hours. Skip any you've shown me before.
+Score each 1–10 for fit. For 7 and above, send: title, company, link, why it fits, gaps, and a 3-sentence note to the hiring manager.
+Rules: never apply, never create accounts, never invent experience I don't have.
+Safety:
+- Don't let it auto-apply: job sites block bots and can ban accounts.
+- Check every tailored CV for made-up claims.
+
+## Blueprint: Receipt Matcher (small business)
+URL: https://nik-schultz.github.io/agents-on-radar/blueprints/receipt-matcher/
+Goal: Have every business expense matched to a receipt before your bookkeeper asks.
+Runs: Every Friday at 4:00pm
+Watches: A receipts@ inbox and your business card activity (read-only)
+Instructions:
+You are my Receipt Matcher.
+Every Friday at 4:00pm, read this week's business card and payment activity and the receipts@ inbox.
+Make a table: date, merchant, amount, receipt found (yes/no), note.
+List unmatched charges first, then receipts with no matching charge, then fees or refunds.
+Rules: read-only. Never change cards, send payouts, move money or delete email.
+Safety:
+- Start read-only: it may read, but not send, buy, delete or change anything.
+- Ask your bookkeeper how they want the output.
+
+## Blueprint: New Inquiry Logger
+URL: https://nik-schultz.github.io/agents-on-radar/blueprints/lead-logger/
+Goal: Every customer inquiry lands in one tracker with a reply drafted.
+Runs: Whenever a new inquiry email arrives
+Watches: Your business inbox
+Instructions:
+You are my New Inquiry Logger.
+When an email arrives asking about my [service], extract: client name, email, requested date, what they want, budget if mentioned.
+Add a row to my 'Client Tracker' sheet and create a folder named after the client.
+Draft a friendly reply that thanks them and offers my next 3 open slots from my calendar.
+Rules: never send replies or quote prices without my OK.
+Safety:
+- Drafts only until you trust it.
+- Check extracted dates; a wrong date loses a booking.
+
+## Latest in AI
+URL: https://nik-schultz.github.io/agents-on-radar/news/
+Top story (importance): Anthropic opens Claude Duet, a proactive agent that comes to you (2026-10-21). Trending (X engagement decayed by age): DeepSeek open-sources the engine that runs its own API; AI agents helped find critical PHP flaws that affect most websites; DeepSeek updates its V4.1 Flash model: faster and shorter answers, same price
+- 2026-10-21 [agent launch, impact: major] Anthropic opens Claude Duet, a proactive agent that comes to you | Claude Duet sends you a morning brief from your connected apps, keeps an eye on them through the day, works on tasks while you're away, and asks before it does anything big like paying or deleting. It's a waitlist research preview for US Pro and Max subscribers, on iOS, Android and claude.ai, and Anthropic says it can still misjudge what's urgent. | Source: Anthropic https://claude.com/blog/claude-duet | X: 12,097 likes, 800 reposts (https://x.com/claudeai/status/2112984664256241837, measured 2026-10-21)
+- 2026-10-21 [industry, impact: notable] AI agents helped find critical PHP flaws that affect most websites | If you run a website or blog on PHP (WordPress included), make sure your host has updated PHP to the patched version now. OpenAI says its models helped researchers find the bugs before attackers did, and it's sharing a version checker and a Codex skill to help site owners check. | Source: OpenAI https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities | X: 12,260 likes, 2,489 reposts (https://x.com/OpenAI/status/2112907856018309586, measured 2026-10-21)
+- 2026-10-21 [feature, impact: minor] Claude Security now re-scans your code every time it changes | Teams on Claude Enterprise can connect their code once and Claude keeps checking new changes for security holes, marking each one fixed when the fix lands. It's a public beta for businesses, not something personal plans get. | Source: Anthropic https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes | X: 4,666 likes, 219 reposts (https://x.com/claudeai/status/2112962248218148878, measured 2026-10-21)
+- 2026-10-21 [industry, impact: notable] OpenAI's models are coming to Google Cloud | Companies on Google Cloud will be able to use GPT-6 models and Codex without a separate OpenAI account (private preview now, wider launch planned in the coming weeks). For you it mostly means more places your work tools can quietly plug in OpenAI models. | Source: OpenAI https://openai.com/index/openai-models-google-cloud | X: 333 likes, 45 reposts (https://x.com/googlecloud/status/2112896659608785181, measured 2026-10-21)
+- 2026-10-20 [model release, impact: notable] Mistral launches Voxtral 3 for voice agents that can take calls | A new set of speech models plus a kit for building phone and web voice agents that listen, look things up and talk back in 50+ languages. Mistral lists its voice agent API at $0.04 a minute with Mistral Small 4, so phone bots keep getting cheaper to run. | Source: Mistral https://mistral.ai/news/voxtral-3/ | X: 3,044 likes, 356 reposts (https://x.com/MistralAI/status/2112574615318876178, measured 2026-10-21)
+- 2026-10-20 [pricing, impact: minor] OpenAI adds 12-hour prompt caching | Bots that run hours apart (like a morning and an evening check) can now keep their fixed instructions cached and pay the lower cached-input price. Writing to the 12-hour cache costs 2.5x the normal input price, so it pays off when the same setup is reused several times. | Source: OpenAI API changelog https://developers.openai.com/api/docs/changelog | X: 3,312 likes, 166 reposts (https://x.com/OpenAIDevs/status/2112603916076781778, measured 2026-10-21)
+- 2026-10-20 [industry, impact: minor] DeepSeek open-sources the engine that runs its own API | DeepInfer is the software DeepSeek uses to serve V4.1 Flash cheaply, now free under Apache 2.0. Hosting companies can copy the tricks, which could push the price of running open models down for your bots. | Source: DeepSeek (GitHub) https://github.com/deepseek-ai/DeepInfer | X: 39,630 likes, 4,507 reposts (https://x.com/deepseek_ai/status/2112476496283775135, measured 2026-10-21)
+- 2026-10-18 [feature, impact: notable] Google turns Gemini Gems into Skills and moves Spark into the main chat | From November 17, Google starts converting personal Gems into Skills you call with a slash in the main chat, and Scheduled Actions no longer need a paid plan (still rolling out to free accounts). If you built a Gem-based bot, test it before the switch. | Source: Android Police https://www.androidpolice.com/googles-renamed-gemini-features-field-guide/
+- 2026-10-17 [model release, impact: notable] DeepSeek updates its V4.1 Flash model: faster and shorter answers, same price | DeepSeek says the update finishes tasks faster with shorter outputs, which means fewer tokens to pay for. The API name and prices are unchanged, and the open weights are on Hugging Face. | Source: DeepSeek API changelog https://api-docs.deepseek.com/updates/ | X: 36,986 likes, 4,123 reposts (https://x.com/deepseek_ai/status/2111375640717033777, measured 2026-10-21)
+- 2026-10-17 [pricing, impact: minor] DeepSeek opens its own web search and page-fetch tools to developers | Bots built on DeepSeek can now search the web and read pages through DeepSeek's own API at $0.75 per 1,000 requests each. Calls made through some coding agents are free until billing starts on November 1 (Beijing time). | Source: DeepSeek pricing https://api-docs.deepseek.com/quick_start/pricing | X: 3,482 likes, 248 reposts (https://x.com/deepseek_ai/status/2111375650414309859, measured 2026-10-21)
+- 2026-10-15 [model release, impact: notable] Meta releases Muse Spark Open, the most capable US open-weight model so far | Meta's new open model is built for coding and agent work, and you can call it on day one through Groq, OpenRouter, Together AI and other APIs. Groq runs it at 350+ tokens per second per user. That speed matters for agents, because each task is a long chain of model calls. | Source: Meta https://research.meta.ai/blog/muse-spark-open | X: 11,530 likes, 1,221 reposts (https://x.com/AIatMeta/status/2110779754274292212, measured 2026-10-21)
+- 2026-10-14 [model release, impact: notable] xAI releases Grok Voice 3.0, its new speech-to-speech model | The voice model behind Grok Bot's voice mode and Tesla's in-car assistant got an upgrade, at the same $0.08 a minute on the API. xAI says it answers in under a second and handles interruptions, which is what makes a phone bot feel natural. | Source: xAI https://x.ai/news/grok-voice-3 | X: 1,311 likes, 144 reposts (https://x.com/ArtificialAnlys/status/2110421964095713743, measured 2026-10-21)
+- 2026-10-13 [model release, impact: major] Google's Gemini 4 Argon is now available to developers and paid Gemini users | Google's new top model is in the API at an introductory $2 / $10 per million tokens, and in the Gemini app for Google AI Pro and Ultra subscribers. Google built it for long, multi-step work, the kind agents do. | Source: Google https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/ | X: 7,238 likes, 762 reposts (https://x.com/GeminiApp/status/2110039322229649783, measured 2026-10-21)
+- 2026-10-12 [model release, impact: major] Meta releases Muse Wonder, its first frontier model | Meta says Muse Wonder will soon power its Muse personal agent, starting with paying subscribers. Developers can use it through Meta's API at $4 / $20 per million tokens. | Source: Meta https://dev.meta.ai/resources/blog/build-with-muse-wonder | X: 2,203 likes, 235 reposts (https://x.com/AIatMeta/status/2109691148943999167, measured 2026-10-21)
+- 2026-10-12 [feature, impact: minor] Gemini's Spark agent moves to a "Task" button on the app's home screen | Handing a job to Google's background agent is now one tap away in the Gemini app, with a new Scheduled page that shows active, paused and finished tasks. It's live on Android and iOS; web wasn't confirmed yet. | Source: 9to5Google https://9to5google.com/2026/10/12/gemini-spark-task-redesign/
+- 2026-10-09 [pricing, impact: minor] OpenAI stops charging agents for idle sandbox time | Agents built on OpenAI's Agents API run in a hosted sandbox computer, and that is now billed only during active turns, not while the agent waits for you. Sandboxes can also be pre-warmed so replies start faster. | Source: OpenAI API changelog https://developers.openai.com/api/docs/changelog
+- 2026-10-08 [feature, impact: notable] Claude can now build live dashboards from your data and animated explainers | Ask a question in plain words and Claude builds a dashboard that stays current, showing the query behind every number. Motion turns a report into a short animation you can export as MP4. Both are in beta on paid plans (Motion on Team and Enterprise). | Source: Anthropic https://claude.com/resources/articles/dashboards-and-motion | X: 60,507 likes, 4,599 reposts (https://x.com/claudeai/status/2108271552991252810, measured 2026-10-21)
+- 2026-10-07 [model release, impact: major] GPT-6 rolls out to everyone in ChatGPT, with interactive answers | ChatGPT answers can now include charts, buttons, forms and small tools you use right in the chat. Paid plans get GPT-6 Sol and Free and Go users get GPT-6 Luna, starting October 8. | Source: OpenAI https://openai.com/index/gpt-6-for-everyone/ | X: 23,952 likes, 1,898 reposts (https://x.com/OpenAI/status/2107894997538525580, measured 2026-10-21)
+- 2026-10-07 [model release, impact: notable] Anthropic releases Claude Haiku 5.5, a fast, cheap model for high-volume bot work | At $0.10 / $0.50 per million tokens for prompts up to 100,000 tokens, Anthropic says it costs about 75% less to run than Haiku 4.5. It's built for summaries, sorting and browser use: the simple, repeated jobs most everyday bots do. | Source: Anthropic https://www.anthropic.com/news/claude-haiku-5-5 | X: 45,254 likes, 3,271 reposts (https://x.com/claudeai/status/2107894039626277339, measured 2026-10-21)
+- 2026-10-07 [pricing, impact: notable] Anthropic halves Sonnet 5.5 cache reads and gives Max and Team plans monthly API credits | Cached reads on Claude Sonnet 5.5 dropped from $0.20 to $0.10 per million tokens, which Anthropic says makes most agent work about 20% cheaper. Max subscribers get $100 or $200 a month in API credits, and Team plans up to $500, to build their own bots. | Source: Anthropic https://www.anthropic.com/news/claude-haiku-5-5 | X: 11,863 likes, 589 reposts (https://x.com/claudeai/status/2107894060229034197, measured 2026-10-21)
+- 2026-10-06 [model release, impact: notable] Mistral previews Mistral Large 4, with open weights promised by month's end | Mistral's biggest model yet is in a public preview on its API, and Mistral says anyone will be able to download and run it themselves later this month. That's good news if you want a strong model you can host privately. | Source: Mistral https://mistral.ai/news/mistral-large-4 | X: 40,656 likes, 4,570 reposts (https://x.com/MistralAI/status/2107457414387622310, measured 2026-10-21)
+- 2026-10-06 [feature, impact: notable] Claude now works inside Google Docs, Sheets and Slides | A Claude sidebar can read the file you have open and edit it in place, asking before each change by default. It's in beta on all paid Claude plans, so your doc-and-spreadsheet chores can go to Claude without copy-pasting. | Source: Anthropic https://claude.com/resources/articles/claude-now-works-in-google-docs-sheets-and-slides | X: 54,377 likes, 4,304 reposts (https://x.com/claudeai/status/2107522596845822135, measured 2026-10-21)
+- 2026-09-29 [model release, impact: notable] OpenAI releases GPT-6.1 Sol: near-top performance at a fifth of the price | OpenAI says GPT-6.1 Sol nearly matches its top model, GPT-6 Astra, on agent work at one-fifth of Astra's token prices ($2 / $10 per million). For bot builders, it's a cheaper middle option for jobs a small model can't handle. | Source: OpenAI https://openai.com/index/introducing-gpt-6-1-sol/ | X: 21,119 likes, 1,713 reposts (https://x.com/OpenAI/status/2104986129686741046, measured 2026-10-21)
+- 2026-09-29 [feature, impact: notable] OpenAI's Agents API can now use a web browser | Agents built on OpenAI's platform can now complete tasks in an OpenAI-hosted browser, with the app asking you before it visits a site and handling sign-in. Expect more third-party bots that click through websites for you. | Source: OpenAI API changelog https://developers.openai.com/api/docs/changelog
+- 2026-09-29 [agent launch, impact: major] OpenAI launches dots: always-on agents with their own computer | A dot runs on GPT-6 Astra with its own cloud computer, connects to your apps, and keeps working between chats, checking with you on decisions. It's rolling out to ChatGPT Pro and Business Premium users first (not the EU, Switzerland or the UK on Pro at launch). | Source: OpenAI https://openai.com/index/introducing-dots/ | X: 38,112 likes, 3,368 reposts (https://x.com/OpenAI/status/2104984504133918973, measured 2026-10-21)
+- 2026-09-28 [model release, impact: notable] Anthropic releases Claude Sonnet 5.5 | Anthropic says Sonnet 5.5 runs 30%+ faster than Sonnet 5 and costs up to 30% less for most work. It's the middle model many agent apps use by default. | Source: Anthropic https://www.anthropic.com/news/claude-sonnet-5-5
+- 2026-09-28 [agent launch, impact: notable] Grok Bot adds Team Bots: shared AI teammates for a whole team | One person sets up a bot with the files, apps and skills it needs, then the whole team can use it in Slack or Grok Bot, while each person's chats stay private. It's in public beta for Teams and Enterprise plans. | Source: xAI https://x.ai/news/team-bots | X: 6,404 likes, 574 reposts (https://x.com/bot/status/2104661562715967548, measured 2026-10-21)
+- 2026-09-22 [model release, impact: major] Anthropic releases Claude Opus 5.5 | Anthropic says Opus 5.5 leads in agentic coding and knowledge work and costs 40% less to run than Opus 5 on typical workloads. It's the model to reach for when a bot's job is hard, not routine. | Source: Anthropic https://www.anthropic.com/news/claude-opus-5-5 | X: 97,479 likes, 9,051 reposts (https://x.com/claudeai/status/2102435511222890900, measured 2026-10-21)
+- 2026-09-22 [model release, impact: notable] OpenAI releases GPT-6 Sol and GPT-6 Luna | Two new models: Sol for most work and Luna, a very cheap one at $0.10 / $0.50 per million tokens. Luna is the kind of model to use for simple, frequent bot jobs. | Source: OpenAI API changelog https://developers.openai.com/api/docs/changelog | X: 53,286 likes, 5,271 reposts (https://x.com/OpenAI/status/2102460975790137662, measured 2026-10-21)
+- 2026-09-21 [model release, impact: major] xAI releases Grok 4.7 | xAI's new model for coding and knowledge work keeps the same $2 / $6 per million token price as Grok 4.6. xAI says it was trained to work inside the Grok Bot harness, which should make Grok Bot better at everyday tasks. | Source: xAI https://x.ai/news/grok-4-7 | X: 26,994 likes, 2,585 reposts (https://x.com/elonmusk/status/2102071804495872374, measured 2026-10-21)
+
+## AI price table
+URL: https://nik-schultz.github.io/agents-on-radar/ai-pricing/
+Checked: 2026-10-21. USD per 1M tokens, standard tier. Official sources only.
+- OpenAI gpt-6-astra: input 10.0, output 50.0, cached input 1.0. Short context (≤272K input tokens). Source: https://platform.openai.com/docs/pricing
+- OpenAI gpt-6.1-sol: input 2.0, output 10.0, cached input 0.1. Short context (≤272K input tokens). Source: https://platform.openai.com/docs/pricing
+- OpenAI gpt-6-luna: input 0.1, output 0.5, cached input 0.01. Short context (≤272K input tokens). Source: https://platform.openai.com/docs/pricing
+- Anthropic Claude Fable 5.1: input 10.0, output 50.0, cached input 0.25 Source: https://docs.anthropic.com/en/docs/about-claude/pricing
+- Anthropic Claude Opus 5.5: input 4.0, output 20.0, cached input 0.2 Source: https://docs.anthropic.com/en/docs/about-claude/pricing
+- Anthropic Claude Sonnet 5.5: input 2.0, output 10.0, cached input 0.1 Source: https://docs.anthropic.com/en/docs/about-claude/pricing
+- Anthropic Claude Haiku 5.5: input 0.1, output 0.5, cached input 0.01. Prompts up to 100,000 tokens; longer prompts cost $0.50 / $2.50. Source: https://docs.anthropic.com/en/docs/about-claude/pricing
+- Google gemini-4-argon: input 2.0, output 10.0, cached input 0.1. Price through Nov 30, 2026; $4.00 / $20.00 from Dec 1, 2026. Not on the free tier. Source: https://ai.google.dev/gemini-api/docs/pricing
+- Google gemini-3.8-flash: input 0.75, output 3.75, cached input 0.075. Price through Dec 31, 2026; $1.50 / $7.50 from Jan 1, 2027. Free tier available. Source: https://ai.google.dev/gemini-api/docs/pricing
+- Google gemini-3.1-flash-lite: input 0.25, output 1.5, cached input 0.025. Text/image/video input. Free tier available. Source: https://ai.google.dev/gemini-api/docs/pricing
+- xAI grok-4.7: input 2.0, output 6.0, cached input 0.5. Prompts under 200K tokens; $4.00 / $12.00 above. Source: https://docs.x.ai/docs/models
+- xAI grok-4.3: input 1.25, output 2.5, cached input 0.2. Prompts under 200K tokens; $2.50 / $5.00 above. Source: https://docs.x.ai/docs/models
+- Groq openai/gpt-oss-120b: input 0.15, output 0.6. Open-weight model hosted by Groq (Developer plan). Source: https://console.groq.com/docs/models
+- Groq openai/gpt-oss-20b: input 0.075, output 0.3. Open-weight model hosted by Groq (Developer plan). Source: https://console.groq.com/docs/models
+- Mistral Mistral Large: input 0.5, output 1.5. As quoted in the FAQ on Mistral's pricing page. Source: https://mistral.ai/pricing
+- Meta Muse Wonder: input 4.0, output 20.0. Meta Model API. Price from Meta's launch post (Oct 12, 2026). Source: https://dev.meta.ai/resources/blog/build-with-muse-wonder
+- DeepSeek deepseek-flash (V4.1-Flash-1017): input 0.3, output 1.2, cached input 0.006. Peak-hour price; off-peak (most hours and weekends) is half. Source: https://api-docs.deepseek.com/quick_start/pricing
+- DeepSeek deepseek-v4-pro: input 1.32, output 3.96, cached input 0.044. Peak-hour price; off-peak is half. Source: https://api-docs.deepseek.com/quick_start/pricing
+Plans:
+- Anthropic Claude Free: $0 Source: https://claude.com/pricing
+- Anthropic Claude Pro: $20 per month billed monthly ($17/month billed annually, $200 up front) Source: https://claude.com/pricing
+- Anthropic Claude Max: from $100 per month Source: https://claude.com/pricing
+- Mistral Free: $0 Source: https://mistral.ai/pricing
+- Mistral Pro: $14.99 per month Source: https://mistral.ai/pricing
+- OpenAI ChatGPT Free: $0 Source: https://chatgpt.com/pricing
+- Google Gemini (free): $0 Source: https://gemini.google/subscriptions/

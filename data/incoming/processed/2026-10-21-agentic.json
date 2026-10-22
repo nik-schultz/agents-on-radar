@@ -1,0 +1,644 @@
+[
+ {
+  "slug": "call-and-book-by-phone",
+  "title": "Give your bot a phone number so it can call and book for you",
+  "category": "travel",
+  "source_date": "2026-10-18",
+  "summary": "Plenty of places still only take bookings by phone. Once your bot has its own number, it can call a restaurant, a vet or a salon, book the slot and tell you what was said.",
+  "what_the_bot_does": [
+   "Finds the business's number on its own.",
+   "Asks what it needs: how flexible you are on time, the name to book under, a callback number.",
+   "Reads the plan back and waits for your OK before it dials.",
+   "Makes the call, says it's an AI calling for you, and books.",
+   "Tells you what happened in plain English, quotes what the place said, and offers to add it to your calendar."
+  ],
+  "what_you_end_up_with": "A booking made by phone, a plain summary of the call and a calendar entry, without you making the call.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "Needs a phone-calling add-on so it has its own number; the shared example used one with a free starter tier"
+   },
+   {
+    "id": "meta-muse",
+    "note": "Can call businesses"
+   },
+   {
+    "id": "instinct",
+    "note": "Messages or calls small businesses"
+   }
+  ],
+  "prompt": "Call [restaurant / vet / salon] and book [what] for [number of people / pet's name] on [day] around [time]. I'm flexible between [earliest] and [latest]. Book under [name], callback number [number]. Before you dial, read the plan back to me and wait for my OK. Say you're an AI assistant calling for me. Don't give any card or deposit details and don't leave a voicemail. Afterwards, tell me exactly what they said and add it to my calendar.",
+  "watch_out": [
+   "The bot needs its own phone number first, through a calling add-on you connect. Check that service's limits and terms.",
+   "A phone call is harder to undo than an email. One user who had his bot book a vet appointment says exactly that.",
+   "Have it say it's an AI right away. The author of the restaurant bot built in rules: no card details, no voicemails unless asked, one call at a time, never calling on its own."
+  ],
+  "sources": [
+   {
+    "label": "X post by @BrianRoemmele (2026-10-18): his Grok Bot calls the restaurant, books the table and reports back; guardrails and other uses listed",
+    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
+    "kind": "x"
+   },
+   {
+    "label": "X post by @RetiredArmy_Guy (2026-10-19): his Grok Bot got its own phone number and booked his dog's vet appointment by phone",
+    "url": "https://x.com/RetiredArmy_Guy/status/2112154131028652535",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2111812467500458135",
+   "author": "@BrianRoemmele",
+   "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
+   "posted_at": "2026-10-18",
+   "likes": 856,
+   "reposts": 93,
+   "replies": 192,
+   "bookmarks": 1002,
+   "views": 1164981,
+   "measured_at": "2026-10-21"
+  },
+  "tags": [
+   "phone call",
+   "calling agent",
+   "restaurant",
+   "vet",
+   "appointment",
+   "booking"
+  ],
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "refocus-2026-10-21",
+  "setup": []
+ },
+ {
+  "slug": "newsletter-daily-report",
+  "title": "Send all your newsletters to your bot and get one daily report",
+  "category": "inbox",
+  "source_date": "2026-10-14",
+  "summary": "Subscribe your newsletters to your bot's own email address. It reads every issue and sends you one short report each day, with a score that tells you which ones are worth reading in full.",
+  "what_the_bot_does": [
+   "Gets its own email address, and you subscribe your newsletters to it.",
+   "Reads every issue that arrives, and follows the link when an email is only a teaser.",
+   "Writes an executive summary of everything it read, plus one paragraph per issue.",
+   "Rates each issue 1 to 10 so you know what to read in full.",
+   "Sends you the report every day."
+  ],
+  "what_you_end_up_with": "One daily digest in place of a pile of unread newsletters, and a clear signal about which subscriptions earn their place.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "Shared as a ready-made bot; uses the bot's own email address"
+   },
+   {
+    "id": "chatgpt-dots"
+   },
+   {
+    "id": "gemini-spark",
+    "note": "Can read newsletters in Gmail on a schedule"
+   }
+  ],
+  "prompt": "Every morning at [7:00am], read every newsletter that arrived in [your inbox / your own email address] since yesterday. If an email is only a teaser, follow its main link. Start with a 5-bullet summary of the most important points across all of them. Then give one short paragraph per issue and rate it 1 to 10 for how useful and original it was. Don't click unsubscribe links or reply to anyone.",
+  "watch_out": [
+   "Give the bot its own address for newsletters so it never needs access to your personal inbox.",
+   "Summaries can miss nuance. Read the full issue before acting on anything important."
+  ],
+  "sources": [
+   {
+    "label": "X post by @BrianRoemmele (2026-10-14): an \"Email Newsletter Daily Report\" Grok Bot for 3,400+ newsletter subscriptions",
+    "url": "https://x.com/BrianRoemmele/status/2110433542182457609",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2110433542182457609",
+   "author": "@BrianRoemmele",
+   "url": "https://x.com/BrianRoemmele/status/2110433542182457609",
+   "posted_at": "2026-10-14",
+   "likes": 212,
+   "reposts": 24,
+   "replies": 29,
+   "bookmarks": 236,
+   "views": 323007,
+   "measured_at": "2026-10-21"
+  },
+  "tags": [
+   "newsletters",
+   "digest",
+   "morning briefing",
+   "email",
+   "agent email address"
+  ],
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "refocus-2026-10-21",
+  "setup": []
+ },
+ {
+  "slug": "prescription-ready-and-time-to-leave",
+  "title": "Get pinged when a prescription is ready, and told when to leave",
+  "category": "health",
+  "source_date": "2026-09-27",
+  "summary": "A personal agent can sweep your email every morning for \"ready for pickup\" notices, and check live traffic before your appointments to tell you when to head out.",
+  "what_the_bot_does": [
+   "Checks your email every morning for pharmacy notices.",
+   "Pings you the moment a prescription is ready for pickup.",
+   "Looks at your calendar for today's appointments.",
+   "Checks live traffic and tells you exactly when to leave."
+  ],
+  "what_you_end_up_with": "A ping when your prescription is ready and a \"leave now\" nudge before each appointment.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "meta-muse",
+    "note": "The user's own agent in the source"
+   },
+   {
+    "id": "gemini-spark",
+    "note": "Reads Gmail and Calendar"
+   },
+   {
+    "id": "grok-bot"
+   }
+  ],
+  "prompt": "Every morning at [8:00am], check my email for messages from [pharmacy name] saying a prescription is ready, and message me right away if you find one. Also look at my calendar for today. For each appointment with an address, check live traffic from [home/work] and tell me what time to leave to arrive [10] minutes early. Don't reply to any emails or change my calendar.",
+  "watch_out": [
+   "It only works if your pharmacy sends email or text notices to an account the agent can read.",
+   "Health details are sensitive. Use an agent you trust with your email."
+  ],
+  "sources": [
+   {
+    "label": "X post by @WaitWhat (2026-09-27): a summary (written by his Meta Muse agent) of what it does for him, including a morning pharmacy watchdog and traffic-based leave times; the post includes a referral code",
+    "url": "https://x.com/WaitWhat/status/2104354985224069224",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2104354985224069224",
+   "author": "@WaitWhat",
+   "url": "https://x.com/WaitWhat/status/2104354985224069224",
+   "posted_at": "2026-09-27",
+   "likes": 47,
+   "reposts": 0,
+   "replies": 18,
+   "bookmarks": 29,
+   "views": 7467,
+   "measured_at": "2026-10-21"
+  },
+  "tags": [
+   "pharmacy",
+   "prescription",
+   "traffic",
+   "appointments",
+   "alerts",
+   "monitoring"
+  ],
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "refocus-2026-10-21",
+  "setup": []
+ },
+ {
+  "slug": "research-a-used-car-from-a-listing",
+  "title": "Have an agent research a used car from its listing link",
+  "category": "shopping",
+  "source_date": "2026-10-15",
+  "summary": "Drop in a used-car listing link and let an agent dig in: what the model is known for, the car's damage history and the questions to ask before you call the seller.",
+  "what_the_bot_does": [
+   "Opens the listing and pulls out the make, model, year, mileage and VIN if shown.",
+   "Researches common problems for that model and year.",
+   "Looks up the car's damage and history record.",
+   "Gives you a short report with red flags and questions for the seller."
+  ],
+  "what_you_end_up_with": "A one-page report on the car, its history and what to ask, before you spend time on a viewing.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "Used in the source post"
+   },
+   {
+    "id": "chatgpt-work",
+    "note": "Can browse listing and history sites"
+   },
+   {
+    "id": "gemini"
+   }
+  ],
+  "prompt": "Research this used car for me: [listing link]. Pull out the make, model, year, mileage and VIN if shown. Tell me the common problems for this model and year, what the history or damage record shows (say which site you checked), and anything in the listing that doesn't add up. End with 5 questions to ask the seller. Don't contact the seller.",
+  "watch_out": [
+   "Some history reports are paid. The agent should tell you which source it used and not buy anything without asking.",
+   "The source post also had a second agent phone the seller. Decide yourself before letting a bot call anyone for you."
+  ],
+  "sources": [
+   {
+    "label": "X post by @IamOnurYilmaz (2026-10-15): Grok Bot researched a used car from a listing link and checked its damage history, then had another agent call the seller",
+    "url": "https://x.com/IamOnurYilmaz/status/2110811317514940897",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2110811317514940897",
+   "author": "@IamOnurYilmaz",
+   "url": "https://x.com/IamOnurYilmaz/status/2110811317514940897",
+   "posted_at": "2026-10-15",
+   "likes": 1,
+   "reposts": 0,
+   "replies": 5,
+   "bookmarks": 0,
+   "views": 95,
+   "measured_at": "2026-10-21"
+  },
+  "tags": [
+   "used car",
+   "research agent",
+   "vehicle history",
+   "listing"
+  ],
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "refocus-2026-10-21",
+  "setup": []
+ },
+ {
+  "slug": "line-up-contractors-for-a-home-project",
+  "title": "Have an agent contact tradespeople and line up quotes for a home project",
+  "category": "family",
+  "source_date": "2026-09-01",
+  "summary": "Instead of calling round electricians, plumbers and roofers yourself, let an agent reach out to all of them, collect their replies and put them side by side.",
+  "what_the_bot_does": [
+   "Takes your project description and the trades you need.",
+   "Finds local tradespeople for each trade.",
+   "Contacts each one with the same clear brief.",
+   "Collects the replies and puts them in one table: who, when they can start, what's included, what they asked."
+  ],
+  "what_you_end_up_with": "One table of replies from every trade, so you can pick who to meet.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "chatgpt-work",
+    "note": "The source used ChatGPT"
+   },
+   {
+    "id": "grok-bot"
+   },
+   {
+    "id": "meta-muse",
+    "note": "Can call businesses"
+   }
+  ],
+  "prompt": "I'm planning [project] at [town/area]. I need: [electrician, plumber, roofer...]. Find [5] well-reviewed local businesses for each. Draft one short message per business with this brief: [details, timing, photos]. Show me the drafts and the list first, and only send after I say yes. Then collect the replies in a table: business, trade, earliest start, what's included, questions they asked.",
+  "watch_out": [
+   "Approve every message before it goes out. These are real businesses spending time on your request.",
+   "Quotes from a message aren't contracts. Check licences and references before you hire."
+  ],
+  "sources": [
+   {
+    "label": "X post by @NaughtyNomad (2026-09-01): an agent using ChatGPT contacted every subcontractor on the island for his renovation and compared their quotes",
+    "url": "https://x.com/NaughtyNomad/status/2094720744030642252",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2094720744030642252",
+   "author": "@NaughtyNomad",
+   "url": "https://x.com/NaughtyNomad/status/2094720744030642252",
+   "posted_at": "2026-09-01",
+   "likes": 9,
+   "reposts": 0,
+   "replies": 2,
+   "bookmarks": 0,
+   "views": 896,
+   "measured_at": "2026-10-21"
+  },
+  "tags": [
+   "contractors",
+   "home project",
+   "renovation",
+   "quotes",
+   "outreach agent"
+  ],
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "refocus-2026-10-21",
+  "setup": []
+ },
+ {
+  "slug": "hand-a-clunky-web-form-to-an-agent",
+  "title": "Hand a clunky web form or app to an agent that uses the computer for you",
+  "category": "work",
+  "source_date": "2026-10-19",
+  "summary": "Some software you only touch once a year. A computer-use agent can click through it for you, from a login you control, while you watch.",
+  "what_the_bot_does": [
+   "Opens the site or app in its own browser.",
+   "Asks you to sign in yourself (or uses a password manager you set up).",
+   "Fills in the form from the details you gave it.",
+   "Stops before the final submit and shows you what it entered."
+  ],
+  "what_you_end_up_with": "The form filled in correctly without you learning the software, ready for your final click.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt-work",
+    "note": "Cloud browser agent"
+   },
+   {
+    "id": "grok-bot"
+   },
+   {
+    "id": "claude-cowork"
+   }
+  ],
+  "prompt": "Open [website or app] and fill in the [form name] for me. Here are the details: [list everything it needs]. When you reach a login, stop and let me sign in. If any field is unclear, ask me instead of guessing. Stop before the final Submit button and show me a summary of everything you entered.",
+  "watch_out": [
+   "Sign in yourself or use a password manager. Don't paste passwords into the chat.",
+   "Always check the summary before submitting. Agents can misread a page."
+  ],
+  "sources": [
+   {
+    "label": "X post by @brian_a_burns (2026-10-19): ChatGPT with computer use filled in a complicated procurement request in software he had never used",
+    "url": "https://x.com/brian_a_burns/status/2112326114542858689",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2112326114542858689",
+   "author": "@brian_a_burns",
+   "url": "https://x.com/brian_a_burns/status/2112326114542858689",
+   "posted_at": "2026-10-19",
+   "likes": 3,
+   "reposts": 0,
+   "replies": 1,
+   "bookmarks": 0,
+   "views": 380,
+   "measured_at": "2026-10-21"
+  },
+  "tags": [
+   "computer use",
+   "browser agent",
+   "forms",
+   "software"
+  ],
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "refocus-2026-10-21",
+  "setup": []
+ },
+ {
+  "slug": "get-roadside-help-abroad",
+  "title": "Get roadside help abroad when nobody speaks your language",
+  "category": "travel",
+  "source_date": "2026-10-18",
+  "summary": "Broken down in another country and the insurer's phone line is in a language you don't speak? An agent can find the right help form, fill it in with your details and get help moving.",
+  "what_the_bot_does": [
+   "Takes where you are, the car, and what happened.",
+   "Finds your insurer's or the rental company's roadside-assistance form or number for that country.",
+   "Fills in the form with your details and location.",
+   "Tells you what it submitted and what happens next."
+  ],
+  "what_you_end_up_with": "A roadside-assistance request filed in the local system, and a plain summary of what comes next.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "Used in the source post"
+   },
+   {
+    "id": "chatgpt-work",
+    "note": "Can fill in web forms"
+   },
+   {
+    "id": "gemini"
+   }
+  ],
+  "prompt": "My car broke down at [location / share live location] in [country]. Car: [make, model, plate]. Insurer or rental company: [name, policy or booking number]. Find their official roadside-assistance form or number for this country. Fill in the form with my details, translate anything I need to know, and show me what you'll submit before you send it.",
+  "watch_out": [
+   "If you're in danger, call the local emergency number first (112 across the EU).",
+   "Check the insurer's official site so the bot doesn't use a look-alike form."
+  ],
+  "sources": [
+   {
+    "label": "X post by @farmerathlete (2026-10-18): broken down on the Autobahn, Grok Bot found the right insurer form, filled it in and help arrived an hour later",
+    "url": "https://x.com/farmerathlete/status/2111861042531782681",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2111861042531782681",
+   "author": "@farmerathlete",
+   "url": "https://x.com/farmerathlete/status/2111861042531782681",
+   "posted_at": "2026-10-18",
+   "likes": 0,
+   "reposts": 0,
+   "replies": 0,
+   "bookmarks": 0,
+   "views": 39,
+   "measured_at": "2026-10-21"
+  },
+  "tags": [
+   "roadside assistance",
+   "breakdown",
+   "travel abroad",
+   "translation",
+   "forms"
+  ],
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "refocus-2026-10-21",
+  "setup": []
+ },
+ {
+  "slug": "hand-off-tasks-by-voice-while-driving",
+  "title": "Hand off tasks to your agent by voice while you drive",
+  "category": "work",
+  "source_date": "2026-10-05",
+  "summary": "Long drive? Talk to your agent on a voice call and hand off research, follow-ups and to-dos, then find them done when you arrive.",
+  "what_the_bot_does": [
+   "Takes a hands-free voice call from you.",
+   "Turns what you say into tasks: research, drafts, reminders, routine changes.",
+   "Works on them while you drive.",
+   "Leaves a summary of what's done and what needs your OK."
+  ],
+  "what_you_end_up_with": "A list of tasks started or finished during the drive, waiting for your review.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "Voice call with an agent, used in the source post"
+   },
+   {
+    "id": "chatgpt",
+    "note": "Voice mode for quick hand-offs"
+   },
+   {
+    "id": "gemini"
+   }
+  ],
+  "prompt": "I'm driving, so keep replies short and spoken. I'll list tasks one at a time. For each one, repeat it back in one sentence and start it. Research and drafts are fine; don't send, post, buy or book anything until I review it later. When I hang up, write me a summary: done, in progress, waiting for my OK.",
+  "watch_out": [
+   "Use hands-free only, and keep your eyes on the road. Don't read the summaries until you've stopped.",
+   "Have it hold anything that sends or buys until you can check it properly."
+  ],
+  "sources": [
+   {
+    "label": "X post by @nmtalkss (2026-10-05): on a 2-hour drive he talked to his \"CEO agent\" in Grok Bot and handed off research and other tasks",
+    "url": "https://x.com/nmtalkss/status/2107157837134843995",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2107157837134843995",
+   "author": "@nmtalkss",
+   "url": "https://x.com/nmtalkss/status/2107157837134843995",
+   "posted_at": "2026-10-05",
+   "likes": 1,
+   "reposts": 0,
+   "replies": 0,
+   "bookmarks": 0,
+   "views": 25,
+   "measured_at": "2026-10-21"
+  },
+  "tags": [
+   "voice",
+   "driving",
+   "hands-free",
+   "delegation"
+  ],
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "refocus-2026-10-21",
+  "setup": []
+ },
+ {
+  "slug": "team-of-agents-with-roles",
+  "title": "Put a small team of agents on one project, each with its own job",
+  "category": "business",
+  "source_date": "2026-10-08",
+  "summary": "Instead of one chatbot doing everything, give separate agents separate roles (one researches, one builds) and let them hand work to each other in a shared conversation you can watch.",
+  "what_the_bot_does": [
+   "You set up two or more agents, each with one role, like \"market research\" and \"website builder\".",
+   "The first agent does its part and shares what it found.",
+   "The next agent picks that up and builds on it.",
+   "You and your partner watch in the same group conversation and step in when needed."
+  ],
+  "what_you_end_up_with": "One finished piece of work (in the source, a simple website) built from a research step and a build step, with every hand-off visible.",
+  "difficulty": "Advanced",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "Run one bot per role and have one hand results to the next"
+   },
+   {
+    "id": "n8n",
+    "note": "Chain agent steps in a workflow"
+   },
+   {
+    "id": "make"
+   }
+  ],
+  "prompt": "We're a team of two agents. Agent 1 (Researcher): research [topic] and write a one-page brief with sources. Agent 2 (Builder): when the brief is ready, use it to build [deliverable]. Post each hand-off in this chat so I can see it. Ask me before publishing, sending or buying anything.",
+  "watch_out": [
+   "The source post promotes a specific product (Teamily); treat it as a pitch, not an independent review.",
+   "Keep a plain log of which agent decided what, so you can tell where a mistake came from.",
+   "Keep business and personal agents separate so private details don't flow into the wrong place."
+  ],
+  "sources": [
+   {
+    "label": "X post by @Parul_Gautam7 (2026-10-08): a Market Research agent and a Website Builder agent hand work to each other in one shared group conversation",
+    "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2108202625929970077",
+   "author": "@Parul_Gautam7",
+   "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
+   "posted_at": "2026-10-08",
+   "likes": 209,
+   "reposts": 37,
+   "replies": 38,
+   "bookmarks": 84,
+   "views": 46400,
+   "measured_at": "2026-10-21"
+  },
+  "tags": [
+   "multi-agent",
+   "agent team",
+   "roles",
+   "hand-off",
+   "workflow"
+  ],
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "refocus-2026-10-21",
+  "setup": []
+ },
+ {
+  "slug": "give-your-agents-a-shared-apple-account",
+  "title": "Give your agents their own Apple account so they share reminders, notes and calendar",
+  "category": "work",
+  "source_date": "2026-10-11",
+  "summary": "A Mac signed in to a separate Apple Account can become the shared desk where your agents leave each other reminders, notes, calendar events and messages, while your personal account stays private.",
+  "what_the_bot_does": [
+   "You sign a separate Apple Account into the Mac your agents use.",
+   "The agent installs small command-line tools for Reminders, Notes, Calendar and Messages.",
+   "You approve each permission in System Settings yourself (the bot can't click Allow).",
+   "After that, agents read and write reminders, notes and events in that account, and changes sync through iCloud."
+  ],
+  "what_you_end_up_with": "A shared to-do list, notebook and calendar your agents all use, kept apart from your own account.",
+  "difficulty": "Advanced",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "Needs shell access on the Mac; the source includes a setup script"
+   }
+  ],
+  "prompt": "I've signed a separate Apple Account into this Mac for my agents. Check what's installed, then set up command-line access to Reminders, Notes and Calendar for that account only. Tell me exactly which permission prompts to approve in System Settings. Never touch my personal account, mail or contacts.",
+  "watch_out": [
+   "Keep your personal mail, notes and contacts on your main account. The author has agents write only into the dedicated account.",
+   "Granting Terminal access to Mail, Messages or Full Disk Access is powerful. Only grant what the agents need."
+  ],
+  "sources": [
+   {
+    "label": "X post by @BrianRoemmele (2026-10-11): how he uses a dedicated Apple Account on a Mac as the shared desk for his Grok Bot agents, with a setup script",
+    "url": "https://x.com/BrianRoemmele/status/2109351823996035338",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2109351823996035338",
+   "author": "@BrianRoemmele",
+   "url": "https://x.com/BrianRoemmele/status/2109351823996035338",
+   "posted_at": "2026-10-11",
+   "likes": 251,
+   "reposts": 15,
+   "replies": 25,
+   "bookmarks": 509,
+   "views": 25258,
+   "measured_at": "2026-10-21"
+  },
+  "tags": [
+   "multi-agent",
+   "apple",
+   "mac",
+   "reminders",
+   "calendar",
+   "shared memory"
+  ],
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "refocus-2026-10-21",
+  "setup": []
+ }
+]

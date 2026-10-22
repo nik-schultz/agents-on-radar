@@ -1,0 +1,61 @@
+{
+ "slug": "log-meals-and-weight-by-voice",
+ "title": "Log your meals by talking and get a daily weight check-in",
+ "category": "health",
+ "source_date": "2026-10-20",
+ "summary": "Tell your bot what you ate, out loud, and it keeps the food log for you. It can also check in on your weight each morning.",
+ "what_the_bot_does": [
+  "Listens when you say what you ate and writes it into a simple food log.",
+  "Estimates the basics you care about, like calories or protein, and labels them as estimates.",
+  "Checks in each morning about your weight (or reads it from your scale's app if you connect it).",
+  "Sends a short weekly summary of trends."
+ ],
+ "what_you_end_up_with": "A food and weight log that fills itself in, without typing into a tracking app.",
+ "difficulty": "Easy",
+ "tools": [
+  {
+   "id": "grok-bot",
+   "note": "Used in the shared example"
+  },
+  {
+   "id": "chatgpt"
+  },
+  {
+   "id": "gemini"
+  }
+ ],
+ "prompt": "Be my food and weight log. When I tell you what I ate, add it to a log with the date, time and a rough estimate of [calories / protein]; label estimates as estimates. Every morning at [time], ask me for my weight and add it. Every [Sunday], send me a short summary of the week's trends. Don't give medical advice; tell me to ask my doctor if something looks off.",
+ "watch_out": [
+  "Calorie and nutrition numbers from a description are rough estimates.",
+  "This is health data. Check what your bot's app stores and who can see it.",
+  "It's not a doctor. Talk to one before big diet changes, especially with a health condition."
+ ],
+ "sources": [
+  {
+   "label": "X post by @RayFernando1337 (2026-10-20): his Grok Bot logs his food when he talks, gets a morning check-in from his Withings scale and does his receipts (video)",
+   "url": "https://x.com/RayFernando1337/status/2112529809557401660",
+   "kind": "x"
+  }
+ ],
+ "popularity": {
+  "platform": "x",
+  "post_id": "2112529809557401660",
+  "author": "@RayFernando1337",
+  "url": "https://x.com/RayFernando1337/status/2112529809557401660",
+  "posted_at": "2026-10-20",
+  "likes": 48,
+  "reposts": 2,
+  "replies": 6,
+  "bookmarks": 29,
+  "views": 3470,
+  "measured_at": "2026-10-20"
+ },
+ "tags": [
+  "food log",
+  "calorie tracking",
+  "weight",
+  "fitness",
+  "voice",
+  "health habits"
+ ]
+}

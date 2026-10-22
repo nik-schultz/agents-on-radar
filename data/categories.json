@@ -1,0 +1,58 @@
+[
+ {
+  "slug": "inbox",
+  "name": "Inbox, calls & paperwork",
+  "icon": "📥",
+  "art": "cat-inbox",
+  "blurb": "Email, phone calls, letters, forms and the admin that piles up."
+ },
+ {
+  "slug": "run-for-less",
+  "name": "Run your bots for less",
+  "icon": "🪙",
+  "art": "cat-money",
+  "blurb": "Spend less on AI services: right-size the model, cache, batch, schedule sensibly and cap your spending."
+ },
+ {
+  "slug": "shopping",
+  "name": "Shopping & groceries",
+  "icon": "🛒",
+  "art": "cat-shopping",
+  "blurb": "Meal plans, grocery carts, restocks and errands your agent can run."
+ },
+ {
+  "slug": "travel",
+  "name": "Bookings & travel",
+  "icon": "✈️",
+  "art": "cat-travel",
+  "blurb": "Tables, haircuts, flights, delays and whole trips."
+ },
+ {
+  "slug": "family",
+  "name": "Family & home",
+  "icon": "🏡",
+  "art": "cat-family",
+  "blurb": "School emails, calendars, chores and household logistics."
+ },
+ {
+  "slug": "health",
+  "name": "Health & care",
+  "icon": "🩺",
+  "art": "cat-health",
+  "blurb": "Insurance fights, appointments and caring for a parent."
+ },
+ {
+  "slug": "work",
+  "name": "Work & career",
+  "icon": "💼",
+  "art": "cat-work",
+  "blurb": "Job hunting, follow-ups and a chief-of-staff bot."
+ },
+ {
+  "slug": "business",
+  "name": "Small business & side hustles",
+  "icon": "🏪",
+  "art": "cat-business",
+  "blurb": "Receipts, leads, reviews, invoices and selling stuff."
+ }
+]

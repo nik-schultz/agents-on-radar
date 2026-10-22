@@ -1,0 +1,63 @@
+{
+ "slug": "contest-a-traffic-ticket",
+ "title": "Contest a speeding or parking ticket with a written defense",
+ "category": "money",
+ "source_date": "2026-10-18",
+ "summary": "Give your bot a photo of the ticket and your side of the story. It works out how to contest it, writes the defense, and tracks the deadline.",
+ "what_the_bot_does": [
+  "Reads the ticket and pulls out the violation, date, place, fine and the deadline to respond.",
+  "Finds the official way to contest it for that city or state (online, by mail or in person).",
+  "Asks you what actually happened and what proof you have, such as photos, receipts or signs.",
+  "Writes a short, factual written defense and a checklist of what to attach.",
+  "Shows you everything before anything is filed, then reminds you before the deadline."
+ ],
+ "what_you_end_up_with": "A ready-to-submit written defense, the right place to file it, and a reminder before the deadline.",
+ "difficulty": "Easy",
+ "tools": [
+  {
+   "id": "grok-bot",
+   "note": "The shared example used Grok Bot"
+  },
+  {
+   "id": "chatgpt"
+  },
+  {
+   "id": "claude"
+  }
+ ],
+ "prompt": "Here's a photo of my [speeding/parking] ticket from [city, state]. What happened: [your honest account]. Proof I have: [photos, receipts, witnesses]. 1) Tell me the deadline to respond and the official way to contest it, with a link to the official page. 2) Write a short, factual written defense using only what I've told you. Don't invent facts. 3) List what I should attach. Don't submit anything or pay anything without asking me first.",
+ "watch_out": [
+  "One person's win isn't a guarantee. The shared example is a single DC ticket, and rules and odds differ by city and state.",
+  "Only state facts that are true. You sign what gets submitted, not the bot.",
+  "Check the deadline on the ticket itself. Missing it can add late fees.",
+  "Blur or remove your personal details before sharing screenshots. The poster had the bot anonymize his."
+ ],
+ "sources": [
+  {
+   "label": "X post by @congressdj (2026-10-18): Grok Bot contested a Washington DC speeding ticket for him and won, with the ticket, prompt, defense and ruling shown",
+   "url": "https://x.com/congressdj/status/2111862317147099177",
+   "kind": "x"
+  }
+ ],
+ "popularity": {
+  "platform": "x",
+  "post_id": "2111862317147099177",
+  "author": "@congressdj",
+  "url": "https://x.com/congressdj/status/2111862317147099177",
+  "posted_at": "2026-10-18",
+  "likes": 228,
+  "reposts": 14,
+  "replies": 38,
+  "bookmarks": 24,
+  "views": 27372,
+  "measured_at": "2026-10-20"
+ },
+ "tags": [
+  "traffic ticket",
+  "speeding ticket",
+  "parking ticket",
+  "contest",
+  "fight a ticket",
+  "save money"
+ ]
+}

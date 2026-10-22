@@ -1,0 +1,502 @@
+[
+ {
+  "slug": "pick-a-smaller-model-for-simple-jobs",
+  "title": "Use a small model for simple jobs and save the big one for hard ones",
+  "summary": "Most bot jobs (sorting email, summarizing, checking a page) don't need the most powerful model. The small models cost a fraction as much, so route easy work to them and only send hard problems up.",
+  "what_the_bot_does": [
+   "Sends routine work (summaries, sorting, yes/no checks) to a small, cheap model.",
+   "Sends hard work (tricky reasoning, long documents, important drafts) to a bigger model.",
+   "Optionally lets the small model decide: if it isn't sure, it hands the job up.",
+   "Logs which model handled what, so you can see where the money goes."
+  ],
+  "what_you_end_up_with": "The same results on everyday jobs for a fraction of the cost, with the expensive model kept for the jobs that need it.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "n8n",
+    "note": "Route steps to different models in one workflow"
+   },
+   {
+    "id": "make"
+   },
+   {
+    "id": "zapier"
+   },
+   {
+    "id": "grok-bot",
+    "note": "Pick the model per bot where the app allows it"
+   }
+  ],
+  "prompt": "You are a triage step. Read the task below and answer with one word: SIMPLE (summarize, sort, extract, yes/no) or HARD (multi-step reasoning, legal/medical/financial wording, long documents, anything you're unsure about). Task: [paste task].",
+  "watch_out": [
+   "Test the small model on 10 real examples before switching. Cheap is no good if it gets things wrong.",
+   "Prices change. Anthropic's small Haiku 5.5 lists $0.10 / $0.50 per million tokens and its top Fable 5.1 $10 / $50 (checked Oct 21, 2026); see our price table for the latest."
+  ],
+  "sources": [
+   {
+    "label": "Anthropic pricing docs: \"Choose Haiku for simple tasks, Sonnet for most production workloads, and Opus for the most complex reasoning\"",
+    "url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
+    "kind": "docs"
+   },
+   {
+    "label": "OpenAI API pricing (official)",
+    "url": "https://platform.openai.com/docs/pricing",
+    "kind": "docs"
+   },
+   {
+    "label": "Gemini API pricing (official)",
+    "url": "https://ai.google.dev/gemini-api/docs/pricing",
+    "kind": "docs"
+   }
+  ],
+  "tags": [
+   "model choice",
+   "routing",
+   "small model",
+   "cost"
+  ],
+  "category": "run-for-less",
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "run-for-less-2026-10-21",
+  "setup": [],
+  "source_date": "2026-10-21",
+  "popularity": null
+ },
+ {
+  "slug": "test-your-bot-on-a-free-tier",
+  "title": "Build and test your bot on a free tier before you pay",
+  "summary": "Several AI providers let you try their API or app for free. Use that to prove your bot works before you put a card on file, and know what you give up on the free tier.",
+  "what_the_bot_does": [
+   "Runs your bot on a free plan or free API tier while you test it.",
+   "Uses small, realistic test runs (a day's email, one web page).",
+   "Shows you how many tokens each run uses, so you can estimate a real bill.",
+   "Moves to a paid plan only once it's doing a job you'd pay for."
+  ],
+  "what_you_end_up_with": "A bot you know works, a realistic cost estimate, and no surprise bill while you were experimenting.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "gemini",
+    "note": "Gemini API has a free tier on some models"
+   },
+   {
+    "id": "claude",
+    "note": "New API users get a small amount of free credit"
+   },
+   {
+    "id": "chatgpt",
+    "note": "ChatGPT has a free plan"
+   },
+   {
+    "id": "grok",
+    "note": "Free to try on the web and in the apps"
+   }
+  ],
+  "prompt": "I'm testing a bot on a free tier. After each run, tell me roughly how many input and output tokens you used, and keep a running total for this test. Use only the sample data I give you: [sample].",
+  "watch_out": [
+   "Google says content sent on the Gemini API free tier is used to improve its products; paid-tier content isn't. Don't test with private data on a free tier.",
+   "Free tiers have lower limits and some models aren't included (Gemini 4 Argon isn't on the free tier)."
+  ],
+  "sources": [
+   {
+    "label": "Gemini API pricing: free tier, \"Content used to improve our products\"",
+    "url": "https://ai.google.dev/gemini-api/docs/pricing",
+    "kind": "docs"
+   },
+   {
+    "label": "Anthropic pricing FAQ: \"New users receive a small amount of free credits to test the API\"",
+    "url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
+    "kind": "docs"
+   },
+   {
+    "label": "ChatGPT pricing: \"The free version of ChatGPT is available to everyone\"",
+    "url": "https://chatgpt.com/pricing",
+    "kind": "docs"
+   },
+   {
+    "label": "xAI: Grok is \"Free to try on the web and in the apps\"",
+    "url": "https://x.ai/grok",
+    "kind": "docs"
+   }
+  ],
+  "tags": [
+   "free tier",
+   "testing",
+   "cost estimate"
+  ],
+  "category": "run-for-less",
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "run-for-less-2026-10-21",
+  "setup": [],
+  "source_date": "2026-10-21",
+  "popularity": null
+ },
+ {
+  "slug": "subscription-or-pay-per-use",
+  "title": "Decide between a monthly AI plan and paying per use",
+  "summary": "A monthly plan (like Claude Pro) gives you a flat price with usage limits. Paying per use through an API costs exactly what you use. Which is cheaper depends on how much your bots run.",
+  "what_the_bot_does": [
+   "Looks at how often your bots run and roughly how much they read and write.",
+   "Estimates a monthly API bill from the providers' official per-token prices.",
+   "Compares that with the flat monthly plans you're considering.",
+   "Tells you which is cheaper for your usage, and where the limits would bite."
+  ],
+  "what_you_end_up_with": "A clear answer for your own usage: stay on a plan, switch to pay-per-use, or mix both.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "claude"
+   },
+   {
+    "id": "chatgpt"
+   },
+   {
+    "id": "gemini"
+   }
+  ],
+  "prompt": "Help me compare costs. My bots: [list each bot, how often it runs, and roughly how much it reads, e.g. '30 emails a day']. Assume about 4 characters per token. Using these official per-million-token prices: [paste rows from the price table], estimate my monthly API cost for each model. Then compare with these plans: [plan and price]. Show your math.",
+  "watch_out": [
+   "Plans have usage limits. Anthropic says paid plans reset on a rolling five-hour window with weekly limits on top.",
+   "On Claude, when you hit a plan limit you can turn on usage credits billed at standard API rates, and Max plans include $100 to $200 a month in API credits.",
+   "Token counts vary. Anthropic says its newer models' tokenizer makes about 30% more tokens for the same text."
+  ],
+  "sources": [
+   {
+    "label": "Claude plans and FAQ (official)",
+    "url": "https://claude.com/pricing",
+    "kind": "docs"
+   },
+   {
+    "label": "Anthropic API pricing (official)",
+    "url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
+    "kind": "docs"
+   },
+   {
+    "label": "Mistral pricing: Pro $14.99/month, plus how API pricing is calculated",
+    "url": "https://mistral.ai/pricing",
+    "kind": "docs"
+   }
+  ],
+  "tags": [
+   "subscription",
+   "api",
+   "pay per use",
+   "plans"
+  ],
+  "category": "run-for-less",
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "run-for-less-2026-10-21",
+  "setup": [],
+  "source_date": "2026-10-21",
+  "popularity": null
+ },
+ {
+  "slug": "cut-costs-with-caching-and-batch",
+  "title": "Cut your AI bill with prompt caching and batch discounts",
+  "summary": "If your bot sends the same long instructions every time, caching makes the repeat part much cheaper. If results can wait a few hours, batch processing halves the price at several providers.",
+  "what_the_bot_does": [
+   "Puts the parts that never change (instructions, examples, reference docs) at the start of the prompt so they can be cached.",
+   "Re-uses that cached part on every run instead of paying full price for it.",
+   "Collects jobs that aren't urgent (nightly summaries, weekly reports) into one batch.",
+   "Sends the batch at the discounted rate and picks up the results later."
+  ],
+  "what_you_end_up_with": "The same bot output, with repeated instructions billed at a fraction of the input price and non-urgent work at half price.",
+  "difficulty": "Advanced",
+  "tools": [
+   {
+    "id": "n8n",
+    "note": "Call batch endpoints from a workflow"
+   },
+   {
+    "id": "claude",
+    "note": "Prompt caching and Message Batches on the API"
+   },
+   {
+    "id": "gemini",
+    "note": "Batch API and context caching on the paid tier"
+   }
+  ],
+  "prompt": "Rewrite my bot prompt for caching. Put everything that stays the same on every run (role, rules, examples, reference text) first, and everything that changes (today's emails, today's date) last. Mark where the fixed part ends. My prompt: [paste].",
+  "watch_out": [
+   "Caching only pays if the same prefix is re-used soon: Anthropic's 5-minute cache write costs 1.25x, and a read costs 0.1x the input price on most models.",
+   "Batch jobs aren't instant. OpenAI says each batch completes within 24 hours.",
+   "Not every model supports batch; check the provider's model page."
+  ],
+  "sources": [
+   {
+    "label": "OpenAI Batch API guide: 50% cost discount, completes within 24 hours",
+    "url": "https://platform.openai.com/docs/guides/batch",
+    "kind": "docs"
+   },
+   {
+    "label": "Anthropic pricing: prompt caching multipliers and 50% Batch API discount",
+    "url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
+    "kind": "docs"
+   },
+   {
+    "label": "Gemini API pricing: Batch API (50% cost reduction) and context caching",
+    "url": "https://ai.google.dev/gemini-api/docs/pricing",
+    "kind": "docs"
+   },
+   {
+    "label": "Mistral pricing FAQ: batch reduces price by 50%, cached input up to 90% off",
+    "url": "https://mistral.ai/pricing",
+    "kind": "docs"
+   }
+  ],
+  "tags": [
+   "prompt caching",
+   "batch api",
+   "discount",
+   "cost"
+  ],
+  "category": "run-for-less",
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "run-for-less-2026-10-21",
+  "setup": [],
+  "source_date": "2026-10-21",
+  "popularity": null
+ },
+ {
+  "slug": "run-open-models-on-your-own-computer",
+  "title": "Run open models on your own computer (or a cheap host) for simple jobs",
+  "summary": "Open-weight models can run on your own computer with a free tool like Ollama, so routine jobs cost nothing per message. Some hosts also run open models for a fraction of big-model prices.",
+  "what_the_bot_does": [
+   "Installs a local model runner like Ollama on your computer.",
+   "Downloads an open model that fits your machine.",
+   "Points your bot's simple, private jobs (sorting, summarizing notes) at the local model.",
+   "Keeps a paid cloud model only for jobs the local one can't handle."
+  ],
+  "what_you_end_up_with": "Routine bot jobs that run on your own hardware with no per-message bill, and your private text staying on your machine.",
+  "difficulty": "Advanced",
+  "tools": [
+   {
+    "id": "ollama",
+    "note": "Runs open models locally"
+   },
+   {
+    "id": "n8n",
+    "note": "Can call a local model from a workflow"
+   }
+  ],
+  "prompt": "Help me run [task, e.g. 'sort my notes into categories'] on a local model. My computer: [Mac/Windows, RAM, graphics card if known]. Suggest one open model that fits, the exact Ollama commands to install and run it, and a short test so I can check the quality before relying on it.",
+  "watch_out": [
+   "Local models are usually less capable than top cloud models. Test on real examples first.",
+   "Your computer has to be on, and big models need a lot of memory.",
+   "Licences vary. Mistral says its open-weight models are Apache 2.0 for research and individual use, while commercial deployments need a Mistral licence."
+  ],
+  "sources": [
+   {
+    "label": "Ollama: \"Run AI models locally and in the cloud\"; prompts \"never stored or trained on\"",
+    "url": "https://ollama.com",
+    "kind": "article"
+   },
+   {
+    "label": "GroqCloud models and prices: hosted open-weight gpt-oss-120b at $0.15 / $0.60 per million tokens",
+    "url": "https://console.groq.com/docs/models",
+    "kind": "docs"
+   },
+   {
+    "label": "Mistral pricing FAQ: self-hosting and open-weight licences",
+    "url": "https://mistral.ai/pricing",
+    "kind": "docs"
+   }
+  ],
+  "tags": [
+   "local models",
+   "ollama",
+   "open source",
+   "privacy",
+   "self-host"
+  ],
+  "category": "run-for-less",
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "run-for-less-2026-10-21",
+  "setup": [],
+  "source_date": "2026-10-21",
+  "popularity": null
+ },
+ {
+  "slug": "schedule-bots-without-burning-tokens",
+  "title": "Stop always-on bots from burning tokens: run them less often, or on demand",
+  "summary": "Every scheduled run costs tokens, even when nothing has changed. Match the schedule to how often the thing really changes, and switch fun-but-idle bots to run only when you ask.",
+  "what_the_bot_does": [
+   "Lists every scheduled bot and how often it runs.",
+   "Asks how often the thing it watches really changes (daily, weekly, rarely).",
+   "Lowers the schedule to match, or switches the bot to on-demand.",
+   "Makes each run cheap when nothing changed: a quick check first, a full report only if something did."
+  ],
+  "what_you_end_up_with": "The same alerts and reports with far fewer paid runs.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "Routines can be scheduled or run on demand"
+   },
+   {
+    "id": "chatgpt-dots"
+   },
+   {
+    "id": "claude-cowork",
+    "note": "Scheduled tasks"
+   },
+   {
+    "id": "zapier"
+   }
+  ],
+  "prompt": "Here are my scheduled bots: [name, what it does, how often it runs]. For each one, suggest the least frequent schedule that still catches what matters, or say if it should run only when I ask. For watchers, rewrite the instructions so each run first checks whether anything changed and stops with a one-line 'no change' if nothing did.",
+  "watch_out": [
+   "One user who set several agents to run multiple times a day says he switched them all to on-demand once he saw what autopilot cost.",
+   "A slower schedule means slower alerts. Keep fast checks only for things that are really time-sensitive."
+  ],
+  "sources": [
+   {
+    "label": "X post by @sunfellow (2026-10-20): moved his Grok Bot agents from several runs a day to on-demand after seeing the cost",
+    "url": "https://x.com/sunfellow/status/2112585672657969563",
+    "kind": "x"
+   },
+   {
+    "label": "Anthropic pricing docs: \"Monitor usage patterns: Track token consumption to identify optimization opportunities\"",
+    "url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
+    "kind": "docs"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2112585672657969563",
+   "author": "@sunfellow",
+   "url": "https://x.com/sunfellow/status/2112585672657969563",
+   "posted_at": "2026-10-20",
+   "likes": 10,
+   "reposts": 1,
+   "replies": 2,
+   "bookmarks": 5,
+   "views": 538,
+   "measured_at": "2026-10-21"
+  },
+  "tags": [
+   "schedule",
+   "on demand",
+   "tokens",
+   "always-on agents"
+  ],
+  "category": "run-for-less",
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "run-for-less-2026-10-21",
+  "setup": [],
+  "source_date": "2026-10-21"
+ },
+ {
+  "slug": "keep-prompts-and-context-short",
+  "title": "Keep your bot's prompts, tools and context short",
+  "summary": "You pay for everything the model reads on every run: your instructions, tool definitions, pasted pages and the conversation so far. Trimming those is often the easiest saving.",
+  "what_the_bot_does": [
+   "Measures how many tokens each run reads (most consoles show this).",
+   "Cuts instructions to the rules that matter and removes repeated examples.",
+   "Turns off tools the bot doesn't need for this job.",
+   "Starts fresh conversations instead of dragging a long history along, and sends only the part of a page it needs."
+  ],
+  "what_you_end_up_with": "Smaller, faster runs that cost less, with the same results.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "claude"
+   },
+   {
+    "id": "chatgpt"
+   },
+   {
+    "id": "n8n",
+    "note": "Trim inputs before they reach the model"
+   }
+  ],
+  "prompt": "Here is my bot's full prompt: [paste]. Shorten it to the fewest words that keep every rule and the output format. List anything you removed so I can check. Then tell me which tools or attachments it doesn't need for this job.",
+  "watch_out": [
+   "Tools aren't free. Anthropic says its browser toolset adds about 6,600 input tokens per request and computer use about 4,500, before any screenshots.",
+   "Pages add up: Anthropic estimates an average 10 kB web page at about 2,500 tokens and a 500 kB PDF at about 125,000.",
+   "Don't cut safety rules (like 'ask before sending') to save tokens."
+  ],
+  "sources": [
+   {
+    "label": "Anthropic pricing docs: tool overhead, web fetch token examples, tokenizer note",
+    "url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
+    "kind": "docs"
+   }
+  ],
+  "tags": [
+   "prompt length",
+   "context",
+   "tokens",
+   "tools"
+  ],
+  "category": "run-for-less",
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "run-for-less-2026-10-21",
+  "setup": [],
+  "source_date": "2026-10-21",
+  "popularity": null
+ },
+ {
+  "slug": "set-ai-spend-limits-and-alerts",
+  "title": "Set spend limits and usage alerts on your AI accounts",
+  "summary": "Before a bot runs on autopilot, put a hard cap on what it can spend and check usage weekly, so a runaway loop can't run up a big bill.",
+  "what_the_bot_does": [
+   "You set a monthly spend limit in each provider's billing settings.",
+   "You give each bot its own workspace or project, with its own lower limit where the provider allows it.",
+   "You check the usage dashboard once a week.",
+   "When a limit is hit, requests stop instead of costing more."
+  ],
+  "what_you_end_up_with": "A known worst-case monthly bill, and an early warning when a bot starts using more than expected.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "claude",
+    "note": "Spend limits per organization and workspace in the Claude Console"
+   },
+   {
+    "id": "chatgpt"
+   },
+   {
+    "id": "gemini"
+   }
+  ],
+  "prompt": "Help me set safe limits. My providers: [list]. My expected monthly use: [estimate]. For each provider, tell me where in its official billing settings to set a spend limit and usage alerts, and suggest a limit about [1.5x] my estimate. Point me to the provider's own help page for each step.",
+  "watch_out": [
+   "Anthropic says that when you reach a spend limit you set, API requests stop until you raise it or the period resets. Make sure your bot tells you when that happens.",
+   "On Anthropic you can't set spend limits on the default workspace, so put bots in their own workspace.",
+   "Consumer plans work differently: you hit usage limits instead of a bill."
+  ],
+  "sources": [
+   {
+    "label": "Anthropic docs: spend limits, setting your own limit, workspace limits",
+    "url": "https://docs.anthropic.com/en/api/rate-limits",
+    "kind": "docs"
+   },
+   {
+    "label": "Mistral pricing FAQ: the Studio dashboard tracks API usage and costs",
+    "url": "https://mistral.ai/pricing",
+    "kind": "docs"
+   }
+  ],
+  "tags": [
+   "spend limit",
+   "budget alerts",
+   "usage",
+   "billing"
+  ],
+  "category": "run-for-less",
+  "date_added": "2026-10-21",
+  "last_checked": "2026-10-21",
+  "origin": "run-for-less-2026-10-21",
+  "setup": [],
+  "source_date": "2026-10-21",
+  "popularity": null
+ }
+]
