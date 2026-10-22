@@ -12,7 +12,7 @@
 > (2) Meter: refreshes popularity via `get_posts_by_ids` and runs `refresh_popularity.py`; (3) Fact-checker:
 > verifies sources and tool claims, flags stale tool facts; (4) Blueprint writer: turns trending use cases into
 > blueprints; (5) Newsletter editor: weekly "radar" issue from the history log; (6) Link/SEO ops: link check,
-> sitemap, llms.txt; (7) Sponsor ops. A human approves publishing, deploys and any outbound message.
+> sitemap, llms.txt; (7) Sponsor ops. A human approves publishing and any outbound message. Routine deploys of the live site (`scripts/deploy.sh`) were approved on 2026-10-21.
 
 
 Owner: Nik Schultz · Working brand: **Let The Bot** (letthebot.com, unregistered per RDAP on 2026-10-19; not purchased)
@@ -128,8 +128,8 @@ Guardrails: no "guaranteed AI income", debt-relief or crypto sponsors; never cla
 ## 10. Hosting and launch
 Recommended: **GitHub Pages** via the included Actions workflow (free, simple, versioned). Cloudflare Pages is an equally good free
 alternative with faster global caching and easy DNS if the domain is bought at Cloudflare. Netlify also works, but its free tier has build/bandwidth limits.
-Status: **not deployed**. `gh auth status` shows no GitHub login on the box. Steps are in README.md → Deploy.
-Approvals needed from Nik:
+Status (2026-10-21): **LIVE** at https://nik-schultz.github.io/agents-on-radar/ (repo https://github.com/nik-schultz/agents-on-radar, approved by Nik). Deploy with `scripts/deploy.sh "msg"`; routine deploys are approved (README → Deploy).
+Still open (older notes, the brand is now Agents on Radar; nothing purchased):
 1. GitHub: log in on the box (`gh auth login`) or give the account/org to use, and approve creating the public repo `letthebot`.
 2. Domain: approve buying letthebot.com (about the standard .com price at a registrar such as Cloudflare or Namecheap; confirm the price at checkout) after a quick trademark check.
 3. Email: a contact inbox for hello@letthebot.com (e.g. Cloudflare Email Routing → Nik's inbox). The site already lists it.
