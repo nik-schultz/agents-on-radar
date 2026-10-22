@@ -1,5 +1,12 @@
 # Ops changelog
 
+## 2026-10-22 (news update, 7:10 AM CT)
+- Added 2 verified items: **Recursive releases Flint**, a free laptop-sized coding model (Oct 21, TechCrunch; notable; new company "Recursive" added to `NEWS_CO` in build.py) and **Meta pauses Muse chat sharing** after 6,800+ share links were found in public web records (Oct 20, The Verge + Ars Technica; notable; no credible high-engagement X post, so no `x` block).
+- X numbers re-measured 2026-10-22 for 13 recent posts (raw in research/x_news_measure_2026_10_22_am.json.txt, applied by research/news_x_2026_10_22.py). @RichardSocher Flint 7,127 likes / 759 reposts / 2,836,719 views; @claudeai Duet 48,646 / 3,710 / 7,089,059.
+- Google Cloud item now uses @OpenAI's own announcement (4,242 likes / 329 reposts / 368,443 views) instead of @googlecloud, since it is the most-engaged official post.
+- Checked with nothing new to add: OpenAI API changelog (Oct 21 service-tier setting is admin-only), Gemini API changelog, xAI release notes, Anthropic newsroom. Skipped smaller or unverified items (Mercury 3, Nemotron 3.5 Super VL, Hugging Face Carbon-X, an aggregator calling July's Kimi K3 new). No price-table changes.
+- BACKLOG: logged a laptop coding-helper guide idea and a share-link watch-out.
+
 ## 2026-10-21 (11:40 PM CT) — Live on https://botsdothat.com/
 - **Domain and DNS:** Nik bought botsdothat.com on Cloudflare. Records are DNS-only: 4 A and 4 AAAA records to GitHub Pages, www as a CNAME to nik-schultz.github.io, and the GitHub challenge TXT. The domain is verified on his GitHub account.
 - **Cutover:** `scripts/domain_cutover.sh apply` set the Pages custom domain, set `cname` and `base_url=https://botsdothat.com/`, and deployed with deploy.sh. The certificate was already approved (Let's Encrypt, botsdothat.com + www, expires 2027-01-19), so `https` turned on Enforce HTTPS right away.

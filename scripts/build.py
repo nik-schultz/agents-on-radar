@@ -260,7 +260,7 @@ hero_leads = f'<p class="lead hl hl-0">{e(HERO_LEAD_A)}</p>' + "".join(f'<p clas
 NEWS_CAT_ICON = {"model release": "🧠", "agent launch": "🤖", "feature": "✨", "pricing": "🏷", "industry": "🏢"}
 # company accent colours + text monograms (no logos)
 NEWS_CO = {"OpenAI": ("OA", "#5ef2d6"), "Anthropic": ("An", "#ffb38a"), "Google": ("G", "#7cb2ff"), "xAI": ("xA", "#e6ebff"),
-           "Meta": ("M", "#8f9bff"), "Mistral": ("Mi", "#ffcf6e"), "DeepSeek": ("DS", "#5aa8ff"), "Groq": ("Gq", "#ff8fa3")}
+           "Meta": ("M", "#8f9bff"), "Mistral": ("Mi", "#ffcf6e"), "DeepSeek": ("DS", "#5aa8ff"), "Groq": ("Gq", "#ff8fa3"), "Recursive": ("Rc", "#b9f27c")}
 NEWS_ART = {"model release": "hero-radar", "agent launch": "cat-work", "pricing": "cat-money", "feature": "cat-inbox", "industry": "cat-business"}
 def news_heat(n):
     x = n.get("x")

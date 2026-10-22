@@ -57,3 +57,7 @@ Skipped: crypto/trading agent posts and copy-trading spam (out of scope).
 ## From the news run, 2026-10-21 3 PM CT
 - Claude Duet (Anthropic, research preview Oct 21): a proactive "chief of staff" agent with a morning brief, check-ins only when something needs you, and approval before payments or deletes. The morning-briefing guide already covers the idea; candidate update is to add Claude Duet as a tool option once it leaves the waitlist (US Pro/Max only for now). Source: https://claude.com/blog/claude-duet
 - PHP2Shell patch (Oct 21): possible guide "Have an agent check whether your website needs a security update" (OpenAI version checker + Codex skill). Source: https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities
+
+## From the news run, 2026-10-22 7 AM CT
+- Recursive Flint (Oct 21): free Apache-2.0 coding model that runs on a laptop. Candidate guide "Run a private, free coding helper on your own laptop" (offline, no per-use fees; keep tasks small). Source: https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/
+- Meta Muse share-link exposure (Oct 20): candidate watch-out line for guides that suggest sharing AI chats: "share links can be public; strip private details first." Source: https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats

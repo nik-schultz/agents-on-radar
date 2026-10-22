@@ -32,11 +32,11 @@
     "url": "https://x.com/claudeai/status/2112984664256241837",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 12097,
-    "reposts": 800,
-    "views": 548899,
+    "likes": 48646,
+    "reposts": 3710,
+    "views": 7089059,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -63,11 +63,11 @@
     "url": "https://x.com/OpenAI/status/2112907856018309586",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 12260,
-    "reposts": 2489,
-    "views": 3535793,
+    "likes": 14088,
+    "reposts": 2807,
+    "views": 5389556,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -84,11 +84,11 @@
     "url": "https://x.com/claudeai/status/2112962248218148878",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 4666,
-    "reposts": 219,
-    "views": 252894,
+    "likes": 9193,
+    "reposts": 475,
+    "views": 594019,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -108,14 +108,41 @@
     }
    ],
    "x": {
-    "url": "https://x.com/googlecloud/status/2112896659608785181",
-    "author": "@googlecloud",
+    "url": "https://x.com/OpenAI/status/2112988118471295323",
+    "author": "@OpenAI",
     "kind": "official",
-    "likes": 333,
-    "reposts": 45,
-    "views": 21305,
+    "likes": 4242,
+    "reposts": 329,
+    "views": 368443,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
+   }
+  },
+  {
+   "id": "recursive-flint",
+   "date": "2026-10-21",
+   "category": "model release",
+   "company": "Recursive",
+   "impact": "notable",
+   "headline": "Recursive releases Flint, a free coding model that runs on a laptop",
+   "explainer": "Flint is a free, open coding model small enough to run on an ordinary laptop, so a coding bot can work offline, keep your files private and skip per-use fees. Its maker says it still needs smaller, step-by-step tasks than the big paid assistants.",
+   "source_url": "https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/",
+   "source_name": "TechCrunch",
+   "more_sources": [
+    {
+     "label": "Richard Socher on X",
+     "url": "https://x.com/RichardSocher/status/2112944385415426249"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/RichardSocher/status/2112944385415426249",
+    "author": "@RichardSocher",
+    "kind": "official",
+    "posted_at": "2026-10-21",
+    "likes": 7127,
+    "reposts": 759,
+    "views": 2836719,
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -132,11 +159,11 @@
     "url": "https://x.com/MistralAI/status/2112574615318876178",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 3044,
-    "reposts": 356,
-    "views": 227808,
+    "likes": 3228,
+    "reposts": 373,
+    "views": 258678,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -153,11 +180,11 @@
     "url": "https://x.com/OpenAIDevs/status/2112603916076781778",
     "author": "@OpenAIDevs",
     "kind": "official",
-    "likes": 3312,
-    "reposts": 166,
-    "views": 1124975,
+    "likes": 3564,
+    "reposts": 188,
+    "views": 1703598,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -180,12 +207,29 @@
     "url": "https://x.com/deepseek_ai/status/2112476496283775135",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 39630,
-    "reposts": 4507,
-    "views": 5777117,
+    "likes": 42134,
+    "reposts": 4762,
+    "views": 6387025,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
+  },
+  {
+   "id": "meta-muse-sharing-paused",
+   "date": "2026-10-20",
+   "category": "feature",
+   "company": "Meta",
+   "impact": "notable",
+   "headline": "Meta pauses Muse chat sharing after shared chats turned up on the web",
+   "explainer": "Researchers found more than 6,800 Muse share links through public web records, some showing loan applications, revenue reviews and work calendars, so Meta switched sharing off while it reviews. Treat any AI \"share link\" as public, and keep private details out of chats you share.",
+   "source_url": "https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats",
+   "source_name": "The Verge",
+   "more_sources": [
+    {
+     "label": "Ars Technica",
+     "url": "https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/"
+    }
+   ]
   },
   {
    "id": "android-police-gems-become-skills",
@@ -218,11 +262,11 @@
     "url": "https://x.com/deepseek_ai/status/2111375640717033777",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 36986,
-    "reposts": 4123,
-    "views": 7763096,
+    "likes": 37039,
+    "reposts": 4128,
+    "views": 7869382,
     "posted_at": "2026-10-17",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -241,9 +285,9 @@
     "kind": "official",
     "likes": 3482,
     "reposts": 248,
-    "views": 952781,
+    "views": 956659,
     "posted_at": "2026-10-17",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -270,11 +314,11 @@
     "url": "https://x.com/AIatMeta/status/2110779754274292212",
     "author": "@AIatMeta",
     "kind": "official",
-    "likes": 11530,
-    "reposts": 1221,
-    "views": 1230400,
+    "likes": 11536,
+    "reposts": 1222,
+    "views": 1237142,
     "posted_at": "2026-10-15",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -297,11 +341,11 @@
     "url": "https://x.com/ArtificialAnlys/status/2110421964095713743",
     "author": "@ArtificialAnlys",
     "kind": "coverage",
-    "likes": 1311,
+    "likes": 1310,
     "reposts": 144,
-    "views": 904595,
+    "views": 906948,
     "posted_at": "2026-10-14",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -324,11 +368,11 @@
     "url": "https://x.com/GeminiApp/status/2110039322229649783",
     "author": "@GeminiApp",
     "kind": "official",
-    "likes": 7238,
-    "reposts": 762,
-    "views": 4966679,
+    "likes": 7274,
+    "reposts": 765,
+    "views": 5495257,
     "posted_at": "2026-10-13",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -351,11 +395,11 @@
     "url": "https://x.com/AIatMeta/status/2109691148943999167",
     "author": "@AIatMeta",
     "kind": "official",
-    "likes": 2203,
-    "reposts": 235,
-    "views": 311709,
+    "likes": 2207,
+    "reposts": 234,
+    "views": 313713,
     "posted_at": "2026-10-12",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
