@@ -876,8 +876,44 @@ page("/about/", f"About {NAME} and how we measure", f"How {NAME} finds real AI a
 <h2>How we make money</h2><p>Clearly labeled sponsorships (see <a href="{u('/advertise/')}">advertise</a>), and possibly affiliate links in future, always labeled and explained on our <a href="{u(DISCLOSE)}">disclosure page</a>. Money never changes rankings: trending is computed from public numbers.</p>
 <h2>Corrections</h2><p>Spotted something wrong? {"Email" if CONTACT else "Please"} <a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>.</p></div>""")
 
-page("/newsletter/", f"The {NAME} Weekly newsletter", "One email a week: the best new things people got AI agents to do, with sources, plus one copy-paste bot blueprint.",
-     f'<div class="wrap narrow"><p class="eyebrow">Newsletter</p><h1 class="kinetic-sm">The {e(NAME)} Weekly</h1><p class="lead">Every week: the 5 most useful new agent use cases (with sources), one blueprint to copy, and one thing that went wrong so you don\'t repeat it.</p>{newsletter_box()}</div>')
+# ---------- NEWSLETTER (/newsletter/ archive + web issues + /newsletter/feed.xml) ---------
+NL = sorted(J("data", "newsletter.json")["issues"], key=lambda x: x["date"], reverse=True)
+NEWS_BY_ID = {n["id"]: n for n in NEWS}
+def nl_path(iss): return f"/newsletter/{iss['slug']}/"
+def nl_sponsor(iss):
+    s = iss.get("sponsor")
+    if s:
+        return f"""<aside class="featured glass sponsored">{paid_label()}<h3>{e(s['headline'])}</h3><p>{e(s.get('body',''))}</p>
+<a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change what we pick.</p></aside>"""
+    return f"""<aside class="featured glass house"><span class="label">Your spot here</span><h3>Sponsor the {e(NAME)} Weekly</h3>
+<p>One short, clearly labeled sponsor block that matches the week's topic. Your first 2 issues are free.</p><a class="btn btn-ghost" href="{u('/advertise/')}">See sponsor options</a></aside>"""
+def nl_issue_html(iss):
+    parts = [f'<p class="lead">{e(iss["intro"])}</p>']
+    for k, it in enumerate(iss["items"], 1):
+        x = UC[it["slug"]]; src = x["sources"][0]
+        parts.append(f"""<section class="nl-item" id="item-{k}"><h2>{k}. <a href="{u('/use-cases/'+x['slug']+'/')}">{e(x['title'])}</a></h2>
+<p>{e(it['why'])}</p><p><b>You end up with:</b> {e(x['what_you_end_up_with'])}</p>{copybox(x['prompt'], id_=f'nl-prompt-{k}')}
+<p class="small muted">Difficulty: {e(x['difficulty'])} · Source: <a href="{e(src['url'])}" rel="noopener">{e(src['label'])}</a> · <a href="{u('/use-cases/'+x['slug']+'/')}">Full guide with watch-outs</a></p></section>""")
+    np_ = iss.get("new_page")
+    if np_:
+        x = UC.get(np_["slug"]); href = u('/use-cases/'+np_["slug"]+'/') if x else u(np_.get("path", "/"))
+        parts.append(f'<section class="nl-item glass" id="new-page"><p class="eyebrow">New on the site</p><h2><a href="{href}">{e(x["title"] if x else np_.get("title",""))}</a></h2><p>{e(np_["note"])}</p><p><a class="btn btn-sm" href="{href}">Read the guide</a></p></section>')
+    w = NEWS_BY_ID.get(iss.get("watch_out") or "")
+    if w:
+        parts.append(f'<section class="nl-item" id="watch-out"><p class="eyebrow">One thing that went wrong</p><h2>{e(w["headline"])}</h2><p>{e(w["explainer"])}</p><p class="small muted">Source: <a href="{e(w["source_url"])}" rel="noopener">{e(w["source_name"])}</a>, {nice_date(w["date"])}</p></section>')
+    parts.append(nl_sponsor(iss))
+    return "".join(parts)
+for iss in NL:
+    cr, crld = crumbs([("Home", "/"), ("Newsletter", "/newsletter/"), (f"Issue {iss['number']}", None)])
+    page(nl_path(iss), f"{iss['subject']} (Weekly #{iss['number']})", mdesc(iss["intro"]),
+         f'<div class="wrap narrow prose">{cr}<p class="eyebrow">{e(NAME)} Weekly · Issue {iss["number"]} · {nice_date(iss["date"])}</p><h1 class="kinetic-sm">{e(iss["subject"])}</h1>{nl_issue_html(iss)}{newsletter_box()}<p><a href="{u("/newsletter/")}">← All issues</a> · <a href="{u("/newsletter/feed.xml")}">RSS feed of issues</a></p></div>',
+         [crld, {"@context": "https://schema.org", "@type": "Article", "headline": iss["subject"], "datePublished": iss["date"], "author": {"@type": "Organization", "name": NAME}, "publisher": {"@type": "Organization", "name": NAME}, "mainEntityOfPage": absu(u(nl_path(iss)))}],
+         lastmod=iss["date"], og_type="article", head_extra=f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)} Weekly" href="{u("/newsletter/feed.xml")}">')
+_nl_list = "".join(f'<li class="glass nl-arch"><a href="{u(nl_path(i))}"><span class="small muted">Issue {i["number"]} · {nice_date(i["date"])}</span><b>{e(i["subject"])}</b><span class="small">{e(", ".join(UC[it["slug"]]["title"] for it in i["items"]))}</span></a></li>' for i in NL)
+page("/newsletter/", f"The {NAME} Weekly newsletter", "One email a week: a few practical jobs you can hand to AI, each with the result and a copy-paste prompt, plus one new guide and one thing that went wrong.",
+     f'<div class="wrap narrow"><p class="eyebrow">Newsletter</p><h1 class="kinetic-sm">The {e(NAME)} Weekly</h1><p class="lead">Every week: 3 to 5 practical jobs you can hand to AI, each with what you end up with and a prompt to copy, plus one new guide and one thing that went wrong so you don\'t repeat it.</p>{newsletter_box()}'
+     + (f'<h2>Past issues</h2><p class="small muted">Read every issue on the web, or follow the <a href="{u("/newsletter/feed.xml")}">newsletter RSS feed</a>.</p><ul class="nl-archive">{_nl_list}</ul>' if NL else "") + '</div>',
+     lastmod=NL[0]["date"] if NL else None, head_extra=f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)} Weekly" href="{u("/newsletter/feed.xml")}">')
 
 _paid_now = sum(len(v) for k, v in spons.items() if isinstance(v, list))
 ADV_FAQ = [("How many visitors do you have?", f"We launched on {nice_date('2026-10-21')}, so the honest answer is: not many yet. We don't publish traffic numbers we haven't measured. When Search Console has data we will share impressions and clicks with you before you pay."),
@@ -937,6 +973,12 @@ open(os.path.join(OUT, "news", "feed.xml"), "w").write(f"""<?xml version="1.0" e
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>{e(NAME)}: Latest in AI</title><link>{e(absu(u('/news/')))}</link>
 <atom:link href="{e(absu(u('/news/feed.xml')))}" rel="self" type="application/rss+xml"/><description>New AI models, agent launches and price changes, explained in plain words.</description><language>en</language>
 <lastBuildDate>{rfc822(NEWS[0]['date'])}</lastBuildDate>{nitems}</channel></rss>""")
+nlitems = "".join(f"""<item><title>{e(i['subject'])}</title><link>{e(absu(u(nl_path(i))))}</link><guid isPermaLink="true">{e(absu(u(nl_path(i))))}</guid>
+<pubDate>{rfc822(i['date'])}</pubDate><description>{e(i['intro'] + ' In this issue: ' + '; '.join(UC[it['slug']]['title'] for it in i['items']) + '.')}</description></item>""" for i in NL)
+open(os.path.join(OUT, "newsletter", "feed.xml"), "w").write(f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>{e(NAME)} Weekly</title><link>{e(absu(u('/newsletter/')))}</link>
+<atom:link href="{e(absu(u('/newsletter/feed.xml')))}" rel="self" type="application/rss+xml"/><description>A few practical jobs you can hand to AI each week, with copy-paste prompts.</description><language>en</language>
+<lastBuildDate>{rfc822(NL[0]['date'] if NL else BUILD_DATE)}</lastBuildDate>{nlitems}</channel></rss>""")
 open(os.path.join(OUT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
     "".join(f"<url><loc>{e(l)}</loc><lastmod>{m}</lastmod></url>" for l, m in SITEMAP) + "</urlset>\n")
 bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "PerplexityBot", "Google-Extended", "Applebot-Extended", "CCBot"]

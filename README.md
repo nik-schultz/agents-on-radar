@@ -112,6 +112,7 @@ schema.org JSON-LD (WebSite+SearchAction, ItemList, HowTo, FAQPage, BreadcrumbLi
 Applebot-Extended / CCBot, `llms.txt`, `llms-full.txt`, `feed.xml` (RSS of newest 40), `.nojekyll`, `CNAME` when `config.cname` is set.
 
 ## Newsletter and sponsors
+Weekly issues: add an issue to `data/newsletter.json` (3-5 use-case slugs with a one-line `why`, `new_page`, optional `watch_out` news id, `sponsor` or null for a house ad). It builds `/newsletter/<slug>/`, the archive on `/newsletter/` and `/newsletter/feed.xml`. Set `sent_on` once it has been emailed.
 Newsletter: paste your provider's form POST URL into `config.newsletter.form_action`; until then the form is disabled.
 Sponsors: add an object `{name, headline, body, url, cta, categories?}` to a slot in `data/sponsors.json`; it renders labeled "Sponsored" with `rel="sponsored"`.
 

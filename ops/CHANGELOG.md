@@ -1,5 +1,11 @@
 # Ops changelog
 
+## 2026-10-22 (weekly newsletter routine, 9:10 AM CT) — BotsDoThat Weekly #1 published on the web
+- **New:** newsletter web archive. `data/newsletter.json` holds issues; build.py renders `/newsletter/` (signup + past issues), one page per issue at `/newsletter/<date>/` (Article + Breadcrumb JSON-LD, in the sitemap) and `/newsletter/feed.xml`. Item outcomes, prompts and sources are pulled from data/use-cases.json, so they stay in sync with the guides. Empty `sponsor` renders a house ad pointing to /advertise/.
+- **Issue #1 (Oct 22): "4 jobs you can hand to an AI this week":** research a used car from its listing link, line up contractors for a home project, send a long video or thread to your bot, set AI spend limits and alerts. New on the site: Fill out a job application faster. Watch-out: Meta paused Muse chat sharing (The Verge). Sponsor: none booked, house ad.
+- **Not emailed.** No email provider is wired yet (`config.newsletter.form_action` is empty, signup form still disabled) and Nik hasn't approved sending. `sent_on` stays null.
+- /newsletter/ lead copy now matches the routine's format (3 to 5 jobs with prompts, one new guide, one thing that went wrong).
+
 ## 2026-10-22 (daily QA run, 7:20 AM CT)
 - **Status:** live and healthy. https://botsdothat.com/ returned 200 on every page checked: home, /use-cases/ and 3 guides, /blueprints/ and 2 blueprints, /news/, /ai-pricing/, /run-your-bots-for-less/ (with ?bot= prefill), /trending/, /advertise/, robots.txt, sitemap.xml, feed.xml, app.js and the search index. /nope-xyz/ returns the 404 page. TLS cert CN=botsdothat.com is valid until Jan 20, 2027. https://www.botsdothat.com/ and the old github.io deep link (/agents-on-radar/news/) both 301 to botsdothat.com. Outbound port 80 is blocked from the box, so the http→https redirect was confirmed through a normal web fetch instead.
 - **Checks:**

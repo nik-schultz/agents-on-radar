@@ -1,0 +1,22 @@
+{
+ "_help": "Web issues of the BotsDoThat Weekly. Each issue lists 3-5 use-case slugs (outcome, prompt and sources are pulled from data/use-cases.json at build time), one new or improved page, an optional watch-out (news id from data/news.json) and a sponsor (null = house ad). sent_on stays null until the issue is emailed to subscribers.",
+ "issues": [
+  {
+   "number": 1,
+   "slug": "2026-10-22",
+   "date": "2026-10-22",
+   "subject": "4 jobs you can hand to an AI this week",
+   "intro": "Welcome to the first BotsDoThat Weekly. Each week we pick a few real, practical jobs people are handing to AI, tell you what you end up with, and give you a prompt you can copy. No hype, no made-up numbers.",
+   "items": [
+    {"slug": "research-a-used-car-from-a-listing", "why": "Shopping for a car? Paste the listing link before you book a viewing, and walk in with the right questions."},
+    {"slug": "line-up-contractors-for-a-home-project", "why": "If a fall fix-up is on your list, let an agent draft the messages to local trades and collect their replies in one table. You approve every message first."},
+    {"slug": "send-a-long-video-or-thread-to-your-bot", "why": "For the long videos and threads you keep meaning to get to: one reply saves a short summary for later."},
+    {"slug": "set-ai-spend-limits-and-alerts", "why": "If any of your bots run on autopilot, put a hard cap on what they can spend."}
+   ],
+   "new_page": {"slug": "fill-out-a-job-application-faster", "note": "Write a fact sheet once, let a browser agent type it into the employer's careers page, sign in yourself, and stop before Submit. It also covers what to keep out of the chat and the job-scam signs the FTC warns about."},
+   "watch_out": "meta-muse-sharing-paused",
+   "sponsor": null,
+   "sent_on": null
+  }
+ ]
+}
