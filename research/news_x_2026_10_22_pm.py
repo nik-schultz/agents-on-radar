@@ -22,7 +22,7 @@ NEW = [
   "x": xb("2113346642787086538","OpenAIDevs","2026-10-22")},
  {"id":"canva-craft","date":"2026-10-22","category":"model release","company":"Canva","impact":"notable",
   "headline":"Canva launches Craft, its own image model built for designs with readable text",
-  "explainer":"Craft plans the layout first, then makes images up to 2K in about 30 sizes, and is trained on human-made Canva templates so text comes out legible. It's free to try for all Canva users in Dream Lab, and Canva plans to let ChatGPT and Gemini use it too.",
+  "explainer":"Craft plans the layout first, then makes images up to 2K in about 30 sizes, and is trained on human-made Canva templates so text comes out legible. It's available to all Canva users in the Dream Lab tab, and Canva plans to let ChatGPT and Gemini use it too.",
   "source_url":"https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/","source_name":"TechCrunch",
   "x": xb("2113348707223753165","canva","2026-10-22")},
  {"id":"gemini-android-auto-personal-intelligence","date":"2026-10-20","category":"feature","company":"Google","impact":"notable",

@@ -47,7 +47,7 @@
    "company": "Canva",
    "impact": "notable",
    "headline": "Canva launches Craft, its own image model built for designs with readable text",
-   "explainer": "Craft plans the layout first, then makes images up to 2K in about 30 sizes, and is trained on human-made Canva templates so text comes out legible. It's free to try for all Canva users in Dream Lab, and Canva plans to let ChatGPT and Gemini use it too.",
+   "explainer": "Craft plans the layout first, then makes images up to 2K in about 30 sizes, and is trained on human-made Canva templates so text comes out legible. It's available to all Canva users in the Dream Lab tab, and Canva plans to let ChatGPT and Gemini use it too.",
    "source_url": "https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/",
    "source_name": "TechCrunch",
    "x": {
