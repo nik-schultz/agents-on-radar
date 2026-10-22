@@ -1,5 +1,14 @@
 # Ops changelog
 
+## 2026-10-21 (10:45 PM CT) — Sponsor launch prices published (approved by Nik)
+- Nik approved research/sponsor_pricing.md exactly as proposed. The file is marked approved, dated Oct 21, 2026.
+- /advertise/ now shows the prices:
+  - newsletter slot: first 2 issues free, then $50 per issue until 1,000 subscribers, then $25 per 1,000 subscribers ($50 minimum);
+  - featured tool listing: $49/month, first month free for the first 3 sponsors;
+  - Run-for-less tile: $99/month, one sponsor at a time;
+  - bundle of all three: $149/month.
+- The page says these are launch rates that may change once traffic is measured. The honest audience wording is unchanged. The contact button ("Contact us to book a spot") still opens GitHub Issues, because no private email is set.
+
 ## 2026-10-21 (late night) — Monetization groundwork: Advertise, disclosure, paid labels, Search Console prep
 - **New /advertise/ page.** Audience is described honestly ("New and growing", live since Oct 21, no visitor numbers until measured), with real content counts. It explains what we will measure: Search Console/Bing impressions and clicks, sponsor UTM clicks, newsletter stats once it sends.
   - Three options: newsletter sponsor slot, featured tool listing on matching blueprints and guides, and a sponsored tile in the homepage Run-for-less band.

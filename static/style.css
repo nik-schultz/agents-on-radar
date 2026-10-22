@@ -408,3 +408,4 @@ div.bp-art.art-slot{border-radius:50%}
 .adv-stats b{display:block;font-size:1.8rem;font-weight:850;letter-spacing:-.02em;background:linear-gradient(90deg,var(--c1),var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .adv-stats span{font-size:.82rem;color:var(--muted)}
 .adv .tier .eyebrow{margin:0 0 4px}.adv-cta{padding:clamp(18px,3vw,28px);margin:26px 0;text-align:center;border-color:rgba(94,242,214,.35)}
+.price-sub{margin:-.3em 0 .6em;font-size:.85rem;color:var(--muted)}.adv-bundle{font-size:1.1rem}
