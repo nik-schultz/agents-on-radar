@@ -28,4 +28,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://nik-schultz.github.io/agents-on-radar/sitemap.xml
+Sitemap: https://botsdothat.com/sitemap.xml

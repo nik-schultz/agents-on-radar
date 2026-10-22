@@ -5,7 +5,7 @@ There's a bot for that. Here's how.
 A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
 
 ## Send a long video or thread to your bot with one reply
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/send-a-long-video-or-thread-to-your-bot/
+URL: https://botsdothat.com/use-cases/send-a-long-video-or-thread-to-your-bot/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-21
 Popularity: 59 likes, 5 reposts on X (https://x.com/Texas_Twins_Dad/status/2112662250225811697, measured 2026-10-21)
 
@@ -32,7 +32,7 @@ Sources:
 - X post by @Texas_Twins_Dad (2026-10-20): replies "@bot summarize this and send it to my bot" under long videos and threads; the summary waits in the Grok Bot app: https://x.com/Texas_Twins_Dad/status/2112662250225811697
 
 ## Let your bot handle your website's contact email
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/let-your-bot-handle-your-sites-contact-email/
+URL: https://botsdothat.com/use-cases/let-your-bot-handle-your-sites-contact-email/
 Category: Small business & side hustles | Difficulty: Medium | Added: 2026-10-21
 Popularity: 24 likes, 1 reposts on X (https://x.com/Texas_Twins_Dad/status/2112926907549323538, measured 2026-10-21)
 
@@ -59,7 +59,7 @@ Sources:
 - X post by @Texas_Twins_Dad (2026-10-21): his Grok Bot has its own email and runs the email side of his class site; contact mail is forwarded to it and it sends him summaries: https://x.com/Texas_Twins_Dad/status/2112926907549323538
 
 ## Set spend limits and usage alerts on your AI accounts
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/set-ai-spend-limits-and-alerts/
+URL: https://botsdothat.com/use-cases/set-ai-spend-limits-and-alerts/
 Category: Run your bots for less | Difficulty: Easy | Added: 2026-10-21
 Popularity: not measured
 
@@ -88,7 +88,7 @@ Sources:
 - Mistral pricing FAQ: the Studio dashboard tracks API usage and costs: https://mistral.ai/pricing
 
 ## Keep your bot's prompts, tools and context short
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/keep-prompts-and-context-short/
+URL: https://botsdothat.com/use-cases/keep-prompts-and-context-short/
 Category: Run your bots for less | Difficulty: Medium | Added: 2026-10-21
 Popularity: not measured
 
@@ -116,7 +116,7 @@ Sources:
 - Anthropic pricing docs: tool overhead, web fetch token examples, tokenizer note: https://docs.anthropic.com/en/docs/about-claude/pricing
 
 ## Stop always-on bots from burning tokens: run them less often, or on demand
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/schedule-bots-without-burning-tokens/
+URL: https://botsdothat.com/use-cases/schedule-bots-without-burning-tokens/
 Category: Run your bots for less | Difficulty: Easy | Added: 2026-10-21
 Popularity: 10 likes, 1 reposts on X (https://x.com/sunfellow/status/2112585672657969563, measured 2026-10-21)
 
@@ -144,7 +144,7 @@ Sources:
 - Anthropic pricing docs: "Monitor usage patterns: Track token consumption to identify optimization opportunities": https://docs.anthropic.com/en/docs/about-claude/pricing
 
 ## Run open models on your own computer (or a cheap host) for simple jobs
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/run-open-models-on-your-own-computer/
+URL: https://botsdothat.com/use-cases/run-open-models-on-your-own-computer/
 Category: Run your bots for less | Difficulty: Advanced | Added: 2026-10-21
 Popularity: not measured
 
@@ -174,7 +174,7 @@ Sources:
 - Mistral pricing FAQ: self-hosting and open-weight licences: https://mistral.ai/pricing
 
 ## Cut your AI bill with prompt caching and batch discounts
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/cut-costs-with-caching-and-batch/
+URL: https://botsdothat.com/use-cases/cut-costs-with-caching-and-batch/
 Category: Run your bots for less | Difficulty: Advanced | Added: 2026-10-21
 Popularity: not measured
 
@@ -205,7 +205,7 @@ Sources:
 - Mistral pricing FAQ: batch reduces price by 50%, cached input up to 90% off: https://mistral.ai/pricing
 
 ## Decide between a monthly AI plan and paying per use
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/subscription-or-pay-per-use/
+URL: https://botsdothat.com/use-cases/subscription-or-pay-per-use/
 Category: Run your bots for less | Difficulty: Easy | Added: 2026-10-21
 Popularity: not measured
 
@@ -235,7 +235,7 @@ Sources:
 - Mistral pricing: Pro $14.99/month, plus how API pricing is calculated: https://mistral.ai/pricing
 
 ## Build and test your bot on a free tier before you pay
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/test-your-bot-on-a-free-tier/
+URL: https://botsdothat.com/use-cases/test-your-bot-on-a-free-tier/
 Category: Run your bots for less | Difficulty: Easy | Added: 2026-10-21
 Popularity: not measured
 
@@ -265,7 +265,7 @@ Sources:
 - xAI: Grok is "Free to try on the web and in the apps": https://x.ai/grok
 
 ## Use a small model for simple jobs and save the big one for hard ones
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/pick-a-smaller-model-for-simple-jobs/
+URL: https://botsdothat.com/use-cases/pick-a-smaller-model-for-simple-jobs/
 Category: Run your bots for less | Difficulty: Medium | Added: 2026-10-21
 Popularity: not measured
 
@@ -294,7 +294,7 @@ Sources:
 - Gemini API pricing (official): https://ai.google.dev/gemini-api/docs/pricing
 
 ## Give your agents their own Apple account so they share reminders, notes and calendar
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/give-your-agents-a-shared-apple-account/
+URL: https://botsdothat.com/use-cases/give-your-agents-a-shared-apple-account/
 Category: Work & career | Difficulty: Advanced | Added: 2026-10-21
 Popularity: 251 likes, 15 reposts on X (https://x.com/BrianRoemmele/status/2109351823996035338, measured 2026-10-21)
 
@@ -321,7 +321,7 @@ Sources:
 - X post by @BrianRoemmele (2026-10-11): how he uses a dedicated Apple Account on a Mac as the shared desk for his Grok Bot agents, with a setup script: https://x.com/BrianRoemmele/status/2109351823996035338
 
 ## Put a small team of agents on one project, each with its own job
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/team-of-agents-with-roles/
+URL: https://botsdothat.com/use-cases/team-of-agents-with-roles/
 Category: Small business & side hustles | Difficulty: Advanced | Added: 2026-10-21
 Popularity: 209 likes, 36 reposts on X (https://x.com/Parul_Gautam7/status/2108202625929970077, measured 2026-10-21)
 
@@ -349,7 +349,7 @@ Sources:
 - X post by @Parul_Gautam7 (2026-10-08): a Market Research agent and a Website Builder agent hand work to each other in one shared group conversation: https://x.com/Parul_Gautam7/status/2108202625929970077
 
 ## Hand off tasks to your agent by voice while you drive
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/hand-off-tasks-by-voice-while-driving/
+URL: https://botsdothat.com/use-cases/hand-off-tasks-by-voice-while-driving/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-21
 Popularity: 1 likes, 0 reposts on X (https://x.com/nmtalkss/status/2107157837134843995, measured 2026-10-21)
 
@@ -376,7 +376,7 @@ Sources:
 - X post by @nmtalkss (2026-10-05): on a 2-hour drive he talked to his "CEO agent" in Grok Bot and handed off research and other tasks: https://x.com/nmtalkss/status/2107157837134843995
 
 ## Get roadside help abroad when nobody speaks your language
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/get-roadside-help-abroad/
+URL: https://botsdothat.com/use-cases/get-roadside-help-abroad/
 Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-21
 Popularity: 0 likes, 0 reposts on X (https://x.com/farmerathlete/status/2111861042531782681, measured 2026-10-21)
 
@@ -403,7 +403,7 @@ Sources:
 - X post by @farmerathlete (2026-10-18): broken down on the Autobahn, Grok Bot found the right insurer form, filled it in and help arrived an hour later: https://x.com/farmerathlete/status/2111861042531782681
 
 ## Hand a clunky web form or app to an agent that uses the computer for you
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/hand-a-clunky-web-form-to-an-agent/
+URL: https://botsdothat.com/use-cases/hand-a-clunky-web-form-to-an-agent/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-21
 Popularity: 3 likes, 0 reposts on X (https://x.com/brian_a_burns/status/2112326114542858689, measured 2026-10-21)
 
@@ -430,7 +430,7 @@ Sources:
 - X post by @brian_a_burns (2026-10-19): ChatGPT with computer use filled in a complicated procurement request in software he had never used: https://x.com/brian_a_burns/status/2112326114542858689
 
 ## Have an agent contact tradespeople and line up quotes for a home project
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/line-up-contractors-for-a-home-project/
+URL: https://botsdothat.com/use-cases/line-up-contractors-for-a-home-project/
 Category: Family & home | Difficulty: Medium | Added: 2026-10-21
 Popularity: 9 likes, 0 reposts on X (https://x.com/NaughtyNomad/status/2094720744030642252, measured 2026-10-21)
 
@@ -457,7 +457,7 @@ Sources:
 - X post by @NaughtyNomad (2026-09-01): an agent using ChatGPT contacted every subcontractor on the island for his renovation and compared their quotes: https://x.com/NaughtyNomad/status/2094720744030642252
 
 ## Have an agent research a used car from its listing link
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/research-a-used-car-from-a-listing/
+URL: https://botsdothat.com/use-cases/research-a-used-car-from-a-listing/
 Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-21
 Popularity: 1 likes, 0 reposts on X (https://x.com/IamOnurYilmaz/status/2110811317514940897, measured 2026-10-21)
 
@@ -484,7 +484,7 @@ Sources:
 - X post by @IamOnurYilmaz (2026-10-15): Grok Bot researched a used car from a listing link and checked its damage history, then had another agent call the seller: https://x.com/IamOnurYilmaz/status/2110811317514940897
 
 ## Get pinged when a prescription is ready, and told when to leave
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/prescription-ready-and-time-to-leave/
+URL: https://botsdothat.com/use-cases/prescription-ready-and-time-to-leave/
 Category: Health & care | Difficulty: Easy | Added: 2026-10-21
 Popularity: 47 likes, 0 reposts on X (https://x.com/WaitWhat/status/2104354985224069224, measured 2026-10-21)
 
@@ -511,7 +511,7 @@ Sources:
 - X post by @WaitWhat (2026-09-27): a summary (written by his Meta Muse agent) of what it does for him, including a morning pharmacy watchdog and traffic-based leave times; the post includes a referral code: https://x.com/WaitWhat/status/2104354985224069224
 
 ## Send all your newsletters to your bot and get one daily report
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/newsletter-daily-report/
+URL: https://botsdothat.com/use-cases/newsletter-daily-report/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-21
 Popularity: 212 likes, 24 reposts on X (https://x.com/BrianRoemmele/status/2110433542182457609, measured 2026-10-21)
 
@@ -539,7 +539,7 @@ Sources:
 - X post by @BrianRoemmele (2026-10-14): an "Email Newsletter Daily Report" Grok Bot for 3,400+ newsletter subscriptions: https://x.com/BrianRoemmele/status/2110433542182457609
 
 ## Give your bot a phone number so it can call and book for you
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/call-and-book-by-phone/
+URL: https://botsdothat.com/use-cases/call-and-book-by-phone/
 Category: Bookings & travel | Difficulty: Medium | Added: 2026-10-21
 Popularity: 859 likes, 93 reposts on X (https://x.com/BrianRoemmele/status/2111812467500458135, measured 2026-10-21)
 
@@ -569,7 +569,7 @@ Sources:
 - X post by @RetiredArmy_Guy (2026-10-19): his Grok Bot got its own phone number and booked his dog's vet appointment by phone: https://x.com/RetiredArmy_Guy/status/2112154131028652535
 
 ## Write a letter of recommendation for someone
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/write-a-letter-of-recommendation/
+URL: https://botsdothat.com/use-cases/write-a-letter-of-recommendation/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-21
 Popularity: not measured
 
@@ -608,7 +608,7 @@ Sources:
 - Google search suggestions for “use ai to write a letter of recommendation” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+write+a+letter+of+recommendation
 
 ## Get your phone number off people-search sites to cut spam calls
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/remove-your-number-from-people-search-sites/
+URL: https://botsdothat.com/use-cases/remove-your-number-from-people-search-sites/
 Category: Family & home | Difficulty: Medium | Added: 2026-10-20
 Popularity: 6 likes, 0 reposts on X (https://x.com/PixelRainbowNFT/status/2112256029543329930, measured 2026-10-21)
 
@@ -636,7 +636,7 @@ Sources:
 - X post by @PixelRainbowNFT (2026-10-19): a roundup of Grok Bot templates, including a Spam-Call Scrubber that files people-search opt-outs and re-checks: https://x.com/PixelRainbowNFT/status/2112256029543329930
 
 ## Log your meals by talking and get a daily weight check-in
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/log-meals-and-weight-by-voice/
+URL: https://botsdothat.com/use-cases/log-meals-and-weight-by-voice/
 Category: Health & care | Difficulty: Easy | Added: 2026-10-20
 Popularity: 66 likes, 3 reposts on X (https://x.com/RayFernando1337/status/2112529809557401660, measured 2026-10-21)
 
@@ -664,7 +664,7 @@ Sources:
 - X post by @RayFernando1337 (2026-10-20): his Grok Bot logs his food when he talks, gets a morning check-in from his Withings scale and does his receipts (video): https://x.com/RayFernando1337/status/2112529809557401660
 
 ## Have your bot make a customer-service phone call for you
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/make-a-customer-service-call/
+URL: https://botsdothat.com/use-cases/make-a-customer-service-call/
 Category: Inbox, calls & paperwork | Difficulty: Medium | Added: 2026-10-20
 Popularity: 63 likes, 3 reposts on X (https://x.com/skeptrune/status/2112563230019289456, measured 2026-10-21)
 
@@ -696,7 +696,7 @@ Sources:
 - X post by @james_fowler_ (2026-10-18): a restaurant owner nearly hung up until the bot said it was an AI: https://x.com/james_fowler_/status/2111888527826813404
 
 ## Write a resignation letter that keeps the door open
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/write-a-resignation-letter/
+URL: https://botsdothat.com/use-cases/write-a-resignation-letter/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-20
 Popularity: not measured
 
@@ -735,7 +735,7 @@ Sources:
 - Google search suggestions for “ai to write resignation letter” (checked 2026-10-20): https://www.google.com/search?q=ai+to+write+resignation+letter
 
 ## Plan a week of family meals and fill the grocery cart
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/family-meal-plan-and-grocery-order/
+URL: https://botsdothat.com/use-cases/family-meal-plan-and-grocery-order/
 Category: Shopping & groceries | Difficulty: Medium | Added: 2026-10-20
 Popularity: 1013 likes, 30 reposts on X (https://x.com/lyndallschreinr/status/2107888353630908437, measured 2026-10-21)
 
@@ -768,7 +768,7 @@ Sources:
 - X post by @elijahbuildsai (2026-09-25): Claude meal plan from fridge photos plus Instacart: https://x.com/elijahbuildsai/status/2103607960996086113
 
 ## Catch family calendar clashes before the week starts
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/sunday-family-calendar-check/
+URL: https://botsdothat.com/use-cases/sunday-family-calendar-check/
 Category: Family & home | Difficulty: Easy | Added: 2026-10-20
 Popularity: 507 likes, 34 reposts on X (https://x.com/Michael_Fenech_/status/2108579992456327489, measured 2026-10-21)
 
@@ -795,7 +795,7 @@ Sources:
 - X post by @Michael_Fenech_ (2026-10-09): 7 jobs to give a family bot, with prompts: https://x.com/Michael_Fenech_/status/2108579992456327489
 
 ## Hand your most-hated weekly chores to a personal agent
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/hand-your-most-hated-chores-to-a-personal-agent/
+URL: https://botsdothat.com/use-cases/hand-your-most-hated-chores-to-a-personal-agent/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
 Popularity: 678 likes, 35 reposts on X (https://x.com/AlexFinn/status/2107254007412756589, measured 2026-10-21)
 
@@ -824,7 +824,7 @@ Sources:
 - Reddit r/AI_Agents: “What AI agents are actually worth running for personal use?” (archived snapshot, Sep 5 2026): https://reddit.sentinel-team.org/posts/1w4e3ji/snapshots/2026-09-05T09%3A24%3A43.696105Z
 
 ## Get a daily scam check on your inbox
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/email-scam-filter/
+URL: https://botsdothat.com/use-cases/email-scam-filter/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
 Popularity: 203 likes, 18 reposts on X (https://x.com/BrianRoemmele/status/2110008406807568813, measured 2026-10-21)
 
@@ -851,7 +851,7 @@ Sources:
 - X post by @BrianRoemmele (2026-10-13): a read-only Grok Bot that scores email scam risk every morning: https://x.com/BrianRoemmele/status/2110008406807568813
 
 ## Run family logistics from the family group chat
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/run-family-logistics-from-the-group-chat/
+URL: https://botsdothat.com/use-cases/run-family-logistics-from-the-group-chat/
 Category: Family & home | Difficulty: Easy | Added: 2026-10-20
 Popularity: 162 likes, 14 reposts on X (https://x.com/saviomartin/status/2109330165381910817, measured 2026-10-21)
 
@@ -880,7 +880,7 @@ Sources:
 - X post by @RoundtableSpace (2026-10-21): Wabi 2.0 launched, one AI agent a whole group chat shares; updates everyone's calendar when pickup changes and books tickets: https://x.com/RoundtableSpace/status/2112918077314920688
 
 ## Let an agent reorder your regular groceries
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/reorder-your-regular-groceries/
+URL: https://botsdothat.com/use-cases/reorder-your-regular-groceries/
 Category: Shopping & groceries | Difficulty: Medium | Added: 2026-10-20
 Popularity: 96 likes, 4 reposts on X (https://x.com/NickADobos/status/2110749518518235276, measured 2026-10-21)
 
@@ -910,7 +910,7 @@ Sources:
 - TechCrunch, Sep 21 2026: Meta's AI agent has been blocked from using Amazon.com: https://techcrunch.com/2026/09/21/metas-ai-agent-has-been-blocked-from-using-amazon-com/
 
 ## Plan and book a whole trip by texting your bot
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/plan-and-book-a-whole-trip-by-text/
+URL: https://botsdothat.com/use-cases/plan-and-book-a-whole-trip-by-text/
 Category: Bookings & travel | Difficulty: Medium | Added: 2026-10-20
 Popularity: 63 likes, 11 reposts on X (https://x.com/Teslaconomics/status/2110721195817509068, measured 2026-10-21)
 
@@ -938,7 +938,7 @@ Sources:
 - X post by @Teslaconomics (2026-10-15): a Grok bot booked flight, Turo, Vrbo, dinner and event tickets by text: https://x.com/Teslaconomics/status/2110721195817509068
 
 ## Get rebooked fast when your flight is delayed
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/rebook-a-delayed-flight/
+URL: https://botsdothat.com/use-cases/rebook-a-delayed-flight/
 Category: Bookings & travel | Difficulty: Medium | Added: 2026-10-20
 Popularity: 17 likes, 1 reposts on X (https://x.com/su_adeline_k/status/2098109328112636407, measured 2026-10-21)
 
@@ -966,7 +966,7 @@ Sources:
 - WIRED, Sep 24 2026: “I Think I Found an AI Agent Worth the Risk” (Instinct review): https://www.wired.com/story/i-finally-found-an-ai-agent-worth-the-risk/
 
 ## Get alerted the moment your airline changes your flight
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/catch-airline-schedule-changes/
+URL: https://botsdothat.com/use-cases/catch-airline-schedule-changes/
 Category: Bookings & travel | Difficulty: Medium | Added: 2026-10-20
 Popularity: not measured
 
@@ -994,7 +994,7 @@ Sources:
 - Assistant Benchmark: Instinct profile (quotes and test notes): https://assistantbenchmark.com/agents/instinct
 
 ## Book restaurant tables by message, even at phone-only places
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/restaurant-reservations-by-agent/
+URL: https://botsdothat.com/use-cases/restaurant-reservations-by-agent/
 Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-20
 Popularity: 533 likes, 23 reposts on X (https://x.com/MilksandMatcha/status/2105372125288976402, measured 2026-10-21)
 
@@ -1022,7 +1022,7 @@ Sources:
 - X post by @MilksandMatcha (2026-09-30): timed comparison of agents making a dinner reservation: https://x.com/MilksandMatcha/status/2105372125288976402
 
 ## Book a haircut or appointment, even when the form won't work
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/book-a-haircut-by-email/
+URL: https://botsdothat.com/use-cases/book-a-haircut-by-email/
 Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-20
 Popularity: 20 likes, 4 reposts on X (https://x.com/startupideaspod/status/2100245612910571873, measured 2026-10-21)
 
@@ -1048,7 +1048,7 @@ Sources:
 - X post by @startupideaspod (2026-09-16): Instinct emailed a salon when online booking needed a Danish number: https://x.com/startupideaspod/status/2100245612910571873
 
 ## Match every business expense to its receipt, weekly
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/small-business-receipt-matching/
+URL: https://botsdothat.com/use-cases/small-business-receipt-matching/
 Category: Small business & side hustles | Difficulty: Advanced | Added: 2026-10-20
 Popularity: 68 likes, 2 reposts on X (https://x.com/siyabuilt/status/2094755088841457892, measured 2026-10-21)
 
@@ -1075,7 +1075,7 @@ Sources:
 - X post by @siyabuilt (2026-09-01): finance admin automated with Grok Bot + a receipts inbox, read-only: https://x.com/siyabuilt/status/2094755088841457892
 
 ## Set up a “chief of staff” bot that plans your other bots
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/hire-a-chief-of-staff-bot/
+URL: https://botsdothat.com/use-cases/hire-a-chief-of-staff-bot/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-20
 Popularity: 104 likes, 6 reposts on X (https://x.com/coreyganim/status/2099808193178485185, measured 2026-10-21)
 
@@ -1105,7 +1105,7 @@ Sources:
 - X post by @coreyganim (2026-09-15): the 2-sentence chief-of-staff prompt: https://x.com/coreyganim/status/2099808193178485185
 
 ## Run several brands or jobs with one bot each
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/one-bot-per-brand/
+URL: https://botsdothat.com/use-cases/one-bot-per-brand/
 Category: Small business & side hustles | Difficulty: Advanced | Added: 2026-10-20
 Popularity: 61 likes, 7 reposts on X (https://x.com/Sarut0biSasuke/status/2107076101293969587, measured 2026-10-21)
 
@@ -1131,7 +1131,7 @@ Sources:
 - X post by @Sarut0biSasuke (2026-10-05): a multi-brand Grok Bot fleet with daily notes: https://x.com/Sarut0biSasuke/status/2107076101293969587
 
 ## Catch offers and deadlines the moment they land in your inbox
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/time-sensitive-inbox-watcher/
+URL: https://botsdothat.com/use-cases/time-sensitive-inbox-watcher/
 Category: Work & career | Difficulty: Medium | Added: 2026-10-20
 Popularity: 37 likes, 1 reposts on X (https://x.com/DMAC_19/status/2105719791751487542, measured 2026-10-21)
 
@@ -1159,7 +1159,7 @@ Sources:
 - X post by @DMAC_19 (2026-10-01): 8 days with an agent in a commercial real estate inbox: https://x.com/DMAC_19/status/2105719791751487542
 
 ## Have a bot sort your scanned paper mail and flag what needs you
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/sort-scanned-paper-mail-with-alerts/
+URL: https://botsdothat.com/use-cases/sort-scanned-paper-mail-with-alerts/
 Category: Inbox, calls & paperwork | Difficulty: Advanced | Added: 2026-10-20
 Popularity: 0 likes, 0 reposts on X (https://x.com/mikekamo/status/2102768278812680522, measured 2026-10-21)
 
@@ -1188,7 +1188,7 @@ Sources:
 - X post by @mikekamo (2026-09-23): Claude reads scanned paper mail, handles routine items and flags anything more than 20% different: https://x.com/mikekamo/status/2102768278812680522
 
 ## Have a bot watch any web page and ping you when it changes
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/watch-a-web-page-for-changes/
+URL: https://botsdothat.com/use-cases/watch-a-web-page-for-changes/
 Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-20
 Popularity: 2 likes, 1 reposts on X (https://x.com/teeRex247/status/2111981455077466525, measured 2026-10-21)
 
@@ -1216,7 +1216,7 @@ Sources:
 - Reddit r/AI_Agents: “What AI agents are actually worth running for personal use?” (archived snapshot, Sep 5 2026): https://reddit.sentinel-team.org/posts/1w4e3ji/snapshots/2026-09-05T09%3A24%3A43.696105Z
 
 ## Find the conversations you forgot to follow up on
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/find-dead-conversations-to-follow-up/
+URL: https://botsdothat.com/use-cases/find-dead-conversations-to-follow-up/
 Category: Work & career | Difficulty: Medium | Added: 2026-10-20
 Popularity: 5 likes, 2 reposts on X (https://x.com/BassamDahabra/status/2102701286307119565, measured 2026-10-21)
 
@@ -1242,7 +1242,7 @@ Sources:
 - X post by @BassamDahabra (2026-09-23): an n8n automation found 19 dead conversations: https://x.com/BassamDahabra/status/2102701286307119565
 
 ## Build a list of local leads and approve every email
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/build-a-lead-list-with-approval/
+URL: https://botsdothat.com/use-cases/build-a-lead-list-with-approval/
 Category: Small business & side hustles | Difficulty: Advanced | Added: 2026-10-20
 Popularity: 72 likes, 4 reposts on X (https://x.com/Teevince_Ben/status/2090800086477389964, measured 2026-10-21)
 
@@ -1270,7 +1270,7 @@ Sources:
 - X post by @Teevince_Ben (2026-08-21): lead-finding workflow with human approval before sending: https://x.com/Teevince_Ben/status/2090800086477389964
 
 ## Give your agent its own email address
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/give-your-agent-its-own-email-address/
+URL: https://botsdothat.com/use-cases/give-your-agent-its-own-email-address/
 Category: Inbox, calls & paperwork | Difficulty: Medium | Added: 2026-10-20
 Popularity: 17 likes, 1 reposts on X (https://x.com/pvergadia/status/2110022751247556669, measured 2026-10-21)
 
@@ -1297,7 +1297,7 @@ Sources:
 - X post by @TheReal_BCM (2026-10-20): step by step, claimed a Grok Bot email address and set Gmail to forward a copy of every email to it: https://x.com/TheReal_BCM/status/2112514178871345362
 
 ## Get a daily digest of jobs that actually fit you
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/job-match-digest/
+URL: https://botsdothat.com/use-cases/job-match-digest/
 Category: Work & career | Difficulty: Advanced | Added: 2026-10-20
 Popularity: 48 upvotes on Reddit (https://www.reddit.com/r/n8n/comments/1ssdtg7/built_a_n8n_linkedin_job_automation_ai_agent/, measured 2026-10-20)
 
@@ -1329,7 +1329,7 @@ Sources:
 - X post by @siddaniagi (2026-09-28): Career Agent: evaluate jobs, tailor resumes, track applications: https://x.com/siddaniagi/status/2104457847010693524
 
 ## Turn the flood of school emails into one weekly digest
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/school-email-digest/
+URL: https://botsdothat.com/use-cases/school-email-digest/
 Category: Family & home | Difficulty: Medium | Added: 2026-10-20
 Popularity: not measured
 
@@ -1360,7 +1360,7 @@ Sources:
 - X post by @Michael_Fenech_ (2026-10-09): school email manager prompt: https://x.com/Michael_Fenech_/status/2108579992456327489
 
 ## Get a Monday recap of your inbox and a to-do list
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/monday-inbox-recap-and-todo/
+URL: https://botsdothat.com/use-cases/monday-inbox-recap-and-todo/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
 Popularity: not measured
 
@@ -1387,7 +1387,7 @@ Sources:
 - X post by @Jinfeng_tlqm (2026-10-10): beginner list of daily Grok Bot jobs: https://x.com/Jinfeng_tlqm/status/2108849705367327126
 
 ## Only see the emails that actually need a reply
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/flag-only-emails-that-need-a-reply/
+URL: https://botsdothat.com/use-cases/flag-only-emails-that-need-a-reply/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
 Popularity: not measured
 
@@ -1414,7 +1414,7 @@ Sources:
 - Original Reddit thread: https://www.reddit.com/r/AI_Agents/comments/1w4e3ji/what_ai_agents_are_actually_worth_running_for/
 
 ## Teach a bot to write emails that sound like you
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/email-ghostwriter-style-guide/
+URL: https://botsdothat.com/use-cases/email-ghostwriter-style-guide/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-20
 Popularity: not measured
 
@@ -1441,7 +1441,7 @@ Sources:
 - X post by @mikekamo (2026-09-23): had Claude read 12 months of sent email so drafts sound like him: https://x.com/mikekamo/status/2102768278812680522
 
 ## Log every new client inquiry automatically
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/log-new-client-inquiries/
+URL: https://botsdothat.com/use-cases/log-new-client-inquiries/
 Category: Small business & side hustles | Difficulty: Easy | Added: 2026-10-20
 Popularity: not measured
 
@@ -1467,7 +1467,7 @@ Sources:
 - Google: Gemini Spark overview page (example tasks and schedules): https://gemini.google/overview/agent/spark/
 
 ## Get a 2-minute morning digest on topics you care about
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/morning-news-digest/
+URL: https://botsdothat.com/use-cases/morning-news-digest/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
 Popularity: not measured
 
@@ -1494,7 +1494,7 @@ Sources:
 - X post by @Jinfeng_tlqm (2026-10-10): “Every morning, send me the 5 biggest AI stories in plain English”: https://x.com/Jinfeng_tlqm/status/2108849705367327126
 
 ## Watch your email for one important letter or reply
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/watch-for-one-important-letter/
+URL: https://botsdothat.com/use-cases/watch-for-one-important-letter/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
 Popularity: not measured
 
@@ -1520,7 +1520,7 @@ Sources:
 - Reddit r/AI_Agents: “What AI agents are actually worth running for personal use?” (archived snapshot, Sep 5 2026): https://reddit.sentinel-team.org/posts/1w4e3ji/snapshots/2026-09-05T09%3A24%3A43.696105Z
 
 ## Sell on Marketplace with an agent, with safety rules set first
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/sell-on-marketplace-with-rules/
+URL: https://botsdothat.com/use-cases/sell-on-marketplace-with-rules/
 Category: Small business & side hustles | Difficulty: Medium | Added: 2026-10-20
 Popularity: 10 likes, 0 reposts on X (https://x.com/_architected/status/2104442538254123102, measured 2026-10-21)
 
@@ -1547,7 +1547,7 @@ Sources:
 - X post by @_architected (2026-09-28): a reported Muse Marketplace mix-up (address shared, pickup when seller was out): https://x.com/_architected/status/2104442538254123102
 
 ## Keep a household essentials list and reorder on time
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/household-restock-list/
+URL: https://botsdothat.com/use-cases/household-restock-list/
 Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-20
 Popularity: not measured
 
@@ -1573,7 +1573,7 @@ Sources:
 - X post by @Michael_Fenech_ (2026-10-09): household restocking manager prompt: https://x.com/Michael_Fenech_/status/2108579992456327489
 
 ## Get 5 weekend activity ideas that fit your kids and the weather
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/weekend-family-activities/
+URL: https://botsdothat.com/use-cases/weekend-family-activities/
 Category: Family & home | Difficulty: Easy | Added: 2026-10-20
 Popularity: not measured
 
@@ -1599,7 +1599,7 @@ Sources:
 - X post by @Michael_Fenech_ (2026-10-09): family activities planner prompt: https://x.com/Michael_Fenech_/status/2108579992456327489
 
 ## Set up medication and appointment reminders for a parent
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/medication-reminders-for-a-parent/
+URL: https://botsdothat.com/use-cases/medication-reminders-for-a-parent/
 Category: Health & care | Difficulty: Easy | Added: 2026-10-20
 Popularity: not measured
 
@@ -1625,7 +1625,7 @@ Sources:
 - X post by @saviomartin (2026-10-11): family agent: “remind Grandma to take her meds”, book dentist appointments: https://x.com/saviomartin/status/2109330165381910817
 
 ## Give your agent a single-use card before it books or buys anything
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/pay-with-a-single-use-virtual-card/
+URL: https://botsdothat.com/use-cases/pay-with-a-single-use-virtual-card/
 Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-20
 Popularity: 9 likes, 0 reposts on X (https://x.com/robbieklages/status/2105830877259346021, measured 2026-10-21)
 
@@ -1650,7 +1650,7 @@ Sources:
 - X post by @robbieklages (2026-10-02): agent booked a hotel with a one-time-use virtual card: https://x.com/robbieklages/status/2105830877259346021
 
 ## Get your ads and sales numbers every morning without logging in
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/daily-ads-and-sales-report/
+URL: https://botsdothat.com/use-cases/daily-ads-and-sales-report/
 Category: Small business & side hustles | Difficulty: Medium | Added: 2026-10-20
 Popularity: 4 likes, 0 reposts on X (https://x.com/johnmccoyx/status/2108012315602034988, measured 2026-10-21)
 
@@ -1677,7 +1677,7 @@ Sources:
 - X post by @LorenHogueInc (2026-10-13): Apple and Meta ad reports every morning via Claude Cowork: https://x.com/LorenHogueInc/status/2110083294792716367
 
 ## Appeal a health insurance denial with AI
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/appeal-a-health-insurance-denial/
+URL: https://botsdothat.com/use-cases/appeal-a-health-insurance-denial/
 Category: Health & care | Difficulty: Medium | Added: 2026-10-19
 Popularity: not measured
 
@@ -1724,7 +1724,7 @@ Sources:
 - Google search suggestions for “using ai to appeal insurance denial” (checked 2026-10-19): https://www.google.com/search?q=using+ai+to+appeal+insurance+denial
 
 ## Understand a confusing letter or notice (and know what to do next)
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/understand-a-confusing-letter/
+URL: https://botsdothat.com/use-cases/understand-a-confusing-letter/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
@@ -1766,7 +1766,7 @@ Sources:
 - Google search suggestions for “use ai to write a letter” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+write+a+letter
 
 ## Have an AI agent find and book an appointment for you
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/book-an-appointment-with-an-ai-agent/
+URL: https://botsdothat.com/use-cases/book-an-appointment-with-an-ai-agent/
 Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
@@ -1812,7 +1812,7 @@ Sources:
 - Google search suggestions for “ai agent to book appointments” (checked 2026-10-19): https://www.google.com/search?q=ai+agent+to+book+appointments
 
 ## Write a complaint that actually gets a problem fixed
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/write-a-complaint-that-gets-fixed/
+URL: https://botsdothat.com/use-cases/write-a-complaint-that-gets-fixed/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
@@ -1847,7 +1847,7 @@ Sources:
 - Google search suggestions for “use ai to write a letter of complaint” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+write+a+letter+of+complaint
 
 ## Get through a long form without the headache
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/fill-out-a-long-form/
+URL: https://botsdothat.com/use-cases/fill-out-a-long-form/
 Category: Inbox, calls & paperwork | Difficulty: Medium | Added: 2026-10-19
 Popularity: not measured
 
@@ -1884,7 +1884,7 @@ Sources:
 - Google search suggestions for “can ai fill out pdf forms” (checked 2026-10-19): https://www.google.com/search?q=can+ai+fill+out+pdf+forms
 
 ## Review a rental lease before you sign
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/review-a-lease-before-signing/
+URL: https://botsdothat.com/use-cases/review-a-lease-before-signing/
 Category: Inbox, calls & paperwork | Difficulty: Medium | Added: 2026-10-19
 Popularity: not measured
 
@@ -1920,7 +1920,7 @@ Sources:
 - Google search suggestions for “chatgpt lease review” (checked 2026-10-19): https://www.google.com/search?q=chatgpt+lease+review
 
 ## Make a moving checklist and change your address everywhere
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/moving-checklist-and-change-of-address/
+URL: https://botsdothat.com/use-cases/moving-checklist-and-change-of-address/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-19
 Popularity: 8 likes, 1 reposts on X (https://x.com/tomchris/status/2072663153532666045, measured 2026-10-21)
 
@@ -1956,7 +1956,7 @@ Sources:
 - X post: using an AI agent for moving-out admin: https://x.com/tomchris/status/2072663153532666045
 
 ## Plan a trip itinerary that fits your pace
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/plan-a-trip-itinerary/
+URL: https://botsdothat.com/use-cases/plan-a-trip-itinerary/
 Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
@@ -1994,7 +1994,7 @@ Sources:
 - OpenAI Help: Using cloud browser in ChatGPT: https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt
 
 ## Prepare for a doctor's appointment in 10 minutes
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/prepare-for-a-doctor-visit/
+URL: https://botsdothat.com/use-cases/prepare-for-a-doctor-visit/
 Category: Health & care | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
@@ -2032,7 +2032,7 @@ Sources:
 - AHRQ: Questions to ask your doctor: https://www.ahrq.gov/questions/index.html
 
 ## Organize an aging parent's care and paperwork
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/organize-a-parents-care-paperwork/
+URL: https://botsdothat.com/use-cases/organize-a-parents-care-paperwork/
 Category: Health & care | Difficulty: Medium | Added: 2026-10-19
 Popularity: not measured
 
@@ -2066,7 +2066,7 @@ Sources:
 - Reddit r/AgingParents: ChatGPT helped with an insurance discharge appeal: https://www.reddit.com/r/AgingParents/comments/1r1eimf/
 
 ## Make a weekly meal plan and grocery list in 5 minutes
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/weekly-meal-plan-and-grocery-list/
+URL: https://botsdothat.com/use-cases/weekly-meal-plan-and-grocery-list/
 Category: Family & home | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
@@ -2100,7 +2100,7 @@ Sources:
 - Google search suggestions for “use ai to plan meals” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+plan+meals
 
 ## Use AI for homework help that teaches instead of cheats
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/homework-help-that-teaches/
+URL: https://botsdothat.com/use-cases/homework-help-that-teaches/
 Category: Family & home | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
@@ -2136,7 +2136,7 @@ Sources:
 - Menlo Ventures, 2026 State of Consumer AI: https://menlovc.com/wp-content/uploads/2026/09/menlo_ventures_consumer_ai_report-2026.pdf
 
 ## Get your email inbox under control
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/clean-up-your-email-inbox/
+URL: https://botsdothat.com/use-cases/clean-up-your-email-inbox/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
@@ -2170,7 +2170,7 @@ Sources:
 - Google search suggestions for “use ai to organize gmail” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+organize+gmail
 
 ## Tailor your resume and cover letter to a job in 15 minutes
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/tailor-your-resume-to-a-job/
+URL: https://botsdothat.com/use-cases/tailor-your-resume-to-a-job/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
@@ -2206,7 +2206,7 @@ Sources:
 - Google search suggestions for “can ai fill out job applications for me” (checked 2026-10-19): https://www.google.com/search?q=can+ai+fill+out+job+applications+for+me
 
 ## Write listings that sell your stuff faster
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/sell-your-stuff-online/
+URL: https://botsdothat.com/use-cases/sell-your-stuff-online/
 Category: Small business & side hustles | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
@@ -2243,7 +2243,7 @@ Sources:
 - Google search suggestions for “ai to write listing description” (checked 2026-10-19): https://www.google.com/search?q=ai+to+write+listing+description
 
 ## Test a side hustle idea before you commit
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/test-a-side-hustle-idea/
+URL: https://botsdothat.com/use-cases/test-a-side-hustle-idea/
 Category: Small business & side hustles | Difficulty: Medium | Added: 2026-10-19
 Popularity: not measured
 
@@ -2280,7 +2280,7 @@ Sources:
 - Google search suggestions for “use ai to start a side hustle” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+start+a+side+hustle
 
 ## Reply to customer reviews (even the angry ones)
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/reply-to-customer-reviews/
+URL: https://botsdothat.com/use-cases/reply-to-customer-reviews/
 Category: Small business & side hustles | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
@@ -2315,7 +2315,7 @@ Sources:
 - Google search suggestions for “ai to respond to google reviews” (checked 2026-10-19): https://www.google.com/search?q=ai+to+respond+to+google+reviews
 
 ## Chase an unpaid invoice without burning the relationship
-URL: https://nik-schultz.github.io/agents-on-radar/use-cases/chase-an-unpaid-invoice/
+URL: https://botsdothat.com/use-cases/chase-an-unpaid-invoice/
 Category: Small business & side hustles | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
@@ -2348,7 +2348,7 @@ Sources:
 - Google search suggestions for “use ai to make invoices” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+make+invoices
 
 ## Blueprint: Morning Inbox Briefing
-URL: https://nik-schultz.github.io/agents-on-radar/blueprints/morning-inbox-briefing/
+URL: https://botsdothat.com/blueprints/morning-inbox-briefing/
 Goal: Wake up to a 2-minute summary of what's in your email and what needs you today.
 Runs: Every weekday at 7:00am
 Watches: New emails since yesterday morning
@@ -2368,7 +2368,7 @@ Safety:
 - Check the first week of briefings against your real inbox.
 
 ## Blueprint: School Email Digest
-URL: https://nik-schultz.github.io/agents-on-radar/blueprints/school-email-digest-bot/
+URL: https://botsdothat.com/blueprints/school-email-digest-bot/
 Goal: Never miss a permission slip, payment or deadline buried in school emails again.
 Runs: Every Sunday at 6:00am
 Watches: Emails with your 'School' label (set up a filter first)
@@ -2386,7 +2386,7 @@ Safety:
 - Check the first two digests against the original emails.
 
 ## Blueprint: Web Page Watcher
-URL: https://nik-schultz.github.io/agents-on-radar/blueprints/web-page-watcher/
+URL: https://botsdothat.com/blueprints/web-page-watcher/
 Goal: Get one ping when a page you care about changes (a restock, a new listing, an appointment slot, a status update) and stop refreshing it yourself.
 Runs: Every morning at 8:00am (or every few hours for time-sensitive pages)
 Watches: The web pages you give it
@@ -2402,7 +2402,7 @@ Safety:
 - Some sites block bots. If checks keep failing, use the site's own alerts instead.
 
 ## Blueprint: Phone Call Bot
-URL: https://nik-schultz.github.io/agents-on-radar/blueprints/phone-call-bot/
+URL: https://botsdothat.com/blueprints/phone-call-bot/
 Goal: Hand off the phone calls you keep putting off: booking a table, a vet visit or a haircut, or a quick customer-service call.
 Runs: Only when you ask it to (never on its own)
 Watches: Nothing. It waits for your request, then makes one call at a time
@@ -2422,7 +2422,7 @@ Safety:
 - Never let it share card numbers or deposit details on a call.
 
 ## Blueprint: Scam Checker
-URL: https://nik-schultz.github.io/agents-on-radar/blueprints/scam-checker/
+URL: https://botsdothat.com/blueprints/scam-checker/
 Goal: Get a plain verdict on suspicious emails and texts before anyone in the family clicks.
 Runs: Every morning, plus any time you forward something suspicious
 Watches: New email (read-only), or messages you forward to it
@@ -2438,7 +2438,7 @@ Safety:
 - A 'looks fine' verdict isn't a guarantee. When money is involved, call the company on a number you already trust.
 
 ## Blueprint: Weekly Meal Plan Bot
-URL: https://nik-schultz.github.io/agents-on-radar/blueprints/meal-plan-bot/
+URL: https://botsdothat.com/blueprints/meal-plan-bot/
 Goal: Get a family meal plan and one shopping list every week without thinking about it.
 Runs: Every Thursday at 5:00pm
 Watches: Your recipe list and what you say is in the fridge
@@ -2454,7 +2454,7 @@ Safety:
 - If an agent fills your cart, you check out yourself.
 
 ## Blueprint: Family Calendar Guardian
-URL: https://nik-schultz.github.io/agents-on-radar/blueprints/family-calendar-guardian/
+URL: https://botsdothat.com/blueprints/family-calendar-guardian/
 Goal: Spot clashes and prep jobs for the next two weeks, every Sunday.
 Runs: Every Sunday at 6:00pm
 Watches: Your shared family calendar (read-only)
@@ -2470,7 +2470,7 @@ Safety:
 - Start read-only: it may read, but not send, buy, delete or change anything.
 
 ## Blueprint: Travel Day Guardian
-URL: https://nik-schultz.github.io/agents-on-radar/blueprints/travel-day-guardian/
+URL: https://botsdothat.com/blueprints/travel-day-guardian/
 Goal: Hear about schedule changes and delays first, with your options and a request ready to send.
 Runs: Daily while you have upcoming trips, plus every 2 hours on travel day
 Watches: Airline and booking emails
@@ -2485,7 +2485,7 @@ Safety:
 - Use a single-use virtual card if you let it book.
 
 ## Blueprint: Follow-Up Finder
-URL: https://nik-schultz.github.io/agents-on-radar/blueprints/follow-up-finder/
+URL: https://botsdothat.com/blueprints/follow-up-finder/
 Goal: Never let a client, lead or friend go cold because you forgot to reply.
 Runs: Every Monday at 8:00am
 Watches: Your sent mail, calendar and task list
@@ -2500,7 +2500,7 @@ Safety:
 - Some threads went quiet for a reason. Read before sending.
 
 ## Blueprint: Job Match Scout
-URL: https://nik-schultz.github.io/agents-on-radar/blueprints/job-match-scout/
+URL: https://botsdothat.com/blueprints/job-match-scout/
 Goal: Get a daily shortlist of jobs that fit you, with notes. You apply yourself.
 Runs: Every weekday at 9:00am
 Watches: New listings on job boards that allow it
@@ -2515,7 +2515,7 @@ Safety:
 - Check every tailored CV for made-up claims.
 
 ## Blueprint: Receipt Matcher (small business)
-URL: https://nik-schultz.github.io/agents-on-radar/blueprints/receipt-matcher/
+URL: https://botsdothat.com/blueprints/receipt-matcher/
 Goal: Have every business expense matched to a receipt before your bookkeeper asks.
 Runs: Every Friday at 4:00pm
 Watches: A receipts@ inbox and your business card activity (read-only)
@@ -2530,7 +2530,7 @@ Safety:
 - Ask your bookkeeper how they want the output.
 
 ## Blueprint: New Inquiry Logger
-URL: https://nik-schultz.github.io/agents-on-radar/blueprints/lead-logger/
+URL: https://botsdothat.com/blueprints/lead-logger/
 Goal: Every customer inquiry lands in one tracker with a reply drafted.
 Runs: Whenever a new inquiry email arrives
 Watches: Your business inbox
@@ -2545,7 +2545,7 @@ Safety:
 - Check extracted dates; a wrong date loses a booking.
 
 ## Latest in AI
-URL: https://nik-schultz.github.io/agents-on-radar/news/
+URL: https://botsdothat.com/news/
 Top story (importance): Anthropic opens Claude Duet, a proactive agent that comes to you (2026-10-21). Trending (X engagement decayed by age): DeepSeek open-sources the engine that runs its own API; AI agents helped find critical PHP flaws that affect most websites; DeepSeek updates its V4.1 Flash model: faster and shorter answers, same price
 - 2026-10-21 [agent launch, impact: major] Anthropic opens Claude Duet, a proactive agent that comes to you | Claude Duet sends you a morning brief from your connected apps, keeps an eye on them through the day, works on tasks while you're away, and asks before it does anything big like paying or deleting. It's a waitlist research preview for US Pro and Max subscribers, on iOS, Android and claude.ai, and Anthropic says it can still misjudge what's urgent. | Source: Anthropic https://claude.com/blog/claude-duet | X: 12,097 likes, 800 reposts (https://x.com/claudeai/status/2112984664256241837, measured 2026-10-21)
 - 2026-10-21 [industry, impact: notable] AI agents helped find critical PHP flaws that affect most websites | If you run a website or blog on PHP (WordPress included), make sure your host has updated PHP to the patched version now. OpenAI says its models helped researchers find the bugs before attackers did, and it's sharing a version checker and a Codex skill to help site owners check. | Source: OpenAI https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities | X: 12,260 likes, 2,489 reposts (https://x.com/OpenAI/status/2112907856018309586, measured 2026-10-21)
@@ -2579,7 +2579,7 @@ Top story (importance): Anthropic opens Claude Duet, a proactive agent that come
 - 2026-09-21 [model release, impact: major] xAI releases Grok 4.7 | xAI's new model for coding and knowledge work keeps the same $2 / $6 per million token price as Grok 4.6. xAI says it was trained to work inside the Grok Bot harness, which should make Grok Bot better at everyday tasks. | Source: xAI https://x.ai/news/grok-4-7 | X: 26,994 likes, 2,585 reposts (https://x.com/elonmusk/status/2102071804495872374, measured 2026-10-21)
 
 ## AI agent cost calculator
-URL: https://nik-schultz.github.io/agents-on-radar/run-your-bots-for-less/#calculator
+URL: https://botsdothat.com/run-your-bots-for-less/#calculator
 Monthly cost = runs per month x (input tokens x input price + output tokens x output price) / 1,000,000. Months use 30 days, 22 weekdays or 4 weeks. Batch halves the price at Anthropic, Google, Mistral, OpenAI. Not included: caching, tool fees, voice, taxes, free tiers. Worked examples (cheapest vs priciest fitting model):
 - Morning Inbox Briefing: 1 run(s) per weekday, about 15,000 tokens in and 800 out per run; Groq openai/gpt-oss-20b $0.03/month vs Anthropic Claude Fable 5.1 $4.18/month
 - School Email Digest: 1 run(s) per week, about 20,000 tokens in and 1,000 out per run; Groq openai/gpt-oss-20b $0.01/month vs Anthropic Claude Fable 5.1 $1.00/month
@@ -2594,7 +2594,7 @@ Monthly cost = runs per month x (input tokens x input price + output tokens x ou
 - New Inquiry Logger: 10 run(s) per week, about 1,500 tokens in and 200 out per run; Groq openai/gpt-oss-20b $0.01/month vs Anthropic Claude Fable 5.1 $1.00/month
 
 ## AI price table
-URL: https://nik-schultz.github.io/agents-on-radar/ai-pricing/
+URL: https://botsdothat.com/ai-pricing/
 Checked: 2026-10-21. USD per 1M tokens, standard tier. Official sources only.
 - OpenAI gpt-6-astra: input 10.0, output 50.0, cached input 1.0. Short context (≤272K input tokens). Source: https://platform.openai.com/docs/pricing
 - OpenAI gpt-6.1-sol: input 2.0, output 10.0, cached input 0.1. Short context (≤272K input tokens). Source: https://platform.openai.com/docs/pricing
