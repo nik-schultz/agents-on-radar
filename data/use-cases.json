@@ -1,5 +1,155 @@
 [
  {
+  "slug": "have-two-ais-check-each-other",
+  "title": "Have two AIs check each other's answers",
+  "category": "work",
+  "source_date": "2026-10-21",
+  "summary": "Before you trust an important answer, have your bot ask a second AI the same question, compare the two, and check the real sources itself. Each AI catches mistakes the other missed.",
+  "what_the_bot_does": [
+   "Asks two different AIs the same question separately, so neither sees the other's answer.",
+   "Lists where the two answers agree and where they disagree.",
+   "Looks up the original sources (official pages, filings, the actual document) for every claim that matters.",
+   "Marks each point as checked against a source or unverified, and leaves unverified points out of the final answer.",
+   "Gives you one combined answer with links, plus a short list of what each AI got wrong."
+  ],
+  "what_you_end_up_with": "A double-checked answer with sources, instead of one AI's best guess.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "Can open a second AI in its own browser and compare"
+   },
+   {
+    "id": "claude"
+   },
+   {
+    "id": "chatgpt"
+   }
+  ],
+  "prompt": "I need a reliable answer to: [your question]. Ask [Claude] the same question in a separate session without showing it your answer, and write your own answer too. Then compare them: list where you agree and disagree. For every important claim, open the original source yourself and check it. If both AIs agree but the source says otherwise, the source wins. Give me one final answer with links, mark anything you couldn't trace to a source as unverified, and tell me what each AI got wrong.",
+  "setup": [
+   "Use it for answers that matter: a health question to bring to your doctor, a big purchase, a contract term, a school or work report.",
+   "Turn it into a saved skill so you can just say \"double-check this\" next time."
+  ],
+  "watch_out": [
+   "Two AIs agreeing proves nothing on its own; the original source decides (@sidv, 2026-10-21).",
+   "It takes longer and uses more of your AI plan than a single answer, so save it for questions where a mistake would cost you.",
+   "Don't paste private documents into a second AI service you haven't decided to trust."
+  ],
+  "sources": [
+   {
+    "label": "X post by @emilios_eth (2026-10-21): bot opens Claude on its own computer and argues with it; each caught mistakes the other missed",
+    "url": "https://x.com/emilios_eth/status/2112999610394542544",
+    "kind": "x"
+   },
+   {
+    "label": "X post by @sidv (2026-10-21): Grok and Claude answer blind, then a bot checks the sources and grades every finding",
+    "url": "https://x.com/sidv/status/2112986547448643761",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2112999610394542544",
+   "author": "@emilios_eth",
+   "url": "https://x.com/emilios_eth/status/2112999610394542544",
+   "posted_at": "2026-10-21",
+   "likes": 28,
+   "reposts": 0,
+   "replies": 12,
+   "bookmarks": 0,
+   "views": 993,
+   "measured_at": "2026-10-22"
+  },
+  "tags": [
+   "fact check",
+   "second opinion",
+   "accuracy",
+   "sources",
+   "multiple AIs",
+   "team of agents"
+  ],
+  "date_added": "2026-10-22",
+  "origin": "pipeline",
+  "last_checked": "2026-10-22"
+ },
+ {
+  "slug": "build-a-second-brain-your-bot-reads",
+  "title": "Build a second brain your bot reads every morning",
+  "category": "work",
+  "source_date": "2026-10-22",
+  "summary": "Keep your notes, plans and to-dos in plain files you own, plus one short \"about me\" file. Your bot reads them at the start of every chat, so it remembers who you are and picks up where you left off.",
+  "what_the_bot_does": [
+   "Starts every session by reading your \"about me\" file: who you are, how you like things done, what you're working on.",
+   "Answers questions from your own notes, like when the car last got new tires or what you gave your mom for her birthday.",
+   "Builds a short daily brief before you wake up from your notes, calendar and email.",
+   "Writes a summary of what it did and what it learned back into your notes at the end of each session.",
+   "Keeps everything in files you own, so you can switch to a different bot later and point it at the same notes."
+  ],
+  "what_you_end_up_with": "An assistant that remembers your life and work across days, with all of that memory sitting in a folder you control.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "Runs on its own cloud computer, so there's no home server to keep online"
+   },
+   {
+    "id": "claude",
+    "note": "Claude Code works too if your computer stays on"
+   }
+  ],
+  "prompt": "You are my second-brain assistant. My notes live in [folder or GitHub repo]. At the start of every session, read [ABOUT-ME.md] first: it says who I am, how I work and what I'm focused on. Answer my questions from my notes and say which file you used. Every weekday at [7am], send me a short brief: what's on my calendar, emails that need me, and open tasks from my notes. At the end of each session, add a dated summary of what we did to [log file] and update my task list. Never send, delete or buy anything without asking me first.",
+  "setup": [
+   "Make one folder (or a private GitHub repo) for your notes. A free notes app that saves plain text files, like Obsidian, makes it easy to read and edit them yourself.",
+   "Write a one-page \"about me\" file: your role, your family and key people, how you like replies written, and what you're working on this month.",
+   "Give your bot two standing rules: read the \"about me\" file at the start of every session, and write a summary back to your notes at the end.",
+   "Connect only the tools you need at first, like email and calendar. Add more once you trust it.",
+   "Start small: one daily brief and a few questions a day. Turn each job you repeat into a saved skill or routine."
+  ],
+  "watch_out": [
+   "Your notes will hold private details about your life. Keep the folder or repo private and don't connect apps you don't need.",
+   "A bot that runs on a computer at home stops working when that computer is off or offline; in the source post, a home Mac Mini kept going offline during trips, which is why the author moved his fiancee's setup to a cloud bot.",
+   "Have it show you any email or message before it goes out."
+  ],
+  "sources": [
+   {
+    "label": "X article by @vinayp10 (2026-10-22): moving a plain-file second brain from Claude Code on a home Mac Mini to Grok Bot, with the \"Brain Boot\" assistant file",
+    "url": "https://x.com/vinayp10/status/2113263397491855821",
+    "kind": "x"
+   },
+   {
+    "label": "Brain Boot starter file from @vinayp10 (GitHub)",
+    "url": "https://github.com/vp58/brainboot",
+    "kind": "article"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2113263397491855821",
+   "author": "@vinayp10",
+   "url": "https://x.com/vinayp10/status/2113263397491855821",
+   "posted_at": "2026-10-22",
+   "likes": 171,
+   "reposts": 14,
+   "replies": 13,
+   "bookmarks": 148,
+   "views": 51536,
+   "measured_at": "2026-10-22"
+  },
+  "tags": [
+   "second brain",
+   "memory",
+   "notes",
+   "obsidian",
+   "daily brief",
+   "personal assistant",
+   "remember context"
+  ],
+  "date_added": "2026-10-22",
+  "origin": "pipeline",
+  "last_checked": "2026-10-22"
+ },
+ {
   "slug": "fill-out-a-job-application-faster",
   "title": "Fill out a job application faster with an agent",
   "category": "work",
@@ -137,12 +287,12 @@
    "author": "@Texas_Twins_Dad",
    "url": "https://x.com/Texas_Twins_Dad/status/2112662250225811697",
    "posted_at": "2026-10-20",
-   "likes": 59,
-   "reposts": 5,
-   "replies": 17,
-   "bookmarks": 25,
-   "views": 4824,
-   "measured_at": "2026-10-21"
+   "likes": 65,
+   "reposts": 6,
+   "replies": 19,
+   "bookmarks": 30,
+   "views": 5342,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "read later",
@@ -205,12 +355,12 @@
    "author": "@Texas_Twins_Dad",
    "url": "https://x.com/Texas_Twins_Dad/status/2112926907549323538",
    "posted_at": "2026-10-21",
-   "likes": 24,
-   "reposts": 1,
+   "likes": 38,
+   "reposts": 2,
    "replies": 4,
-   "bookmarks": 4,
-   "views": 998,
-   "measured_at": "2026-10-21"
+   "bookmarks": 6,
+   "views": 1713,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "contact form",
@@ -382,12 +532,12 @@
    "author": "@sunfellow",
    "url": "https://x.com/sunfellow/status/2112585672657969563",
    "posted_at": "2026-10-20",
-   "likes": 10,
+   "likes": 11,
    "reposts": 1,
-   "replies": 2,
-   "bookmarks": 5,
-   "views": 542,
-   "measured_at": "2026-10-21"
+   "replies": 3,
+   "bookmarks": 6,
+   "views": 571,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "schedule",
@@ -766,8 +916,8 @@
    "reposts": 15,
    "replies": 25,
    "bookmarks": 509,
-   "views": 25261,
-   "measured_at": "2026-10-21"
+   "views": 25287,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "multi-agent",
@@ -828,12 +978,12 @@
    "author": "@Parul_Gautam7",
    "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
    "posted_at": "2026-10-08",
-   "likes": 209,
-   "reposts": 36,
+   "likes": 208,
+   "reposts": 37,
    "replies": 38,
-   "bookmarks": 84,
-   "views": 46400,
-   "measured_at": "2026-10-21"
+   "bookmarks": 83,
+   "views": 46402,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "multi-agent",
@@ -897,7 +1047,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-10-21"
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "voice",
@@ -959,8 +1109,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 0,
-   "views": 39,
-   "measured_at": "2026-10-21"
+   "views": 42,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "roadside assistance",
@@ -1022,8 +1172,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 385,
-   "measured_at": "2026-10-21"
+   "views": 392,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "computer use",
@@ -1086,7 +1236,7 @@
    "replies": 2,
    "bookmarks": 0,
    "views": 896,
-   "measured_at": "2026-10-21"
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "contractors",
@@ -1149,8 +1299,8 @@
    "reposts": 0,
    "replies": 5,
    "bookmarks": 0,
-   "views": 97,
-   "measured_at": "2026-10-21"
+   "views": 99,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "used car",
@@ -1212,8 +1362,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7467,
-   "measured_at": "2026-10-21"
+   "views": 7471,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "pharmacy",
@@ -1278,8 +1428,8 @@
    "reposts": 24,
    "replies": 29,
    "bookmarks": 236,
-   "views": 323102,
-   "measured_at": "2026-10-21"
+   "views": 323657,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "newsletters",
@@ -1346,12 +1496,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
    "posted_at": "2026-10-18",
-   "likes": 859,
-   "reposts": 93,
-   "replies": 194,
-   "bookmarks": 1005,
-   "views": 1169784,
-   "measured_at": "2026-10-21"
+   "likes": 863,
+   "reposts": 94,
+   "replies": 195,
+   "bookmarks": 1007,
+   "views": 1190159,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "phone call",
@@ -1477,8 +1627,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 471,
-   "measured_at": "2026-10-21"
+   "views": 486,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "spam calls",
@@ -1542,8 +1692,8 @@
    "reposts": 3,
    "replies": 8,
    "bookmarks": 38,
-   "views": 5294,
-   "measured_at": "2026-10-21"
+   "views": 5353,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "food log",
@@ -1612,9 +1762,9 @@
    "likes": 63,
    "reposts": 3,
    "replies": 12,
-   "bookmarks": 11,
-   "views": 2805,
-   "measured_at": "2026-10-21"
+   "bookmarks": 12,
+   "views": 2907,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "phone call",
@@ -1759,11 +1909,11 @@
    "url": "https://x.com/lyndallschreinr/status/2107888353630908437",
    "posted_at": "2026-10-07",
    "likes": 1013,
-   "reposts": 30,
+   "reposts": 29,
    "replies": 81,
-   "bookmarks": 2894,
-   "views": 309903,
-   "measured_at": "2026-10-21"
+   "bookmarks": 2895,
+   "views": 310021,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "meal plan",
@@ -1829,9 +1979,9 @@
    "likes": 507,
    "reposts": 34,
    "replies": 36,
-   "bookmarks": 1152,
-   "views": 66315,
-   "measured_at": "2026-10-21"
+   "bookmarks": 1153,
+   "views": 66395,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "calendar",
@@ -1905,12 +2055,12 @@
    "author": "@AlexFinn",
    "url": "https://x.com/AlexFinn/status/2107254007412756589",
    "posted_at": "2026-10-05",
-   "likes": 678,
+   "likes": 679,
    "reposts": 35,
    "replies": 156,
-   "bookmarks": 724,
-   "views": 82327,
-   "measured_at": "2026-10-21"
+   "bookmarks": 725,
+   "views": 82417,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "personal agent",
@@ -1974,9 +2124,9 @@
    "likes": 203,
    "reposts": 18,
    "replies": 24,
-   "bookmarks": 213,
-   "views": 41236,
-   "measured_at": "2026-10-21"
+   "bookmarks": 212,
+   "views": 41255,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "scams",
@@ -2044,8 +2194,8 @@
    "reposts": 14,
    "replies": 29,
    "bookmarks": 119,
-   "views": 24987,
-   "measured_at": "2026-10-21"
+   "views": 25021,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "family chat",
@@ -2125,8 +2275,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4045,
-   "measured_at": "2026-10-21"
+   "views": 4052,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "groceries",
@@ -2189,11 +2339,11 @@
    "url": "https://x.com/Teslaconomics/status/2110721195817509068",
    "posted_at": "2026-10-15",
    "likes": 63,
-   "reposts": 11,
+   "reposts": 12,
    "replies": 12,
    "bookmarks": 12,
-   "views": 9605,
-   "measured_at": "2026-10-21"
+   "views": 9627,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "travel",
@@ -2261,8 +2411,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 1965,
-   "measured_at": "2026-10-21"
+   "views": 1968,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "flights",
@@ -2392,8 +2542,8 @@
    "reposts": 23,
    "replies": 63,
    "bookmarks": 241,
-   "views": 93551,
-   "measured_at": "2026-10-21"
+   "views": 93559,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "restaurant",
@@ -2456,8 +2606,8 @@
    "reposts": 4,
    "replies": 9,
    "bookmarks": 27,
-   "views": 4046,
-   "measured_at": "2026-10-21"
+   "views": 4047,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "appointment",
@@ -2522,8 +2672,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9165,
-   "measured_at": "2026-10-21"
+   "views": 9170,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "receipts",
@@ -2585,8 +2735,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 268,
-   "views": 9595,
-   "measured_at": "2026-10-21"
+   "views": 9612,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "chief of staff",
@@ -2645,8 +2795,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1859,
-   "measured_at": "2026-10-21"
+   "views": 1860,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "multiple brands",
@@ -2711,7 +2861,7 @@
    "replies": 12,
    "bookmarks": 27,
    "views": 3236,
-   "measured_at": "2026-10-21"
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "real estate",
@@ -2775,7 +2925,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 73,
-   "measured_at": "2026-10-21"
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "paper mail",
@@ -2845,8 +2995,8 @@
    "reposts": 1,
    "replies": 1,
    "bookmarks": 0,
-   "views": 69,
-   "measured_at": "2026-10-21"
+   "views": 71,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "monitoring",
@@ -2910,8 +3060,8 @@
    "reposts": 2,
    "replies": 7,
    "bookmarks": 0,
-   "views": 1130,
-   "measured_at": "2026-10-21"
+   "views": 1153,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "follow up",
@@ -2976,7 +3126,7 @@
    "replies": 7,
    "bookmarks": 55,
    "views": 4918,
-   "measured_at": "2026-10-21"
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "leads",
@@ -3040,10 +3190,10 @@
    "posted_at": "2026-10-13",
    "likes": 17,
    "reposts": 1,
-   "replies": 3,
+   "replies": 2,
    "bookmarks": 18,
-   "views": 2118,
-   "measured_at": "2026-10-21"
+   "views": 2121,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "email",
@@ -3575,8 +3725,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 781,
-   "measured_at": "2026-10-21"
+   "views": 782,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "marketplace",
@@ -3787,7 +3937,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1505,
-   "measured_at": "2026-10-21"
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "payments",
@@ -3854,8 +4004,8 @@
    "reposts": 0,
    "replies": 4,
    "bookmarks": 3,
-   "views": 897,
-   "measured_at": "2026-10-21"
+   "views": 898,
+   "measured_at": "2026-10-22"
   },
   "tags": [
    "ads",
@@ -4682,12 +4832,12 @@
    "author": "@tomchris",
    "url": "https://x.com/tomchris/status/2072663153532666045",
    "posted_at": "2026-07-02",
-   "likes": 8,
+   "likes": 7,
    "reposts": 1,
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-10-21"
+   "measured_at": "2026-10-22"
   },
   "origin": "migrated-2026-10-19"
  },

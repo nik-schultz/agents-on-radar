@@ -61,3 +61,17 @@ Skipped: crypto/trading agent posts and copy-trading spam (out of scope).
 ## From the news run, 2026-10-22 7 AM CT
 - Recursive Flint (Oct 21): free Apache-2.0 coding model that runs on a laptop. Candidate guide "Run a private, free coding helper on your own laptop" (offline, no per-use fees; keep tasks small). Source: https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/
 - Meta Muse share-link exposure (Oct 20): candidate watch-out line for guides that suggest sharing AI chats: "share links can be public; strip private details first." Source: https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats
+
+## Trending watch 2026-10-22 (midday X scan)
+No mentions of BotsDoThat or botsdothat.com on X (searched "botsdothat", "bots do that", "agents on radar"; only unrelated uses of the phrase). Reddit reads still blocked from this box.
+Added today: `build-a-second-brain-your-bot-reads` (@vinayp10 X article, 171 likes, 148 bookmarks, 51.5K views), `have-two-ais-check-each-other` (@emilios_eth, 28 likes; plus @sidv's blind two-model + source-check method). Refreshed popularity on 39 tracked X posts.
+Candidates not added yet:
+- [ ] Weather-and-schedule outfit planner that puts what to wear on your calendar (@staceygomm 2026-10-22, x.com/staceygomm/status/2113080711242817694, 0 likes); also in @daguru_I_am's n8n morning text (2026-10-21). Could become an Easy family/lifestyle entry or a line in the morning brief.
+- [ ] Family healthcare agent ("healthcare was a full-time job for my family"), quoted by @0xfJuan 2026-10-21 (x.com/0xfJuan/status/2113007557690405203, 12 likes); find the original Sujal post and product before adding.
+- [ ] Gift-link catcher: bot spots gift/wishlist links in your inbox and puts reminders on your calendar (@thatsatechnique article 2026-10-21, x.com/thatsatechnique/status/2113019506478260250, 4 likes).
+- [ ] Personal agent in iMessage that texts you first, reads calendar/Notion/Gmail (@kristianvtr 2026-10-21, x.com/kristianvtr/status/2112909630506414588, 4 likes, code included); Advanced, developer-leaning.
+- [ ] Bot fleet coordinator keeping one "Needs you" list instead of every bot pinging you (@CorbenH414 2026-10-21, 0 likes); tip for `team-of-agents-with-roles`.
+- [ ] Wind-down bedtime nudge and Sunday week review as routines (@bigRD73 2026-10-22, 3 likes); skip its "nightly spend check" (money-saving is out of scope).
+- [ ] Bot that runs 7 YouTube channels' daily posting (@ashnichrist 2026-10-20, 57 likes); creator-heavy, possible extra source for `one-bot-per-brand`.
+- [ ] AI voice agent books callers into your calendar, but callers didn't want to talk to an AI (@Brenn_Clinton 2026-10-22, 1 like); useful watch-out for `call-and-book-by-phone`.
+Skipped: Binance "My Agent ID" promo spam, agent-payment/crypto posts, sales-prospecting tool pitches.

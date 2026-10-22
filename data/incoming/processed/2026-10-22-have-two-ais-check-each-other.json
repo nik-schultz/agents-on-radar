@@ -1,0 +1,38 @@
+{
+  "slug": "have-two-ais-check-each-other",
+  "title": "Have two AIs check each other's answers",
+  "category": "work",
+  "source_date": "2026-10-21",
+  "summary": "Before you trust an important answer, have your bot ask a second AI the same question, compare the two, and check the real sources itself. Each AI catches mistakes the other missed.",
+  "what_the_bot_does": [
+    "Asks two different AIs the same question separately, so neither sees the other's answer.",
+    "Lists where the two answers agree and where they disagree.",
+    "Looks up the original sources (official pages, filings, the actual document) for every claim that matters.",
+    "Marks each point as checked against a source or unverified, and leaves unverified points out of the final answer.",
+    "Gives you one combined answer with links, plus a short list of what each AI got wrong."
+  ],
+  "what_you_end_up_with": "A double-checked answer with sources, instead of one AI's best guess.",
+  "difficulty": "Easy",
+  "tools": [
+    {"id": "grok-bot", "note": "Can open a second AI in its own browser and compare"},
+    {"id": "claude"},
+    {"id": "chatgpt"}
+  ],
+  "prompt": "I need a reliable answer to: [your question]. Ask [Claude] the same question in a separate session without showing it your answer, and write your own answer too. Then compare them: list where you agree and disagree. For every important claim, open the original source yourself and check it. If both AIs agree but the source says otherwise, the source wins. Give me one final answer with links, mark anything you couldn't trace to a source as unverified, and tell me what each AI got wrong.",
+  "setup": [
+    "Use it for answers that matter: a health question to bring to your doctor, a big purchase, a contract term, a school or work report.",
+    "Turn it into a saved skill so you can just say \"double-check this\" next time."
+  ],
+  "watch_out": [
+    "Two AIs agreeing proves nothing on its own; the original source decides (@sidv, 2026-10-21).",
+    "It takes longer and uses more of your AI plan than a single answer, so save it for questions where a mistake would cost you.",
+    "Don't paste private documents into a second AI service you haven't decided to trust."
+  ],
+  "sources": [
+    {"label": "X post by @emilios_eth (2026-10-21): bot opens Claude on its own computer and argues with it; each caught mistakes the other missed", "url": "https://x.com/emilios_eth/status/2112999610394542544", "kind": "x"},
+    {"label": "X post by @sidv (2026-10-21): Grok and Claude answer blind, then a bot checks the sources and grades every finding", "url": "https://x.com/sidv/status/2112986547448643761", "kind": "x"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2112999610394542544", "author": "@emilios_eth", "url": "https://x.com/emilios_eth/status/2112999610394542544", "posted_at": "2026-10-21",
+                 "likes": 28, "reposts": 0, "replies": 12, "bookmarks": 0, "views": 993, "measured_at": "2026-10-22"},
+  "tags": ["fact check", "second opinion", "accuracy", "sources", "multiple AIs", "team of agents"]
+}

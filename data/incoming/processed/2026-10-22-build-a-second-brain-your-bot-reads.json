@@ -1,0 +1,40 @@
+{
+  "slug": "build-a-second-brain-your-bot-reads",
+  "title": "Build a second brain your bot reads every morning",
+  "category": "work",
+  "source_date": "2026-10-22",
+  "summary": "Keep your notes, plans and to-dos in plain files you own, plus one short \"about me\" file. Your bot reads them at the start of every chat, so it remembers who you are and picks up where you left off.",
+  "what_the_bot_does": [
+    "Starts every session by reading your \"about me\" file: who you are, how you like things done, what you're working on.",
+    "Answers questions from your own notes, like when the car last got new tires or what you gave your mom for her birthday.",
+    "Builds a short daily brief before you wake up from your notes, calendar and email.",
+    "Writes a summary of what it did and what it learned back into your notes at the end of each session.",
+    "Keeps everything in files you own, so you can switch to a different bot later and point it at the same notes."
+  ],
+  "what_you_end_up_with": "An assistant that remembers your life and work across days, with all of that memory sitting in a folder you control.",
+  "difficulty": "Medium",
+  "tools": [
+    {"id": "grok-bot", "note": "Runs on its own cloud computer, so there's no home server to keep online"},
+    {"id": "claude", "note": "Claude Code works too if your computer stays on"}
+  ],
+  "prompt": "You are my second-brain assistant. My notes live in [folder or GitHub repo]. At the start of every session, read [ABOUT-ME.md] first: it says who I am, how I work and what I'm focused on. Answer my questions from my notes and say which file you used. Every weekday at [7am], send me a short brief: what's on my calendar, emails that need me, and open tasks from my notes. At the end of each session, add a dated summary of what we did to [log file] and update my task list. Never send, delete or buy anything without asking me first.",
+  "setup": [
+    "Make one folder (or a private GitHub repo) for your notes. A free notes app that saves plain text files, like Obsidian, makes it easy to read and edit them yourself.",
+    "Write a one-page \"about me\" file: your role, your family and key people, how you like replies written, and what you're working on this month.",
+    "Give your bot two standing rules: read the \"about me\" file at the start of every session, and write a summary back to your notes at the end.",
+    "Connect only the tools you need at first, like email and calendar. Add more once you trust it.",
+    "Start small: one daily brief and a few questions a day. Turn each job you repeat into a saved skill or routine."
+  ],
+  "watch_out": [
+    "Your notes will hold private details about your life. Keep the folder or repo private and don't connect apps you don't need.",
+    "A bot that runs on a computer at home stops working when that computer is off or offline; in the source post, a home Mac Mini kept going offline during trips, which is why the author moved his fiancee's setup to a cloud bot.",
+    "Have it show you any email or message before it goes out."
+  ],
+  "sources": [
+    {"label": "X article by @vinayp10 (2026-10-22): moving a plain-file second brain from Claude Code on a home Mac Mini to Grok Bot, with the \"Brain Boot\" assistant file", "url": "https://x.com/vinayp10/status/2113263397491855821", "kind": "x"},
+    {"label": "Brain Boot starter file from @vinayp10 (GitHub)", "url": "https://github.com/vp58/brainboot", "kind": "article"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2113263397491855821", "author": "@vinayp10", "url": "https://x.com/vinayp10/status/2113263397491855821", "posted_at": "2026-10-22",
+                 "likes": 171, "reposts": 14, "replies": 13, "bookmarks": 148, "views": 51536, "measured_at": "2026-10-22"},
+  "tags": ["second brain", "memory", "notes", "obsidian", "daily brief", "personal assistant", "remember context"]
+}
