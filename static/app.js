@@ -106,4 +106,61 @@
     };
     nchips.addEventListener('click', function (ev) { var c = ev.target.closest('.chip'); if (c) setF(c.dataset.nf); });
   }
+
+  // ---- "What will my bot cost?" calculator (full on /run-your-bots-for-less/, mini on the homepage)
+  var RANK = { small: 0, mid: 1, flagship: 2 };
+  var money = function (v) { if (v < 0.005) return 'under 1¢'; if (v >= 100) return '$' + Math.round(v).toLocaleString('en-US'); return '$' + v.toFixed(2); };
+  var esc2 = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  d.querySelectorAll('[data-calc]').forEach(function (f) {
+    var D = JSON.parse(f.querySelector('.calc-data').textContent), full = f.dataset.calc === 'full', out = f.querySelector('.calc-out');
+    var el = function (n) { return f.elements[n]; };
+    var preset = function (slug) { return D.presets.filter(function (p) { return p.slug === slug; })[0]; };
+    function fill(p) {
+      if (!p || !full) return;
+      el('n').value = p.n; el('unit').value = p.unit; el('in').value = p['in']; el('out').value = p.out; el('size').value = 'custom';
+      var w = f.querySelector('.calc-why'); if (w) w.textContent = p.why;
+    }
+    function nums() {
+      if (!full) { var p = preset(el('bot').value) || D.presets[0]; return { rpm: p.n * D.units[p.unit], tin: p['in'], tout: p.out }; }
+      var n = Math.max(0, parseFloat(el('n').value) || 0);
+      return { rpm: n * (D.units[el('unit').value] || 1), tin: Math.max(0, parseFloat(el('in').value) || 0), tout: Math.max(0, parseFloat(el('out').value) || 0) };
+    }
+    function render() {
+      var x = nums(), need = el('tier').value, batch = full && el('batch').checked;
+      var on = full ? Array.prototype.map.call(f.querySelectorAll('input[name=m]:checked'), function (c) { return +c.value; }) : null;
+      var rows = D.models.map(function (m, k) { return { m: m, k: k }; }).filter(function (r) {
+        return RANK[r.m.t] >= RANK[need] && (!on || on.indexOf(r.k) > -1);
+      }).map(function (r) {
+        var disc = batch && D.batch.indexOf(r.m.p) > -1 ? 0.5 : 1;
+        r.v = x.rpm * (x.tin * r.m.i + x.tout * r.m.o) / 1e6 * disc; r.b = disc < 1; return r;
+      }).sort(function (a, b) { return a.v - b.v; });
+      if (!rows.length) { out.innerHTML = '<p class="calc-empty">No model in this group. Tick more models or lower what the bot needs.</p>'; return; }
+      var lo = rows[0], hi = rows[rows.length - 1], top = hi.v || 1;
+      var tier = function (t) { return '<span class="calc-tier t-' + t + '">' + t + '</span>'; };
+      var html = '<div class="calc-best"><p class="calc-best-k">Cheapest option that fits</p><p class="calc-best-v"><b>' + money(lo.v) + '</b><span>/month</span></p>' +
+        '<p class="calc-best-m">' + esc2(lo.m.p) + ' · ' + esc2(lo.m.m) + ' ' + tier(lo.m.t) + (lo.b ? ' <span class="calc-tier">batch</span>' : '') + '</p>' +
+        (rows.length > 1 ? '<p class="small muted">The priciest fit, ' + esc2(hi.m.p) + ' ' + esc2(hi.m.m) + ', would be ' + money(hi.v) + '/month' + (lo.v > 0 && hi.v / lo.v >= 2 ? ' (' + Math.round(hi.v / lo.v) + '× more)' : '') + '.</p>' : '') +
+        (full ? '<p class="small muted">' + Math.round(x.rpm * 10) / 10 + ' runs a month · about ' + Math.round(x.rpm * x.tin).toLocaleString('en-US') + ' tokens in and ' + Math.round(x.rpm * x.tout).toLocaleString('en-US') + ' out.</p>' : '') + '</div>';
+      var list = full ? rows : [lo].concat(rows.length > 2 ? [rows[Math.floor(rows.length / 2)]] : []).concat(rows.length > 1 ? [hi] : []);
+      html += '<ol class="calc-list" aria-label="Monthly cost by model, cheapest first">' + list.map(function (r, i) {
+        return '<li class="' + (r === lo ? 'is-best' : '') + '"><span class="calc-name"><b>' + esc2(r.m.p) + '</b> ' + esc2(r.m.m) + ' ' + tier(r.m.t) + '</span>' +
+          '<span class="calc-bar" aria-hidden="true"><i style="width:' + Math.max(1.5, r.v / top * 100).toFixed(1) + '%"></i></span><span class="calc-v">' + money(r.v) + '</span></li>';
+      }).join('') + '</ol>';
+      out.innerHTML = html;
+    }
+    if (full) {
+      var q = new URLSearchParams(location.search);
+      if (q.get('bot') && preset(q.get('bot'))) { el('bot').value = q.get('bot'); fill(preset(q.get('bot'))); }
+      var own = false;
+      ['n', 'unit', 'in', 'out'].forEach(function (k) { if (q.get(k) !== null && el(k)) { el(k).value = q.get(k); own = true; } });
+      if (own && !q.get('bot')) { el('bot').value = ''; el('size').value = 'custom'; var w0 = f.querySelector('.calc-why'); if (w0) w0.textContent = 'Your own numbers, from the link you opened.'; }
+      if (q.get('tier') && RANK[q.get('tier')] !== undefined) el('tier').value = q.get('tier');
+      if (q.get('batch') === '1') el('batch').checked = true;
+      el('bot').addEventListener('change', function () { var p = preset(el('bot').value); if (p) fill(p); else { var w = f.querySelector('.calc-why'); if (w) w.textContent = 'Enter how often your bot runs and roughly how much it reads and writes each time.'; } render(); });
+      el('size').addEventListener('change', function () { var z = D.sizes[el('size').value]; if (z) { el('in').value = z[0]; el('out').value = z[1]; el('bot').value = ''; } render(); });
+      ['n', 'in', 'out'].forEach(function (k) { el(k).addEventListener('input', function () { if (k !== 'n') el('size').value = 'custom'; el('bot').value = el('bot').value && k === 'n' ? el('bot').value : (k === 'n' ? el('bot').value : ''); render(); }); });
+    }
+    f.addEventListener('change', render);
+    render();
+  });
 })();

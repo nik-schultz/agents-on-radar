@@ -1,5 +1,26 @@
 # Ops changelog
 
+## 2026-10-21 (night) — "Run your bots for less" is now the #2 feature, plus a bot cost calculator
+- Homepage: a new band right after Trending, headed "Same bot. A fraction of the bill." It has 4 tip tiles linking to guides: up to 100× cheaper with a small model (OpenAI gpt-6-luna $0.10/$0.50 vs gpt-6-astra $10/$50), 50% off with batch (Anthropic, Google, Mistral, OpenAI), cached reads at 0.1× (Anthropic), and $0 to test on Google's free tier. It also has a live cheapest-vs-top-model table per provider (from data/ai-pricing.json, checked Oct 21, 2026), a mini calculator and buttons to the hub.
+- "What will my bot cost?" calculator on /run-your-bots-for-less/#calculator, in vanilla JS (app.js), server-rendered so it works without JS.
+  - Inputs: a blueprint preset or your own runs (per day, weekday, week or month), a size of each run or exact tokens in and out, what the bot needs (small, mid or flagship), a batch toggle and a model picker.
+  - Results: the cheapest option that fits, the priciest fit, and every model side by side.
+  - Assumptions are stated on the page. Prices are the official table only. Not included: caching, tools, voice, taxes, free tiers and plans.
+  - URL prefill works: ?bot=<slug>, n, unit, in, out, tier, batch=1.
+- Cross-links:
+  - Nav "Run for less" is a green pill with a dot.
+  - Each blueprint's "What this costs to run" has a button to the calculator, prefilled.
+  - The 8 run-for-less guide pages get a calculator callout.
+  - Pricing news tiles on /news/ get "What this means for your bill →".
+  - /ai-pricing/ links to the calculator.
+- SEO:
+  - Hub title is "How to reduce AI API costs: AI agent cost calculator", with new meta.
+  - A 4-question FAQ, where every number is computed from the price data, with FAQPage and WebApplication JSON-LD.
+  - /ai-pricing/ title is "Cheapest LLM API? AI API prices compared, with sources".
+  - llms.txt has a calculator line. llms-full.txt has the formula and worked monthly examples for each preset.
+- Checked at 320px with an iframe probe (no overflow). JS probe: prefill from the URL and the batch maths are correct (web page watcher, mid, batch: Groq gpt-oss-120b $0.04 vs Claude Fable 5.1 $1.27/month).
+- Previews: previews/home-run-for-less.png, previews/calculator-desktop.png, previews/calculator-mobile.png.
+
 ## 2026-10-21 (evening) — LAUNCH on GitHub Pages (approved by Nik)
 - Live: https://nik-schultz.github.io/agents-on-radar/ · public repo: https://github.com/nik-schultz/agents-on-radar. Pages source: GitHub Actions.
 - Kept private (gitignored, untracked on main, never in the public repo): `art/incoming/*.png` (10 raw art PNGs, about 7 MB; the site uses the WebP versions in static/img), raw X API dumps (`research/*.json.txt`, `research/x_posts_full.json`), logs, .env and key files, `previews/`. A secret scan of tracked files found no tokens or keys.

@@ -10,7 +10,8 @@ Data as of 2026-10-21. Popularity numbers are real counts (X likes/reposts, Redd
 - [Trending now](https://nik-schultz.github.io/agents-on-radar/trending/)
 - [Bot blueprints](https://nik-schultz.github.io/agents-on-radar/blueprints/): build-your-own-bot recipes
 - [Latest in AI](https://nik-schultz.github.io/agents-on-radar/news/): new models, agent launches and AI price changes in plain words, with sources (RSS: https://nik-schultz.github.io/agents-on-radar/news/feed.xml)
-- [Run your bots for less](https://nik-schultz.github.io/agents-on-radar/run-your-bots-for-less/): how to pay less for AI services (model choice, free tiers, caching, batch, schedules, spend limits)
+- [Run your bots for less](https://nik-schultz.github.io/agents-on-radar/run-your-bots-for-less/): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)
+- [AI agent cost calculator](https://nik-schultz.github.io/agents-on-radar/run-your-bots-for-less/#calculator): pick a bot or enter runs and message size, compare monthly cost across 18 models from official prices checked 2026-10-21; prefill with ?bot=<blueprint-slug>
 - [AI price table](https://nik-schultz.github.io/agents-on-radar/ai-pricing/): official API and plan prices for OpenAI, Anthropic, Google, xAI, Groq, Mistral, Meta and DeepSeek, checked 2026-10-21
 - [RSS feed of new use cases](https://nik-schultz.github.io/agents-on-radar/feed.xml)
 

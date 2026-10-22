@@ -330,3 +330,66 @@ div.bp-art.art-slot{border-radius:50%}
 .nt--xl .nt-h{max-width:20ch}
 @media(min-width:980px){.nb--home{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}}
 .two-up>*{min-width:0}@media(max-width:380px){.nl-form input{min-width:0;width:100%}}
+
+/* ---- Run for less: nav pill, homepage band, calculator (2026-10-21) ---- */
+.menu a.nav-less{display:inline-flex;align-items:center;gap:.45em;color:var(--ink);border:1px solid rgba(94,242,160,.45);background:linear-gradient(135deg,rgba(94,242,160,.12),rgba(94,242,214,.06));box-shadow:0 0 18px -8px rgba(94,242,160,.7)}
+.menu a.nav-less:hover,.menu a.nav-less[aria-current]{border-color:var(--good);background:rgba(94,242,160,.16);color:#fff}
+.nav-less-dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 8px var(--good)}
+.less-band{padding-top:64px}
+.lb{position:relative;isolation:isolate;overflow:hidden;padding:clamp(20px,4vw,40px);display:grid;gap:26px;border-color:rgba(94,242,160,.32);
+  background:radial-gradient(900px circle at 100% 0%,rgba(94,242,160,.16),transparent 55%),radial-gradient(700px circle at 0% 100%,rgba(124,140,255,.16),transparent 60%),linear-gradient(160deg,rgba(18,32,48,.75),rgba(8,12,28,.85))}
+.lb::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;background:repeating-radial-gradient(circle at 92% 8%,transparent 0 46px,rgba(94,242,160,.07) 46px 47px)}
+.lb-art{position:absolute;z-index:-1;right:-60px;top:-60px;width:clamp(200px,30vw,360px);height:auto;aspect-ratio:1;max-width:none;object-fit:cover;opacity:.8;pointer-events:none;
+  -webkit-mask-image:radial-gradient(circle closest-side,#000 50%,transparent 100%);mask-image:radial-gradient(circle closest-side,#000 50%,transparent 100%)}
+.lb-head{max-width:760px}.lb-head .eyebrow{color:var(--good)}
+.lb-h{font-size:clamp(2rem,5.2vw,3.6rem);font-weight:850;letter-spacing:-.035em;line-height:1.02;margin:.1em 0 .35em}
+.lb-h .k-grad{display:inline;background-image:linear-gradient(90deg,var(--good),var(--c1) 55%,var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lb-cta{display:flex;flex-wrap:wrap;gap:10px;margin:0}
+.lt-grid{list-style:none;margin:0;padding:0;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.lt a{position:relative;display:flex;flex-direction:column;height:100%;padding:18px;border-radius:var(--r);text-decoration:none;color:var(--ink);border:1px solid rgba(94,242,160,.22);
+  background:linear-gradient(160deg,rgba(94,242,160,.08),rgba(12,16,34,.6));transition:transform .25s,border-color .25s,box-shadow .25s}
+.lt a:hover{transform:translateY(-4px);border-color:rgba(94,242,160,.6);box-shadow:0 20px 44px -24px rgba(94,242,160,.6);color:var(--ink)}
+.lt-big{font-size:clamp(2rem,4vw,2.7rem);font-weight:850;letter-spacing:-.03em;line-height:1;background:linear-gradient(90deg,var(--good),var(--c1));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lt-unit{font:700 .78rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--good);margin:.35em 0 .6em}
+.lt-t{color:#cfd6f3;font-size:.93rem;line-height:1.5;flex:1}.lt-go{margin-top:.8em;font-size:.85rem;font-weight:700;color:var(--c1)}
+.lb-two{display:grid;gap:18px}.lb-two>*{min-width:0}.lb-two h3{font-size:1.15rem;margin:0 0 .3em}
+@media(min-width:980px){.lb-two{grid-template-columns:1.1fr .9fr}}
+.lc-table{width:100%;border-collapse:collapse;font-size:.9rem}.lc-table th,.lc-table td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.lc-table thead th{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}.lc-table tbody th{font-weight:700;white-space:nowrap}
+.lc-m{display:block;font-size:.85rem;color:#cfd6f3}.lc-p{display:block;font:600 .8rem/1.4 var(--mono);color:var(--c1)}
+.lc-x{font:800 .95rem var(--mono);color:var(--good);white-space:nowrap}
+/* calculator */
+.calc{display:grid;gap:18px;padding:18px;border-radius:var(--r)}.calc label{display:grid;gap:5px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.calc select,.calc input[type=number]{font:inherit;font-size:.95rem;font-weight:500;color:var(--ink);background:rgba(5,7,15,.7);border:1px solid var(--line);border-radius:10px;padding:.5em .65em;width:100%;min-width:0}
+.calc select:focus,.calc input:focus{border-color:var(--c1);outline:none;box-shadow:0 0 0 3px rgba(94,242,214,.18)}
+.calc-row{display:grid;gap:10px;grid-template-columns:1fr 1fr}.calc-row>*{min-width:0}
+.calc-in{display:grid;gap:12px;align-content:start}.calc-in h2{margin:0;font-size:clamp(1.4rem,3vw,1.9rem)}
+.calc-why{margin:-4px 0 0}
+.calc-chk{display:flex!important;align-items:flex-start;gap:8px;font-weight:500!important;color:var(--ink)!important}.calc-chk input{margin-top:.25em;accent-color:var(--good)}
+.calc-models summary{cursor:pointer;font-size:.88rem;color:var(--c1)}.calc-mlist{display:grid;gap:4px;margin-top:8px;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr))}
+.calc-m{display:flex!important;gap:6px;align-items:center;font-weight:500!important;color:var(--ink)!important;font-size:.82rem!important}.calc-m input{accent-color:var(--c1)}
+.calc-best{padding:16px 18px;border-radius:14px;border:1px solid rgba(94,242,160,.45);background:linear-gradient(135deg,rgba(94,242,160,.14),rgba(94,242,214,.05));box-shadow:0 0 40px -18px rgba(94,242,160,.7)}
+.calc-best p{margin:0}.calc-best-k{font:700 .72rem/1.4 var(--mono);text-transform:uppercase;letter-spacing:.14em;color:var(--good)}
+.calc-best-v b{font-size:clamp(2.2rem,5vw,3rem);font-weight:850;letter-spacing:-.03em;line-height:1.1}.calc-best-v span{color:var(--muted);margin-left:4px}
+.calc-best-m{font-weight:600;margin:2px 0 6px!important}
+.calc-tier{display:inline-block;font:600 .68rem/1.5 var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:0 .5em;border-radius:999px;border:1px solid var(--line);color:var(--muted);vertical-align:middle}
+.calc-tier.t-flagship{border-color:rgba(192,139,255,.5);color:#d9c2ff}.calc-tier.t-small{border-color:rgba(94,242,160,.45);color:var(--good)}
+.calc-list{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:6px}
+.calc-list li{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(50px,1fr) auto;gap:10px;align-items:center;font-size:.86rem;padding:6px 8px;border-radius:10px}
+.calc-list li.is-best{background:rgba(94,242,160,.08)}
+.calc-name{min-width:0;overflow-wrap:anywhere}.calc-bar{height:8px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden}
+.calc-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--good),var(--c1),var(--c2));transition:width .4s cubic-bezier(.2,.7,.2,1)}
+.calc-v{font:700 .85rem var(--mono);white-space:nowrap;text-align:right}
+.calc-assume{margin-top:14px;color:var(--muted);border-top:1px dashed var(--line);padding-top:12px}.calc-assume p{margin:0 0 .6em}
+.calc-empty{color:var(--muted)}
+.calc--full{padding:clamp(18px,3vw,30px);border-color:rgba(94,242,160,.32);background:radial-gradient(700px circle at 100% 0%,rgba(94,242,160,.12),transparent 60%),var(--glass)}
+@media(min-width:900px){.calc--full{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:30px}}
+.calc-block{padding-top:28px}
+.calc--mini{padding:0;gap:12px}.calc--mini .calc-ctl{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))}
+.calc--mini .calc-best-v b{font-size:2.2rem}.calc-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0}
+@media(max-width:420px){.calc-list li{grid-template-columns:minmax(0,1fr) auto}.calc-bar{grid-column:1/-1;order:3}.calc-row{grid-template-columns:1fr}}
+/* guide callout + news pricing link */
+.less-callout{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;padding:16px 18px;margin:20px 0;border-color:rgba(94,242,160,.4);background:linear-gradient(135deg,rgba(94,242,160,.12),rgba(124,140,255,.06))}
+.less-callout>div{flex:1;min-width:200px}.less-callout p{margin:0}.lco-ico{font-size:1.6rem}.lco-k{font-weight:700}
+.nt-less{position:relative;z-index:2;font-size:.8rem;font-weight:700;color:var(--good);text-decoration:none}.nt-less:hover{color:#fff}
+@media (prefers-reduced-motion:reduce){.lt a:hover{transform:none}.calc-bar i{transition:none}}

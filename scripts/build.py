@@ -86,7 +86,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
     full_title = title if (NAME in title or len(title) + len(NAME) + 3 > 62) else f"{title} · {NAME}"
     og = absu(u("/assets/og.png"))
     nav = [("/trending/", "Trending"), ("/use-cases/", "All use cases"), ("/blueprints/", "Build a bot"), ("/what-can-bots-do/", "What can bots do?"), ("/news/", "AI news"), (LESS, "Run for less")]
-    navh = "".join(f'<a href="{u(p)}"{" aria-current=page" if path==p else ""}>{t}</a>' for p, t in nav)
+    navh = "".join(f'<a href="{u(p)}"{" class=nav-less" if p == LESS else ""}{" aria-current=page" if path==p else ""}>{"<span class=nav-less-dot aria-hidden=true></span>" if p == LESS else ""}{t}</a>' for p, t in nav)
     doc = f"""<!doctype html><html lang="en" data-page="{kind}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{e(full_title)}</title><meta name="description" content="{e(desc)}">
@@ -285,11 +285,12 @@ def news_tile(n, size="s", link=None, art_on=False, i=0):
     title = f'<a href="{e(href)}">{e(n["headline"])}</a>' if href else e(n["headline"])
     expl = e(n["explainer"]) if size == "xl" else e(first_sentence(n["explainer"]))
     artimg = (f'<img class="nt-art" src="{u("/assets/img/" + NEWS_ART.get(n["category"], "hero-radar") + ".webp")}" alt="" width="640" height="640" loading="lazy" decoding="async">' if art_on else "")
+    less_link = f'<a class="nt-less" href="{u(LESS)}#calculator">💸 What this means for your bill →</a>' if (n["category"] == "pricing" and not link) else ""
     src = "" if link else f'<p class="nt-src">Source: <a href="{e(n["source_url"])}" rel="noopener">{e(n["source_name"])}</a>{"" if size == "l" else news_more(n)}</p>'
     return f"""<article class="nt nt--{size}{' nt--major' if n.get('impact')=='major' else ''}" id="{'' if link else e(n['id'])}" style="--co:{col};--i:{i}" data-cat="{e(n['category'])}" data-heat="{n['_heat']}" data-date="{e(n['date'])}" data-rank="{rank or ''}">{artimg}
 <div class="nt-top"><span class="nt-mono" aria-hidden="true">{e(mono)}</span><span class="nt-co">{e(n.get('company',''))}</span>{news_tag(n)}{badges}</div>
 <{head} class="nt-h">{title}</{head}><p class="nt-x"><b>For you:</b> {expl}</p>
-<div class="nt-foot"><time datetime="{e(n['date'])}">{e(nice_date(n['date']))}</time>{news_x(n, long=size if size in ('xl','l') else False)}</div>{src}</article>""".replace(' id=""', "")
+<div class="nt-foot"><time datetime="{e(n['date'])}">{e(nice_date(n['date']))}</time>{news_x(n, long=size if size in ('xl','l') else False)}</div>{src}{less_link}</article>""".replace(' id=""', "")
 def news_more(n):
     m = n.get("more_sources") or []
     return ("" if not m else " · Also: " + ", ".join(f'<a href="{e(x["url"])}" rel="noopener">{e(x["label"])}</a>' for x in m))
@@ -297,6 +298,106 @@ def news_more(n):
 _home_rest = [n for n in NEWS if n is not NEWS_TOP and n not in NEWS_TREND][:1]
 news_strip = (f'<div class="nb nb--home">{news_tile(NEWS_TOP, "xl", link=u("/news/#" + NEWS_TOP["id"]), art_on=True)}<div class="nb-side">'
               + "".join(news_tile(n, "m", link=u("/news/#" + n["id"]), i=k + 1) for k, n in enumerate(NEWS_TREND + _home_rest)) + "</div></div>")
+# ---------- RUN FOR LESS: shared data for the homepage band + cost calculator ------------------
+TIER_RANK = {"small": 0, "mid": 1, "flagship": 2}
+TIER_LABEL = {"small": "small", "mid": "mid", "flagship": "flagship"}
+BATCH_PROVS = sorted({d["provider"] for d in PR["discounts"] if re.search(r"batch", d["what"], re.I) and "50%" in d["what"]})
+CALC_MODELS = [{"p": r["provider"], "m": r["model"], "i": r["input"], "o": r["output"], "t": r.get("tier", "mid"), "s": r["source_url"], "c": r["checked_on"]} for r in PR["api"]]
+def _rpm_to_freq(r):
+    for unit, k in (("day", 30), ("weekday", 22), ("week", 4)):
+        if r % k == 0: return r // k, unit
+    return r, "month"
+CALC_PRESETS = []
+for _b in bps:
+    _c = _b.get("cost") or {}
+    if _c.get("runs_per_month"):
+        _n, _unit = _rpm_to_freq(_c["runs_per_month"])
+        CALC_PRESETS.append({"slug": _b["slug"], "title": _b["title"], "n": _n, "unit": _unit, "in": _c["input_tokens"], "out": _c["output_tokens"], "why": _c["assumption"]})
+CALC_UNITS = [("day", "per day", 30), ("weekday", "per weekday", 22), ("week", "per week", 4), ("month", "per month", 1)]
+CALC_SIZES = [("short", "Short: a few messages", 1500, 300), ("medium", "Medium: a day of email or one web page", 8000, 600), ("long", "Long: a week of email or several pages", 20000, 1000), ("huge", "Very long: big documents or lots of browsing", 60000, 2000)]
+CALC_TIERS = [("small", "Simple job: any model will do"), ("mid", "Needs solid reasoning: mid-size or better"), ("flagship", "Hardest work: flagship models only")]
+CALC_DATA = json.dumps({"models": CALC_MODELS, "presets": CALC_PRESETS, "batch": BATCH_PROVS, "units": {k: m for k, _, m in CALC_UNITS}, "checked": nice_date(PR["checked_on"]),
+                        "sizes": {k: [i, o] for k, _, i, o in CALC_SIZES}}, separators=(",", ":"))
+def money(v):
+    if v < 0.005: return "under 1¢"
+    if v >= 100: return f"${v:,.0f}"
+    return f"${v:,.2f}"
+def calc_rows(rpm, tin, tout, need="small", batch=False):
+    rows = []
+    for m in CALC_MODELS:
+        if TIER_RANK.get(m["t"], 1) < TIER_RANK[need]: continue
+        f = 0.5 if (batch and m["p"] in BATCH_PROVS) else 1.0
+        rows.append((rpm * (tin * m["i"] + tout * m["o"]) / 1e6 * f, m))
+    return sorted(rows, key=lambda r: r[0])
+def calc_results_html(rpm, tin, tout, need="small"):
+    rows = calc_rows(rpm, tin, tout, need)
+    if not rows: return ""
+    lo, hi = rows[0], rows[-1]; top = hi[0] or 1
+    best = (f'<div class="calc-best"><p class="calc-best-k">Cheapest option that fits</p><p class="calc-best-v"><b>{money(lo[0])}</b><span>/month</span></p>'
+            f'<p class="calc-best-m">{e(lo[1]["p"])} · {e(lo[1]["m"])} <span class="calc-tier t-{e(lo[1]["t"])}">{e(lo[1]["t"])}</span></p>'
+            f'<p class="small muted">The priciest fit, {e(hi[1]["p"])} {e(hi[1]["m"])}, would be {money(hi[0])}/month.</p></div>')
+    lis = "".join(f'<li class="{"is-best" if k == 0 else ""}"><span class="calc-name"><b>{e(m["p"])}</b> {e(m["m"])} <span class="calc-tier t-{e(m["t"])}">{e(m["t"])}</span></span>'
+                  f'<span class="calc-bar" aria-hidden="true"><i style="width:{max(1.5, v / top * 100):.1f}%"></i></span><span class="calc-v">{money(v)}</span></li>' for k, (v, m) in enumerate(rows))
+    return best + f'<ol class="calc-list" aria-label="Monthly cost by model, cheapest first">{lis}</ol>'
+def calc_form(mode="full", preset="morning-inbox-briefing"):
+    P = next(p for p in CALC_PRESETS if p["slug"] == preset)
+    popts = "".join(f'<option value="{e(p["slug"])}"{" selected" if p["slug"] == preset else ""}>{e(p["title"])}</option>' for p in CALC_PRESETS)
+    topts = "".join(f'<option value="{k}">{e(v)}</option>' for k, v in CALC_TIERS)
+    rpm = P["n"] * dict((k, m) for k, _, m in CALC_UNITS)[P["unit"]]
+    res = calc_results_html(rpm, P["in"], P["out"])
+    if mode == "mini":
+        return f"""<form class="calc calc--mini" data-calc="mini" action="{u(LESS)}#calculator" method="get" aria-label="Quick bot cost estimate"><script type="application/json" class="calc-data">{CALC_DATA}</script>
+<div class="calc-ctl"><label>My bot<select name="bot">{popts}</select></label><label>It needs<select name="tier">{topts}</select></label></div>
+<div class="calc-out" aria-live="polite">{res}</div>
+<p class="calc-foot small"><button class="btn btn-sm" type="submit">Open the full calculator →</button> <span class="muted">API prices checked {nice_date(PR['checked_on'])}.</span></p></form>"""
+    uopts = "".join(f'<option value="{k}"{" selected" if k == P["unit"] else ""}>{e(lbl)}</option>' for k, lbl, _ in CALC_UNITS)
+    sopts = "".join(f'<option value="{k}">{e(lbl)}</option>' for k, lbl, _, _ in CALC_SIZES) + '<option value="custom" selected>Use the numbers below</option>'
+    mchk = "".join(f'<label class="calc-m"><input type="checkbox" name="m" value="{k}" checked> {e(m["p"])} {e(m["m"])}</label>' for k, m in enumerate(CALC_MODELS))
+    return f"""<form class="calc calc--full glass" id="calculator" data-calc="full" aria-labelledby="calc-h" onsubmit="return false"><script type="application/json" class="calc-data">{CALC_DATA}</script>
+<div class="calc-in">
+<h2 id="calc-h">What will my bot cost?</h2>
+<label>Start from a bot<select name="bot"><option value="">My own bot (enter numbers)</option>{popts}</select></label>
+<p class="calc-why small muted">{e(P['why'])}</p>
+<div class="calc-row"><label>Runs<input type="number" name="n" min="0" step="any" inputmode="decimal" value="{P['n']}"></label><label>How often<select name="unit">{uopts}</select></label></div>
+<label>Size of each run<select name="size">{sopts}</select></label>
+<div class="calc-row"><label>Tokens read per run<input type="number" name="in" min="0" step="100" inputmode="numeric" value="{P['in']}"></label><label>Tokens written per run<input type="number" name="out" min="0" step="50" inputmode="numeric" value="{P['out']}"></label></div>
+<label>It needs<select name="tier">{topts}</select></label>
+<label class="calc-chk"><input type="checkbox" name="batch"> It can wait up to a day (batch: 50% off at {e(', '.join(BATCH_PROVS))})</label>
+<details class="calc-models"><summary>Compare only some models ({len(CALC_MODELS)} listed)</summary><div class="calc-mlist">{mchk}</div></details>
+</div>
+<div class="calc-res"><div class="calc-out" aria-live="polite">{res}</div>
+<div class="calc-assume small"><p><b>What this assumes.</b> Standard API prices per 1 million tokens from each provider's official pricing page, checked {nice_date(PR['checked_on'])} (<a href="{u(PRICING)}">see the table and sources</a>). A token is a few characters of text. A month has 30 days, 22 weekdays or 4 weeks. Bot presets use our editor's token estimates, not measurements.</p>
+<p>Not included: prompt-caching savings, tool or web-browsing fees, voice minutes, taxes, free tiers, and app plans (Grok Bot, ChatGPT, Claude, Gemini) that charge a flat monthly fee instead. Agents that browse or use tools can use several times more tokens. "Fits" uses each model's size class (small, mid, flagship) as a rough guide; test the cheapest one on your real job first.</p></div></div></form>"""
+# homepage band data
+_byp = {}
+for r in PR["api"]: _byp.setdefault(r["provider"], []).append(r)
+LESS_CMP = [(pv, min(rs, key=lambda r: r["input"] + r["output"]), max(rs, key=lambda r: r["input"] + r["output"])) for pv, rs in _byp.items()]
+LESS_RATIO = int(max((hi["input"] + hi["output"]) / (lo["input"] + lo["output"]) for _, lo, hi in LESS_CMP))
+def _pz(v): return f"${v:,.3f}".rstrip("0").rstrip(".") if v < 0.1 else f"${v:,.2f}"
+def _pp(r): return f'{_pz(r["input"])} / {_pz(r["output"])}'
+less_cmp_rows = "".join(
+    f'<tr><th scope="row">{e(pv)}</th><td><span class="lc-m">{e(lo["model"])}</span><span class="lc-p">{_pp(lo)}</span></td>'
+    + (f'<td><span class="lc-m">{e(hi["model"])}</span><span class="lc-p">{_pp(hi)}</span></td><td class="lc-x">{(hi["input"]+hi["output"])/(lo["input"]+lo["output"]):.0f}×</td>' if hi is not lo else '<td class="muted">only one model listed</td><td></td>')
+    + '</tr>' for pv, lo, hi in LESS_CMP)
+_anth_cache = next((d for d in PR["discounts"] if d["provider"] == "Anthropic"), None)
+_goog_free = next((d for d in PR["discounts"] if d["provider"] == "Google" and "Free tier" in d["what"]), None)
+LESS_TIPS = [(f"up to {LESS_RATIO}×", "cheaper", f"Small models can cost up to {LESS_RATIO}× less than the flagship from the same company. Most everyday bots don't need the biggest model.", "pick-a-smaller-model-for-simple-jobs"),
+             ("50%", "off", f"Jobs that can wait up to a day can use the batch API: 50% off at {', '.join(BATCH_PROVS)}.", "cut-costs-with-caching-and-batch")]
+if _anth_cache: LESS_TIPS.append(("0.1×", "the price", "Instructions that never change can be cached. Anthropic bills cached prompt reads at 0.1× the input price, or less.", "cut-costs-with-caching-and-batch"))
+if _goog_free: LESS_TIPS.append(("$0", "to test", "Try your bot on a free tier first, with nothing private. Google's Gemini API has one, but it uses your content to improve Google's products.", "test-your-bot-on-a-free-tier"))
+less_tiles = "".join(f'<li class="lt"><a href="{u("/use-cases/"+sl+"/")}"><span class="lt-big">{e(big)}</span><span class="lt-unit">{e(unit)}</span><span class="lt-t">{e(t)}</span><span class="lt-go">Read the guide →</span></a></li>' for big, unit, t, sl in LESS_TIPS)
+less_band = f"""<section class="wrap block less-band" aria-labelledby="less-h"><div class="lb glass">
+<img class="lb-art" src="{u('/assets/img/cat-money.webp')}" alt="" width="640" height="640" loading="lazy" decoding="async">
+<div class="lb-head"><p class="eyebrow">💸 Run your bots for less</p><h2 id="less-h" class="lb-h">Same bot. <span class="k-grad">A fraction of the bill.</span></h2>
+<p class="lead">Every time a bot runs, an AI service bills you, or eats into your plan's limits. Pick the right model, cache and batch, and the same job can cost a small fraction as much. Prices come only from official pages.</p>
+<p class="lb-cta"><a class="btn" href="{u(LESS)}#calculator">Work out what my bot costs</a> <a class="btn btn-ghost" href="{u(LESS)}">All 8 money-saving guides →</a></p></div>
+<ul class="lt-grid">{less_tiles}</ul>
+<div class="lb-two"><div class="lb-cmp"><h3>Cheapest vs flagship, per provider</h3><p class="small muted">US$ per 1M tokens, input / output. Official pages, checked {nice_date(PR['checked_on'])}.</p>
+<div class="table-wrap"><table class="lc-table"><thead><tr><th scope="col">Provider</th><th scope="col">Cheapest</th><th scope="col">Top model</th><th scope="col"><span class="sr">Price difference</span>×</th></tr></thead><tbody>{less_cmp_rows}</tbody></table></div>
+<p class="small"><a href="{u(PRICING)}">Full price table with sources →</a></p></div>
+<div class="lb-calc"><h3>What would your bot cost a month?</h3>{calc_form("mini")}</div></div>
+</div></section>"""
+
 def tk_n(x):
     p = x["popularity"]
     return "♥ " + fmt(p["likes"]) if p["platform"] == "x" else "▲ " + fmt(p["upvotes"])
@@ -338,6 +439,8 @@ home = f"""
 <p class="muted">Ranked by real likes, reposts and upvotes, weighted toward newer posts (last {cfg.get('trending_window_days',60)} days). <a href="{u('/about/#popularity')}">How we measure</a>.</p></div>
 <a class="btn btn-ghost btn-sm" href="{u('/trending/')}">Full trending list →</a></div>
 <ol class="bento">{trend_cards}</ol></section>
+
+{less_band}
 
 <section class="wrap block" aria-labelledby="new-h">
 <div class="block-head"><div><p class="eyebrow">Just added</p><h2 id="new-h">Fresh off the radar</h2></div><a class="btn btn-ghost btn-sm" href="{u('/feed.xml')}">RSS feed</a></div>
@@ -400,6 +503,8 @@ bp_by_uc = {}
 for b in bps:
     for r in b["related"]: bp_by_uc.setdefault(r, []).append(b)
 
+less_callout = f"""<aside class="less-callout glass" aria-label="Run your bots for less"><span class="lco-ico" aria-hidden="true">💸</span><div><p class="lco-k">Part of <a href="{u(LESS)}">Run your bots for less</a></p>
+<p class="small">8 short guides, a cheapest-vs-flagship price table and a calculator that shows what your bot would cost a month on each provider.</p></div><a class="btn btn-sm" href="{u(LESS)}#calculator">Open the cost calculator</a></aside>"""
 for x in ucs:
     c = CAT[x["category"]]
     bc, bld = crumbs([("Home", "/"), (c["name"], f"/category/{c['slug']}/"), (x["title"], None)])
@@ -447,7 +552,7 @@ for x in ucs:
 <div class="uc-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span><span class="muted small">Added {nice_date(x['date_added'])}</span>{pop_chip(x, long=True)}</div></header>
 <div class="uc-grid"><div class="uc-main">
 <section><h2>What the bot does</h2><ol class="steps">{steps}</ol></section>
-<section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p></section>
+<section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p></section>{less_callout if x['category'] == 'run-for-less' else ''}
 <section><h2>Copy-paste prompt</h2><p class="muted small">Fill in the [brackets]. Then paste it into any tool below.</p>{copybox(x['prompt'])}
 <p class="small"><a href="{u('/blueprints/#how-to')}">New to this? Here's how to set up a bot in 5 plain steps →</a></p></section>
 {setup}
@@ -489,10 +594,11 @@ def cost_html(b):
         m = PRICE_ROW[name]
         v = ti / 1e6 * m["input"] + to / 1e6 * m["output"]
         rows += f'<tr><td>{e(m["provider"])} {e(m["model"])}</td><td class="num">{ptok(m["input"])} / {ptok(m["output"])}</td><td class="num"><b>{usd(v)}</b></td></tr>'
-    return f"""<section class="glass endup"><h2>What this costs to run</h2>
+    calc_link = f'<p><a class="btn btn-sm" href="{u(LESS)}?bot={e(b["slug"])}#calculator">Try other models and numbers in the cost calculator →</a></p>'
+    return f"""<section class="glass endup" id="cost"><h2>What this costs to run</h2>
 <p>If you run this bot yourself on an AI API: our assumption is {r} runs a month, each reading about {i:,} tokens and writing about {o:,} ({e(c['assumption'])}). That's about {ti:,} tokens in and {to:,} out a month.</p>
 <div class="table-wrap"><table class="rank-table"><thead><tr><th scope="col">Model</th><th scope="col">Price per 1M tokens (in / out)</th><th scope="col">About per month</th></tr></thead><tbody>{rows}</tbody></table></div>
-<p class="small muted">Token counts are our editor's estimates, not measurements. Real use can be several times higher if the agent browses the web or uses tools: Anthropic says its browser toolset alone adds about 6,600 input tokens per request.</p>{tail}</section>"""
+<p class="small muted">Token counts are our editor's estimates, not measurements. Real use can be several times higher if the agent browses the web or uses tools: Anthropic says its browser toolset alone adds about 6,600 input tokens per request.</p>{calc_link}{tail}</section>"""
 
 # ---------- BLUEPRINTS ---------------------------------------------------------------
 HOWTO_STEPS = [
@@ -646,25 +752,42 @@ RULES = [("Use the smallest model that does the job well.", "pick-a-smaller-mode
          ("Set a spend limit before anything runs on autopilot.", "set-ai-spend-limits-and-alerts")]
 less_ex = "".join(f'<li>{e(t)} <a href="{u("/use-cases/"+sl+"/")}">How →</a></li>' for t, sl in RULES)
 bc, bld = crumbs([("Home", "/"), ("Run your bots for less", None)])
-page(LESS, "Run your AI bots for less: cut what you pay AI services", mdesc(f"How to spend less on {', '.join(provs)}: pick the right model, use free tiers, cache, batch, schedule bots sensibly and set spend limits. Prices checked {nice_date(PR['checked_on'])}."),
+_cheapest = min(PR["api"], key=lambda r: r["input"] + r["output"])
+_ex = next(p for p in CALC_PRESETS if p["slug"] == "morning-inbox-briefing")
+_ex_rpm = _ex["n"] * dict((k, m) for k, _, m in CALC_UNITS)[_ex["unit"]]
+_ex_rows = calc_rows(_ex_rpm, _ex["in"], _ex["out"])
+LESS_FAQ = [
+ ("How do I reduce AI API costs?", f"Use the smallest model that does the job well (small models can cost up to {LESS_RATIO}× less than the flagship from the same company), cache instructions that never change, send jobs that can wait to a batch API (50% off at {', '.join(BATCH_PROVS)}), keep prompts short, run bots only as often as things change, and set a spend limit before anything runs on autopilot."),
+ ("What is the cheapest LLM API?", f"Of the models in our price table, the cheapest per token is {_cheapest['provider']} {_cheapest['model']} at {_pz(_cheapest['input'])} per 1M input tokens and {_pz(_cheapest['output'])} per 1M output tokens (official pricing page, checked {nice_date(PR['checked_on'])}). Cheapest isn't always good enough: test it on your real job first."),
+ ("How much does an AI agent cost to run?", f"It depends on how often it runs and how much it reads. Example: a morning inbox briefing that reads about {_ex['in']:,} tokens and writes {_ex['out']:,} on {_ex_rpm} weekdays a month costs about {money(_ex_rows[0][0])} a month on {_ex_rows[0][1]['p']} {_ex_rows[0][1]['m']}, and about {money(_ex_rows[-1][0])} on {_ex_rows[-1][1]['p']} {_ex_rows[-1][1]['m']}, at standard API prices. Use the calculator on this page for your own numbers."),
+ ("Is a monthly AI plan cheaper than paying per use?", "If you run a few small bots, pay-per-use API prices are often a few dollars a month or less. App plans charge a flat monthly fee with usage limits, and include the app itself. Compare both before you commit: see our guide “Plan or pay-per-use: which is cheaper for you?” on this page."),
+]
+less_faq_html = "".join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in LESS_FAQ)
+page(LESS, "How to reduce AI API costs: AI agent cost calculator", mdesc(f"Free AI agent cost calculator, the cheapest LLM API at each provider, and 8 guides on how to reduce AI API costs at {', '.join(provs)}. Prices checked {nice_date(PR['checked_on'])}."),
      f"""<div class="wrap page-head cat-head">{bc}<div class="cat-hero">{art(LC['art'], cls='cat-hero-art', alt='', eager=True)}<div><p class="eyebrow">{LC['icon']} Run your bots for less</p><h1 class="kinetic-sm">Run your bots for less</h1>
 <p class="lead">Every time a bot runs, an AI service bills you, or eats into your plan's limits. These {len(less_items)} guides show how to pay less for the same results, with prices taken only from the providers' official pages.</p></div></div></div>
-<div class="wrap"><section class="block"><h2>8 rules that cut your AI bill</h2><ol class="rules">{less_ex}</ol></section>
+<div class="wrap"><section class="block calc-block">{calc_form("full")}</section>
+<section class="block"><h2>8 rules that cut your AI bill</h2><ol class="rules">{less_ex}</ol></section>
 <section class="block"><h2>The guides</h2><ul class="grid">{''.join(card(x) for x in less_items)}</ul></section>
 <section class="block"><h2>Cheapest model we list at each provider</h2><p class="muted">Standard API price per 1 million tokens, from official pricing pages, checked {nice_date(PR['checked_on'])}. Cheapest isn't always good enough: test it on your job first.</p>
 <div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">Provider</th><th scope="col">Model</th><th scope="col">Input</th><th scope="col">Output</th></tr></thead><tbody>{snap}</tbody></table></div>
-<p><a class="btn" href="{u(PRICING)}">See the full AI price table</a> <a class="btn btn-ghost" href="{u('/blueprints/')}">See what each blueprint costs to run</a></p></section></div>""",
-     [bld], lastmod=PR["checked_on"])
+<p><a class="btn" href="{u(PRICING)}">See the full AI price table</a> <a class="btn btn-ghost" href="{u('/blueprints/')}">See what each blueprint costs to run</a></p></section>
+<section class="block narrow" id="faq"><h2>Questions about AI costs</h2>{less_faq_html}</section></div>""",
+     [bld, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in LESS_FAQ]},
+      {"@context": "https://schema.org", "@type": "WebApplication", "name": "AI agent cost calculator", "url": absu(u(LESS)) + "#calculator", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)",
+       "description": "Estimate what an AI bot or agent costs per month on each provider's API, from runs per day and message size, using official prices.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "dateModified": PR["checked_on"]}],
+     lastmod=PR["checked_on"])
 
 api_rows = "".join(f'<tr><td>{e(r["provider"])}</td><td>{e(r["model"])}</td><td class="num">{ptok(r["input"])}</td><td class="num">{ptok(r["output"])}</td><td class="num">{ptok(r["cached_input"])}</td><td class="small">{e(r["note"])}</td><td class="small"><a href="{e(r["source_url"])}" rel="noopener">Official page</a><br>checked {e(nice_date(r["checked_on"]))}</td></tr>' for r in PR["api"])
 con_rows = "".join(f'<tr><td>{e(r["provider"])}</td><td>{e(r["plan"])}</td><td class="num">{e(r["price"])}</td><td class="small">{e(r["period"])}{(" "+e(r["note"])) if r["note"] else ""}</td><td class="small"><a href="{e(r["source_url"])}" rel="noopener">Official page</a><br>checked {e(nice_date(r["checked_on"]))}</td></tr>' for r in PR["consumer"])
 disc = "".join(f'<li><b>{e(d["provider"])}</b>: {e(d["what"])} <span class="small">(<a href="{e(d["source_url"])}" rel="noopener">source</a>, checked {e(nice_date(d["checked_on"]))})</span></li>' for d in PR["discounts"])
 nover = "".join(f'<li><b>{e(d["provider"])}</b>: {e(d["what"])}. {e(d["why"])}</li>' for d in PR["not_verified"])
 bc, bld = crumbs([("Home", "/"), ("Run your bots for less", LESS), ("AI price table", None)])
-page(PRICING, "AI API and plan prices compared: OpenAI, Anthropic, Gemini, xAI", mdesc(f"Prices per 1 million tokens for {', '.join(provs)}, plus consumer plan prices, each linked to the official pricing page. Checked {nice_date(PR['checked_on'])}."),
+page(PRICING, "Cheapest LLM API? AI API prices compared, with sources", mdesc(f"Find the cheapest LLM API: prices per 1 million tokens for {', '.join(provs)}, plus app plan prices, each linked to the official pricing page. Checked {nice_date(PR['checked_on'])}."),
      f"""<div class="wrap page-head">{bc}<p class="eyebrow">{LC['icon']} Run your bots for less</p><h1 class="kinetic-sm">AI price table</h1>
 <p class="lead">What the major AI services charge, in US dollars, taken only from each provider's official pricing page (or, for a brand-new model, its official launch post). Every row links to its source and shows the date we checked it. If we couldn't verify a price, it isn't here.</p>
-<p class="small muted">Last checked {nice_date(PR['checked_on'])}. Prices change often and some below are time-limited, so check the official page before you commit.</p></div>
+<p class="small muted">Last checked {nice_date(PR['checked_on'])}. Prices change often and some below are time-limited, so check the official page before you commit.</p>
+<p><a class="btn btn-sm" href="{u(LESS)}#calculator">Work out what your bot costs →</a></p></div>
 <div class="wrap"><section class="block"><h2>API prices (pay per use)</h2><p class="muted">Per 1 million tokens, standard tier, short prompts. A token is a few characters of text.</p>
 <div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">Provider</th><th scope="col">Model</th><th scope="col">Input</th><th scope="col">Output</th><th scope="col">Cached input</th><th scope="col">Notes</th><th scope="col">Source</th></tr></thead><tbody>{api_rows}</tbody></table></div></section>
 <section class="block"><h2>Discounts you can use</h2><ul class="big-list">{disc}</ul><p><a href="{u('/use-cases/cut-costs-with-caching-and-batch/')}">How to use caching and batch →</a></p></section>
@@ -757,7 +880,7 @@ bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "
 open(os.path.join(OUT, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {absu(u('/sitemap.xml'))}\n")
 
 L1 = [f"# {NAME}", "", f"> {cfg['description']}", "", f"Data as of {BUILD_DATE}. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.", "",
-      "## Start here", f"- [What can bots actually do?]({absu(u('/what-can-bots-do/'))}): plain-English explainer", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to pay less for AI services (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", "", "## Use cases by category"]
+      "## Start here", f"- [What can bots actually do?]({absu(u('/what-can-bots-do/'))}): plain-English explainer", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", "", "## Use cases by category"]
 for c in cats:
     L1 += ["", f"### {c['name']}"] + [f"- [{x['title']}]({absu(u('/use-cases/'+x['slug']+'/'))}): {x['summary']}" for x in ucs if x["category"] == c["slug"]]
 L1 += ["", "## Latest in AI (newest first)"] + [f"- {n['date']} [{n['category']}] {n['headline']}: {n['explainer']} Source: {n['source_url']}" for n in NEWS[:15]]
@@ -774,6 +897,7 @@ for x in ucs:
 for b in bps:
     F += [f"## Blueprint: {b['title']}", f"URL: {absu(u('/blueprints/'+b['slug']+'/'))}", f"Goal: {b['goal']}", f"Runs: {b['trigger']}", f"Watches: {b['watches']}", "Instructions:", b["instructions"], "Safety:"] + [f"- {s}" for s in b["safety"]] + [""]
 F += ["## Latest in AI", f"URL: {absu(u('/news/'))}", f"Top story (importance): {NEWS_TOP['headline']} ({NEWS_TOP['date']}). Trending (X engagement decayed by age): " + "; ".join(n['headline'] for n in NEWS_TREND)] + [f"- {n['date']} [{n['category']}, impact: {n.get('impact','')}] {n['headline']} | {n['explainer']} | Source: {n['source_name']} {n['source_url']}" + (f" | X: {n['x']['likes']:,} likes, {n['x']['reposts']:,} reposts ({n['x']['url']}, measured {n['x']['measured_at']})" if n.get('x') else "") for n in NEWS] + [""]
+F += ["## AI agent cost calculator", f"URL: {absu(u(LESS))}#calculator", "Monthly cost = runs per month x (input tokens x input price + output tokens x output price) / 1,000,000. Months use 30 days, 22 weekdays or 4 weeks. Batch halves the price at " + ", ".join(BATCH_PROVS) + ". Not included: caching, tool fees, voice, taxes, free tiers. Worked examples (cheapest vs priciest fitting model):"] + [f"- {c['title']}: {c['n']} run(s) per {c['unit']}, about {c['in']:,} tokens in and {c['out']:,} out per run; " + (lambda r: f"{r[0][1]['p']} {r[0][1]['m']} {money(r[0][0])}/month vs {r[-1][1]['p']} {r[-1][1]['m']} {money(r[-1][0])}/month")(calc_rows(c['n']*dict((k, m) for k, _, m in CALC_UNITS)[c['unit']], c['in'], c['out'], 'small', False)) for c in CALC_PRESETS] + [""]
 F += ["## AI price table", f"URL: {absu(u(PRICING))}", f"Checked: {PR['checked_on']}. USD per 1M tokens, standard tier. Official sources only."] + [f"- {r['provider']} {r['model']}: input {r['input']}, output {r['output']}" + (f", cached input {r['cached_input']}" if r['cached_input'] is not None else "") + (f". {r['note']}" if r['note'] else "") + f" Source: {r['source_url']}" for r in PR["api"]] + ["Plans:"] + [f"- {r['provider']} {r['plan']}: {r['price']} {r['period']}".rstrip() + f" Source: {r['source_url']}" for r in PR["consumer"]] + [""]
 open(os.path.join(OUT, "llms-full.txt"), "w").write("\n".join(F))
 open(os.path.join(OUT, ".nojekyll"), "w").write("")
