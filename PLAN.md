@@ -3,7 +3,7 @@
 > **Update 2026-10-20: new direction.** The site is now a LIVE hub: a sourced feed of real AI agent use cases
 > (Trending now → Just added → Categories), real popularity numbers (X likes/reposts, Reddit upvotes, with
 > source URL and date measured; null when unknown), plus a beginner layer ("What can bots actually do?" and 12
-> build-your-own-bot blueprints). Working name: **Agents on Radar** (one-line swap in `config.json`). Seeded with
+> build-your-own-bot blueprints). Brand: **BotsDoThat** ("There's a bot for that. Here's how."), picked Oct 21, 2026; earlier working name Agents on Radar (one-line swap in `config.json`). Seeded with
 > 40 new use cases researched on 2026-10-20 + the best 20 from the first version. The daily routine is documented in
 > README.md (`scripts/daily.sh`). Sections below that describe the first version (brand "Let The Bot", top-20
 > table) are kept for history; the brand was rejected and the content model has been replaced.
@@ -129,7 +129,8 @@ Guardrails: no "guaranteed AI income", debt-relief or crypto sponsors; never cla
 Recommended: **GitHub Pages** via the included Actions workflow (free, simple, versioned). Cloudflare Pages is an equally good free
 alternative with faster global caching and easy DNS if the domain is bought at Cloudflare. Netlify also works, but its free tier has build/bandwidth limits.
 Status (2026-10-21): **LIVE** at https://nik-schultz.github.io/agents-on-radar/ (repo https://github.com/nik-schultz/agents-on-radar, approved by Nik). Deploy with `scripts/deploy.sh "msg"`; routine deploys are approved (README → Deploy).
-Still open (older notes, the brand is now Agents on Radar; nothing purchased):
+Domain (Oct 21, 2026): Nik is buying **botsdothat.com** himself at IONOS. Until DNS points at GitHub Pages the site stays on the github.io URL; the switch is scripted in `ops/domain_cutover.md` / `scripts/domain_cutover.sh`.
+Still open (older notes from the "Let The Bot" era, kept for history; the brand is now BotsDoThat; nothing purchased by us):
 1. GitHub: log in on the box (`gh auth login`) or give the account/org to use, and approve creating the public repo `letthebot`.
 2. Domain: approve buying letthebot.com (about the standard .com price at a registrar such as Cloudflare or Namecheap; confirm the price at checkout) after a quick trademark check.
 3. Email: a contact inbox for hello@letthebot.com (e.g. Cloudflare Email Routing → Nik's inbox). The site already lists it.

@@ -1,5 +1,29 @@
 # Ops changelog
 
+## 2026-10-21 (11:30 PM CT) — Rebrand to BotsDoThat ("There's a bot for that. Here's how.")
+- Nik picked **BotsDoThat**. botsdothat.com was unregistered at 11:13 PM CT; Nik is buying it himself at IONOS. We bought nothing.
+- **Config:**
+  - `site_name` is now BotsDoThat.
+  - New tagline: "There's a bot for that. Here's how."
+  - The old tagline is kept as `subtagline`.
+- **Wordmark:** the header and footer logo read "BotsDoThat", with "Do" in the cyan-to-violet accent. The spinning radar dot and all radar art stay.
+- **Tagline placement:**
+  - under the live-feed eyebrow on the homepage (the 4 rotating headlines are unchanged);
+  - in the footer, the homepage `<title>`, llms.txt and llms-full.txt;
+  - in the og image ("There's a bot for that. Here's how: …");
+  - in the JSON-LD Organization `slogan`. WebSite JSON-LD gets `alternateName` "Bots Do That" and a publisher.
+- **Picked up the new name automatically:** titles, og:site_name, RSS titles, About, Advertise and Disclosure copy.
+- **Newsletter renamed** from "the weekly radar" to "The BotsDoThat Weekly":
+  - the nav button now reads "Get the weekly email";
+  - the Advertise newsletter-tier copy is updated to match.
+- **Docs updated:** README, PLAN, ops/launch_drafts.md (name, Product Hunt tagline, a note to swap URLs after cutover) and the affiliate research title.
+- **Domain not switched yet:** `cname` is still empty and `base_url` is still https://nik-schultz.github.io/agents-on-radar/.
+- **Cutover prepared:**
+  - ops/domain_cutover.md: IONOS DNS records checked against GitHub's docs, plus domain verification steps and a checklist.
+  - scripts/domain_cutover.sh with `check`, `apply`, `https` and `rollback` (Pages custom domain and Enforce HTTPS via gh api, config switch, deploy.sh).
+  - A dry-run build on botsdothat.com gave 0 broken links, with robots.txt and the sitemap at the root.
+- Committed the pending .gitignore line, which keeps research/domain_candidates.md private.
+
 ## 2026-10-21 (10:45 PM CT) — Sponsor launch prices published (approved by Nik)
 - Nik approved research/sponsor_pricing.md exactly as proposed. The file is marked approved, dated Oct 21, 2026.
 - /advertise/ now shows the prices:

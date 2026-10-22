@@ -1,4 +1,6 @@
-# Agents on Radar: full text
+# BotsDoThat: full text
+
+There's a bot for that. Here's how.
 
 A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
 

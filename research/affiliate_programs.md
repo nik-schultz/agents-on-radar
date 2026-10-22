@@ -1,4 +1,4 @@
-# Affiliate and referral programs for Agents on Radar
+# Affiliate and referral programs for BotsDoThat (formerly Agents on Radar)
 
 Researched Oct 21, 2026 (evening, CT). Terms are quoted or paraphrased from each program's **official page** unless marked "third-party". Programs change terms. Re-read the official page on the day you apply.
 

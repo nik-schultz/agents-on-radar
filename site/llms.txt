@@ -1,6 +1,6 @@
-# Agents on Radar
+# BotsDoThat
 
-> A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
+> There's a bot for that. Here's how. A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
 
 Data as of 2026-10-21. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.
 
