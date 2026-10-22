@@ -9,6 +9,59 @@
  ],
  "items": [
   {
+   "id": "anthropic-agent-skills-to-aaif",
+   "date": "2026-10-22",
+   "category": "industry",
+   "company": "Anthropic",
+   "impact": "notable",
+   "headline": "Anthropic hands Agent Skills to a neutral foundation",
+   "explainer": "Skills are little instruction folders that teach an AI agent a specific task, and more than 70 tools, including ChatGPT, Cursor and GitHub Copilot, already read them. Moving the standard to the Linux Foundation's Agentic AI Foundation makes it more likely a skill you set up once keeps working across different bots.",
+   "source_url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+   "source_name": "Anthropic"
+  },
+  {
+   "id": "openai-decisions-api-ga",
+   "date": "2026-10-22",
+   "category": "feature",
+   "company": "OpenAI",
+   "impact": "minor",
+   "headline": "OpenAI's quick-answer Decisions API is now open to all developers",
+   "explainer": "The Decisions API turns text or images into short typed answers, like sorting an email or approving a request, without writing a full reply, and it now handles up to 400 questions per request with prompt-cache discounts. Apps built on it can make these small calls faster and cheaper, which adds up for bots that triage a lot.",
+   "source_url": "https://developers.openai.com/api/docs/changelog",
+   "source_name": "OpenAI API changelog",
+   "x": {
+    "url": "https://x.com/OpenAIDevs/status/2113346642787086538",
+    "author": "@OpenAIDevs",
+    "kind": "official",
+    "posted_at": "2026-10-22",
+    "likes": 211,
+    "reposts": 17,
+    "views": 12523,
+    "measured_at": "2026-10-22"
+   }
+  },
+  {
+   "id": "canva-craft",
+   "date": "2026-10-22",
+   "category": "model release",
+   "company": "Canva",
+   "impact": "notable",
+   "headline": "Canva launches Craft, its own image model built for designs with readable text",
+   "explainer": "Craft plans the layout first, then makes images up to 2K in about 30 sizes, and is trained on human-made Canva templates so text comes out legible. It's free to try for all Canva users in Dream Lab, and Canva plans to let ChatGPT and Gemini use it too.",
+   "source_url": "https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/",
+   "source_name": "TechCrunch",
+   "x": {
+    "url": "https://x.com/canva/status/2113348707223753165",
+    "author": "@canva",
+    "kind": "official",
+    "posted_at": "2026-10-22",
+    "likes": 61,
+    "reposts": 19,
+    "views": 10207,
+    "measured_at": "2026-10-22"
+   }
+  },
+  {
    "id": "anthropic-claude-duet",
    "date": "2026-10-21",
    "category": "agent launch",
@@ -32,9 +85,9 @@
     "url": "https://x.com/claudeai/status/2112984664256241837",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 48646,
-    "reposts": 3710,
-    "views": 7089059,
+    "likes": 52065,
+    "reposts": 3983,
+    "views": 8292866,
     "posted_at": "2026-10-21",
     "measured_at": "2026-10-22"
    }
@@ -63,9 +116,9 @@
     "url": "https://x.com/OpenAI/status/2112907856018309586",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 14088,
-    "reposts": 2807,
-    "views": 5389556,
+    "likes": 14241,
+    "reposts": 2829,
+    "views": 5599664,
     "posted_at": "2026-10-21",
     "measured_at": "2026-10-22"
    }
@@ -84,9 +137,9 @@
     "url": "https://x.com/claudeai/status/2112962248218148878",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 9193,
-    "reposts": 475,
-    "views": 594019,
+    "likes": 10161,
+    "reposts": 511,
+    "views": 697993,
     "posted_at": "2026-10-21",
     "measured_at": "2026-10-22"
    }
@@ -111,9 +164,9 @@
     "url": "https://x.com/OpenAI/status/2112988118471295323",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 4242,
-    "reposts": 329,
-    "views": 368443,
+    "likes": 4777,
+    "reposts": 377,
+    "views": 427210,
     "posted_at": "2026-10-21",
     "measured_at": "2026-10-22"
    }
@@ -139,9 +192,9 @@
     "author": "@RichardSocher",
     "kind": "official",
     "posted_at": "2026-10-21",
-    "likes": 7127,
-    "reposts": 759,
-    "views": 2836719,
+    "likes": 7916,
+    "reposts": 836,
+    "views": 3152030,
     "measured_at": "2026-10-22"
    }
   },
@@ -159,9 +212,9 @@
     "url": "https://x.com/MistralAI/status/2112574615318876178",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 3228,
-    "reposts": 373,
-    "views": 258678,
+    "likes": 3239,
+    "reposts": 376,
+    "views": 261946,
     "posted_at": "2026-10-20",
     "measured_at": "2026-10-22"
    }
@@ -180,9 +233,9 @@
     "url": "https://x.com/OpenAIDevs/status/2112603916076781778",
     "author": "@OpenAIDevs",
     "kind": "official",
-    "likes": 3564,
-    "reposts": 188,
-    "views": 1703598,
+    "likes": 3583,
+    "reposts": 189,
+    "views": 1768811,
     "posted_at": "2026-10-20",
     "measured_at": "2026-10-22"
    }
@@ -207,9 +260,9 @@
     "url": "https://x.com/deepseek_ai/status/2112476496283775135",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 42134,
-    "reposts": 4762,
-    "views": 6387025,
+    "likes": 42403,
+    "reposts": 4797,
+    "views": 6460412,
     "posted_at": "2026-10-20",
     "measured_at": "2026-10-22"
    }
@@ -230,6 +283,27 @@
      "url": "https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/"
     }
    ]
+  },
+  {
+   "id": "gemini-android-auto-personal-intelligence",
+   "date": "2026-10-20",
+   "category": "feature",
+   "company": "Google",
+   "impact": "notable",
+   "headline": "Gemini in your car can now use your Gmail, Calendar and Maps to help",
+   "explainer": "With your permission, Gemini on Android Auto can pull your flight gate from email, find the restaurant you saved, or take you to your next appointment without you looking anything up. It's rolling out now on Android Auto for eligible personal accounts and is off until you turn it on.",
+   "source_url": "https://blog.google/products-and-platforms/platforms/android/android-auto-cars-with-google-built-in-gemini-personal-intelligence/",
+   "source_name": "Google",
+   "x": {
+    "url": "https://x.com/Google/status/2112655614132285592",
+    "author": "@Google",
+    "kind": "official",
+    "posted_at": "2026-10-20",
+    "likes": 2121,
+    "reposts": 183,
+    "views": 258129,
+    "measured_at": "2026-10-22"
+   }
   },
   {
    "id": "android-police-gems-become-skills",
@@ -262,9 +336,9 @@
     "url": "https://x.com/deepseek_ai/status/2111375640717033777",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 37039,
-    "reposts": 4128,
-    "views": 7869382,
+    "likes": 37062,
+    "reposts": 4126,
+    "views": 7902137,
     "posted_at": "2026-10-17",
     "measured_at": "2026-10-22"
    }
@@ -285,7 +359,7 @@
     "kind": "official",
     "likes": 3482,
     "reposts": 248,
-    "views": 956659,
+    "views": 958221,
     "posted_at": "2026-10-17",
     "measured_at": "2026-10-22"
    }
@@ -314,9 +388,9 @@
     "url": "https://x.com/AIatMeta/status/2110779754274292212",
     "author": "@AIatMeta",
     "kind": "official",
-    "likes": 11536,
+    "likes": 11537,
     "reposts": 1222,
-    "views": 1237142,
+    "views": 1238778,
     "posted_at": "2026-10-15",
     "measured_at": "2026-10-22"
    }
@@ -343,7 +417,7 @@
     "kind": "coverage",
     "likes": 1310,
     "reposts": 144,
-    "views": 906948,
+    "views": 907736,
     "posted_at": "2026-10-14",
     "measured_at": "2026-10-22"
    }
@@ -368,9 +442,9 @@
     "url": "https://x.com/GeminiApp/status/2110039322229649783",
     "author": "@GeminiApp",
     "kind": "official",
-    "likes": 7274,
+    "likes": 7289,
     "reposts": 765,
-    "views": 5495257,
+    "views": 5695072,
     "posted_at": "2026-10-13",
     "measured_at": "2026-10-22"
    }
@@ -395,9 +469,9 @@
     "url": "https://x.com/AIatMeta/status/2109691148943999167",
     "author": "@AIatMeta",
     "kind": "official",
-    "likes": 2207,
-    "reposts": 234,
-    "views": 313713,
+    "likes": 2208,
+    "reposts": 235,
+    "views": 314385,
     "posted_at": "2026-10-12",
     "measured_at": "2026-10-22"
    }
@@ -450,11 +524,11 @@
     "url": "https://x.com/claudeai/status/2108271552991252810",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 60507,
-    "reposts": 4599,
-    "views": 11375886,
+    "likes": 60537,
+    "reposts": 4601,
+    "views": 11402774,
     "posted_at": "2026-10-08",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -471,11 +545,11 @@
     "url": "https://x.com/OpenAI/status/2107894997538525580",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 23952,
-    "reposts": 1898,
-    "views": 6771278,
+    "likes": 23999,
+    "reposts": 1901,
+    "views": 6837691,
     "posted_at": "2026-10-07",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -492,11 +566,11 @@
     "url": "https://x.com/claudeai/status/2107894039626277339",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 45254,
+    "likes": 45259,
     "reposts": 3271,
-    "views": 6703385,
+    "views": 6722329,
     "posted_at": "2026-10-07",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -513,11 +587,11 @@
     "url": "https://x.com/claudeai/status/2107894060229034197",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 11863,
+    "likes": 11862,
     "reposts": 589,
-    "views": 1569776,
+    "views": 1577762,
     "posted_at": "2026-10-07",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -534,11 +608,11 @@
     "url": "https://x.com/MistralAI/status/2107457414387622310",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 40656,
-    "reposts": 4570,
-    "views": 5700847,
+    "likes": 40659,
+    "reposts": 4569,
+    "views": 5707436,
     "posted_at": "2026-10-06",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -561,11 +635,11 @@
     "url": "https://x.com/claudeai/status/2107522596845822135",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 54377,
-    "reposts": 4304,
-    "views": 13321169,
+    "likes": 54365,
+    "reposts": 4303,
+    "views": 13331739,
     "posted_at": "2026-10-06",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -588,11 +662,11 @@
     "url": "https://x.com/OpenAI/status/2104986129686741046",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 21119,
+    "likes": 21112,
     "reposts": 1713,
-    "views": 3232529,
+    "views": 3235021,
     "posted_at": "2026-09-29",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -630,11 +704,11 @@
     "url": "https://x.com/OpenAI/status/2104984504133918973",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 38112,
-    "reposts": 3368,
-    "views": 14814573,
+    "likes": 38110,
+    "reposts": 3366,
+    "views": 14820229,
     "posted_at": "2026-09-29",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -668,11 +742,11 @@
     "url": "https://x.com/bot/status/2104661562715967548",
     "author": "@bot",
     "kind": "official",
-    "likes": 6404,
-    "reposts": 574,
-    "views": 36344049,
+    "likes": 6408,
+    "reposts": 573,
+    "views": 37919255,
     "posted_at": "2026-09-28",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -689,11 +763,11 @@
     "url": "https://x.com/claudeai/status/2102435511222890900",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 97479,
-    "reposts": 9051,
-    "views": 28510762,
+    "likes": 97476,
+    "reposts": 9049,
+    "views": 28529851,
     "posted_at": "2026-09-22",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -710,11 +784,11 @@
     "url": "https://x.com/OpenAI/status/2102460975790137662",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 53286,
-    "reposts": 5271,
-    "views": 10189060,
+    "likes": 53261,
+    "reposts": 5270,
+    "views": 10192016,
     "posted_at": "2026-09-22",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   },
   {
@@ -737,11 +811,11 @@
     "url": "https://x.com/elonmusk/status/2102071804495872374",
     "author": "@elonmusk",
     "kind": "official",
-    "likes": 26994,
-    "reposts": 2585,
-    "views": 32254014,
+    "likes": 26970,
+    "reposts": 2569,
+    "views": 32254889,
     "posted_at": "2026-09-21",
-    "measured_at": "2026-10-21"
+    "measured_at": "2026-10-22"
    }
   }
  ],

@@ -1,5 +1,12 @@
 # Ops changelog
 
+## 2026-10-22 (news update, 2:30 PM CT)
+- **Added 4 items** (all opened at the source): Anthropic donates the Agent Skills standard to the Agentic AI Foundation (Oct 22, notable, no official X post found so no `x` block); OpenAI Decisions API generally available (Oct 22, minor, @OpenAIDevs); Canva Craft, Canva's first image model (Oct 22, notable, TechCrunch + @canva); Gemini Personal Intelligence on Android Auto (Oct 20, notable, Google blog + @Google). New company `Canva` added to `NEWS_CO` in build.py.
+- **X refresh:** re-measured all 29 tracked posts (get_posts_by_ids, 2026-10-22 PM; raw response kept locally in research/). Top story is still Claude Duet; trending is DeepSeek DeepInfer, the PHP-flaws item and DeepSeek V4.1 Flash.
+- No price changes from these items, so the AI pricing table is unchanged. No major releases this run. Skipped: xAI partner network (enterprise-only), Hugging Face Carbon-X DNA model (research), Mistral/NVIDIA engineering tie-up (no consumer impact yet).
+- BACKLOG: added a hands-free car assistant guide idea.
+- Checks: validate 0 errors, build 114 pages + 404, 0 broken internal links.
+
 ## 2026-10-22 (weekly newsletter routine, 9:10 AM CT) — BotsDoThat Weekly #1 published on the web
 - **New:** newsletter web archive. `data/newsletter.json` holds issues; build.py renders `/newsletter/` (signup + past issues), one page per issue at `/newsletter/<date>/` (Article + Breadcrumb JSON-LD, in the sitemap) and `/newsletter/feed.xml`. Item outcomes, prompts and sources are pulled from data/use-cases.json, so they stay in sync with the guides. Empty `sponsor` renders a house ad pointing to /advertise/.
 - **Issue #1 (Oct 22): "4 jobs you can hand to an AI this week":** research a used car from its listing link, line up contractors for a home project, send a long video or thread to your bot, set AI spend limits and alerts. New on the site: Fill out a job application faster. Watch-out: Meta paused Muse chat sharing (The Verge). Sponsor: none booked, house ad.
