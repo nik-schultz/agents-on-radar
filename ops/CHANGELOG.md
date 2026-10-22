@@ -1,5 +1,31 @@
 # Ops changelog
 
+## 2026-10-22 (daily QA run, 7:20 AM CT)
+- **Status:** live and healthy. https://botsdothat.com/ returned 200 on every page checked: home, /use-cases/ and 3 guides, /blueprints/ and 2 blueprints, /news/, /ai-pricing/, /run-your-bots-for-less/ (with ?bot= prefill), /trending/, /advertise/, robots.txt, sitemap.xml, feed.xml, app.js and the search index. /nope-xyz/ returns the 404 page. TLS cert CN=botsdothat.com is valid until Jan 20, 2027. https://www.botsdothat.com/ and the old github.io deep link (/agents-on-radar/news/) both 301 to botsdothat.com. Outbound port 80 is blocked from the box, so the http→https redirect was confirmed through a normal web fetch instead.
+- **Checks:**
+  - validate: 0 errors, 0 warnings. build: OK. Internal links: 0 broken (5,539 scanned).
+  - External links: 203 unique. The not-200 results were the expected bot blocks: claude.ai, help.openai.com and openai.com (403); the two ftc.gov pages (404 to curl), which load fine through a normal fetch; and Android Authority (403 Cloudflare challenge), which also loads fine through a normal fetch. These four gave errors to the HEAD check but returned 200 to a browser-UA GET: gemini.google/subscriptions, news.ycombinator.com (405 to HEAD), two support.google.com pages and ahrq.gov.
+  - Static checks (all 113 HTML files): every img has alt text and an existing file (69 imgs). Every data-copy button points at an existing id. The search index covers all 78 use cases and 12 blueprints. All 298 JSON-LD blocks parse. app.js and the inline scripts pass `node --check`. Every page has a width=device-width viewport. There are no inline or CSS fixed widths over 320px.
+  - Headless Chrome (already installed, driven over CDP from Shell):
+    - Console: 0 console errors and 0 JS exceptions on 13 live pages at 320px and 1280px.
+    - Function tests: /use-cases/?q=resignation filters to 1 result, homepage instant search returns results, the Copy button reaches "Copied ✓", and the calculator renders with the ?bot= prefill.
+    - Overflow: a full 320px scan of all 112 pages, run locally, found the bug below. After the fix, the only flag left was the homepage hero radar art, which is clipped on purpose (page scrollWidth stays 320).
+- **Bugs fixed:**
+  - Horizontal overflow at 320px on blueprint pages: job-match-scout was 389px wide and receipt-matcher 327px, so text was cut off on the right because body has overflow-x:hidden.
+    - Cause: `.uc-grid` items kept `min-width:auto`, so the wide "What this costs to run" table and a long email address in a step forced the column wider than the screen.
+    - Fix in static/style.css: `.uc-grid` now uses `grid-template-columns:minmax(0,1fr)` and `.uc-grid>*{min-width:0;overflow-wrap:anywhere}`. The table now scrolls inside its `.table-wrap` as intended.
+    - Deployed and verified live: both pages are 320px wide and the CSS is served.
+- **Improvement for visitors:** new guide **Fill out a job application faster with an agent** (https://botsdothat.com/use-cases/fill-out-a-job-application-faster/, work category).
+  - What it covers: write a fact sheet once, have a browser agent fill in the employer's careers page, sign in yourself, have the agent list anything it can't answer instead of guessing, and stop before Submit. Copy-paste prompt included.
+  - Watch-outs, each sourced:
+    - OpenAI Help "Using cloud browser in ChatGPT": secure sign-in form, confirmation before consequential actions, some sites block the agent, check results.
+    - FTC "Job Scams": honest employers never ask you to pay to get a job, plus the fake-check scam.
+    - LinkedIn User Agreement §8.2: bans bots and unauthorized automated methods, so apply on the employer's own site.
+  - Also: a 3-question FAQ, no stats and no time-saved estimate, and `popularity: null`.
+  - Cross-linked from the Job Match Scout blueprint. Backlog item marked `[x]`.
+- **Deploy commits:** publish b854687 (guide), then 0b02d66 (overflow fix). Both GitHub Actions runs succeeded. The news routine deployed 1411bd7 between them, with no conflict.
+- **Not checked:** Reddit (blocked from the box), real-device or Safari/iOS rendering (Chrome emulation only), and Lighthouse/performance scores.
+
 ## 2026-10-22 (news update, 7:10 AM CT)
 - Added 2 verified items: **Recursive releases Flint**, a free laptop-sized coding model (Oct 21, TechCrunch; notable; new company "Recursive" added to `NEWS_CO` in build.py) and **Meta pauses Muse chat sharing** after 6,800+ share links were found in public web records (Oct 20, The Verge + Ars Technica; notable; no credible high-engagement X post, so no `x` block).
 - X numbers re-measured 2026-10-22 for 13 recent posts (raw in research/x_news_measure_2026_10_22_am.json.txt, applied by research/news_x_2026_10_22.py). @RichardSocher Flint 7,127 likes / 759 reposts / 2,836,719 views; @claudeai Duet 48,646 / 3,710 / 7,089,059.
