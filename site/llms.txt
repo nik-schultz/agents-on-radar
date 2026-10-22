@@ -2,7 +2,7 @@
 
 > There's a bot for that. Here's how. A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
 
-Data as of 2026-10-21. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.
+Data as of 2026-10-22. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.
 
 ## Start here
 - [What can bots actually do?](https://botsdothat.com/what-can-bots-do/): plain-English explainer
@@ -84,6 +84,7 @@ Data as of 2026-10-21. Popularity numbers are real counts (X likes/reposts, Redd
 - [Organize an aging parent's care and paperwork](https://botsdothat.com/use-cases/organize-a-parents-care-paperwork/): You're helping a parent with doctors, insurance, medicines and bills, and the details live in a dozen places.
 
 ### Work & career
+- [Fill out a job application faster with an agent](https://botsdothat.com/use-cases/fill-out-a-job-application-faster/): Online job applications ask for the same details over and over. A browser agent can type them in from your resume and a short fact sheet, while you sign in yourself and press Submit yourself.
 - [Give your agents their own Apple account so they share reminders, notes and calendar](https://botsdothat.com/use-cases/give-your-agents-a-shared-apple-account/): A Mac signed in to a separate Apple Account can become the shared desk where your agents leave each other reminders, notes, calendar events and messages, while your personal account stays private.
 - [Hand off tasks to your agent by voice while you drive](https://botsdothat.com/use-cases/hand-off-tasks-by-voice-while-driving/): Long drive? Talk to your agent on a voice call and hand off research, follow-ups and to-dos, then find them done when you arrive.
 - [Hand a clunky web form or app to an agent that uses the computer for you](https://botsdothat.com/use-cases/hand-a-clunky-web-form-to-an-agent/): Some software you only touch once a year. A computer-use agent can click through it for you, from a login you control, while you watch.

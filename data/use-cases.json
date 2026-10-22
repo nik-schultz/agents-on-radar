@@ -1,5 +1,98 @@
 [
  {
+  "slug": "fill-out-a-job-application-faster",
+  "title": "Fill out a job application faster with an agent",
+  "category": "work",
+  "source_date": null,
+  "summary": "Online job applications ask for the same details over and over. A browser agent can type them in from your resume and a short fact sheet, while you sign in yourself and press Submit yourself.",
+  "problem": "Every employer's careers site makes you retype your work history, education and answers to the same screening questions, and it eats your evening.",
+  "outcome": "An application filled in from your own facts, a list of anything the agent couldn't answer, and a summary to check before you press Submit.",
+  "what_the_bot_does": [
+   "Before you start, write one fact sheet: your resume, dates, job titles, work authorization, start date, and your answers to common screening questions. Leave out your Social Security number and bank details.",
+   "Check the job is real: look up the company name plus “scam” or “review”, and walk away if anyone asks you to pay to get the job.",
+   "Give a browser agent (like ChatGPT's cloud browser) the link to the job on the employer's own careers page, plus your fact sheet.",
+   "When the site asks you to sign in or create an account, the agent pauses and you sign in yourself through its secure sign-in form.",
+   "The agent fills in each page from your fact sheet only. Anything it doesn't know, it lists for you instead of guessing.",
+   "It stops before the final Submit and shows you a summary. You fix anything wrong, answer the open questions, and submit it yourself."
+  ],
+  "what_you_end_up_with": "An application filled in from your own facts, a list of anything the agent couldn't answer, and a summary to check before you press Submit.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt-work",
+    "note": "Cloud browser: fills web forms, pauses for sign-in and confirmation"
+   },
+   {
+    "id": "claude-cowork"
+   },
+   {
+    "id": "grok-bot"
+   },
+   {
+    "id": "chatgpt",
+    "note": "Any chat AI can write your fact sheet and screening answers first"
+   }
+  ],
+  "prompt": "Help me apply for this job: [LINK TO THE JOB ON THE EMPLOYER'S OWN CAREERS PAGE]\n\nUse ONLY the facts in my fact sheet and attached resume:\n[PASTE FACT SHEET: name, email, phone, city, work history with dates, education, work authorization, earliest start date, answers to common screening questions]\n\nRules:\n1. When you reach a sign-in or create-account page, stop and let me sign in myself.\n2. Never guess or make anything up. If a question isn't covered by my facts, leave it blank and add it to a list for me.\n3. Don't enter a Social Security number, bank details, or ID numbers, and don't pay for anything. If the site asks for any of these, stop and tell me.\n4. Don't tick any agreement or consent box for me; list them so I can read them.\n5. Stop before the final Submit button. Show me a summary of every answer you entered and the list of open questions.",
+  "watch_out": [
+   "You're signing your name to every answer. Check the summary line by line before you submit; OpenAI's own help page says to check results and confirmation requests, because agents can misread a page.",
+   "Never paste passwords into the chat. ChatGPT's cloud browser has a secure sign-in form for that, and OpenAI says the model can't see what you type there.",
+   "Some sites block browser agents. OpenAI notes a site may block the cloud browser even when it works in your own browser; then fill that one in yourself with your fact sheet open.",
+   "Job sites set their own rules. LinkedIn's User Agreement bans using bots or other unauthorized automated methods to access its service, so apply on the employer's own careers page, not through a bot on LinkedIn.",
+   "Job scams target applicants. The FTC says honest employers never ask you to pay to get a job, and never send a check for you to deposit and send part of it on. Stop the agent if a site asks for money, gift cards or your bank details."
+  ],
+  "faq": [
+   {
+    "q": "Can AI fill out job applications for me?",
+    "a": "A browser agent can type your details into an online application, but you should sign in yourself, check every answer it entered, and press Submit yourself. Some sites block agents, and you're responsible for what you send."
+   },
+   {
+    "q": "Is it safe to give an AI agent my personal information?",
+    "a": "Give it only what the application needs. Keep your Social Security number, bank details and passwords out of the chat, and use the agent's secure sign-in form when a site asks you to log in."
+   },
+   {
+    "q": "Can I use a bot to apply for jobs on LinkedIn?",
+    "a": "LinkedIn's User Agreement bans using bots or other unauthorized automated methods to access its service. Use the agent on the employer's own careers page instead."
+   }
+  ],
+  "sources": [
+   {
+    "label": "Google search suggestions for “can ai fill out job applications for me” (checked 2026-10-19)",
+    "url": "https://www.google.com/search?q=can+ai+fill+out+job+applications+for+me",
+    "kind": "article"
+   },
+   {
+    "label": "OpenAI Help: Using cloud browser in ChatGPT (fills forms, pauses for sign-in and confirmation, some sites block it; checked 2026-10-22)",
+    "url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+    "kind": "official"
+   },
+   {
+    "label": "FTC Consumer Advice: Job Scams (checked 2026-10-22)",
+    "url": "https://consumer.ftc.gov/articles/job-scams",
+    "kind": "official"
+   },
+   {
+    "label": "LinkedIn User Agreement, section 8.2 Don'ts (effective Nov 3, 2025; checked 2026-10-22)",
+    "url": "https://www.linkedin.com/legal/user-agreement",
+    "kind": "official"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "job application",
+   "apply for jobs",
+   "careers",
+   "browser agent",
+   "forms",
+   "job search",
+   "resume"
+  ],
+  "date_added": "2026-10-22",
+  "origin": "pipeline",
+  "last_checked": "2026-10-22",
+  "setup": []
+ },
+ {
   "slug": "send-a-long-video-or-thread-to-your-bot",
   "title": "Send a long video or thread to your bot with one reply",
   "category": "inbox",
