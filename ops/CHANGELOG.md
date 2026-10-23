@@ -1,5 +1,13 @@
 # Ops changelog
 
+## 2026-10-23 (12:45 PM CT) — Fix: use-case category chips, search and sort didn't update the cards
+- Bug (reported by Nik): on /use-cases/, clicking a category chip highlighted it and updated the count ("8 of 82"), but all 82 cards stayed visible.
+- Root cause: the JS filter hides cards with the HTML `hidden` attribute, but `.card{display:flex}` in style.css overrode the browser's default `[hidden]{display:none}`, so hidden cards still showed. Filtering logic, data-cat slugs and sort were correct.
+- Fix: global `[hidden]{display:none!important}` in style.css (also protects news-page `.nt-grid` and any future component); chip selector scoped to `.chip[data-filter]`; build.py now adds a content hash (`?v=`) to style.css/app.js so returning visitors get fixed assets right away.
+- Shipped inside deploy 1dcf067 (12:25 PM CT): the parallel time-saved job's `deploy.sh` (`git add -A`) picked up these edits while they were in progress (main e3dab69).
+- Tested in headless Chrome (local + live), 1280px and 320px: all 9 chips × 3 sorts (visible cards = count text = category total, correct order, aria-pressed), search "email"/"calendar"/no-match × every chip, empty message, ?cat=&sort= URL params, news filters incl. back to All. 0 failures, 0 console errors, no horizontal overflow. Live site reproduced the bug before the fix (e.g. run-for-less: 82 visible, expected 8).
+- Blueprints, homepage and trending have no client-side filters; news filters were already working.
+
 ## 2026-10-23 (12:25 PM CT) — Unsourced "editor's estimate" time-saved lines replaced or removed
 - 19 use cases had a time-saved line labeled "by our editor's estimate" with no source (rendered in the FAQ + FAQPage JSON-LD).
 - Sourced (5), each phrased as the source states it, linked, checked 2026-10-23:
