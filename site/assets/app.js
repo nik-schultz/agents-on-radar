@@ -163,4 +163,21 @@
     f.addEventListener('change', render);
     render();
   });
+  // ---- newsletter (Kit, double opt-in): submit in place with JSON; fall back to a normal POST if fetch is unavailable
+  Array.prototype.forEach.call(d.querySelectorAll('form[data-nl]'), function (f) {
+    if (!window.fetch || !window.FormData) return;
+    var st = f.parentNode.querySelector('.nl-status'), btn = f.querySelector('button');
+    var say = function (msg, bad) { if (!st) return; st.textContent = msg; st.hidden = false; st.classList.toggle('nl-bad', !!bad); };
+    f.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      if (btn) btn.disabled = true;
+      fetch(f.action, { method: 'POST', body: new FormData(f), headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { status: r.ok ? 'success' : 'failed' }; }); })
+        .then(function (j) {
+          if (j && j.status === 'success') { f.hidden = true; say('Almost done. Check your email to confirm your subscription.'); }
+          else { if (btn) btn.disabled = false; var m = j && j.errors && j.errors.messages; say((m && m.length ? m.join(' ') : 'That didn\u2019t work.') + ' Please check the address and try again.', true); }
+        })
+        .catch(function () { f.removeAttribute('data-nl'); HTMLFormElement.prototype.submit.call(f); });
+    });
+  });
 })();

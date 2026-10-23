@@ -419,3 +419,5 @@ div.bp-art.art-slot{border-radius:50%}
 @media (forced-colors:active){.wm-mid{color:CanvasText;background:none}}
 .nl-item{margin:2rem 0}.nl-item.glass{padding:1.25rem}
 .nl-archive{list-style:none;padding:0;display:grid;gap:.75rem}.nl-arch a{display:grid;gap:.25rem;padding:1rem 1.25rem;text-decoration:none;color:inherit}.nl-arch b{font-size:1.1rem}
+
+.nl-status{margin:.6rem 0 0;font-weight:600;color:var(--ink)}.nl-status.nl-bad{color:#ffb4b4}.nl-note{margin-top:.5rem}

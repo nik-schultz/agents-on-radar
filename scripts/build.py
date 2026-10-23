@@ -180,12 +180,12 @@ def featured_slot(slot, cat=None):
 def newsletter_box():
     act = cfg["newsletter"].get("form_action", "")
     dis = "" if act else " disabled"
-    note = "" if act else '<p class="small" role="note">Signups open soon. This form doesn\'t send anything yet.</p>'
+    note = '<p class="small nl-note">We\'ll email you a link to confirm your subscription. You\'re not subscribed until you click it.</p>' if act else '<p class="small" role="note">Signups open soon. This form doesn\'t send anything yet.</p>'
     return f"""<section class="news glass reveal" id="newsletter" aria-labelledby="nl-h"><div><p class="eyebrow">{e(NAME)} Weekly</p><h2 id="nl-h">The 5 best new things people got bots to do this week</h2>
 <p>Real examples with sources, one blueprint you can copy, and one thing that went wrong. Free. One email a week.</p></div>
-<form class="nl-form" action="{e(act) or '#'}" method="post"><label class="sr" for="nl-email">Email address</label>
-<input id="nl-email" type="email" name="{e(cfg['newsletter'].get('email_field','email'))}" placeholder="you@example.com" autocomplete="email" required{dis}>
-<button class="btn" type="submit"{dis}>Subscribe</button></form>{note}</section>"""
+<form class="nl-form" action="{e(act) or '#'}" method="post"{' data-nl' if act else ''}><label class="sr" for="nl-email">Email address</label>
+<input id="nl-email" type="email" name="{e(cfg['newsletter'].get('email_field','email_address'))}" placeholder="you@example.com" autocomplete="email" required{dis}>
+<button class="btn" type="submit"{dis}>Subscribe</button></form><p class="nl-status" role="status" aria-live="polite" hidden></p>{note}</section>"""
 
 def searchbox(id_="q", placeholder="Try “groceries”, “phone call”, “school emails”…", home=False):
     return f"""<form class="search" role="search" action="{u('/use-cases/')}" method="get"><label class="sr" for="{id_}">Search use cases</label>

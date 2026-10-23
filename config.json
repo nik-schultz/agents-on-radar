@@ -15,9 +15,11 @@
   "as_of": "",
   "trending_window_days": 60,
   "newsletter": {
-    "form_action": "",
-    "email_field": "email",
-    "_help": "Paste your email provider's form POST URL into form_action (beehiiv/Buttondown/Kit). While empty, the form is shown but disabled with a 'signups open soon' note and submits nothing."
+    "form_action": "https://app.kit.com/forms/10088120/subscriptions",
+    "email_field": "email_address",
+    "_help": "Kit form (id 10088120, uid e874d57257), double opt-in. form_action is Kit's POST URL; email_field must be email_address. Forms submit via fetch (Accept: application/json) with an inline message, falling back to a normal POST. If form_action is empty, the form is shown disabled and sends nothing.",
+    "provider": "Kit",
+    "hosted_page": "https://botsdothat.kit.com/e874d57257"
   },
   "meta_description": "See what AI agents are doing for real people, with sources and real popularity numbers. Then build your own with copy-paste bot blueprints. Updated daily.",
   "verification": {

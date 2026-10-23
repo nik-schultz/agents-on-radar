@@ -1,5 +1,12 @@
 # Ops changelog
 
+## 2026-10-23 (2:04 PM CT) — Newsletter signup wired to Kit (double opt-in)
+- config.json newsletter: form_action https://app.kit.com/forms/10088120/subscriptions, email_field `email_address`. Also records the provider and the hosted page https://botsdothat.kit.com/e874d57257.
+- All 3 signup forms post there as plain HTML forms (no Kit JS): homepage, /newsletter/, and the issue page /newsletter/2026-10-22/. The footer only has links, no form.
+- app.js submits with fetch (Accept: application/json) and shows "Almost done. Check your email to confirm your subscription." inline. Kit's error messages appear inline too. If fetch fails, the form falls back to a normal POST. Kit's CORS preflight allows any origin, checked with OPTIONS only; no email was submitted.
+- Added a note under each form that a confirmation email is sent, and you're not subscribed until you click the link.
+- Kit plan note: when the 14-day Creator trial ends without a card, the account continues on the free plan. It allows up to 10,000 subscribers; sequences and automations are paid-only. Sources: https://kit.com/pricing and https://help.kit.com/en/articles/16627071-the-kit-free-plan
+
 ## 2026-10-23 (12:28 PM CT) — Leftover time labels: blueprint setup times relabeled, title time promises removed
 - Blueprint `setup_time` (12): "About N minutes (editor's estimate)" changed to "Rough setup time: about N minutes". validate.py now rejects an "editor's estimate" label in blueprint data.
 - Use-case titles: dropped the unsourced time promises. Slugs and URLs are unchanged; titles, meta, OG, headings, search index and llms files were rebuilt from data.
