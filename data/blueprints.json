@@ -4,8 +4,8 @@
   "title": "Morning Inbox Briefing",
   "art": "cat-inbox",
   "difficulty": "Easy",
-  "setup_time": "Rough setup time: about 15 minutes",
-  "goal": "Wake up to a 2-minute summary of what's in your email and what needs you today.",
+  "setup_time": "4-step bot",
+  "goal": "Wake up to a short summary of what's in your email and what needs you today.",
   "trigger": "Every weekday at 7:00am",
   "watches": "New emails since yesterday morning",
   "steps": [
@@ -38,11 +38,7 @@
    "Drafts stay in Drafts. You press send.",
    "Check the first week of briefings against your real inbox."
   ],
-  "related": [
-   "monday-inbox-recap-and-todo",
-   "flag-only-emails-that-need-a-reply",
-   "clean-up-your-email-inbox"
-  ],
+  "related": ["monday-inbox-recap-and-todo", "flag-only-emails-that-need-a-reply", "clean-up-your-email-inbox", "time-sensitive-inbox-watcher"],
   "sources": [
    {
     "label": "Google: Gemini Spark example schedules",
@@ -61,7 +57,7 @@
   "title": "School Email Digest",
   "art": "cat-family",
   "difficulty": "Medium",
-  "setup_time": "Rough setup time: about 30 minutes",
+  "setup_time": "4-step bot",
   "goal": "Never miss a permission slip, payment or deadline buried in school emails again.",
   "trigger": "Every Sunday at 6:00am",
   "watches": "Emails with your 'School' label (set up a filter first)",
@@ -95,10 +91,7 @@
    "Drafts only for anything going to the school.",
    "Check the first two digests against the original emails."
   ],
-  "related": [
-   "school-email-digest",
-   "sunday-family-calendar-check"
-  ],
+  "related": ["school-email-digest"],
   "sources": [
    {
     "label": "Anna Burgess Yang: school email digest with Claude Cowork",
@@ -121,7 +114,7 @@
   "title": "Web Page Watcher",
   "art": "cat-shopping",
   "difficulty": "Easy",
-  "setup_time": "Rough setup time: about 10 minutes",
+  "setup_time": "4-step bot",
   "goal": "Get one ping when a page you care about changes (a restock, a new listing, an appointment slot, a status update) and stop refreshing it yourself.",
   "trigger": "Every morning at 8:00am (or every few hours for time-sensitive pages)",
   "watches": "The web pages you give it",
@@ -150,11 +143,7 @@
    "Watching is safe; acting on what it finds is a separate decision you make.",
    "Some sites block bots. If checks keep failing, use the site's own alerts instead."
   ],
-  "related": [
-   "watch-a-web-page-for-changes",
-   "catch-airline-schedule-changes",
-   "watch-for-one-important-letter"
-  ],
+  "related": ["watch-a-web-page-for-changes"],
   "sources": [
    {
     "label": "X: a Grok bot that watches pages and pings only on change",
@@ -173,7 +162,7 @@
   "title": "Phone Call Bot",
   "art": "cat-work",
   "difficulty": "Medium",
-  "setup_time": "Rough setup time: about 20 minutes once a calling add-on is connected",
+  "setup_time": "4-step bot · needs a calling add-on",
   "goal": "Hand off the phone calls you keep putting off: booking a table, a vet visit or a haircut, or a quick customer-service call.",
   "trigger": "Only when you ask it to (never on its own)",
   "watches": "Nothing. It waits for your request, then makes one call at a time",
@@ -204,11 +193,7 @@
    "Some companies only act for the account holder, so some calls will still need you.",
    "Never let it share card numbers or deposit details on a call."
   ],
-  "related": [
-   "call-and-book-by-phone",
-   "make-a-customer-service-call",
-   "restaurant-reservations-by-agent"
-  ],
+  "related": ["call-and-book-by-phone", "make-a-customer-service-call", "restaurant-reservations-by-agent"],
   "sources": [
    {
     "label": "X post by @BrianRoemmele (2026-10-18): a Grok Bot that calls a restaurant and books the table, with its guardrails",
@@ -233,7 +218,7 @@
   "title": "Scam Checker",
   "art": "cat-inbox",
   "difficulty": "Easy",
-  "setup_time": "Rough setup time: about 10 minutes",
+  "setup_time": "4-step bot",
   "goal": "Get a plain verdict on suspicious emails and texts before anyone in the family clicks.",
   "trigger": "Every morning, plus any time you forward something suspicious",
   "watches": "New email (read-only), or messages you forward to it",
@@ -266,9 +251,7 @@
    "Read-only, always.",
    "A 'looks fine' verdict isn't a guarantee. When money is involved, call the company on a number you already trust."
   ],
-  "related": [
-   "email-scam-filter"
-  ],
+  "related": ["email-scam-filter"],
   "sources": [
    {
     "label": "X: read-only Grok Bot email scam filter",
@@ -287,7 +270,7 @@
   "title": "Weekly Meal Plan Bot",
   "art": "cat-shopping",
   "difficulty": "Easy",
-  "setup_time": "Rough setup time: about 20 minutes",
+  "setup_time": "4-step bot",
   "goal": "Get a family meal plan and one shopping list every week without thinking about it.",
   "trigger": "Every Thursday at 5:00pm",
   "watches": "Your recipe list and what you say is in the fridge",
@@ -320,11 +303,7 @@
    "Double-check allergies on every new recipe.",
    "If an agent fills your cart, you check out yourself."
   ],
-  "related": [
-   "family-meal-plan-and-grocery-order",
-   "weekly-meal-plan-and-grocery-list",
-   "household-restock-list"
-  ],
+  "related": ["family-meal-plan-and-grocery-order", "weekly-meal-plan-and-grocery-list", "household-restock-list"],
   "sources": [
    {
     "label": "X: a Grok bot plans 15 family meals a week",
@@ -343,7 +322,7 @@
   "title": "Family Calendar Guardian",
   "art": "cat-family",
   "difficulty": "Easy",
-  "setup_time": "Rough setup time: about 15 minutes",
+  "setup_time": "4-step bot",
   "goal": "Spot clashes and prep jobs for the next two weeks, every Sunday.",
   "trigger": "Every Sunday at 6:00pm",
   "watches": "Your shared family calendar (read-only)",
@@ -375,10 +354,7 @@
   "safety": [
    "Start read-only: it may read, but not send, buy, delete or change anything."
   ],
-  "related": [
-   "sunday-family-calendar-check",
-   "school-email-digest"
-  ],
+  "related": ["sunday-family-calendar-check", "school-email-digest"],
   "sources": [
    {
     "label": "X: 7 jobs to give a family bot",
@@ -397,7 +373,7 @@
   "title": "Travel Day Guardian",
   "art": "cat-travel",
   "difficulty": "Medium",
-  "setup_time": "Rough setup time: about 20 minutes",
+  "setup_time": "4-step bot",
   "goal": "Hear about schedule changes and delays first, with your options and a request ready to send.",
   "trigger": "Daily while you have upcoming trips, plus every 2 hours on travel day",
   "watches": "Airline and booking emails",
@@ -430,12 +406,7 @@
    "Cancelling can lose your seat. Decide first.",
    "Use a single-use virtual card if you let it book."
   ],
-  "related": [
-   "catch-airline-schedule-changes",
-   "rebook-a-delayed-flight",
-   "plan-and-book-a-whole-trip-by-text",
-   "pay-with-a-single-use-virtual-card"
-  ],
+  "related": ["catch-airline-schedule-changes", "rebook-a-delayed-flight"],
   "sources": [
    {
     "label": "WIRED: Instinct caught a 90-minute schedule change the reviewer had missed",
@@ -454,7 +425,7 @@
   "title": "Follow-Up Finder",
   "art": "cat-work",
   "difficulty": "Medium",
-  "setup_time": "Rough setup time: about 25 minutes",
+  "setup_time": "4-step bot",
   "goal": "Never let a client, lead or friend go cold because you forgot to reply.",
   "trigger": "Every Monday at 8:00am",
   "watches": "Your sent mail, calendar and task list",
@@ -487,11 +458,7 @@
    "Drafts only.",
    "Some threads went quiet for a reason. Read before sending."
   ],
-  "related": [
-   "find-dead-conversations-to-follow-up",
-   "chase-an-unpaid-invoice",
-   "time-sensitive-inbox-watcher"
-  ],
+  "related": ["find-dead-conversations-to-follow-up", "chase-an-unpaid-invoice"],
   "sources": [
    {
     "label": "X: n8n automation found 19 dead conversations",
@@ -510,7 +477,7 @@
   "title": "Job Match Scout",
   "art": "cat-work",
   "difficulty": "Medium",
-  "setup_time": "Rough setup time: about 30 minutes",
+  "setup_time": "4-step bot",
   "goal": "Get a daily shortlist of jobs that fit you, with notes. You apply yourself.",
   "trigger": "Every weekday at 9:00am",
   "watches": "New listings on job boards that allow it",
@@ -543,11 +510,7 @@
    "Don't let it auto-apply: job sites block bots and can ban accounts.",
    "Check every tailored CV for made-up claims."
   ],
-  "related": [
-   "job-match-digest",
-   "tailor-your-resume-to-a-job",
-   "fill-out-a-job-application-faster"
-  ],
+  "related": ["job-match-digest", "tailor-your-resume-to-a-job", "fill-out-a-job-application-faster"],
   "sources": [
    {
     "label": "Reddit r/n8n: job-matching workflow",
@@ -566,7 +529,7 @@
   "title": "Receipt Matcher (small business)",
   "art": "cat-business",
   "difficulty": "Medium",
-  "setup_time": "Rough setup time: about 30 minutes",
+  "setup_time": "4-step bot",
   "goal": "Have every business expense matched to a receipt before your bookkeeper asks.",
   "trigger": "Every Friday at 4:00pm",
   "watches": "A receipts@ inbox and your business card activity (read-only)",
@@ -599,10 +562,7 @@
    "Start read-only: it may read, but not send, buy, delete or change anything.",
    "Ask your bookkeeper how they want the output."
   ],
-  "related": [
-   "small-business-receipt-matching",
-   "chase-an-unpaid-invoice"
-  ],
+  "related": ["small-business-receipt-matching"],
   "sources": [
    {
     "label": "X: finance admin with Grok Bot + a receipts inbox",
@@ -621,7 +581,7 @@
   "title": "New Inquiry Logger",
   "art": "cat-business",
   "difficulty": "Easy",
-  "setup_time": "Rough setup time: about 15 minutes",
+  "setup_time": "4-step bot",
   "goal": "Every customer inquiry lands in one tracker with a reply drafted.",
   "trigger": "Whenever a new inquiry email arrives",
   "watches": "Your business inbox",
@@ -654,11 +614,7 @@
    "Drafts only until you trust it.",
    "Check extracted dates; a wrong date loses a booking."
   ],
-  "related": [
-   "log-new-client-inquiries",
-   "build-a-lead-list-with-approval",
-   "reply-to-customer-reviews"
-  ],
+  "related": ["log-new-client-inquiries", "build-a-lead-list-with-approval"],
   "sources": [
    {
     "label": "Google: Gemini Spark client-tracker example",

@@ -465,3 +465,8 @@ div.bp-art.art-slot{border-radius:50%}
 .tier-cta{margin-top:14px}.tier-cta .small{display:block;margin-top:6px}
 .calc-tok{margin:6px 0 0}
 @media(max-width:999px){.uc-side .nl-card{display:none}}
+/* ---- nav overflow cue (2026-10-23): fade + arrow when the link row scrolls sideways ---- */
+@media(max-width:899px){
+html:not(.js) .menu{-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent)}
+.menu.menu-more:not(.open){-webkit-mask-image:linear-gradient(90deg,#000 80%,transparent);mask-image:linear-gradient(90deg,#000 80%,transparent)}
+}

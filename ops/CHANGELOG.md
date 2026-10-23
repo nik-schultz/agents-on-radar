@@ -1,5 +1,24 @@
 # Ops changelog
 
+## 2026-10-23 (night CT) — Review quick wins, part 2: nav order, headings, honest setup sizes, blueprint links, logo schema, real dateModified
+Follows the evening batch (ae4390f), which already shipped privacy, contact email, ticker tabindex, mobile menu, newsletter fallback, popularity hiding and X links. tools.json was not touched (the CEO agent owns it).
+- Nav: "What's an AI agent?" is first. At 641 to 899px the link row now fades on the right while links are hidden off-screen (JS toggles `.menu-more`). Without JS the row always fades at that width.
+- /category/run-for-less/: title "AI cost-saving guides for your bots", H1 "Cost-saving guides for your bots". It was "AI agents for run your bots for less" and duplicated the hub H1.
+- Heading order: a visually hidden H2 now sits before the card grid on /use-cases/ and every /category/* page, so headings go H1, H2, H3.
+- Blueprints: "Rough setup time: about N minutes" is replaced with "4-step bot" (every blueprint has 4 steps). phone-call-bot reads "4-step bot · needs a calling add-on". The guide table column is now "Size". validate.py rejects durations in setup_time.
+- Unsourced time claims removed. These became "short" or were cut: "2-minute summary" (morning-inbox-briefing), "2-minute Monday briefing", the morning-news-digest title (slug kept), resignation letter "in a couple of minutes", confusing letter "In a few minutes" and "Reply in two minutes". Sourced figures stay unchanged.
+- Blueprint links remapped:
+  - watch-for-one-important-letter and reply-to-customer-reviews no longer show an unrelated bot (none fits).
+  - catch-airline-schedule-changes now shows only travel-day-guardian.
+  - plan-and-book-a-whole-trip-by-text and pay-with-a-single-use-virtual-card no longer show travel-day-guardian.
+  - sunday-family-calendar-check now shows only family-calendar-guardian.
+  - chase-an-unpaid-invoice now shows only follow-up-finder.
+  - time-sensitive-inbox-watcher moved from follow-up-finder to morning-inbox-briefing, which flags deadlines within 48 hours.
+- Schema: one shared Organization (name, url, `logo` = /assets/img/logo-512.png rendered from favicon.svg, `sameAs` X) is used for home, explainer, guides, HowTo and use-case pages. No named Person editor was added.
+- dateModified / "Updated" dates now change only when content changes. Pages use MOD tokens, and page() hashes title, description, body and JSON-LD against data/content-dates.json, keeping the stored date when the hash is unchanged. This covers the explainer, examples, the no-code guide, the cost, OpenClaw and safety guides and the disclosure. Sitemap lastmod follows the same dates. datePublished is fixed: explainer 2026-10-20, the no-code guide and the 3 new guides 2026-10-23. Before this change both values were the build date.
+- Footer: "Follow on X (@botsdothat)" (rel="me"). /newsletter/ adds "Between issues, follow @botsdothat on X". llms.txt About lists Privacy, the X account and hello@botsdothat.com. /about/ Contact adds GitHub issues as a secondary option after the email.
+- Newsletter promise: already one wording sitewide from the evening batch ("3 to 5 practical jobs you can hand to AI each week" plus "Free, one email a week"), so it was left as is.
+
 ## 2026-10-23 (evening CT) — Site review batch: inline signups, privacy page, contact email, mobile menu, ChatGPT agent retired
 Implements the site review (all items except #6 homepage reorder and #7 intro/rotating headlines, which were left untouched). Kit itself was not touched.
 - Newsletter: the same Kit form (10088120, double opt-in) now appears at the end of every use case, blueprint, guide (no-code build, cost, OpenClaw vs Hermes, safety, what-is-an-AI-agent, examples), /trending/ and /news/, plus once on the homepage right after the trending grid. `newsletter_box(uid, variant)` gives every form unique ids. One promise everywhere: "3 to 5 practical jobs you can hand to AI each week". Every form has a Privacy link under it.

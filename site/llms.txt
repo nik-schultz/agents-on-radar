@@ -31,7 +31,7 @@ Data as of 2026-10-23. Popularity numbers are real counts (X likes/reposts, Redd
 - [Give your agent its own email address](https://botsdothat.com/use-cases/give-your-agent-its-own-email-address/): Give your agent an inbox of its own. Then you or anyone else can forward it jobs, like a meeting request it turns into a calendar invite with prep notes.
 - [Get a Monday recap of your inbox and a to-do list](https://botsdothat.com/use-cases/monday-inbox-recap-and-todo/): Every Monday a bot reviews last week's email, recaps what matters and suggests a ranked to-do list.
 - [Only see the emails that actually need a reply](https://botsdothat.com/use-cases/flag-only-emails-that-need-a-reply/): A simple triage bot flags anything needing a reply within 24 hours and moves the noise out of the way.
-- [Get a 2-minute morning digest on topics you care about](https://botsdothat.com/use-cases/morning-news-digest/): A bot reads the news on your topics every morning and sends you a short plain-English digest, or even an audio version.
+- [Get a short morning digest on topics you care about](https://botsdothat.com/use-cases/morning-news-digest/): A bot reads the news on your topics every morning and sends you a short plain-English digest, or even an audio version.
 - [Watch your email for one important letter or reply](https://botsdothat.com/use-cases/watch-for-one-important-letter/): Waiting on a visa decision, a parcel or a reply from the landlord? Have a bot watch for it and ping you.
 - [Understand a confusing letter or notice, and what to do next](https://botsdothat.com/use-cases/understand-a-confusing-letter/): A letter from a government office, insurer, bank or landlord landed in your mailbox and you can't tell if it's important, a bill, a scam, or nothing.
 - [Write a complaint that actually gets a problem fixed](https://botsdothat.com/use-cases/write-a-complaint-that-gets-fixed/): A company messed up (late delivery, broken product, wrong charge, bad repair) and customer service keeps going in circles.
@@ -97,7 +97,7 @@ Data as of 2026-10-23. Popularity numbers are real counts (X likes/reposts, Redd
 - [Hand off tasks to your agent by voice while you drive](https://botsdothat.com/use-cases/hand-off-tasks-by-voice-while-driving/): Long drive? Talk to your agent on a voice call and hand off research, follow-ups and to-dos, then find them done when you arrive.
 - [Hand a clunky web form to an agent that uses the computer](https://botsdothat.com/use-cases/hand-a-clunky-web-form-to-an-agent/): Some software you only touch once a year. A computer-use agent can click through it for you, from a login you control, while you watch.
 - [Write a letter of recommendation for someone](https://botsdothat.com/use-cases/write-a-letter-of-recommendation/): Someone asked you for a reference letter and you want it to sound specific and honest, not generic. AI can turn your notes and their resume into a solid first draft.
-- [Write a resignation letter that keeps the door open](https://botsdothat.com/use-cases/write-a-resignation-letter/): You're leaving a job and want to say so clearly and kindly, without oversharing. AI can draft a short, professional resignation letter or email in a couple of minutes.
+- [Write a resignation letter that keeps the door open](https://botsdothat.com/use-cases/write-a-resignation-letter/): You're leaving a job and want to say so clearly and kindly, without oversharing. AI can draft a short, professional resignation letter or email for you to edit.
 - [Set up a “chief of staff” bot that plans your other bots](https://botsdothat.com/use-cases/hire-a-chief-of-staff-bot/): Instead of building lots of bots, start with one that asks what you do and suggests which helpers you need.
 - [Catch offers and deadlines the moment they land in your inbox](https://botsdothat.com/use-cases/time-sensitive-inbox-watcher/): For fast-moving work (real estate, sales, hiring), a bot in your inbox and calendar texts you when something time-sensitive arrives.
 - [Find the conversations you forgot to follow up on](https://botsdothat.com/use-cases/find-dead-conversations-to-follow-up/): A weekly automation reads your calendar, inbox and tasks and lists people still waiting to hear back, with drafted nudges.
@@ -137,7 +137,7 @@ Data as of 2026-10-23. Popularity numbers are real counts (X likes/reposts, Redd
 - 2026-10-21 [model release] Recursive releases Flint, a free coding model that runs on a laptop: Flint is a free, open coding model small enough to run on an ordinary laptop, so a coding bot can work offline, keep your files private and skip per-use fees. Its maker says it still needs smaller, step-by-step tasks than the big paid assistants. Source: https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/
 
 ## Blueprints
-- [Morning Inbox Briefing](https://botsdothat.com/blueprints/morning-inbox-briefing/): Wake up to a 2-minute summary of what's in your email and what needs you today.
+- [Morning Inbox Briefing](https://botsdothat.com/blueprints/morning-inbox-briefing/): Wake up to a short summary of what's in your email and what needs you today.
 - [School Email Digest](https://botsdothat.com/blueprints/school-email-digest-bot/): Never miss a permission slip, payment or deadline buried in school emails again.
 - [Web Page Watcher](https://botsdothat.com/blueprints/web-page-watcher/): Get one ping when a page you care about changes (a restock, a new listing, an appointment slot, a status update) and stop refreshing it yourself.
 - [Phone Call Bot](https://botsdothat.com/blueprints/phone-call-bot/): Hand off the phone calls you keep putting off: booking a table, a vet visit or a haircut, or a quick customer-service call.
@@ -154,3 +154,6 @@ Data as of 2026-10-23. Popularity numbers are real counts (X likes/reposts, Redd
 - [About and how we measure](https://botsdothat.com/about/)
 - [Advertise](https://botsdothat.com/advertise/)
 - [Affiliate and sponsor disclosure](https://botsdothat.com/disclosure/)
+- [Privacy](https://botsdothat.com/privacy/)
+- X (official account): [@botsdothat](https://x.com/botsdothat)
+- Contact: hello@botsdothat.com

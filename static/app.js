@@ -204,3 +204,13 @@
   var mq = window.matchMedia && matchMedia('(min-width: 641px)');
   if (mq && mq.addEventListener) mq.addEventListener('change', function (m) { if (m.matches) set(false); });
 })();
+
+// ---- nav overflow cue (wide-but-not-desktop widths): fade the right edge while more links are hidden off-screen
+(function () {
+  var m = document.getElementById('site-menu');
+  if (!m) return;
+  function upd() { m.classList.toggle('menu-more', m.scrollWidth - m.clientWidth - m.scrollLeft > 4); }
+  m.addEventListener('scroll', upd, { passive: true });
+  window.addEventListener('resize', upd);
+  upd();
+})();

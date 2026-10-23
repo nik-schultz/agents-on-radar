@@ -35,6 +35,11 @@ DISCLOSE = "/disclosure/"
 PRIVACY = "/privacy/"
 X_HANDLE = (cfg.get("x_handle") or "").lstrip("@")
 X_URL = f"https://x.com/{X_HANDLE}" if X_HANDLE else ""
+# Content-based dateModified: pages put MOD_ISO / MOD_NICE tokens in their body or JSON-LD; page() swaps in the date
+# the page content last changed (hash stored in data/content-dates.json), so a rebuild alone never bumps the date.
+MOD_ISO, MOD_NICE = "@@MODDATE_ISO@@", "@@MODDATE_NICE@@"
+_CD_PATH = os.path.join(ROOT, "data", "content-dates.json")
+CONTENT_DATES = json.load(open(_CD_PATH)) if os.path.exists(_CD_PATH) else {}
 NL_PROMISE = "3 to 5 practical jobs you can hand to AI each week"
 
 # Reusable paid-placement labels. Unused until a real sponsor or affiliate link exists.
@@ -116,11 +121,19 @@ CF_BEACON = (f"<script defer src='https://static.cloudflareinsights.com/beacon.m
 
 def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="page", og_type="website", head_extra=""):
     canon = absu(u(path))
+    _ldj = json.dumps(ld or [], ensure_ascii=False, sort_keys=True)
+    moddate = None
+    if MOD_ISO in body or MOD_NICE in body or MOD_ISO in _ldj:
+        h = hashlib.sha1((title + "\n" + desc + "\n" + body + "\n" + _ldj).encode("utf-8")).hexdigest()
+        prev = CONTENT_DATES.get(path)
+        moddate = prev["date"] if prev and prev.get("hash") == h else BUILD_DATE
+        CONTENT_DATES[path] = {"hash": h, "date": moddate}
+        lastmod = moddate
     nl_end = f'<div class="wrap nl-end">{newsletter_box("nl-end", "inline")}</div>' if (kind in ("uc", "bp") or path in NL_END_PATHS) else ""
     # Keep <title> within ~62 chars (Google truncates longer ones); drop the brand suffix when it won't fit.
     full_title = title if (NAME in title or len(title) + len(NAME) + 3 > 62) else f"{title} · {NAME}"
     og = absu(u("/assets/og.png"))
-    nav = [("/trending/", "Trending"), ("/use-cases/", "Use cases"), ("/blueprints/", "Build a bot"), ("/what-can-bots-do/", "What's an AI agent?"), ("/news/", "AI news"), (LESS, "Run for less")]
+    nav = [("/what-can-bots-do/", "What's an AI agent?"), ("/trending/", "Trending"), ("/use-cases/", "Use cases"), ("/blueprints/", "Build a bot"), ("/news/", "AI news"), (LESS, "Run for less")]
     navh = "".join(f'<a href="{u(p)}"{" class=nav-less" if p == LESS else ""}{" aria-current=page" if path==p else ""}>{"<span class=nav-less-dot aria-hidden=true></span>" if p == LESS else ""}{t}</a>' for p, t in nav)
     doc = f"""<!doctype html><html lang="en" data-page="{kind}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -149,12 +162,13 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <div><p class="logo"><span class="logo-dot" aria-hidden="true"></span>{wordmark()}</p><p class="foot-tag">{e(TAGLINE)}</p><p class="small">{e(cfg.get('subtagline', ''))}</p>
 <p class="small">General information, not legal, medical or financial advice. Popularity numbers are real counts we measured, with the date. Unknown = not shown. Paid placements are labeled “Sponsored”; affiliate links are labeled “Affiliate link” (<a href="{u(DISCLOSE)}">disclosure</a>).</p></div>
 <div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">Use cases</a></li><li><a href="{u('/blueprints/')}">Build a bot</a></li><li><a href="{u(BUILD_GUIDE)}">Build an AI agent without coding</a></li><li><a href="{u(COST_GUIDE)}">What an AI agent costs</a></li><li><a href="{u(SAFE_GUIDE)}">Email and calendar safety</a></li><li><a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a></li><li><a href="{u('/what-can-bots-do/')}">What's an AI agent?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
-<div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/advertise/')}">Advertise</a></li><li><a href="{u(DISCLOSE)}">Affiliate & sponsor disclosure</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u(PRIVACY)}">Privacy</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li>{('<li><a href="' + e(X_URL) + '" rel="me noopener">X: @' + e(X_HANDLE) + '</a></li>') if X_URL else ""}<li><a href="{e(CONTACT_HREF)}">Contact{(": " + e(CONTACT)) if CONTACT else ""}</a></li></ul></div>
+<div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/advertise/')}">Advertise</a></li><li><a href="{u(DISCLOSE)}">Affiliate & sponsor disclosure</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u(PRIVACY)}">Privacy</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li>{('<li><a href="' + e(X_URL) + '" rel="me noopener">Follow on X (@' + e(X_HANDLE) + ')</a></li>') if X_URL else ""}<li><a href="{e(CONTACT_HREF)}">Contact{(": " + e(CONTACT)) if CONTACT else ""}</a></li></ul></div>
 </div><div class="wrap small foot-note">Data as of {nice_date(BUILD_DATE)} · {len(ucs)} use cases · {len(bps)} blueprints</div></footer>
 <script src="{u('/assets/app.js')}?v={ASSET_V['app.js']}" defer></script>
 </body></html>"""
     fp = os.path.join(OUT, path.lstrip("/"), "index.html") if path.endswith("/") else os.path.join(OUT, path.lstrip("/"))
     os.makedirs(os.path.dirname(fp), exist_ok=True)
+    if moddate: doc = doc.replace(MOD_ISO, moddate).replace(MOD_NICE, nice_date(moddate))
     open(fp, "w").write(doc)
     if not noindex: SITEMAP.append((canon, lastmod or BUILD_DATE))
 
@@ -241,6 +255,8 @@ def tool_grid(items, how_key="note"):
                    f'{"<span class=tool-note>"+e(note)+"</span>" if note else ""}<span class="tool-cost">{e(tl["cost"])}</span></a></li>')
     return '<ul class="tool-grid">' + "".join(out) + "</ul>"
 
+# Organization for JSON-LD: logo is a 512px PNG of the favicon radar (static/img/logo-512.png); sameAs = brand X account.
+ORG = {"@type": "Organization", "name": NAME, "url": absu(u("/")), "logo": {"@type": "ImageObject", "url": absu(u("/assets/img/logo-512.png")), "width": 512, "height": 512}, **({"sameAs": [X_URL]} if X_URL else {})}
 # ======================================================================= build
 if os.path.exists(OUT): shutil.rmtree(OUT)
 os.makedirs(os.path.join(OUT, "assets"))
@@ -529,7 +545,7 @@ home = f"""
 {('<div class="wrap two-up">' + featured_slot('featured_home') + newsletter_box() + '</div>') if spons.get('featured_home') else ('<div class="wrap nl-bottom">' + newsletter_box() + '</div>')}
 """
 ld_home = [{"@context": "https://schema.org", "@type": "WebSite", "name": NAME, "alternateName": " ".join(re.findall(r"[A-Z][a-z0-9]*", NAME)) or NAME, "url": absu(u("/")), "description": cfg["description"],
-            "publisher": {"@type": "Organization", "name": NAME, "slogan": TAGLINE, "url": absu(u("/")), **({"sameAs": [X_URL]} if X_URL else {}), **({"email": CONTACT} if CONTACT else {})},
+            "publisher": {**ORG, "slogan": TAGLINE, **({"email": CONTACT} if CONTACT else {})},
             "potentialAction": {"@type": "SearchAction", "target": absu(u("/use-cases/")) + "?q={search_term_string}", "query-input": "required name=search_term_string"}},
            {"@context": "https://schema.org", "@type": "ItemList", "name": "Trending AI agent use cases", "itemListElement": [
                {"@type": "ListItem", "position": i + 1, "url": absu(u("/use-cases/" + x["slug"] + "/")), "name": x["title"]} for i, x in enumerate(TRENDING[:10])]}]
@@ -551,7 +567,7 @@ page("/use-cases/", "AI agent use cases", f"Browse {len(ucs)} real, sourced AI a
      f"""<div class="wrap page-head"><p class="eyebrow">The whole feed</p><h1 class="kinetic-sm">Use cases</h1><p class="lead">{len(ucs)} things real people get bots to do, each with sources.</p>
 {searchbox(id_="q2")}<div class="index-tools">{chips()}<label class="sort"><span>Sort</span><select id="sort"><option value="heat">Trending</option><option value="new">Newest</option><option value="easy">Easiest first</option></select></label></div>
 <p class="small muted" id="count" aria-live="polite"></p></div>
-<div class="wrap"><ul class="grid" id="cards">{allcards}</ul><p class="empty" hidden>No matches. Try a simpler word like “email” or “calendar”.</p></div>""",
+<div class="wrap"><h2 class="sr">All {len(ucs)} use cases</h2><ul class="grid" id="cards">{allcards}</ul><p class="empty" hidden>No matches. Try a simpler word like “email” or “calendar”.</p></div>""",
      kind="index")
 
 for c in cats:
@@ -559,9 +575,11 @@ for c in cats:
     bc, bld = crumbs([("Home", "/"), ("Use cases", "/use-cases/"), (c["name"], None)])
     rel_bp = [b for b in bps if any(UC[r]["category"] == c["slug"] for r in b["related"] if r in UC)]
     bph = "".join(f'<li class="bp-card glass"><a href="{u("/blueprints/"+b["slug"]+"/")}">{art(b["art"], cls="bp-art")}<span class="bp-trigger">⏱ {e(b["trigger"])}</span><h3>{e(b["title"])}</h3><p>{e(b["goal"])}</p></a></li>' for b in rel_bp[:3])
-    page(f"/category/{c['slug']}/", f"AI agents for {c['name'].lower()}", f"{c['blurb']} Real AI agent use cases with sources, tools that can do them today and copy-paste prompts.",
-         f"""<div class="wrap page-head cat-head">{bc}<div class="cat-hero">{art(c['art'], cls='cat-hero-art', alt='', eager=True)}<div><p class="eyebrow">{c['icon']} Category</p><h1 class="kinetic-sm">{e(c['name'])}</h1><p class="lead">{e(c['blurb'])}</p></div></div></div>
-<div class="wrap">{('<p><a class="btn" href="'+u(LESS)+'">Run-for-less hub and rules</a> <a class="btn btn-ghost" href="'+u(PRICING)+'">AI price table</a></p>') if c['slug']=='run-for-less' else ''}<ul class="grid">{''.join(card(x) for x in items)}</ul>
+    _ctitle = "AI cost-saving guides for your bots" if c["slug"] == "run-for-less" else f"AI agents for {c['name'].lower()}"
+    _ch1 = "Cost-saving guides for your bots" if c["slug"] == "run-for-less" else c["name"]
+    page(f"/category/{c['slug']}/", _ctitle, f"{c['blurb']} Real AI agent use cases with sources, tools that can do them today and copy-paste prompts.",
+         f"""<div class="wrap page-head cat-head">{bc}<div class="cat-hero">{art(c['art'], cls='cat-hero-art', alt='', eager=True)}<div><p class="eyebrow">{c['icon']} Category</p><h1 class="kinetic-sm">{e(_ch1)}</h1><p class="lead">{e(c['blurb'])}</p></div></div></div>
+<div class="wrap">{('<p><a class="btn" href="'+u(LESS)+'">Run-for-less hub and rules</a> <a class="btn btn-ghost" href="'+u(PRICING)+'">AI price table</a></p>') if c['slug']=='run-for-less' else ''}<h2 class="sr">{len(items)} guides in {e(c['name'])}</h2><ul class="grid">{''.join(card(x) for x in items)}</ul>
 {('<h2 class="mt">Blueprints for this</h2><ul class="bp-grid">'+bph+'</ul>') if bph else ''}
 {featured_slot('featured_category', c['slug'])}</div>""", [bld])
 
@@ -684,7 +702,7 @@ for x in ucs:
 </div><aside class="uc-side">{popbox}{bpbox}{featured_slot('use_case_sidebar', x['category'])}{relbox}</aside></div></article>"""
     ld = [bld, {"@context": "https://schema.org", "@type": "HowTo", "name": x["title"], "description": x["summary"],
                 "datePublished": x["date_added"], "dateModified": _mod,
-                "author": {"@type": "Organization", "name": NAME, "url": absu(u("/about/"))}, "publisher": {"@type": "Organization", "name": NAME, "url": absu(u("/"))},
+                "author": {"@type": "Organization", "name": NAME, "url": absu(u("/about/"))}, "publisher": ORG,
                 "step": [{"@type": "HowToStep", "position": i + 1, "text": s} for i, s in enumerate(x["what_the_bot_does"])],
                 "tool": [{"@type": "HowToTool", "name": tools[t["id"]]["name"]} for t in x["tools"]]}]
     ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in faqs]})
@@ -799,7 +817,7 @@ explain_faq_html = "".join(f'<details class="faq glass"><summary>{e(q)}</summary
 explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 <header class="page-head"><p class="eyebrow">Plain English</p><h1 class="kinetic-sm">What is an AI agent? (in simple terms)</h1>
 <p class="lead">Short answer: an AI agent is an AI assistant that does a job for you, not just answers questions. Agents are good at reading, watching, sorting and drafting. They're getting OK at booking and buying while you watch. They aren't safe to trust with your money, your address or decisions you can't undo.</p>
-<p class="small muted">Updated {nice_date(BUILD_DATE)} · By <a href="{u('/about/')}">{e(NAME)}</a></p></header>
+<p class="small muted">Updated <time datetime="{MOD_ISO}">{MOD_NICE}</time> · By <a href="{u('/about/')}">{e(NAME)}</a></p></header>
 
 <section class="reveal" id="what-is-an-ai-agent"><h2>What is an AI agent?</h2>
 <p>An <b>AI agent</b> is an AI assistant that can take steps on its own to finish a job you give it. You describe the goal in plain words (“every weekday at 7am, read my new email and tell me what needs a reply”), connect the apps it needs, and it does the reading, clicking and typing for you. Many agents can repeat the job on a schedule, and good ones stop and ask before anything important.</p>
@@ -849,9 +867,9 @@ explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 <p><a class="btn" href="{u('/blueprints/')}">See all blueprints</a> <a class="btn btn-ghost" href="{u('/trending/')}">See what's trending</a></p><p class="small">Or browse <a href="{u('/ai-agent-examples/')}">every AI agent example on one page</a>.</p></section>
 </article>"""
 page("/what-can-bots-do/", "What is an AI agent? Simple terms, vs. chatbots", mdesc("What is an AI agent? A plain-English answer, how agents differ from chatbots, what they can and can't do safely yet, with real examples and sources."), explainer,
-     [EXPLAIN_BC[1], {"@context": "https://schema.org", "@type": "Article", "headline": "What is an AI agent? (in simple terms)", "datePublished": "2026-10-20", "dateModified": BUILD_DATE,
-       "author": {"@type": "Organization", "name": NAME, "url": absu(u("/about/"))}, "publisher": {"@type": "Organization", "name": NAME, "url": absu(u("/"))}},
-      {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in EXPLAIN_FAQ]}], lastmod=BUILD_DATE)
+     [EXPLAIN_BC[1], {"@context": "https://schema.org", "@type": "Article", "headline": "What is an AI agent? (in simple terms)", "datePublished": "2026-10-20", "dateModified": MOD_ISO,
+       "author": {"@type": "Organization", "name": NAME, "url": absu(u("/about/"))}, "publisher": ORG},
+      {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in EXPLAIN_FAQ]}])
 
 # ---------- AI AGENT EXAMPLES (answer-first hub for "ai agent examples" / "ai agent for everyday life") ----
 ex_groups = ""
@@ -874,7 +892,7 @@ ex_faq = [
 ex_body = f"""<article class="wrap narrow explainer">{crumbs([("Home", "/"), ("AI agent examples", None)])[0]}
 <p class="eyebrow">Examples</p><h1 class="kinetic-sm">{len(ex_items)} AI agent examples for everyday life</h1>
 <p class="lead">Short answer: an AI agent is an assistant that does a job for you, like reading your email, watching a web page or making a phone call, instead of only answering questions. Here are {len(ex_items)} real, everyday examples, grouped by part of life. Each one links to a plain-English guide with a copy-paste prompt.</p>
-<p class="small muted">Updated {nice_date(BUILD_DATE)}. New to agents? Read <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>, or <a href="{u(BUILD_GUIDE)}">build one without coding</a>.</p>
+<p class="small muted">Updated <time datetime="{MOD_ISO}">{MOD_NICE}</time>. New to agents? Read <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>, or <a href="{u(BUILD_GUIDE)}">build one without coding</a>.</p>
 {ex_groups}
 <section><h2>Questions people ask</h2>{''.join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in ex_faq)}</section>
 <section class="glass explain-card"><h2>Want it on autopilot?</h2><p>Turn any of these into a bot that runs on a schedule with a <a href="{u('/blueprints/')}">build-your-own-bot blueprint</a>. Never built one? Follow <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>.</p></section>
@@ -883,7 +901,7 @@ page("/ai-agent-examples/", f"{len(ex_items)} AI agent examples for everyday lif
      [crumbs([("Home", "/"), ("AI agent examples", None)])[1],
       {"@context": "https://schema.org", "@type": "ItemList", "name": "AI agent examples for everyday life", "numberOfItems": len(ex_items),
        "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": absu(u("/use-cases/" + x["slug"] + "/")), "name": x["title"]} for i, x in enumerate(ex_items)]},
-      {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in ex_faq]}], lastmod=BUILD_DATE)
+      {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in ex_faq]}])
 
 # ---------- RUN YOUR BOTS FOR LESS (hub) + AI PRICE TABLE ------------------------------
 LC = CAT["run-for-less"]
@@ -1007,14 +1025,14 @@ GUIDE_FAQ = [
 ]
 _g_spec = f'<dl class="spec glass"><div><dt>Goal</dt><dd>{e(_gx["goal"])}</dd></div><div><dt>Runs</dt><dd>⏱ {e(_gx["trigger"])}</dd></div><div><dt>Watches</dt><dd>👁 {e(_gx["watches"])}</dd></div><div><dt>Never</dt><dd>🛑 Sends, deletes or archives anything</dd></div></dl>'
 _g_steps = "".join(f'<li class="howto-step glass reveal"><span class="howto-n" aria-hidden="true">{i+1}</span><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>' for i, (t, d) in enumerate(GUIDE_STEPS))
-_g_table = "".join(f'<tr><td><a href="{u("/blueprints/"+b["slug"]+"/")}">{e(b["title"])}</a><div class="small muted">{e(b["goal"])}</div></td><td class="small">{e(b["trigger"])}</td><td><span class="diff diff-{e(b["difficulty"].lower())}">{e(b["difficulty"])}</span></td><td class="small">{e(b["setup_time"].replace("Rough setup time: ", ""))}</td></tr>' for b in sorted(bps, key=lambda b: DIFF_ORDER.get(b["difficulty"], 1)))
+_g_table = "".join(f'<tr><td><a href="{u("/blueprints/"+b["slug"]+"/")}">{e(b["title"])}</a><div class="small muted">{e(b["goal"])}</div></td><td class="small">{e(b["trigger"])}</td><td><span class="diff diff-{e(b["difficulty"].lower())}">{e(b["difficulty"])}</span></td><td class="small">{e(b["setup_time"])}</td></tr>' for b in sorted(bps, key=lambda b: DIFF_ORDER.get(b["difficulty"], 1)))
 _g_faq_html = "".join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{h or e(a)}</p></details>' for q, a, h in GUIDE_FAQ)
 _g_uc = [sl for sl in ["clean-up-your-email-inbox", "flag-only-emails-that-need-a-reply", "monday-inbox-recap-and-todo"] if sl in UC]
 gbc, gbld = crumbs([("Home", "/"), ("Blueprints", "/blueprints/"), ("Build an AI agent without coding", None)])
 guide_body = f"""<article class="wrap narrow explainer">{gbc}
 <header class="page-head"><p class="eyebrow">Beginner guide</p><h1 class="kinetic-sm">How to build an AI agent without coding</h1>
 <p class="lead">Short answer: you don't write code. You pick one small job, write it down in four lines, paste plain-English instructions into an agent app you already use, watch one test run, then put it on a schedule with rules that make it ask before anything important. Here's each step, with a real blueprint as the worked example.</p>
-<p class="small muted">Updated {nice_date(BUILD_DATE)} · By <a href="{u('/about/')}">{e(NAME)}</a> · New to agents? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>.</p></header>
+<p class="small muted">Updated <time datetime="{MOD_ISO}">{MOD_NICE}</time> · By <a href="{u('/about/')}">{e(NAME)}</a> · New to agents? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>.</p></header>
 
 <section class="reveal"><h2>What you need</h2><ul class="big-list">
 <li><b>An agent app or a no-code automation tool.</b> Agent apps on this site include {_tl('gemini-spark')}, {_tl('claude-cowork')}, {_tl('chatgpt-dots')}, {_tl('grok-bot')} and {_tl('meta-muse')}. No-code automation tools include {_tl('zapier')}, {_tl('make')} and {_tl('n8n')}.</li>
@@ -1036,7 +1054,7 @@ guide_body = f"""<article class="wrap narrow explainer">{gbc}
 <p class="small">Real people doing this: {', '.join(f'<a href="{u("/use-cases/"+sl+"/")}">{e(UC[sl]["title"][:1].lower()+UC[sl]["title"][1:])}</a>' for sl in _g_uc)}.</p></section>
 
 <section class="reveal" id="pick"><h2>Pick your first bot</h2><p>Every blueprint follows the same seven steps. Easy ones first:</p>
-<div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">Blueprint</th><th scope="col">Runs</th><th scope="col">Difficulty</th><th scope="col">Rough setup time</th></tr></thead><tbody>{_g_table}</tbody></table></div></section>
+<div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">Blueprint</th><th scope="col">Runs</th><th scope="col">Difficulty</th><th scope="col">Size</th></tr></thead><tbody>{_g_table}</tbody></table></div></section>
 
 <section class="glass explain-card reveal" id="agent-or-automation"><h2>Agent app or no-code automation tool?</h2>
 <div class="vs"><div><h3>🤖 Agent app</h3><p>You describe the job in plain words and the agent works out the steps. The easiest place to start, and it copes with messy things like email. Make it ask before it sends, buys or deletes.</p></div>
@@ -1058,12 +1076,12 @@ guide_body = f"""<article class="wrap narrow explainer">{gbc}
 page(BUILD_GUIDE, "How to build an AI agent without coding", mdesc("How to build an AI agent without coding, in plain English: pick one job, write it in four lines, paste instructions into an agent app, test once, then schedule it safely. Worked example included."), guide_body,
      [gbld,
       {"@context": "https://schema.org", "@type": "HowTo", "name": "How to build an AI agent without coding", "description": "Build your first AI agent (bot) for an everyday job without writing code, using a copy-paste blueprint.",
-       "datePublished": BUILD_DATE, "dateModified": BUILD_DATE,
+       "datePublished": "2026-10-23", "dateModified": MOD_ISO,
        "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d, "url": absu(u(BUILD_GUIDE)) + "#steps"} for i, (t, d) in enumerate(GUIDE_STEPS)],
        "tool": [{"@type": "HowToTool", "name": tools[t["id"]]["name"]} for t in _gx["tools"]],
        "author": {"@type": "Organization", "name": NAME, "url": absu(u("/about/"))}},
       {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a, _ in GUIDE_FAQ]}],
-     lastmod=BUILD_DATE, og_type="article")
+     og_type="article")
 
 
 # ---------- THREE BEGINNER GUIDES (2026-10-23): cost, OpenClaw vs Hermes, email/calendar safety ----------
@@ -1071,11 +1089,11 @@ _ua = lambda sl, txt=None: f'<a href="{u("/use-cases/"+sl+"/")}">{e(txt or (UC[s
 _ba = lambda sl: f'<a href="{u("/blueprints/"+sl+"/")}">{e(BPD[sl]["title"])}</a>'
 _faq_html = lambda F: "".join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{h or e(a)}</p></details>' for q, a, h in F)
 _faq_ld = lambda F: {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a, _ in F]}
-def _art_ld(path, headline, desc, published=BUILD_DATE):
+def _art_ld(path, headline, desc, published="2026-10-23"):
     return {"@context": "https://schema.org", "@type": "Article", "headline": headline, "description": desc, "url": absu(u(path)),
-            "datePublished": published, "dateModified": BUILD_DATE, "inLanguage": "en",
-            "author": {"@type": "Organization", "name": NAME, "url": absu(u("/about/"))}, "publisher": {"@type": "Organization", "name": NAME, "url": absu(u("/"))}}
-_byline = lambda: f'<p class="small muted">Updated <time datetime="{BUILD_DATE}">{nice_date(BUILD_DATE)}</time> · By <a href="{u("/about/")}">{e(NAME)}</a></p>'
+            "datePublished": published, "dateModified": MOD_ISO, "inLanguage": "en",
+            "author": {"@type": "Organization", "name": NAME, "url": absu(u("/about/"))}, "publisher": ORG}
+_byline = lambda: f'<p class="small muted">Updated <time datetime="{MOD_ISO}">{MOD_NICE}</time> · By <a href="{u("/about/")}">{e(NAME)}</a></p>'
 
 # official sources (checked 2026-10-23)
 SRC = {
@@ -1188,7 +1206,7 @@ cost_body = f"""<article class="wrap narrow explainer">{cbc}
 <p><a class="btn" href="{u(LESS)}#calculator">Open the cost calculator</a> <a class="btn btn-ghost" href="{u(PRICING)}">See every AI price, with sources</a></p></section>
 </article>"""
 page(COST_GUIDE, "How much does it cost to run an AI agent?", _cost_desc, cost_body,
-     [cbld, _art_ld(COST_GUIDE, "How much does it cost to run an AI agent?", _cost_desc), _faq_ld(COST_FAQ)], lastmod=BUILD_DATE, og_type="article")
+     [cbld, _art_ld(COST_GUIDE, "How much does it cost to run an AI agent?", _cost_desc), _faq_ld(COST_FAQ)], og_type="article")
 
 # ----- 2. OpenClaw vs Hermes Agent -----
 CLAW_ROWS = [
@@ -1261,7 +1279,7 @@ claw_body = f"""<article class="wrap narrow explainer">{wbc}
 <section class="reveal"><h2>Sources</h2>{_src_list(['oc_readme','oc_install','oc_what','oc_host','oc_qs','oc_sec','oc_secfaq','oc_pi','oc_sandbox','oc_auto','oc_mig','hm_readme','hm_site','hm_sec','hm_ollama','hm_cron','hm_mig','hm_mail','hm_tips'])}</section>
 </article>"""
 page(CLAW_GUIDE, "OpenClaw vs Hermes Agent: a beginner's guide", _claw_desc, claw_body,
-     [wbld, _art_ld(CLAW_GUIDE, "OpenClaw vs Hermes Agent: a beginner's guide", _claw_desc), _faq_ld(CLAW_FAQ)], lastmod=BUILD_DATE, og_type="article")
+     [wbld, _art_ld(CLAW_GUIDE, "OpenClaw vs Hermes Agent: a beginner's guide", _claw_desc), _faq_ld(CLAW_FAQ)], og_type="article")
 
 # ----- 3. Is it safe to give an AI agent your email and calendar? -----
 SAFE_RULES = [
@@ -1322,7 +1340,7 @@ safe_body = f"""<article class="wrap narrow explainer">{sbc}
 <section class="reveal"><h2>Sources</h2>{_src_list(['owasp01','owasp06','oai_pi','oai_agent','g_linked','oc_pi','oc_sandbox','hm_sec','wired'])}</section>
 </article>"""
 page(SAFE_GUIDE, "Is it safe to give an AI agent your email and calendar?", _safe_desc, safe_body,
-     [sbld, _art_ld(SAFE_GUIDE, "Is it safe to give an AI agent your email and calendar?", _safe_desc), _faq_ld(SAFE_FAQ)], lastmod=BUILD_DATE, og_type="article")
+     [sbld, _art_ld(SAFE_GUIDE, "Is it safe to give an AI agent your email and calendar?", _safe_desc), _faq_ld(SAFE_FAQ)], og_type="article")
 NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner guide: pick one job, write it in four lines, paste instructions into an agent app, test once, schedule it safely."),
               (COST_GUIDE, "How much does it cost to run an AI agent?", f"Monthly estimates for {len(_cost_rows)} everyday bots at official API prices, with the math shown."),
               (CLAW_GUIDE, "OpenClaw vs Hermes Agent: a beginner's guide", "What each open-source agent is, side-by-side comparison, how to pick, cost and safety tips."),
@@ -1370,7 +1388,7 @@ page("/about/", f"About {NAME} and how we measure", f"How {NAME} finds real AI a
 <li>Numbers are refreshed by a daily routine, so they change over time.</li></ul>
 <h2>Who runs this</h2><p>An editor ({e(cfg.get('owner',''))}) and a team of AI agents that find new use cases, refresh numbers and check links. A human approves what gets published.</p>
 <h2>How we make money</h2><p>Clearly labeled sponsorships (see <a href="{u('/advertise/')}">advertise</a>), and possibly affiliate links in future, always labeled and explained on our <a href="{u(DISCLOSE)}">disclosure page</a>. Money never changes rankings: trending is computed from public numbers.</p>
-<h2>Contact</h2><p>Spotted something wrong, or want to say hi? {"Email" if CONTACT else "Please"} <a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>.{(' Follow us on X: <a href="' + e(X_URL) + '" rel="me noopener">@' + e(X_HANDLE) + '</a>.') if X_URL else ''}</p>
+<h2>Contact</h2><p>Spotted something wrong, or want to say hi? {"Email" if CONTACT else "Please"} <a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>.{(' You can also <a href="' + e(cfg["contact_url"]) + '" rel="noopener">open a public issue on GitHub</a>.') if CONTACT and cfg.get("contact_url") else ''}{(' Follow us on X: <a href="' + e(X_URL) + '" rel="me noopener">@' + e(X_HANDLE) + '</a>.') if X_URL else ''}</p>
 <p>How we handle your email address and site analytics: <a href="{u(PRIVACY)}">privacy</a>.</p></div>""")
 
 # ---------- NEWSLETTER (/newsletter/ archive + web issues + /newsletter/feed.xml) ---------
@@ -1408,7 +1426,7 @@ for iss in NL:
          lastmod=iss["date"], og_type="article", head_extra=f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)} Weekly" href="{u("/newsletter/feed.xml")}">')
 _nl_list = "".join(f'<li class="glass nl-arch"><a href="{u(nl_path(i))}"><span class="small muted">Issue {i["number"]} · {nice_date(i["date"])}</span><b>{e(i["subject"])}</b><span class="small">{e(", ".join(UC[it["slug"]]["title"] for it in i["items"]))}</span></a></li>' for i in NL)
 page("/newsletter/", f"The {NAME} Weekly newsletter", f"One email a week: {NL_PROMISE}, each with the result and a copy-paste prompt, plus one new guide and one thing that went wrong.",
-     f'<div class="wrap narrow"><p class="eyebrow">Newsletter</p><h1 class="kinetic-sm">The {e(NAME)} Weekly</h1><p class="lead">Every week: {NL_PROMISE.replace(' each week', '')}, each with what you end up with and a prompt to copy, plus one new guide and one thing that went wrong so you don\'t repeat it.</p>{newsletter_box()}'
+     f'<div class="wrap narrow"><p class="eyebrow">Newsletter</p><h1 class="kinetic-sm">The {e(NAME)} Weekly</h1><p class="lead">Every week: {NL_PROMISE.replace(' each week', '')}, each with what you end up with and a prompt to copy, plus one new guide and one thing that went wrong so you don\'t repeat it.</p>{newsletter_box()}' + (f'<p class="small muted">Between issues, follow <a href="{e(X_URL)}" rel="me noopener">@{e(X_HANDLE)} on X</a>.</p>' if X_URL else '')
      + (f'<h2>Past issues</h2><p class="small muted">Read every issue on the web, or follow the <a href="{u("/newsletter/feed.xml")}">newsletter RSS feed</a>.</p><ul class="nl-archive">{_nl_list}</ul>' if NL else "") + '</div>',
      lastmod=NL[0]["date"] if NL else None, head_extra=f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)} Weekly" href="{u("/newsletter/feed.xml")}">')
 
@@ -1444,7 +1462,7 @@ page("/advertise/", "Advertise to people building their first AI bots", f"Sponso
 page(DISCLOSE, "Affiliate and sponsor disclosure", f"How {NAME} makes money: labeled sponsorships and labeled affiliate links. Money never changes rankings, prices or recommendations.",
      f"""<div class="wrap narrow prose"><p class="eyebrow">Disclosure</p><h1 class="kinetic-sm">Affiliate and sponsor disclosure</h1>
 <p class="lead">We want you to always know when someone paid to be on this page, and when a link might earn us money.</p>
-<div class="glass adv-honest"><h2>Right now</h2><p>{"There are no sponsors and no affiliate links anywhere on " + e(NAME) + ". Nothing on the site earns us money yet." if not _paid_now else "Some pages carry labeled paid placements. Each one is marked as shown below."}</p><p class="small muted">Last updated {nice_date(BUILD_DATE)}.</p></div>
+<div class="glass adv-honest"><h2>Right now</h2><p>{"There are no sponsors and no affiliate links anywhere on " + e(NAME) + ". Nothing on the site earns us money yet." if not _paid_now else "Some pages carry labeled paid placements. Each one is marked as shown below."}</p><p class="small muted">Last updated {MOD_NICE}.</p></div>
 <h2>Sponsored</h2><p>{paid_label()} means a company paid for that spot. It sits beside our content, never inside rankings, the price table or the cost calculator. Sponsored links use <code>rel="sponsored"</code>.</p>
 <h2>Affiliate link</h2><p>{paid_label("affiliate")} means that if you sign up or buy through that link, we may earn a commission, at no extra cost to you. We only add affiliate links to tools we would list anyway, and we list free and non-affiliate options next to them.</p>
 <h2>What money never changes</h2><ul><li>Trending is computed from public X and Reddit numbers.</li><li>Prices come from official pricing pages, with the date we checked.</li><li>The cost calculator always shows every model in our table, cheapest first.</li></ul>
@@ -1514,7 +1532,7 @@ for c in cats:
     L1 += ["", f"### {c['name']}"] + [f"- [{x['title']}]({absu(u('/use-cases/'+x['slug']+'/'))}): {x['summary']}" for x in ucs if x["category"] == c["slug"]]
 L1 += ["", "## Latest in AI (newest first)"] + [f"- {n['date']} [{n['category']}] {n['headline']}: {n['explainer']} Source: {n['source_url']}" for n in NEWS[:15]]
 L1 += ["", "## Blueprints"] + [f"- [{b['title']}]({absu(u('/blueprints/'+b['slug']+'/'))}): {b['goal']}" for b in bps]
-L1 += ["", "## About", f"- [About and how we measure]({absu(u('/about/'))})", f"- [Advertise]({absu(u('/advertise/'))})", f"- [Affiliate and sponsor disclosure]({absu(u(DISCLOSE))})", ""]
+L1 += ["", "## About", f"- [About and how we measure]({absu(u('/about/'))})", f"- [Advertise]({absu(u('/advertise/'))})", f"- [Affiliate and sponsor disclosure]({absu(u(DISCLOSE))})", f"- [Privacy]({absu(u(PRIVACY))})"] + ([f"- X (official account): [@{X_HANDLE}]({X_URL})"] if X_URL else []) + ([f"- Contact: {CONTACT}"] if CONTACT else []) + [""]
 open(os.path.join(OUT, "llms.txt"), "w").write("\n".join(L1))
 F = [f"# {NAME}: full text", "", TAGLINE, "", cfg["description"], ""]
 for x in ucs:
@@ -1575,4 +1593,5 @@ def make_og():
     d.text((72, 540), f"{len(ucs)} use cases · {len(bps)} blueprints · real popularity numbers", font=font(24, False), fill=(140, 160, 210))
     im.save(os.path.join(OUT, "assets", "og.png"), optimize=True)
 make_og()
+with open(_CD_PATH, "w") as fh: json.dump(dict(sorted(CONTENT_DATES.items())), fh, indent=1, ensure_ascii=False); fh.write("\n")
 print(f"Built {len(SITEMAP)} indexed pages + 404 into {OUT} (name: {NAME}, base: {BASE}{BP}); trending={len(TRENDING)}")

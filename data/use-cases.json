@@ -1963,7 +1963,7 @@
   "title": "Write a resignation letter that keeps the door open",
   "category": "work",
   "source_date": null,
-  "summary": "You're leaving a job and want to say so clearly and kindly, without oversharing. AI can draft a short, professional resignation letter or email in a couple of minutes.",
+  "summary": "You're leaving a job and want to say so clearly and kindly, without oversharing. AI can draft a short, professional resignation letter or email for you to edit.",
   "problem": "You're leaving a job and don't know how to word it, how much to explain, or what to include.",
   "outcome": "A short, polite resignation letter or email with your last day, a thank-you and a handover offer, ready to send to your manager.",
   "what_the_bot_does": [
@@ -3543,7 +3543,7 @@
    "Writes a short recap.",
    "Suggests a ranked to-do list and blocks focus time."
   ],
-  "what_you_end_up_with": "A 2-minute Monday briefing and a ranked to-do list.",
+  "what_you_end_up_with": "A short Monday briefing and a ranked to-do list.",
   "difficulty": "Easy",
   "tools": [
    {
@@ -3751,7 +3751,7 @@
  },
  {
   "slug": "morning-news-digest",
-  "title": "Get a 2-minute morning digest on topics you care about",
+  "title": "Get a short morning digest on topics you care about",
   "category": "inbox",
   "date_added": "2026-10-20",
   "source_date": "2026-10-10",
@@ -4469,7 +4469,7 @@
    "reply"
   ],
   "guide": {
-   "intro": "Most of us have a pile of letters we've been meaning to deal with. AI chatbots are excellent translators of official-speak. In a few minutes you'll know whether a letter matters, what it wants, and how to reply, without guessing.",
+   "intro": "Most of us have a pile of letters we've been meaning to deal with. AI chatbots are excellent translators of official-speak. Quickly, you'll know whether a letter matters, what it wants, and how to reply, without guessing.",
    "sections": [
     {
      "h": "Step 1: Protect your personal information",
@@ -4499,7 +4499,7 @@
      ]
     },
     {
-     "h": "Step 5: Reply in two minutes",
+     "h": "Step 5: Reply",
      "p": [
       "If the letter asks for a response, ask the AI for a short, polite reply that includes your reference number (add it yourself after), what you're sending, and a request for written confirmation. Read it and fix anything that isn't exactly true before you send."
      ]

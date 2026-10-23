@@ -882,7 +882,7 @@ URL: https://botsdothat.com/use-cases/write-a-resignation-letter/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-20
 Popularity: not measured
 
-You're leaving a job and want to say so clearly and kindly, without oversharing. AI can draft a short, professional resignation letter or email in a couple of minutes.
+You're leaving a job and want to say so clearly and kindly, without oversharing. AI can draft a short, professional resignation letter or email for you to edit.
 
 What the bot does:
 1. Tell it your last working day, who it goes to, and the tone you want (warm, neutral or brief).
@@ -1554,7 +1554,7 @@ What the bot does:
 3. Writes a short recap.
 4. Suggests a ranked to-do list and blocks focus time.
 
-What you end up with: A 2-minute Monday briefing and a ranked to-do list.
+What you end up with: A short Monday briefing and a ranked to-do list.
 
 Tools: Gemini Spark, Grok Bot (personal agents), Claude Cowork, ChatGPT dots (always-on agents)
 
@@ -1648,7 +1648,7 @@ Watch out:
 Sources:
 - Google: Gemini Spark overview page (example tasks and schedules): https://gemini.google/overview/agent/spark/
 
-## Get a 2-minute morning digest on topics you care about
+## Get a short morning digest on topics you care about
 URL: https://botsdothat.com/use-cases/morning-news-digest/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
 Popularity: not measured
@@ -2531,7 +2531,7 @@ Sources:
 
 ## Blueprint: Morning Inbox Briefing
 URL: https://botsdothat.com/blueprints/morning-inbox-briefing/
-Goal: Wake up to a 2-minute summary of what's in your email and what needs you today.
+Goal: Wake up to a short summary of what's in your email and what needs you today.
 Runs: Every weekday at 7:00am
 Watches: New emails since yesterday morning
 Instructions:
