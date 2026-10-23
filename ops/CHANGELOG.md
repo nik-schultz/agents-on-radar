@@ -1,5 +1,12 @@
 # Ops changelog
 
+## 2026-10-23 (news update, 2:30 PM CT)
+- Added 3 items (all Oct 23, notable): Kimi K3.1 Pro from Moonshot (open model with 1M-token context, API $2 / $10 per MTok, weights due by Nov 4; benchmarks are Moonshot's own; source TNW plus the Kimi blog), Cursor computer use (the desktop agent can click and type in other apps; source @cursor_ai on X plus AlphaSignal), and NVIDIA Nemotron 3.5 Bolt E4B 4GB (small free local model for device assistants; source the Hugging Face model card). Added Moonshot, Cursor and NVIDIA to NEWS_CO in scripts/build.py.
+- X refresh: re-measured all 36 tracked posts (research/x_news_measure_2026_10_23_pm.json.txt, apply script research/news_x_2026_10_23_pm.py). Top story is still Claude Duet. Trending is now DeepInfer, Kimi K3.1 Pro and Claude auto mode default.
+- No major release and no pricing changes from tracked providers (Moonshot isn't in the pricing table). Checked with nothing new: OpenAI API changelog, Gemini API changelog, xAI release notes, Anthropic newsroom, Mistral news, DeepSeek docs, Groq blog. Skipped: MiniMax M3.1 Flash open weights (outside tracked labs, low engagement), Anthropic Mythos 5 incident analysis (safety research), OpenAI storage/training-security engineering posts, Gemini small-business tools (Oct 20, before this window), iFlytek Spark-X2.6, Simular Agent S4 and General Reasoning RLCR (research).
+- BACKLOG: added a "News run 2026-10-23 PM" section (Nemotron Bolt for the local-models guide, a Cursor app-testing idea, Moonshot pricing once the weights ship).
+- Checks: validate 0 errors; build 116 pages + 404; check_links 0 broken internal.
+
 ## 2026-10-23 (2:04 PM CT) — Newsletter signup wired to Kit (double opt-in)
 - config.json newsletter: form_action https://app.kit.com/forms/10088120/subscriptions, email_field `email_address`. Also records the provider and the hosted page https://botsdothat.kit.com/e874d57257.
 - All 3 signup forms post there as plain HTML forms (no Kit JS): homepage, /newsletter/, and the issue page /newsletter/2026-10-22/. The footer only has links, no form.

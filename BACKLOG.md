@@ -89,3 +89,8 @@ Candidates not added yet:
 - [ ] Agent that runs and publishes a website every morning at 4:45 (@jesperjurcenoks 2026-10-22, x.com/jesperjurcenoks/status/2113136965403218142, 2 likes); developer-leaning.
 - [ ] Watch-outs: a morning-report agent ran out of daily budget by 3am and got replaced by a plain script (@Swarm_operator 2026-10-22, 0 likes); a chief-of-staff bot's morning messages each need a decision, so reading them is stressful (@yizhou_yu 2026-10-22, 1 like). Both fit `proactive-next-moves-bot` / morning brief guides.
 Skipped: Binance #MyAgentID promo spam, on-chain/trading agents, a harassment "agent" meme.
+
+## News run 2026-10-23 PM
+- [ ] Add NVIDIA Nemotron 3.5 Bolt E4B 4GB (free, text-only, 64K context, tool use, runs via llama.cpp; news id `nvidia-nemotron-3-5-bolt-e4b`) to the run-it-on-your-own-computer / local-models part of "Run your bots for less" as a small private-assistant option. Verify the RAM needs on real hardware before quoting them.
+- [ ] Possible Advanced guide: "let your coding bot test the app it built" with Cursor's computer use (news id `cursor-computer-use-desktop`). It's developer-leaning, so only add it if beginners ask for it.
+- [ ] Kimi K3.1 Pro (news id `kimi-k3-1-pro`): consider adding Moonshot to the pricing table once the open weights ship (due by Nov 4). The API price is $2 / $10 per MTok, from Kimi's launch post.

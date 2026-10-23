@@ -9,6 +9,87 @@
  ],
  "items": [
   {
+   "id": "kimi-k3-1-pro",
+   "date": "2026-10-23",
+   "category": "model release",
+   "company": "Moonshot",
+   "impact": "notable",
+   "headline": "Kimi K3.1 Pro: a new open model that says it nearly matches Claude Opus 5.5 at coding",
+   "explainer": "Moonshot's new Kimi K3.1 Pro is out now in the Kimi apps and API, and its full weights are due by Nov 4, so anyone will be able to download and run it. Its API price is $2 in / $10 out per million tokens, half of Claude Opus 5.5's list price; the coding scores are Moonshot's own and haven't been checked independently yet.",
+   "source_url": "https://thenextweb.com/news/moonshot-kimi-k3-1-pro-open-weight-cyber",
+   "source_name": "The Next Web",
+   "more_sources": [
+    {
+     "label": "Kimi: Introducing Kimi K3.1 Pro",
+     "url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/Kimi_Moonshot/status/2113680701770068067",
+    "author": "@Kimi_Moonshot",
+    "kind": "official",
+    "posted_at": "2026-10-23",
+    "likes": 14247,
+    "reposts": 1576,
+    "views": 781632,
+    "measured_at": "2026-10-23"
+   }
+  },
+  {
+   "id": "cursor-computer-use-desktop",
+   "date": "2026-10-23",
+   "category": "feature",
+   "company": "Cursor",
+   "impact": "notable",
+   "headline": "Cursor's coding bot can now click and type in other apps on your computer",
+   "explainer": "After you update the Cursor app, its agent can drive desktop apps such as the iPhone simulator to test the features it just built, instead of you tapping through them yourself. Because it works by looking at your screen, close private windows before you let it take over.",
+   "source_url": "https://x.com/cursor_ai/status/2113661506634305834",
+   "source_name": "Cursor (on X)",
+   "more_sources": [
+    {
+     "label": "AlphaSignal",
+     "url": "https://alphasignal.ai/news/cursor-s-computer-use-lets-its-coding-agent-click-through-desktop-apps"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/cursor_ai/status/2113661506634305834",
+    "author": "@cursor_ai",
+    "kind": "official",
+    "posted_at": "2026-10-23",
+    "likes": 3484,
+    "reposts": 236,
+    "views": 138526,
+    "measured_at": "2026-10-23"
+   }
+  },
+  {
+   "id": "nvidia-nemotron-3-5-bolt-e4b",
+   "date": "2026-10-23",
+   "category": "model release",
+   "company": "NVIDIA",
+   "impact": "notable",
+   "headline": "NVIDIA releases a free 4GB AI model for assistants that run on your own device",
+   "explainer": "Nemotron 3.5 Bolt E4B is a small, free open model built for fast local voice and device assistants that can follow instructions and use tools, so a simple bot can run on your own computer with no per-message bill. It's text-only with a 64K-token memory, so save bigger jobs for the large cloud models.",
+   "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
+   "source_name": "NVIDIA (Hugging Face)",
+   "more_sources": [
+    {
+     "label": "NVIDIA build page",
+     "url": "https://build.nvidia.com/nvidia/nemotron-3.5-bolt-e4b"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/NVIDIAAI/status/2113657112408785153",
+    "author": "@NVIDIAAI",
+    "kind": "official",
+    "posted_at": "2026-10-23",
+    "likes": 1001,
+    "reposts": 103,
+    "views": 88420,
+    "measured_at": "2026-10-23"
+   }
+  },
+  {
    "id": "anthropic-agent-skills-to-aaif",
    "date": "2026-10-22",
    "category": "industry",
@@ -34,9 +115,9 @@
     "author": "@OpenAIDevs",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 1213,
-    "reposts": 87,
-    "views": 127243,
+    "likes": 1332,
+    "reposts": 97,
+    "views": 145570,
     "measured_at": "2026-10-23"
    }
   },
@@ -55,9 +136,9 @@
     "author": "@canva",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 2644,
-    "reposts": 4340,
-    "views": 1331720,
+    "likes": 2955,
+    "reposts": 2314,
+    "views": 1778099,
     "measured_at": "2026-10-23"
    }
   },
@@ -76,9 +157,9 @@
     "author": "@claudeai",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 16589,
-    "reposts": 633,
-    "views": 1665125,
+    "likes": 19107,
+    "reposts": 750,
+    "views": 2166946,
     "measured_at": "2026-10-23"
    }
   },
@@ -103,9 +184,9 @@
     "author": "@bot",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 11707,
-    "reposts": 907,
-    "views": 1739501,
+    "likes": 13230,
+    "reposts": 1054,
+    "views": 2323595,
     "measured_at": "2026-10-23"
    }
   },
@@ -130,9 +211,9 @@
     "author": "@bot",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 8382,
-    "reposts": 614,
-    "views": 681400,
+    "likes": 9293,
+    "reposts": 668,
+    "views": 833645,
     "measured_at": "2026-10-23"
    }
   },
@@ -151,9 +232,9 @@
     "author": "@GeminiApp",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 937,
-    "reposts": 75,
-    "views": 66731,
+    "likes": 1104,
+    "reposts": 94,
+    "views": 79272,
     "measured_at": "2026-10-23"
    }
   },
@@ -181,9 +262,9 @@
     "url": "https://x.com/claudeai/status/2112984664256241837",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 53917,
-    "reposts": 4126,
-    "views": 9247877,
+    "likes": 54465,
+    "reposts": 4164,
+    "views": 9470593,
     "posted_at": "2026-10-21",
     "measured_at": "2026-10-23"
    }
@@ -212,9 +293,9 @@
     "url": "https://x.com/OpenAI/status/2112907856018309586",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 14371,
-    "reposts": 2858,
-    "views": 5742423,
+    "likes": 14403,
+    "reposts": 2864,
+    "views": 5788088,
     "posted_at": "2026-10-21",
     "measured_at": "2026-10-23"
    }
@@ -233,9 +314,9 @@
     "url": "https://x.com/claudeai/status/2112962248218148878",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 10879,
-    "reposts": 553,
-    "views": 769803,
+    "likes": 11025,
+    "reposts": 563,
+    "views": 787697,
     "posted_at": "2026-10-21",
     "measured_at": "2026-10-23"
    }
@@ -260,9 +341,9 @@
     "url": "https://x.com/OpenAI/status/2112988118471295323",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 5130,
-    "reposts": 404,
-    "views": 465515,
+    "likes": 5218,
+    "reposts": 410,
+    "views": 479370,
     "posted_at": "2026-10-21",
     "measured_at": "2026-10-23"
    }
@@ -288,9 +369,9 @@
     "author": "@RichardSocher",
     "kind": "official",
     "posted_at": "2026-10-21",
-    "likes": 8272,
-    "reposts": 875,
-    "views": 3324949,
+    "likes": 8343,
+    "reposts": 883,
+    "views": 3358873,
     "measured_at": "2026-10-23"
    }
   },
@@ -308,9 +389,9 @@
     "url": "https://x.com/MistralAI/status/2112574615318876178",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 3245,
+    "likes": 3249,
     "reposts": 377,
-    "views": 265250,
+    "views": 266914,
     "posted_at": "2026-10-20",
     "measured_at": "2026-10-23"
    }
@@ -329,9 +410,9 @@
     "url": "https://x.com/OpenAIDevs/status/2112603916076781778",
     "author": "@OpenAIDevs",
     "kind": "official",
-    "likes": 3601,
+    "likes": 3602,
     "reposts": 189,
-    "views": 1841121,
+    "views": 1868373,
     "posted_at": "2026-10-20",
     "measured_at": "2026-10-23"
    }
@@ -356,9 +437,9 @@
     "url": "https://x.com/deepseek_ai/status/2112476496283775135",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 42689,
-    "reposts": 4835,
-    "views": 6530468,
+    "likes": 42773,
+    "reposts": 4844,
+    "views": 6559036,
     "posted_at": "2026-10-20",
     "measured_at": "2026-10-23"
    }
@@ -395,9 +476,9 @@
     "author": "@Google",
     "kind": "official",
     "posted_at": "2026-10-20",
-    "likes": 2123,
-    "reposts": 185,
-    "views": 264774,
+    "likes": 2125,
+    "reposts": 186,
+    "views": 266343,
     "measured_at": "2026-10-23"
    }
   },
@@ -432,9 +513,9 @@
     "url": "https://x.com/deepseek_ai/status/2111375640717033777",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 37089,
-    "reposts": 4128,
-    "views": 7945091,
+    "likes": 37101,
+    "reposts": 4131,
+    "views": 7962515,
     "posted_at": "2026-10-17",
     "measured_at": "2026-10-23"
    }
@@ -454,8 +535,8 @@
     "author": "@deepseek_ai",
     "kind": "official",
     "likes": 3488,
-    "reposts": 249,
-    "views": 960368,
+    "reposts": 250,
+    "views": 961570,
     "posted_at": "2026-10-17",
     "measured_at": "2026-10-23"
    }
@@ -484,9 +565,9 @@
     "url": "https://x.com/AIatMeta/status/2110779754274292212",
     "author": "@AIatMeta",
     "kind": "official",
-    "likes": 11541,
+    "likes": 11543,
     "reposts": 1221,
-    "views": 1241584,
+    "views": 1243069,
     "posted_at": "2026-10-15",
     "measured_at": "2026-10-23"
    }
@@ -513,7 +594,7 @@
     "kind": "coverage",
     "likes": 1311,
     "reposts": 144,
-    "views": 908786,
+    "views": 909404,
     "posted_at": "2026-10-14",
     "measured_at": "2026-10-23"
    }
@@ -538,9 +619,9 @@
     "url": "https://x.com/GeminiApp/status/2110039322229649783",
     "author": "@GeminiApp",
     "kind": "official",
-    "likes": 7301,
-    "reposts": 769,
-    "views": 6293940,
+    "likes": 7311,
+    "reposts": 772,
+    "views": 6571639,
     "posted_at": "2026-10-13",
     "measured_at": "2026-10-23"
    }
@@ -565,9 +646,9 @@
     "url": "https://x.com/AIatMeta/status/2109691148943999167",
     "author": "@AIatMeta",
     "kind": "official",
-    "likes": 2207,
+    "likes": 2208,
     "reposts": 236,
-    "views": 315864,
+    "views": 316590,
     "posted_at": "2026-10-12",
     "measured_at": "2026-10-23"
    }
@@ -620,9 +701,9 @@
     "url": "https://x.com/claudeai/status/2108271552991252810",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 60542,
-    "reposts": 4601,
-    "views": 11410956,
+    "likes": 60552,
+    "reposts": 4603,
+    "views": 11414763,
     "posted_at": "2026-10-08",
     "measured_at": "2026-10-23"
    }
@@ -641,9 +722,9 @@
     "url": "https://x.com/OpenAI/status/2107894997538525580",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 24017,
-    "reposts": 1904,
-    "views": 6861018,
+    "likes": 24034,
+    "reposts": 1905,
+    "views": 6872291,
     "posted_at": "2026-10-07",
     "measured_at": "2026-10-23"
    }
@@ -662,9 +743,9 @@
     "url": "https://x.com/claudeai/status/2107894039626277339",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 45261,
-    "reposts": 3269,
-    "views": 6728738,
+    "likes": 45258,
+    "reposts": 3266,
+    "views": 6731690,
     "posted_at": "2026-10-07",
     "measured_at": "2026-10-23"
    }
@@ -683,9 +764,9 @@
     "url": "https://x.com/claudeai/status/2107894060229034197",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 11858,
+    "likes": 11857,
     "reposts": 588,
-    "views": 1578187,
+    "views": 1578391,
     "posted_at": "2026-10-07",
     "measured_at": "2026-10-23"
    }
@@ -704,9 +785,9 @@
     "url": "https://x.com/MistralAI/status/2107457414387622310",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 40663,
-    "reposts": 4573,
-    "views": 5710534,
+    "likes": 40660,
+    "reposts": 4574,
+    "views": 5712100,
     "posted_at": "2026-10-06",
     "measured_at": "2026-10-23"
    }
@@ -731,9 +812,9 @@
     "url": "https://x.com/claudeai/status/2107522596845822135",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 54362,
+    "likes": 54370,
     "reposts": 4303,
-    "views": 13335703,
+    "views": 13337983,
     "posted_at": "2026-10-06",
     "measured_at": "2026-10-23"
    }
@@ -758,9 +839,9 @@
     "url": "https://x.com/OpenAI/status/2104986129686741046",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 21118,
+    "likes": 21112,
     "reposts": 1713,
-    "views": 3236348,
+    "views": 3237031,
     "posted_at": "2026-09-29",
     "measured_at": "2026-10-23"
    }
@@ -800,9 +881,9 @@
     "url": "https://x.com/OpenAI/status/2104984504133918973",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 38108,
+    "likes": 38105,
     "reposts": 3366,
-    "views": 14822762,
+    "views": 14824268,
     "posted_at": "2026-09-29",
     "measured_at": "2026-10-23"
    }
@@ -838,9 +919,9 @@
     "url": "https://x.com/bot/status/2104661562715967548",
     "author": "@bot",
     "kind": "official",
-    "likes": 6409,
+    "likes": 6407,
     "reposts": 573,
-    "views": 38721882,
+    "views": 39179001,
     "posted_at": "2026-09-28",
     "measured_at": "2026-10-23"
    }
@@ -859,9 +940,9 @@
     "url": "https://x.com/claudeai/status/2102435511222890900",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 97482,
+    "likes": 97508,
     "reposts": 9049,
-    "views": 28568573,
+    "views": 28606423,
     "posted_at": "2026-09-22",
     "measured_at": "2026-10-23"
    }
@@ -880,9 +961,9 @@
     "url": "https://x.com/OpenAI/status/2102460975790137662",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 53260,
+    "likes": 53252,
     "reposts": 5269,
-    "views": 10193249,
+    "views": 10193952,
     "posted_at": "2026-09-22",
     "measured_at": "2026-10-23"
    }
@@ -907,9 +988,9 @@
     "url": "https://x.com/elonmusk/status/2102071804495872374",
     "author": "@elonmusk",
     "kind": "official",
-    "likes": 26963,
-    "reposts": 2564,
-    "views": 32255263,
+    "likes": 26955,
+    "reposts": 2555,
+    "views": 32255496,
     "posted_at": "2026-09-21",
     "measured_at": "2026-10-23"
    }
