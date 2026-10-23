@@ -163,7 +163,7 @@
     f.addEventListener('change', render);
     render();
   });
-  // ---- newsletter (Kit, double opt-in): submit in place with JSON; fall back to a normal POST if fetch is unavailable
+  // ---- newsletter (Kit, double opt-in): submit in place with JSON; 'quarantined' -> Kit's security-check page; fall back to a normal POST if fetch fails
   Array.prototype.forEach.call(d.querySelectorAll('form[data-nl]'), function (f) {
     if (!window.fetch || !window.FormData) return;
     var st = f.parentNode.querySelector('.nl-status'), btn = f.querySelector('button');
@@ -175,6 +175,10 @@
         .then(function (r) { return r.json().catch(function () { return { status: r.ok ? 'success' : 'failed' }; }); })
         .then(function (j) {
           if (j && j.status === 'success') { f.hidden = true; say('Almost done. Check your email to confirm your subscription.'); }
+          else if (j && j.status === 'quarantined' && /^https:\/\/app\.kit\.com\//.test(j.url || '')) {
+            // Kit's bot protection wants a quick security check (reCAPTCHA) before it adds the subscriber and sends the confirmation email
+            say('One more step: opening a quick security check from our email provider\u2026'); window.location.assign(j.url);
+          }
           else { if (btn) btn.disabled = false; var m = j && j.errors && j.errors.messages; say((m && m.length ? m.join(' ') : 'That didn\u2019t work.') + ' Please check the address and try again.', true); }
         })
         .catch(function () { f.removeAttribute('data-nl'); HTMLFormElement.prototype.submit.call(f); });

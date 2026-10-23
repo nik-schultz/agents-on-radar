@@ -1,5 +1,10 @@
 # Ops changelog
 
+## 2026-10-23 (2:42 PM CT) — Fix: Kit "quarantined" signups now go to Kit's security check
+- Bug: Kit's bot protection sometimes answers a form POST with `{"status":"quarantined","url":"https://app.kit.com/forms/guards/…"}`. That page is a reCAPTCHA check, and the subscriber isn't added or emailed until it's passed. Our JS treated this as an error ("That didn't work…"), so no confirmation email was sent. Reproduced in headless Chrome on the live /newsletter/ page.
+- Fix (static/app.js): on `quarantined` with an app.kit.com URL, show "One more step…" and send the visitor to Kit's check page. Success and error handling are unchanged.
+- A curl test POST (multipart, Accept: application/json) returned `status: success`, so the request format, endpoint and field name were already correct.
+
 ## 2026-10-23 (news update, 2:30 PM CT)
 - Added 3 items (all Oct 23, notable): Kimi K3.1 Pro from Moonshot (open model with 1M-token context, API $2 / $10 per MTok, weights due by Nov 4; benchmarks are Moonshot's own; source TNW plus the Kimi blog), Cursor computer use (the desktop agent can click and type in other apps; source @cursor_ai on X plus AlphaSignal), and NVIDIA Nemotron 3.5 Bolt E4B 4GB (small free local model for device assistants; source the Hugging Face model card). Added Moonshot, Cursor and NVIDIA to NEWS_CO in scripts/build.py.
 - X refresh: re-measured all 36 tracked posts (research/x_news_measure_2026_10_23_pm.json.txt, apply script research/news_x_2026_10_23_pm.py). Top story is still Claude Duet. Trending is now DeepInfer, Kimi K3.1 Pro and Claude auto mode default.
