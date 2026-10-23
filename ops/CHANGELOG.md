@@ -1,5 +1,23 @@
 # Ops changelog
 
+## 2026-10-23 (daily QA run, 7:20 AM CT)
+- **Status:** live and healthy. https://botsdothat.com/ returned 200 on every page checked: home, /use-cases/ and 3 guides, /blueprints/ and 2 blueprints, /news/, /ai-pricing/, /run-your-bots-for-less/ (with ?bot= prefill), /trending/, /newsletter/ and the Oct 22 issue, /advertise/, robots.txt, sitemap.xml, feed.xml, /news/feed.xml, llms.txt, /assets/app.js, /assets/style.css and /assets/search-index.json. /nope-xyz-404/ returns the 404 page. TLS cert CN=botsdothat.com is valid until Jan 20, 2027. https://www.botsdothat.com/ 301s to the apex.
+- **Checks:**
+  - validate: 0 errors. build: OK (115 pages + 404 after today's guide). Internal links: 0 broken (5,762 scanned).
+  - External links: 228 unique, 19 not-200 to the HEAD check. Expected bot blocks: claude.ai, help.openai.com, openai.com (403); ftc.gov and consumer.ftc.gov (404 to curl; the FTC job-scams page loads fine through a normal fetch); Android Authority (403). New this run: chatgpt.com/pricing 403 to HEAD. It and these returned 200 to a browser-UA GET: chatgpt.com/pricing, two support.google.com pages, ahrq.gov, news.ycombinator.com (405 to HEAD) and a google.com/search source link (URLError to HEAD). Nothing actually broken.
+  - Static checks (all 117 HTML files): every img has alt text and an existing file (69 imgs). Every data-copy button points at an existing id. The search index covers all 81 use cases and 12 blueprints. All JSON-LD blocks parse (309 before the new guide). app.js and all inline JS pass `node --check` (the 2 flags were the calculator's `application/json` data blocks, which parse as JSON). Every page has a width=device-width viewport, and there are no fixed widths over 320px.
+  - Headless Chrome (own instance, throwaway temp profile, driven over CDP from Shell; Node 20 needs `--experimental-websocket` for the /workspace/qa scripts):
+    - Console: 0 console errors and 0 JS exceptions on 13 live pages at 320px and 1280px. The only network error was the intended 404 test page.
+    - Function tests: /use-cases/?q=resignation filters to 1 result, homepage instant search returns results, the Copy button reaches "Copied ✓" (also on the new guide), and the calculator renders with the ?bot= prefill.
+    - Overflow: a full 320px scan of all 115 pages, run locally, flagged only the homepage hero radar art, which is clipped on purpose (page scrollWidth stays 320).
+- **Bugs fixed:** none found.
+- **Improvement for visitors:** new guide **Add calendar events and reminders just by asking your bot** (https://botsdothat.com/use-cases/add-events-and-reminders-by-asking-your-bot/, family category, Easy).
+  - What it covers: pick Grok Bot (phone Calendar/Reminders/Contacts, rolling out Oct 22) or Gemini (Google Calendar + Google Tasks), allow only the apps you need, ask in plain words or paste a text, read back what it added, and use Undo. Includes the Gemini Maps saved places + Calendar tip. Copy-paste prompt included.
+  - Watch-outs, each sourced: per-app Allow buttons (Digital Trends, TeslaNorth); Gemini can hallucinate, default calendar, guest emails can't be undone (Gemini Apps Help, calendar events); Gemini can bulk-change Google Tasks without confirmation (Gemini Apps Help, tasks & workflows); availability on both platforms still unclear (TeslaNorth).
+  - Also: a 3-question FAQ, no stats or time-saved estimates, and `popularity: null`. Backlog item marked `[x]`.
+- **Deploy commits:** publish 1bb22fa (guide; main beaaca5). GitHub Actions run succeeded. The news routine's staged BACKLOG line went out in the same commit.
+- **Not checked:** Reddit (blocked from the box), real-device or Safari/iOS rendering (Chrome emulation only), Lighthouse/performance scores, and the http→https redirect (outbound port 80 is blocked from the box).
+
 ## 2026-10-23 (news update, 6:30 AM CT)
 - **Added 4 items** (all opened at the source, all Oct 22, all notable): Claude apps switch to auto mode by default next week on Pro/Max/Team (Anthropic, @claudeai); Grok Bot can use the phone's Calendar, Reminders, Contacts and more (Digital Trends + TeslaNorth, @bot); Grok Bot signs in with 1Password without seeing passwords (1Password partner page + 1Password for Agents blog, @bot); Gemini Personal Intelligence now uses Google Maps saved places with Calendar (9to5Google, @GeminiApp).
 - **X refresh:** re-measured all 33 tracked posts (get_posts_by_ids, 2026-10-23 AM; raw response kept locally in research/). Top story is still Claude Duet; trending is now Claude auto mode, DeepSeek DeepInfer and Grok Bot phone apps.
