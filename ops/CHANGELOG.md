@@ -1,5 +1,18 @@
 # Ops changelog
 
+## 2026-10-23 (6:45 PM CT) — New /sponsor-terms/ page
+- New plain-English /sponsor-terms/. It covers:
+  - What we accept (relevant AI, automation and productivity tools) and what we don't (adult content, gambling, crypto get-rich schemes, misleading claims, malware or scams).
+  - Every sponsorship is labeled "Sponsored".
+  - Each ad is reviewed before it runs, usually within 2 business days, with a full refund if we decline it.
+  - What the sponsor provides (name, URL, headline, short text, logo). We may lightly edit it, and claims must be accurate and are the sponsor's responsibility.
+  - Placement runs for the period bought, starting from the chosen month, with no auto-renewal.
+  - Refunds: a full refund before the spot goes live, and none for the current period after that.
+  - No guaranteed traffic; measured stats are shared on request.
+  - Payments are processed by Stripe; contact hello@botsdothat.com.
+  - Last updated Oct 23, 2026.
+- Linked from the footer (next to Privacy) and from /advertise/ under "Our rules". It is in the sitemap automatically. The /advertise/ buttons are unchanged, and payment links will come later.
+
 ## 2026-10-23 (6:45 PM CT) — Share buttons and "forward it" line
 - Every use case, blueprint and guide page (no-code build, cost, OpenClaw vs Hermes, safety, what's an AI agent, examples, Run for less) now ends with a "Share this" bar before the newsletter signup:
   - Share on X: an intent URL with the page title, the URL and via=botsdothat.

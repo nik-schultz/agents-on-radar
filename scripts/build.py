@@ -33,6 +33,7 @@ ADV_HREF = f"mailto:{CONTACT}?subject=Advertising%20launch%20pricing" if CONTACT
 _vg, _vb = (cfg.get("verification") or {}).get("google", "").strip(), (cfg.get("verification") or {}).get("bing", "").strip()
 DISCLOSE = "/disclosure/"
 PRIVACY = "/privacy/"
+SPONSOR_TERMS = "/sponsor-terms/"
 X_HANDLE = (cfg.get("x_handle") or "").lstrip("@")
 X_URL = f"https://x.com/{X_HANDLE}" if X_HANDLE else ""
 # Content-based dateModified: pages put MOD_ISO / MOD_NICE tokens in their body or JSON-LD; page() swaps in the date
@@ -164,7 +165,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <div><p class="logo"><span class="logo-dot" aria-hidden="true"></span>{wordmark()}</p><p class="foot-tag">{e(TAGLINE)}</p><p class="small">{e(cfg.get('subtagline', ''))}</p>
 <p class="small">General information, not legal, medical or financial advice. Popularity numbers are real counts we measured, with the date. Unknown = not shown. Paid placements are labeled “Sponsored”; affiliate links are labeled “Affiliate link” (<a href="{u(DISCLOSE)}">disclosure</a>).</p></div>
 <div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">Use cases</a></li><li><a href="{u('/blueprints/')}">Build a bot</a></li><li><a href="{u(BUILD_GUIDE)}">Build an AI agent without coding</a></li><li><a href="{u(COST_GUIDE)}">What an AI agent costs</a></li><li><a href="{u(SAFE_GUIDE)}">Email and calendar safety</a></li><li><a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a></li><li><a href="{u('/what-can-bots-do/')}">What's an AI agent?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
-<div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/advertise/')}">Advertise</a></li><li><a href="{u(DISCLOSE)}">Affiliate & sponsor disclosure</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u(PRIVACY)}">Privacy</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li>{('<li><a href="' + e(X_URL) + '" rel="me noopener">Follow on X (@' + e(X_HANDLE) + ')</a></li>') if X_URL else ""}<li><a href="{e(CONTACT_HREF)}">Contact{(": " + e(CONTACT)) if CONTACT else ""}</a></li></ul></div>
+<div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/advertise/')}">Advertise</a></li><li><a href="{u(DISCLOSE)}">Affiliate & sponsor disclosure</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u(PRIVACY)}">Privacy</a></li><li><a href="{u(SPONSOR_TERMS)}">Sponsor terms</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li>{('<li><a href="' + e(X_URL) + '" rel="me noopener">Follow on X (@' + e(X_HANDLE) + ')</a></li>') if X_URL else ""}<li><a href="{e(CONTACT_HREF)}">Contact{(": " + e(CONTACT)) if CONTACT else ""}</a></li></ul></div>
 </div><div class="wrap small foot-note">Data as of {nice_date(BUILD_DATE)} · {len(ucs)} use cases · {len(bps)} blueprints</div></footer>
 <script src="{u('/assets/app.js')}?v={ASSET_V['app.js']}" defer></script>
 </body></html>"""
@@ -1472,6 +1473,7 @@ page("/advertise/", "Advertise to people building their first AI bots", f"Sponso
 <div class="tier glass"><p class="eyebrow">💸 Run for less</p><h2>Sponsored tile in Run your bots for less</h2><p class="price">$99 / month</p><p class="price-sub">One sponsor at a time</p><ul><li>One labeled tile beside the money-saving tips in the homepage’s Run for less band</li><li>For hosting, routers, monitoring or anything that lowers a bot's bill</li><li>The price table and calculator stay ad-free</li></ul>{tier_cta("Run for less tile")}</div></div>
 <h2>How every paid spot is labeled</h2><p>Paid spots carry this label: {paid_label()}. Affiliate links carry this one: {paid_label("affiliate")}. Both link to our <a href="{u(DISCLOSE)}">disclosure page</a>, and every paid link uses <code>rel="sponsored"</code>.</p>
 <h2>Our rules</h2><ul><li>Money never changes trending rankings, prices, the calculator or what we recommend.</li><li>One sponsor per spot, and every spot is labeled.</li><li>We never share reader emails.</li></ul>
+<p>The full rules for sponsors (what we accept, review, refunds and cancellations) are in our <a href="{u(SPONSOR_TERMS)}">sponsor terms</a>.</p>
 <section class="faq" id="faq"><h2>Questions</h2>{"".join(f"<details class='glass'><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in ADV_FAQ)}</section>
 <div class="adv-cta glass"><h2>Launch pricing</h2><p class="adv-bundle"><b>Bundle: all three for $149 / month</b><br><span class="small muted">Newsletter slot + featured tool listing + Run-for-less tile</span></p><p>These are launch rates for a new site. They may change once traffic is measured, and we'll show you the measured numbers before any change. Monthly, cancel any time. Tell us your product and which spot you want.</p>
 <p>{tier_cta("Bundle (all three)", "Email us about the bundle")}</p>{'' if CONTACT else '<p class="small muted">This opens our public GitHub issues page. Start a new issue titled “Advertising” and we will reply there. If you would rather talk privately, say so and we will move to email.</p>'}</div></div>""",
@@ -1485,6 +1487,24 @@ page(DISCLOSE, "Affiliate and sponsor disclosure", f"How {NAME} makes money: lab
 <h2>Affiliate link</h2><p>{paid_label("affiliate")} means that if you sign up or buy through that link, we may earn a commission, at no extra cost to you. We only add affiliate links to tools we would list anyway, and we list free and non-affiliate options next to them.</p>
 <h2>What money never changes</h2><ul><li>Trending is computed from public X and Reddit numbers.</li><li>Prices come from official pricing pages, with the date we checked.</li><li>The cost calculator always shows every model in our table, cheapest first.</li></ul>
 <p>Questions or something looks wrong? <a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>. Want to advertise? See <a href="{u('/advertise/')}">Advertise</a>.</p></div>""")
+
+SPONSOR_TERMS_UPDATED = "2026-10-23"
+_tmail = f'<a href="mailto:{e(CONTACT)}">{e(CONTACT)}</a>' if CONTACT else f'<a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>'
+page(SPONSOR_TERMS, "Sponsor terms", f"Plain-English terms for sponsoring {NAME}: what we accept, how ads are labeled and reviewed, what you provide, placement periods, refunds and cancellations.",
+     f"""<div class="wrap narrow prose"><p class="eyebrow">Advertise</p><h1 class="kinetic-sm">Sponsor terms</h1>
+<p class="lead">The rules for sponsoring {e(NAME)}, in plain English. If anything here is unclear, email us before you buy.</p>
+<div class="glass adv-honest"><p class="small muted">Last updated {nice_date(SPONSOR_TERMS_UPDATED)}.</p></div>
+<h2>What we accept</h2><p>Tools and services that are relevant to our readers: AI, automation and productivity tools that help people hand a job to a bot or run their bots for less.</p>
+<h2>What we don't accept</h2><ul><li>Adult content</li><li>Gambling</li><li>Crypto get-rich schemes</li><li>Misleading claims</li><li>Malware, scams or anything that tricks people</li></ul>
+<h2>Every sponsorship is labeled</h2><p>Every paid spot carries the label {paid_label()} and links with <code>rel="sponsored"</code>. Sponsorships never change our rankings, prices, the cost calculator or what we recommend. See our <a href="{u(DISCLOSE)}">disclosure page</a>.</p>
+<h2>We review every ad first</h2><p>We review each ad before it runs, usually within 2 business days. If we decline your ad, we give you a full refund.</p>
+<h2>What you provide</h2><ul><li>Your product or company name</li><li>The URL you want people to visit</li><li>A headline</li><li>A short description</li><li>A logo</li></ul>
+<p>We may lightly edit your text for length and clarity. Your claims must be accurate, and you are responsible for them.</p>
+<h2>How long your spot runs</h2><p>Your placement runs for the period you bought, starting from the month you choose. Monthly spots don't renew automatically. If you want another month, buy again.</p>
+<h2>Cancellations and refunds</h2><ul><li><b>Before your spot goes live:</b> cancel any time for a full refund.</li><li><b>After it goes live:</b> no refund for the current period.</li></ul>
+<h2>Traffic and stats</h2><p>We don't guarantee traffic numbers. {e(NAME)} is a new site, and we only share stats we've actually measured. Ask us and we'll send you the measured numbers for the pages your spot appears on.</p>
+<h2>Payments</h2><p>Payments are processed by Stripe.</p>
+<h2>Contact</h2><p>Questions about sponsoring? Email {_tmail}. See all spots and prices on <a href="{u('/advertise/')}">Advertise</a>.</p></div>""", lastmod=SPONSOR_TERMS_UPDATED)
 
 PRIVACY_UPDATED = "2026-10-23"
 _mail = f'<a href="mailto:{e(CONTACT)}">{e(CONTACT)}</a>' if CONTACT else f'<a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>'
