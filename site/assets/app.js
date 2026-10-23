@@ -214,3 +214,22 @@
   window.addEventListener('resize', upd);
   upd();
 })();
+// ---- share bar: copy link (clipboard API, then execCommand fallback, then select-the-URL prompt)
+(function () {
+  var d = document;
+  Array.prototype.forEach.call(d.querySelectorAll('.share-copy'), function (b) {
+    var url = b.getAttribute('data-share-url'), lbl = b.querySelector('span'), st = b.closest('.share') && b.closest('.share').querySelector('.share-status');
+    var done = function (ok) {
+      if (ok) { b.classList.add('ok'); if (lbl) lbl.textContent = 'Link copied'; if (st) st.textContent = 'Link copied to your clipboard.'; }
+      else if (st) st.textContent = 'Copy this link: ' + url;
+      setTimeout(function () { b.classList.remove('ok'); if (lbl) lbl.textContent = 'Copy link'; if (st) st.textContent = ''; }, ok ? 2500 : 12000);
+    };
+    var legacy = function () {
+      var t = d.createElement('textarea'); t.value = url; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+      d.body.appendChild(t); t.select(); var ok = false; try { ok = d.execCommand('copy'); } catch (e) {} d.body.removeChild(t); done(ok);
+    };
+    b.addEventListener('click', function () {
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(function () { done(true); }, legacy); else legacy();
+    });
+  });
+})();

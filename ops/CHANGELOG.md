@@ -1,5 +1,13 @@
 # Ops changelog
 
+## 2026-10-23 (6:45 PM CT) — Share buttons and "forward it" line
+- Every use case, blueprint and guide page (no-code build, cost, OpenClaw vs Hermes, safety, what's an AI agent, examples, Run for less) now ends with a "Share this" bar before the newsletter signup:
+  - Share on X: an intent URL with the page title, the URL and via=botsdothat.
+  - Copy link: uses the Clipboard API, falls back to execCommand, then shows the URL. With JS off, a read-only URL field shows instead.
+  - Email a friend: a mailto with a subject and the link.
+- The bar is plain links plus one button, with inline SVG icons. There are no third-party scripts or trackers. Buttons have aria-labels, 44px touch targets and a polite status message.
+- Every newsletter form now has the line "Know someone who'd like this? Forward it, or send them to botsdothat.com/#subscribe". The homepage form after the trending grid carries `id="subscribe"`.
+
 ## 2026-10-23 (6:30 PM CT) — Tool cost text: Claude Cowork and Grok Bot
 - data/tools.json `claude-cowork` cost: "Paid Claude plans only (Pro, Max, Team, Enterprise)". Verified Oct 23 on https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork ("Cowork is available to paid Claude plans (Pro, Max, Team, Enterprise) only").
 - data/tools.json `grok-bot` cost: "Included with paid individual Cursor plans and Cursor Teams; or link SuperGrok, SuperGrok Plus or SuperGrok Heavy; or a self-serve Grok Business seat". Verified Oct 23 on https://docs.x.ai/grok-bot/overview ("included with every paid individual Cursor plan and with the Cursor Teams plan. You can also link an individual SuperGrok, SuperGrok Plus, or SuperGrok Heavy subscription, or sign in with a seat on a self-serve Grok Business plan").

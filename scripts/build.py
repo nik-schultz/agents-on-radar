@@ -130,6 +130,8 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
         CONTENT_DATES[path] = {"hash": h, "date": moddate}
         lastmod = moddate
     nl_end = f'<div class="wrap nl-end">{newsletter_box("nl-end", "inline")}</div>' if (kind in ("uc", "bp") or path in NL_END_PATHS) else ""
+    if kind in ("uc", "bp") or path in SHARE_PATHS:
+        nl_end = f'<div class="wrap share-wrap">{share_bar(title, canon)}</div>' + nl_end
     # Keep <title> within ~62 chars (Google truncates longer ones); drop the brand suffix when it won't fit.
     full_title = title if (NAME in title or len(title) + len(NAME) + 3 > 62) else f"{title} · {NAME}"
     og = absu(u("/assets/og.png"))
@@ -204,6 +206,21 @@ def featured_slot(slot, cat=None):
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
     return newsletter_box(f"nl-{slot}", "card")  # no sponsor booked: show a newsletter signup instead of an empty ad box
 
+SHARE_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS}
+def share_bar(title, url):
+    """Share on X / Copy link / Email a friend. Plain links + one button; no third-party scripts."""
+    q = urllib.parse.quote
+    xh = f"https://x.com/intent/post?text={q(title)}&url={q(url, safe='')}" + (f"&via={q(X_HANDLE)}" if X_HANDLE else "")
+    mh = f"mailto:?subject={q(title + ' (via ' + NAME + ')')}&body={q('Thought you might like this: ' + title + chr(10) + chr(10) + url)}"
+    xsvg = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.8-6.3L6.4 22H3.3l7.3-8.3L1 2h6.3l4.4 5.8zm-1.1 18h1.7L6.3 3.9H4.5z"/></svg>'
+    lsvg = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 0 0-6.4-6.4L12 5.6M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg>'
+    msvg = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 6h18v12H3zM3 7l9 7 9-7"/></svg>'
+    return f"""<section class="share glass" aria-labelledby="share-h"><h2 id="share-h" class="share-h">Share this</h2><div class="share-row">
+<a class="share-btn" href="{e(xh)}" target="_blank" rel="noopener" aria-label="Share on X (opens in a new tab)">{xsvg}<span>Share on X</span></a>
+<button class="share-btn share-copy" type="button" data-share-url="{e(url)}" aria-label="Copy link to this page">{lsvg}<span>Copy link</span></button>
+<label class="share-nojs"><span class="sr">Link to this page</span><input type="text" readonly value="{e(url)}" size="34"></label>
+<a class="share-btn" href="{e(mh)}" aria-label="Email this page to a friend">{msvg}<span>Email a friend</span></a>
+</div><p class="share-status small" role="status" aria-live="polite"></p></section>"""
 NL_END_PATHS = {"/trending/", "/news/", BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/"}
 def newsletter_box(uid="nl", variant="full"):
     """Kit signup (form 10088120 via config). uid keeps element ids unique when a page has more than one form.
@@ -217,6 +234,7 @@ def newsletter_box(uid="nl", variant="full"):
     cls = {"full": "news glass reveal", "card": "news glass nl-card", "inline": "news glass nl-inline"}[variant]
     hid = f"{uid}-h"
     sid = ' id="newsletter"' if uid == "nl" else ""
+    fwd = f'<p class="small nl-fwd">Know someone who\'d like this? Forward it, or send them to <a href="{e(absu(u("/")))}#subscribe">botsdothat.com/#subscribe</a></p>'
     h = "h3" if variant == "card" else "h2"
     lead = ("Real examples with sources, a prompt to copy, one new guide and one thing that went wrong. Free, one email a week." if variant != "card"
             else "Real examples with sources and a prompt to copy. Free, one email a week.")
@@ -224,7 +242,7 @@ def newsletter_box(uid="nl", variant="full"):
 <p>{lead}</p></div>
 <form class="nl-form" action="{e(act) or '#'}" method="post"{' data-nl' if act else ''}><label class="sr" for="{uid}-email">Email address</label>
 <input id="{uid}-email" type="email" name="{e(cfg['newsletter'].get('email_field','email_address'))}" placeholder="you@example.com" autocomplete="email" required{dis}>
-<button class="btn" type="submit"{dis}>Subscribe</button></form><p class="nl-status" role="status" aria-live="polite" hidden></p>{note}</{tag}>"""
+<button class="btn" type="submit"{dis}>Subscribe</button></form><p class="nl-status" role="status" aria-live="polite" hidden></p>{note}{fwd}</{tag}>"""
 
 def searchbox(id_="q", placeholder="Try “groceries”, “phone call”, “school emails”…", home=False):
     return f"""<form class="search" role="search" action="{u('/use-cases/')}" method="get"><label class="sr" for="{id_}">Search use cases</label>
@@ -519,7 +537,7 @@ home = f"""
 <p class="muted">Ranked by real likes, reposts and upvotes, weighted toward newer posts (last {cfg.get('trending_window_days',60)} days). <a href="{u('/about/#popularity')}">How we measure</a>.</p></div>
 <a class="btn btn-ghost btn-sm" href="{u('/trending/')}">Full trending list →</a></div>
 <ol class="bento">{trend_cards}</ol></section>
-<div class="wrap nl-mid">{newsletter_box("nl-mid", "inline")}</div>
+<div class="wrap nl-mid" id="subscribe">{newsletter_box("nl-mid", "inline")}</div>
 
 {less_band}
 
