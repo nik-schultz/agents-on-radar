@@ -1,5 +1,18 @@
 # Ops changelog
 
+## 2026-10-23 (12:25 PM CT) — Unsourced "editor's estimate" time-saved lines replaced or removed
+- 19 use cases had a time-saved line labeled "by our editor's estimate" with no source (rendered in the FAQ + FAQPage JSON-LD).
+- Sourced (5), each phrased as the source states it, linked, checked 2026-10-23:
+  - appeal-a-health-insurance-denial: 7 vs 23 min per appeal letter, 7 physicians (ASTRO 2026 abstract, UCLA).
+  - clean-up-your-email-inbox: 2 fewer hours/week on email, 7,137 workers at 66 firms (Dillon et al., AER: Insights).
+  - reply-to-customer-reviews: 10 min to ~2 min per Google review at Jackson Hewitt (Sprinklr case study, vendor).
+  - plan-a-trip-itinerary: nearly 7 hours saved, self-reported (Qlik/Censuswide survey, July 2025).
+  - sell-your-stuff-online: listing time down 48% avg in beta (Poshmark via Digital Commerce 360).
+- Removed (14): no credible source states a figure for that task. Includes fill-out-a-long-form (the CHItaly 2025 study covers technical MICS forms, which aren't comparable).
+- Schema: `time_saved` is optional; when present it must be `{text, source, url (https), checked}`. The FAQ renders it as "How much time can it save?" with a source link.
+- validate.py: rejects string or unsourced time_saved, any "editor's estimate" text in use-case data, and an editor label in build.py's time-saved template. Also checks blueprint time_saved.
+- Not changed, flagged for Nik: blueprint `setup_time` values "(editor's estimate)" (12) and the run-for-less "token counts are our editor's estimates" note. These are setup and token estimates, not time-saved claims.
+
 ## 2026-10-23 (weekly monetization review, 10:10 AM CT)
 - No active sponsors or affiliate links; data/sponsors.json is empty and /disclosure/ says so. Live /advertise/ rate card matches the approved Oct 21 pricing.
 - No traffic or subscriber data yet: Search Console and Bing verification are still unset in config.json, and there is no analytics. Too early to start outreach or affiliate links; no changes made.

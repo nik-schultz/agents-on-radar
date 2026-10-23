@@ -6,6 +6,8 @@ J = lambda *p: json.load(open(os.path.join(ROOT, *p)))
 DIFFS = {"Easy", "Medium", "Advanced"}
 REQ = ["slug", "title", "category", "date_added", "summary", "what_the_bot_does", "what_you_end_up_with", "difficulty", "tools", "prompt", "sources"]
 
+ESTIMATE_RE = re.compile(r"editor[\u2019']?s?\s+estimate", re.I)
+
 def is_date(s):
     try: datetime.date.fromisoformat(str(s)[:10]); return True
     except Exception: return False
@@ -25,6 +27,16 @@ def check_use_case(x, cats, tools):
     for src in x.get("sources", []):
         if not str(src.get("url", "")).startswith("http"): errs.append(f"{s}: source without http url")
         if not src.get("label"): errs.append(f"{s}: source without label")
+    # Time-saved claims: optional, but if present they must be sourced and phrased as the source states them.
+    ts = x.get("time_saved")
+    if ts is not None:
+        if not isinstance(ts, dict): errs.append(f"{s}: time_saved must be an object {{text, source, url, checked}} with a source, or omitted")
+        else:
+            if not ts.get("text"): errs.append(f"{s}: time_saved.text required")
+            if not ts.get("source"): errs.append(f"{s}: time_saved.source (publisher/study name) required")
+            if not str(ts.get("url", "")).startswith("https://"): errs.append(f"{s}: time_saved.url (https source link) required")
+            if not is_date(ts.get("checked")): errs.append(f"{s}: time_saved.checked required (ISO date the source was read)")
+    if ESTIMATE_RE.search(json.dumps(x, ensure_ascii=False)): errs.append(f"{s}: unsourced 'editor's estimate' label is not allowed; cite a source or remove the claim")
     p = x.get("popularity")
     if p is not None:
         if p.get("platform") not in ("x", "reddit"): errs.append(f"{s}: popularity.platform must be x or reddit")
@@ -46,7 +58,14 @@ def main():
         if x.get("slug") in seen: errs.append(f"duplicate slug {x.get('slug')}")
         seen.add(x.get("slug"))
         errs += check_use_case(x, cats, tools)
+    # The time-saved template must never fall back to an unsourced estimate label.
+    _bsrc = open(os.path.join(ROOT, "scripts", "build.py"), encoding="utf-8").read()
+    if re.search(r"(time[ _]saved|time it saves)[^\n]{0,160}editor", _bsrc, re.I): errs.append("build.py: time-saved text must not use an 'editor's estimate' label")
     for b in J("data", "blueprints.json"):
+        if b.get("time_saved") is not None:
+            ts = b["time_saved"]
+            if not (isinstance(ts, dict) and ts.get("text") and ts.get("source") and str(ts.get("url", "")).startswith("https://")):
+                errs.append(f"blueprint {b.get('slug')}: time_saved needs {{text, source, https url}} or must be omitted")
         for k in ["slug", "title", "goal", "trigger", "watches", "steps", "tools", "instructions", "safety"]:
             if not b.get(k): errs.append(f"blueprint {b.get('slug')}: missing {k}")
         for r in b.get("related", []):

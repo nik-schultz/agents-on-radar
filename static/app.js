@@ -44,7 +44,7 @@
     var params = new URLSearchParams(location.search), cat = params.get('cat') || 'all';
     if (params.get('q') && qIn) qIn.value = params.get('q');
     if (params.get('sort') && sortSel) sortSel.value = params.get('sort');
-    var chipsEl = d.querySelectorAll('.chip');
+    var chipsEl = d.querySelectorAll('.chip[data-filter]');
     function apply() {
       var words = norm(qIn ? qIn.value : '').split(' ').filter(Boolean), shown = 0;
       cards.forEach(function (c) {

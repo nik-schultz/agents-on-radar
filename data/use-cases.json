@@ -1989,7 +1989,6 @@
     "id": "grok"
    }
   ],
-  "time_saved": "Editor's estimate: 20–30 minutes of staring at a blank page",
   "prompt": "Write a resignation letter for me.\n\nMy role: [JOB TITLE]\nManager's name: [NAME]\nToday's date: [DATE]\nMy last working day: [DATE]\nTone: [WARM / NEUTRAL / VERY BRIEF]\nThings to mention: [e.g. thanks for the mentoring on X, happy to train my replacement]\nThings NOT to mention: [e.g. where I'm going, why I'm leaving]\n\nKeep it under 150 words, positive and professional. No complaints and no reasons unless I gave one. Then give me a 3-sentence email version. Don't send anything; I'll review it.",
   "watch_out": [
    "Check your contract or handbook for the required notice period before you pick a last day.",
@@ -4218,7 +4217,12 @@
     "id": "grok"
    }
   ],
-  "time_saved": "Editor's estimate: a first draft in about 30 minutes instead of an evening of research",
+  "time_saved": {
+   "text": "In a small test presented at ASTRO 2026 (the American Society for Radiation Oncology annual meeting), 7 physicians took 7 minutes on average to write an insurance appeal letter with a generative-AI tool, versus 23 minutes their usual way. The testers were doctors, not patients.",
+   "source": "ASTRO 2026 abstract: Physician Testing of a Generative AI-Augmented Appeal Tool (UCLA)",
+   "url": "https://amportal.astro.org/sessions/pqa-03-22879/alleviating-the-authorization-burden-physician-testing-of-a-generative-ai-augmented-appeal-to-113293",
+   "checked": "2026-10-23"
+  },
   "difficulty": "Medium",
   "steps": [
    "Find the denial letter or Explanation of Benefits (EOB) and your plan's appeal instructions.",
@@ -4404,7 +4408,6 @@
     "id": "grok"
    }
   ],
-  "time_saved": "Editor's estimate: about 5–10 minutes to understand a letter that might otherwise sit in a pile for weeks",
   "difficulty": "Easy",
   "steps": [
    "Cover or remove personal numbers (Social Security, account, case numbers) before taking a photo or pasting text.",
@@ -4555,7 +4558,6 @@
     "id": "meta-muse"
    }
   ],
-  "time_saved": "Editor's estimate: 10–30 minutes of clicking per booking, more if you'd otherwise keep checking for openings",
   "difficulty": "Easy",
   "steps": [
    "Pick an agent that can actually use websites (see the tools list). Chat-only AIs can find options but you'll book yourself.",
@@ -4709,7 +4711,6 @@
     "id": "grok"
    }
   ],
-  "time_saved": "Editor's estimate: about 10 minutes for a clear complaint",
   "difficulty": "Easy",
   "steps": [
    "Write down the timeline: dates, order numbers, who you talked to.",
@@ -4785,7 +4786,6 @@
     "id": "grok"
    }
   ],
-  "time_saved": "Editor's estimate: 20–40 minutes on a long form",
   "difficulty": "Medium",
   "steps": [
    "Get the official form and its official instructions.",
@@ -4863,7 +4863,6 @@
     "id": "grok"
    }
   ],
-  "time_saved": "Editor's estimate: about 20 minutes for a first read of a long lease",
   "difficulty": "Medium",
   "steps": [
    "Get the full lease, including any addenda.",
@@ -4941,7 +4940,6 @@
     "id": "grok"
    }
   ],
-  "time_saved": "Editor's estimate: an hour or more of list-making",
   "difficulty": "Easy",
   "steps": [
    "Fill in the prompt with your move date and accounts.",
@@ -5049,7 +5047,12 @@
     "id": "grok-bot"
    }
   ],
-  "time_saved": "Editor's estimate: a few hours of research down to about 30 minutes",
+  "time_saved": {
+   "text": "In a Censuswide survey of 2,001 employed US adults for Qlik (July 2025), people who used AI to plan their summer trip said it saved them nearly 7 hours of planning on average. That figure is self-reported.",
+   "source": "Qlik press release: Generative AI Tools are Reshaping Summer Travel",
+   "url": "https://www.qlik.com/us/news/company/press-room/press-releases/qlik-survey-generative-ai-tools-are-reshaping-summer-travel",
+   "checked": "2026-10-23"
+  },
   "difficulty": "Easy",
   "steps": [
    "Fill in the prompt with dates, people, budget and interests.",
@@ -5132,7 +5135,6 @@
     "id": "grok"
    }
   ],
-  "time_saved": "Editor's estimate: about 10 minutes, and a more useful appointment",
   "difficulty": "Easy",
   "steps": [
    "Jot down symptoms and medicines as you notice them.",
@@ -5209,7 +5211,6 @@
     "id": "grok"
    }
   ],
-  "time_saved": "Editor's estimate: an afternoon of organizing down to under an hour",
   "difficulty": "Medium",
   "steps": [
    "Collect what you have: pill bottles, insurance cards, recent letters.",
@@ -5291,7 +5292,6 @@
     "id": "grok-bot"
    }
   ],
-  "time_saved": "Editor's estimate: 20–30 minutes of planning each week",
   "difficulty": "Easy",
   "steps": [
    "List what's in your fridge and pantry.",
@@ -5365,7 +5365,6 @@
     "id": "grok"
    }
   ],
-  "time_saved": "Editor's estimate: less time stuck and fewer evening battles",
   "difficulty": "Easy",
   "steps": [
    "Check your child's school rules on AI use first.",
@@ -5446,7 +5445,12 @@
     "id": "grok-bot"
    }
   ],
-  "time_saved": "Editor's estimate: an hour or two of sorting, then minutes a day",
+  "time_saved": {
+   "text": "In a 6-month field experiment with 7,137 knowledge workers at 66 firms, workers who used a generative-AI tool built into their email and other work apps spent two fewer hours on email each week in the second half of the experiment.",
+   "source": "Dillon, Jaffe, Immorlica and Stanton, “Shifting Work Patterns with Generative AI”, American Economic Review: Insights",
+   "url": "https://www.aeaweb.org/articles?id=10.1257%2Faeri.20250275",
+   "checked": "2026-10-23"
+  },
   "difficulty": "Easy",
   "steps": [
    "Export or copy your top senders (most email apps can sort by sender).",
@@ -5527,7 +5531,6 @@
     "id": "grok"
    }
   ],
-  "time_saved": "Editor's estimate: 30–60 minutes per application",
   "difficulty": "Easy",
   "steps": [
    "Copy the job posting and your resume.",
@@ -5604,7 +5607,12 @@
     "id": "grok"
    }
   ],
-  "time_saved": "Editor's estimate: about 10 minutes per listing",
+  "time_saved": {
+   "text": "Poshmark says its Smart List AI, which drafts a listing from one photo, cut listing times by an average of 48% in beta testing.",
+   "source": "Digital Commerce 360: Poshmark introduces generative AI tool for its product listings (Feb 4, 2025)",
+   "url": "https://www.digitalcommerce360.com/2025/02/04/poshmark-generative-ai-tool-product-listings/",
+   "checked": "2026-10-23"
+  },
   "difficulty": "Easy",
   "steps": [
    "Take clear photos in good light.",
@@ -5681,7 +5689,6 @@
     "id": "grok"
    }
   ],
-  "time_saved": "Editor's estimate: saves you from spending before you know",
   "difficulty": "Medium",
   "steps": [
    "Write the idea in one sentence.",
@@ -5764,7 +5771,12 @@
     "id": "zapier"
    }
   ],
-  "time_saved": "Editor's estimate: about 2 minutes per review instead of 10",
+  "time_saved": {
+   "text": "Sprinklr reports that Jackson Hewitt cut its average Google review handling time from 10 minutes to around 2 after centralizing reviews in Sprinklr with its AI+ features and a library of pre-approved replies. This is a vendor case study.",
+   "source": "Sprinklr customer story: Jackson Hewitt",
+   "url": "https://www.sprinklr.com/stories/jackson-hewitt/",
+   "checked": "2026-10-23"
+  },
   "difficulty": "Easy",
   "steps": [
    "Copy new reviews from your Google Business Profile (or other site).",
@@ -5845,7 +5857,6 @@
     "id": "zapier"
    }
   ],
-  "time_saved": "Editor's estimate: about 15 minutes, plus less stress",
   "difficulty": "Easy",
   "steps": [
    "Gather the invoice, agreed terms and any emails about the work.",

@@ -47,6 +47,10 @@ def u(p): return BP + p
 def absu(p): return BASE + p
 SITEMAP = []
 IMG_DIR = os.path.join(ROOT, "static", "img")
+import hashlib
+def _asset_v(name):  # content hash so browsers fetch fresh CSS/JS after every change
+    with open(os.path.join(ROOT, "static", name), "rb") as fh: return hashlib.sha1(fh.read()).hexdigest()[:10]
+ASSET_V = {n: _asset_v(n) for n in ("style.css", "app.js")}
 
 def nice_date(d):
     if not d: return ""
@@ -118,7 +122,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 {'<meta name="robots" content="noindex">' if noindex else ''}
 {VERIFY_META}<link rel="icon" href="{u('/assets/favicon.svg')}" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="{e(NAME)}: new use cases" href="{u('/feed.xml')}">
-<link rel="stylesheet" href="{u('/assets/style.css')}">{head_extra}
+<link rel="stylesheet" href="{u('/assets/style.css')}?v={ASSET_V['style.css']}">{head_extra}
 <script>{INTRO_JS}</script>
 {''.join(jsonld(x) for x in (ld or []))}
 </head><body>
@@ -135,7 +139,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">All use cases</a></li><li><a href="{u('/blueprints/')}">Build your own bot</a></li><li><a href="{u('/what-can-bots-do/')}">What can bots actually do?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
 <div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/advertise/')}">Advertise</a></li><li><a href="{u(DISCLOSE)}">Affiliate & sponsor disclosure</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li><li><a href="{e(CONTACT_HREF)}">Contact</a></li></ul></div>
 </div><div class="wrap small foot-note">Data as of {nice_date(BUILD_DATE)} · {len(ucs)} use cases · {len(bps)} blueprints</div></footer>
-<script src="{u('/assets/app.js')}" defer></script>
+<script src="{u('/assets/app.js')}?v={ASSET_V['app.js']}" defer></script>
 </body></html>"""
     fp = os.path.join(OUT, path.lstrip("/"), "index.html") if path.endswith("/") else os.path.join(OUT, path.lstrip("/"))
     os.makedirs(os.path.dirname(fp), exist_ok=True)
@@ -557,11 +561,16 @@ for x in ucs:
     tlist = ", ".join(tnames[:-1]) + (" or " if len(tnames) > 1 else "") + tnames[-1]
     derived = [
         ("Which AI tools can do this?", f"{tlist} can do this today. Paste the copy-paste prompt on this page into any of them and fill in the [brackets]."),
-        ("How hard is it to set up?", f"It's rated {x['difficulty']}." + (" Time it saves, by our editor's estimate: " + x["time_saved"].split(": ", 1)[-1] + "." if x.get("time_saved") else "") + " Start with the steps under “What the bot does”."),
+        ("How hard is it to set up?", f"It's rated {x['difficulty']}. Start with the steps under “What the bot does”."),
     ]
+    # Time-saved claims are optional and must carry a source (scripts/validate.py enforces this); never an unsourced estimate.
+    ts = x.get("time_saved")
+    if isinstance(ts, dict) and ts.get("text") and str(ts.get("url", "")).startswith("https://"):
+        derived.append(("How much time can it save?", f"{ts['text']} Source: {ts['source']}.",
+                        f'{e(ts["text"])} Source: <a href="{e(ts["url"])}" rel="noopener">{e(ts["source"])}</a>.'))
     if x.get("watch_out"): derived.append(("What should I watch out for?", x["watch_out"][0]))
-    faqs += [{"q": q, "a": a.replace("..", ".")} for q, a in derived if q.lower() not in have]
-    faq = '<section><h2>Questions people ask</h2>' + "".join(f'<details class="faq glass"><summary>{e(q["q"])}</summary><p>{e(q["a"])}</p></details>' for q in faqs) + "</section>"
+    faqs += [{"q": d[0], "a": d[1].replace("..", "."), **({"a_html": d[2]} if len(d) > 2 else {})} for d in derived if d[0].lower() not in have]
+    faq = '<section><h2>Questions people ask</h2>' + "".join(f'<details class="faq glass"><summary>{e(q["q"])}</summary><p>{q.get("a_html") or e(q["a"])}</p></details>' for q in faqs) + "</section>"
     reals = ""
     if x.get("real_examples"):
         reals = '<section><h2>Real examples</h2><ul class="reals">' + "".join(f'<li class="glass"><p>{e(r["text"])}</p><p class="small"><a href="{e(r["url"])}" rel="noopener">{e(r["source"])}</a> · {e(r["verification"])}</p></li>' for r in x["real_examples"]) + "</ul></section>"
