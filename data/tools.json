@@ -38,7 +38,7 @@
  "claude-cowork": {
   "name": "Claude Cowork",
   "url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
-  "cost": "Check plan requirements on Anthropic's help page",
+  "cost": "Paid Claude plans only (Pro, Max, Team, Enterprise)",
   "kind": "agent"
  },
  "gemini-spark": {
@@ -62,7 +62,7 @@
  "grok-bot": {
   "name": "Grok Bot (personal agents)",
   "url": "https://docs.x.ai/grok-bot/overview",
-  "cost": "Check plan requirements in xAI's docs",
+  "cost": "Included with paid individual Cursor plans and Cursor Teams; or link SuperGrok, SuperGrok Plus or SuperGrok Heavy; or a self-serve Grok Business seat",
   "kind": "agent"
  },
  "meta-muse": {

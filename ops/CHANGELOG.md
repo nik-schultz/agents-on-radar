@@ -1,5 +1,10 @@
 # Ops changelog
 
+## 2026-10-23 (6:30 PM CT) — Tool cost text: Claude Cowork and Grok Bot
+- data/tools.json `claude-cowork` cost: "Paid Claude plans only (Pro, Max, Team, Enterprise)". Verified Oct 23 on https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork ("Cowork is available to paid Claude plans (Pro, Max, Team, Enterprise) only").
+- data/tools.json `grok-bot` cost: "Included with paid individual Cursor plans and Cursor Teams; or link SuperGrok, SuperGrok Plus or SuperGrok Heavy; or a self-serve Grok Business seat". Verified Oct 23 on https://docs.x.ai/grok-bot/overview ("included with every paid individual Cursor plan and with the Cursor Teams plan. You can also link an individual SuperGrok, SuperGrok Plus, or SuperGrok Heavy subscription, or sign in with a seat on a self-serve Grok Business plan").
+- Both entries already linked these pages in their `url` field, which is how every tools.json entry cites its source.
+
 ## 2026-10-23 (night CT) — Review quick wins, part 2: nav order, headings, honest setup sizes, blueprint links, logo schema, real dateModified
 Follows the evening batch (ae4390f), which already shipped privacy, contact email, ticker tabindex, mobile menu, newsletter fallback, popularity hiding and X links. tools.json was not touched (the CEO agent owns it).
 - Nav: "What's an AI agent?" is first. At 641 to 899px the link row now fades on the right while links are hidden off-screen (JS toggles `.menu-more`). Without JS the row always fades at that width.
