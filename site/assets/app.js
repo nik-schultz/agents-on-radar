@@ -185,3 +185,22 @@
     });
   });
 })();
+// ---- mobile menu (<=640px): button toggles the nav; Esc or a click outside closes it and returns focus to the button
+(function () {
+  var d = document, btn = d.querySelector('.menu-btn'), menu = d.getElementById('site-menu');
+  if (!btn || !menu) return;
+  var lbl = btn.querySelector('.menu-lbl');
+  var set = function (open, focusBtn) {
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menu.classList.toggle('open', open);
+    if (lbl) lbl.textContent = open ? 'Close' : 'Menu';
+    if (open) { var a = menu.querySelector('a'); if (a) a.focus(); }
+    else if (focusBtn) btn.focus();
+  };
+  btn.addEventListener('click', function () { set(btn.getAttribute('aria-expanded') !== 'true'); });
+  d.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && menu.classList.contains('open')) set(false, true); });
+  d.addEventListener('click', function (ev) { if (menu.classList.contains('open') && !menu.contains(ev.target) && !btn.contains(ev.target)) set(false); });
+  menu.addEventListener('click', function (ev) { if (ev.target.closest && ev.target.closest('a')) set(false); });
+  var mq = window.matchMedia && matchMedia('(min-width: 641px)');
+  if (mq && mq.addEventListener) mq.addEventListener('change', function (m) { if (m.matches) set(false); });
+})();

@@ -32,6 +32,10 @@ CONTACT_TXT = CONTACT or "open an issue on GitHub"
 ADV_HREF = f"mailto:{CONTACT}?subject=Advertising%20launch%20pricing" if CONTACT else cfg.get("contact_url", "")
 _vg, _vb = (cfg.get("verification") or {}).get("google", "").strip(), (cfg.get("verification") or {}).get("bing", "").strip()
 DISCLOSE = "/disclosure/"
+PRIVACY = "/privacy/"
+X_HANDLE = (cfg.get("x_handle") or "").lstrip("@")
+X_URL = f"https://x.com/{X_HANDLE}" if X_HANDLE else ""
+NL_PROMISE = "3 to 5 practical jobs you can hand to AI each week"
 
 # Reusable paid-placement labels. Unused until a real sponsor or affiliate link exists.
 def paid_label(kind="sponsored"):
@@ -80,7 +84,7 @@ DIFF_ORDER = {"Easy": 0, "Medium": 1, "Advanced": 2}
 def pop_chip(x, long=False):
     p = x.get("popularity")
     if not p:
-        return '<span class="pop pop--none" title="We only show numbers we measured">Popularity: not measured</span>'
+        return ''  # unmeasured: show nothing rather than a "not measured" badge (explained on /about/)
     if p["platform"] == "x":
         t = f'♥ {fmt(p["likes"])} · ↻ {fmt(p["reposts"])} on X'
     else:
@@ -112,10 +116,11 @@ CF_BEACON = (f"<script defer src='https://static.cloudflareinsights.com/beacon.m
 
 def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="page", og_type="website", head_extra=""):
     canon = absu(u(path))
+    nl_end = f'<div class="wrap nl-end">{newsletter_box("nl-end", "inline")}</div>' if (kind in ("uc", "bp") or path in NL_END_PATHS) else ""
     # Keep <title> within ~62 chars (Google truncates longer ones); drop the brand suffix when it won't fit.
     full_title = title if (NAME in title or len(title) + len(NAME) + 3 > 62) else f"{title} · {NAME}"
     og = absu(u("/assets/og.png"))
-    nav = [("/trending/", "Trending"), ("/use-cases/", "All use cases"), ("/blueprints/", "Build a bot"), ("/what-can-bots-do/", "What is an AI agent?"), ("/news/", "AI news"), (LESS, "Run for less")]
+    nav = [("/trending/", "Trending"), ("/use-cases/", "Use cases"), ("/blueprints/", "Build a bot"), ("/what-can-bots-do/", "What's an AI agent?"), ("/news/", "AI news"), (LESS, "Run for less")]
     navh = "".join(f'<a href="{u(p)}"{" class=nav-less" if p == LESS else ""}{" aria-current=page" if path==p else ""}>{"<span class=nav-less-dot aria-hidden=true></span>" if p == LESS else ""}{t}</a>' for p, t in nav)
     doc = f"""<!doctype html><html lang="en" data-page="{kind}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -124,7 +129,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <meta property="og:title" content="{e(full_title)}"><meta property="og:description" content="{e(desc)}">
 <meta property="og:type" content="{og_type}"><meta property="og:url" content="{e(canon)}"><meta property="og:site_name" content="{e(NAME)}">
 <meta property="og:image" content="{e(og)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{e(og)}">
+<meta name="twitter:card" content="summary_large_image">{('<meta name="twitter:site" content="@' + e(X_HANDLE) + '">') if X_HANDLE else ""}<meta name="twitter:image" content="{e(og)}">
 {'<meta name="robots" content="noindex">' if noindex else ''}
 {VERIFY_META}{CF_BEACON}<link rel="icon" href="{u('/assets/favicon.svg')}" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="{e(NAME)}: new use cases" href="{u('/feed.xml')}">
@@ -135,15 +140,16 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap nav">
 <a class="logo" href="{u('/')}"><span class="logo-dot" aria-hidden="true"></span>{wordmark()}</a>
-<nav aria-label="Main" class="menu">{navh}</nav>
-<a class="btn btn-sm nav-cta" href="{u('/newsletter/')}">Get the weekly email</a>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-ico" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-lbl">Menu</span></button>
+<nav aria-label="Main" class="menu" id="site-menu">{navh}</nav>
+<a class="btn btn-sm nav-cta" href="{u('/newsletter/')}"><span class="cta-full">Get the weekly email</span><span class="cta-short">Weekly email</span></a>
 </div></header>
-<main id="main">{body}</main>
+<main id="main">{body}{nl_end}</main>
 <footer class="foot"><div class="wrap foot-grid">
 <div><p class="logo"><span class="logo-dot" aria-hidden="true"></span>{wordmark()}</p><p class="foot-tag">{e(TAGLINE)}</p><p class="small">{e(cfg.get('subtagline', ''))}</p>
 <p class="small">General information, not legal, medical or financial advice. Popularity numbers are real counts we measured, with the date. Unknown = not shown. Paid placements are labeled “Sponsored”; affiliate links are labeled “Affiliate link” (<a href="{u(DISCLOSE)}">disclosure</a>).</p></div>
-<div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">All use cases</a></li><li><a href="{u('/blueprints/')}">Build your own bot</a></li><li><a href="{u(BUILD_GUIDE)}">Build an AI agent without coding</a></li><li><a href="{u(COST_GUIDE)}">What an AI agent costs</a></li><li><a href="{u(SAFE_GUIDE)}">Email and calendar safety</a></li><li><a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a></li><li><a href="{u('/what-can-bots-do/')}">What is an AI agent?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
-<div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/advertise/')}">Advertise</a></li><li><a href="{u(DISCLOSE)}">Affiliate & sponsor disclosure</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li><li><a href="{e(CONTACT_HREF)}">Contact</a></li></ul></div>
+<div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">Use cases</a></li><li><a href="{u('/blueprints/')}">Build a bot</a></li><li><a href="{u(BUILD_GUIDE)}">Build an AI agent without coding</a></li><li><a href="{u(COST_GUIDE)}">What an AI agent costs</a></li><li><a href="{u(SAFE_GUIDE)}">Email and calendar safety</a></li><li><a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a></li><li><a href="{u('/what-can-bots-do/')}">What's an AI agent?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
+<div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/advertise/')}">Advertise</a></li><li><a href="{u(DISCLOSE)}">Affiliate & sponsor disclosure</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u(PRIVACY)}">Privacy</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li>{('<li><a href="' + e(X_URL) + '" rel="me noopener">X: @' + e(X_HANDLE) + '</a></li>') if X_URL else ""}<li><a href="{e(CONTACT_HREF)}">Contact{(": " + e(CONTACT)) if CONTACT else ""}</a></li></ul></div>
 </div><div class="wrap small foot-note">Data as of {nice_date(BUILD_DATE)} · {len(ucs)} use cases · {len(bps)} blueprints</div></footer>
 <script src="{u('/assets/app.js')}?v={ASSET_V['app.js']}" defer></script>
 </body></html>"""
@@ -152,6 +158,8 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
     open(fp, "w").write(doc)
     if not noindex: SITEMAP.append((canon, lastmod or BUILD_DATE))
 
+def is_demand(src):  # Google search-suggestion lookups show demand, not facts
+    return "google.com/search" in src.get("url", "") or "search suggestions" in src.get("label", "").lower()
 def norm(s): return " ".join(re.sub(r"[^a-z0-9 ]", " ", s.lower()).split())
 def search_text(x):
     return norm(" ".join([x["title"], x["summary"], x["what_you_end_up_with"], CAT[x["category"]]["name"], " ".join(x.get("tags", [])), " ".join(tools[t["id"]]["name"] for t in x["tools"])]))
@@ -180,18 +188,29 @@ def featured_slot(slot, cat=None):
         s = items[0]
         return f"""<aside class="featured glass sponsored">{paid_label()}<h3>{e(s['headline'])}</h3><p>{e(s.get('body',''))}</p>
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
-    return f"""<aside class="featured glass house"><span class="label">Featured spot</span><h3>Your agent or tool could be here</h3>
-<p>Reach people who are actively trying to hand a job to a bot. Clearly labeled, one sponsor per spot.</p><a class="btn btn-ghost" href="{u('/advertise/')}">Advertise here</a></aside>"""
+    return newsletter_box(f"nl-{slot}", "card")  # no sponsor booked: show a newsletter signup instead of an empty ad box
 
-def newsletter_box():
+NL_END_PATHS = {"/trending/", "/news/", BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/"}
+def newsletter_box(uid="nl", variant="full"):
+    """Kit signup (form 10088120 via config). uid keeps element ids unique when a page has more than one form.
+    variant: full (homepage/newsletter), card (sidebar, replaces an unsold sponsor spot), inline (end of content pages)."""
     act = cfg["newsletter"].get("form_action", "")
     dis = "" if act else " disabled"
-    note = '<p class="small nl-note">We\'ll email you a link to confirm your subscription. You\'re not subscribed until you click it.</p>' if act else '<p class="small" role="note">Signups open soon. This form doesn\'t send anything yet.</p>'
-    return f"""<section class="news glass reveal" id="newsletter" aria-labelledby="nl-h"><div><p class="eyebrow">{e(NAME)} Weekly</p><h2 id="nl-h">The 5 best new things people got bots to do this week</h2>
-<p>Real examples with sources, one blueprint you can copy, and one thing that went wrong. Free. One email a week.</p></div>
-<form class="nl-form" action="{e(act) or '#'}" method="post"{' data-nl' if act else ''}><label class="sr" for="nl-email">Email address</label>
-<input id="nl-email" type="email" name="{e(cfg['newsletter'].get('email_field','email_address'))}" placeholder="you@example.com" autocomplete="email" required{dis}>
-<button class="btn" type="submit"{dis}>Subscribe</button></form><p class="nl-status" role="status" aria-live="polite" hidden></p>{note}</section>"""
+    priv = f' <a href="{u(PRIVACY)}">Privacy</a>'
+    note = (f'<p class="small nl-note">We\'ll email you a link to confirm. You\'re not subscribed until you click it. Unsubscribe any time.{priv}</p>' if act
+            else f'<p class="small" role="note">Signups open soon. This form doesn\'t send anything yet.{priv}</p>')
+    tag = "aside" if variant == "card" else "section"
+    cls = {"full": "news glass reveal", "card": "news glass nl-card", "inline": "news glass nl-inline"}[variant]
+    hid = f"{uid}-h"
+    sid = ' id="newsletter"' if uid == "nl" else ""
+    h = "h3" if variant == "card" else "h2"
+    lead = ("Real examples with sources, a prompt to copy, one new guide and one thing that went wrong. Free, one email a week." if variant != "card"
+            else "Real examples with sources and a prompt to copy. Free, one email a week.")
+    return f"""<{tag} class="{cls}"{sid} aria-labelledby="{hid}"><div><p class="eyebrow">{e(NAME)} Weekly</p><{h} id="{hid}">{e(NL_PROMISE[0].upper() + NL_PROMISE[1:])}</{h}>
+<p>{lead}</p></div>
+<form class="nl-form" action="{e(act) or '#'}" method="post"{' data-nl' if act else ''}><label class="sr" for="{uid}-email">Email address</label>
+<input id="{uid}-email" type="email" name="{e(cfg['newsletter'].get('email_field','email_address'))}" placeholder="you@example.com" autocomplete="email" required{dis}>
+<button class="btn" type="submit"{dis}>Subscribe</button></form><p class="nl-status" role="status" aria-live="polite" hidden></p>{note}</{tag}>"""
 
 def searchbox(id_="q", placeholder="Try “groceries”, “phone call”, “school emails”…", home=False):
     return f"""<form class="search" role="search" action="{u('/use-cases/')}" method="get"><label class="sr" for="{id_}">Search use cases</label>
@@ -392,6 +411,7 @@ def calc_form(mode="full", preset="morning-inbox-briefing"):
 <div class="calc-row"><label>Runs<input type="number" name="n" min="0" step="any" inputmode="decimal" value="{P['n']}"></label><label>How often<select name="unit">{uopts}</select></label></div>
 <label>Size of each run<select name="size">{sopts}</select></label>
 <div class="calc-row"><label>Tokens read per run<input type="number" name="in" min="0" step="100" inputmode="numeric" value="{P['in']}"></label><label>Tokens written per run<input type="number" name="out" min="0" step="50" inputmode="numeric" value="{P['out']}"></label></div>
+<p class="small muted calc-tok"><b>Tokens?</b> AI services measure text in tokens, small chunks a few characters long, and bill for the tokens a bot reads and writes.</p>
 <label>It needs<select name="tier">{topts}</select></label>
 <label class="calc-chk"><input type="checkbox" name="batch"> It can wait up to a day (batch: 50% off at {e(', '.join(BATCH_PROVS))})</label>
 <details class="calc-models"><summary>Compare only some models ({len(CALC_MODELS)} listed)</summary><div class="calc-mlist">{mchk}</div></details>
@@ -469,7 +489,7 @@ home = f"""
 </div>
 {radar(TRENDING)}
 </div>
-<div class="ticker" aria-label="Most-liked recent posts"><ul class="ticker-track">{ticker}{ticker.replace('<li>', '<li aria-hidden="true">')}</ul></div>
+<div class="ticker" aria-label="Most-liked recent posts"><ul class="ticker-track">{ticker}{ticker.replace('<li>', '<li aria-hidden="true">').replace('<a href=', '<a tabindex="-1" href=')}</ul></div>
 </section>
 
 <section class="wrap stats reveal" aria-label="What's in the feed"><div><b>{len(ucs)}</b><span>use cases</span></div><div><b>{len(TRENDING)}</b><span>with measured popularity</span></div><div><b>{len(bps)}</b><span>bot blueprints</span></div><div><b>{n_sources}</b><span>linked sources</span></div></section>
@@ -483,6 +503,7 @@ home = f"""
 <p class="muted">Ranked by real likes, reposts and upvotes, weighted toward newer posts (last {cfg.get('trending_window_days',60)} days). <a href="{u('/about/#popularity')}">How we measure</a>.</p></div>
 <a class="btn btn-ghost btn-sm" href="{u('/trending/')}">Full trending list →</a></div>
 <ol class="bento">{trend_cards}</ol></section>
+<div class="wrap nl-mid">{newsletter_box("nl-mid", "inline")}</div>
 
 {less_band}
 
@@ -494,7 +515,7 @@ home = f"""
 <section class="wrap block" aria-labelledby="cat-h"><div class="block-head"><div><p class="eyebrow">Categories</p><h2 id="cat-h">Pick the part of life you want back</h2></div></div>
 <ul class="cats-bento">{cat_tiles}</ul></section>
 
-<section class="wrap block" aria-labelledby="bp-h"><div class="block-head"><div><p class="eyebrow">Build your own bot</p><h2 id="bp-h">Copy a blueprint. Paste. Done.</h2>
+<section class="wrap block" aria-labelledby="bp-h"><div class="block-head"><div><p class="eyebrow">Build a bot</p><h2 id="bp-h">Copy a blueprint. Paste. Done.</h2>
 <p class="muted">Each blueprint says what the bot watches, when it runs, which tool to use, and the exact words to paste.</p></div><a class="btn btn-ghost btn-sm" href="{u('/blueprints/')}">All {len(bps)} blueprints →</a></div>
 <ul class="bp-grid">{bp_cards}</ul></section>
 
@@ -505,10 +526,10 @@ home = f"""
 <p class="small">Easy ones people start with: <a href="{u('/use-cases/understand-a-confusing-letter/')}">understand a confusing letter</a>, <a href="{u('/use-cases/plan-a-trip-itinerary/')}">plan a trip itinerary</a>, <a href="{u('/use-cases/homework-help-that-teaches/')}">homework help that teaches</a>, <a href="{u('/use-cases/email-ghostwriter-style-guide/')}">emails that sound like you</a>, <a href="{u('/use-cases/book-an-appointment-with-an-ai-agent/')}">book an appointment</a>, <a href="{u('/use-cases/organize-a-parents-care-paperwork/')}">organize a parent's care paperwork</a> and the <a href="{u('/blueprints/scam-checker/')}">Scam Checker bot</a>.</p>
 <p><a class="btn" href="{u('/what-can-bots-do/')}">What is an AI agent? Read the explainer</a> <a class="btn btn-ghost" href="{u(BUILD_GUIDE)}">Build one without coding</a> <a class="btn btn-ghost" href="{u('/ai-agent-examples/')}">See every AI agent example</a></p></section>
 
-<div class="wrap two-up">{featured_slot('featured_home')}{newsletter_box()}</div>
+{('<div class="wrap two-up">' + featured_slot('featured_home') + newsletter_box() + '</div>') if spons.get('featured_home') else ('<div class="wrap nl-bottom">' + newsletter_box() + '</div>')}
 """
 ld_home = [{"@context": "https://schema.org", "@type": "WebSite", "name": NAME, "alternateName": " ".join(re.findall(r"[A-Z][a-z0-9]*", NAME)) or NAME, "url": absu(u("/")), "description": cfg["description"],
-            "publisher": {"@type": "Organization", "name": NAME, "slogan": TAGLINE, "url": absu(u("/"))},
+            "publisher": {"@type": "Organization", "name": NAME, "slogan": TAGLINE, "url": absu(u("/")), **({"sameAs": [X_URL]} if X_URL else {}), **({"email": CONTACT} if CONTACT else {})},
             "potentialAction": {"@type": "SearchAction", "target": absu(u("/use-cases/")) + "?q={search_term_string}", "query-input": "required name=search_term_string"}},
            {"@context": "https://schema.org", "@type": "ItemList", "name": "Trending AI agent use cases", "itemListElement": [
                {"@type": "ListItem", "position": i + 1, "url": absu(u("/use-cases/" + x["slug"] + "/")), "name": x["title"]} for i, x in enumerate(TRENDING[:10])]}]
@@ -519,15 +540,15 @@ trows = "".join(f"""<tr><td class="num">{i+1}</td><td><a href="{u('/use-cases/'+
 <td>{pop_chip(x)}</td><td class="num">{e(nice_date(x['popularity']['posted_at']))}</td><td class="num">{x['_heat']:.0f}</td></tr>""" for i, x in enumerate(TRENDING))
 page("/trending/", "Trending AI agent use cases this week", "The AI agent use cases people are talking about most right now, ranked by real likes, reposts and upvotes with the date measured.",
      f"""<div class="wrap page-head"><p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Trending now</p><h1 class="kinetic-sm">Trending now</h1>
-<p class="lead">Ranked by <b>heat</b> = (likes + 2 × reposts, or Reddit upvotes) ÷ weeks since the post. Only posts from the last {cfg.get('trending_window_days',60)} days count. Every number links to the post it came from.</p></div>
+<p class="lead">The jobs people are talking about most right now: real likes, reposts and upvotes, with newer posts counting more. Every number links to the post it came from. <a href="{u('/about/#popularity')}">How we rank</a></p></div>
 <div class="wrap"><ol class="bento">{''.join(card(x, rank=i+1, big=(i==0)) for i,x in enumerate(TRENDING[:9]))}</ol>
 <h2 class="mt">Full ranking</h2><div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">#</th><th scope="col">Use case</th><th scope="col">Measured popularity</th><th scope="col">Posted</th><th scope="col">Heat</th></tr></thead><tbody>{trows}</tbody></table></div>
 <p class="small muted">Use cases with no measured popularity aren't ranked here. See <a href="{u('/use-cases/')}">all use cases</a>.</p></div>""",
      lastmod=BUILD_DATE)
 
 allcards = "".join(card(x) for x in TRENDING) + "".join(card(x) for x in NEWEST if x["_heat"] == 0)
-page("/use-cases/", "All AI agent use cases", f"Browse {len(ucs)} real, sourced AI agent use cases for everyday life: what the bot does, what you end up with, tools that can do it today and a copy-paste prompt.",
-     f"""<div class="wrap page-head"><p class="eyebrow">The whole feed</p><h1 class="kinetic-sm">All use cases</h1><p class="lead">{len(ucs)} things real people get bots to do, each with sources.</p>
+page("/use-cases/", "AI agent use cases", f"Browse {len(ucs)} real, sourced AI agent use cases for everyday life: what the bot does, what you end up with, tools that can do it today and a copy-paste prompt.",
+     f"""<div class="wrap page-head"><p class="eyebrow">The whole feed</p><h1 class="kinetic-sm">Use cases</h1><p class="lead">{len(ucs)} things real people get bots to do, each with sources.</p>
 {searchbox(id_="q2")}<div class="index-tools">{chips()}<label class="sort"><span>Sort</span><select id="sort"><option value="heat">Trending</option><option value="new">Newest</option><option value="easy">Easiest first</option></select></label></div>
 <p class="small muted" id="count" aria-live="polite"></p></div>
 <div class="wrap"><ul class="grid" id="cards">{allcards}</ul><p class="empty" hidden>No matches. Try a simpler word like “email” or “calendar”.</p></div>""",
@@ -535,7 +556,7 @@ page("/use-cases/", "All AI agent use cases", f"Browse {len(ucs)} real, sourced 
 
 for c in cats:
     items = [x for x in TRENDING if x["category"] == c["slug"]] + [x for x in NEWEST if x["category"] == c["slug"] and x["_heat"] == 0]
-    bc, bld = crumbs([("Home", "/"), ("All use cases", "/use-cases/"), (c["name"], None)])
+    bc, bld = crumbs([("Home", "/"), ("Use cases", "/use-cases/"), (c["name"], None)])
     rel_bp = [b for b in bps if any(UC[r]["category"] == c["slug"] for r in b["related"] if r in UC)]
     bph = "".join(f'<li class="bp-card glass"><a href="{u("/blueprints/"+b["slug"]+"/")}">{art(b["art"], cls="bp-art")}<span class="bp-trigger">⏱ {e(b["trigger"])}</span><h3>{e(b["title"])}</h3><p>{e(b["goal"])}</p></a></li>' for b in rel_bp[:3])
     page(f"/category/{c['slug']}/", f"AI agents for {c['name'].lower()}", f"{c['blurb']} Real AI agent use cases with sources, tools that can do them today and copy-paste prompts.",
@@ -600,7 +621,8 @@ for x in ucs:
     bc, bld = crumbs([("Home", "/"), (c["name"], f"/category/{c['slug']}/"), (x["title"], None)])
     steps = "".join(f'<li class="reveal"><span>{e(s)}</span></li>' for s in x["what_the_bot_does"])
     watch = "".join(f"<li>{e(w)}</li>" for w in x.get("watch_out", []))
-    srcs = "".join(f'<li><span class="src-kind k-{e(s.get("kind","article"))}">{e(s.get("kind","article"))}</span><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' for s in x["sources"])
+    srcs = "".join(f'<li><span class="src-kind k-demand" title="Shows that people search for this. Not a source of facts.">Search demand signal</span><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' if is_demand(s) else
+                   f'<li><span class="src-kind k-{e(s.get("kind","article"))}">{e(s.get("kind","article"))}</span><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' for s in x["sources"])
     guide = ""
     if x.get("guide"):
         g = x["guide"]
@@ -635,7 +657,7 @@ for x in ucs:
         popbox = f"""<div class="glass side-box"><h2 class="side-h">Popularity signal</h2>{nums}<p class="small">From <a href="{e(p['url'])}" rel="noopener">{e(p['author'])} on {'X' if p['platform']=='x' else 'Reddit'}</a>, posted {nice_date(p['posted_at'])}. Measured {nice_date(p['measured_at'])}.{(' '+e(p['note'])) if p.get('note') else ''}</p>
 {f'<p class="small">Trending heat: <b>{x["_heat"]:.0f}</b></p>' if x['_heat'] else ''}</div>"""
     else:
-        popbox = '<div class="glass side-box"><h2 class="side-h">Popularity signal</h2><p class="small">Not measured. We only show real counts with a source and a date, so this stays blank until we have one.</p></div>'
+        popbox = ''  # unmeasured: no box (how we measure is explained on /about/)
     rbp = bp_by_uc.get(x["slug"], [])
     bpbox = ("<div class='glass side-box'><h2 class='side-h'>Build it as a bot</h2><ul class='side-list'>" + "".join(f'<li><a href="{u("/blueprints/"+b["slug"]+"/")}">⚙ {e(b["title"])}</a></li>' for b in rbp) + "</ul></div>") if rbp else ""
     rel = [y for y in NEWEST if y["category"] == x["category"] and y["slug"] != x["slug"]][:4]
@@ -721,8 +743,8 @@ def bp_real(b):
     return f'<div class="bp-real"><p class="bp-real-h">Real people using this</p><ul>{lis}</ul></div>' if lis else ""
 bp_all = "".join(f"""<li class="bp-card has-real glass reveal"><a href="{u('/blueprints/'+b['slug']+'/')}">{art(b['art'], cls='bp-art')}<span class="bp-trigger">⏱ {e(b['trigger'])}</span><h3>{e(b['title'])}</h3><p>{e(b['goal'])}</p>
 <span class="diff diff-{e(b['difficulty'].lower())}">{e(b['difficulty'])}</span> <span class="small muted">{e(b['setup_time'])}</span></a>{bp_real(b)}</li>""" for b in bps)
-page("/blueprints/", "Build your own bot: blueprints for beginners", f"{len(bps)} copy-paste bot blueprints for everyday life: what each bot watches, when it runs, which tool to use, the exact instructions and safety rules.",
-     f"""<div class="wrap page-head"><p class="eyebrow">Build your own bot</p><h1 class="kinetic-sm">Bot blueprints</h1>
+page("/blueprints/", "Build a bot: blueprints for beginners", f"{len(bps)} copy-paste bot blueprints for everyday life: what each bot watches, when it runs, which tool to use, the exact instructions and safety rules.",
+     f"""<div class="wrap page-head"><p class="eyebrow">Bot blueprints</p><h1 class="kinetic-sm">Build a bot</h1>
 <p class="lead">Each blueprint is a ready-made bot: what it watches, when it runs, which tool to use, the exact words to paste, and how to keep it safe. No coding.</p>
 <p class="small">First time? Read <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, a step-by-step walkthrough that uses the Morning Inbox Briefing as the example.</p></div>
 <section class="wrap block" id="how-to" aria-labelledby="howto-h"><h2 id="howto-h">How to set up any bot, in 5 plain steps</h2><ol class="howto">{howto_html}</ol>
@@ -731,7 +753,7 @@ page("/blueprints/", "Build your own bot: blueprints for beginners", f"{len(bps)
      [{"@context": "https://schema.org", "@type": "HowTo", "name": "How to set up an AI agent (bot) for an everyday job", "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(HOWTO_STEPS)]}])
 
 for b in bps:
-    bc, bld = crumbs([("Home", "/"), ("Blueprints", "/blueprints/"), (b["title"], None)])
+    bc, bld = crumbs([("Home", "/"), ("Build a bot", "/blueprints/"), (b["title"], None)])
     steps = "".join(f'<li class="reveal"><span>{e(s)}</span></li>' for s in b["steps"])
     safety = "".join(f"<li>{e(s)}</li>" for s in b["safety"])
     rel = "".join(f'<li><a href="{u("/use-cases/"+r+"/")}">{e(UC[r]["title"])}</a></li>' for r in b["related"] if r in UC)
@@ -785,7 +807,7 @@ explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 
 <section class="glass explain-card reveal" id="ai-agent-vs-chatbot"><h2>AI agent vs. chatbot: what's the difference?</h2>
 <div class="vs"><div><h3>💬 Chatbot</h3><p>You ask, it answers. It can write a letter, explain a confusing form or make a plan, but <b>you</b> do the clicking. ChatGPT, Claude, Gemini and Grok all work like this for free.</p></div>
-<div><h3>🤖 Agent (a “bot”)</h3><p>You give it a job, and it <b>does the steps</b>: opens websites, reads your email, fills in forms, and can repeat the job on a schedule. Examples: Meta Muse, Gemini Spark, Grok Bot, ChatGPT agent and dots, Claude Cowork, Instinct, plus no-code tools like Zapier, n8n and Make.</p></div></div>
+<div><h3>🤖 Agent (a “bot”)</h3><p>You give it a job, and it <b>does the steps</b>: opens websites, reads your email, fills in forms, and can repeat the job on a schedule. Examples: Meta Muse, Gemini Spark, Grok Bot, ChatGPT Work and dots, Claude Cowork, Instinct, plus no-code tools like Zapier, n8n and Make.</p></div></div>
 <p>Most agents run on their own computer in the cloud, so they keep working when your laptop is shut. Google says Gemini Spark “keeps working in the background even when you close your laptop” ({S('Google', 'https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/')}).</p></section>
 
 <section class="reveal"><h2>✅ What AI agents are good at today</h2><ul class="big-list">
@@ -1081,7 +1103,7 @@ SRC = {
  "owasp01": ("OWASP LLM01:2025 Prompt Injection", "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"),
  "owasp06": ("OWASP LLM06:2025 Excessive Agency", "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"),
  "oai_pi": ("OpenAI: Understanding prompt injections", "https://openai.com/safety/prompt-injections/"),
- "oai_agent": ("OpenAI Help: ChatGPT agent", "https://help.openai.com/en/articles/11752874-chatgpt-agent"),
+ "oai_agent": ("OpenAI Help: Using cloud browser in ChatGPT", "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt"),
  "g_linked": ("Google Account Help: linked apps", "https://support.google.com/accounts/answer/13533235"),
  "wired": ("WIRED", "https://www.wired.com/story/i-finally-found-an-ai-agent-worth-the-risk/"),
 }
@@ -1343,12 +1365,13 @@ page("/about/", f"About {NAME} and how we measure", f"How {NAME} finds real AI a
 <h2>Where the use cases come from</h2><p>We look for real people describing real jobs they handed to an AI agent: posts on X and Reddit, plus articles and official product pages. Every use case links to its sources. When a post makes a claim about a result, we say whose claim it is.</p>
 <h2 id="popularity">How we measure popularity</h2><ul>
 <li><b>Only real counts.</b> X likes and reposts come from X's API; Reddit upvotes come from the post. Each number shows where it came from and the date we measured it.</li>
-<li><b>Unknown stays unknown.</b> If we couldn't measure it, we say “not measured”. We never estimate or round up.</li>
+<li><b>Unknown stays unknown.</b> If we couldn't measure it, we show no number at all. We never estimate or round up.</li>
 <li><b>Heat</b> (for “Trending now”) = (likes + 2 × reposts, or upvotes) ÷ weeks since the post, counting only posts from the last {cfg.get('trending_window_days',60)} days. Newer posts with real engagement rise; old ones fade.</li>
 <li>Numbers are refreshed by a daily routine, so they change over time.</li></ul>
 <h2>Who runs this</h2><p>An editor ({e(cfg.get('owner',''))}) and a team of AI agents that find new use cases, refresh numbers and check links. A human approves what gets published.</p>
 <h2>How we make money</h2><p>Clearly labeled sponsorships (see <a href="{u('/advertise/')}">advertise</a>), and possibly affiliate links in future, always labeled and explained on our <a href="{u(DISCLOSE)}">disclosure page</a>. Money never changes rankings: trending is computed from public numbers.</p>
-<h2>Corrections</h2><p>Spotted something wrong? {"Email" if CONTACT else "Please"} <a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>.</p></div>""")
+<h2>Contact</h2><p>Spotted something wrong, or want to say hi? {"Email" if CONTACT else "Please"} <a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>.{(' Follow us on X: <a href="' + e(X_URL) + '" rel="me noopener">@' + e(X_HANDLE) + '</a>.') if X_URL else ''}</p>
+<p>How we handle your email address and site analytics: <a href="{u(PRIVACY)}">privacy</a>.</p></div>""")
 
 # ---------- NEWSLETTER (/newsletter/ archive + web issues + /newsletter/feed.xml) ---------
 NL = sorted(J("data", "newsletter.json")["issues"], key=lambda x: x["date"], reverse=True)
@@ -1384,33 +1407,38 @@ for iss in NL:
          [crld, {"@context": "https://schema.org", "@type": "Article", "headline": iss["subject"], "datePublished": iss["date"], "author": {"@type": "Organization", "name": NAME}, "publisher": {"@type": "Organization", "name": NAME}, "mainEntityOfPage": absu(u(nl_path(iss)))}],
          lastmod=iss["date"], og_type="article", head_extra=f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)} Weekly" href="{u("/newsletter/feed.xml")}">')
 _nl_list = "".join(f'<li class="glass nl-arch"><a href="{u(nl_path(i))}"><span class="small muted">Issue {i["number"]} · {nice_date(i["date"])}</span><b>{e(i["subject"])}</b><span class="small">{e(", ".join(UC[it["slug"]]["title"] for it in i["items"]))}</span></a></li>' for i in NL)
-page("/newsletter/", f"The {NAME} Weekly newsletter", "One email a week: a few practical jobs you can hand to AI, each with the result and a copy-paste prompt, plus one new guide and one thing that went wrong.",
-     f'<div class="wrap narrow"><p class="eyebrow">Newsletter</p><h1 class="kinetic-sm">The {e(NAME)} Weekly</h1><p class="lead">Every week: 3 to 5 practical jobs you can hand to AI, each with what you end up with and a prompt to copy, plus one new guide and one thing that went wrong so you don\'t repeat it.</p>{newsletter_box()}'
+page("/newsletter/", f"The {NAME} Weekly newsletter", f"One email a week: {NL_PROMISE}, each with the result and a copy-paste prompt, plus one new guide and one thing that went wrong.",
+     f'<div class="wrap narrow"><p class="eyebrow">Newsletter</p><h1 class="kinetic-sm">The {e(NAME)} Weekly</h1><p class="lead">Every week: {NL_PROMISE.replace(' each week', '')}, each with what you end up with and a prompt to copy, plus one new guide and one thing that went wrong so you don\'t repeat it.</p>{newsletter_box()}'
      + (f'<h2>Past issues</h2><p class="small muted">Read every issue on the web, or follow the <a href="{u("/newsletter/feed.xml")}">newsletter RSS feed</a>.</p><ul class="nl-archive">{_nl_list}</ul>' if NL else "") + '</div>',
      lastmod=NL[0]["date"] if NL else None, head_extra=f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)} Weekly" href="{u("/newsletter/feed.xml")}">')
 
+def tier_cta(spot, label="Email us about this spot"):
+    if not CONTACT: return f'<p><a class="btn btn-sm" href="{e(ADV_HREF)}">Contact us</a></p>'
+    q = urllib.parse.quote(f"Advertising: {spot}")
+    return f'<p class="tier-cta"><a class="btn btn-sm" href="mailto:{e(CONTACT)}?subject={q}">{e(label)}</a> <span class="small muted">{e(CONTACT)}</span></p>'
 _paid_now = sum(len(v) for k, v in spons.items() if isinstance(v, list))
-ADV_FAQ = [("How many visitors do you have?", f"We launched on {nice_date('2026-10-21')}, so the honest answer is: not many yet. We don't publish traffic numbers we haven't measured. When Search Console has data we will share impressions and clicks with you before you pay."),
+ADV_FAQ = [("How many visitors do you have?", f"We launched on {nice_date('2026-10-21')}, so the honest answer is: not many yet. Cloudflare Web Analytics has been measuring visits since {nice_date('2026-10-23')}, and Google Search Console and Bing Webmaster Tools were verified the same day. Once there's a meaningful sample we'll share the measured numbers with you before you pay. We don't publish numbers we haven't measured."),
            ("Will a sponsorship change your rankings or prices?", "No. Trending is computed from public engagement numbers and prices come from official pages. Paid spots sit beside that content, labeled, and never inside the rankings or the price table."),
            ("What won't you run?", "Anything we wouldn't tell a friend to use: “guaranteed AI income”, crypto or debt schemes, tools that hide what they do with people's data, or anything that pretends to be editorial.")]
 page("/advertise/", "Advertise to people building their first AI bots", f"Sponsor {NAME}: a newsletter slot, a featured tool listing on matching guides and blueprints, or a labeled tile in Run your bots for less. New and growing; launch rates from $49/month.",
      f"""<div class="wrap narrow prose adv"><p class="eyebrow">Advertise</p><h1 class="kinetic-sm">Put your tool in front of people about to build a bot</h1>
 <p class="lead">People come here with a job in mind (sort my inbox, watch a price, answer the phone) and leave with a bot that does it. If your product helps with that job, we can show it to them, clearly labeled.</p>
-<div class="adv-honest glass"><h2>Our audience, honestly</h2><p><b>New and growing.</b> {NAME} went live on {nice_date('2026-10-21')}. We won't quote visitor numbers until we have measured them, and we'll never round up.</p>
+<div class="adv-honest glass"><h2>Our audience, honestly</h2><p><b>New and growing.</b> {NAME} went live on {nice_date('2026-10-21')}. Cloudflare Web Analytics (cookie-free) has been measuring visits since {nice_date('2026-10-23')}. We'll share the measured numbers on request once there's a meaningful sample, and we'll never round up.</p>
 <ul class="adv-stats"><li><b>{len(ucs)}</b><span>real use cases with sources</span></li><li><b>{len(bps)}</b><span>copy-paste bot blueprints</span></li><li><b>{len(CALC_MODELS)}</b><span>models in the cost calculator</span></li><li><b>{len(NEWS)}</b><span>AI news items explained</span></li></ul>
-<h3>What we measure and share with sponsors</h3><ul><li><b>Search:</b> impressions and clicks from Google Search Console and Bing Webmaster Tools, once verified, for the pages your spot appears on.</li>
+<h3>What we measure and share with sponsors</h3><ul><li><b>Search:</b> impressions and clicks from Google Search Console and Bing Webmaster Tools (both verified {nice_date('2026-10-23')}) for the pages your spot appears on.</li>
+<li><b>Visits:</b> page views from Cloudflare Web Analytics (live since {nice_date('2026-10-23')}) for the pages your spot appears on.</li>
 <li><b>Your clicks:</b> every sponsored link carries UTM tags, so you count the visits in your own analytics, not ours.</li>
 <li><b>Newsletter:</b> subscriber count, opens and clicks from our email provider once the {NAME} Weekly starts sending. Until then, there is no newsletter audience to sell.</li>
 <li><b>Popularity on the site:</b> the X and Reddit numbers we show are public counts with the date measured. They are about the use cases, not about our traffic.</li></ul></div>
 <h2>Ways to sponsor</h2><div class="tiers">
-<div class="tier glass"><p class="eyebrow">📬 Newsletter</p><h2>Newsletter sponsor slot</h2><p class="price">First 2 issues free</p><p class="price-sub">Then $50 per issue until 1,000 subscribers, then $25 per 1,000 subscribers ($50 minimum)</p><ul><li>One short sponsor block in a weekly issue of the {NAME} Weekly</li><li>Must match that week's topic</li><li>You write it; we check claims and label it “Sponsored”</li><li>Starts when the newsletter starts sending</li></ul></div>
-<div class="tier glass"><p class="eyebrow">⚙ Guides & blueprints</p><h2>Featured tool listing</h2><p class="price">$49 / month</p><p class="price-sub">First month free for the first 3 sponsors</p><ul><li>A labeled card on the blueprints and use-case guides where your tool actually does the job</li><li>We test that it fits before it runs</li><li>Never inside the steps, the “Which tool to use” list or the rankings</li></ul></div>
-<div class="tier glass"><p class="eyebrow">💸 Run for less</p><h2>Sponsored tile in Run your bots for less</h2><p class="price">$99 / month</p><p class="price-sub">One sponsor at a time</p><ul><li>One labeled tile beside the money-saving tips in the homepage’s Run for less band</li><li>For hosting, routers, monitoring or anything that lowers a bot's bill</li><li>The price table and calculator stay ad-free</li></ul></div></div>
+<div class="tier glass"><p class="eyebrow">📬 Newsletter</p><h2>Newsletter sponsor slot</h2><p class="price">First 2 issues free</p><p class="price-sub">Then $50 per issue until 1,000 subscribers, then $25 per 1,000 subscribers ($50 minimum)</p><ul><li>One short sponsor block in a weekly issue of the {NAME} Weekly</li><li>Must match that week's topic</li><li>You write it; we check claims and label it “Sponsored”</li><li>Starts when the newsletter starts sending</li></ul>{tier_cta("Newsletter sponsor slot")}</div>
+<div class="tier glass"><p class="eyebrow">⚙ Guides & blueprints</p><h2>Featured tool listing</h2><p class="price">$49 / month</p><p class="price-sub">First month free for the first 3 sponsors</p><ul><li>A labeled card on the blueprints and use-case guides where your tool actually does the job</li><li>We test that it fits before it runs</li><li>Never inside the steps, the “Which tool to use” list or the rankings</li></ul>{tier_cta("Featured tool listing")}</div>
+<div class="tier glass"><p class="eyebrow">💸 Run for less</p><h2>Sponsored tile in Run your bots for less</h2><p class="price">$99 / month</p><p class="price-sub">One sponsor at a time</p><ul><li>One labeled tile beside the money-saving tips in the homepage’s Run for less band</li><li>For hosting, routers, monitoring or anything that lowers a bot's bill</li><li>The price table and calculator stay ad-free</li></ul>{tier_cta("Run for less tile")}</div></div>
 <h2>How every paid spot is labeled</h2><p>Paid spots carry this label: {paid_label()}. Affiliate links carry this one: {paid_label("affiliate")}. Both link to our <a href="{u(DISCLOSE)}">disclosure page</a>, and every paid link uses <code>rel="sponsored"</code>.</p>
 <h2>Our rules</h2><ul><li>Money never changes trending rankings, prices, the calculator or what we recommend.</li><li>One sponsor per spot, and every spot is labeled.</li><li>We never share reader emails.</li></ul>
 <section class="faq" id="faq"><h2>Questions</h2>{"".join(f"<details class='glass'><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in ADV_FAQ)}</section>
 <div class="adv-cta glass"><h2>Launch pricing</h2><p class="adv-bundle"><b>Bundle: all three for $149 / month</b><br><span class="small muted">Newsletter slot + featured tool listing + Run-for-less tile</span></p><p>These are launch rates for a new site. They may change once traffic is measured, and we'll show you the measured numbers before any change. Monthly, cancel any time. Tell us your product and which spot you want.</p>
-<p><a class="btn" href="{e(ADV_HREF)}">{"Email us" if CONTACT else "Contact us"} to book a spot</a></p>{'' if CONTACT else '<p class="small muted">This opens our public GitHub issues page. Start a new issue titled “Advertising” and we will reply there. If you would rather talk privately, say so and we will move to email.</p>'}</div></div>""",
+<p>{tier_cta("Bundle (all three)", "Email us about the bundle")}</p>{'' if CONTACT else '<p class="small muted">This opens our public GitHub issues page. Start a new issue titled “Advertising” and we will reply there. If you would rather talk privately, say so and we will move to email.</p>'}</div></div>""",
      [{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in ADV_FAQ]}])
 
 page(DISCLOSE, "Affiliate and sponsor disclosure", f"How {NAME} makes money: labeled sponsorships and labeled affiliate links. Money never changes rankings, prices or recommendations.",
@@ -1421,6 +1449,27 @@ page(DISCLOSE, "Affiliate and sponsor disclosure", f"How {NAME} makes money: lab
 <h2>Affiliate link</h2><p>{paid_label("affiliate")} means that if you sign up or buy through that link, we may earn a commission, at no extra cost to you. We only add affiliate links to tools we would list anyway, and we list free and non-affiliate options next to them.</p>
 <h2>What money never changes</h2><ul><li>Trending is computed from public X and Reddit numbers.</li><li>Prices come from official pricing pages, with the date we checked.</li><li>The cost calculator always shows every model in our table, cheapest first.</li></ul>
 <p>Questions or something looks wrong? <a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>. Want to advertise? See <a href="{u('/advertise/')}">Advertise</a>.</p></div>""")
+
+PRIVACY_UPDATED = "2026-10-23"
+_mail = f'<a href="mailto:{e(CONTACT)}">{e(CONTACT)}</a>' if CONTACT else f'<a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>'
+page(PRIVACY, "Privacy policy", f"What {NAME} collects (only your email, if you subscribe), how the Kit newsletter and cookie-free Cloudflare Web Analytics work, and how to unsubscribe or contact us.",
+     f"""<div class="wrap narrow prose"><p class="eyebrow">Privacy</p><h1 class="kinetic-sm">Privacy policy</h1>
+<p class="lead">The short version: we only collect your email address if you sign up for the newsletter, we count visits without cookies, and we never sell or share your data.</p>
+<div class="glass adv-honest"><p class="small muted">Last updated {nice_date(PRIVACY_UPDATED)}.</p></div>
+<h2>The newsletter</h2><ul>
+<li><b>What we collect:</b> the email address you type into a signup form. Nothing else is asked for.</li>
+<li><b>Who stores it:</b> our email provider, Kit (kit.com), which sends the {e(NAME)} Weekly for us. Kit's own <a href="https://kit.com/privacy" rel="noopener">privacy policy</a> covers how it stores and protects that data.</li>
+<li><b>Double opt-in:</b> after you sign up, Kit emails you a confirmation link. You're not subscribed until you click it, so nobody can sign you up without your say-so.</li>
+<li><b>Unsubscribe any time:</b> every email has an unsubscribe link at the bottom. One click and you're off the list.</li>
+<li><b>What we use it for:</b> sending the newsletter. Kit tells us basic delivery stats, like how many people opened an issue or clicked a link.</li></ul>
+<h2>Site analytics</h2><ul>
+<li>We use <a href="https://www.cloudflare.com/web-analytics/" rel="noopener">Cloudflare Web Analytics</a> to count page views and see which pages are popular.</li>
+<li>It doesn't use cookies, doesn't track you across other websites, and doesn't give us your name, email or any other personal details. That's why there's no cookie banner.</li></ul>
+<h2>What we never do</h2><ul><li>We never sell, rent or share your email address or data.</li><li>We don't run ad-tracking pixels.</li>
+<li>Sponsors never get reader emails. If a sponsor's link is on a page, clicking it takes you to their site, and their privacy policy applies there.</li></ul>
+<h2>Links to other sites</h2><p>Our guides link to tools, posts and articles on other sites. Those sites have their own privacy policies.</p>
+<h2>Your choices</h2><p>To unsubscribe, use the link in any email. To have your email address deleted, or to ask what we hold, email {_mail} and we'll take care of it.</p>
+<h2>Contact</h2><p>Questions about privacy? Email {_mail}.</p></div>""", lastmod=PRIVACY_UPDATED)
 
 page("/sponsor/", "Sponsor: moved to Advertise", "This page moved to Advertise.",
      f'<div class="wrap narrow center"><p class="eyebrow">Moved</p><h1 class="kinetic-sm">This page moved</h1><p class="lead"><a class="btn" href="{u("/advertise/")}">Go to Advertise →</a></p></div>',

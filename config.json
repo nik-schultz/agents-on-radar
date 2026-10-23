@@ -9,7 +9,7 @@
   "cname": "botsdothat.com",
   "_cname_help": "Leave empty until botsdothat.com is bought and DNS points to GitHub Pages. Then follow ops/domain_cutover.md (scripts/domain_cutover.sh sets cname + base_url together).",
   "owner": "Nik Schultz",
-  "contact_email": "",
+  "contact_email": "hello@botsdothat.com",
   "contact_url": "https://github.com/nik-schultz/agents-on-radar/issues",
   "_contact_help": "contact_email wins if set. Otherwise contact links point to contact_url (GitHub issues). Never derive an email from an unowned domain.",
   "as_of": "",
@@ -30,5 +30,7 @@
   "analytics": {
     "cloudflare_token": "d0d6969f29884efbbd4472a1cfba2cc8",
     "_help": "Cloudflare Web Analytics public beacon token (Cloudflare > Analytics & Logs > Web Analytics). Empty = no beacon tag is output."
-  }
+  },
+  "x_handle": "botsdothat",
+  "_x_handle_help": "Brand X account (created Oct 23, 2026). Used for the footer/about link, twitter:site and Organization sameAs."
 }

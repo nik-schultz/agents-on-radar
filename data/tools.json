@@ -24,9 +24,9 @@
   "kind": "chat"
  },
  "chatgpt-work": {
-  "name": "ChatGPT agent (cloud browser)",
+  "name": "ChatGPT Work (cloud browser)",
   "url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
-  "cost": "Paid ChatGPT plans only (not Free or Go)",
+  "cost": "Paid ChatGPT plans only (not Free or Go); rolling out",
   "kind": "agent"
  },
  "chatgpt-dots": {

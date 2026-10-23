@@ -158,7 +158,7 @@ What the bot does:
 
 What you end up with: An application filled in from your own facts, a list of anything the agent couldn't answer, and a summary to check before you press Submit.
 
-Tools: ChatGPT agent (cloud browser), Claude Cowork, Grok Bot (personal agents), ChatGPT
+Tools: ChatGPT Work (cloud browser), Claude Cowork, Grok Bot (personal agents), ChatGPT
 
 Prompt:
 Help me apply for this job: [LINK TO THE JOB ON THE EMPLOYER'S OWN CAREERS PAGE]
@@ -572,7 +572,7 @@ What the bot does:
 
 What you end up with: A roadside-assistance request filed in the local system, and a plain summary of what comes next.
 
-Tools: Grok Bot (personal agents), ChatGPT agent (cloud browser), Gemini
+Tools: Grok Bot (personal agents), ChatGPT Work (cloud browser), Gemini
 
 Prompt:
 My car broke down at [location / share live location] in [country]. Car: [make, model, plate]. Insurer or rental company: [name, policy or booking number]. Find their official roadside-assistance form or number for this country. Fill in the form with my details, translate anything I need to know, and show me what you'll submit before you send it.
@@ -599,7 +599,7 @@ What the bot does:
 
 What you end up with: The form filled in correctly without you learning the software, ready for your final click.
 
-Tools: ChatGPT agent (cloud browser), Grok Bot (personal agents), Claude Cowork
+Tools: ChatGPT Work (cloud browser), Grok Bot (personal agents), Claude Cowork
 
 Prompt:
 Open [website or app] and fill in the [form name] for me. Here are the details: [list everything it needs]. When you reach a login, stop and let me sign in. If any field is unclear, ask me instead of guessing. Stop before the final Submit button and show me a summary of everything you entered.
@@ -626,7 +626,7 @@ What the bot does:
 
 What you end up with: One table of replies from every trade, so you can pick who to meet.
 
-Tools: ChatGPT agent (cloud browser), Grok Bot (personal agents), Meta Muse
+Tools: ChatGPT Work (cloud browser), Grok Bot (personal agents), Meta Muse
 
 Prompt:
 I'm planning [project] at [town/area]. I need: [electrician, plumber, roofer...]. Find [5] well-reviewed local businesses for each. Draft one short message per business with this brief: [details, timing, photos]. Show me the drafts and the list first, and only send after I say yes. Then collect the replies in a table: business, trade, earliest start, what's included, questions they asked.
@@ -653,7 +653,7 @@ What the bot does:
 
 What you end up with: A one-page report on the car, its history and what to ask, before you spend time on a viewing.
 
-Tools: Grok Bot (personal agents), ChatGPT agent (cloud browser), Gemini
+Tools: Grok Bot (personal agents), ChatGPT Work (cloud browser), Gemini
 
 Prompt:
 Research this used car for me: [listing link]. Pull out the make, model, year, mileage and VIN if shown. Tell me the common problems for this model and year, what the history or damage record shows (say which site you checked), and anything in the listing that doesn't add up. End with 5 questions to ask the seller. Don't contact the seller.
@@ -932,7 +932,7 @@ What the bot does:
 
 What you end up with: A printed weekly meal plan and a filled grocery cart waiting for your OK.
 
-Tools: Grok Bot (personal agents), ChatGPT agent (cloud browser), Claude, Gemini Spark
+Tools: Grok Bot (personal agents), ChatGPT Work (cloud browser), Claude, Gemini Spark
 
 Prompt:
 Every Thursday, plan [5] dinners for [2 adults and 2 kids]. Use only recipes from my recipe list below, avoid [allergies], keep the week under [$ budget]. Reuse ingredients so little goes to waste. Give me: (1) a one-page meal plan I can print, (2) one shopping list grouped by store section, leaving out what I said we already have. Don't buy anything.
@@ -1076,7 +1076,7 @@ What the bot does:
 
 What you end up with: Groceries ordered after a quick chat and one confirm tap.
 
-Tools: ChatGPT agent (cloud browser), Meta Muse, Instinct, Gemini Spark
+Tools: ChatGPT Work (cloud browser), Meta Muse, Instinct, Gemini Spark
 
 Prompt:
 Here's my usual weekly grocery list: [list with brands and sizes]. Build this order on [Instacart / store site]. If an item is out of stock, pick the closest match and tell me. Stop at checkout and show me the total.
@@ -1107,7 +1107,7 @@ What the bot does:
 
 What you end up with: A booked trip with every confirmation in one chat.
 
-Tools: Grok Bot (personal agents), Instinct, Meta Muse, ChatGPT agent (cloud browser)
+Tools: Grok Bot (personal agents), Instinct, Meta Muse, ChatGPT Work (cloud browser)
 
 Prompt:
 Plan a trip for [who] to [place] from [date] to [date], budget [$]. I need: a flight from [city] (no red-eyes), a car, a place to stay near [area] with [needs], one dinner reservation on [night] and tickets to [event]. Show me 2 options for each with prices. Book only after I reply YES for that item, and send me every confirmation number in one list.
@@ -1134,7 +1134,7 @@ What the bot does:
 
 What you end up with: A new flight confirmation in your chat, without hours on hold or in the app.
 
-Tools: Instinct, ChatGPT agent (cloud browser), Grok Bot (personal agents), Meta Muse
+Tools: Instinct, ChatGPT Work (cloud browser), Grok Bot (personal agents), Meta Muse
 
 Prompt:
 My flight [flight number] from [city] to [city] is delayed by [hours]. I need to arrive by [time]. Find the 3 fastest options on any airline, with on-time risk. If I reply with a number, book that one with my saved card. Then tell me what the airline's rules say about my original ticket.
@@ -1743,7 +1743,7 @@ What the bot does:
 
 What you end up with: No more running out of toilet paper or lunchbox snacks.
 
-Tools: Grok Bot (personal agents), Meta Muse, ChatGPT agent (cloud browser), Google Universal Cart
+Tools: Grok Bot (personal agents), Meta Muse, ChatGPT Work (cloud browser), Google Universal Cart
 
 Prompt:
 Maintain a list of our household essentials: [list]. Every Saturday morning, ask me what we're running low on. Build a cart with those items at [store] and stop before checkout. Remember what we bought and when, and remind me if something usually runs out by now.
@@ -1820,7 +1820,7 @@ What the bot does:
 
 What you end up with: Agent purchases with a built-in spending limit.
 
-Tools: ChatGPT agent (cloud browser), Instinct, Grok Bot (personal agents), Meta Muse
+Tools: ChatGPT Work (cloud browser), Instinct, Grok Bot (personal agents), Meta Muse
 
 Prompt:
 For this booking, use only the virtual card ending in [last 4]. Its limit is [$]. If the total is higher, stop and ask me. Never save this card to the site.
@@ -1963,7 +1963,7 @@ What the bot does:
 
 What you end up with: The agent finds options that fit your times and rules, shows you its pick, and books it only after you say yes.
 
-Tools: ChatGPT agent (cloud browser), Gemini + OpenTable, Claude, Grok, Instinct, Meta Muse
+Tools: ChatGPT Work (cloud browser), Gemini + OpenTable, Claude, Grok, Instinct, Meta Muse
 
 Prompt:
 Find and book an appointment for me. Ask me before you confirm anything or pay.
@@ -2153,7 +2153,7 @@ What the bot does:
 
 What you end up with: A day-by-day plan with realistic travel times, a budget estimate, and a booking checklist with links to verify.
 
-Tools: ChatGPT, Claude, Gemini, Grok, ChatGPT agent (cloud browser), Grok Bot (personal agents)
+Tools: ChatGPT, Claude, Gemini, Grok, ChatGPT Work (cloud browser), Grok Bot (personal agents)
 
 Prompt:
 Plan a [NUMBER]-day trip to [PLACE] for [WHO, AGES] in [MONTH].
@@ -2881,7 +2881,7 @@ Sources:
 - OWASP LLM01:2025 Prompt Injection: https://genai.owasp.org/llmrisk/llm01-prompt-injection/
 - OWASP LLM06:2025 Excessive Agency: https://genai.owasp.org/llmrisk/llm062025-excessive-agency/
 - OpenAI: Understanding prompt injections: https://openai.com/safety/prompt-injections/
-- OpenAI Help: ChatGPT agent: https://help.openai.com/en/articles/11752874-chatgpt-agent
+- OpenAI Help: Using cloud browser in ChatGPT: https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt
 - Google Account Help: linked apps: https://support.google.com/accounts/answer/13533235
 - OpenClaw docs: Prompt injection: https://docs.openclaw.ai/gateway/security/prompt-injection
 - Hermes docs: Security: https://hermes-agent.nousresearch.com/docs/user-guide/security/

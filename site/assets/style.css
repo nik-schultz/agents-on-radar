@@ -432,3 +432,36 @@ div.bp-art.art-slot{border-radius:50%}
    (Segoe UI, Inter, DejaVu) lost the bottoms of g/y/p/j. Extra bottom padding (cancelled by a negative margin, so layout
    doesn't move; page h1s just get a little padding) gives descenders room on every gradient-text heading. */
 .kinetic-sm{padding-bottom:.1em}
+
+/* ---- Review batch (2026-10-23): mobile menu, newsletter cards, privacy, small fixes ---- */
+.menu-btn{display:none}
+@media(max-width:640px){
+.menu-btn{display:inline-flex;align-items:center;gap:.5em;order:2;margin-left:8px;padding:.5em .8em;min-height:44px;border-radius:12px;border:1px solid var(--line);background:var(--glass2);color:var(--ink);font:inherit;font-size:.94rem;font-weight:600;cursor:pointer}
+.menu-btn:focus-visible{outline:2px solid var(--c1);outline-offset:2px}
+.menu-ico{display:inline-grid;gap:3px}.menu-ico i{display:block;width:16px;height:2px;border-radius:2px;background:currentColor;transition:transform .2s,opacity .2s}
+.menu-btn[aria-expanded="true"] .menu-ico i:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .menu-ico i:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] .menu-ico i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+.nav-cta{order:1}
+.js .menu{display:none}
+.js .menu.open{display:flex;flex-direction:column;gap:2px;overflow:visible;padding:4px 0 14px}
+.js .menu.open a{font-size:1.02rem;padding:.7em .9em;border-radius:12px;white-space:normal}
+.js .menu.open a.nav-less{justify-content:flex-start}
+.cat-hero{flex-direction:column;align-items:flex-start;gap:12px}
+.cat-hero-art{width:72px;height:72px;border-radius:18px}
+}
+.cta-short{display:none}
+@media(max-width:640px){.nav{gap:8px}.nav-cta{padding-inline:.8em}}
+@media(max-width:480px){.cta-full{display:none}.cta-short{display:inline}.menu-btn{padding:.5em .65em}}
+@media(max-width:360px){.logo{font-size:.95rem;gap:.4em}.nav-cta{font-size:.8rem;padding-inline:.65em}.menu-btn{margin-left:4px}.menu-lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.menu-btn{min-width:44px;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.menu-ico i{transition:none}}
+.nl-end,.nl-mid,.nl-bottom{margin-top:36px;margin-bottom:36px}
+.nl-inline h2,.nl-card h3{margin:.1em 0 .3em}
+.nl-inline{max-width:880px;margin-inline:auto}
+@media(min-width:760px){.nl-inline{grid-template-columns:1.1fr 1fr;align-items:center;column-gap:28px}.nl-inline .nl-status,.nl-inline .nl-note,.nl-inline [role=note]{grid-column:2}}
+.nl-card{padding:20px;gap:12px}.nl-card .nl-form{flex-wrap:wrap}.nl-card .nl-form input{min-width:0;flex:1 1 160px}
+.nl-note a,.news [role=note] a{color:inherit;text-decoration:underline}
+.src-kind.k-demand{background:rgba(255,200,90,.12);color:#ffd88a;border-color:rgba(255,200,90,.35)}
+.tier-cta{margin-top:14px}.tier-cta .small{display:block;margin-top:6px}
+.calc-tok{margin:6px 0 0}
+@media(max-width:999px){.uc-side .nl-card{display:none}}
