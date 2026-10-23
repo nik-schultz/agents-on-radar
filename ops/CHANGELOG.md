@@ -1,5 +1,8 @@
 # Ops changelog
 
+## 2026-10-23 (3:30 PM CT) — Branded email header image for the Kit confirmation email
+- Added static/img/email-header.png (1200x360, shows at 600x180; ~70 KB), deployed at /assets/img/email-header.png. It shows the radar logo (rendered from favicon.svg with cairosvg), a "BotsDoThat" wordmark in Inter ExtraBold, the line "The BotsDoThat Weekly" in teal, and a teal-to-violet underline on the dark gradient. Generator script: /workspace/tools/email_header.py.
+
 ## 2026-10-23 (2:42 PM CT) — Fix: Kit "quarantined" signups now go to Kit's security check
 - Bug: Kit's bot protection sometimes answers a form POST with `{"status":"quarantined","url":"https://app.kit.com/forms/guards/…"}`. That page is a reCAPTCHA check, and the subscriber isn't added or emailed until it's passed. Our JS treated this as an error ("That didn't work…"), so no confirmation email was sent. Reproduced in headless Chrome on the live /newsletter/ page.
 - Fix (static/app.js): on `quarantined` with an app.kit.com URL, show "One more step…" and send the visitor to Kit's check page. Success and error handling are unchanged.
