@@ -6,6 +6,9 @@ Data as of 2026-10-23. Popularity numbers are real counts (X likes/reposts, Redd
 
 ## Start here
 - [What is an AI agent? (in simple terms)](https://botsdothat.com/what-can-bots-do/): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely
+- [How much does it cost to run an AI agent?](https://botsdothat.com/how-much-does-it-cost-to-run-an-ai-agent/): Monthly estimates for 11 everyday bots at official API prices, with the math shown.
+- [OpenClaw vs Hermes Agent: a beginner's guide](https://botsdothat.com/openclaw-vs-hermes-agent/): What each open-source agent is, side-by-side comparison, how to pick, cost and safety tips.
+- [Is it safe to give an AI agent your email and calendar?](https://botsdothat.com/is-it-safe-to-give-an-ai-agent-your-email/): Prompt injection, too much access, sending without review, and 8 rules that keep you in charge.
 - [How to build an AI agent without coding](https://botsdothat.com/how-to-build-an-ai-agent-without-coding/): step-by-step beginner guide using a real blueprint as the worked example
 - [AI agent examples for everyday life](https://botsdothat.com/ai-agent-examples/): every example on one page, grouped by part of life
 - [Trending now](https://botsdothat.com/trending/)
