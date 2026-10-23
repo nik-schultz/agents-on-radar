@@ -73,7 +73,7 @@ Data as of 2026-10-23. Popularity numbers are real counts (X likes/reposts, Redd
 - [Run family logistics from the family group chat](https://botsdothat.com/use-cases/run-family-logistics-from-the-group-chat/): New “family agents” sit in your family chat and handle the small jobs: restocking, booking the dentist and reminders.
 - [Turn the flood of school emails into one weekly digest](https://botsdothat.com/use-cases/school-email-digest/): Label school emails and let an agent read them weekly. It pulls out deadlines, forms, payments and events, without duplicates.
 - [Get 5 weekend activity ideas that fit your kids and the weather](https://botsdothat.com/use-cases/weekend-family-activities/): Every Friday, get activity ideas matched to your kids' ages, the weather and your budget, with a rainy-day backup.
-- [Make a weekly meal plan and grocery list in 5 minutes](https://botsdothat.com/use-cases/weekly-meal-plan-and-grocery-list/): Deciding what's for dinner every night is exhausting, and you keep buying food that goes to waste.
+- [Make a weekly meal plan and grocery list](https://botsdothat.com/use-cases/weekly-meal-plan-and-grocery-list/): Deciding what's for dinner every night is exhausting, and you keep buying food that goes to waste.
 - [Use AI for homework help that teaches instead of cheats](https://botsdothat.com/use-cases/homework-help-that-teaches/): Your kid is stuck on homework, you don't remember how to do it, and you don't want the AI to just hand over answers.
 
 ### Health & care
@@ -81,7 +81,7 @@ Data as of 2026-10-23. Popularity numbers are real counts (X likes/reposts, Redd
 - [Log your meals by talking and get a daily weight check-in](https://botsdothat.com/use-cases/log-meals-and-weight-by-voice/): Tell your bot what you ate, out loud, and it keeps the food log for you. It can also check in on your weight each morning.
 - [Set up medication and appointment reminders for a parent](https://botsdothat.com/use-cases/medication-reminders-for-a-parent/): Family agents can remind an older parent about medication and book routine appointments, with the family kept in the loop.
 - [Appeal a health insurance denial with AI](https://botsdothat.com/use-cases/appeal-a-health-insurance-denial/): Your health insurance said no to a treatment, test or medicine, and the letter is full of codes and jargon.
-- [Prepare for a doctor's appointment in 10 minutes](https://botsdothat.com/use-cases/prepare-for-a-doctor-visit/): Appointments are short, and you forget half your questions or can't explain your symptoms clearly.
+- [Prepare for a doctor's appointment](https://botsdothat.com/use-cases/prepare-for-a-doctor-visit/): Appointments are short, and you forget half your questions or can't explain your symptoms clearly.
 - [Organize an aging parent's care and paperwork](https://botsdothat.com/use-cases/organize-a-parents-care-paperwork/): You're helping a parent with doctors, insurance, medicines and bills, and the details live in a dozen places.
 
 ### Work & career
@@ -99,7 +99,7 @@ Data as of 2026-10-23. Popularity numbers are real counts (X likes/reposts, Redd
 - [Find the conversations you forgot to follow up on](https://botsdothat.com/use-cases/find-dead-conversations-to-follow-up/): A weekly automation reads your calendar, inbox and tasks and lists people still waiting to hear back, with drafted nudges.
 - [Get a daily digest of jobs that actually fit you](https://botsdothat.com/use-cases/job-match-digest/): A scheduled workflow pulls new listings, scores them against your CV and emails you the best matches with draft notes. You still apply.
 - [Teach a bot to write emails that sound like you](https://botsdothat.com/use-cases/email-ghostwriter-style-guide/): Have the bot read your last 50 sent emails, write a style guide, then use it for every draft.
-- [Tailor your resume and cover letter to a job in 15 minutes](https://botsdothat.com/use-cases/tailor-your-resume-to-a-job/): Every job wants a slightly different resume, and rewriting yours each time takes forever.
+- [Tailor your resume and cover letter to a job](https://botsdothat.com/use-cases/tailor-your-resume-to-a-job/): Every job wants a slightly different resume, and rewriting yours each time takes forever.
 
 ### Small business & side hustles
 - [Let your bot handle your website's contact email](https://botsdothat.com/use-cases/let-your-bot-handle-your-sites-contact-email/): Forward the contact address of your website, club or class to your bot's own email. It reads each message, sums it up for you, and only answers when you say so.

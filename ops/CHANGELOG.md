@@ -1,5 +1,13 @@
 # Ops changelog
 
+## 2026-10-23 (12:28 PM CT) — Leftover time labels: blueprint setup times relabeled, title time promises removed
+- Blueprint `setup_time` (12): "About N minutes (editor's estimate)" changed to "Rough setup time: about N minutes". validate.py now rejects an "editor's estimate" label in blueprint data.
+- Use-case titles: dropped the unsourced time promises. Slugs and URLs are unchanged; titles, meta, OG, headings, search index and llms files were rebuilt from data.
+  - prepare-for-a-doctor-visit: "Prepare for a doctor's appointment"
+  - weekly-meal-plan-and-grocery-list: "Make a weekly meal plan and grocery list"
+  - tailor-your-resume-to-a-job: "Tailor your resume and cover letter to a job"
+- Run-for-less "token counts are our editor's estimates" note kept as is (Nik's call). It also appears in each blueprint's cost box.
+
 ## 2026-10-23 (12:45 PM CT) — Fix: use-case category chips, search and sort didn't update the cards
 - Bug (reported by Nik): on /use-cases/, clicking a category chip highlighted it and updated the count ("8 of 82"), but all 82 cards stayed visible.
 - Root cause: the JS filter hides cards with the HTML `hidden` attribute, but `.card{display:flex}` in style.css overrode the browser's default `[hidden]{display:none}`, so hidden cards still showed. Filtering logic, data-cat slugs and sort were correct.

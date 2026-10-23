@@ -2175,7 +2175,7 @@ Sources:
 - Use.AI survey of 2,400 US/UK adults (press release): https://cooperative-agency.prowly.com/447243-why-more-people-are-outsourcing-their-thinking-to-ai
 - OpenAI Help: Using cloud browser in ChatGPT: https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt
 
-## Prepare for a doctor's appointment in 10 minutes
+## Prepare for a doctor's appointment
 URL: https://botsdothat.com/use-cases/prepare-for-a-doctor-visit/
 Category: Health & care | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
@@ -2247,7 +2247,7 @@ Watch out:
 Sources:
 - Reddit r/AgingParents: ChatGPT helped with an insurance discharge appeal: https://www.reddit.com/r/AgingParents/comments/1r1eimf/
 
-## Make a weekly meal plan and grocery list in 5 minutes
+## Make a weekly meal plan and grocery list
 URL: https://botsdothat.com/use-cases/weekly-meal-plan-and-grocery-list/
 Category: Family & home | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
@@ -2351,7 +2351,7 @@ Sources:
 - Menlo Ventures, 2026 State of Consumer AI: https://menlovc.com/wp-content/uploads/2026/09/menlo_ventures_consumer_ai_report-2026.pdf
 - Google search suggestions for “use ai to organize gmail” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+organize+gmail
 
-## Tailor your resume and cover letter to a job in 15 minutes
+## Tailor your resume and cover letter to a job
 URL: https://botsdothat.com/use-cases/tailor-your-resume-to-a-job/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured

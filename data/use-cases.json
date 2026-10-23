@@ -5117,7 +5117,7 @@
  {
   "slug": "prepare-for-a-doctor-visit",
   "category": "health",
-  "title": "Prepare for a doctor's appointment in 10 minutes",
+  "title": "Prepare for a doctor's appointment",
   "problem": "Appointments are short, and you forget half your questions or can't explain your symptoms clearly.",
   "outcome": "A one-page summary of symptoms, medicines and questions to bring, plus a way to capture what the doctor said afterwards.",
   "prompt": "Help me prepare for a doctor's appointment. This is to organize my thoughts, not to diagnose me.\n\nReason for visit: [WHAT'S GOING ON]\nSymptoms, when they started, what makes them better/worse: [DETAILS]\nMedicines and supplements I take: [LIST]\nWhat I'm worried about: [CONCERNS]\n\n1. Turn this into a clear one-page summary I can hand to the doctor.\n2. Suggest the 5 most useful questions to ask, in priority order.\n3. Make a short template for writing down what the doctor tells me and any next steps.",
@@ -5271,7 +5271,7 @@
  {
   "slug": "weekly-meal-plan-and-grocery-list",
   "category": "family",
-  "title": "Make a weekly meal plan and grocery list in 5 minutes",
+  "title": "Make a weekly meal plan and grocery list",
   "problem": "Deciding what's for dinner every night is exhausting, and you keep buying food that goes to waste.",
   "outcome": "Seven dinners your household will actually eat, using what you already have, plus one grocery list sorted by store aisle.",
   "prompt": "Plan [NUMBER] dinners for [NUMBER] people this week.\nLikes: [FOODS]. Dislikes/allergies: [LIST]. Weeknight cooking time: [MINUTES].\nAlready in my fridge/pantry: [LIST].\nBudget: [AMOUNT OR 'KEEP IT CHEAP'].\n\n1. Give me the plan, reusing ingredients across meals so nothing goes to waste.\n2. Make one grocery list grouped by store section, minus what I already have.\n3. Note which meals make good leftovers for lunch.",
@@ -5513,7 +5513,7 @@
  {
   "slug": "tailor-your-resume-to-a-job",
   "category": "work",
-  "title": "Tailor your resume and cover letter to a job in 15 minutes",
+  "title": "Tailor your resume and cover letter to a job",
   "problem": "Every job wants a slightly different resume, and rewriting yours each time takes forever.",
   "outcome": "A resume version that matches the job's key words using only your real experience, plus a short cover letter.",
   "prompt": "Here's a job posting: [PASTE]\nHere's my current resume (contact details removed): [PASTE]\n\n1. List the 8 most important skills and keywords in the posting.\n2. Show which ones my resume already proves and which are missing.\n3. Rewrite my bullet points to match the posting using ONLY true experience from my resume. Don't invent jobs, numbers or skills. Where a number would help, write [ADD NUMBER].\n4. Write a cover letter under 200 words.\n5. Give me 3 likely interview questions for this job.",

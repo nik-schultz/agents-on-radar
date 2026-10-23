@@ -62,6 +62,7 @@ def main():
     _bsrc = open(os.path.join(ROOT, "scripts", "build.py"), encoding="utf-8").read()
     if re.search(r"(time[ _]saved|time it saves)[^\n]{0,160}editor", _bsrc, re.I): errs.append("build.py: time-saved text must not use an 'editor's estimate' label")
     for b in J("data", "blueprints.json"):
+        if ESTIMATE_RE.search(json.dumps(b, ensure_ascii=False)): errs.append(f"blueprint {b.get('slug')}: 'editor's estimate' label not allowed (use e.g. 'Rough setup time: about N minutes')")
         if b.get("time_saved") is not None:
             ts = b["time_saved"]
             if not (isinstance(ts, dict) and ts.get("text") and ts.get("source") and str(ts.get("url", "")).startswith("https://")):
