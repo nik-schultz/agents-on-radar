@@ -36,6 +36,12 @@ PRIVACY = "/privacy/"
 SPONSOR_TERMS = "/sponsor-terms/"
 X_HANDLE = (cfg.get("x_handle") or "").lstrip("@")
 X_URL = f"https://x.com/{X_HANDLE}" if X_HANDLE else ""
+SPONSOR_THANKS = "/sponsor-thanks/"
+_sc = cfg.get("sponsor_checkout") or {}
+PAY_LINKS = {k: (v or "").strip() for k, v in (_sc.get("links") or {}).items()}
+PROMO_CODE = (_sc.get("promo_code") or "").strip()
+# Book & pay only goes live with live-mode Stripe links for every spot; otherwise /advertise/ keeps the email buttons.
+PAY_LIVE = bool(_sc.get("live")) and all(PAY_LINKS.get(k, "").startswith("https://buy.stripe.com/") and "/test_" not in PAY_LINKS[k] for k in ("featured", "runforless", "bundle", "newsletter"))
 # Content-based dateModified: pages put MOD_ISO / MOD_NICE tokens in their body or JSON-LD; page() swaps in the date
 # the page content last changed (hash stored in data/content-dates.json), so a rebuild alone never bumps the date.
 MOD_ISO, MOD_NICE = "@@MODDATE_ISO@@", "@@MODDATE_NICE@@"
@@ -1449,7 +1455,9 @@ page("/newsletter/", f"The {NAME} Weekly newsletter", f"One email a week: {NL_PR
      + (f'<h2>Past issues</h2><p class="small muted">Read every issue on the web, or follow the <a href="{u("/newsletter/feed.xml")}">newsletter RSS feed</a>.</p><ul class="nl-archive">{_nl_list}</ul>' if NL else "") + '</div>',
      lastmod=NL[0]["date"] if NL else None, head_extra=f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)} Weekly" href="{u("/newsletter/feed.xml")}">')
 
-def tier_cta(spot, label="Email us about this spot"):
+def tier_cta(spot, label="Email us about this spot", key=None, note=""):
+    if PAY_LIVE and key:
+        return f'<p class="tier-cta"><a class="btn btn-sm" href="{e(PAY_LINKS[key])}" rel="noopener">Book &amp; pay</a>{f"<span class=small>{note}</span>" if note else ""}</p>'
     if not CONTACT: return f'<p><a class="btn btn-sm" href="{e(ADV_HREF)}">Contact us</a></p>'
     q = urllib.parse.quote(f"Advertising: {spot}")
     return f'<p class="tier-cta"><a class="btn btn-sm" href="mailto:{e(CONTACT)}?subject={q}">{e(label)}</a> <span class="small muted">{e(CONTACT)}</span></p>'
@@ -1457,6 +1465,9 @@ _paid_now = sum(len(v) for k, v in spons.items() if isinstance(v, list))
 ADV_FAQ = [("How many visitors do you have?", f"We launched on {nice_date('2026-10-21')}, so the honest answer is: not many yet. Cloudflare Web Analytics has been measuring visits since {nice_date('2026-10-23')}, and Google Search Console and Bing Webmaster Tools were verified the same day. Once there's a meaningful sample we'll share the measured numbers with you before you pay. We don't publish numbers we haven't measured."),
            ("Will a sponsorship change your rankings or prices?", "No. Trending is computed from public engagement numbers and prices come from official pages. Paid spots sit beside that content, labeled, and never inside the rankings or the price table."),
            ("What won't you run?", "Anything we wouldn't tell a friend to use: “guaranteed AI income”, crypto or debt schemes, tools that hide what they do with people's data, or anything that pretends to be editorial.")]
+ADV_HOW = (f'<div class="adv-how glass"><h3>How it works</h3><ol><li><b>Pay</b> with "Book &amp; pay" (card, via Stripe).</li><li><b>Add your details at checkout:</b> your website, headline and one-line description, and when you want to start.</li><li><b>We review it within 2 business days</b> and email you.</li><li><b>It goes live.</b> If we decline it, you get a full refund.</li></ol>'
+           + (f'<p class="small">Featured tool listing: the first 3 sponsors get the first month free with code <b>{e(PROMO_CODE)}</b>.</p>' if PROMO_CODE else '')
+           + (f'<p class="small muted">Questions? <a href="mailto:{e(CONTACT)}">{e(CONTACT)}</a></p>' if CONTACT else '') + '</div>') if PAY_LIVE else ""
 page("/advertise/", "Advertise to people building their first AI bots", f"Sponsor {NAME}: a newsletter slot, a featured tool listing on matching guides and blueprints, or a labeled tile in Run your bots for less. New and growing; launch rates from $49/month.",
      f"""<div class="wrap narrow prose adv"><p class="eyebrow">Advertise</p><h1 class="kinetic-sm">Put your tool in front of people about to build a bot</h1>
 <p class="lead">People come here with a job in mind (sort my inbox, watch a price, answer the phone) and leave with a bot that does it. If your product helps with that job, we can show it to them, clearly labeled.</p>
@@ -1467,16 +1478,16 @@ page("/advertise/", "Advertise to people building their first AI bots", f"Sponso
 <li><b>Your clicks:</b> every sponsored link carries UTM tags, so you count the visits in your own analytics, not ours.</li>
 <li><b>Newsletter:</b> subscriber count, opens and clicks from our email provider once the {NAME} Weekly starts sending. Until then, there is no newsletter audience to sell.</li>
 <li><b>Popularity on the site:</b> the X and Reddit numbers we show are public counts with the date measured. They are about the use cases, not about our traffic.</li></ul></div>
-<h2>Ways to sponsor</h2><div class="tiers">
-<div class="tier glass"><p class="eyebrow">📬 Newsletter</p><h2>Newsletter sponsor slot</h2><p class="price">First 2 issues free</p><p class="price-sub">Then $50 per issue until 1,000 subscribers, then $25 per 1,000 subscribers ($50 minimum)</p><ul><li>One short sponsor block in a weekly issue of the {NAME} Weekly</li><li>Must match that week's topic</li><li>You write it; we check claims and label it “Sponsored”</li><li>Starts when the newsletter starts sending</li></ul>{tier_cta("Newsletter sponsor slot")}</div>
-<div class="tier glass"><p class="eyebrow">⚙ Guides & blueprints</p><h2>Featured tool listing</h2><p class="price">$49 / month</p><p class="price-sub">First month free for the first 3 sponsors</p><ul><li>A labeled card on the blueprints and use-case guides where your tool actually does the job</li><li>We test that it fits before it runs</li><li>Never inside the steps, the “Which tool to use” list or the rankings</li></ul>{tier_cta("Featured tool listing")}</div>
-<div class="tier glass"><p class="eyebrow">💸 Run for less</p><h2>Sponsored tile in Run your bots for less</h2><p class="price">$99 / month</p><p class="price-sub">One sponsor at a time</p><ul><li>One labeled tile beside the money-saving tips in the homepage’s Run for less band</li><li>For hosting, routers, monitoring or anything that lowers a bot's bill</li><li>The price table and calculator stay ad-free</li></ul>{tier_cta("Run for less tile")}</div></div>
+<h2>Ways to sponsor</h2>{ADV_HOW}<div class="tiers">
+<div class="tier glass"><p class="eyebrow">📬 Newsletter</p><h2>Newsletter sponsor slot</h2><p class="price">First 2 issues free</p><p class="price-sub">Then $50 per issue until 1,000 subscribers, then $25 per 1,000 subscribers ($50 minimum)</p><ul><li>One short sponsor block in a weekly issue of the {NAME} Weekly</li><li>Must match that week's topic</li><li>You write it; we check claims and label it “Sponsored”</li><li>Starts when the newsletter starts sending</li></ul>{tier_cta("Newsletter sponsor slot", key="newsletter", note="$50 for one issue")}</div>
+<div class="tier glass"><p class="eyebrow">⚙ Guides & blueprints</p><h2>Featured tool listing</h2><p class="price">$49 / month</p><p class="price-sub">First month free for the first 3 sponsors</p><ul><li>A labeled card on the blueprints and use-case guides where your tool actually does the job</li><li>We test that it fits before it runs</li><li>Never inside the steps, the “Which tool to use” list or the rankings</li></ul>{tier_cta("Featured tool listing", key="featured", note=f"First month free for the first 3 sponsors: use code <b>{e(PROMO_CODE)}</b> at checkout" if PROMO_CODE else "")}</div>
+<div class="tier glass"><p class="eyebrow">💸 Run for less</p><h2>Sponsored tile in Run your bots for less</h2><p class="price">$99 / month</p><p class="price-sub">One sponsor at a time</p><ul><li>One labeled tile beside the money-saving tips in the homepage’s Run for less band</li><li>For hosting, routers, monitoring or anything that lowers a bot's bill</li><li>The price table and calculator stay ad-free</li></ul>{tier_cta("Run for less tile", key="runforless", note="If the link says it's booked, check back next month.")}</div></div>
 <h2>How every paid spot is labeled</h2><p>Paid spots carry this label: {paid_label()}. Affiliate links carry this one: {paid_label("affiliate")}. Both link to our <a href="{u(DISCLOSE)}">disclosure page</a>, and every paid link uses <code>rel="sponsored"</code>.</p>
 <h2>Our rules</h2><ul><li>Money never changes trending rankings, prices, the calculator or what we recommend.</li><li>One sponsor per spot, and every spot is labeled.</li><li>We never share reader emails.</li></ul>
 <p>The full rules for sponsors (what we accept, review, refunds and cancellations) are in our <a href="{u(SPONSOR_TERMS)}">sponsor terms</a>.</p>
 <section class="faq" id="faq"><h2>Questions</h2>{"".join(f"<details class='glass'><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in ADV_FAQ)}</section>
-<div class="adv-cta glass"><h2>Launch pricing</h2><p class="adv-bundle"><b>Bundle: all three for $149 / month</b><br><span class="small muted">Newsletter slot + featured tool listing + Run-for-less tile</span></p><p>These are launch rates for a new site. They may change once traffic is measured, and we'll show you the measured numbers before any change. Monthly, cancel any time. Tell us your product and which spot you want.</p>
-<p>{tier_cta("Bundle (all three)", "Email us about the bundle")}</p>{'' if CONTACT else '<p class="small muted">This opens our public GitHub issues page. Start a new issue titled “Advertising” and we will reply there. If you would rather talk privately, say so and we will move to email.</p>'}</div></div>""",
+<div class="adv-cta glass"><h2>Launch pricing</h2><p class="adv-bundle"><b>Bundle: all three for $149 / month</b><br><span class="small muted">Newsletter slot + featured tool listing + Run-for-less tile</span></p><p>These are launch rates for a new site. They may change once traffic is measured, and we'll show you the measured numbers before any change. {'You pay for one month at a time and nothing renews automatically.' if PAY_LIVE else 'You pay for one month at a time and nothing renews automatically. Tell us your product and which spot you want.'}</p>
+<p>{tier_cta("Bundle (all three)", "Email us about the bundle", key="bundle")}</p>{'' if CONTACT else '<p class="small muted">This opens our public GitHub issues page. Start a new issue titled “Advertising” and we will reply there. If you would rather talk privately, say so and we will move to email.</p>'}</div></div>""",
      [{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in ADV_FAQ]}])
 
 page(DISCLOSE, "Affiliate and sponsor disclosure", f"How {NAME} makes money: labeled sponsorships and labeled affiliate links. Money never changes rankings, prices or recommendations.",
@@ -1521,11 +1532,23 @@ page(PRIVACY, "Privacy policy", f"What {NAME} collects (only your email, if you 
 <h2>Site analytics</h2><ul>
 <li>We use <a href="https://www.cloudflare.com/web-analytics/" rel="noopener">Cloudflare Web Analytics</a> to count page views and see which pages are popular.</li>
 <li>It doesn't use cookies, doesn't track you across other websites, and doesn't give us your name, email or any other personal details. That's why there's no cookie banner.</li></ul>
+<h2>Sponsors who pay us</h2><p>If you buy a sponsor spot, Stripe handles the payment. We never see your full card number. We receive your name, email, billing details Stripe asks for, and what you type at checkout (your website, ad text and start month), and we use them only to run your spot and send receipts. Stripe's <a href="https://stripe.com/privacy" rel="noopener">privacy policy</a> covers how it handles payment data.</p>
 <h2>What we never do</h2><ul><li>We never sell, rent or share your email address or data.</li><li>We don't run ad-tracking pixels.</li>
 <li>Sponsors never get reader emails. If a sponsor's link is on a page, clicking it takes you to their site, and their privacy policy applies there.</li></ul>
 <h2>Links to other sites</h2><p>Our guides link to tools, posts and articles on other sites. Those sites have their own privacy policies.</p>
 <h2>Your choices</h2><p>To unsubscribe, use the link in any email. To have your email address deleted, or to ask what we hold, email {_mail} and we'll take care of it.</p>
 <h2>Contact</h2><p>Questions about privacy? Email {_mail}.</p></div>""", lastmod=PRIVACY_UPDATED)
+
+page(SPONSOR_THANKS, "Thanks for sponsoring", f"Thanks for booking a sponsor spot on {NAME}. Here's what happens next.",
+     f"""<div class="wrap narrow prose"><p class="eyebrow">Advertise</p><h1 class="kinetic-sm">Thanks, you're booked in</h1>
+<p class="lead">Your payment went through and Stripe has emailed you a receipt. Here's what happens next.</p>
+<div class="glass adv-how"><ol><li><b>We review your spot within 2 business days.</b> We check that your tool fits the pages it will appear on and that your claims hold up.</li>
+<li><b>We email you</b> to confirm it, or to ask for a change if something needs fixing.</li>
+<li><b>It goes live</b> in the month you picked, labeled {paid_label()}.</li>
+<li><b>If we decline it,</b> you get a full refund.</li></ol></div>
+<h2>Send us your logo</h2><p>If you didn't add a logo link at checkout, reply to your Stripe receipt or email {_tmail} with it. A square PNG or SVG works best.</p>
+<p>Everything else, including refunds and how long your spot runs, is in our <a href="{u(SPONSOR_TERMS)}">sponsor terms</a>. Questions? Email {_tmail}.</p>
+<p><a class="btn btn-sm" href="{u("/")}">Back to {e(NAME)}</a></p></div>""", noindex=True)
 
 page("/sponsor/", "Sponsor: moved to Advertise", "This page moved to Advertise.",
      f'<div class="wrap narrow center"><p class="eyebrow">Moved</p><h1 class="kinetic-sm">This page moved</h1><p class="lead"><a class="btn" href="{u("/advertise/")}">Go to Advertise →</a></p></div>',

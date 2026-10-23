@@ -32,5 +32,22 @@
     "_help": "Cloudflare Web Analytics public beacon token (Cloudflare > Analytics & Logs > Web Analytics). Empty = no beacon tag is output."
   },
   "x_handle": "botsdothat",
-  "_x_handle_help": "Brand X account (created Oct 23, 2026). Used for the footer/about link, twitter:site and Organization sameAs."
+  "_x_handle_help": "Brand X account (created Oct 23, 2026). Used for the footer/about link, twitter:site and Organization sameAs.",
+  "sponsor_checkout": {
+    "live": false,
+    "links": {
+      "featured": "",
+      "runforless": "",
+      "bundle": "",
+      "newsletter": ""
+    },
+    "promo_code": "FOUNDING",
+    "sandbox_links": {
+      "featured": "https://buy.stripe.com/test_eVqeVcfH66dO5qUcxebV600",
+      "runforless": "https://buy.stripe.com/test_7sY3cu66w7hSdXq9l2bV601",
+      "bundle": "https://buy.stripe.com/test_fZufZg52sgSsaLefJqbV602",
+      "newsletter": "https://buy.stripe.com/test_bJe7sK9iI1XybPiap6bV603"
+    },
+    "_help": "Stripe Payment Links for /advertise/ 'Book & pay' buttons. Put LIVE-mode links (https://buy.stripe.com/..., never /test_) in links, then set live=true. While live is false or any link is empty, /advertise/ keeps the 'Email us' buttons. sandbox_links are the test-mode copies (BotsDoThat sandbox acct_1UToXNBHg6I95Fjd) for trying checkout with card 4242 4242 4242 4242; they are never shown on the site. promo_code = Founding sponsor code (featured listing, first month free, first 3 sponsors). No secret keys here, ever."
+  }
 }

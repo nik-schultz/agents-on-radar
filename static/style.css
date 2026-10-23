@@ -488,3 +488,4 @@ html:not(.js) .share-copy{display:none}
 .nl-fwd{margin:0;opacity:.85}.nl-fwd a{color:inherit;text-decoration:underline}
 @media(min-width:760px){.nl-inline .nl-fwd{grid-column:2}}
 @media (prefers-reduced-motion:reduce){.share-btn{transition:none}}
+.adv-how{padding:16px 20px;margin:14px 0 18px}.adv-how h3{margin:0 0 6px}.adv-how ol{margin:.3em 0 .5em;padding-left:1.3em}.adv-how li{margin:.25em 0}.tier-cta .btn+.small{display:block;margin-top:6px}

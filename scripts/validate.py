@@ -114,6 +114,13 @@ def main():
         if k.startswith("_") or not v: continue
         if "<" in v or '"' in v or "content=" in v or not re.fullmatch(r"[A-Za-z0-9_\-]{8,100}", v):
             errs.append(f"config verification.{k}: paste only the content value (letters, digits, - and _), not the whole meta tag")
+    _sc = _cfg.get("sponsor_checkout") or {}
+    for k, url in (_sc.get("links") or {}).items():
+        if url and (not url.startswith("https://buy.stripe.com/") or "/test_" in url):
+            errs.append(f"config sponsor_checkout.links.{k}: must be a live Stripe link (https://buy.stripe.com/..., not /test_)")
+    if _sc.get("live") and not all((_sc.get("links") or {}).get(k) for k in ("featured", "runforless", "bundle", "newsletter")):
+        errs.append("config sponsor_checkout: live=true needs all 4 links (featured, runforless, bundle, newsletter)")
+    if re.search(r"sk_(live|test)_|rk_(live|test)_", json.dumps(_cfg)): errs.append("config.json contains a Stripe secret key. Remove it")
     sp = J("data", "sponsors.json")
     for slot, items in sp.items():
         if not isinstance(items, list): continue
