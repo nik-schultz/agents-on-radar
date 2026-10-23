@@ -42,8 +42,8 @@ p{margin:0 0 1em}.small{font-size:.88rem}.muted{color:var(--muted)}.center{text-
 @media(min-width:960px){.hero-grid{grid-template-columns:1.15fr .85fr}.hero{padding-top:56px}}
 .kinetic{font-size:clamp(2.3rem,6.4vw,4.6rem);font-weight:850;letter-spacing:-.035em;line-height:1.02;margin:.1em 0 .35em}
 .k-line{display:block}
-.rotator{display:block;height:1.08em;overflow:hidden;position:relative;background:linear-gradient(90deg,var(--c1),var(--c2) 50%,var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
-.rotator span{display:block;height:1.08em;white-space:nowrap;animation:rot 17.5s cubic-bezier(.7,0,.3,1) infinite}
+.rotator{display:block;height:1.24em;margin-bottom:-.16em;overflow:hidden;position:relative;background:linear-gradient(90deg,var(--c1),var(--c2) 50%,var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.rotator span{display:block;height:1.24em;white-space:nowrap;animation:rot 17.5s cubic-bezier(.7,0,.3,1) infinite}
 @keyframes rot{0%,11%{transform:translateY(0)}14%,25%{transform:translateY(-100%)}28%,39%{transform:translateY(-200%)}42%,53%{transform:translateY(-300%)}56%,67%{transform:translateY(-400%)}70%,81%{transform:translateY(-500%)}84%,97%{transform:translateY(-600%)}100%{transform:translateY(0)}}
 .kinetic-sm{font-size:clamp(2rem,5vw,3.4rem);font-weight:850;letter-spacing:-.03em;background:linear-gradient(100deg,#fff 30%,#c9d2ff 60%,var(--c1));-webkit-background-clip:text;background-clip:text;color:transparent}
 .lead{font-size:1.15rem;color:#cfd6f3;max-width:60ch}
@@ -247,7 +247,7 @@ div.bp-art.art-slot{border-radius:50%}
 .hl-stack>.hl{grid-area:1/1;animation:hl 28s cubic-bezier(.7,0,.3,1) infinite both}
 .hl-stack>.hl-1{animation-delay:7s}.hl-stack>.hl-2{animation-delay:14s}.hl-stack>.hl-3{animation-delay:21s}
 .hl-stack>.hl:not(.hl-0){pointer-events:none}
-.k-grad{display:block;background:linear-gradient(90deg,var(--c1),var(--c2) 50%,var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.k-grad{display:block;padding:0 .06em .16em 0;margin-bottom:-.16em;background:linear-gradient(90deg,var(--c1),var(--c2) 50%,var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
 @keyframes hl{0%{opacity:0;transform:translateY(.35em);filter:blur(6px)}2.5%,23%{opacity:1;transform:none;filter:none}25.5%,100%{opacity:0;transform:translateY(-.35em);filter:blur(6px)}}
 @media (prefers-reduced-motion:reduce){.hl-stack>.hl{animation:none;opacity:1;transform:none;filter:none}.hl-stack>.hl:not(.hl-0){display:none}}
 
@@ -305,7 +305,7 @@ div.bp-art.art-slot{border-radius:50%}
   background:radial-gradient(700px circle at 85% 10%,color-mix(in srgb,var(--co) 22%,transparent),transparent 60%),radial-gradient(500px circle at 0% 100%,rgba(192,139,255,.16),transparent 60%),linear-gradient(160deg,rgba(30,40,80,.7),rgba(8,12,28,.85))}
 .nt--xl .nt-top{margin-bottom:auto}
 .nt--xl .nt-art{width:min(78%,420px);height:auto;aspect-ratio:1;right:-12%;top:-14%;opacity:.75}
-.nt--xl .nt-h{font-size:clamp(1.7rem,4.4vw,3rem);line-height:1.04;max-width:16ch;text-wrap:balance;
+.nt--xl .nt-h{font-size:clamp(1.7rem,4.4vw,3rem);line-height:1.04;max-width:16ch;text-wrap:balance;padding-bottom:.14em;margin-bottom:-.14em;
   background:linear-gradient(90deg,#fff 30%,color-mix(in srgb,var(--co) 80%,#fff));-webkit-background-clip:text;background-clip:text;color:transparent}
 .nt--xl .nt-x{font-size:1.02rem;max-width:60ch;color:#c9d1ee}
 .nt--l .nt-h{font-size:clamp(1.15rem,2vw,1.4rem);text-wrap:balance}
@@ -427,3 +427,8 @@ div.bp-art.art-slot{border-radius:50%}
 .bp-card .bp-real ul{margin:0;padding-left:1.1em}.bp-card .bp-real li{margin:.2em 0}
 .bp-card .bp-real a{display:inline;padding:0;height:auto;gap:0;color:var(--c1)}
 .related-x .ex-cat{color:var(--muted);font-size:.85em}
+
+/* 2026-10-23: background-clip:text only paints inside the element box. With tight line-heights, fonts with deep descenders
+   (Segoe UI, Inter, DejaVu) lost the bottoms of g/y/p/j. Extra bottom padding (cancelled by a negative margin, so layout
+   doesn't move; page h1s just get a little padding) gives descenders room on every gradient-text heading. */
+.kinetic-sm{padding-bottom:.1em}
