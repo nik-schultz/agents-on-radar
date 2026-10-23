@@ -4,6 +4,53 @@ There's a bot for that. Here's how.
 
 A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
 
+## Add calendar events and reminders just by asking your bot
+URL: https://botsdothat.com/use-cases/add-events-and-reminders-by-asking-your-bot/
+Category: Family & home | Difficulty: Easy | Added: 2026-10-23
+Popularity: not measured
+
+Instead of opening your calendar and typing everything in, you tell your phone's AI assistant "add this" or "remind me", and it puts the event or reminder in the right app. Grok Bot and Gemini can both do this now, once you allow them into those apps.
+
+What the bot does:
+1. Pick one assistant you already use. Grok Bot can now use your phone's Calendar, Reminders and Contacts on iPhone and Android. Gemini can add events to Google Calendar (and some phone makers' calendars) and reminders to Google Tasks.
+2. Give it access only to what you need. Grok Bot asks you to allow each phone app one by one, so you can allow Calendar and Reminders and leave Messages and Home off. In Gemini, you connect the Google Workspace app the first time you ask.
+3. Ask in plain words, or paste the text: "Add soccer practice Tuesday 5:30 at Lincoln Park" or "Here's the dentist's text, put it on my calendar and remind me the night before."
+4. The assistant creates the event or reminder and tells you what it added. Read the day, time and place back before you move on.
+5. Ask it what's coming up: "What's on my calendar tomorrow?" or "What are my reminders this week?"
+6. Gemini can go one step further if you turn on Personal Intelligence: it can check your Google Maps saved places alongside your calendar, so "which restaurant on my list is near my last meeting today?" gets a real answer.
+7. If it got something wrong, use Undo (Gemini shows one in its confirmation) or fix the event in your calendar app.
+
+What you end up with: Events and reminders added from a sentence, a pasted text or a photo, with a short read-back so you can catch mistakes before you rely on them.
+
+Tools: Grok Bot (personal agents), Gemini
+
+Prompt:
+Please add this to my calendar and reminders:
+[PASTE THE TEXT, EMAIL OR DETAILS, e.g. "Dentist, Thursday Nov 5, 3:15pm, Main St Dental"]
+
+Rules:
+1. Put it on my [default / family / work] calendar with the right date, time and place.
+2. Add a reminder [the night before at 8pm / 1 hour before].
+3. If the date, time or place isn't clear, ask me instead of guessing.
+4. Don't invite anyone, message anyone, or change or delete any other event or reminder.
+5. When you're done, read back exactly what you added: title, day, date, time, place and reminder time.
+
+Watch out:
+- Allow only the apps you need. Grok Bot's permission screen has a separate Allow button for each app (Messages, Location, Calendar, Home, Reminders, Contacts), per Digital Trends and TeslaNorth. Allowing Calendar and Reminders doesn't mean you have to allow Messages or Home.
+- Check the read-back. Google's own help pages say Gemini can hallucinate or give outdated information, so confirm the day, date and time it entered, especially for anything you can't miss.
+- Some changes can't be undone. Google says an email that goes out to guests when an event is changed can't be taken back, so tell the bot not to invite or update anyone unless you mean it.
+- Be careful with "delete" or "clean up" requests. Google's help page warns that Gemini can make bulk changes to your private Google Tasks without asking you to confirm, so be specific about which reminders you mean.
+- Gemini picks your default calendar unless you name another one, per Google. Say "on the family calendar" if that's where it belongs.
+- It's still rolling out. Grok Bot's phone-app access started rolling out on Oct 22, 2026, and TeslaNorth notes it isn't clear whether every app is available on both iPhone and Android yet.
+
+Sources:
+- Digital Trends: Grok Bot can now add events, set reminders, and more (Oct 22, 2026; each app has its own Allow button; checked 2026-10-23): https://www.digitaltrends.com/phones/grok-bot-can-now-manage-your-calendar-reminders-and-more/
+- TeslaNorth: Grok Bot can now use your phone's Calendar, Reminders and Contacts (Oct 22, 2026; per-app permissions, platform availability unclear; checked 2026-10-23): https://teslanorth.com/2026/10/22/grok-bot-phone-calendar-reminders-contacts/
+- Gemini Apps Help: Create & manage your calendar events (default calendar, Undo, guest emails can't be undone; checked 2026-10-23): https://support.google.com/gemini/answer/15305236?hl=en
+- Gemini Apps Help: Capture your tasks & reminders (Google Tasks, Samsung Reminder; checked 2026-10-23): https://support.google.com/gemini/answer/15230285?hl=en
+- Gemini Apps Help: Manage your tasks & workflows (bulk actions on Google Tasks without confirmation; checked 2026-10-23): https://support.google.com/gemini/answer/17094507?hl=en
+- 9to5Google: Gemini Personal Intelligence now uses Maps saved places with Calendar (Oct 22, 2026; checked 2026-10-23): https://9to5google.com/2026/10/22/gemini-personal-intelligence-maps/
+
 ## Have two AIs check each other's answers
 URL: https://botsdothat.com/use-cases/have-two-ais-check-each-other/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-22

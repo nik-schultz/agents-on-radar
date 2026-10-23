@@ -66,6 +66,7 @@ Data as of 2026-10-23. Popularity numbers are real counts (X likes/reposts, Redd
 - [Plan a trip itinerary that fits your pace](https://botsdothat.com/use-cases/plan-a-trip-itinerary/): Planning a trip means 30 open tabs, and you still aren't sure the days fit together.
 
 ### Family & home
+- [Add calendar events and reminders just by asking your bot](https://botsdothat.com/use-cases/add-events-and-reminders-by-asking-your-bot/): Instead of opening your calendar and typing everything in, you tell your phone's AI assistant "add this" or "remind me", and it puts the event or reminder in the right app. Grok Bot and Gemini can both do this now, once you allow them into those apps.
 - [Have an agent contact tradespeople and line up quotes for a home project](https://botsdothat.com/use-cases/line-up-contractors-for-a-home-project/): Instead of calling round electricians, plumbers and roofers yourself, let an agent reach out to all of them, collect their replies and put them side by side.
 - [Get your phone number off people-search sites to cut spam calls](https://botsdothat.com/use-cases/remove-your-number-from-people-search-sites/): A bot finds where your phone number is listed on people-search and data-broker sites, files the opt-out requests, and checks again later.
 - [Catch family calendar clashes before the week starts](https://botsdothat.com/use-cases/sunday-family-calendar-check/): Every Sunday a bot reads the next two weeks of your family calendar and school notices and flags the clashes.

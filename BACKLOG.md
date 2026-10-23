@@ -75,5 +75,5 @@ Candidates not added yet:
 - [ ] Bot that runs 7 YouTube channels' daily posting (@ashnichrist 2026-10-20, 57 likes); creator-heavy, possible extra source for `one-bot-per-brand`.
 - [ ] AI voice agent books callers into your calendar, but callers didn't want to talk to an AI (@Brenn_Clinton 2026-10-22, 1 like); useful watch-out for `call-and-book-by-phone`.
 - [ ] Hands-free car assistant guide: ask Gemini on Android Auto for your flight gate, saved places or next appointment (Google, Oct 20 2026, news id `gemini-android-auto-personal-intelligence`); Easy, everyday.
+- [x] (shipped 2026-10-23 as `add-events-and-reminders-by-asking-your-bot`) Phone calendar-and-reminders bot guide: Grok Bot can now use Calendar, Reminders and Contacts on iOS/Android and Gemini plans from Maps saved places + Calendar (Oct 22 2026, news ids `grok-bot-phone-apps`, `gemini-maps-saved-places`); per-app permissions as the watch-out; Easy, everyday.
 Skipped: Binance "My Agent ID" promo spam, agent-payment/crypto posts, sales-prospecting tool pitches.
-- (2026-10-23, from news) "Let your bot handle your phone's calendar and reminders": Grok Bot can now use Calendar, Reminders and Contacts on iOS/Android (Oct 22) and Gemini can plan from Maps saved places + Calendar. Guide idea: ask-and-done reminders, adding events from a text, with per-app permissions as the watch-out.
