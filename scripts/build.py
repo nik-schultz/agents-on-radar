@@ -104,6 +104,10 @@ def mdesc(*parts, limit=155):
     cut = t[:limit - 1].rsplit(" ", 1)[0].rstrip(",;:·-")
     return cut + "…"
 
+_CF_TOKEN = ((cfg.get("analytics") or {}).get("cloudflare_token") or "").strip()
+# Cloudflare Web Analytics (cookie-free). Emitted in every page's <head> only when a token is set in config.json.
+CF_BEACON = (f"<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{\"token\": \"{e(_CF_TOKEN)}\"}}'></script>\n" if _CF_TOKEN else "")
+
 def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="page", og_type="website", head_extra=""):
     canon = absu(u(path))
     # Keep <title> within ~62 chars (Google truncates longer ones); drop the brand suffix when it won't fit.
@@ -120,7 +124,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <meta property="og:image" content="{e(og)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{e(og)}">
 {'<meta name="robots" content="noindex">' if noindex else ''}
-{VERIFY_META}<link rel="icon" href="{u('/assets/favicon.svg')}" type="image/svg+xml">
+{VERIFY_META}{CF_BEACON}<link rel="icon" href="{u('/assets/favicon.svg')}" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="{e(NAME)}: new use cases" href="{u('/feed.xml')}">
 <link rel="stylesheet" href="{u('/assets/style.css')}?v={ASSET_V['style.css']}">{head_extra}
 <script>{INTRO_JS}</script>

@@ -1,5 +1,9 @@
 # Ops changelog
 
+## 2026-10-23 (4:40 PM CT) — Cloudflare Web Analytics on every page
+- config.json: new `analytics.cloudflare_token` (public beacon token). scripts/build.py emits Cloudflare's beacon `<script defer …beacon.min.js data-cf-beacon=…>` in the <head> of every page made by page(), including 404, only when the token is set (all 118 built HTML files have it).
+- No Content-Security-Policy meta exists, so nothing to allow-list. No privacy section exists on /about/ or /disclosure/, so no wording change was made.
+
 ## 2026-10-23 (3:30 PM CT) — Branded email header image for the Kit confirmation email
 - Added static/img/email-header.png (1200x360, shows at 600x180; ~70 KB), deployed at /assets/img/email-header.png. It shows the radar logo (rendered from favicon.svg with cairosvg), a "BotsDoThat" wordmark in Inter ExtraBold, the line "The BotsDoThat Weekly" in teal, and a teal-to-violet underline on the dark gradient. Generator script: /workspace/tools/email_header.py.
 

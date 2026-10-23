@@ -26,5 +26,9 @@
     "google": "",
     "bing": "",
     "_help": "Paste only the content value of each tag. Google Search Console > Add property > URL prefix > HTML tag gives <meta name=\"google-site-verification\" content=\"XXXX\">: paste XXXX into google. Bing Webmaster Tools > HTML Meta Tag gives msvalidate.01: paste its content into bing. Empty = no tag is output."
+  },
+  "analytics": {
+    "cloudflare_token": "d0d6969f29884efbbd4472a1cfba2cc8",
+    "_help": "Cloudflare Web Analytics public beacon token (Cloudflare > Analytics & Logs > Web Analytics). Empty = no beacon tag is output."
   }
 }
