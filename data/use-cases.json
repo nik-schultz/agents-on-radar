@@ -663,7 +663,7 @@
  },
  {
   "slug": "schedule-bots-without-burning-tokens",
-  "title": "Stop always-on bots from burning tokens: run them less often, or on demand",
+  "title": "Stop always-on bots burning tokens: run them less often",
   "summary": "Every scheduled run costs tokens, even when nothing has changed. Match the schedule to how often the thing really changes, and switch fun-but-idle bots to run only when you ask.",
   "what_the_bot_does": [
    "Lists every scheduled bot and how often it runs.",
@@ -734,7 +734,7 @@
  },
  {
   "slug": "run-open-models-on-your-own-computer",
-  "title": "Run open models on your own computer (or a cheap host) for simple jobs",
+  "title": "Run open AI models on your own computer for simple jobs",
   "summary": "Open-weight models can run on your own computer with a free tool like Ollama, so routine jobs cost nothing per message. Some hosts also run open models for a fraction of big-model prices.",
   "what_the_bot_does": [
    "Installs a local model runner like Ollama on your computer.",
@@ -992,7 +992,7 @@
  },
  {
   "slug": "pick-a-smaller-model-for-simple-jobs",
-  "title": "Use a small model for simple jobs and save the big one for hard ones",
+  "title": "Use a small AI model for simple jobs, a big one for hard ones",
   "summary": "Most bot jobs (sorting email, summarizing, checking a page) don't need the most powerful model. The small models cost a fraction as much, so route easy work to them and only send hard problems up.",
   "what_the_bot_does": [
    "Sends routine work (summaries, sorting, yes/no checks) to a small, cheap model.",
@@ -1056,7 +1056,7 @@
  },
  {
   "slug": "give-your-agents-a-shared-apple-account",
-  "title": "Give your agents their own Apple account so they share reminders, notes and calendar",
+  "title": "Give your agents a shared Apple account for notes and reminders",
   "category": "work",
   "source_date": "2026-10-11",
   "summary": "A Mac signed in to a separate Apple Account can become the shared desk where your agents leave each other reminders, notes, calendar events and messages, while your personal account stays private.",
@@ -1306,7 +1306,7 @@
  },
  {
   "slug": "hand-a-clunky-web-form-to-an-agent",
-  "title": "Hand a clunky web form or app to an agent that uses the computer for you",
+  "title": "Hand a clunky web form to an agent that uses the computer",
   "category": "work",
   "source_date": "2026-10-19",
   "summary": "Some software you only touch once a year. A computer-use agent can click through it for you, from a login you control, while you watch.",
@@ -1368,7 +1368,7 @@
  },
  {
   "slug": "line-up-contractors-for-a-home-project",
-  "title": "Have an agent contact tradespeople and line up quotes for a home project",
+  "title": "Have an agent line up contractor quotes for a home project",
   "category": "family",
   "source_date": "2026-09-01",
   "summary": "Instead of calling round electricians, plumbers and roofers yourself, let an agent reach out to all of them, collect their replies and put them side by side.",
@@ -4067,7 +4067,7 @@
  },
  {
   "slug": "pay-with-a-single-use-virtual-card",
-  "title": "Give your agent a single-use card before it books or buys anything",
+  "title": "Give your agent a single-use card before it buys anything",
   "category": "shopping",
   "date_added": "2026-10-20",
   "source_date": "2026-10-02",
@@ -4390,7 +4390,7 @@
   "slug": "understand-a-confusing-letter",
   "category": "inbox",
   "flagship": true,
-  "title": "Understand a confusing letter or notice (and know what to do next)",
+  "title": "Understand a confusing letter or notice, and what to do next",
   "problem": "A letter from a government office, insurer, bank or landlord landed in your mailbox and you can't tell if it's important, a bill, a scam, or nothing.",
   "outcome": "A plain-English summary, the action you need to take (if any), the deadline, a scam check, and a ready-to-send reply if one is needed.",
   "prompt": "I got this letter and I don't fully understand it. Personal details are removed.\n\n[PASTE THE LETTER TEXT, OR UPLOAD A PHOTO WITH PERSONAL DETAILS COVERED]\n\nPlease answer in plain English, at about an 8th-grade reading level:\n1. Who is this from and what is it about, in 2 sentences?\n2. Do I need to do anything? If yes, what exactly, and by what date?\n3. What happens if I do nothing?\n4. Are there signs this could be a scam (pressure, threats, odd payment methods, strange links)? Tell me how to check it using the organization's official website, not the contact details in the letter.\n5. If a reply is needed, write a short, polite reply I can send, with [BLANKS] for anything you don't know.\nIf anything is unclear or you are guessing, say so.",

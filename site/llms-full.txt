@@ -297,7 +297,7 @@ Watch out:
 Sources:
 - Anthropic pricing docs: tool overhead, web fetch token examples, tokenizer note: https://docs.anthropic.com/en/docs/about-claude/pricing
 
-## Stop always-on bots from burning tokens: run them less often, or on demand
+## Stop always-on bots burning tokens: run them less often
 URL: https://botsdothat.com/use-cases/schedule-bots-without-burning-tokens/
 Category: Run your bots for less | Difficulty: Easy | Added: 2026-10-21
 Popularity: 11 likes, 1 reposts on X (https://x.com/sunfellow/status/2112585672657969563, measured 2026-10-23)
@@ -325,7 +325,7 @@ Sources:
 - X post by @sunfellow (2026-10-20): moved his Grok Bot agents from several runs a day to on-demand after seeing the cost: https://x.com/sunfellow/status/2112585672657969563
 - Anthropic pricing docs: "Monitor usage patterns: Track token consumption to identify optimization opportunities": https://docs.anthropic.com/en/docs/about-claude/pricing
 
-## Run open models on your own computer (or a cheap host) for simple jobs
+## Run open AI models on your own computer for simple jobs
 URL: https://botsdothat.com/use-cases/run-open-models-on-your-own-computer/
 Category: Run your bots for less | Difficulty: Advanced | Added: 2026-10-21
 Popularity: not measured
@@ -446,7 +446,7 @@ Sources:
 - ChatGPT pricing: "The free version of ChatGPT is available to everyone": https://chatgpt.com/pricing
 - xAI: Grok is "Free to try on the web and in the apps": https://x.ai/grok
 
-## Use a small model for simple jobs and save the big one for hard ones
+## Use a small AI model for simple jobs, a big one for hard ones
 URL: https://botsdothat.com/use-cases/pick-a-smaller-model-for-simple-jobs/
 Category: Run your bots for less | Difficulty: Medium | Added: 2026-10-21
 Popularity: not measured
@@ -475,7 +475,7 @@ Sources:
 - OpenAI API pricing (official): https://platform.openai.com/docs/pricing
 - Gemini API pricing (official): https://ai.google.dev/gemini-api/docs/pricing
 
-## Give your agents their own Apple account so they share reminders, notes and calendar
+## Give your agents a shared Apple account for notes and reminders
 URL: https://botsdothat.com/use-cases/give-your-agents-a-shared-apple-account/
 Category: Work & career | Difficulty: Advanced | Added: 2026-10-21
 Popularity: 251 likes, 15 reposts on X (https://x.com/BrianRoemmele/status/2109351823996035338, measured 2026-10-23)
@@ -584,7 +584,7 @@ Watch out:
 Sources:
 - X post by @farmerathlete (2026-10-18): broken down on the Autobahn, Grok Bot found the right insurer form, filled it in and help arrived an hour later: https://x.com/farmerathlete/status/2111861042531782681
 
-## Hand a clunky web form or app to an agent that uses the computer for you
+## Hand a clunky web form to an agent that uses the computer
 URL: https://botsdothat.com/use-cases/hand-a-clunky-web-form-to-an-agent/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-21
 Popularity: 3 likes, 0 reposts on X (https://x.com/brian_a_burns/status/2112326114542858689, measured 2026-10-23)
@@ -611,7 +611,7 @@ Watch out:
 Sources:
 - X post by @brian_a_burns (2026-10-19): ChatGPT with computer use filled in a complicated procurement request in software he had never used: https://x.com/brian_a_burns/status/2112326114542858689
 
-## Have an agent contact tradespeople and line up quotes for a home project
+## Have an agent line up contractor quotes for a home project
 URL: https://botsdothat.com/use-cases/line-up-contractors-for-a-home-project/
 Category: Family & home | Difficulty: Medium | Added: 2026-10-21
 Popularity: 9 likes, 0 reposts on X (https://x.com/NaughtyNomad/status/2094720744030642252, measured 2026-10-23)
@@ -1806,7 +1806,7 @@ Watch out:
 Sources:
 - X post by @saviomartin (2026-10-11): family agent: “remind Grandma to take her meds”, book dentist appointments: https://x.com/saviomartin/status/2109330165381910817
 
-## Give your agent a single-use card before it books or buys anything
+## Give your agent a single-use card before it buys anything
 URL: https://botsdothat.com/use-cases/pay-with-a-single-use-virtual-card/
 Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-20
 Popularity: 9 likes, 0 reposts on X (https://x.com/robbieklages/status/2105830877259346021, measured 2026-10-23)
@@ -1905,7 +1905,7 @@ Sources:
 - Hacker News comment: parent used ChatGPT to work through an external appeal: https://news.ycombinator.com/item?id=45734582
 - Google search suggestions for “using ai to appeal insurance denial” (checked 2026-10-19): https://www.google.com/search?q=using+ai+to+appeal+insurance+denial
 
-## Understand a confusing letter or notice (and know what to do next)
+## Understand a confusing letter or notice, and what to do next
 URL: https://botsdothat.com/use-cases/understand-a-confusing-letter/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
@@ -2773,6 +2773,36 @@ Top story (importance): Anthropic opens Claude Duet, a proactive agent that come
 - 2026-09-22 [model release, impact: notable] OpenAI releases GPT-6 Sol and GPT-6 Luna | Two new models: Sol for most work and Luna, a very cheap one at $0.10 / $0.50 per million tokens. Luna is the kind of model to use for simple, frequent bot jobs. | Source: OpenAI API changelog https://developers.openai.com/api/docs/changelog | X: 53,252 likes, 5,269 reposts (https://x.com/OpenAI/status/2102460975790137662, measured 2026-10-23)
 - 2026-09-21 [model release, impact: major] xAI releases Grok 4.7 | xAI's new model for coding and knowledge work keeps the same $2 / $6 per million token price as Grok 4.6. xAI says it was trained to work inside the Grok Bot harness, which should make Grok Bot better at everyday tasks. | Source: xAI https://x.ai/news/grok-4-7 | X: 26,955 likes, 2,555 reposts (https://x.com/elonmusk/status/2102071804495872374, measured 2026-10-23)
 
+## How to build an AI agent without coding
+URL: https://botsdothat.com/how-to-build-an-ai-agent-without-coding/
+Steps:
+1. Pick one small, boring job: Choose one job you do every week that mostly means reading or checking: a morning inbox summary, a weekly school-email digest, a web page you keep refreshing. Narrow, read-only jobs make the easiest first bots. All of our blueprints are jobs like this.
+2. Write the job down in four lines: Goal: what you want to end up with. Runs: when it should work (every weekday at 7am, or only when you ask). Watches: what it reads (new emails since yesterday). Never: what it may never do (send, buy, delete). Every blueprint starts with these lines, so you can copy them.
+3. Pick a tool you already use: Use what you already have. Gmail and Google Calendar → Gemini Spark. Want to text your bot → Meta Muse or Instinct. Want routines on a schedule → Grok Bot, Claude Cowork scheduled tasks or ChatGPT dots. Prefer no AI chat at all → Zapier or Make. No agent yet? Paste the instructions into ChatGPT, Claude, Gemini or Grok each time; that works too, just not on autopilot.
+4. Paste the instructions and connect only what it needs: Open a new chat in the tool. Copy the blueprint's instructions, paste them, and replace everything in [square brackets] with your details. If the tool asks to connect your email or calendar, say yes only to the apps the blueprint lists.
+5. Run it once and fix it in plain words: Don't schedule anything yet. Watch the first run, compare it with your real inbox or page, and tell it what to fix in plain words (“ignore emails from the PTA”, “shorter”).
+6. Put it on a schedule, with approval rules: Once the result looks right, ask it to repeat on a schedule. Keep it read-only or approval-only: it may read and draft, but it must ask you before it sends, buys, books or deletes. Check the first week of results.
+7. Check what it costs and set a limit: Inside an app plan, the bot runs within your plan's limits. If it runs on a pay-per-use AI API, work out the monthly cost in the cost calculator and set a spend limit before anything runs on autopilot.
+
+Worked example: Morning Inbox Briefing blueprint (https://botsdothat.com/blueprints/morning-inbox-briefing/). Runs: Every weekday at 7:00am. Watches: New emails since yesterday morning.
+
+Questions:
+- Do I need to know how to code to build an AI agent? No. Agent apps take instructions in plain words: you describe the job, connect the apps it needs with the official connect button, and tell it when to run. Our blueprints give you the exact words to paste.
+- What's the easiest AI agent to build first? A read-only one that only reads and reports, so nothing can go wrong. Our easiest blueprints are the Morning Inbox Briefing, Web Page Watcher, Scam Checker, Weekly Meal Plan Bot, Family Calendar Guardian and New Inquiry Logger.
+- Can I build an AI agent for free? Partly. ChatGPT, Claude, Gemini and Grok each list a free plan (paid plans add more), so you can paste a blueprint's instructions into one whenever you need it, even without a scheduled agent. n8n is free to self-host, and Zapier and Make have free plans. Some agent features cost money: Gemini Spark is for Google AI Pro and Ultra subscribers in select countries, and ChatGPT agent needs a paid ChatGPT plan. Plans change, so check each tool's own page.
+- How much does it cost to run an AI agent? Inside an app plan it runs within your plan's limits. On a pay-per-use AI API it depends on how often it runs and how much it reads. Our example, the Morning Inbox Briefing (22 runs a month, about 15,000 tokens in and 800 out each time, our estimate), comes to about $0.03 a month on Groq openai/gpt-oss-20b and about $4.18 on Anthropic Claude Fable 5.1 at standard API prices checked Oct 21, 2026.
+- Is it safe to connect my email to an AI agent? It can be, if you keep it on a short leash: start read-only, make it ask before it sends, buys or deletes anything, connect apps only with the official connect button (never paste passwords into a chat), tell it to ignore instructions found inside emails from strangers, and check the first week of results.
+- What's the difference between an AI agent and an automation? An automation follows the exact steps you set up, the same way every time. An AI agent reads your plain-English instructions and works out the steps itself, which is more flexible but needs approval rules. Tools like Zapier, Make and n8n let you build the step-by-step kind.
+
+## What is an AI agent? (in simple terms)
+URL: https://botsdothat.com/what-can-bots-do/
+- What is an AI agent, in simple terms? An AI agent is an AI assistant that does a job for you instead of only answering questions. You give it a goal, like “read my new email every morning and tell me what needs a reply”, and it takes the steps itself: opening websites, reading your email, filling in forms, and repeating the job on a schedule.
+- What's the difference between an AI agent and a chatbot? A chatbot answers when you ask, and you do the clicking. An agent does the steps for you, can keep working on a schedule, and should ask before it sends, buys, books or deletes anything.
+- Is an AI agent the same as a bot? On this site, yes: we say “bot” for an AI agent that runs a job for you. Older “bots” followed fixed scripts; today's AI agents read plain-English instructions and decide the steps themselves.
+- What can AI agents do for me? Today they're good at reading and summarizing your email, watching web pages and flight times for changes, drafting messages and forms, and running the same small job every week. With you checking, they can book tables, haircuts and trips, fill grocery carts and make customer-service calls.
+- Are AI agents safe to use? Start with read-only jobs, make the agent ask before it sends, buys or deletes anything, connect apps only with the official connect button, and check the first week of results. Don't trust them yet with your money, your address or decisions you can't undo.
+- Do I need to know how to code to use an AI agent? No. Agent apps take instructions in plain words, and our blueprints give you the exact words to paste. Our step-by-step guide shows how to build your first one without coding.
+
 ## AI agent cost calculator
 URL: https://botsdothat.com/run-your-bots-for-less/#calculator
 Monthly cost = runs per month x (input tokens x input price + output tokens x output price) / 1,000,000. Months use 30 days, 22 weekdays or 4 weeks. Batch halves the price at Anthropic, Google, Mistral, OpenAI. Not included: caching, tool fees, voice, taxes, free tiers. Worked examples (cheapest vs priciest fitting model):
@@ -2791,6 +2821,13 @@ Monthly cost = runs per month x (input tokens x input price + output tokens x ou
 ## AI price table
 URL: https://botsdothat.com/ai-pricing/
 Checked: 2026-10-21. USD per 1M tokens, standard tier. Official sources only.
+Q: What is a token? A: A token is a small chunk of text, a few characters long. AI APIs charge per million tokens, with one price for the tokens the model reads (input) and another for the tokens it writes (output). Every price in this table is per 1 million tokens.
+Q: What is the cheapest LLM API? A: Of the models in our price table, the cheapest per token is Groq openai/gpt-oss-20b at $0.075 per 1M input tokens and $0.30 per 1M output tokens (official pricing page, checked Oct 21, 2026). Cheapest isn't always good enough: test it on your real job first.
+Q: What's the cheapest way to call an LLM API? A: Use the smallest model that does the job well, keep prompts and pasted pages short, reuse the same opening instructions so they can be billed at the lower cached-input price where the provider offers it, and send jobs that can wait through a batch API (50% off at Anthropic, Google, Mistral, OpenAI). Test on a free tier first and set a spend limit before anything runs on autopilot.
+Q: What does “cached input” mean? A: Some providers bill prompt text they have already cached, like instructions you send every time, at a lower rate. For example, OpenAI gpt-6-astra lists $10.00 per 1M input tokens and $1.00 per 1M cached input tokens on its official pricing page. The Cached input column shows this rate where the provider publishes one.
+Q: How much does an AI agent cost to run? A: It depends on how often it runs and how much it reads. Example: a morning inbox briefing that reads about 15,000 tokens and writes 800 on 22 weekdays a month costs about $0.03 a month on Groq openai/gpt-oss-20b, and about $4.18 on Anthropic Claude Fable 5.1, at standard API prices. Use the cost calculator for your own numbers.
+Q: Is a monthly AI plan cheaper than paying per use? A: If you run a few small bots, pay-per-use API prices are often a few dollars a month or less. App plans charge a flat monthly fee with usage limits, and include the app itself. Compare both before you commit.
+Q: How current are these prices? A: Every price comes from the provider's official pricing page (or, for a brand-new model, its official launch post), and each row shows the date we checked it. The table was last checked Oct 21, 2026. Prices change often, so check the official page before you commit.
 - OpenAI gpt-6-astra: input 10.0, output 50.0, cached input 1.0. Short context (≤272K input tokens). Source: https://platform.openai.com/docs/pricing
 - OpenAI gpt-6.1-sol: input 2.0, output 10.0, cached input 0.1. Short context (≤272K input tokens). Source: https://platform.openai.com/docs/pricing
 - OpenAI gpt-6-luna: input 0.1, output 0.5, cached input 0.01. Short context (≤272K input tokens). Source: https://platform.openai.com/docs/pricing

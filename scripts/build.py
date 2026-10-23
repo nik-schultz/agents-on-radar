@@ -10,6 +10,7 @@ cats, tools, ucs, bps, spons = J("data", "categories.json"), J("data", "tools.js
 PR = J("data", "ai-pricing.json")
 NEWS = sorted(J("data", "news.json")["items"], key=lambda n: n["date"], reverse=True)  # "Latest in AI"  # official prices only, refreshed weekly (see README)
 LESS = "/run-your-bots-for-less/"; PRICING = "/ai-pricing/"
+BUILD_GUIDE = "/how-to-build-an-ai-agent-without-coding/"  # beginner how-to (added 2026-10-23)
 CAT = {c["slug"]: c for c in cats}
 UC = {x["slug"]: x for x in ucs}
 NAME = cfg["site_name"]  # brand name: change it in config.json only
@@ -113,7 +114,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
     # Keep <title> within ~62 chars (Google truncates longer ones); drop the brand suffix when it won't fit.
     full_title = title if (NAME in title or len(title) + len(NAME) + 3 > 62) else f"{title} · {NAME}"
     og = absu(u("/assets/og.png"))
-    nav = [("/trending/", "Trending"), ("/use-cases/", "All use cases"), ("/blueprints/", "Build a bot"), ("/what-can-bots-do/", "What can bots do?"), ("/news/", "AI news"), (LESS, "Run for less")]
+    nav = [("/trending/", "Trending"), ("/use-cases/", "All use cases"), ("/blueprints/", "Build a bot"), ("/what-can-bots-do/", "What is an AI agent?"), ("/news/", "AI news"), (LESS, "Run for less")]
     navh = "".join(f'<a href="{u(p)}"{" class=nav-less" if p == LESS else ""}{" aria-current=page" if path==p else ""}>{"<span class=nav-less-dot aria-hidden=true></span>" if p == LESS else ""}{t}</a>' for p, t in nav)
     doc = f"""<!doctype html><html lang="en" data-page="{kind}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -140,7 +141,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <footer class="foot"><div class="wrap foot-grid">
 <div><p class="logo"><span class="logo-dot" aria-hidden="true"></span>{wordmark()}</p><p class="foot-tag">{e(TAGLINE)}</p><p class="small">{e(cfg.get('subtagline', ''))}</p>
 <p class="small">General information, not legal, medical or financial advice. Popularity numbers are real counts we measured, with the date. Unknown = not shown. Paid placements are labeled “Sponsored”; affiliate links are labeled “Affiliate link” (<a href="{u(DISCLOSE)}">disclosure</a>).</p></div>
-<div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">All use cases</a></li><li><a href="{u('/blueprints/')}">Build your own bot</a></li><li><a href="{u('/what-can-bots-do/')}">What can bots actually do?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
+<div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">All use cases</a></li><li><a href="{u('/blueprints/')}">Build your own bot</a></li><li><a href="{u(BUILD_GUIDE)}">Build an AI agent without coding</a></li><li><a href="{u('/what-can-bots-do/')}">What is an AI agent?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
 <div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/advertise/')}">Advertise</a></li><li><a href="{u(DISCLOSE)}">Affiliate & sponsor disclosure</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li><li><a href="{e(CONTACT_HREF)}">Contact</a></li></ul></div>
 </div><div class="wrap small foot-note">Data as of {nice_date(BUILD_DATE)} · {len(ucs)} use cases · {len(bps)} blueprints</div></footer>
 <script src="{u('/assets/app.js')}?v={ASSET_V['app.js']}" defer></script>
@@ -500,7 +501,8 @@ home = f"""
 <div class="three"><div class="glass col good"><h3>✅ Good at today</h3><ul><li>Reading and summarizing your email</li><li>Watching for changes (web pages, letters, flight times)</li><li>Drafting messages and filling forms</li><li>Running the same small job every week</li></ul></div>
 <div class="glass col ok"><h3>👀 OK with you checking</h3><ul><li>Booking tables, haircuts and trips</li><li>Filling grocery carts</li><li>Making customer-service calls</li><li>Filling in long web forms</li></ul></div>
 <div class="glass col no"><h3>🛑 Not safely yet</h3><ul><li>Spending without a limit</li><li>Sharing your address or schedule</li><li>Medical, legal or money decisions</li><li>Anything you can't undo</li></ul></div></div>
-<p><a class="btn" href="{u('/what-can-bots-do/')}">Read the plain-English explainer</a> <a class="btn btn-ghost" href="{u('/ai-agent-examples/')}">See every AI agent example</a></p></section>
+<p class="small">Easy ones people start with: <a href="{u('/use-cases/understand-a-confusing-letter/')}">understand a confusing letter</a>, <a href="{u('/use-cases/plan-a-trip-itinerary/')}">plan a trip itinerary</a>, <a href="{u('/use-cases/homework-help-that-teaches/')}">homework help that teaches</a>, <a href="{u('/use-cases/email-ghostwriter-style-guide/')}">emails that sound like you</a>, <a href="{u('/use-cases/book-an-appointment-with-an-ai-agent/')}">book an appointment</a>, <a href="{u('/use-cases/organize-a-parents-care-paperwork/')}">organize a parent's care paperwork</a> and the <a href="{u('/blueprints/scam-checker/')}">Scam Checker bot</a>.</p>
+<p><a class="btn" href="{u('/what-can-bots-do/')}">What is an AI agent? Read the explainer</a> <a class="btn btn-ghost" href="{u(BUILD_GUIDE)}">Build one without coding</a> <a class="btn btn-ghost" href="{u('/ai-agent-examples/')}">See every AI agent example</a></p></section>
 
 <div class="wrap two-up">{featured_slot('featured_home')}{newsletter_box()}</div>
 """
@@ -545,6 +547,50 @@ for c in cats:
 bp_by_uc = {}
 for b in bps:
     for r in b["related"]: bp_by_uc.setdefault(r, []).append(b)
+
+# Cross-category "Related" (tag-based, then tools and title words). Ties go to pages that have been picked least so far,
+# so links spread across the hub instead of piling onto the same few pages.
+_GENERIC_TOOLS = {"chatgpt", "claude", "gemini", "grok"}
+_STOP = {"agent", "agents", "about", "every", "without", "their", "things", "before", "after", "where", "which", "while", "faster", "actually"}
+def _feat(x):
+    return ({t.lower() for t in x.get("tags", [])}, {t["id"] for t in x["tools"]} - _GENERIC_TOOLS,
+            {w for w in norm(x["title"] + " " + x["summary"]).split() if len(w) > 4 and w not in _STOP})
+_FEAT = {x["slug"]: _feat(x) for x in ucs}
+_picked = {}
+REL_X = {}
+for x in sorted(ucs, key=lambda y: y["slug"]):
+    xt, xo, xw = _FEAT[x["slug"]]
+    scored = []
+    for y in ucs:
+        if y["category"] == x["category"] or y["slug"] == x["slug"]: continue
+        yt, yo, yw = _FEAT[y["slug"]]
+        sc = 4 * len(xt & yt) + 2 * len(xo & yo) + len(xw & yw)
+        if sc >= 2: scored.append((-sc, _picked.get(y["slug"], 0), y["slug"]))
+    scored.sort()
+    REL_X[x["slug"]] = [sl for _, _, sl in scored[:3]]
+    for sl in REL_X[x["slug"]]: _picked[sl] = _picked.get(sl, 0) + 1
+PRESET_SLUGS = {p["slug"] for p in CALC_PRESETS}
+_SCHED_TAGS = {"schedule", "weekly", "alerts", "monitoring", "daily", "reminders", "routine", "digest", "morning", "watcher"}
+def cost_run_html(x):
+    """'What this costs to run' pointer for non-run-for-less use cases: the matching blueprint's calculator preset if one exists."""
+    if x["category"] == "run-for-less": return ""
+    rb = bp_by_uc.get(x["slug"], [])
+    pre = [b for b in rb if b["slug"] in PRESET_SLUGS]
+    sched = bool(rb) or bool({t.lower() for t in x.get("tags", [])} & _SCHED_TAGS)
+    g = UC["schedule-bots-without-burning-tokens" if sched else "pick-a-smaller-model-for-simple-jobs"]
+    if pre:
+        b = pre[0]
+        main = (f'If you run this as a bot on an AI API, the <a href="{u("/blueprints/"+b["slug"]+"/")}#cost">{e(b["title"])} blueprint</a> has a worked monthly estimate from official prices.</p>'
+                f'<p><a class="btn btn-sm" href="{u(LESS)}?bot={e(b["slug"])}#calculator">See what it costs a month in the calculator →</a>')
+    elif rb:
+        b = rb[0]
+        main = (f'If you run this as a bot, see the cost section of the <a href="{u("/blueprints/"+b["slug"]+"/")}">{e(b["title"])} blueprint</a>.</p>'
+                f'<p><a class="btn btn-sm" href="{u(LESS)}#calculator">Estimate other set-ups in the cost calculator →</a>')
+    else:
+        main = (f'In a chat app it runs inside your plan. If you run it as a bot on an AI API, the bill depends on how often it runs and how much it reads.</p>'
+                f'<p><a class="btn btn-sm" href="{u(LESS)}#calculator">Estimate it in the cost calculator →</a>')
+    return (f'<section class="glass endup cost-run"><h2>What this costs to run</h2><p>{main}</p>'
+            f'<p class="small">Tip: <a href="{u("/use-cases/"+g["slug"]+"/")}">{e(g["title"])}</a>. More in <a href="{u(LESS)}">Run your bots for less</a>.</p></section>')
 
 less_callout = f"""<aside class="less-callout glass" aria-label="Run your bots for less"><span class="lco-ico" aria-hidden="true">💸</span><div><p class="lco-k">Part of <a href="{u(LESS)}">Run your bots for less</a></p>
 <p class="small">8 short guides, a cheapest-vs-flagship price table and a calculator that shows what your bot would cost a month on each provider.</p></div><a class="btn btn-sm" href="{u(LESS)}#calculator">Open the cost calculator</a></aside>"""
@@ -594,23 +640,28 @@ for x in ucs:
     rel = [y for y in NEWEST if y["category"] == x["category"] and y["slug"] != x["slug"]][:4]
     relbox = "<div class='glass side-box'><h2 class='side-h'>More in " + e(c["name"]) + "</h2><ul class='side-list'>" + "".join(f'<li><a href="{u("/use-cases/"+y["slug"]+"/")}">{e(y["title"])}</a></li>' for y in rel) + "</ul></div>"
     setup = ("<section><h2>Setup</h2><ol>" + "".join(f"<li>{e(s)}</li>" for s in x["setup"]) + "</ol></section>") if x.get("setup") else ""
+    _mod = x.get("last_checked") or x["date_added"]  # same value as the HowTo dateModified below
+    relx = REL_X.get(x["slug"], [])
+    relx_html = ('<section class="related-x"><h2>Related</h2><ul class="ex-list">' + "".join(
+        f'<li><a href="{u("/use-cases/"+sl+"/")}"><b>{e(UC[sl]["title"])}</b></a> <span class="small muted">{CAT[UC[sl]["category"]]["icon"]} {e(CAT[UC[sl]["category"]]["name"])}</span></li>' for sl in relx) + "</ul></section>") if relx else ""
     body = f"""<article class="wrap uc">{bc}
 <header class="uc-head"><p class="eyebrow"><a class="cat-tag cat-{e(x['category'])}" href="{u('/category/'+c['slug']+'/')}">{c['icon']} {e(c['name'])}</a></p>
 <h1 class="kinetic-sm">{e(x['title'])}</h1><p class="lead">{e(x['summary'])}</p>
-<div class="uc-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span><span class="muted small">Added {nice_date(x['date_added'])}</span>{pop_chip(x, long=True)}</div></header>
+<div class="uc-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span><span class="muted small">Updated <time datetime="{e(_mod)}">{nice_date(_mod)}</time> · By <a href="{u('/about/')}">{e(NAME)}</a> · Added {nice_date(x['date_added'])}</span>{pop_chip(x, long=True)}</div></header>
 <div class="uc-grid"><div class="uc-main">
 <section><h2>What the bot does</h2><ol class="steps">{steps}</ol></section>
 <section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p></section>{less_callout if x['category'] == 'run-for-less' else ''}{tool_listing(cat=x['category'])}
 <section><h2>Copy-paste prompt</h2><p class="muted small">Fill in the [brackets]. Then paste it into any tool below.</p>{copybox(x['prompt'])}
-<p class="small"><a href="{u('/blueprints/#how-to')}">New to this? Here's how to set up a bot in 5 plain steps →</a></p></section>
+<p class="small">New to this? <a href="{u(BUILD_GUIDE)}">How to build an AI agent without coding</a>, or <a href="{u('/blueprints/#how-to')}">set up a bot in 5 plain steps →</a></p></section>
 {setup}
 <section><h2>Tools that can do it today</h2>{tool_grid(x['tools'])}<p class="small muted">Plans and limits change; check each tool's page.</p></section>
 {('<section class="warn glass"><h2>Watch out</h2><ul>'+watch+'</ul></section>') if watch else ''}
-{guide}{reals}{faq}
+{cost_run_html(x)}{guide}{reals}{faq}{relx_html}
 <section><h2>Sources</h2><ul class="sources">{srcs}</ul><p class="small muted">Last checked {nice_date(x.get('last_checked'))}. Self-reported results from posts are the poster's own claims.</p></section>
 </div><aside class="uc-side">{popbox}{bpbox}{featured_slot('use_case_sidebar', x['category'])}{relbox}</aside></div></article>"""
     ld = [bld, {"@context": "https://schema.org", "@type": "HowTo", "name": x["title"], "description": x["summary"],
-                "datePublished": x["date_added"], "dateModified": x.get("last_checked") or x["date_added"],
+                "datePublished": x["date_added"], "dateModified": _mod,
+                "author": {"@type": "Organization", "name": NAME, "url": absu(u("/about/"))}, "publisher": {"@type": "Organization", "name": NAME, "url": absu(u("/"))},
                 "step": [{"@type": "HowToStep", "position": i + 1, "text": s} for i, s in enumerate(x["what_the_bot_does"])],
                 "tool": [{"@type": "HowToTool", "name": tools[t["id"]]["name"]} for t in x["tools"]]}]
     ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in faqs]})
@@ -664,11 +715,15 @@ GLOSSARY = [("Agent", "An AI that can take steps for you: open websites, read yo
             ("Approval", "The bot stops and asks you before doing something important.")]
 howto_html = "".join(f'<li class="howto-step glass reveal"><span class="howto-n" aria-hidden="true">{i+1}</span><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>' for i, (t, d) in enumerate(HOWTO_STEPS))
 gloss = "".join(f"<div><dt>{e(a)}</dt><dd>{e(b)}</dd></div>" for a, b in GLOSSARY)
-bp_all = "".join(f"""<li class="bp-card glass reveal"><a href="{u('/blueprints/'+b['slug']+'/')}">{art(b['art'], cls='bp-art')}<span class="bp-trigger">⏱ {e(b['trigger'])}</span><h3>{e(b['title'])}</h3><p>{e(b['goal'])}</p>
-<span class="diff diff-{e(b['difficulty'].lower())}">{e(b['difficulty'])}</span> <span class="small muted">{e(b['setup_time'])}</span></a></li>""" for b in bps)
+def bp_real(b):
+    lis = "".join(f'<li><a href="{u("/use-cases/"+r+"/")}">{e(UC[r]["title"])}</a></li>' for r in b["related"] if r in UC)
+    return f'<div class="bp-real"><p class="bp-real-h">Real people using this</p><ul>{lis}</ul></div>' if lis else ""
+bp_all = "".join(f"""<li class="bp-card has-real glass reveal"><a href="{u('/blueprints/'+b['slug']+'/')}">{art(b['art'], cls='bp-art')}<span class="bp-trigger">⏱ {e(b['trigger'])}</span><h3>{e(b['title'])}</h3><p>{e(b['goal'])}</p>
+<span class="diff diff-{e(b['difficulty'].lower())}">{e(b['difficulty'])}</span> <span class="small muted">{e(b['setup_time'])}</span></a>{bp_real(b)}</li>""" for b in bps)
 page("/blueprints/", "Build your own bot: blueprints for beginners", f"{len(bps)} copy-paste bot blueprints for everyday life: what each bot watches, when it runs, which tool to use, the exact instructions and safety rules.",
      f"""<div class="wrap page-head"><p class="eyebrow">Build your own bot</p><h1 class="kinetic-sm">Bot blueprints</h1>
-<p class="lead">Each blueprint is a ready-made bot: what it watches, when it runs, which tool to use, the exact words to paste, and how to keep it safe. No coding.</p></div>
+<p class="lead">Each blueprint is a ready-made bot: what it watches, when it runs, which tool to use, the exact words to paste, and how to keep it safe. No coding.</p>
+<p class="small">First time? Read <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, a step-by-step walkthrough that uses the Morning Inbox Briefing as the example.</p></div>
 <section class="wrap block" id="how-to" aria-labelledby="howto-h"><h2 id="howto-h">How to set up any bot, in 5 plain steps</h2><ol class="howto">{howto_html}</ol>
 <details class="glass gloss-box"><summary>Words you'll see (glossary)</summary><dl class="gloss">{gloss}</dl></details></section>
 <section class="wrap block" aria-labelledby="bpl-h"><h2 id="bpl-h">All blueprints</h2><ul class="bp-grid">{bp_all}</ul></section>""",
@@ -690,7 +745,7 @@ for b in bps:
 <section><h2>Paste these starter instructions</h2><p class="muted small">Copy, paste into your tool, and replace the [brackets] with your details.</p>{copybox(b['instructions'], 'Starter instructions', 'instr')}</section>
 <section><h2>Which tool to use</h2>{tool_grid(b['tools'], how_key='how')}</section>
 {cost_html(b)}{tool_listing(blueprint=b['slug'])}
-<section class="glass endup"><h2>How to set it up</h2><ol class="plain">{howmini}</ol><p class="small"><a href="{u('/blueprints/#how-to')}">Full 5-step guide with examples →</a></p></section>
+<section class="glass endup"><h2>How to set it up</h2><ol class="plain">{howmini}</ol><p class="small"><a href="{u('/blueprints/#how-to')}">Full 5-step guide with examples →</a> · <a href="{u(BUILD_GUIDE)}">How to build an AI agent without coding →</a></p></section>
 <section class="warn glass"><h2>Safety notes</h2><ul>{safety}</ul></section>
 {('<section><h2>Based on</h2><ul class="sources">'+srcs+'</ul></section>') if srcs else ''}
 </div><aside class="uc-side"><div class="glass side-box"><h2 class="side-h">Real use cases behind it</h2><ul class="side-list">{rel}</ul></div>{featured_slot('use_case_sidebar')}</aside></div></article>"""
@@ -702,16 +757,37 @@ for b in bps:
 # ---------- EXPLAINER --------------------------------------------------------------
 L = lambda slug: f'<a href="{u("/use-cases/"+slug+"/")}">{e(UC[slug]["title"].lower())}</a>'
 S = lambda label, url: f'<a href="{e(url)}" rel="noopener">{e(label)}</a>'
-explainer = f"""<article class="wrap narrow explainer">
-<header class="page-head"><p class="eyebrow">Plain English</p><h1 class="kinetic-sm">What can bots actually do?</h1>
-<p class="lead">Short answer: they're good at reading, watching, sorting and drafting. They're getting OK at booking and buying while you watch. They aren't safe to trust with your money, your address or decisions you can't undo.</p></header>
+EXPLAIN_BC = crumbs([("Home", "/"), ("What is an AI agent?", None)])
+# Under-linked guides (audit 2026-10-23: 3 internal links or fewer), grouped so readers can scan them.
+MORE_TRY = [("Paperwork and letters", ["understand-a-confusing-letter", "fill-out-a-long-form", "review-a-lease-before-signing", "write-a-complaint-that-gets-fixed", "sort-scanned-paper-mail-with-alerts", "organize-a-parents-care-paperwork"]),
+            ("Writing in your voice", ["email-ghostwriter-style-guide", "write-a-letter-of-recommendation", "write-a-resignation-letter", "sell-your-stuff-online"]),
+            ("Plans and bookings", ["book-an-appointment-with-an-ai-agent", "plan-a-trip-itinerary", "moving-checklist-and-change-of-address", "weekend-family-activities"]),
+            ("Learning and side projects", ["homework-help-that-teaches", "morning-news-digest", "test-a-side-hustle-idea"])]
+more_try_html = "".join(f'<li><b>{e(g)}:</b> ' + ", ".join(f'<a href="{u("/use-cases/"+sl+"/")}">{e(UC[sl]["title"].lower())}</a>' for sl in sls if sl in UC) + ".</li>" for g, sls in MORE_TRY)
+EXPLAIN_FAQ = [
+    ("What is an AI agent, in simple terms?", "An AI agent is an AI assistant that does a job for you instead of only answering questions. You give it a goal, like “read my new email every morning and tell me what needs a reply”, and it takes the steps itself: opening websites, reading your email, filling in forms, and repeating the job on a schedule."),
+    ("What's the difference between an AI agent and a chatbot?", "A chatbot answers when you ask, and you do the clicking. An agent does the steps for you, can keep working on a schedule, and should ask before it sends, buys, books or deletes anything."),
+    ("Is an AI agent the same as a bot?", "On this site, yes: we say “bot” for an AI agent that runs a job for you. Older “bots” followed fixed scripts; today's AI agents read plain-English instructions and decide the steps themselves."),
+    ("What can AI agents do for me?", "Today they're good at reading and summarizing your email, watching web pages and flight times for changes, drafting messages and forms, and running the same small job every week. With you checking, they can book tables, haircuts and trips, fill grocery carts and make customer-service calls."),
+    ("Are AI agents safe to use?", "Start with read-only jobs, make the agent ask before it sends, buys or deletes anything, connect apps only with the official connect button, and check the first week of results. Don't trust them yet with your money, your address or decisions you can't undo."),
+    ("Do I need to know how to code to use an AI agent?", "No. Agent apps take instructions in plain words, and our blueprints give you the exact words to paste. Our step-by-step guide shows how to build your first one without coding."),
+]
+explain_faq_html = "".join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in EXPLAIN_FAQ)
+explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
+<header class="page-head"><p class="eyebrow">Plain English</p><h1 class="kinetic-sm">What is an AI agent? (in simple terms)</h1>
+<p class="lead">Short answer: an AI agent is an AI assistant that does a job for you, not just answers questions. Agents are good at reading, watching, sorting and drafting. They're getting OK at booking and buying while you watch. They aren't safe to trust with your money, your address or decisions you can't undo.</p>
+<p class="small muted">Updated {nice_date(BUILD_DATE)} · By <a href="{u('/about/')}">{e(NAME)}</a></p></header>
 
-<section class="glass explain-card reveal"><h2>Chatbot vs. agent, in one minute</h2>
+<section class="reveal" id="what-is-an-ai-agent"><h2>What is an AI agent?</h2>
+<p>An <b>AI agent</b> is an AI assistant that can take steps on its own to finish a job you give it. You describe the goal in plain words (“every weekday at 7am, read my new email and tell me what needs a reply”), connect the apps it needs, and it does the reading, clicking and typing for you. Many agents can repeat the job on a schedule, and good ones stop and ask before anything important.</p>
+<p>On this site we call them <b>bots</b>. Everyday examples: a bot that <a href="{u('/use-cases/time-sensitive-inbox-watcher/')}">catches deadlines the moment they land in your inbox</a>, one that <a href="{u('/use-cases/watch-a-web-page-for-changes/')}">watches a web page and pings you when it changes</a>, and one that <a href="{u('/use-cases/make-a-customer-service-call/')}">makes a customer-service call for you</a>. See <a href="{u('/ai-agent-examples/')}">all {len(ucs)} AI agent examples</a>.</p></section>
+
+<section class="glass explain-card reveal" id="ai-agent-vs-chatbot"><h2>AI agent vs. chatbot: what's the difference?</h2>
 <div class="vs"><div><h3>💬 Chatbot</h3><p>You ask, it answers. It can write a letter, explain a confusing form or make a plan, but <b>you</b> do the clicking. ChatGPT, Claude, Gemini and Grok all work like this for free.</p></div>
 <div><h3>🤖 Agent (a “bot”)</h3><p>You give it a job, and it <b>does the steps</b>: opens websites, reads your email, fills in forms, and can repeat the job on a schedule. Examples: Meta Muse, Gemini Spark, Grok Bot, ChatGPT agent and dots, Claude Cowork, Instinct, plus no-code tools like Zapier, n8n and Make.</p></div></div>
 <p>Most agents run on their own computer in the cloud, so they keep working when your laptop is shut. Google says Gemini Spark “keeps working in the background even when you close your laptop” ({S('Google', 'https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/')}).</p></section>
 
-<section class="reveal"><h2>✅ What they're good at today</h2><ul class="big-list">
+<section class="reveal"><h2>✅ What AI agents are good at today</h2><ul class="big-list">
 <li><b>Reading and summarizing</b>: inbox briefings, {L('school-email-digest')}, explaining a confusing letter.</li>
 <li><b>Watching for changes</b>: {L('watch-a-web-page-for-changes')}, {L('catch-airline-schedule-changes')}, {L('watch-for-one-important-letter')}.</li>
 <li><b>Drafting</b>: complaints, follow-ups, replies in your style.</li>
@@ -741,11 +817,17 @@ explainer = f"""<article class="wrap narrow explainer">
 <li><b>Check the first week</b> of results against the real thing.</li>
 <li>Keep a way to <b>switch it off</b>, and know which apps it's connected to.</li></ol></section>
 
-<section class="glass explain-card"><h2>Ready to try?</h2><p>Start with something read-only, like the <a href="{u('/blueprints/morning-inbox-briefing/')}">Morning Inbox Briefing</a> or the <a href="{u('/blueprints/scam-checker/')}">Scam Checker</a>.</p>
+<section class="reveal"><h2>More everyday jobs to try</h2><ul class="big-list">{more_try_html}</ul></section>
+
+<section class="reveal" id="faq"><h2>Questions people ask</h2>{explain_faq_html}</section>
+
+<section class="glass explain-card"><h2>Ready to try?</h2><p>Follow <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, then start with something read-only, like the <a href="{u('/blueprints/morning-inbox-briefing/')}">Morning Inbox Briefing</a> or the <a href="{u('/blueprints/scam-checker/')}">Scam Checker</a> (it checks your inbox for scams every morning and never clicks links).</p>
 <p><a class="btn" href="{u('/blueprints/')}">See all blueprints</a> <a class="btn btn-ghost" href="{u('/trending/')}">See what's trending</a></p><p class="small">Or browse <a href="{u('/ai-agent-examples/')}">every AI agent example on one page</a>.</p></section>
 </article>"""
-page("/what-can-bots-do/", "What can AI bots actually do? A plain-English guide", "What AI agents can and can't do safely yet, in plain words, with real examples and sources. For people who aren't technical.", explainer,
-     [{"@context": "https://schema.org", "@type": "Article", "headline": "What can AI bots actually do?", "datePublished": BUILD_DATE, "author": {"@type": "Organization", "name": NAME}}])
+page("/what-can-bots-do/", "What is an AI agent? Simple terms, vs. chatbots", mdesc("What is an AI agent? A plain-English answer, how agents differ from chatbots, what they can and can't do safely yet, with real examples and sources."), explainer,
+     [EXPLAIN_BC[1], {"@context": "https://schema.org", "@type": "Article", "headline": "What is an AI agent? (in simple terms)", "datePublished": "2026-10-20", "dateModified": BUILD_DATE,
+       "author": {"@type": "Organization", "name": NAME, "url": absu(u("/about/"))}, "publisher": {"@type": "Organization", "name": NAME, "url": absu(u("/"))}},
+      {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in EXPLAIN_FAQ]}], lastmod=BUILD_DATE)
 
 # ---------- AI AGENT EXAMPLES (answer-first hub for "ai agent examples" / "ai agent for everyday life") ----
 ex_groups = ""
@@ -768,10 +850,10 @@ ex_faq = [
 ex_body = f"""<article class="wrap narrow explainer">{crumbs([("Home", "/"), ("AI agent examples", None)])[0]}
 <p class="eyebrow">Examples</p><h1 class="kinetic-sm">{len(ex_items)} AI agent examples for everyday life</h1>
 <p class="lead">Short answer: an AI agent is an assistant that does a job for you, like reading your email, watching a web page or making a phone call, instead of only answering questions. Here are {len(ex_items)} real, everyday examples, grouped by part of life. Each one links to a plain-English guide with a copy-paste prompt.</p>
-<p class="small muted">Updated {nice_date(BUILD_DATE)}. New to agents? Read <a href="{u('/what-can-bots-do/')}">what bots can and can't do safely</a>.</p>
+<p class="small muted">Updated {nice_date(BUILD_DATE)}. New to agents? Read <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>, or <a href="{u(BUILD_GUIDE)}">build one without coding</a>.</p>
 {ex_groups}
 <section><h2>Questions people ask</h2>{''.join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in ex_faq)}</section>
-<section class="glass explain-card"><h2>Want it on autopilot?</h2><p>Turn any of these into a bot that runs on a schedule with a <a href="{u('/blueprints/')}">build-your-own-bot blueprint</a>.</p></section>
+<section class="glass explain-card"><h2>Want it on autopilot?</h2><p>Turn any of these into a bot that runs on a schedule with a <a href="{u('/blueprints/')}">build-your-own-bot blueprint</a>. Never built one? Follow <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>.</p></section>
 </article>"""
 page("/ai-agent-examples/", f"{len(ex_items)} AI agent examples for everyday life", mdesc(f"{len(ex_items)} real AI agent examples for everyday life: inbox, phone calls, shopping, travel, family, health and work, each with a plain-English guide and copy-paste prompt."), ex_body,
      [crumbs([("Home", "/"), ("AI agent examples", None)])[1],
@@ -831,6 +913,26 @@ con_rows = "".join(f'<tr><td>{e(r["provider"])}</td><td>{e(r["plan"])}</td><td c
 disc = "".join(f'<li><b>{e(d["provider"])}</b>: {e(d["what"])} <span class="small">(<a href="{e(d["source_url"])}" rel="noopener">source</a>, checked {e(nice_date(d["checked_on"]))})</span></li>' for d in PR["discounts"])
 nover = "".join(f'<li><b>{e(d["provider"])}</b>: {e(d["what"])}. {e(d["why"])}</li>' for d in PR["not_verified"])
 bc, bld = crumbs([("Home", "/"), ("Run your bots for less", LESS), ("AI price table", None)])
+_cr = next((r for r in PR["api"] if r.get("cached_input") is not None), None)
+_lk = lambda sl: f'<a href="{u("/use-cases/"+sl+"/")}">{e(UC[sl]["title"][:1].lower()+UC[sl]["title"][1:])}</a>'
+PRICING_FAQ = [
+    ("What is a token?", "A token is a small chunk of text, a few characters long. AI APIs charge per million tokens, with one price for the tokens the model reads (input) and another for the tokens it writes (output). Every price in this table is per 1 million tokens.", None),
+    (LESS_FAQ[1][0], LESS_FAQ[1][1], None),
+    ("What's the cheapest way to call an LLM API?",
+     "Use the smallest model that does the job well, keep prompts and pasted pages short, reuse the same opening instructions so they can be billed at the lower cached-input price where the provider offers it"
+     + (f", and send jobs that can wait through a batch API (50% off at {', '.join(BATCH_PROVS)})" if BATCH_PROVS else "") + ". Test on a free tier first and set a spend limit before anything runs on autopilot.",
+     "Use the smallest model that does the job well (" + _lk("pick-a-smaller-model-for-simple-jobs") + "), keep prompts and pasted pages short (" + _lk("keep-prompts-and-context-short") + "), reuse the same opening instructions so they can be billed at the lower cached-input price where the provider offers it"
+     + (f", and send jobs that can wait through a batch API (50% off at {e(', '.join(BATCH_PROVS))}; " + _lk("cut-costs-with-caching-and-batch") + ")" if BATCH_PROVS else "") + ". Test on a free tier first (" + _lk("test-your-bot-on-a-free-tier") + ") and set a spend limit before anything runs on autopilot (" + _lk("set-ai-spend-limits-and-alerts") + ")."),
+]
+if _cr:
+    PRICING_FAQ.append(("What does “cached input” mean?", f"Some providers bill prompt text they have already cached, like instructions you send every time, at a lower rate. For example, {_cr['provider']} {_cr['model']} lists {_pz(_cr['input'])} per 1M input tokens and {_pz(_cr['cached_input'])} per 1M cached input tokens on its official pricing page. The Cached input column shows this rate where the provider publishes one.", None))
+PRICING_FAQ += [
+    (LESS_FAQ[2][0], LESS_FAQ[2][1].replace("Use the calculator on this page", "Use the cost calculator"), None),
+    ("Is a monthly AI plan cheaper than paying per use?", "If you run a few small bots, pay-per-use API prices are often a few dollars a month or less. App plans charge a flat monthly fee with usage limits, and include the app itself. Compare both before you commit.",
+     "If you run a few small bots, pay-per-use API prices are often a few dollars a month or less. App plans charge a flat monthly fee with usage limits, and include the app itself. Compare both before you commit: " + _lk("subscription-or-pay-per-use") + "."),
+    ("How current are these prices?", f"Every price comes from the provider's official pricing page (or, for a brand-new model, its official launch post), and each row shows the date we checked it. The table was last checked {nice_date(PR['checked_on'])}. Prices change often, so check the official page before you commit.", None),
+]
+pricing_faq_html = "".join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{h or e(a)}</p></details>' for q, a, h in PRICING_FAQ)
 page(PRICING, "Cheapest LLM API? AI API prices compared, with sources", mdesc(f"Find the cheapest LLM API: prices per 1 million tokens for {', '.join(provs)}, plus app plan prices, each linked to the official pricing page. Checked {nice_date(PR['checked_on'])}."),
      f"""<div class="wrap page-head">{bc}<p class="eyebrow">{LC['icon']} Run your bots for less</p><h1 class="kinetic-sm">AI price table</h1>
 <p class="lead">What the major AI services charge, in US dollars, taken only from each provider's official pricing page (or, for a brand-new model, its official launch post). Every row links to its source and shows the date we checked it. If we couldn't verify a price, it isn't here.</p>
@@ -842,9 +944,100 @@ page(PRICING, "Cheapest LLM API? AI API prices compared, with sources", mdesc(f"
 <section class="block"><h2>Monthly plans (apps)</h2><p class="muted">Flat monthly prices for the chat apps, with usage limits. Only prices we could read on the official page.</p>
 <div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">Provider</th><th scope="col">Plan</th><th scope="col">Price</th><th scope="col">Details</th><th scope="col">Source</th></tr></thead><tbody>{con_rows}</tbody></table></div>
 <p><a href="{u('/use-cases/subscription-or-pay-per-use/')}">Plan or pay-per-use: which is cheaper for you? →</a></p></section>
-<section class="block warn glass"><h2>Left out because we couldn't verify them</h2><ul>{nover}</ul></section></div>""",
-     [bld, {"@context": "https://schema.org", "@type": "Dataset", "name": "AI API and plan prices", "description": "Official per-token API prices and consumer plan prices for major AI providers, with source links and check dates.", "dateModified": PR["checked_on"], "creator": {"@type": "Organization", "name": NAME}}],
+<section class="block warn glass"><h2>Left out because we couldn't verify them</h2><ul>{nover}</ul></section>
+<section class="block narrow" id="faq"><h2>Questions about AI API prices</h2>{pricing_faq_html}<p><a class="btn btn-sm" href="{u(LESS)}#calculator">Work out what your bot costs →</a></p></section></div>""",
+     [bld, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a, _ in PRICING_FAQ]},
+      {"@context": "https://schema.org", "@type": "Dataset", "name": "AI API and plan prices", "description": "Official per-token API prices and consumer plan prices for major AI providers, with source links and check dates.", "dateModified": PR["checked_on"], "creator": {"@type": "Organization", "name": NAME}}],
      lastmod=PR["checked_on"])
+
+# ---------- BEGINNER GUIDE: how to build an AI agent without coding ------------------------
+BPD = {b["slug"]: b for b in bps}
+_gx = BPD["morning-inbox-briefing"]
+_tl = lambda tid: f'<a href="{e(tools[tid]["url"])}" rel="noopener">{e(tools[tid]["name"])}</a>'
+GUIDE_STEPS = [
+    ("Pick one small, boring job", "Choose one job you do every week that mostly means reading or checking: a morning inbox summary, a weekly school-email digest, a web page you keep refreshing. Narrow, read-only jobs make the easiest first bots. All of our blueprints are jobs like this."),
+    ("Write the job down in four lines", "Goal: what you want to end up with. Runs: when it should work (every weekday at 7am, or only when you ask). Watches: what it reads (new emails since yesterday). Never: what it may never do (send, buy, delete). Every blueprint starts with these lines, so you can copy them."),
+    ("Pick a tool you already use", HOWTO_STEPS[1][1]),
+    ("Paste the instructions and connect only what it needs", HOWTO_STEPS[2][1]),
+    ("Run it once and fix it in plain words", HOWTO_STEPS[3][1]),
+    ("Put it on a schedule, with approval rules", HOWTO_STEPS[4][1]),
+    ("Check what it costs and set a limit", "Inside an app plan, the bot runs within your plan's limits. If it runs on a pay-per-use AI API, work out the monthly cost in the cost calculator and set a spend limit before anything runs on autopilot."),
+]
+_g_rows = calc_rows(_ex_rpm, _ex["in"], _ex["out"])
+_g_cost = f"about {money(_g_rows[0][0])} a month on {_g_rows[0][1]['p']} {_g_rows[0][1]['m']} and about {money(_g_rows[-1][0])} on {_g_rows[-1][1]['p']} {_g_rows[-1][1]['m']}"
+_easy = [b for b in bps if b["difficulty"] == "Easy"]
+_free_txt = (f"Partly. ChatGPT, Claude, Gemini and Grok each list a free plan (paid plans add more), so you can paste a blueprint's instructions into one whenever you need it, even without a scheduled agent. "
+             f"n8n is free to self-host, and Zapier and Make have free plans. Some agent features cost money: Gemini Spark is for {tools['gemini-spark']['cost']}, and ChatGPT agent needs a paid ChatGPT plan. Plans change, so check each tool's own page.")
+_free_html = (f"Partly. {_tl('chatgpt')}, {_tl('claude')}, {_tl('gemini')} and {_tl('grok')} each list a free plan (paid plans add more), so you can paste a blueprint's instructions into one whenever you need it, even without a scheduled agent. "
+              f"{_tl('n8n')} is free to self-host, and {_tl('zapier')} and {_tl('make')} have free plans. Some agent features cost money: {_tl('gemini-spark')} is for {e(tools['gemini-spark']['cost'])}, and {_tl('chatgpt-work')} needs a paid ChatGPT plan. Plans change, so check each tool's own page.")
+GUIDE_FAQ = [
+    ("Do I need to know how to code to build an AI agent?", "No. Agent apps take instructions in plain words: you describe the job, connect the apps it needs with the official connect button, and tell it when to run. Our blueprints give you the exact words to paste.", None),
+    ("What's the easiest AI agent to build first?", "A read-only one that only reads and reports, so nothing can go wrong. Our easiest blueprints are the " + ", ".join(b["title"] for b in _easy[:-1]) + " and " + _easy[-1]["title"] + ".",
+     "A read-only one that only reads and reports, so nothing can go wrong. Our easiest blueprints are the " + ", ".join(f'<a href="{u("/blueprints/"+b["slug"]+"/")}">{e(b["title"])}</a>' for b in _easy[:-1]) + f' and <a href="{u("/blueprints/"+_easy[-1]["slug"]+"/")}">{e(_easy[-1]["title"])}</a>.'),
+    ("Can I build an AI agent for free?", _free_txt, _free_html),
+    ("How much does it cost to run an AI agent?", f"Inside an app plan it runs within your plan's limits. On a pay-per-use AI API it depends on how often it runs and how much it reads. Our example, the Morning Inbox Briefing ({_ex_rpm} runs a month, about {_ex['in']:,} tokens in and {_ex['out']:,} out each time, our estimate), comes to {_g_cost} at standard API prices checked {nice_date(PR['checked_on'])}.",
+     f"Inside an app plan it runs within your plan's limits. On a pay-per-use AI API it depends on how often it runs and how much it reads. Our example, the Morning Inbox Briefing ({_ex_rpm} runs a month, about {_ex['in']:,} tokens in and {_ex['out']:,} out each time, our estimate), comes to {e(_g_cost)} at standard API prices checked {nice_date(PR['checked_on'])}. <a href=\"{u(LESS)}?bot=morning-inbox-briefing#calculator\">Try your own numbers</a>."),
+    ("Is it safe to connect my email to an AI agent?", "It can be, if you keep it on a short leash: start read-only, make it ask before it sends, buys or deletes anything, connect apps only with the official connect button (never paste passwords into a chat), tell it to ignore instructions found inside emails from strangers, and check the first week of results.", None),
+    ("What's the difference between an AI agent and an automation?", "An automation follows the exact steps you set up, the same way every time. An AI agent reads your plain-English instructions and works out the steps itself, which is more flexible but needs approval rules. Tools like Zapier, Make and n8n let you build the step-by-step kind.", None),
+]
+_g_spec = f'<dl class="spec glass"><div><dt>Goal</dt><dd>{e(_gx["goal"])}</dd></div><div><dt>Runs</dt><dd>⏱ {e(_gx["trigger"])}</dd></div><div><dt>Watches</dt><dd>👁 {e(_gx["watches"])}</dd></div><div><dt>Never</dt><dd>🛑 Sends, deletes or archives anything</dd></div></dl>'
+_g_steps = "".join(f'<li class="howto-step glass reveal"><span class="howto-n" aria-hidden="true">{i+1}</span><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>' for i, (t, d) in enumerate(GUIDE_STEPS))
+_g_table = "".join(f'<tr><td><a href="{u("/blueprints/"+b["slug"]+"/")}">{e(b["title"])}</a><div class="small muted">{e(b["goal"])}</div></td><td class="small">{e(b["trigger"])}</td><td><span class="diff diff-{e(b["difficulty"].lower())}">{e(b["difficulty"])}</span></td><td class="small">{e(b["setup_time"].replace("Rough setup time: ", ""))}</td></tr>' for b in sorted(bps, key=lambda b: DIFF_ORDER.get(b["difficulty"], 1)))
+_g_faq_html = "".join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{h or e(a)}</p></details>' for q, a, h in GUIDE_FAQ)
+_g_uc = [sl for sl in ["clean-up-your-email-inbox", "flag-only-emails-that-need-a-reply", "monday-inbox-recap-and-todo"] if sl in UC]
+gbc, gbld = crumbs([("Home", "/"), ("Blueprints", "/blueprints/"), ("Build an AI agent without coding", None)])
+guide_body = f"""<article class="wrap narrow explainer">{gbc}
+<header class="page-head"><p class="eyebrow">Beginner guide</p><h1 class="kinetic-sm">How to build an AI agent without coding</h1>
+<p class="lead">Short answer: you don't write code. You pick one small job, write it down in four lines, paste plain-English instructions into an agent app you already use, watch one test run, then put it on a schedule with rules that make it ask before anything important. Here's each step, with a real blueprint as the worked example.</p>
+<p class="small muted">Updated {nice_date(BUILD_DATE)} · By <a href="{u('/about/')}">{e(NAME)}</a> · New to agents? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>.</p></header>
+
+<section class="reveal"><h2>What you need</h2><ul class="big-list">
+<li><b>An agent app or a no-code automation tool.</b> Agent apps on this site include {_tl('gemini-spark')}, {_tl('claude-cowork')}, {_tl('chatgpt-dots')}, {_tl('grok-bot')} and {_tl('meta-muse')}. No-code automation tools include {_tl('zapier')}, {_tl('make')} and {_tl('n8n')}.</li>
+<li><b>The app it should read</b>, like your Gmail or calendar, connected with the tool's own connect button.</li>
+<li><b>One job, written down.</b> That's the part that decides whether your bot works.</li></ul></section>
+
+<section class="reveal" id="steps"><h2>How to build your first AI agent, step by step</h2><ol class="howto">{_g_steps}</ol></section>
+
+<section class="reveal" id="example"><h2>Worked example: the Morning Inbox Briefing</h2>
+<p>It's a good first bot: it reads your email every weekday morning and tells you what needs you, and it never sends anything. Here are its four lines:</p>
+{_g_spec}
+<p><b>Steps 3 and 4: pick a tool and paste.</b> Any of these can run it on a schedule:</p>{tool_grid(_gx['tools'], how_key='how')}
+{copybox(_gx['instructions'], 'Starter instructions', 'instr')}
+<p><b>Step 5: run it once.</b> Say “Run this once now and show me the result”, then compare the briefing with your real inbox. Fix it in plain words: “ignore emails from the PTA”, “shorter”.</p>
+<p><b>Step 6: schedule it.</b> Say “Do this every weekday at 7am”. Keep its rules: {e(' '.join(_gx['safety']))}</p>
+<p><b>Step 7: check the cost.</b> In an app plan it runs inside your plan's limits. On a pay-per-use AI API, our estimate ({_ex_rpm} runs a month, about {_ex['in']:,} tokens in and {_ex['out']:,} out each time) comes to {e(_g_cost)} at standard API prices checked {nice_date(PR['checked_on'])}. <a href="{u(LESS)}?bot=morning-inbox-briefing#calculator">Try your own numbers in the calculator</a>.</p>
+<p><a class="btn" href="{u('/blueprints/morning-inbox-briefing/')}">Open the full Morning Inbox Briefing blueprint</a></p>
+<p class="small">Real people doing this: {', '.join(f'<a href="{u("/use-cases/"+sl+"/")}">{e(UC[sl]["title"][:1].lower()+UC[sl]["title"][1:])}</a>' for sl in _g_uc)}.</p></section>
+
+<section class="reveal" id="pick"><h2>Pick your first bot</h2><p>Every blueprint follows the same seven steps. Easy ones first:</p>
+<div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">Blueprint</th><th scope="col">Runs</th><th scope="col">Difficulty</th><th scope="col">Rough setup time</th></tr></thead><tbody>{_g_table}</tbody></table></div></section>
+
+<section class="glass explain-card reveal" id="agent-or-automation"><h2>Agent app or no-code automation tool?</h2>
+<div class="vs"><div><h3>🤖 Agent app</h3><p>You describe the job in plain words and the agent works out the steps. The easiest place to start, and it copes with messy things like email. Make it ask before it sends, buys or deletes.</p></div>
+<div><h3>🔗 No-code automation</h3><p>In {_tl('zapier')}, {_tl('make')} or {_tl('n8n')} you set the trigger and each step yourself, so it does the same thing every run. More setup, more predictable. Our <a href="{u('/blueprints/follow-up-finder/')}">Follow-Up Finder</a>, <a href="{u('/blueprints/receipt-matcher/')}">Receipt Matcher</a> and <a href="{u('/blueprints/lead-logger/')}">New Inquiry Logger</a> blueprints list these as options.</p></div></div></section>
+
+<section class="reveal"><h2>5 rules that keep your first bot safe</h2><ol class="rules">
+<li>Start <b>read-only</b>: it may look, not change.</li>
+<li>Make it <b>ask before</b> it sends, buys, books, cancels or deletes.</li>
+<li>Never paste <b>passwords</b> into a chat. Use the app's official connect button.</li>
+<li>Tell it to <b>ignore instructions</b> found inside emails or web pages from strangers.</li>
+<li><b>Check the first week</b> of results, and know how to switch it off.</li></ol>
+<p class="small">More in <a href="{u('/what-can-bots-do/')}">what AI agents can and can't do safely</a>.</p></section>
+
+<section class="reveal" id="faq"><h2>Questions people ask</h2>{_g_faq_html}</section>
+
+<section class="glass explain-card"><h2>Next step</h2><p>Pick a blueprint, copy its four lines and instructions, and do one test run today.</p>
+<p><a class="btn" href="{u('/blueprints/')}">See all {len(bps)} blueprints</a> <a class="btn btn-ghost" href="{u('/ai-agent-examples/')}">Browse {len(ucs)} AI agent examples</a></p></section>
+</article>"""
+page(BUILD_GUIDE, "How to build an AI agent without coding", mdesc("How to build an AI agent without coding, in plain English: pick one job, write it in four lines, paste instructions into an agent app, test once, then schedule it safely. Worked example included."), guide_body,
+     [gbld,
+      {"@context": "https://schema.org", "@type": "HowTo", "name": "How to build an AI agent without coding", "description": "Build your first AI agent (bot) for an everyday job without writing code, using a copy-paste blueprint.",
+       "datePublished": BUILD_DATE, "dateModified": BUILD_DATE,
+       "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d, "url": absu(u(BUILD_GUIDE)) + "#steps"} for i, (t, d) in enumerate(GUIDE_STEPS)],
+       "tool": [{"@type": "HowToTool", "name": tools[t["id"]]["name"]} for t in _gx["tools"]],
+       "author": {"@type": "Organization", "name": NAME, "url": absu(u("/about/"))}},
+      {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a, _ in GUIDE_FAQ]}],
+     lastmod=BUILD_DATE, og_type="article")
 
 # ---------- LATEST IN AI (/news/ + /news/feed.xml) -------------------------------------
 NEWS_CATS = J("data", "news.json")["categories"]
@@ -999,7 +1192,7 @@ bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "
 open(os.path.join(OUT, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {absu(u('/sitemap.xml'))}\n")
 
 L1 = [f"# {NAME}", "", f"> {TAGLINE} {cfg['description']}", "", f"Data as of {BUILD_DATE}. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.", "",
-      "## Start here", f"- [What can bots actually do?]({absu(u('/what-can-bots-do/'))}): plain-English explainer", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", "", "## Use cases by category"]
+      "## Start here", f"- [What is an AI agent? (in simple terms)]({absu(u('/what-can-bots-do/'))}): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely", f"- [How to build an AI agent without coding]({absu(u(BUILD_GUIDE))}): step-by-step beginner guide using a real blueprint as the worked example", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", "", "## Use cases by category"]
 for c in cats:
     L1 += ["", f"### {c['name']}"] + [f"- [{x['title']}]({absu(u('/use-cases/'+x['slug']+'/'))}): {x['summary']}" for x in ucs if x["category"] == c["slug"]]
 L1 += ["", "## Latest in AI (newest first)"] + [f"- {n['date']} [{n['category']}] {n['headline']}: {n['explainer']} Source: {n['source_url']}" for n in NEWS[:15]]
@@ -1016,8 +1209,10 @@ for x in ucs:
 for b in bps:
     F += [f"## Blueprint: {b['title']}", f"URL: {absu(u('/blueprints/'+b['slug']+'/'))}", f"Goal: {b['goal']}", f"Runs: {b['trigger']}", f"Watches: {b['watches']}", "Instructions:", b["instructions"], "Safety:"] + [f"- {s}" for s in b["safety"]] + [""]
 F += ["## Latest in AI", f"URL: {absu(u('/news/'))}", f"Top story (importance): {NEWS_TOP['headline']} ({NEWS_TOP['date']}). Trending (X engagement decayed by age): " + "; ".join(n['headline'] for n in NEWS_TREND)] + [f"- {n['date']} [{n['category']}, impact: {n.get('impact','')}] {n['headline']} | {n['explainer']} | Source: {n['source_name']} {n['source_url']}" + (f" | X: {n['x']['likes']:,} likes, {n['x']['reposts']:,} reposts ({n['x']['url']}, measured {n['x']['measured_at']})" if n.get('x') else "") for n in NEWS] + [""]
+F += ["## How to build an AI agent without coding", f"URL: {absu(u(BUILD_GUIDE))}", "Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(GUIDE_STEPS)] + ["", f"Worked example: {_gx['title']} blueprint ({absu(u('/blueprints/'+_gx['slug']+'/'))}). Runs: {_gx['trigger']}. Watches: {_gx['watches']}.", "", "Questions:"] + [f"- {q} {a}" for q, a, _ in GUIDE_FAQ] + [""]
+F += ["## What is an AI agent? (in simple terms)", f"URL: {absu(u('/what-can-bots-do/'))}"] + [f"- {q} {a}" for q, a in EXPLAIN_FAQ] + [""]
 F += ["## AI agent cost calculator", f"URL: {absu(u(LESS))}#calculator", "Monthly cost = runs per month x (input tokens x input price + output tokens x output price) / 1,000,000. Months use 30 days, 22 weekdays or 4 weeks. Batch halves the price at " + ", ".join(BATCH_PROVS) + ". Not included: caching, tool fees, voice, taxes, free tiers. Worked examples (cheapest vs priciest fitting model):"] + [f"- {c['title']}: {c['n']} run(s) per {c['unit']}, about {c['in']:,} tokens in and {c['out']:,} out per run; " + (lambda r: f"{r[0][1]['p']} {r[0][1]['m']} {money(r[0][0])}/month vs {r[-1][1]['p']} {r[-1][1]['m']} {money(r[-1][0])}/month")(calc_rows(c['n']*dict((k, m) for k, _, m in CALC_UNITS)[c['unit']], c['in'], c['out'], 'small', False)) for c in CALC_PRESETS] + [""]
-F += ["## AI price table", f"URL: {absu(u(PRICING))}", f"Checked: {PR['checked_on']}. USD per 1M tokens, standard tier. Official sources only."] + [f"- {r['provider']} {r['model']}: input {r['input']}, output {r['output']}" + (f", cached input {r['cached_input']}" if r['cached_input'] is not None else "") + (f". {r['note']}" if r['note'] else "") + f" Source: {r['source_url']}" for r in PR["api"]] + ["Plans:"] + [f"- {r['provider']} {r['plan']}: {r['price']} {r['period']}".rstrip() + f" Source: {r['source_url']}" for r in PR["consumer"]] + [""]
+F += ["## AI price table", f"URL: {absu(u(PRICING))}", f"Checked: {PR['checked_on']}. USD per 1M tokens, standard tier. Official sources only."] + [f"Q: {q} A: {a}" for q, a, _ in PRICING_FAQ] + [f"- {r['provider']} {r['model']}: input {r['input']}, output {r['output']}" + (f", cached input {r['cached_input']}" if r['cached_input'] is not None else "") + (f". {r['note']}" if r['note'] else "") + f" Source: {r['source_url']}" for r in PR["api"]] + ["Plans:"] + [f"- {r['provider']} {r['plan']}: {r['price']} {r['period']}".rstrip() + f" Source: {r['source_url']}" for r in PR["consumer"]] + [""]
 open(os.path.join(OUT, "llms-full.txt"), "w").write("\n".join(F))
 open(os.path.join(OUT, ".nojekyll"), "w").write("")
 if cfg.get("cname"): open(os.path.join(OUT, "CNAME"), "w").write(cfg["cname"].strip() + "\n")
