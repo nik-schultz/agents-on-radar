@@ -1,0 +1,41 @@
+{
+  "slug": "proactive-next-moves-bot",
+  "title": "Get a bot that suggests your next moves twice a day",
+  "category": "work",
+  "source_date": "2026-10-23",
+  "summary": "Instead of waiting for you to ask, this bot looks through your email, calendar and notes twice a day and comes back with two or three things worth doing next, each with a draft already written. You say yes, edit, or skip.",
+  "what_the_bot_does": [
+    "Twice a day, on a schedule you pick, it reads what's new in the apps you connected, like Gmail, Calendar and Notion.",
+    "It picks the two or three most useful next steps, like a reply you owe, a meeting to prep for, or a task that's slipping.",
+    "For each one it writes a ready-to-use draft and shows them to you as short cards.",
+    "It never sends or changes anything itself: you approve, edit or skip each card.",
+    "If you run other bots for specific jobs, it can hand an approved task to the right one."
+  ],
+  "what_you_end_up_with": "A short list of ready-to-go next steps twice a day, with the drafting already done, so you spend your time deciding instead of digging.",
+  "difficulty": "Medium",
+  "tools": [
+    {"id": "grok-bot", "note": "The source post set this up as a Grok Bot that hands work to the author's other Grok Bots"},
+    {"id": "claude", "note": "Anthropic's new Claude Duet app offers a similar built-in proactive brief (waitlist, US Pro/Max, as of Oct 2026)"},
+    {"id": "chatgpt-dots"}
+  ],
+  "prompt": "You are my next-moves assistant. Twice a day, at [9am] and [3pm], look at what's new in my [Gmail, Calendar and Notion]. Pick the 2 or 3 most useful things I should do next and, for each one, tell me in one line why it matters and write a ready-to-use draft (a reply, an agenda, a checklist). Keep everything as drafts: never send, schedule, delete or buy anything without my yes. If nothing is worth my time, say so in one line. [Optional: when I approve a task, hand it to my [writing / research / scheduling] bot.]",
+  "setup": [
+    "Start with the one or two apps where most of your work lands, like email and calendar. Add notes or task apps once the suggestions feel right.",
+    "Set it to run twice a day at times you actually check in, for example mid-morning and mid-afternoon.",
+    "Make 'drafts only' a standing rule so nothing goes out without you.",
+    "After a week, tell it which kinds of suggestions were useful and which to stop, so the list gets sharper.",
+    "If you already have bots for specific jobs, list them in its instructions so it knows who to hand each kind of task to."
+  ],
+  "watch_out": [
+    "It reads a lot of your private stuff. Connect only the apps you need and check what each connection is allowed to do.",
+    "Too many suggestions turns into more inbox, not less; cap it at 2 or 3 and allow 'nothing today'.",
+    "Keep it on drafts only, as the source post does, so a wrong guess never reaches anyone."
+  ],
+  "sources": [
+    {"label": "X post by @mrfundman (2026-10-23): a proactive idea bot that scans Notion, Gmail and Calendar twice a day, brings 2-3 ideas with drafts and hands work to specialized bots", "url": "https://x.com/mrfundman/status/2113621259279872107", "kind": "x"},
+    {"label": "Anthropic on X (2026-10-21): Claude Duet research preview, a proactive agent that checks with you before acting", "url": "https://x.com/claudeai/status/2112984664256241837", "kind": "official"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2113621259279872107", "author": "@mrfundman", "url": "https://x.com/mrfundman/status/2113621259279872107", "posted_at": "2026-10-23",
+                 "likes": 30, "reposts": 3, "replies": 12, "bookmarks": 10, "views": 2768, "measured_at": "2026-10-23"},
+  "tags": ["proactive", "next steps", "chief of staff", "drafts", "twice a day", "team of bots", "schedule"]
+}

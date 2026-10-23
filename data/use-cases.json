@@ -1,5 +1,84 @@
 [
  {
+  "slug": "proactive-next-moves-bot",
+  "title": "Get a bot that suggests your next moves twice a day",
+  "category": "work",
+  "source_date": "2026-10-23",
+  "summary": "Instead of waiting for you to ask, this bot looks through your email, calendar and notes twice a day and comes back with two or three things worth doing next, each with a draft already written. You say yes, edit, or skip.",
+  "what_the_bot_does": [
+   "Twice a day, on a schedule you pick, it reads what's new in the apps you connected, like Gmail, Calendar and Notion.",
+   "It picks the two or three most useful next steps, like a reply you owe, a meeting to prep for, or a task that's slipping.",
+   "For each one it writes a ready-to-use draft and shows them to you as short cards.",
+   "It never sends or changes anything itself: you approve, edit or skip each card.",
+   "If you run other bots for specific jobs, it can hand an approved task to the right one."
+  ],
+  "what_you_end_up_with": "A short list of ready-to-go next steps twice a day, with the drafting already done, so you spend your time deciding instead of digging.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "The source post set this up as a Grok Bot that hands work to the author's other Grok Bots"
+   },
+   {
+    "id": "claude",
+    "note": "Anthropic's new Claude Duet app offers a similar built-in proactive brief (waitlist, US Pro/Max, as of Oct 2026)"
+   },
+   {
+    "id": "chatgpt-dots"
+   }
+  ],
+  "prompt": "You are my next-moves assistant. Twice a day, at [9am] and [3pm], look at what's new in my [Gmail, Calendar and Notion]. Pick the 2 or 3 most useful things I should do next and, for each one, tell me in one line why it matters and write a ready-to-use draft (a reply, an agenda, a checklist). Keep everything as drafts: never send, schedule, delete or buy anything without my yes. If nothing is worth my time, say so in one line. [Optional: when I approve a task, hand it to my [writing / research / scheduling] bot.]",
+  "setup": [
+   "Start with the one or two apps where most of your work lands, like email and calendar. Add notes or task apps once the suggestions feel right.",
+   "Set it to run twice a day at times you actually check in, for example mid-morning and mid-afternoon.",
+   "Make 'drafts only' a standing rule so nothing goes out without you.",
+   "After a week, tell it which kinds of suggestions were useful and which to stop, so the list gets sharper.",
+   "If you already have bots for specific jobs, list them in its instructions so it knows who to hand each kind of task to."
+  ],
+  "watch_out": [
+   "It reads a lot of your private stuff. Connect only the apps you need and check what each connection is allowed to do.",
+   "Too many suggestions turns into more inbox, not less; cap it at 2 or 3 and allow 'nothing today'.",
+   "Keep it on drafts only, as the source post does, so a wrong guess never reaches anyone."
+  ],
+  "sources": [
+   {
+    "label": "X post by @mrfundman (2026-10-23): a proactive idea bot that scans Notion, Gmail and Calendar twice a day, brings 2-3 ideas with drafts and hands work to specialized bots",
+    "url": "https://x.com/mrfundman/status/2113621259279872107",
+    "kind": "x"
+   },
+   {
+    "label": "Anthropic on X (2026-10-21): Claude Duet research preview, a proactive agent that checks with you before acting",
+    "url": "https://x.com/claudeai/status/2112984664256241837",
+    "kind": "official"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2113621259279872107",
+   "author": "@mrfundman",
+   "url": "https://x.com/mrfundman/status/2113621259279872107",
+   "posted_at": "2026-10-23",
+   "likes": 30,
+   "reposts": 3,
+   "replies": 12,
+   "bookmarks": 10,
+   "views": 2768,
+   "measured_at": "2026-10-23"
+  },
+  "tags": [
+   "proactive",
+   "next steps",
+   "chief of staff",
+   "drafts",
+   "twice a day",
+   "team of bots",
+   "schedule"
+  ],
+  "date_added": "2026-10-23",
+  "origin": "pipeline",
+  "last_checked": "2026-10-23"
+ },
+ {
   "slug": "add-events-and-reminders-by-asking-your-bot",
   "title": "Add calendar events and reminders just by asking your bot",
   "category": "family",
@@ -159,8 +238,8 @@
    "reposts": 0,
    "replies": 12,
    "bookmarks": 0,
-   "views": 993,
-   "measured_at": "2026-10-22"
+   "views": 1045,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "fact check",
@@ -230,12 +309,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 171,
-   "reposts": 14,
-   "replies": 13,
-   "bookmarks": 148,
-   "views": 51536,
-   "measured_at": "2026-10-22"
+   "likes": 488,
+   "reposts": 15,
+   "replies": 30,
+   "bookmarks": 397,
+   "views": 175013,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "second brain",
@@ -392,8 +471,8 @@
    "reposts": 6,
    "replies": 19,
    "bookmarks": 30,
-   "views": 5342,
-   "measured_at": "2026-10-22"
+   "views": 5363,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "read later",
@@ -460,8 +539,8 @@
    "reposts": 2,
    "replies": 4,
    "bookmarks": 6,
-   "views": 1713,
-   "measured_at": "2026-10-22"
+   "views": 1743,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "contact form",
@@ -637,8 +716,8 @@
    "reposts": 1,
    "replies": 3,
    "bookmarks": 6,
-   "views": 571,
-   "measured_at": "2026-10-22"
+   "views": 575,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "schedule",
@@ -1016,9 +1095,9 @@
    "likes": 251,
    "reposts": 15,
    "replies": 25,
-   "bookmarks": 509,
-   "views": 25287,
-   "measured_at": "2026-10-22"
+   "bookmarks": 508,
+   "views": 25322,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "multi-agent",
@@ -1079,12 +1158,12 @@
    "author": "@Parul_Gautam7",
    "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
    "posted_at": "2026-10-08",
-   "likes": 208,
-   "reposts": 37,
+   "likes": 204,
+   "reposts": 36,
    "replies": 38,
-   "bookmarks": 83,
-   "views": 46402,
-   "measured_at": "2026-10-22"
+   "bookmarks": 82,
+   "views": 46404,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "multi-agent",
@@ -1148,7 +1227,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-10-22"
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "voice",
@@ -1211,7 +1290,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 42,
-   "measured_at": "2026-10-22"
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "roadside assistance",
@@ -1274,7 +1353,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 392,
-   "measured_at": "2026-10-22"
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "computer use",
@@ -1336,8 +1415,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 0,
-   "views": 896,
-   "measured_at": "2026-10-22"
+   "views": 897,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "contractors",
@@ -1400,8 +1479,8 @@
    "reposts": 0,
    "replies": 5,
    "bookmarks": 0,
-   "views": 99,
-   "measured_at": "2026-10-22"
+   "views": 103,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "used car",
@@ -1463,8 +1542,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7471,
-   "measured_at": "2026-10-22"
+   "views": 7473,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "pharmacy",
@@ -1528,9 +1607,9 @@
    "likes": 212,
    "reposts": 24,
    "replies": 29,
-   "bookmarks": 236,
-   "views": 323657,
-   "measured_at": "2026-10-22"
+   "bookmarks": 235,
+   "views": 324142,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "newsletters",
@@ -1599,10 +1678,10 @@
    "posted_at": "2026-10-18",
    "likes": 863,
    "reposts": 94,
-   "replies": 195,
+   "replies": 196,
    "bookmarks": 1007,
-   "views": 1190159,
-   "measured_at": "2026-10-22"
+   "views": 1200195,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "phone call",
@@ -1728,8 +1807,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 486,
-   "measured_at": "2026-10-22"
+   "views": 496,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "spam calls",
@@ -1793,8 +1872,8 @@
    "reposts": 3,
    "replies": 8,
    "bookmarks": 38,
-   "views": 5353,
-   "measured_at": "2026-10-22"
+   "views": 5375,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "food log",
@@ -1860,12 +1939,12 @@
    "author": "@skeptrune",
    "url": "https://x.com/skeptrune/status/2112563230019289456",
    "posted_at": "2026-10-20",
-   "likes": 63,
+   "likes": 64,
    "reposts": 3,
    "replies": 12,
    "bookmarks": 12,
-   "views": 2907,
-   "measured_at": "2026-10-22"
+   "views": 2964,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "phone call",
@@ -2009,12 +2088,12 @@
    "author": "@lyndallschreinr",
    "url": "https://x.com/lyndallschreinr/status/2107888353630908437",
    "posted_at": "2026-10-07",
-   "likes": 1013,
+   "likes": 1014,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2895,
-   "views": 310021,
-   "measured_at": "2026-10-22"
+   "bookmarks": 2896,
+   "views": 310101,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "meal plan",
@@ -2077,12 +2156,12 @@
    "author": "@Michael_Fenech_",
    "url": "https://x.com/Michael_Fenech_/status/2108579992456327489",
    "posted_at": "2026-10-09",
-   "likes": 507,
+   "likes": 506,
    "reposts": 34,
    "replies": 36,
-   "bookmarks": 1153,
-   "views": 66395,
-   "measured_at": "2026-10-22"
+   "bookmarks": 1151,
+   "views": 66459,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "calendar",
@@ -2159,9 +2238,9 @@
    "likes": 679,
    "reposts": 35,
    "replies": 156,
-   "bookmarks": 725,
-   "views": 82417,
-   "measured_at": "2026-10-22"
+   "bookmarks": 724,
+   "views": 82498,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "personal agent",
@@ -2226,8 +2305,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41255,
-   "measured_at": "2026-10-22"
+   "views": 41287,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "scams",
@@ -2295,8 +2374,8 @@
    "reposts": 14,
    "replies": 29,
    "bookmarks": 119,
-   "views": 25021,
-   "measured_at": "2026-10-22"
+   "views": 25042,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "family chat",
@@ -2376,8 +2455,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4052,
-   "measured_at": "2026-10-22"
+   "views": 4065,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "groceries",
@@ -2439,12 +2518,12 @@
    "author": "@Teslaconomics",
    "url": "https://x.com/Teslaconomics/status/2110721195817509068",
    "posted_at": "2026-10-15",
-   "likes": 63,
+   "likes": 62,
    "reposts": 12,
    "replies": 12,
    "bookmarks": 12,
-   "views": 9627,
-   "measured_at": "2026-10-22"
+   "views": 9631,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "travel",
@@ -2512,8 +2591,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 1968,
-   "measured_at": "2026-10-22"
+   "views": 1980,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "flights",
@@ -2643,8 +2722,8 @@
    "reposts": 23,
    "replies": 63,
    "bookmarks": 241,
-   "views": 93559,
-   "measured_at": "2026-10-22"
+   "views": 93568,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "restaurant",
@@ -2708,7 +2787,7 @@
    "replies": 9,
    "bookmarks": 27,
    "views": 4047,
-   "measured_at": "2026-10-22"
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "appointment",
@@ -2773,8 +2852,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9170,
-   "measured_at": "2026-10-22"
+   "views": 9173,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "receipts",
@@ -2836,8 +2915,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 268,
-   "views": 9612,
-   "measured_at": "2026-10-22"
+   "views": 9619,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "chief of staff",
@@ -2896,8 +2975,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1860,
-   "measured_at": "2026-10-22"
+   "views": 1862,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "multiple brands",
@@ -2957,12 +3036,12 @@
    "author": "@DMAC_19",
    "url": "https://x.com/DMAC_19/status/2105719791751487542",
    "posted_at": "2026-10-01",
-   "likes": 37,
+   "likes": 36,
    "reposts": 1,
    "replies": 12,
    "bookmarks": 27,
-   "views": 3236,
-   "measured_at": "2026-10-22"
+   "views": 3238,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "real estate",
@@ -3025,8 +3104,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 0,
-   "views": 73,
-   "measured_at": "2026-10-22"
+   "views": 74,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "paper mail",
@@ -3097,7 +3176,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 71,
-   "measured_at": "2026-10-22"
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "monitoring",
@@ -3161,8 +3240,8 @@
    "reposts": 2,
    "replies": 7,
    "bookmarks": 0,
-   "views": 1153,
-   "measured_at": "2026-10-22"
+   "views": 1183,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "follow up",
@@ -3227,7 +3306,7 @@
    "replies": 7,
    "bookmarks": 55,
    "views": 4918,
-   "measured_at": "2026-10-22"
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "leads",
@@ -3293,8 +3372,8 @@
    "reposts": 1,
    "replies": 2,
    "bookmarks": 18,
-   "views": 2121,
-   "measured_at": "2026-10-22"
+   "views": 2123,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "email",
@@ -3827,7 +3906,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 782,
-   "measured_at": "2026-10-22"
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "marketplace",
@@ -4038,7 +4117,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1505,
-   "measured_at": "2026-10-22"
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "payments",
@@ -4105,8 +4184,8 @@
    "reposts": 0,
    "replies": 4,
    "bookmarks": 3,
-   "views": 898,
-   "measured_at": "2026-10-22"
+   "views": 900,
+   "measured_at": "2026-10-23"
   },
   "tags": [
    "ads",
@@ -4938,7 +5017,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-10-22"
+   "measured_at": "2026-10-23"
   },
   "origin": "migrated-2026-10-19"
  },

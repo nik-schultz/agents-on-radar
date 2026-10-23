@@ -77,3 +77,15 @@ Candidates not added yet:
 - [ ] Hands-free car assistant guide: ask Gemini on Android Auto for your flight gate, saved places or next appointment (Google, Oct 20 2026, news id `gemini-android-auto-personal-intelligence`); Easy, everyday.
 - [x] (shipped 2026-10-23 as `add-events-and-reminders-by-asking-your-bot`) Phone calendar-and-reminders bot guide: Grok Bot can now use Calendar, Reminders and Contacts on iOS/Android and Gemini plans from Maps saved places + Calendar (Oct 22 2026, news ids `grok-bot-phone-apps`, `gemini-maps-saved-places`); per-app permissions as the watch-out; Easy, everyday.
 Skipped: Binance "My Agent ID" promo spam, agent-payment/crypto posts, sales-prospecting tool pitches.
+
+## Trending watch 2026-10-23 (midday X scan)
+No mentions of BotsDoThat or botsdothat.com on X since Oct 21 (searched "botsdothat", "bots do that", "botsdothat.com"; only unrelated uses of the phrase). Web search found no Reddit mentions; Reddit reads still blocked from this box.
+Added today: `proactive-next-moves-bot` (@mrfundman 2026-10-23, 30 likes, 3 reposts, 10 bookmarks, 2,768 views: a bot that scans Notion/Gmail/Calendar twice a day and brings 2-3 next moves with drafts). Refreshed popularity on 42 tracked X posts.
+Candidates not added yet:
+- [ ] Bot team that lets Claude Duet, Dots, Grok Bot and Muse talk to each other through one open-source connector (@FlippyMeister 2026-10-21, x.com/FlippyMeister/status/2113017804886794689, 21 likes, 4 reposts); possible extra source for `team-of-agents-with-roles`, but verify the project before linking (it's a self-promoted tool).
+- [ ] Kids' morning newspaper bot "before 6 a.m." and a homework checker that "never solves it" from a 29-bot setup (@Frank_AI_Lab 2026-10-22, x.com/Frank_AI_Lab/status/2113296564407922766, 1 like); good Easy family ideas, need a stronger source.
+- [ ] 5 bots that scan X for posts worth replying to and people to connect with, plus a morning brief (@anytwocardzz 2026-10-21, x.com/anytwocardzz/status/2113000551483162923, 22 likes); tip: check which apps a new agent inherits from your account before you join (Claude Duet pulls in existing Claude connectors).
+- [ ] Agent watches a pending card charge and, once it posts, emails the merchant for an explanation and receipt (@richontech 2026-10-23, x.com/richontech/status/2113671815650500768, 2 likes); borderline money topic, probably leave to the money-saving site.
+- [ ] Agent that runs and publishes a website every morning at 4:45 (@jesperjurcenoks 2026-10-22, x.com/jesperjurcenoks/status/2113136965403218142, 2 likes); developer-leaning.
+- [ ] Watch-outs: a morning-report agent ran out of daily budget by 3am and got replaced by a plain script (@Swarm_operator 2026-10-22, 0 likes); a chief-of-staff bot's morning messages each need a decision, so reading them is stressful (@yizhou_yu 2026-10-22, 1 like). Both fit `proactive-next-moves-bot` / morning brief guides.
+Skipped: Binance #MyAgentID promo spam, on-chain/trading agents, a harassment "agent" meme.

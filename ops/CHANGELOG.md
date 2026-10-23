@@ -1,5 +1,9 @@
 # Ops changelog
 
+## 2026-10-23 (weekly monetization review, 10:10 AM CT)
+- No active sponsors or affiliate links; data/sponsors.json is empty and /disclosure/ says so. Live /advertise/ rate card matches the approved Oct 21 pricing.
+- No traffic or subscriber data yet: Search Console and Bing verification are still unset in config.json, and there is no analytics. Too early to start outreach or affiliate links; no changes made.
+
 ## 2026-10-23 (daily QA run, 7:20 AM CT)
 - **Status:** live and healthy. https://botsdothat.com/ returned 200 on every page checked: home, /use-cases/ and 3 guides, /blueprints/ and 2 blueprints, /news/, /ai-pricing/, /run-your-bots-for-less/ (with ?bot= prefill), /trending/, /newsletter/ and the Oct 22 issue, /advertise/, robots.txt, sitemap.xml, feed.xml, /news/feed.xml, llms.txt, /assets/app.js, /assets/style.css and /assets/search-index.json. /nope-xyz-404/ returns the 404 page. TLS cert CN=botsdothat.com is valid until Jan 20, 2027. https://www.botsdothat.com/ 301s to the apex.
 - **Checks:**
@@ -15,7 +19,7 @@
   - What it covers: pick Grok Bot (phone Calendar/Reminders/Contacts, rolling out Oct 22) or Gemini (Google Calendar + Google Tasks), allow only the apps you need, ask in plain words or paste a text, read back what it added, and use Undo. Includes the Gemini Maps saved places + Calendar tip. Copy-paste prompt included.
   - Watch-outs, each sourced: per-app Allow buttons (Digital Trends, TeslaNorth); Gemini can hallucinate, default calendar, guest emails can't be undone (Gemini Apps Help, calendar events); Gemini can bulk-change Google Tasks without confirmation (Gemini Apps Help, tasks & workflows); availability on both platforms still unclear (TeslaNorth).
   - Also: a 3-question FAQ, no stats or time-saved estimates, and `popularity: null`. Backlog item marked `[x]`.
-- **Deploy commits:** publish 1bb22fa (guide; main beaaca5). GitHub Actions run succeeded. The news routine's staged BACKLOG line went out in the same commit.
+- **Deploy commits:** publish 1bb22fa (guide; main beaaca5), then 8a7b15a (this log). GitHub Actions run succeeded. The news routine's staged BACKLOG line went out in the same commit.
 - **Not checked:** Reddit (blocked from the box), real-device or Safari/iOS rendering (Chrome emulation only), Lighthouse/performance scores, and the http→https redirect (outbound port 80 is blocked from the box).
 
 ## 2026-10-23 (news update, 6:30 AM CT)
