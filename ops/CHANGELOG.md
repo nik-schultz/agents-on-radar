@@ -1,5 +1,12 @@
 # Ops changelog
 
+## 2026-10-23 (news update, 6:30 AM CT)
+- **Added 4 items** (all opened at the source, all Oct 22, all notable): Claude apps switch to auto mode by default next week on Pro/Max/Team (Anthropic, @claudeai); Grok Bot can use the phone's Calendar, Reminders, Contacts and more (Digital Trends + TeslaNorth, @bot); Grok Bot signs in with 1Password without seeing passwords (1Password partner page + 1Password for Agents blog, @bot); Gemini Personal Intelligence now uses Google Maps saved places with Calendar (9to5Google, @GeminiApp).
+- **X refresh:** re-measured all 33 tracked posts (get_posts_by_ids, 2026-10-23 AM; raw response kept locally in research/). Top story is still Claude Duet; trending is now Claude auto mode, DeepSeek DeepInfer and Grok Bot phone apps.
+- No price changes, so the AI pricing table is unchanged. No major releases this run. Skipped: Claude on Google Cloud GA (enterprise), Anthropic formal-verification research post, Google Gemini API CLI / Agent Compute Engine (developer previews), MiniMax M3.1-Flash and iFlytek Spark X2.6 (outside tracked labs), Arena rumors about Kimi K3.1 / Qwen 4 (unconfirmed).
+- BACKLOG: added a phone calendar-and-reminders bot guide idea.
+- Checks: validate 0 errors, build 114 pages + 404, 0 broken internal links.
+
 ## 2026-10-22 (news update, 2:30 PM CT)
 - **Added 4 items** (all opened at the source): Anthropic donates the Agent Skills standard to the Agentic AI Foundation (Oct 22, notable, no official X post found so no `x` block); OpenAI Decisions API generally available (Oct 22, minor, @OpenAIDevs); Canva Craft, Canva's first image model (Oct 22, notable, TechCrunch + @canva); Gemini Personal Intelligence on Android Auto (Oct 20, notable, Google blog + @Google). New company `Canva` added to `NEWS_CO` in build.py.
 - **X refresh:** re-measured all 29 tracked posts (get_posts_by_ids, 2026-10-22 PM; raw response kept locally in research/). Top story is still Claude Duet; trending is DeepSeek DeepInfer, the PHP-flaws item and DeepSeek V4.1 Flash.

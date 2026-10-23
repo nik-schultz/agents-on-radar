@@ -34,10 +34,10 @@
     "author": "@OpenAIDevs",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 211,
-    "reposts": 17,
-    "views": 12523,
-    "measured_at": "2026-10-22"
+    "likes": 1213,
+    "reposts": 87,
+    "views": 127243,
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -55,10 +55,106 @@
     "author": "@canva",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 61,
-    "reposts": 19,
-    "views": 10207,
-    "measured_at": "2026-10-22"
+    "likes": 2644,
+    "reposts": 4340,
+    "views": 1331720,
+    "measured_at": "2026-10-23"
+   }
+  },
+  {
+   "id": "claude-auto-mode-default-apps",
+   "date": "2026-10-22",
+   "category": "feature",
+   "company": "Anthropic",
+   "impact": "notable",
+   "headline": "Claude will stop asking permission for every step, starting next week",
+   "explainer": "Starting next week, Claude's web, desktop and mobile apps on Pro, Max and Team plans begin sessions in auto mode, where an automated check lets safe actions go ahead and blocks risky ones instead of asking you to approve each step. Longer tasks finish with fewer interruptions, and you can switch any session back to manual approvals.",
+   "source_url": "https://claude.com/resources/articles/auto-mode-default-in-claude-code",
+   "source_name": "Anthropic",
+   "x": {
+    "url": "https://x.com/claudeai/status/2113360845409583307",
+    "author": "@claudeai",
+    "kind": "official",
+    "posted_at": "2026-10-22",
+    "likes": 16589,
+    "reposts": 633,
+    "views": 1665125,
+    "measured_at": "2026-10-23"
+   }
+  },
+  {
+   "id": "grok-bot-phone-apps",
+   "date": "2026-10-22",
+   "category": "feature",
+   "company": "xAI",
+   "impact": "notable",
+   "headline": "Grok Bot can now use your phone's Calendar, Reminders and Contacts",
+   "explainer": "With your permission, Grok Bot on iOS and Android can add calendar events, set and check reminders, look up contacts and reach apps like Messages and Home, and you allow each app separately. That makes \"add this to my calendar\" or \"remind me tonight\" something you can just ask your bot to do; it's rolling out now.",
+   "source_url": "https://www.digitaltrends.com/phones/grok-bot-can-now-manage-your-calendar-reminders-and-more/",
+   "source_name": "Digital Trends",
+   "more_sources": [
+    {
+     "label": "TeslaNorth",
+     "url": "https://teslanorth.com/2026/10/22/grok-bot-phone-calendar-reminders-contacts/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/bot/status/2113393684209176718",
+    "author": "@bot",
+    "kind": "official",
+    "posted_at": "2026-10-22",
+    "likes": 11707,
+    "reposts": 907,
+    "views": 1739501,
+    "measured_at": "2026-10-23"
+   }
+  },
+  {
+   "id": "grok-bot-1password",
+   "date": "2026-10-22",
+   "category": "feature",
+   "company": "xAI",
+   "impact": "notable",
+   "headline": "Grok Bot can sign in to your accounts with 1Password, without seeing your passwords",
+   "explainer": "You approve which saved logins your bot may use, and 1Password fills them in, one-time codes included, so the bot never sees the password. 1Password says the same approach is rolling out for Meta's Muse and coming soon to Claude Duet and ChatGPT Work, at no extra cost on its Individual and Family plans.",
+   "source_url": "https://1password.com/partners/spacexsi-grokbot",
+   "source_name": "1Password",
+   "more_sources": [
+    {
+     "label": "1Password blog: 1Password for Agents",
+     "url": "https://1password.com/blog/1password-for-ai-agents"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/bot/status/2113332983226831339",
+    "author": "@bot",
+    "kind": "official",
+    "posted_at": "2026-10-22",
+    "likes": 8382,
+    "reposts": 614,
+    "views": 681400,
+    "measured_at": "2026-10-23"
+   }
+  },
+  {
+   "id": "gemini-maps-saved-places",
+   "date": "2026-10-22",
+   "category": "feature",
+   "company": "Google",
+   "impact": "notable",
+   "headline": "Gemini can now plan your day from your Google Maps saved places and calendar",
+   "explainer": "If you turn on Personal Intelligence, Gemini can check your Maps searches and saved places alongside your Calendar, so \"which restaurant on my list is near my last meeting?\" gets a real answer. Google is also telling AI Ultra subscribers that Gemini 4 Argon will soon replace the Deep Think mode.",
+   "source_url": "https://9to5google.com/2026/10/22/gemini-personal-intelligence-maps/",
+   "source_name": "9to5Google",
+   "x": {
+    "url": "https://x.com/GeminiApp/status/2113343041805127839",
+    "author": "@GeminiApp",
+    "kind": "official",
+    "posted_at": "2026-10-22",
+    "likes": 937,
+    "reposts": 75,
+    "views": 66731,
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -85,11 +181,11 @@
     "url": "https://x.com/claudeai/status/2112984664256241837",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 52065,
-    "reposts": 3983,
-    "views": 8292866,
+    "likes": 53917,
+    "reposts": 4126,
+    "views": 9247877,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -116,11 +212,11 @@
     "url": "https://x.com/OpenAI/status/2112907856018309586",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 14241,
-    "reposts": 2829,
-    "views": 5599664,
+    "likes": 14371,
+    "reposts": 2858,
+    "views": 5742423,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -137,11 +233,11 @@
     "url": "https://x.com/claudeai/status/2112962248218148878",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 10161,
-    "reposts": 511,
-    "views": 697993,
+    "likes": 10879,
+    "reposts": 553,
+    "views": 769803,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -164,11 +260,11 @@
     "url": "https://x.com/OpenAI/status/2112988118471295323",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 4777,
-    "reposts": 377,
-    "views": 427210,
+    "likes": 5130,
+    "reposts": 404,
+    "views": 465515,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -192,10 +288,10 @@
     "author": "@RichardSocher",
     "kind": "official",
     "posted_at": "2026-10-21",
-    "likes": 7916,
-    "reposts": 836,
-    "views": 3152030,
-    "measured_at": "2026-10-22"
+    "likes": 8272,
+    "reposts": 875,
+    "views": 3324949,
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -212,11 +308,11 @@
     "url": "https://x.com/MistralAI/status/2112574615318876178",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 3239,
-    "reposts": 376,
-    "views": 261946,
+    "likes": 3245,
+    "reposts": 377,
+    "views": 265250,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -233,11 +329,11 @@
     "url": "https://x.com/OpenAIDevs/status/2112603916076781778",
     "author": "@OpenAIDevs",
     "kind": "official",
-    "likes": 3583,
+    "likes": 3601,
     "reposts": 189,
-    "views": 1768811,
+    "views": 1841121,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -260,11 +356,11 @@
     "url": "https://x.com/deepseek_ai/status/2112476496283775135",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 42403,
-    "reposts": 4797,
-    "views": 6460412,
+    "likes": 42689,
+    "reposts": 4835,
+    "views": 6530468,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -299,10 +395,10 @@
     "author": "@Google",
     "kind": "official",
     "posted_at": "2026-10-20",
-    "likes": 2121,
-    "reposts": 183,
-    "views": 258129,
-    "measured_at": "2026-10-22"
+    "likes": 2123,
+    "reposts": 185,
+    "views": 264774,
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -336,11 +432,11 @@
     "url": "https://x.com/deepseek_ai/status/2111375640717033777",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 37062,
-    "reposts": 4126,
-    "views": 7902137,
+    "likes": 37089,
+    "reposts": 4128,
+    "views": 7945091,
     "posted_at": "2026-10-17",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -357,11 +453,11 @@
     "url": "https://x.com/deepseek_ai/status/2111375650414309859",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 3482,
-    "reposts": 248,
-    "views": 958221,
+    "likes": 3488,
+    "reposts": 249,
+    "views": 960368,
     "posted_at": "2026-10-17",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -388,11 +484,11 @@
     "url": "https://x.com/AIatMeta/status/2110779754274292212",
     "author": "@AIatMeta",
     "kind": "official",
-    "likes": 11537,
-    "reposts": 1222,
-    "views": 1238778,
+    "likes": 11541,
+    "reposts": 1221,
+    "views": 1241584,
     "posted_at": "2026-10-15",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -415,11 +511,11 @@
     "url": "https://x.com/ArtificialAnlys/status/2110421964095713743",
     "author": "@ArtificialAnlys",
     "kind": "coverage",
-    "likes": 1310,
+    "likes": 1311,
     "reposts": 144,
-    "views": 907736,
+    "views": 908786,
     "posted_at": "2026-10-14",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -442,11 +538,11 @@
     "url": "https://x.com/GeminiApp/status/2110039322229649783",
     "author": "@GeminiApp",
     "kind": "official",
-    "likes": 7289,
-    "reposts": 765,
-    "views": 5695072,
+    "likes": 7301,
+    "reposts": 769,
+    "views": 6293940,
     "posted_at": "2026-10-13",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -469,11 +565,11 @@
     "url": "https://x.com/AIatMeta/status/2109691148943999167",
     "author": "@AIatMeta",
     "kind": "official",
-    "likes": 2208,
-    "reposts": 235,
-    "views": 314385,
+    "likes": 2207,
+    "reposts": 236,
+    "views": 315864,
     "posted_at": "2026-10-12",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -524,11 +620,11 @@
     "url": "https://x.com/claudeai/status/2108271552991252810",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 60537,
+    "likes": 60542,
     "reposts": 4601,
-    "views": 11402774,
+    "views": 11410956,
     "posted_at": "2026-10-08",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -545,11 +641,11 @@
     "url": "https://x.com/OpenAI/status/2107894997538525580",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 23999,
-    "reposts": 1901,
-    "views": 6837691,
+    "likes": 24017,
+    "reposts": 1904,
+    "views": 6861018,
     "posted_at": "2026-10-07",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -566,11 +662,11 @@
     "url": "https://x.com/claudeai/status/2107894039626277339",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 45259,
-    "reposts": 3271,
-    "views": 6722329,
+    "likes": 45261,
+    "reposts": 3269,
+    "views": 6728738,
     "posted_at": "2026-10-07",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -587,11 +683,11 @@
     "url": "https://x.com/claudeai/status/2107894060229034197",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 11862,
-    "reposts": 589,
-    "views": 1577762,
+    "likes": 11858,
+    "reposts": 588,
+    "views": 1578187,
     "posted_at": "2026-10-07",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -608,11 +704,11 @@
     "url": "https://x.com/MistralAI/status/2107457414387622310",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 40659,
-    "reposts": 4569,
-    "views": 5707436,
+    "likes": 40663,
+    "reposts": 4573,
+    "views": 5710534,
     "posted_at": "2026-10-06",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -635,11 +731,11 @@
     "url": "https://x.com/claudeai/status/2107522596845822135",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 54365,
+    "likes": 54362,
     "reposts": 4303,
-    "views": 13331739,
+    "views": 13335703,
     "posted_at": "2026-10-06",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -662,11 +758,11 @@
     "url": "https://x.com/OpenAI/status/2104986129686741046",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 21112,
+    "likes": 21118,
     "reposts": 1713,
-    "views": 3235021,
+    "views": 3236348,
     "posted_at": "2026-09-29",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -704,11 +800,11 @@
     "url": "https://x.com/OpenAI/status/2104984504133918973",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 38110,
+    "likes": 38108,
     "reposts": 3366,
-    "views": 14820229,
+    "views": 14822762,
     "posted_at": "2026-09-29",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -742,11 +838,11 @@
     "url": "https://x.com/bot/status/2104661562715967548",
     "author": "@bot",
     "kind": "official",
-    "likes": 6408,
+    "likes": 6409,
     "reposts": 573,
-    "views": 37919255,
+    "views": 38721882,
     "posted_at": "2026-09-28",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -763,11 +859,11 @@
     "url": "https://x.com/claudeai/status/2102435511222890900",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 97476,
+    "likes": 97482,
     "reposts": 9049,
-    "views": 28529851,
+    "views": 28568573,
     "posted_at": "2026-09-22",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -784,11 +880,11 @@
     "url": "https://x.com/OpenAI/status/2102460975790137662",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 53261,
-    "reposts": 5270,
-    "views": 10192016,
+    "likes": 53260,
+    "reposts": 5269,
+    "views": 10193249,
     "posted_at": "2026-09-22",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   },
   {
@@ -811,11 +907,11 @@
     "url": "https://x.com/elonmusk/status/2102071804495872374",
     "author": "@elonmusk",
     "kind": "official",
-    "likes": 26970,
-    "reposts": 2569,
-    "views": 32254889,
+    "likes": 26963,
+    "reposts": 2564,
+    "views": 32255263,
     "posted_at": "2026-09-21",
-    "measured_at": "2026-10-22"
+    "measured_at": "2026-10-23"
    }
   }
  ],
