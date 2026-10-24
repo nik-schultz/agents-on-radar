@@ -717,7 +717,7 @@ def cost_run_html(x):
 KIND_NAME = {"hn": "Hacker News", "youtube": "YouTube", "github": "GitHub"}
 def src_stats(s):
     t = stat_txt(s)
-    return f' <span class="src-stats" title="Measured {e(s.get("measured_at",""))}">{t} · measured {nice_date(s.get("measured_at"))}</span>' if t else ""
+    return f' <span class="src-stats" title="Measured {e(s.get("measured_at",""))}">{t} · {"from YouTube search results, " if s.get("kind") == "youtube" else ""}measured {nice_date(s.get("measured_at"))}</span>' if t else ""
 less_callout = f"""<aside class="less-callout glass" aria-label="Run your bots for less"><span class="lco-ico" aria-hidden="true">💸</span><div><p class="lco-k">Part of <a href="{u(LESS)}">Run your bots for less</a></p>
 <p class="small">8 short guides, a cheapest-vs-flagship price table and a calculator that shows what your bot would cost a month on each provider.</p></div><a class="btn btn-sm" href="{u(LESS)}#calculator">Open the cost calculator</a></aside>"""
 for x in ucs:
@@ -770,7 +770,7 @@ for x in ucs:
     if comm:
         popbox += "<div class='glass side-box'><h2 class='side-h'>Also discussed on</h2><ul class='side-list side-comm'>" + "".join(
             f'<li><a href="{e(s["url"])}" rel="noopener"><span class="src-kind k-{e(s["kind"])}">{e(KIND_NAME.get(s["kind"], s["kind"]))}</span> {stat_txt(s)}</a></li>' for s in sorted(comm, key=lambda s: SEEN_ORDER.get(s["kind"], 9))[:6]) + \
-            f"<li class='small muted'>Measured {nice_date(comm[0].get('measured_at'))}. YouTube views and GitHub stars are shown, not counted in heat.</li></ul></div>"
+            f"<li class='small muted'>Measured {nice_date(comm[0].get('measured_at'))}. YouTube views (from YouTube search results) and GitHub stars are shown, not counted in heat.</li></ul></div>"
     rbp = bp_by_uc.get(x["slug"], [])
     bpbox = ("<div class='glass side-box'><h2 class='side-h'>Build it as a bot</h2><ul class='side-list'>" + "".join(f'<li><a href="{u("/blueprints/"+b["slug"]+"/")}">⚙ {e(b["title"])}</a></li>' for b in rbp) + "</ul></div>") if rbp else ""
     rel = [y for y in NEWEST if y["category"] == x["category"] and y["slug"] != x["slug"]][:4]
@@ -1477,7 +1477,7 @@ page("/about/", f"About {NAME} and how we measure", f"How {NAME} finds real AI a
 <p class="lead">{e(cfg['description'])}</p>
 <h2>Where the use cases come from</h2><p>We look for real people describing real jobs they handed to an AI agent, and we look in more than one place: posts on X and Reddit, Hacker News discussions, YouTube walkthroughs, open-source projects on GitHub, plus articles and official product pages. Every use case links to its sources, and a “Seen on” line shows which of those places it turned up in. When a post makes a claim about a result, we say whose claim it is.</p>
 <h2 id="popularity">How we measure popularity</h2><ul>
-<li><b>Only real counts.</b> X likes and reposts come from X's API; Reddit upvotes come from the post; Hacker News points and comments come from Hacker News's public search API; YouTube views and GitHub stars are the numbers shown on those pages. Each number shows where it came from and the date we measured it.</li>
+<li><b>Only real counts.</b> X likes and reposts come from X's API; Reddit upvotes come from the post; Hacker News points and comments come from Hacker News's public search API; YouTube view counts come from YouTube search results (measured Oct 24, 2026) and GitHub stars from each project's GitHub page. Each number shows where it came from and the date we measured it.</li>
 <li><b>Unknown stays unknown.</b> If we couldn't measure it, we show no number at all. We never estimate or round up.</li>
 <li><b>Heat</b> (for “Trending now”) adds up every measured post about the use case from the last {cfg.get('trending_window_days',60)} days, wherever it was posted: X (likes + 2 × reposts), Reddit (upvotes) and Hacker News (points), each divided by weeks since that post. So a use case people are discussing on several sites ranks higher than one that's only hot on X. Newer posts with real engagement rise; old ones fade.</li>
 <li>YouTube views and GitHub stars are shown on each page but don't count toward heat: a view or a star isn't the same kind of signal as a vote, and they build up over years.</li>
