@@ -61,7 +61,7 @@ def aff_link(url, text, cls=""):
 BUILD_DATE = cfg.get("as_of") or datetime.date.today().isoformat()
 TODAY = datetime.date.fromisoformat(BUILD_DATE)
 e = lambda s: html.escape(str(s), quote=True)
-VERIFY_META = (f'<meta name="google-site-verification" content="{e(_vg)}">' if _vg else "") + (f'<meta name="msvalidate.01" content="{e(_vb)}">' if _vb else "")
+VERIFY_META = (f'<meta name="google-site-verification" content="{e(_vg)}">' if _vg else "") + (f'<meta name="msvalidate.01" content="{e(_vb)}">' if _vb else "") + '<meta name="saashub-verification" content="0dnznot6vtkl" />'
 def u(p): return BP + p
 def absu(p): return BASE + p
 SITEMAP = []
