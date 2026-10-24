@@ -40,6 +40,7 @@ SPONSOR_THANKS = "/sponsor-thanks/"
 _sc = cfg.get("sponsor_checkout") or {}
 PAY_LINKS = {k: (v or "").strip() for k, v in (_sc.get("links") or {}).items()}
 PROMO_CODE = (_sc.get("promo_code") or "").strip()
+NL_PROMO_CODE = (_sc.get("newsletter_promo_code") or "").strip()
 # Book & pay only goes live with live-mode Stripe links for every spot; otherwise /advertise/ keeps the email buttons.
 PAY_LIVE = bool(_sc.get("live")) and all(PAY_LINKS.get(k, "").startswith("https://buy.stripe.com/") and "/test_" not in PAY_LINKS[k] for k in ("featured", "runforless", "bundle", "newsletter"))
 # Content-based dateModified: pages put MOD_ISO / MOD_NICE tokens in their body or JSON-LD; page() swaps in the date
@@ -1479,7 +1480,7 @@ page("/advertise/", "Advertise to people building their first AI bots", f"Sponso
 <li><b>Newsletter:</b> subscriber count, opens and clicks from our email provider once the {NAME} Weekly starts sending. Until then, there is no newsletter audience to sell.</li>
 <li><b>Popularity on the site:</b> the X and Reddit numbers we show are public counts with the date measured. They are about the use cases, not about our traffic.</li></ul></div>
 <h2>Ways to sponsor</h2>{ADV_HOW}<div class="tiers">
-<div class="tier glass"><p class="eyebrow">📬 Newsletter</p><h2>Newsletter sponsor slot</h2><p class="price">First 2 issues free</p><p class="price-sub">Then $50 per issue until 1,000 subscribers, then $25 per 1,000 subscribers ($50 minimum)</p><ul><li>One short sponsor block in a weekly issue of the {NAME} Weekly</li><li>Must match that week's topic</li><li>You write it; we check claims and label it “Sponsored”</li><li>Starts when the newsletter starts sending</li></ul>{tier_cta("Newsletter sponsor slot", key="newsletter", note="$50 for one issue")}</div>
+<div class="tier glass"><p class="eyebrow">📬 Newsletter</p><h2>Newsletter sponsor slot</h2><p class="price">First 2 issues free</p><p class="price-sub">Then $50 per issue until 1,000 subscribers, then $25 per 1,000 subscribers ($50 minimum)</p><ul><li>One short sponsor block in a weekly issue of the {NAME} Weekly</li><li>Must match that week's topic</li><li>You write it; we check claims and label it “Sponsored”</li><li>Starts when the newsletter starts sending</li></ul>{tier_cta("Newsletter sponsor slot", key="newsletter", note=f"$50 for one issue. The first 2 issues sold are free: use code <b>{e(NL_PROMO_CODE)}</b> at checkout" if NL_PROMO_CODE else "$50 for one issue")}</div>
 <div class="tier glass"><p class="eyebrow">⚙ Guides & blueprints</p><h2>Featured tool listing</h2><p class="price">$49 / month</p><p class="price-sub">First month free for the first 3 sponsors</p><ul><li>A labeled card on the blueprints and use-case guides where your tool actually does the job</li><li>We test that it fits before it runs</li><li>Never inside the steps, the “Which tool to use” list or the rankings</li></ul>{tier_cta("Featured tool listing", key="featured", note=f"First month free for the first 3 sponsors: use code <b>{e(PROMO_CODE)}</b> at checkout" if PROMO_CODE else "")}</div>
 <div class="tier glass"><p class="eyebrow">💸 Run for less</p><h2>Sponsored tile in Run your bots for less</h2><p class="price">$99 / month</p><p class="price-sub">One sponsor at a time</p><ul><li>One labeled tile beside the money-saving tips in the homepage’s Run for less band</li><li>For hosting, routers, monitoring or anything that lowers a bot's bill</li><li>The price table and calculator stay ad-free</li></ul>{tier_cta("Run for less tile", key="runforless", note="If the link says it's booked, check back next month.")}</div></div>
 <h2>How every paid spot is labeled</h2><p>Paid spots carry this label: {paid_label()}. Affiliate links carry this one: {paid_label("affiliate")}. Both link to our <a href="{u(DISCLOSE)}">disclosure page</a>, and every paid link uses <code>rel="sponsored"</code>.</p>
@@ -1512,7 +1513,7 @@ page(SPONSOR_TERMS, "Sponsor terms", f"Plain-English terms for sponsoring {NAME}
 <h2>What you provide</h2><ul><li>Your product or company name</li><li>The URL you want people to visit</li><li>A headline</li><li>A short description</li><li>A logo</li></ul>
 <p>We may lightly edit your text for length and clarity. Your claims must be accurate, and you are responsible for them.</p>
 <h2>How long your spot runs</h2><p>Your placement runs for the period you bought, starting from the month you choose. Monthly spots don't renew automatically. If you want another month, buy again.</p>
-<h2>Cancellations and refunds</h2><ul><li><b>Before your spot goes live:</b> cancel any time for a full refund.</li><li><b>After it goes live:</b> no refund for the current period.</li></ul>
+<h2>Cancellations and refunds</h2><ul><li><b>Before your spot goes live:</b> cancel any time for a full refund.</li><li><b>After it goes live:</b> no refund for the current period.</li><li><b>If your spot was already taken</b> (for example, two people booked the Run for less tile at the same time): we tell you within 1 business day and refund you in full.</li></ul>
 <h2>Traffic and stats</h2><p>We don't guarantee traffic numbers. {e(NAME)} is a new site, and we only share stats we've actually measured. Ask us and we'll send you the measured numbers for the pages your spot appears on.</p>
 <h2>Payments</h2><p>Payments are processed by Stripe.</p>
 <h2>Contact</h2><p>Questions about sponsoring? Email {_tmail}. See all spots and prices on <a href="{u('/advertise/')}">Advertise</a>.</p></div>""", lastmod=SPONSOR_TERMS_UPDATED)
@@ -1545,7 +1546,7 @@ page(SPONSOR_THANKS, "Thanks for sponsoring", f"Thanks for booking a sponsor spo
 <div class="glass adv-how"><ol><li><b>We review your spot within 2 business days.</b> We check that your tool fits the pages it will appear on and that your claims hold up.</li>
 <li><b>We email you</b> to confirm it, or to ask for a change if something needs fixing.</li>
 <li><b>It goes live</b> in the month you picked, labeled {paid_label()}.</li>
-<li><b>If we decline it,</b> you get a full refund.</li></ol></div>
+<li><b>If we decline it,</b> you get a full refund.</li></ol><p class="small">Each spot has one sponsor at a time. If someone else booked the same spot just before you, we tell you within 1 business day and refund you in full.</p></div>
 <h2>Send us your logo</h2><p>If you didn't add a logo link at checkout, reply to your Stripe receipt or email {_tmail} with it. A square PNG or SVG works best.</p>
 <p>Everything else, including refunds and how long your spot runs, is in our <a href="{u(SPONSOR_TERMS)}">sponsor terms</a>. Questions? Email {_tmail}.</p>
 <p><a class="btn btn-sm" href="{u("/")}">Back to {e(NAME)}</a></p></div>""", noindex=True)

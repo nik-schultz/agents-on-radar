@@ -34,12 +34,12 @@
   "x_handle": "botsdothat",
   "_x_handle_help": "Brand X account (created Oct 23, 2026). Used for the footer/about link, twitter:site and Organization sameAs.",
   "sponsor_checkout": {
-    "live": false,
+    "live": true,
     "links": {
-      "featured": "",
-      "runforless": "",
-      "bundle": "",
-      "newsletter": ""
+      "featured": "https://buy.stripe.com/5kQdR81KT0M537fdXq4Ni00",
+      "runforless": "https://buy.stripe.com/fZu7sKdtBbqJ5fndXq4Ni01",
+      "bundle": "https://buy.stripe.com/9B66oGfBJbqJ7nvdXq4Ni02",
+      "newsletter": "https://buy.stripe.com/7sY5kCfBJ9iB9vDg5y4Ni03"
     },
     "promo_code": "FOUNDING",
     "sandbox_links": {
@@ -48,6 +48,7 @@
       "bundle": "https://buy.stripe.com/test_fZufZg52sgSsaLefJqbV602",
       "newsletter": "https://buy.stripe.com/test_bJe7sK9iI1XybPiap6bV603"
     },
-    "_help": "Stripe Payment Links for /advertise/ 'Book & pay' buttons. Put LIVE-mode links (https://buy.stripe.com/..., never /test_) in links, then set live=true. While live is false or any link is empty, /advertise/ keeps the 'Email us' buttons. sandbox_links are the test-mode copies (BotsDoThat sandbox acct_1UToXNBHg6I95Fjd) for trying checkout with card 4242 4242 4242 4242; they are never shown on the site. promo_code = Founding sponsor code (featured listing, first month free, first 3 sponsors). No secret keys here, ever."
+    "_help": "Stripe Payment Links for /advertise/ 'Book & pay' buttons. Put LIVE-mode links (https://buy.stripe.com/..., never /test_) in links, then set live=true. While live is false or any link is empty, /advertise/ keeps the 'Email us' buttons. sandbox_links are the test-mode copies (BotsDoThat sandbox acct_1UToXNBHg6I95Fjd) for trying checkout with card 4242 4242 4242 4242; they are never shown on the site. promo_code = Founding sponsor code (featured listing, first month free, first 3 sponsors). newsletter_promo_code = code for the first 2 newsletter issues sold free (max 2 uses, newsletter product only). Run for less and Bundle links each stop after 1 completed sale (both include the single Run for less tile); when one sells, deactivate the other in Stripe until that month ends. No secret keys here, ever.",
+    "newsletter_promo_code": "FIRST2"
   }
 }

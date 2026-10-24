@@ -1,5 +1,10 @@
 # Ops changelog
 
+## 2026-10-23 (7:30 PM CT) — Sponsor self-serve checkout is live (Stripe live mode)
+- /advertise/ "Book & pay" buttons now open live Stripe Payment Links (account acct_1UTrztBgq3cPhA7u). Featured $49, Run for less $99, Bundle $149, Newsletter issue $50; one-time, no renewal. Each collects website URL, headline + one-line description, and preferred start month (newsletter: optional logo link instead). Promo codes on, post-payment invoice on, redirect to /sponsor-thanks/, Managed Payments off.
+- Codes: FOUNDING (100% off once, featured only, 3 uses). New FIRST2 (100% off once, newsletter only, 2 uses) for Nik's "first 2 issues free"; shown on the newsletter tier.
+- Double-booking: the Run for less and Bundle links each stop after 1 completed sale. **Monetization routine:** if either one shows a completed sale, deactivate the other link in Stripe until that month's placement ends, then reactivate both (or reset the limit). /sponsor-thanks/ and /sponsor-terms/ now say that if a spot was already taken, we tell the buyer within 1 business day and refund in full.
+
 ## 2026-10-23 (6:45 PM CT) — New /sponsor-terms/ page
 - New plain-English /sponsor-terms/. It covers:
   - What we accept (relevant AI, automation and productivity tools) and what we don't (adult content, gambling, crypto get-rich schemes, misleading claims, malware or scams).
