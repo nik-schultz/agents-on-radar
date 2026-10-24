@@ -85,25 +85,71 @@ def raw_score(p):
 def age_days(x):
     d = (x.get("popularity") or {}).get("posted_at") or x.get("source_date") or x["date_added"]
     return max(0, (TODAY - datetime.date.fromisoformat(d[:10])).days)
+# Community signals: the main popularity post plus any source with measured engagement and a post date.
+# Counted in heat: X likes + 2 x reposts, Reddit upvotes, Hacker News points (all one vote per person).
+# Shown but NOT counted: YouTube views and GitHub stars (different units; views/stars aren't comparable to votes).
+SIG_SCORE = {"reddit": lambda st: st.get("upvotes"), "hn": lambda st: st.get("points")}
+def signals(x):
+    out, seen = [], set()
+    p = x.get("popularity")
+    if p and raw_score(p) is not None:
+        out.append({"kind": p["platform"], "url": p["url"], "posted_at": p["posted_at"], "score": raw_score(p), "pop": p}); seen.add(p["url"])
+    for src in x["sources"]:
+        st, k = src.get("stats") or {}, src.get("kind")
+        sc = SIG_SCORE[k](st) if k in SIG_SCORE else None
+        if isinstance(sc, int) and src.get("posted_at") and src["url"] not in seen:
+            out.append({"kind": k, "url": src["url"], "posted_at": src["posted_at"], "score": sc, "src": src}); seen.add(src["url"])
+    return out
+def sig_heat(sg):
+    age = max(0, (TODAY - datetime.date.fromisoformat(sg["posted_at"][:10])).days)
+    return 0.0 if age > cfg.get("trending_window_days", 60) else sg["score"] / ((age + 2) / 7) ** 1.0
 def heat(x):
-    s = raw_score(x.get("popularity"))
-    if s is None or age_days(x) > cfg.get("trending_window_days", 60): return 0.0
-    return s / ((age_days(x) + 2) / 7) ** 1.0
-for x in ucs: x["_heat"] = round(heat(x), 2)
+    return sum(sig_heat(sg) for sg in signals(x))
+def lead_pop(x):
+    """The post the chips/ticker point at: the popularity post, else the hottest measured community post."""
+    if x.get("popularity"): return x["popularity"]
+    hot = [sg for sg in signals(x) if sig_heat(sg) > 0]
+    if not hot: return None
+    sg = max(hot, key=sig_heat); src = sg["src"]; st = src["stats"]
+    return {"platform": sg["kind"], "url": sg["url"], "posted_at": sg["posted_at"], "measured_at": src.get("measured_at", ""),
+            "author": {"hn": "Hacker News", "reddit": "Reddit"}[sg["kind"]], "points": st.get("points"), "upvotes": st.get("upvotes"), "comments": st.get("comments")}
+for x in ucs: x["_heat"] = round(heat(x), 2); x["_pop"] = lead_pop(x)
 TRENDING = sorted([x for x in ucs if x["_heat"] > 0], key=lambda x: -x["_heat"])
 NEWEST = sorted(ucs, key=lambda x: (x["date_added"], x.get("source_date") or ""), reverse=True)
 DIFF_ORDER = {"Easy": 0, "Medium": 1, "Advanced": 2}
 
 def pop_chip(x, long=False):
-    p = x.get("popularity")
+    p = x.get("_pop")
     if not p:
         return ''  # unmeasured: show nothing rather than a "not measured" badge (explained on /about/)
     if p["platform"] == "x":
         t = f'♥ {fmt(p["likes"])} · ↻ {fmt(p["reposts"])} on X'
+    elif p["platform"] == "hn":
+        t = f'▲ {fmt(p["points"])} points on Hacker News'
     else:
         t = f'▲ {fmt(p["upvotes"])} upvotes on Reddit'
     m = f' · measured {nice_date(p["measured_at"])}' if long else ""
     return f'<a class="pop" href="{e(p["url"])}" rel="noopener" title="Measured {e(p["measured_at"])}">{t}{m}</a>'
+
+# "Seen on": one link per platform where this use case was found (first source of each kind), so readers see it isn't one site's hype.
+SEEN = [("x", "X"), ("reddit", "Reddit"), ("hn", "Hacker News"), ("youtube", "YouTube"), ("github", "GitHub")]
+SEEN_ORDER = {k: i for i, (k, _) in enumerate(SEEN)}
+def stat_txt(src):
+    st = src.get("stats") or {}
+    bits = [f"{fmt(st[k])} {lbl}" for k, lbl in (("points", "points"), ("upvotes", "upvotes"), ("comments", "comments"), ("views", "views"), ("stars", "stars")) if isinstance(st.get(k), int)]
+    return " · ".join(bits)
+def seen_on(x, long=False):
+    links = []
+    for k, name in SEEN:
+        src = next((s for s in x["sources"] if s.get("kind") == k), None)
+        if src:
+            n = sum(1 for s in x["sources"] if s.get("kind") == k)
+            extra = f" ×{n}" if long and n > 1 else ""
+            links.append(f'<a class="seen-{k}" href="{e(src["url"])}" rel="noopener" title="{e(src["label"])}">{name}{extra}</a>')
+    if any(s.get("kind") in ("official", "docs") for s in x["sources"]) and long:
+        links.append(f'<a class="seen-off" href="#sources">Official docs</a>')
+    if len(links) < (1 if long else 2): return ""  # on cards, only show when there's more than one place
+    return f'<p class="seen-on"><span class="seen-k">Seen on</span> {" · ".join(links)}</p>'
 
 # ---------- art slots --------------------------------------------------------------
 def art(name, cls="art", alt="", w=640, h=640, eager=False):
@@ -213,7 +259,7 @@ def card(x, rank=None, big=False):
 <a class="card-link" href="{u('/use-cases/'+x['slug']+'/')}"><div class="card-top"><span class="cat-tag cat-{e(x['category'])}">{c['icon']} {e(c['name'])}</span>{r}{new}</div>
 <h3>{e(x['title'])}</h3><p class="card-sum">{e(x['summary'])}</p>{extra}
 <div class="card-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span><span class="tools-mini">{tool_names(x)}</span></div></a>
-<div class="card-pop">{pop_chip(x)}</div></li>"""
+<div class="card-pop">{pop_chip(x)}{seen_on(x)}</div></li>"""
 
 def featured_slot(slot, cat=None):
     items = [s for s in spons.get(slot, []) if not cat or not s.get("categories") or cat in s["categories"]]
@@ -514,9 +560,9 @@ less_band = f"""<section class="wrap block less-band" aria-labelledby="less-h"><
 </div></section>"""
 
 def tk_n(x):
-    p = x["popularity"]
-    return "♥ " + fmt(p["likes"]) if p["platform"] == "x" else "▲ " + fmt(p["upvotes"])
-ticker = "".join(f'<li><a href="{u("/use-cases/"+x["slug"]+"/")}"><span class="tk-src">{e(x["popularity"]["author"])}</span><span class="tk-n">{tk_n(x)}</span> {e(x["title"])}</a></li>' for x in TRENDING[:12])
+    p = x["_pop"]
+    return "♥ " + fmt(p["likes"]) if p["platform"] == "x" else "▲ " + fmt(p["points"] if p["platform"] == "hn" else p["upvotes"])
+ticker = "".join(f'<li><a href="{u("/use-cases/"+x["slug"]+"/")}"><span class="tk-src">{e(x["_pop"]["author"])}</span><span class="tk-n">{tk_n(x)}</span> {e(x["title"])}</a></li>' for x in TRENDING[:12])
 n_sources = len({s["url"] for x in ucs for s in x["sources"]})
 latest_added = NEWEST[0]["date_added"]
 trend_cards = "".join(card(x, rank=i + 1, big=(i == 0)) for i, x in enumerate(TRENDING[:9]))
@@ -552,7 +598,7 @@ home = f"""
 
 <section class="wrap block" id="trending" aria-labelledby="tr-h">
 <div class="block-head"><div><p class="eyebrow">Trending now</p><h2 id="tr-h">What people are getting bots to do right now</h2>
-<p class="muted">Ranked by real likes, reposts and upvotes, weighted toward newer posts (last {cfg.get('trending_window_days',60)} days). <a href="{u('/about/#popularity')}">How we measure</a>.</p></div>
+<p class="muted">Ranked by real likes, reposts, upvotes and points from X, Reddit and Hacker News, weighted toward newer posts (last {cfg.get('trending_window_days',60)} days). <a href="{u('/about/#popularity')}">How we measure</a>.</p></div>
 <a class="btn btn-ghost btn-sm" href="{u('/trending/')}">Full trending list →</a></div>
 <ol class="bento">{trend_cards}</ol></section>
 <div class="wrap nl-mid" id="subscribe">{newsletter_box("nl-mid", "inline")}</div>
@@ -589,10 +635,10 @@ page("/", f"{NAME}: {TAGLINE}", mdesc(cfg.get("meta_description") or cfg["descri
 
 # ---------- TRENDING + INDEX + CATEGORIES ------------------------------------------
 trows = "".join(f"""<tr><td class="num">{i+1}</td><td><a href="{u('/use-cases/'+x['slug']+'/')}">{e(x['title'])}</a><div class="small muted">{CAT[x['category']]['icon']} {e(CAT[x['category']]['name'])}</div></td>
-<td>{pop_chip(x)}</td><td class="num">{e(nice_date(x['popularity']['posted_at']))}</td><td class="num">{x['_heat']:.0f}</td></tr>""" for i, x in enumerate(TRENDING))
+<td>{pop_chip(x)}</td><td class="num">{e(nice_date(x['_pop']['posted_at']))}</td><td class="num">{x['_heat']:.0f}</td></tr>""" for i, x in enumerate(TRENDING))
 page("/trending/", "Trending AI agent use cases this week", "The AI agent use cases people are talking about most right now, ranked by real likes, reposts and upvotes with the date measured.",
      f"""<div class="wrap page-head"><p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Trending now</p><h1 class="kinetic-sm">Trending now</h1>
-<p class="lead">The jobs people are talking about most right now: real likes, reposts and upvotes, with newer posts counting more. Every number links to the post it came from. <a href="{u('/about/#popularity')}">How we rank</a></p></div>
+<p class="lead">The jobs people are talking about most right now: real likes, reposts, upvotes and points from X, Reddit and Hacker News, with newer posts counting more. Every number links to the post it came from. <a href="{u('/about/#popularity')}">How we rank</a></p></div>
 <div class="wrap"><ol class="bento">{''.join(card(x, rank=i+1, big=(i==0)) for i,x in enumerate(TRENDING[:9]))}</ol>
 <h2 class="mt">Full ranking</h2><div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">#</th><th scope="col">Use case</th><th scope="col">Measured popularity</th><th scope="col">Posted</th><th scope="col">Heat</th></tr></thead><tbody>{trows}</tbody></table></div>
 <p class="small muted">Use cases with no measured popularity aren't ranked here. See <a href="{u('/use-cases/')}">all use cases</a>.</p></div>""",
@@ -668,6 +714,10 @@ def cost_run_html(x):
     return (f'<section class="glass endup cost-run"><h2>What this costs to run</h2><p>{main}</p>'
             f'<p class="small">Tip: <a href="{u("/use-cases/"+g["slug"]+"/")}">{e(g["title"])}</a>. More in <a href="{u(LESS)}">Run your bots for less</a> and <a href="{u(COST_GUIDE)}">how much an AI agent costs</a>.</p></section>')
 
+KIND_NAME = {"hn": "Hacker News", "youtube": "YouTube", "github": "GitHub"}
+def src_stats(s):
+    t = stat_txt(s)
+    return f' <span class="src-stats" title="Measured {e(s.get("measured_at",""))}">{t} · measured {nice_date(s.get("measured_at"))}</span>' if t else ""
 less_callout = f"""<aside class="less-callout glass" aria-label="Run your bots for less"><span class="lco-ico" aria-hidden="true">💸</span><div><p class="lco-k">Part of <a href="{u(LESS)}">Run your bots for less</a></p>
 <p class="small">8 short guides, a cheapest-vs-flagship price table and a calculator that shows what your bot would cost a month on each provider.</p></div><a class="btn btn-sm" href="{u(LESS)}#calculator">Open the cost calculator</a></aside>"""
 for x in ucs:
@@ -676,7 +726,7 @@ for x in ucs:
     steps = "".join(f'<li class="reveal"><span>{e(s)}</span></li>' for s in x["what_the_bot_does"])
     watch = "".join(f"<li>{e(w)}</li>" for w in x.get("watch_out", []))
     srcs = "".join(f'<li><span class="src-kind k-demand" title="Shows that people search for this. Not a source of facts.">Search demand signal</span><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' if is_demand(s) else
-                   f'<li><span class="src-kind k-{e(s.get("kind","article"))}">{e(s.get("kind","article"))}</span><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' for s in x["sources"])
+                   f'<li><span class="src-kind k-{e(s.get("kind","article"))}">{e(KIND_NAME.get(s.get("kind","article"), s.get("kind","article")))}</span><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a>{src_stats(s)}</li>' for s in x["sources"])
     guide = ""
     if x.get("guide"):
         g = x["guide"]
@@ -710,8 +760,17 @@ for x in ucs:
                f'<dl class="popnums"><div><dt>Upvotes</dt><dd>{fmt(p["upvotes"])}</dd></div><div><dt>Comments</dt><dd>{fmt(p.get("comments"))}</dd></div></dl>'
         popbox = f"""<div class="glass side-box"><h2 class="side-h">Popularity signal</h2>{nums}<p class="small">From <a href="{e(p['url'])}" rel="noopener">{e(p['author'])} on {'X' if p['platform']=='x' else 'Reddit'}</a>, posted {nice_date(p['posted_at'])}. Measured {nice_date(p['measured_at'])}.{(' '+e(p['note'])) if p.get('note') else ''}</p>
 {f'<p class="small">Trending heat: <b>{x["_heat"]:.0f}</b></p>' if x['_heat'] else ''}</div>"""
+    elif x["_pop"]:
+        q = x["_pop"]
+        popbox = f"""<div class="glass side-box"><h2 class="side-h">Popularity signal</h2><dl class="popnums"><div><dt>{'Points' if q['platform']=='hn' else 'Upvotes'}</dt><dd>{fmt(q.get('points') if q['platform']=='hn' else q.get('upvotes'))}</dd></div><div><dt>Comments</dt><dd>{fmt(q.get('comments'))}</dd></div></dl><p class="small">From <a href="{e(q['url'])}" rel="noopener">{e(q['author'])}</a>, posted {nice_date(q['posted_at'])}. Measured {nice_date(q['measured_at'])}.</p>
+<p class="small">Trending heat: <b>{x["_heat"]:.0f}</b></p></div>"""
     else:
         popbox = ''  # unmeasured: no box (how we measure is explained on /about/)
+    comm = [s for s in x["sources"] if stat_txt(s) and s.get("url") != (p or {}).get("url")]
+    if comm:
+        popbox += "<div class='glass side-box'><h2 class='side-h'>Also discussed on</h2><ul class='side-list side-comm'>" + "".join(
+            f'<li><a href="{e(s["url"])}" rel="noopener"><span class="src-kind k-{e(s["kind"])}">{e(KIND_NAME.get(s["kind"], s["kind"]))}</span> {stat_txt(s)}</a></li>' for s in sorted(comm, key=lambda s: SEEN_ORDER.get(s["kind"], 9))[:6]) + \
+            f"<li class='small muted'>Measured {nice_date(comm[0].get('measured_at'))}. YouTube views and GitHub stars are shown, not counted in heat.</li></ul></div>"
     rbp = bp_by_uc.get(x["slug"], [])
     bpbox = ("<div class='glass side-box'><h2 class='side-h'>Build it as a bot</h2><ul class='side-list'>" + "".join(f'<li><a href="{u("/blueprints/"+b["slug"]+"/")}">⚙ {e(b["title"])}</a></li>' for b in rbp) + "</ul></div>") if rbp else ""
     rel = [y for y in NEWEST if y["category"] == x["category"] and y["slug"] != x["slug"]][:4]
@@ -724,7 +783,7 @@ for x in ucs:
     body = f"""<article class="wrap uc">{bc}
 <header class="uc-head"><p class="eyebrow"><a class="cat-tag cat-{e(x['category'])}" href="{u('/category/'+c['slug']+'/')}">{c['icon']} {e(c['name'])}</a></p>
 <h1 class="kinetic-sm">{e(x['title'])}</h1><p class="lead">{e(x['summary'])}</p>
-<div class="uc-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span><span class="muted small">Updated <time datetime="{e(_mod)}">{nice_date(_mod)}</time> · By <a href="{u('/about/')}">{e(NAME)}</a> · Added {nice_date(x['date_added'])}</span>{pop_chip(x, long=True)}</div></header>
+<div class="uc-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span><span class="muted small">Updated <time datetime="{e(_mod)}">{nice_date(_mod)}</time> · By <a href="{u('/about/')}">{e(NAME)}</a> · Added {nice_date(x['date_added'])}</span>{pop_chip(x, long=True)}</div>{seen_on(x, long=True)}</header>
 <div class="uc-grid"><div class="uc-main">
 <section><h2>What the bot does</h2><ol class="steps">{steps}</ol></section>
 <section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p></section>{less_callout if x['category'] == 'run-for-less' else ''}{tool_listing(cat=x['category'])}
@@ -734,7 +793,7 @@ for x in ucs:
 <section><h2>Tools that can do it today</h2>{tool_grid(x['tools'])}<p class="small muted">Plans and limits change; check each tool's page.</p></section>
 {('<section class="warn glass"><h2>Watch out</h2><ul>'+watch+'</ul></section>') if watch else ''}
 {cost_run_html(x)}{guide}{reals}{faq}{relx_html}
-<section><h2>Sources</h2><ul class="sources">{srcs}</ul><p class="small muted">Last checked {nice_date(x.get('last_checked'))}. Self-reported results from posts are the poster's own claims.</p></section>
+<section id="sources"><h2>Sources</h2><ul class="sources">{srcs}</ul><p class="small muted">Last checked {nice_date(x.get('last_checked'))}. Self-reported results from posts are the poster's own claims.</p></section>
 </div><aside class="uc-side">{popbox}{bpbox}{featured_slot('use_case_sidebar', x['category'])}{relbox}</aside></div></article>"""
     ld = [bld, {"@context": "https://schema.org", "@type": "HowTo", "name": x["title"], "description": x["summary"],
                 "datePublished": x["date_added"], "dateModified": _mod,
@@ -1416,11 +1475,12 @@ page("/news/", "Latest in AI: new models and AI agent launches, explained", mdes
 page("/about/", f"About {NAME} and how we measure", f"How {NAME} finds real AI agent use cases, measures popularity and checks facts.",
      f"""<div class="wrap narrow prose"><p class="eyebrow">About</p><h1 class="kinetic-sm">About {e(NAME)}</h1>
 <p class="lead">{e(cfg['description'])}</p>
-<h2>Where the use cases come from</h2><p>We look for real people describing real jobs they handed to an AI agent: posts on X and Reddit, plus articles and official product pages. Every use case links to its sources. When a post makes a claim about a result, we say whose claim it is.</p>
+<h2>Where the use cases come from</h2><p>We look for real people describing real jobs they handed to an AI agent, and we look in more than one place: posts on X and Reddit, Hacker News discussions, YouTube walkthroughs, open-source projects on GitHub, plus articles and official product pages. Every use case links to its sources, and a “Seen on” line shows which of those places it turned up in. When a post makes a claim about a result, we say whose claim it is.</p>
 <h2 id="popularity">How we measure popularity</h2><ul>
-<li><b>Only real counts.</b> X likes and reposts come from X's API; Reddit upvotes come from the post. Each number shows where it came from and the date we measured it.</li>
+<li><b>Only real counts.</b> X likes and reposts come from X's API; Reddit upvotes come from the post; Hacker News points and comments come from Hacker News's public search API; YouTube views and GitHub stars are the numbers shown on those pages. Each number shows where it came from and the date we measured it.</li>
 <li><b>Unknown stays unknown.</b> If we couldn't measure it, we show no number at all. We never estimate or round up.</li>
-<li><b>Heat</b> (for “Trending now”) = (likes + 2 × reposts, or upvotes) ÷ weeks since the post, counting only posts from the last {cfg.get('trending_window_days',60)} days. Newer posts with real engagement rise; old ones fade.</li>
+<li><b>Heat</b> (for “Trending now”) adds up every measured post about the use case from the last {cfg.get('trending_window_days',60)} days, wherever it was posted: X (likes + 2 × reposts), Reddit (upvotes) and Hacker News (points), each divided by weeks since that post. So a use case people are discussing on several sites ranks higher than one that's only hot on X. Newer posts with real engagement rise; old ones fade.</li>
+<li>YouTube views and GitHub stars are shown on each page but don't count toward heat: a view or a star isn't the same kind of signal as a vote, and they build up over years.</li>
 <li>Numbers are refreshed by a daily routine, so they change over time.</li></ul>
 <h2>Who runs this</h2><p>An editor ({e(cfg.get('owner',''))}) and a team of AI agents that find new use cases, refresh numbers and check links. A human approves what gets published.</p>
 <h2>How we make money</h2><p>Clearly labeled sponsorships (see <a href="{u('/advertise/')}">advertise</a>), and possibly affiliate links in future, always labeled and explained on our <a href="{u(DISCLOSE)}">disclosure page</a>. Money never changes rankings: trending is computed from public numbers.</p>

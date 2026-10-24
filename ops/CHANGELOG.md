@@ -1,5 +1,13 @@
 # Ops changelog
 
+## 2026-10-24 (late morning CT) — Sources beyond X: "Seen on" line, multi-site heat, 12 new use cases
+- Nik's ask: stop relying on X alone. Before: 61/162 source links were X (85% of community links); 37 of 82 use cases were X-only. After: 61/316 (28% of community links); 14 of 94 X-only. Full numbers and method: ops/source-mix.md (re-run `python3 scripts/source_mix.py`).
+- data/use-cases.json: 53 existing entries gained 96 non-X sources (YouTube, Hacker News, GitHub, Reddit). New optional source fields: `kind` can now be `hn`, `youtube` or `github`; `stats` {points|upvotes|comments|views|stars: int}; `measured_at`; `posted_at`. validate.py checks them (integers only, measured_at required).
+- 12 new use cases (origin `community-backfill-2026-10-24`): researched report with sources, documents to podcast (Gemini Notebook), private smart-home AI, live screen/camera tech help, meeting notes, language speaking practice, interview rehearsal, build a small app by describing it, sort and rename a messy folder, voice memos to notes, read old handwriting, PDF invoices to a spreadsheet. New tools in tools.json: `notebooklm` (Gemini Notebook, formerly NotebookLM) and `home-assistant`.
+- Display: cards show a small "Seen on X · Reddit · YouTube" line (only when a use case has 2+ platforms); use-case pages show it under the header, add the measured numbers next to each source, and a sidebar "Also discussed on" box.
+- Ranking: heat now sums every measured post from the last 60 days: X (likes + 2×reposts), Reddit (upvotes) and Hacker News (points), each ÷ weeks since posted. YouTube views and GitHub stars are shown but not counted (different units, accumulate over years). Entries without an X/Reddit popularity block can now trend from an HN post (book-an-appointment-with-an-ai-agent entered at #30). /about/ and /trending/ text updated.
+- Reddit scores aren't readable from the box (JSON 403/login; RSS has no scores), so new Reddit sources carry no numbers.
+
 ## 2026-10-24 (morning CT) — Per-page social preview images
 - 18 pages now have their own 1200x630 og:image / twitter:image: the top 15 use cases on /trending/ (snapshot Oct 24) plus /use-cases/, /trending/ and /blueprints/. Images were made by the Marketing bot.
 - Source PNGs live in static/og/<slug>.png and publish at /assets/og/<slug>.png. data/og_images.json maps canonical path -> image (trailing slash normalised). Every other page keeps /assets/og.png. All pages keep og:image:width 1200, og:image:height 630 and twitter:card summary_large_image. build.py prints a WARNING if a mapped path has no built page.

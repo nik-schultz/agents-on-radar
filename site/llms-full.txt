@@ -80,6 +80,7 @@ Sources:
 - Gemini Apps Help: Capture your tasks & reminders (Google Tasks, Samsung Reminder; checked 2026-10-23): https://support.google.com/gemini/answer/15230285?hl=en
 - Gemini Apps Help: Manage your tasks & workflows (bulk actions on Google Tasks without confirmation; checked 2026-10-23): https://support.google.com/gemini/answer/17094507?hl=en
 - 9to5Google: Gemini Personal Intelligence now uses Maps saved places with Calendar (Oct 22, 2026; checked 2026-10-23): https://9to5google.com/2026/10/22/gemini-personal-intelligence-maps/
+- YouTube: “How to use Gemini AI with Google Calendar (Tutorial)” by Simpletivity: https://www.youtube.com/watch?v=n3yBSqWf8lo
 
 ## Have two AIs check each other's answers
 URL: https://botsdothat.com/use-cases/have-two-ais-check-each-other/
@@ -110,6 +111,7 @@ Watch out:
 Sources:
 - X post by @emilios_eth (2026-10-21): bot opens Claude on its own computer and argues with it; each caught mistakes the other missed: https://x.com/emilios_eth/status/2112999610394542544
 - X post by @sidv (2026-10-21): Grok and Claude answer blind, then a bot checks the sources and grades every finding: https://x.com/sidv/status/2112986547448643761
+- Reddit r/AI_Agents thread “I collected 51 AI agent setups people actually use” (Oct 17, 2026): u/abe17124 runs a “worker” agent and a separate “council” agent on another model that validates its actions: https://www.reddit.com/r/AI_Agents/comments/1x8i1fj/i_collected_51_ai_agent_setups_people_actually/phcu9go/
 
 ## Build a second brain your bot reads every morning
 URL: https://botsdothat.com/use-cases/build-a-second-brain-your-bot-reads/
@@ -140,6 +142,10 @@ Watch out:
 Sources:
 - X article by @vinayp10 (2026-10-22): moving a plain-file second brain from Claude Code on a home Mac Mini to Grok Bot, with the "Brain Boot" assistant file: https://x.com/vinayp10/status/2113263397491855821
 - Brain Boot starter file from @vinayp10 (GitHub): https://github.com/vp58/brainboot
+- YouTube: “How To Build The ULTIMATE AI Second Brain (Obsidian + Claude Code)” by KJ Rainey: https://www.youtube.com/watch?v=4l8MXYUqGaA
+- YouTube: “How To Set Up A Second Brain With Claude and Obsidian In 30 Seconds” by Fionn: https://www.youtube.com/watch?v=qyxzlM8Zh9A
+- Reddit r/hermesagent: “How I use Obsidian as the long-term memory backbone for my AI assistant” (Apr 23, 2026): https://www.reddit.com/r/hermesagent/comments/1stz6gd/how_i_use_obsidian_as_the_longterm_memory/
+- GitHub: khoj-ai/khoj (open-source “AI second brain” that answers from your own notes and documents): https://github.com/khoj-ai/khoj
 
 ## Fill out a job application faster with an agent
 URL: https://botsdothat.com/use-cases/fill-out-a-job-application-faster/
@@ -185,6 +191,9 @@ Sources:
 - OpenAI Help: Using cloud browser in ChatGPT (fills forms, pauses for sign-in and confirmation, some sites block it; checked 2026-10-22): https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt
 - FTC Consumer Advice: Job Scams (checked 2026-10-22): https://consumer.ftc.gov/articles/job-scams
 - LinkedIn User Agreement, section 8.2 Don'ts (effective Nov 3, 2025; checked 2026-10-22): https://www.linkedin.com/legal/user-agreement
+- YouTube: “I let AI Apply to jobs for me | OpenClaw” by Kaan Turgut: https://www.youtube.com/watch?v=WKJOmi9YSjM
+- YouTube: “How to Autofill Job Applications with AI on Any Job Page” by ApplyBtn: https://www.youtube.com/watch?v=h7BAel1kQxI
+- Hacker News: “Show HN: LiftmyCV – AI Job Search Agent and Auto-Apply Tool”: https://news.ycombinator.com/item?id=43682614
 
 ## Send a long video or thread to your bot with one reply
 URL: https://botsdothat.com/use-cases/send-a-long-video-or-thread-to-your-bot/
@@ -212,6 +221,9 @@ Watch out:
 
 Sources:
 - X post by @Texas_Twins_Dad (2026-10-20): replies "@bot summarize this and send it to my bot" under long videos and threads; the summary waits in the Grok Bot app: https://x.com/Texas_Twins_Dad/status/2112662250225811697
+- YouTube: “How To Summarize YouTube Videos With AI FOR FREE” by Rob The AI Guy: https://www.youtube.com/watch?v=Dk79C6nBJOI
+- Reddit r/n8n: “Built a Telegram bot that summarizes YouTube videos, splits long ones into parts” (Oct 18, 2026): https://www.reddit.com/r/n8n/comments/1x8yrwx/built_a_telegram_bot_that_summarizes_youtube/
+- Reddit r/SideProject: a Telegram bot that summarizes YouTube videos, PDFs and voice notes (Jul 28, 2026): https://www.reddit.com/r/SideProject/comments/1v9bqm9/i_built_a_telegram_bot_that_summarizes_youtube/
 
 ## Let your bot handle your website's contact email
 URL: https://botsdothat.com/use-cases/let-your-bot-handle-your-sites-contact-email/
@@ -239,6 +251,8 @@ Watch out:
 
 Sources:
 - X post by @Texas_Twins_Dad (2026-10-21): his Grok Bot has its own email and runs the email side of his class site; contact mail is forwarded to it and it sends him summaries: https://x.com/Texas_Twins_Dad/status/2112926907549323538
+- YouTube: “How to Build Your Own AI Customer Service Agent with Gmail + Claude” by Isabelle Hanson | Gold St Solutions | Claude: https://www.youtube.com/watch?v=fOt4vbOM4qE
+- YouTube: “How I Built an AI Agent to Automate my Emails in n8n (Step by Step, No Code)” by Nate Herk | AI Automation: https://www.youtube.com/watch?v=KIJHRq_Tg6o
 
 ## Set spend limits and usage alerts on your AI accounts
 URL: https://botsdothat.com/use-cases/set-ai-spend-limits-and-alerts/
@@ -324,6 +338,9 @@ Watch out:
 Sources:
 - X post by @sunfellow (2026-10-20): moved his Grok Bot agents from several runs a day to on-demand after seeing the cost: https://x.com/sunfellow/status/2112585672657969563
 - Anthropic pricing docs: "Monitor usage patterns: Track token consumption to identify optimization opportunities": https://docs.anthropic.com/en/docs/about-claude/pricing
+- YouTube: “OpenClaw Cron Jobs vs Heartbeat Explained” by MMX: https://www.youtube.com/watch?v=KtNZ1twkc7o
+- Reddit r/better_claw: “your agent makes 48 heartbeat checks per day. here's what each one costs on 7 different models” (Jul 24, 2026): https://www.reddit.com/r/better_claw/comments/1v51mgk/your_agent_makes_48_heartbeat_checks_per_day/
+- Reddit r/hermesagent: Cost & Token Optimization Megathread (Jun 22, 2026): https://www.reddit.com/r/hermesagent/comments/1ud03si/cost_token_optimization_megathread_hermes_agent/
 
 ## Run open AI models on your own computer for simple jobs
 URL: https://botsdothat.com/use-cases/run-open-models-on-your-own-computer/
@@ -529,6 +546,9 @@ Watch out:
 
 Sources:
 - X post by @Parul_Gautam7 (2026-10-08): a Market Research agent and a Website Builder agent hand work to each other in one shared group conversation: https://x.com/Parul_Gautam7/status/2108202625929970077
+- YouTube: “How to Build Claude Agent Teams Better Than 99% of People” by Nate Herk | AI Automation: https://www.youtube.com/watch?v=vDVSGVpB2vc
+- YouTube: “CrewAI Tutorial: Multiple Agents Working Together in Python” by NeuralNine: https://www.youtube.com/watch?v=I90xJlzAUW0
+- GitHub: crewAIInc/crewAI (open-source framework for teams of role-based agents): https://github.com/crewAIInc/crewAI
 
 ## Hand off tasks to your agent by voice while you drive
 URL: https://botsdothat.com/use-cases/hand-off-tasks-by-voice-while-driving/
@@ -556,6 +576,7 @@ Watch out:
 
 Sources:
 - X post by @nmtalkss (2026-10-05): on a 2-hour drive he talked to his "CEO agent" in Grok Bot and handed off research and other tasks: https://x.com/nmtalkss/status/2107157837134843995
+- YouTube: “AI Voice Mode with CarPlay: Claude, ChatGPT, Perplexity, and Grok” by Jason Pantana | AI + Marketing for Real Estate: https://www.youtube.com/watch?v=4zUlbaBynQs
 
 ## Get roadside help abroad when nobody speaks your language
 URL: https://botsdothat.com/use-cases/get-roadside-help-abroad/
@@ -610,6 +631,10 @@ Watch out:
 
 Sources:
 - X post by @brian_a_burns (2026-10-19): ChatGPT with computer use filled in a complicated procurement request in software he had never used: https://x.com/brian_a_burns/status/2112326114542858689
+- Hacker News: “Launch HN: Browser Use (YC W25) – open-source web agents”: https://news.ycombinator.com/item?id=43173378
+- GitHub: browser-use/browser-use (open-source agent that operates a web browser): https://github.com/browser-use/browser-use
+- YouTube: “Browser Use: This New AI Agent Can Do Anything (Full AI Scraping Tutorial)” by Tech With Tim: https://www.youtube.com/watch?v=zGkVKix_CRU
+- Reddit r/AI_Agents thread “What is an AI agent that changed your life for real?” (Sep 30, 2026): u/IllustriousYoghurt39 says Meta Muse renewed two vehicle registrations on the DMV site: https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pd4xhed/
 
 ## Have an agent line up contractor quotes for a home project
 URL: https://botsdothat.com/use-cases/line-up-contractors-for-a-home-project/
@@ -637,6 +662,7 @@ Watch out:
 
 Sources:
 - X post by @NaughtyNomad (2026-09-01): an agent using ChatGPT contacted every subcontractor on the island for his renovation and compared their quotes: https://x.com/NaughtyNomad/status/2094720744030642252
+- YouTube: “MUSE AI TIPS: How to Get Contractor Quotes Side by Side with Meta Muse AI #museai #aitips #aitricks” by WorkbookVideos: https://www.youtube.com/watch?v=kXAKsdp7P3g
 
 ## Have an agent research a used car from its listing link
 URL: https://botsdothat.com/use-cases/research-a-used-car-from-a-listing/
@@ -719,6 +745,8 @@ Watch out:
 
 Sources:
 - X post by @BrianRoemmele (2026-10-14): an "Email Newsletter Daily Report" Grok Bot for 3,400+ newsletter subscriptions: https://x.com/BrianRoemmele/status/2110433542182457609
+- YouTube: “How I Summarize All My Newsletters In Minutes With n8n” by Monika AI: https://www.youtube.com/watch?v=C7NCAIiwj88
+- YouTube: “I Get 50+ Newsletters - Here's How ChatGPT Creates a Daily Digest Summary” by Data Driven VC: https://www.youtube.com/watch?v=bKQLb1TDXFU
 
 ## Give your bot a phone number so it can call and book for you
 URL: https://botsdothat.com/use-cases/call-and-book-by-phone/
@@ -749,6 +777,8 @@ Watch out:
 Sources:
 - X post by @BrianRoemmele (2026-10-18): his Grok Bot calls the restaurant, books the table and reports back; guardrails and other uses listed: https://x.com/BrianRoemmele/status/2111812467500458135
 - X post by @RetiredArmy_Guy (2026-10-19): his Grok Bot got its own phone number and booked his dog's vet appointment by phone: https://x.com/RetiredArmy_Guy/status/2112154131028652535
+- Hacker News: “Show HN: Companies use AI to take your calls. I built AI to make them for you”: https://news.ycombinator.com/item?id=44716414
+- Hacker News: “Show HN: PlaceCall (YC W26) – agentic API to call businesses and get things done”: https://news.ycombinator.com/item?id=49831231
 
 ## Write a letter of recommendation for someone
 URL: https://botsdothat.com/use-cases/write-a-letter-of-recommendation/
@@ -788,6 +818,8 @@ Watch out:
 
 Sources:
 - Google search suggestions for “use ai to write a letter of recommendation” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+write+a+letter+of+recommendation
+- YouTube: “How to Write a Letter of Recommendation Using Chatgpt” by Deliberate Spender: https://www.youtube.com/watch?v=Gb1RbS37WFk
+- YouTube: “How to Write a Letter of Recommendation in Less Than 10 Minutes using ChatGPT” by Professor McLeod: https://www.youtube.com/watch?v=I0sXeYMF9cs
 
 ## Get your phone number off people-search sites to cut spam calls
 URL: https://botsdothat.com/use-cases/remove-your-number-from-people-search-sites/
@@ -816,6 +848,8 @@ Watch out:
 
 Sources:
 - X post by @PixelRainbowNFT (2026-10-19): a roundup of Grok Bot templates, including a Spam-Call Scrubber that files people-search opt-outs and re-checks: https://x.com/PixelRainbowNFT/status/2112256029543329930
+- YouTube: “I Used ChatGPT Agent Mode to Erase My Data Off the Internet” by Sabrina Ramonov 🍄: https://www.youtube.com/watch?v=MRxoP0-XIUY
+- YouTube: “Easiest way to remove yourself online using AI” by Cybersecurity Girl: https://www.youtube.com/watch?v=KGCDeX1v62E
 
 ## Log your meals by talking and get a daily weight check-in
 URL: https://botsdothat.com/use-cases/log-meals-and-weight-by-voice/
@@ -844,6 +878,7 @@ Watch out:
 
 Sources:
 - X post by @RayFernando1337 (2026-10-20): his Grok Bot logs his food when he talks, gets a morning check-in from his Withings scale and does his receipts (video): https://x.com/RayFernando1337/status/2112529809557401660
+- YouTube: “how I track my calories with AI (just my voice)” by gimegainzz: https://www.youtube.com/watch?v=faMokVawrYQ
 
 ## Have your bot make a customer-service phone call for you
 URL: https://botsdothat.com/use-cases/make-a-customer-service-call/
@@ -876,6 +911,7 @@ Sources:
 - X post by @skeptrune (2026-10-20): setup steps and a real Hulu cancellation call made by Grok Bot with a phone-calling add-on: https://x.com/skeptrune/status/2112563230019289456
 - X post by @mike_nopages (2026-10-17): his bot called an airline in Korean, but the airline wouldn't rebook because he wasn't on the call: https://x.com/mike_nopages/status/2111346928185496016
 - X post by @james_fowler_ (2026-10-18): a restaurant owner nearly hung up until the bot said it was an AI: https://x.com/james_fowler_/status/2111888527826813404
+- Hacker News: “Show HN: Companies use AI to take your calls. I built AI to make them for you”: https://news.ycombinator.com/item?id=44716414
 
 ## Write a resignation letter that keeps the door open
 URL: https://botsdothat.com/use-cases/write-a-resignation-letter/
@@ -915,6 +951,8 @@ Watch out:
 
 Sources:
 - Google search suggestions for “ai to write resignation letter” (checked 2026-10-20): https://www.google.com/search?q=ai+to+write+resignation+letter
+- YouTube: “Use ChatGPT to Craft the Perfect Resignation Letter in No Time #chatgpt” by PD blogs: https://www.youtube.com/watch?v=SoFV9v9SqXw
+- YouTube: “Using AI to write my resignation letter 👋” by Derek: https://www.youtube.com/watch?v=qRidYDEXHAg
 
 ## Plan a week of family meals and fill the grocery cart
 URL: https://botsdothat.com/use-cases/family-meal-plan-and-grocery-order/
@@ -948,6 +986,8 @@ Sources:
 - X post by @lyndallschreinr (2026-10-07): a custom Grok bot plans 15 family meals a week and feeds a shopping list into Instacart: https://x.com/lyndallschreinr/status/2107888353630908437
 - X post by @NickADobos (2026-10-15): Amazon blocked his agent, so groceries moved to Instacart: https://x.com/NickADobos/status/2110749518518235276
 - X post by @elijahbuildsai (2026-09-25): Claude meal plan from fridge photos plus Instacart: https://x.com/elijahbuildsai/status/2103607960996086113
+- YouTube: “My AI Agent Does Grocery Ordering AND Meal Planning Now | AI Homemaking” by Jesse Genet: https://www.youtube.com/watch?v=NPifV3DbwSo
+- Reddit r/AI_Agents thread “What is an AI agent that changed your life for real?” (Sep 30, 2026): u/sjm04f connected ChatGPT to a recipe database and Instacart and orders a recipe's groceries by voice: https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pd44cd2/
 
 ## Catch family calendar clashes before the week starts
 URL: https://botsdothat.com/use-cases/sunday-family-calendar-check/
@@ -1004,6 +1044,7 @@ Sources:
 - X post by @AlexFinn (2026-10-05): video: 6 everyday use cases for Meta Muse: https://x.com/AlexFinn/status/2107254007412756589
 - Meta Help Center: How to get started with Muse: https://www.meta.com/help/artificial-intelligence/1331373868832401/
 - Reddit r/AI_Agents: “What AI agents are actually worth running for personal use?” (archived snapshot, Sep 5 2026): https://reddit.sentinel-team.org/posts/1w4e3ji/snapshots/2026-09-05T09%3A24%3A43.696105Z
+- YouTube: “Personal Agents, Clearly Explained” by Jeff Su: https://www.youtube.com/watch?v=HdI_aYzgJIg
 
 ## Get a daily scam check on your inbox
 URL: https://botsdothat.com/use-cases/email-scam-filter/
@@ -1031,6 +1072,7 @@ Watch out:
 
 Sources:
 - X post by @BrianRoemmele (2026-10-13): a read-only Grok Bot that scores email scam risk every morning: https://x.com/BrianRoemmele/status/2110008406807568813
+- YouTube: “How to Analyze Phishing Emails with Claude AI (Headers Body + URL Check)” by SecOps Insider: https://www.youtube.com/watch?v=dZc0oqZtnlc
 
 ## Run family logistics from the family group chat
 URL: https://botsdothat.com/use-cases/run-family-logistics-from-the-group-chat/
@@ -1060,6 +1102,7 @@ Watch out:
 Sources:
 - X post by @saviomartin (2026-10-11): launch of Coral, a family agent that works from the family chat: https://x.com/saviomartin/status/2109330165381910817
 - X post by @RoundtableSpace (2026-10-21): Wabi 2.0 launched, one AI agent a whole group chat shares; updates everyone's calendar when pickup changes and books tickets: https://x.com/RoundtableSpace/status/2112918077314920688
+- YouTube: “I built an AI agent that turns family group chats into a shared calendar ft. neatlogs” by neatlogs: https://www.youtube.com/watch?v=t7830Eqo9KM
 
 ## Let an agent reorder your regular groceries
 URL: https://botsdothat.com/use-cases/reorder-your-regular-groceries/
@@ -1090,6 +1133,7 @@ Sources:
 - X post by @mulhollandsr (2026-09-25): Amazon blocked Muse from his cart: https://x.com/mulhollandsr/status/2103533570203717674
 - Teslarati, Oct 15 2026: Amazon shuts out Grok Bot shoppers; Musk says buy elsewhere: https://www.teslarati.com/elon-musk-grok-bot-amazon-shopping/
 - TechCrunch, Sep 21 2026: Meta's AI agent has been blocked from using Amazon.com: https://techcrunch.com/2026/09/21/metas-ai-agent-has-been-blocked-from-using-amazon-com/
+- YouTube: “How to order groceries with ChatGPT agent mode #ai #artificialintelligence #aihacks #aitools” by Brennan Wells | AI Automation: https://www.youtube.com/watch?v=-hHVC5WZHhc
 
 ## Plan and book a whole trip by texting your bot
 URL: https://botsdothat.com/use-cases/plan-and-book-a-whole-trip-by-text/
@@ -1202,6 +1246,7 @@ Watch out:
 Sources:
 - WIRED, Sep 24 2026: “I Think I Found an AI Agent Worth the Risk” (Instinct review): https://www.wired.com/story/i-finally-found-an-ai-agent-worth-the-risk/
 - X post by @MilksandMatcha (2026-09-30): timed comparison of agents making a dinner reservation: https://x.com/MilksandMatcha/status/2105372125288976402
+- Hacker News: “Google's $250 AI agent can only help you book restaurant reservations”: https://news.ycombinator.com/item?id=44974967
 
 ## Book a haircut or appointment, even when the form won't work
 URL: https://botsdothat.com/use-cases/book-a-haircut-by-email/
@@ -1255,6 +1300,9 @@ Watch out:
 
 Sources:
 - X post by @siyabuilt (2026-09-01): finance admin automated with Grok Bot + a receipts inbox, read-only: https://x.com/siyabuilt/status/2094755088841457892
+- Hacker News: “Show HN: Auto-Match – How We Built Receipt-to-Transaction Matching (Open Source)”: https://news.ycombinator.com/item?id=45036761
+- YouTube: “Process Receipts with AI (Claude Cowork)” by Hector Garcia CPA: https://www.youtube.com/watch?v=5C-d-8LSEI4
+- YouTube: “n8n Bookkeeping AI Agent: Match Receipts to Bank Statements (Gemini 2.5 Flash)” by Eric Tech: https://www.youtube.com/watch?v=iTEFeIkYg7E
 
 ## Set up a “chief of staff” bot that plans your other bots
 URL: https://botsdothat.com/use-cases/hire-a-chief-of-staff-bot/
@@ -1285,6 +1333,9 @@ Watch out:
 
 Sources:
 - X post by @coreyganim (2026-09-15): the 2-sentence chief-of-staff prompt: https://x.com/coreyganim/status/2099808193178485185
+- YouTube: “Hermes Full Course: Build Your 24/7 AI Chief of Staff in 45 Minutes” by Peter Yang: https://www.youtube.com/watch?v=2ZacwCbiLjg
+- YouTube: “How to Build an AI Chief of Staff in Claude (Full Setup)” by Darby Rollins: https://www.youtube.com/watch?v=7EfWMObf6Mo
+- YouTube: “How to build an AI Chief of Staff agent with Claude Code. #claudecode #claude #ai” by Matt Paige: https://www.youtube.com/watch?v=Jj69m2CA_5k
 
 ## Run several brands or jobs with one bot each
 URL: https://botsdothat.com/use-cases/one-bot-per-brand/
@@ -1339,6 +1390,7 @@ Watch out:
 
 Sources:
 - X post by @DMAC_19 (2026-10-01): 8 days with an agent in a commercial real estate inbox: https://x.com/DMAC_19/status/2105719791751487542
+- YouTube: “Smart Email Alert Workflow | Automate Gmail Notifications with AI + n8n” by IoT by CosmicX: https://www.youtube.com/watch?v=n0dXKDDDlwg
 
 ## Have a bot sort your scanned paper mail and flag what needs you
 URL: https://botsdothat.com/use-cases/sort-scanned-paper-mail-with-alerts/
@@ -1368,6 +1420,10 @@ Watch out:
 
 Sources:
 - X post by @mikekamo (2026-09-23): Claude reads scanned paper mail, handles routine items and flags anything more than 20% different: https://x.com/mikekamo/status/2102768278812680522
+- YouTube: “Paperless-ngx + Local AI (Optional): Better OCR, Self-Hosted, No Cloud” by Techno Tim: https://www.youtube.com/watch?v=NMAwHjleqHg
+- YouTube: “Supercharge Paperless-NGX with AI | Automate Documents check | Self-Hosting Lab Series” by MRP: https://www.youtube.com/watch?v=wpBoD4tv-gQ
+- GitHub: paperless-ngx/paperless-ngx (open-source scanner inbox that OCRs and files paper documents): https://github.com/paperless-ngx/paperless-ngx
+- GitHub: clusterzx/paperless-ai (adds AI tagging and sorting to Paperless-ngx): https://github.com/clusterzx/paperless-ai
 
 ## Have a bot watch any web page and ping you when it changes
 URL: https://botsdothat.com/use-cases/watch-a-web-page-for-changes/
@@ -1396,6 +1452,8 @@ Watch out:
 Sources:
 - X post by @teeRex247 (2026-10-19): a Grok bot that watches pages and pings only on change: https://x.com/teeRex247/status/2111981455077466525
 - Reddit r/AI_Agents: “What AI agents are actually worth running for personal use?” (archived snapshot, Sep 5 2026): https://reddit.sentinel-team.org/posts/1w4e3ji/snapshots/2026-09-05T09%3A24%3A43.696105Z
+- GitHub: dgtlmoon/changedetection.io (open-source web page change alerts): https://github.com/dgtlmoon/changedetection.io
+- YouTube: “Monitor Websites for Changes with Browse AI” by Browse AI: https://www.youtube.com/watch?v=BFkgtLywV-Y
 
 ## Find the conversations you forgot to follow up on
 URL: https://botsdothat.com/use-cases/find-dead-conversations-to-follow-up/
@@ -1450,6 +1508,7 @@ Watch out:
 
 Sources:
 - X post by @Teevince_Ben (2026-08-21): lead-finding workflow with human approval before sending: https://x.com/Teevince_Ben/status/2090800086477389964
+- YouTube: “How to generate leads using Claude #anthropic #ai #aitools #leads #artificialintelligence” by Nathan Hodgson: https://www.youtube.com/watch?v=RMeHgyOxb_w
 
 ## Give your agent its own email address
 URL: https://botsdothat.com/use-cases/give-your-agent-its-own-email-address/
@@ -1477,6 +1536,9 @@ Watch out:
 Sources:
 - X post by @pvergadia (2026-10-13): gave an agent its own inbox; it turned an email into a prepped calendar invite: https://x.com/pvergadia/status/2110022751247556669
 - X post by @TheReal_BCM (2026-10-20): step by step, claimed a Grok Bot email address and set Gmail to forward a copy of every email to it: https://x.com/TheReal_BCM/status/2112514178871345362
+- YouTube: “AgentMail: The Email Inbox Built for AI Agents” by SyntaxGTM (Tom Granot): https://www.youtube.com/watch?v=hy1vucItiVw
+- YouTube: “Agentmail Gives Every AI Agent Its Own Inbox (Free)” by Charlie Automates: https://www.youtube.com/watch?v=nShpPxFckTE
+- Hacker News: “Show HN: AgentMailr – dedicated email inboxes for AI agents”: https://news.ycombinator.com/item?id=47386367
 
 ## Get a daily digest of jobs that actually fit you
 URL: https://botsdothat.com/use-cases/job-match-digest/
@@ -1509,6 +1571,8 @@ Sources:
 - Reddit r/n8n: LinkedIn job-matching workflow that scores jobs against your CV (Apr 2026): https://www.reddit.com/r/n8n/comments/1ssdtg7/built_a_n8n_linkedin_job_automation_ai_agent/
 - Reddit r/n8n: Can n8n realistically auto-apply to jobs? (discussion of bans and fragile submission): https://www.reddit.com/r/n8n/comments/1u30kw5/can_n8n_realistically_power_an_automated_job/
 - X post by @siddaniagi (2026-09-28): Career Agent: evaluate jobs, tailor resumes, track applications: https://x.com/siddaniagi/status/2104457847010693524
+- YouTube: “Your Automated Job Search & Application AI Agent [No-code with n8n, LinkedIn, Deepseek & Perplexity]” by Andy Lo: https://www.youtube.com/watch?v=coFz9CvKnZE
+- YouTube: “Automate Your Job Search Using AI (Indeed, LinkedIn, ZipRecruiter)” by Jono Catliff: https://www.youtube.com/watch?v=LIzZRgfW4ok
 
 ## Turn the flood of school emails into one weekly digest
 URL: https://botsdothat.com/use-cases/school-email-digest/
@@ -1540,6 +1604,7 @@ Sources:
 - Meta: “How We Designed Muse” (launch essay): https://introducing.muse.ai/
 - Google blog: Gemini Spark announcement (May 2026): https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/
 - X post by @Michael_Fenech_ (2026-10-09): school email manager prompt: https://x.com/Michael_Fenech_/status/2108579992456327489
+- YouTube: “AI can summarize school emails for you” by aiwithcassie : https://www.youtube.com/watch?v=Kvzc5h86m6w
 
 ## Get a Monday recap of your inbox and a to-do list
 URL: https://botsdothat.com/use-cases/monday-inbox-recap-and-todo/
@@ -1567,6 +1632,7 @@ Watch out:
 Sources:
 - Google: Gemini Spark overview page (example tasks and schedules): https://gemini.google/overview/agent/spark/
 - X post by @Jinfeng_tlqm (2026-10-10): beginner list of daily Grok Bot jobs: https://x.com/Jinfeng_tlqm/status/2108849705367327126
+- YouTube: “How I Use AI to Turn a Week of Emails Into Summaries and Insights” by Keymate AI: https://www.youtube.com/watch?v=dQ6naFbAM38
 
 ## Only see the emails that actually need a reply
 URL: https://botsdothat.com/use-cases/flag-only-emails-that-need-a-reply/
@@ -1594,6 +1660,8 @@ Watch out:
 Sources:
 - Reddit r/AI_Agents: “What AI agents are actually worth running for personal use?” (archived snapshot, Sep 5 2026): https://reddit.sentinel-team.org/posts/1w4e3ji/snapshots/2026-09-05T09%3A24%3A43.696105Z
 - Original Reddit thread: https://www.reddit.com/r/AI_Agents/comments/1w4e3ji/what_ai_agents_are_actually_worth_running_for/
+- Reddit r/AI_Agents thread “What is an AI agent that changed your life for real?” (Sep 30, 2026): u/himiaoxin describes an email triage agent that scans the inbox each morning, flags what's urgent and drafts routine replies: https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pczrre1/
+- YouTube: “AI Email Triage: Prioritize Your Inbox in 10 Minutes” by Avi Santoso: https://www.youtube.com/watch?v=kHSk3f_Qrrg
 
 ## Teach a bot to write emails that sound like you
 URL: https://botsdothat.com/use-cases/email-ghostwriter-style-guide/
@@ -1621,6 +1689,7 @@ Watch out:
 Sources:
 - Google: Gemini Spark overview page (example tasks and schedules): https://gemini.google/overview/agent/spark/
 - X post by @mikekamo (2026-09-23): had Claude read 12 months of sent email so drafts sound like him: https://x.com/mikekamo/status/2102768278812680522
+- YouTube: “Claude AI Writes My Emails in My Own Voice” by Design with May: https://www.youtube.com/watch?v=luB0YLajoS8
 
 ## Log every new client inquiry automatically
 URL: https://botsdothat.com/use-cases/log-new-client-inquiries/
@@ -1647,6 +1716,8 @@ Watch out:
 
 Sources:
 - Google: Gemini Spark overview page (example tasks and schedules): https://gemini.google/overview/agent/spark/
+- Reddit r/n8n: “Built an n8n workflow that scores new form submissions with AI and alerts me on Telegram” (Sep 29, 2026): https://www.reddit.com/r/n8n/comments/1wt203w/built_an_n8n_workflow_that_scores_new_form/
+- YouTube: “Turn Messy Client Order Emails into Clean Excel Sheets – Build a No-Code AI Agent in 7 Mins” by Titan AI Agent: https://www.youtube.com/watch?v=0N439QvHOW4
 
 ## Get a short morning digest on topics you care about
 URL: https://botsdothat.com/use-cases/morning-news-digest/
@@ -1674,6 +1745,9 @@ Watch out:
 Sources:
 - Meta Help Center: How Muse works with skills (morning news digest): https://www.meta.com/help/artificial-intelligence/2797651547267109/
 - X post by @Jinfeng_tlqm (2026-10-10): “Every morning, send me the 5 biggest AI stories in plain English”: https://x.com/Jinfeng_tlqm/status/2108849705367327126
+- YouTube: “Build a NEWS Briefing AI Agent 👩🏻‍💻” by Sundas Khalid: https://www.youtube.com/watch?v=dN8sHamvN4U
+- YouTube: “Set Up a Daily Morning Brief with Claude AI” by Nexus: https://www.youtube.com/watch?v=D5nZOUfac_0
+- Reddit r/AI_Agents thread “What is an AI agent that changed your life for real?” (Sep 30, 2026): u/SumGuy713 runs scheduled jobs that do market research and generate daily morning briefs: https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pda1m47/
 
 ## Watch your email for one important letter or reply
 URL: https://botsdothat.com/use-cases/watch-for-one-important-letter/
@@ -1727,6 +1801,8 @@ Watch out:
 
 Sources:
 - X post by @_architected (2026-09-28): a reported Muse Marketplace mix-up (address shared, pickup when seller was out): https://x.com/_architected/status/2104442538254123102
+- YouTube: “How I Automated Facebook Marketplace Sales (Meta Muse)” by Reezy Resells: https://www.youtube.com/watch?v=8-OHQHUil70
+- YouTube: “I Built an AI Agent for Facebook Marketplace” by Ahmed Bafagih: https://www.youtube.com/watch?v=IXLty4a00z0
 
 ## Keep a household essentials list and reorder on time
 URL: https://botsdothat.com/use-cases/household-restock-list/
@@ -1830,6 +1906,7 @@ Watch out:
 
 Sources:
 - X post by @robbieklages (2026-10-02): agent booked a hotel with a one-time-use virtual card: https://x.com/robbieklages/status/2105830877259346021
+- YouTube: “Privacy MCP: Create a Virtual Card for Your AI Agent in Seconds” by Privacy (from Privacy.com's own channel): https://www.youtube.com/watch?v=cLx9rrMBU_U
 
 ## Get your ads and sales numbers every morning without logging in
 URL: https://botsdothat.com/use-cases/daily-ads-and-sales-report/
@@ -1904,6 +1981,7 @@ Sources:
 - Reddit r/AgingParents: discharge appeal written with ChatGPT help (Feb 2026): https://www.reddit.com/r/AgingParents/comments/1r1eimf/
 - Hacker News comment: parent used ChatGPT to work through an external appeal: https://news.ycombinator.com/item?id=45734582
 - Google search suggestions for “using ai to appeal insurance denial” (checked 2026-10-19): https://www.google.com/search?q=using+ai+to+appeal+insurance+denial
+- YouTube: “Health Insurance Denial AI Agent” by Buck Parker, M.D.: https://www.youtube.com/watch?v=6tq6XAFDxgI
 
 ## Understand a confusing letter or notice, and what to do next
 URL: https://botsdothat.com/use-cases/understand-a-confusing-letter/
@@ -1992,6 +2070,7 @@ Sources:
 - Search Engine Watch on Channel V Media's AI Barometer (June 2026 survey, 7,675 US adults): https://searchenginewatch.com/four-in-ten-americans-would-hand-ai-a-chore-survey-finds/
 - EY AI Sentiment Study, wave 4 (2026): https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/insights/ai/documents/ey-gl-ai-sentiment-study-wave-04-2026.pdf
 - Google search suggestions for “ai agent to book appointments” (checked 2026-10-19): https://www.google.com/search?q=ai+agent+to+book+appointments
+- Hacker News: “Show HN: PlaceCall (YC W26) – agentic API to call businesses and get things done”: https://news.ycombinator.com/item?id=49831231
 
 ## Write a complaint that actually gets a problem fixed
 URL: https://botsdothat.com/use-cases/write-a-complaint-that-gets-fixed/
@@ -2174,6 +2253,8 @@ Sources:
 - Google search suggestions for “use chatgpt to plan a trip” (checked 2026-10-19): https://www.google.com/search?q=use+chatgpt+to+plan+a+trip
 - Use.AI survey of 2,400 US/UK adults (press release): https://cooperative-agency.prowly.com/447243-why-more-people-are-outsourcing-their-thinking-to-ai
 - OpenAI Help: Using cloud browser in ChatGPT: https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt
+- YouTube: “How to Use ChatGPT to Plan a Trip (Step-by-Step Tutorial)” by The Travel Coaches: https://www.youtube.com/watch?v=Dcmoaa8yR1g
+- YouTube: “How to Plan a Trip Itinerary with Claude” by Prompt & Flow: https://www.youtube.com/watch?v=3rzkZ7tJicc
 
 ## Prepare for a doctor's appointment
 URL: https://botsdothat.com/use-cases/prepare-for-a-doctor-visit/
@@ -2212,6 +2293,7 @@ Watch out:
 Sources:
 - Menlo Ventures, 2025 State of Consumer AI (survey of 5,000+ US adults): https://menlovc.com/perspective/2025-the-state-of-consumer-ai/
 - AHRQ: Questions to ask your doctor: https://www.ahrq.gov/questions/index.html
+- YouTube: “Preparing for a doctor’s appointment with ChatGPT” by OpenAI (from OpenAI's own channel): https://www.youtube.com/watch?v=30RRJsIHmbQ
 
 ## Organize an aging parent's care and paperwork
 URL: https://botsdothat.com/use-cases/organize-a-parents-care-paperwork/
@@ -2246,6 +2328,7 @@ Watch out:
 
 Sources:
 - Reddit r/AgingParents: ChatGPT helped with an insurance discharge appeal: https://www.reddit.com/r/AgingParents/comments/1r1eimf/
+- YouTube: “How to Use AI to Help Care for an Aging Parent (Appointments, Meds List & Paperwork)” by Lamdis AI: https://www.youtube.com/watch?v=a2Bt4u3B4pY
 
 ## Make a weekly meal plan and grocery list
 URL: https://botsdothat.com/use-cases/weekly-meal-plan-and-grocery-list/
@@ -2280,6 +2363,8 @@ Watch out:
 Sources:
 - Menlo Ventures, 2025 State of Consumer AI (survey of 5,000+ US adults): https://menlovc.com/perspective/2025-the-state-of-consumer-ai/
 - Google search suggestions for “use ai to plan meals” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+plan+meals
+- YouTube: “Using ChatGPT For EASY Meal Planning and Effortless Grocery Lists!” by The Cross Legacy: https://www.youtube.com/watch?v=55yQ4bZeTkE
+- YouTube: “AI Generated My Weekly Meal Plan and Saved Me Hours (Claude CoWork)” by Hopeful Social AI: https://www.youtube.com/watch?v=_PSNgaHlJUY
 
 ## Use AI for homework help that teaches instead of cheats
 URL: https://botsdothat.com/use-cases/homework-help-that-teaches/
@@ -2316,6 +2401,7 @@ Watch out:
 Sources:
 - Google search suggestions for “ai to help with homework” (checked 2026-10-19): https://www.google.com/search?q=ai+to+help+with+homework
 - Menlo Ventures, 2026 State of Consumer AI: https://menlovc.com/wp-content/uploads/2026/09/menlo_ventures_consumer_ai_report-2026.pdf
+- YouTube: “Build Your Own Socratic AI Tutor: Stop Copying, Start Learning!” by The AI Protocol: https://www.youtube.com/watch?v=cCRlpqsgzHc
 
 ## Get your email inbox under control
 URL: https://botsdothat.com/use-cases/clean-up-your-email-inbox/
@@ -2350,6 +2436,8 @@ Sources:
 - Menlo Ventures, 2025 State of Consumer AI (survey of 5,000+ US adults): https://menlovc.com/perspective/2025-the-state-of-consumer-ai/
 - Menlo Ventures, 2026 State of Consumer AI: https://menlovc.com/wp-content/uploads/2026/09/menlo_ventures_consumer_ai_report-2026.pdf
 - Google search suggestions for “use ai to organize gmail” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+organize+gmail
+- Reddit r/AI_Agents thread “What is an AI agent that changed your life for real?” (Sep 30, 2026): u/Zenith2012 has ChatGPT check email three times a day, archive the junk and list what needs a follow-up: https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pd141bl/
+- YouTube: “I Gave Claude Cowork My Worst Inbox (47,693 Emails)...” by Charlie Automates: https://www.youtube.com/watch?v=sJPux4buZN0
 
 ## Tailor your resume and cover letter to a job
 URL: https://botsdothat.com/use-cases/tailor-your-resume-to-a-job/
@@ -2386,6 +2474,9 @@ Watch out:
 Sources:
 - Google search suggestions for “ai to help with resume” (checked 2026-10-19): https://www.google.com/search?q=ai+to+help+with+resume
 - Google search suggestions for “can ai fill out job applications for me” (checked 2026-10-19): https://www.google.com/search?q=can+ai+fill+out+job+applications+for+me
+- YouTube: “Tailor your resume using Gemini | Accelerate your job search with AI | Google” by Grow with Google (from Grow with Google): https://www.youtube.com/watch?v=IMCDNQJlBlc
+- YouTube: “Tailor Your Resume in Under 3 Minutes Using ChatGPT (Step-by-Step)” by Ogaga Johnson (Project Management Coach): https://www.youtube.com/watch?v=DU5BGSS4Ugg
+- Hacker News: “Show HN: I built a tool to auto-tailor resumes to job posts”: https://news.ycombinator.com/item?id=43004494
 
 ## Write listings that sell your stuff faster
 URL: https://botsdothat.com/use-cases/sell-your-stuff-online/
@@ -2423,6 +2514,7 @@ Watch out:
 Sources:
 - Google search suggestions for “use ai to sell on facebook marketplace” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+sell+on+facebook+marketplace
 - Google search suggestions for “ai to write listing description” (checked 2026-10-19): https://www.google.com/search?q=ai+to+write+listing+description
+- YouTube: “How I Use AI to List 100 Items/Hour on eBay (FREE)” by Hustle at Home Mom: https://www.youtube.com/watch?v=XAvnCkANxLE
 
 ## Test a side hustle idea before you commit
 URL: https://botsdothat.com/use-cases/test-a-side-hustle-idea/
@@ -2460,6 +2552,7 @@ Sources:
 - FTC: Crackdown on deceptive AI claims and schemes (Operation AI Comply, Sep 2024): https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes
 - FTC: Air AI banned from marketing business opportunities (Mar 2026): https://www.ftc.gov/news-events/news/press-releases/2026/03/air-ai-its-owners-will-be-banned-marketing-business-opportunities-settle-ftc-charges-company-misled
 - Google search suggestions for “use ai to start a side hustle” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+start+a+side+hustle
+- YouTube: “How to Validate Any Business Idea in 24 Hours Using AI” by Jon Law : https://www.youtube.com/watch?v=bSsBM1P7nOU
 
 ## Reply to customer reviews (even the angry ones)
 URL: https://botsdothat.com/use-cases/reply-to-customer-reviews/
@@ -2495,6 +2588,7 @@ Watch out:
 Sources:
 - Google Business Profile Help: Manage customer reviews: https://support.google.com/business/answer/3474050?hl=en
 - Google search suggestions for “ai to respond to google reviews” (checked 2026-10-19): https://www.google.com/search?q=ai+to+respond+to+google+reviews
+- YouTube: “I JUST AUTOMATED MY GOOGLE REVIEW WITH AI (CHAT GPT)” by Jackie Lu: https://www.youtube.com/watch?v=7liRdDbI0ZQ
 
 ## Chase an unpaid invoice without burning the relationship
 URL: https://botsdothat.com/use-cases/chase-an-unpaid-invoice/
@@ -2528,6 +2622,390 @@ Watch out:
 
 Sources:
 - Google search suggestions for “use ai to make invoices” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+make+invoices
+- YouTube: “How to Automate Invoice Follow-Ups with Google Sheets + ChatGPT” by XL7 Vids: https://www.youtube.com/watch?v=QMJRuH-QPzY
+- Hacker News: “Show HN: AI Invoicing with Jinna – Create, Send and Chase to Get Paid Faster”: https://news.ycombinator.com/item?id=45808854
+
+## Get a researched report with sources on any question
+URL: https://botsdothat.com/use-cases/get-a-researched-report-with-sources/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-24
+Popularity: not measured
+
+Ask one big question and let a research agent spend several minutes searching, reading and comparing pages. You get back a written report with links to every source.
+
+What the bot does:
+1. Takes your question and asks a few follow-ups if it's unclear.
+2. Plans a set of searches, then reads dozens of pages.
+3. Compares what the sources say and notes where they disagree.
+4. Writes a report with a link next to each claim.
+
+What you end up with: A multi-page report with linked sources that you can check, instead of 30 open tabs.
+
+Tools: ChatGPT, Gemini, Claude
+
+Prompt:
+Research this for me: [your question, e.g. which home battery backup options work with a [brand] solar system in [state]]. Who it's for: [me / my family / my small business]. I care most about [safety, cost, reliability]. Give me a short summary first, then the details. Link a source for every claim, say when sources disagree, and tell me what you couldn't confirm. Don't buy, sign up or contact anyone.
+
+Watch out:
+- Research agents can still cite a page that doesn't say what the report claims. Click the links for anything important.
+- Treat the report as a first draft. Check the sources for anything you'll act on, spend money on or repeat to others.
+- Claude's help page says Research can use your connected apps (like Gmail) without asking each time. Turn off connectors you don't want it reading.
+
+Sources:
+- Hacker News: “Introducing deep research” (OpenAI's launch): https://news.ycombinator.com/item?id=42913251
+- Hacker News: “Perplexity Deep Research”: https://news.ycombinator.com/item?id=43061827
+- YouTube: “How to Use ChatGPT’s Deep Research to Save HOURS on Research” by Andy Stapleton: https://www.youtube.com/watch?v=ld3XMuXwLcE
+- Gemini Apps Help: Use Deep Research in Gemini Apps (checked 2026-10-24): https://support.google.com/gemini/answer/15719111
+- Claude Help Center: Use research on Claude (paid plans; checked 2026-10-24): https://support.claude.com/en/articles/11088861-using-research-on-claude
+
+## Turn a pile of documents into a podcast you can listen to
+URL: https://botsdothat.com/use-cases/turn-documents-into-a-podcast/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-24
+Popularity: not measured
+
+Upload PDFs, notes or links to Gemini Notebook (formerly NotebookLM) and it makes an audio overview: two AI hosts talking through your material, ready to play on a walk or in the car.
+
+What the bot does:
+1. Reads the documents, links or notes you add to a notebook.
+2. Writes a conversation between two AI hosts that covers the key points.
+3. Turns it into audio you can play at the speed you like.
+4. Answers follow-up questions from the same sources, with citations.
+
+What you end up with: A listenable summary of a long report, a course reading or a stack of meeting notes.
+
+Tools: Gemini Notebook (formerly NotebookLM)
+
+Prompt:
+(Type this in the Audio Overview customise box.) Focus on [the three decisions in this report / what a beginner needs to know / the risks]. My level is [new to this / I know the basics]. Keep it [shorter / default]. Point out anything the sources disagree on.
+
+Watch out:
+- Google's help page says Audio Overviews are AI-generated and may contain inaccuracies or audio glitches. Check facts in the sources before you rely on them.
+- Only upload documents you're allowed to share with Google. Leave out private medical, legal or financial papers unless you're comfortable with that.
+- Free accounts have usage limits that refresh over time; heavier use needs a Google AI plan.
+
+Sources:
+- Hacker News: “NotebookLM's automatically generated podcasts are surprisingly effective” (Simon Willison on how well the podcasts work): https://news.ycombinator.com/item?id=41693087
+- Hacker News: “NotebookLM Audio Overviews are now available in over 50 languages”: https://news.ycombinator.com/item?id=43848325
+- YouTube: “Use NotebookLM to generate audio discussions #Google #Gemini #NotebookLM” by Google (from Google's own channel): https://www.youtube.com/watch?v=EgY9lP7VWng
+- YouTube: “How to Use Google NotebookLM (Full Tutorial)” by Kevin Stratvert: https://www.youtube.com/watch?v=uSVBfyHBiDU
+- Gemini Notebook Help: Generate Audio Overview (formats, languages, accuracy warning; checked 2026-10-24): https://support.google.com/notebooklm/answer/16212820
+- Google blog: NotebookLM is now Gemini Notebook (Jul 16, 2026): https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/
+
+## Control your smart home by talking to a private AI
+URL: https://botsdothat.com/use-cases/control-your-smart-home-with-a-private-ai/
+Category: Family & home | Difficulty: Advanced | Added: 2026-10-24
+Popularity: not measured
+
+Connect Home Assistant to an AI model running on your own computer, then ask in plain words: “turn off everything downstairs” or “is the garage door open?”. Your voice and home data stay at home.
+
+What the bot does:
+1. Listens to a plain-language request from the Home Assistant app or a voice speaker.
+2. Works out which lights, plugs, locks or sensors you mean.
+3. Controls only the devices you've exposed to it.
+4. Answers questions about your home, like which windows are open.
+
+What you end up with: A voice assistant for your home that understands normal sentences and doesn't send your data to a big tech cloud.
+
+Tools: Home Assistant, Ollama (local models)
+
+Prompt:
+(Use this as the instructions for the Home Assistant conversation agent.) You control my home through Home Assistant. Only use the devices I've exposed. Before unlocking a door, opening the garage or turning off an alarm, ask me to confirm. If you're not sure which device I mean, ask. Keep answers to one short sentence.
+
+Watch out:
+- Home Assistant's docs call device control through Ollama an experimental feature. Expose only the devices you're happy for it to touch.
+- Small local models can misunderstand. Keep locks, alarms and heating behind a confirmation step.
+- A local model needs a reasonably capable computer to answer quickly.
+
+Sources:
+- Hacker News: “Building a fully local LLM voice assistant to control my smart home”: https://news.ycombinator.com/item?id=38985152
+- GitHub: acon96/home-llm (local AI models tuned for Home Assistant control): https://github.com/acon96/home-llm
+- YouTube: “my local, AI Voice Assistant (I replaced Alexa!!)” by NetworkChuck: https://www.youtube.com/watch?v=XvbVePuP7NY
+- YouTube: “Home Assistance Voice & Ollama Setup Guide - The Ultimate Local LLM Solution!” by TechteamGB: https://www.youtube.com/watch?v=6nsiQXCgnYA
+- Home Assistant docs: Ollama integration (control is experimental; checked 2026-10-24): https://www.home-assistant.io/integrations/ollama/
+- Reddit r/AI_Agents, “What is an AI agent that changed your life for real?”: u/Bencham95 uses an agent inside Home Assistant so home automations take much less time: https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pczh0a8/
+
+## Show AI your screen or camera and get live tech help
+URL: https://botsdothat.com/use-cases/show-ai-your-screen-for-tech-help/
+Category: Family & home | Difficulty: Easy | Added: 2026-10-24
+Popularity: not measured
+
+Stuck on a phone setting, a confusing app or a blinking router? Share your screen or point your camera with Gemini Live and talk it through, like having a patient helper next to you.
+
+What the bot does:
+1. Sees what's on your phone screen or in front of your camera while you talk.
+2. Explains what you're looking at in plain words.
+3. Walks you through the next tap or step, one at a time.
+4. Answers follow-up questions as you go.
+
+What you end up with: The setting found, the error explained or the gadget set up, without waiting for a relative or a support line.
+
+Tools: Gemini
+
+Prompt:
+I'm not very technical. I'm sharing my screen. I'm trying to [turn on captions / free up storage / connect my printer]. Tell me one step at a time and wait for me to say “done” before the next one. Tell me before I change anything that could delete data.
+
+Watch out:
+- Don't share your screen while a password, bank app or private message is showing.
+- Google's help page asks you to respect other people's privacy and ask permission before pointing the camera at them.
+- AI can be wrong about menus that changed recently. If a step doesn't match your screen, tell it what you see.
+
+Sources:
+- Hacker News: “Gemini Live with camera and screen sharing capabilities”: https://news.ycombinator.com/item?id=43613463
+- YouTube: “How To Share Screen With Gemini (Updated 2026)” by AI Mastery: https://www.youtube.com/watch?v=ZRzIdtRb2w0
+- Google blog: 5 ways to use Gemini Live with camera and screen sharing (Apr 7, 2025): https://blog.google/products/gemini/gemini-live-android-tips/
+- Gemini Apps Help: Talk naturally with Gemini Live (Android; checked 2026-10-24): https://support.google.com/gemini/answer/15274899
+
+## Get meeting notes and action items written for you
+URL: https://botsdothat.com/use-cases/get-meeting-notes-and-action-items/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-24
+Popularity: not measured
+
+Turn on an AI note taker in your video call, or run an open-source one on your laptop. After the call you get a summary, decisions and a list of who does what.
+
+What the bot does:
+1. Listens to the call (with everyone's knowledge).
+2. Writes a summary of what was discussed and decided.
+3. Pulls out action items with who owns each one.
+4. Saves the notes where you'll find them, like Google Docs or a calendar event.
+
+What you end up with: Clean notes and a to-do list from every meeting, without typing during the call.
+
+Tools: Gemini, ChatGPT, Claude
+
+Prompt:
+Here is a meeting transcript: [paste]. Write: 1) a 5-line summary, 2) decisions made, 3) action items as a table with owner and due date (write “not said” if none), 4) open questions. Quote the line from the transcript for each action item. Don't invent owners or dates.
+
+Watch out:
+- Tell people the call is being recorded or transcribed, and follow your workplace's rules. Some places require everyone's consent.
+- Google's help page says “Take notes for me” works in a limited set of languages, one language per meeting.
+- AI notes can misattribute who said what. Check names on action items before sending.
+
+Sources:
+- Hacker News: “Launch HN: Hyprnote (YC S25) – An open-source AI meeting notetaker”: https://news.ycombinator.com/item?id=44725306
+- GitHub: Zackriya-Solutions/meetily (open-source meeting note taker that runs on your computer): https://github.com/Zackriya-Solutions/meetily
+- YouTube: “How to Automate Meeting Notes in Microsoft Teams with AI!” by Scott Brant: https://www.youtube.com/watch?v=9uEH72FMyJU
+- Google Meet Help: “Take notes for me” in Google Meet (checked 2026-10-24): https://support.google.com/meet/answer/14754931
+
+## Practice speaking a new language out loud with AI
+URL: https://botsdothat.com/use-cases/practice-speaking-a-new-language/
+Category: Family & home | Difficulty: Easy | Added: 2026-10-24
+Popularity: not measured
+
+Use an AI voice mode as a patient conversation partner. Pick a situation, like ordering food or checking into a hotel, and talk. It corrects you gently and adapts to your level.
+
+What the bot does:
+1. Plays a role you choose, like a waiter, a shopkeeper or a new friend.
+2. Talks at your level and slows down when you ask.
+3. Corrects mistakes after you speak, without interrupting the flow.
+4. Ends with a short list of words and phrases to review.
+
+What you end up with: Real speaking practice any time, without the nerves of talking to a stranger.
+
+Tools: ChatGPT, Gemini
+
+Prompt:
+Let's practice [Spanish]. My level is [beginner / A2 / intermediate]. You are [a waiter in a café in Madrid]. Speak only in [Spanish], use short sentences, and speak slowly. After each of my answers, give one correction in English if I made a mistake, then continue. At the end, list 5 useful phrases from our chat.
+
+Watch out:
+- AI can sound confident even when a phrase is unnatural or regional. Check new phrases with a dictionary or a native speaker.
+- Use it alongside a teacher, an app course or real conversations, not as a full replacement.
+- Voice chats may be stored in your account history. Check the app's privacy settings.
+
+Sources:
+- Hacker News: “Ask HN: Is anyone using AI conversation partners?”: https://news.ycombinator.com/item?id=44112357
+- Hacker News: “Show HN: I built an AI conversation partner to practice speaking languages”: https://news.ycombinator.com/item?id=46830698
+- Hacker News: “Show HN: Learn a language quickly by practising speaking with AI”: https://news.ycombinator.com/item?id=36973400
+- YouTube: “ChatGPT's new update is HUGE for language learners” by Corinna Languages: https://www.youtube.com/watch?v=czyWvwEW_g0
+- YouTube: “5 Mind-blowing Ways to Practice English with ChatGPT's Advanced Voice Mode” by Cloud English: https://www.youtube.com/watch?v=1QOHGREQCJ0
+- Gemini Apps Help: Talk naturally with Gemini Live (“Practice aloud”; checked 2026-10-24): https://support.google.com/gemini/answer/15274899
+
+## Rehearse a job interview out loud with an AI interviewer
+URL: https://botsdothat.com/use-cases/practice-a-job-interview-out-loud/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-24
+Popularity: not measured
+
+Paste the job posting, let a voice AI play the interviewer, and answer out loud. Afterwards it tells you which answers were strong and which need a better example.
+
+What the bot does:
+1. Reads the job posting and your resume.
+2. Asks the kinds of questions this role is likely to get, one at a time.
+3. Listens to your spoken answers and asks a follow-up like a real interviewer.
+4. Gives feedback on each answer and suggests a stronger version.
+
+What you end up with: Several rounds of realistic practice and a short list of answers to polish before the real thing.
+
+Tools: ChatGPT, Gemini, Claude
+
+Prompt:
+Be my interviewer for this role: [paste the job posting]. My resume: [paste, with your address and phone removed]. Ask me 6 questions, one at a time, mixing behavioural and role-specific ones. Wait for my full answer, ask one follow-up, then move on. At the end, rate each answer 1 to 5 with one specific tip, and point out any answer where I didn't give a concrete example.
+
+Watch out:
+- The AI doesn't know what this employer actually asks. Also look at the company's own careers page and recent interview tips from people in the field.
+- Practice in your own words. Interviewers can tell when an answer is memorised from an AI script.
+- Don't paste confidential details from a current employer into the chat.
+
+Sources:
+- YouTube: “CHATGPT Voice Mode | Get READY for the BEST Interview of Your Life!” by The Oracle Guy: AI Unlocked: https://www.youtube.com/watch?v=a7iDvy-MaVs
+- YouTube: “ChatGPT Voice Mode for Job Interviews?” by Resume Genius (from Resume Genius): https://www.youtube.com/watch?v=jdYAm9wklbE
+- YouTube: “Interview Practice with AI: Advanced Voice Mode with ChatGPT!” by w/KMo: https://www.youtube.com/watch?v=6wTaQ_aMeqc
+- Hacker News: “Google Interview Warmup” (discussion of Google's AI interview practice tool, 2022): https://news.ycombinator.com/item?id=31605131
+- Gemini Apps Help: Talk naturally with Gemini Live (“Practice aloud: rehearse for important moments”; checked 2026-10-24): https://support.google.com/gemini/answer/15274899
+
+## Build a small app for yourself just by describing it
+URL: https://botsdothat.com/use-cases/build-a-small-app-by-describing-it/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-24
+Popularity: not measured
+
+Describe a little tool you wish existed, like a chore chart, a tip splitter or a packing checklist, and Claude builds a working version beside the chat. Ask for changes in plain words.
+
+What the bot does:
+1. Turns your description into a small working app you can click on.
+2. Shows it next to the chat so you can try it right away.
+3. Changes it when you say what's wrong or missing.
+4. Lets you share a link with family or co-workers.
+
+What you end up with: A custom mini app that does exactly the one job you need, without learning to code.
+
+Tools: Claude
+
+Prompt:
+Build me a simple app: [a weekly chore chart for 3 kids where they tick off jobs and earn stars]. Who uses it: [kids on a tablet]. Must have: [big buttons, a reset every Sunday]. Keep it to one screen and explain how to use it in two sentences. Don't collect any personal data.
+
+Watch out:
+- Don't put passwords, bank details or other private data into a home-made app.
+- This works best for small, single-purpose tools. Bigger projects get harder to keep working with chat alone.
+- If you share an artifact publicly, anyone with the link can see it.
+
+Sources:
+- Hacker News: “Everything I built with Claude Artifacts this week” (Simon Willison's week of small apps): https://news.ycombinator.com/item?id=41929174
+- YouTube: “How to Use Claude Artifacts (Beginner Tutorial)” by Kevin Stratvert: https://www.youtube.com/watch?v=1PRcdCu8n6M
+- YouTube: “Claude Artifacts Tutorial - Build Apps, Documents, and Dashboards” by Howfinity: https://www.youtube.com/watch?v=gf50PAw7R_w
+- Claude Help Center: What are artifacts and how do I use them? (checked 2026-10-24): https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them
+- Reddit r/AI_Agents, “What is an AI agent that changed your life for real?”: u/Daniel_SayGM says AI let them finish personal projects in spare 15-minute sessions: https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pdaqvjw/
+
+## Let an AI sort and rename a messy folder of files
+URL: https://botsdothat.com/use-cases/sort-and-rename-a-messy-folder/
+Category: Work & career | Difficulty: Medium | Added: 2026-10-24
+Popularity: not measured
+
+Point a desktop agent at your Downloads folder or a drive full of oddly named files. It proposes a folder structure and clear names, then moves things only after you approve.
+
+What the bot does:
+1. Looks through a folder you choose and reads what each file is about.
+2. Suggests a simple folder structure and a naming pattern.
+3. Shows you the plan before it moves or renames anything.
+4. Applies the plan and gives you a list of what changed.
+
+What you end up with: A tidy folder where files have names that say what they are.
+
+Tools: Claude Cowork, Ollama (local models)
+
+Prompt:
+Look at the files in [folder]. Propose a folder structure with no more than [6] folders and a naming pattern like [YYYY-MM-DD topic]. Show me the full plan as a table (old name, new name, new folder) and wait for my OK. Don't delete anything. Put files you're unsure about in a folder called “To check”.
+
+Watch out:
+- Always keep a backup. An agent that can move files can also make a mess of them.
+- Give it one folder, not your whole computer.
+- Tiago Forte checked every decision an AI made when organizing his files. Do the same for anything important.
+
+Sources:
+- Reddit r/ClaudeAI: “Beyond the ‘Life-Changing’ Hype, what are you actually using Claude Cowork for?” (Apr 8, 2026): the poster has it categorize and rename their Downloads folder: https://www.reddit.com/r/ClaudeAI/comments/1sfhin6/beyond_the_lifechanging_hype_what_are_you/
+- Reddit r/AI_Agents, “What is an AI agent that changed your life for real?”: u/amulie had an agent pick a naming convention and rename hundreds of Google Docs: https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pd0hxlf/
+- Reddit r/AI_Agents, “What is an AI agent that changed your life for real?”: u/gol_2904 uses Claude Cowork to organize video footage on a drive: https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pd23c42/
+- YouTube: “AI Organized My Files. I Checked Every Decision. (Claude Code + PARA)” by Tiago Forte: https://www.youtube.com/watch?v=HjWESsnoU6g
+- Hacker News: “Local File Organizer: Organize your files using multi-modal LLMs”: https://news.ycombinator.com/item?id=41715459
+- GitHub: QiuYannnn/Local-File-Organizer (open-source organizer that runs on your computer): https://github.com/QiuYannnn/Local-File-Organizer
+
+## Turn rambling voice memos into tidy notes and a to-do list
+URL: https://botsdothat.com/use-cases/turn-voice-memos-into-notes-and-tasks/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-24
+Popularity: not measured
+
+Talk into your phone while walking or driving, then let AI turn the transcript into organized notes, a to-do list and any drafts you mentioned.
+
+What the bot does:
+1. Takes the transcript of your voice memo.
+2. Groups your thoughts by topic and removes the “ums” and repeats.
+3. Pulls out to-dos, dates and people to contact.
+4. Drafts any message or note you said you needed to write.
+
+What you end up with: Clean notes and a task list from ideas you'd otherwise forget.
+
+Tools: ChatGPT, Claude, Gemini
+
+Prompt:
+Here's a transcript of a voice memo I recorded: [paste]. Turn it into: 1) a short summary, 2) notes grouped by topic, 3) a to-do list with any dates I mentioned, 4) drafts of any messages I said I'd send. Keep my wording where you can. Mark anything you're guessing with (?).
+
+Watch out:
+- Transcripts mishear names and numbers. Check phone numbers, amounts and dates before acting on them.
+- Don't record other people without their permission.
+- Delete memos with private details once you've saved the notes.
+
+Sources:
+- YouTube: “Your iPhone's Secret AI Note Taker — No Code!” by Creator Magic: https://www.youtube.com/watch?v=4fk4M_63rug
+- YouTube: “Nobody uses Voice Memos like this on iPhone & Mac (AI Workflow)” by Shortcut Micha: https://www.youtube.com/watch?v=ZMbWfw6Hl6I
+- Hacker News: “Show HN: Local Transcription and Summarization of Voice Memos for iOS and Mac”: https://news.ycombinator.com/item?id=38879064
+- GitHub: Thimm/transcribe_apple_voice_memos (local transcription and summaries of Apple Voice Memos): https://github.com/Thimm/transcribe_apple_voice_memos
+
+## Read old handwritten letters and family records with AI
+URL: https://botsdothat.com/use-cases/read-old-handwritten-letters-and-records/
+Category: Family & home | Difficulty: Easy | Added: 2026-10-24
+Popularity: not measured
+
+Grandma's letters, an old diary or a census page in hard-to-read cursive? Upload a photo and ask AI for a transcription, then check it line by line.
+
+What the bot does:
+1. Reads a photo or scan of a handwritten page.
+2. Types out the text, keeping the original spelling.
+3. Marks words it can't read instead of guessing.
+4. Can summarize the page or translate it if it's in another language.
+
+What you end up with: A typed copy of the document you can search, share with family and save with the original.
+
+Tools: Gemini, ChatGPT, Claude
+
+Prompt:
+Transcribe this handwritten [letter / diary page / record] exactly as written, keeping original spelling and line breaks. Put [?] after any word you're unsure of and [illegible] where you can't read it. Then give a 3-line summary. Don't fill gaps with guesses.
+
+Watch out:
+- AI transcriptions of old handwriting contain mistakes, especially names, places and dates. Always check against the original.
+- Old records can include living people's private details. Think before uploading or sharing them.
+- Keep the original image. The transcription is a helper, not a replacement.
+
+Sources:
+- YouTube: “How to Use AI to Transcribe Handwritten Documents” by FamilySearch (from FamilySearch): https://www.youtube.com/watch?v=mbc34nFYFMA
+- YouTube: “Can Gen-AI transcribe old handwriting? I compare the models” by Gen-AI and Genealogy Made Simple (compares several AI models): https://www.youtube.com/watch?v=kgcsZqbxP3o
+- YouTube: “Can AI Really Read Old Handwriting? Testing Tools for Genealogists!” by Family Tree Support: https://www.youtube.com/watch?v=wT88u8-QU3E
+
+## Turn a pile of PDF invoices and receipts into a spreadsheet
+URL: https://botsdothat.com/use-cases/turn-pdf-invoices-into-a-spreadsheet/
+Category: Small business & side hustles | Difficulty: Medium | Added: 2026-10-24
+Popularity: not measured
+
+Drop in a stack of invoices or receipts and get one tidy table: date, vendor, amount and tax for each, ready for your bookkeeper or a spreadsheet.
+
+What the bot does:
+1. Reads each PDF or photo, even when layouts differ.
+2. Pulls out the fields you choose, like date, vendor, invoice number, amount and tax.
+3. Puts everything in one table and flags anything it couldn't read.
+4. Can run automatically for new invoices that arrive by email.
+
+What you end up with: One spreadsheet of every invoice, instead of typing them in by hand.
+
+Tools: ChatGPT, Claude, Gemini, n8n
+
+Prompt:
+Here are [12] invoices. Make a table with one row per invoice and these columns: date (YYYY-MM-DD), vendor, invoice number, total, tax, currency, file name. If a value isn't on the invoice, write “missing”. Don't calculate or guess values. After the table, list any invoice you had trouble reading.
+
+Watch out:
+- Check totals against the originals. AI can misread a 7 as a 1 or pick the wrong total on a busy invoice.
+- Invoices include business and bank details. Use a business account or a tool your accountant approves.
+- Keep the original files. Your tax records need the documents, not just the table.
+
+Sources:
+- Reddit r/n8n: “3 Document Workflows Small Businesses Should Set Up Before Year End”, starting with auto-logging every invoice and receipt (Sep 30, 2026): https://www.reddit.com/r/n8n/comments/1wtzj4w/3_document_workflows_small_businesses_should_set/
+- YouTube: “How to Convert PDF Invoices to Excel” by Eamonn Cottrell: https://www.youtube.com/watch?v=FOxk9R5JBvs
+- Hacker News: “Launch HN: Midship (YC S24) – Turn PDFs, docs, and images into usable data”: https://news.ycombinator.com/item?id=42066500
+- Hacker News: “Show HN: Open-Source Document Extraction Tool”: https://news.ycombinator.com/item?id=42706867
 
 ## Blueprint: Morning Inbox Briefing
 URL: https://botsdothat.com/blueprints/morning-inbox-briefing/

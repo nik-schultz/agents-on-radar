@@ -100,5 +100,17 @@
   "url": "https://ollama.com",
   "cost": "Free to download; runs open models on your own computer",
   "kind": "local"
+ },
+ "notebooklm": {
+  "name": "Gemini Notebook (formerly NotebookLM)",
+  "url": "https://notebooklm.google/",
+  "cost": "Free with a Google account; Google AI plans raise usage limits",
+  "kind": "chat"
+ },
+ "home-assistant": {
+  "name": "Home Assistant",
+  "url": "https://www.home-assistant.io/",
+  "cost": "Free, open source; runs on a small computer at home",
+  "kind": "local"
  }
 }

@@ -489,3 +489,12 @@ html:not(.js) .share-copy{display:none}
 @media(min-width:760px){.nl-inline .nl-fwd{grid-column:2}}
 @media (prefers-reduced-motion:reduce){.share-btn{transition:none}}
 .adv-how{padding:16px 20px;margin:14px 0 18px}.adv-how h3{margin:0 0 6px}.adv-how ol{margin:.3em 0 .5em;padding-left:1.3em}.adv-how li{margin:.25em 0}.tier-cta .btn+.small{display:block;margin-top:6px}
+/* "Seen on" platforms line + per-source engagement (2026-10-24) */
+.seen-on{margin:8px 0 0;font-size:.78rem;color:var(--muted);line-height:1.5;overflow-wrap:anywhere}
+.card-pop .seen-on{margin-top:6px}
+.seen-k{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;margin-right:.35em}
+.seen-on a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:2px}.seen-on a:hover{color:#fff}
+.seen-on .seen-x{color:#fff}.seen-on .seen-reddit{color:#ff9a6e}.seen-on .seen-hn{color:#ffb066}.seen-on .seen-youtube{color:#ff7b7b}.seen-on .seen-github{color:#c9d1d9}
+.k-hn{color:#ffb066}.k-youtube{color:#ff7b7b}.k-github{color:#c9d1d9}
+.src-stats{display:inline-block;font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-left:.3em}
+.side-comm li a{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:.8rem}

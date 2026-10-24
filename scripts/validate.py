@@ -27,6 +27,13 @@ def check_use_case(x, cats, tools):
     for src in x.get("sources", []):
         if not str(src.get("url", "")).startswith("http"): errs.append(f"{s}: source without http url")
         if not src.get("label"): errs.append(f"{s}: source without label")
+        if src.get("kind") not in (None, "x", "reddit", "hn", "youtube", "github", "article", "docs", "official"): errs.append(f"{s}: unknown source kind {src.get('kind')!r}")
+        if "stats" in src:  # measured engagement on a community source: real integers + the date measured, never estimates
+            st = src["stats"]
+            if not isinstance(st, dict) or not st or any(k not in ("points", "upvotes", "comments", "views", "stars") or not isinstance(v, int) or v < 0 for k, v in st.items()):
+                errs.append(f"{s}: source stats must be non-negative integers (points/upvotes/comments/views/stars): {src.get('url')}")
+            if not is_date(src.get("measured_at")): errs.append(f"{s}: source with stats needs measured_at (ISO date): {src.get('url')}")
+        if src.get("posted_at") and not is_date(src["posted_at"]): errs.append(f"{s}: source posted_at not ISO: {src.get('url')}")
     # Time-saved claims: optional, but if present they must be sourced and phrased as the source states them.
     ts = x.get("time_saved")
     if ts is not None:

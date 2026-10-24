@@ -160,6 +160,15 @@
     "label": "9to5Google: Gemini Personal Intelligence now uses Maps saved places with Calendar (Oct 22, 2026; checked 2026-10-23)",
     "url": "https://9to5google.com/2026/10/22/gemini-personal-intelligence-maps/",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “How to use Gemini AI with Google Calendar (Tutorial)” by Simpletivity",
+    "url": "https://www.youtube.com/watch?v=n3yBSqWf8lo",
+    "kind": "youtube",
+    "stats": {
+     "views": 76613
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": null,
@@ -226,6 +235,11 @@
     "label": "X post by @sidv (2026-10-21): Grok and Claude answer blind, then a bot checks the sources and grades every finding",
     "url": "https://x.com/sidv/status/2112986547448643761",
     "kind": "x"
+   },
+   {
+    "label": "Reddit r/AI_Agents thread “I collected 51 AI agent setups people actually use” (Oct 17, 2026): u/abe17124 runs a “worker” agent and a separate “council” agent on another model that validates its actions",
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1x8i1fj/i_collected_51_ai_agent_setups_people_actually/phcu9go/",
+    "kind": "reddit"
    }
   ],
   "popularity": {
@@ -301,6 +315,39 @@
     "label": "Brain Boot starter file from @vinayp10 (GitHub)",
     "url": "https://github.com/vp58/brainboot",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “How To Build The ULTIMATE AI Second Brain (Obsidian + Claude Code)” by KJ Rainey",
+    "url": "https://www.youtube.com/watch?v=4l8MXYUqGaA",
+    "kind": "youtube",
+    "stats": {
+     "views": 303252
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “How To Set Up A Second Brain With Claude and Obsidian In 30 Seconds” by Fionn",
+    "url": "https://www.youtube.com/watch?v=qyxzlM8Zh9A",
+    "kind": "youtube",
+    "stats": {
+     "views": 56692
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Reddit r/hermesagent: “How I use Obsidian as the long-term memory backbone for my AI assistant” (Apr 23, 2026)",
+    "url": "https://www.reddit.com/r/hermesagent/comments/1stz6gd/how_i_use_obsidian_as_the_longterm_memory/",
+    "kind": "reddit",
+    "posted_at": "2026-04-23"
+   },
+   {
+    "label": "GitHub: khoj-ai/khoj (open-source “AI second brain” that answers from your own notes and documents)",
+    "url": "https://github.com/khoj-ai/khoj",
+    "kind": "github",
+    "stats": {
+     "stars": 37805
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -405,6 +452,35 @@
     "label": "LinkedIn User Agreement, section 8.2 Don'ts (effective Nov 3, 2025; checked 2026-10-22)",
     "url": "https://www.linkedin.com/legal/user-agreement",
     "kind": "official"
+   },
+   {
+    "label": "YouTube: “I let AI Apply to jobs for me | OpenClaw” by Kaan Turgut",
+    "url": "https://www.youtube.com/watch?v=WKJOmi9YSjM",
+    "kind": "youtube",
+    "stats": {
+     "views": 5656
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “How to Autofill Job Applications with AI on Any Job Page” by ApplyBtn",
+    "url": "https://www.youtube.com/watch?v=h7BAel1kQxI",
+    "kind": "youtube",
+    "stats": {
+     "views": 914
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “Show HN: LiftmyCV – AI Job Search Agent and Auto-Apply Tool”",
+    "url": "https://news.ycombinator.com/item?id=43682614",
+    "kind": "hn",
+    "stats": {
+     "points": 15,
+     "comments": 0
+    },
+    "posted_at": "2025-04-14",
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": null,
@@ -459,6 +535,27 @@
     "label": "X post by @Texas_Twins_Dad (2026-10-20): replies \"@bot summarize this and send it to my bot\" under long videos and threads; the summary waits in the Grok Bot app",
     "url": "https://x.com/Texas_Twins_Dad/status/2112662250225811697",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “How To Summarize YouTube Videos With AI FOR FREE” by Rob The AI Guy",
+    "url": "https://www.youtube.com/watch?v=Dk79C6nBJOI",
+    "kind": "youtube",
+    "stats": {
+     "views": 116457
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Reddit r/n8n: “Built a Telegram bot that summarizes YouTube videos, splits long ones into parts” (Oct 18, 2026)",
+    "url": "https://www.reddit.com/r/n8n/comments/1x8yrwx/built_a_telegram_bot_that_summarizes_youtube/",
+    "kind": "reddit",
+    "posted_at": "2026-10-18"
+   },
+   {
+    "label": "Reddit r/SideProject: a Telegram bot that summarizes YouTube videos, PDFs and voice notes (Jul 28, 2026)",
+    "url": "https://www.reddit.com/r/SideProject/comments/1v9bqm9/i_built_a_telegram_bot_that_summarizes_youtube/",
+    "kind": "reddit",
+    "posted_at": "2026-07-28"
    }
   ],
   "popularity": {
@@ -527,6 +624,24 @@
     "label": "X post by @Texas_Twins_Dad (2026-10-21): his Grok Bot has its own email and runs the email side of his class site; contact mail is forwarded to it and it sends him summaries",
     "url": "https://x.com/Texas_Twins_Dad/status/2112926907549323538",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “How to Build Your Own AI Customer Service Agent with Gmail + Claude” by Isabelle Hanson | Gold St Solutions | Claude",
+    "url": "https://www.youtube.com/watch?v=fOt4vbOM4qE",
+    "kind": "youtube",
+    "stats": {
+     "views": 2788
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “How I Built an AI Agent to Automate my Emails in n8n (Step by Step, No Code)” by Nate Herk | AI Automation",
+    "url": "https://www.youtube.com/watch?v=KIJHRq_Tg6o",
+    "kind": "youtube",
+    "stats": {
+     "views": 130256
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -704,6 +819,27 @@
     "label": "Anthropic pricing docs: \"Monitor usage patterns: Track token consumption to identify optimization opportunities\"",
     "url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
     "kind": "docs"
+   },
+   {
+    "label": "YouTube: “OpenClaw Cron Jobs vs Heartbeat Explained” by MMX",
+    "url": "https://www.youtube.com/watch?v=KtNZ1twkc7o",
+    "kind": "youtube",
+    "stats": {
+     "views": 2229
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Reddit r/better_claw: “your agent makes 48 heartbeat checks per day. here's what each one costs on 7 different models” (Jul 24, 2026)",
+    "url": "https://www.reddit.com/r/better_claw/comments/1v51mgk/your_agent_makes_48_heartbeat_checks_per_day/",
+    "kind": "reddit",
+    "posted_at": "2026-07-24"
+   },
+   {
+    "label": "Reddit r/hermesagent: Cost & Token Optimization Megathread (Jun 22, 2026)",
+    "url": "https://www.reddit.com/r/hermesagent/comments/1ud03si/cost_token_optimization_megathread_hermes_agent/",
+    "kind": "reddit",
+    "posted_at": "2026-06-22"
    }
   ],
   "popularity": {
@@ -1150,6 +1286,33 @@
     "label": "X post by @Parul_Gautam7 (2026-10-08): a Market Research agent and a Website Builder agent hand work to each other in one shared group conversation",
     "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “How to Build Claude Agent Teams Better Than 99% of People” by Nate Herk | AI Automation",
+    "url": "https://www.youtube.com/watch?v=vDVSGVpB2vc",
+    "kind": "youtube",
+    "stats": {
+     "views": 396411
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “CrewAI Tutorial: Multiple Agents Working Together in Python” by NeuralNine",
+    "url": "https://www.youtube.com/watch?v=I90xJlzAUW0",
+    "kind": "youtube",
+    "stats": {
+     "views": 33098
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "GitHub: crewAIInc/crewAI (open-source framework for teams of role-based agents)",
+    "url": "https://github.com/crewAIInc/crewAI",
+    "kind": "github",
+    "stats": {
+     "stars": 60058
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -1214,6 +1377,15 @@
     "label": "X post by @nmtalkss (2026-10-05): on a 2-hour drive he talked to his \"CEO agent\" in Grok Bot and handed off research and other tasks",
     "url": "https://x.com/nmtalkss/status/2107157837134843995",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “AI Voice Mode with CarPlay: Claude, ChatGPT, Perplexity, and Grok” by Jason Pantana | AI + Marketing for Real Estate",
+    "url": "https://www.youtube.com/watch?v=4zUlbaBynQs",
+    "kind": "youtube",
+    "stats": {
+     "views": 1245
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -1340,6 +1512,40 @@
     "label": "X post by @brian_a_burns (2026-10-19): ChatGPT with computer use filled in a complicated procurement request in software he had never used",
     "url": "https://x.com/brian_a_burns/status/2112326114542858689",
     "kind": "x"
+   },
+   {
+    "label": "Hacker News: “Launch HN: Browser Use (YC W25) – open-source web agents”",
+    "url": "https://news.ycombinator.com/item?id=43173378",
+    "kind": "hn",
+    "stats": {
+     "points": 259,
+     "comments": 100
+    },
+    "posted_at": "2025-02-25",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "GitHub: browser-use/browser-use (open-source agent that operates a web browser)",
+    "url": "https://github.com/browser-use/browser-use",
+    "kind": "github",
+    "stats": {
+     "stars": 119028
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Browser Use: This New AI Agent Can Do Anything (Full AI Scraping Tutorial)” by Tech With Tim",
+    "url": "https://www.youtube.com/watch?v=zGkVKix_CRU",
+    "kind": "youtube",
+    "stats": {
+     "views": 186255
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Reddit r/AI_Agents thread “What is an AI agent that changed your life for real?” (Sep 30, 2026): u/IllustriousYoghurt39 says Meta Muse renewed two vehicle registrations on the DMV site",
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pd4xhed/",
+    "kind": "reddit"
    }
   ],
   "popularity": {
@@ -1403,6 +1609,15 @@
     "label": "X post by @NaughtyNomad (2026-09-01): an agent using ChatGPT contacted every subcontractor on the island for his renovation and compared their quotes",
     "url": "https://x.com/NaughtyNomad/status/2094720744030642252",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “MUSE AI TIPS: How to Get Contractor Quotes Side by Side with Meta Muse AI #museai #aitips #aitricks” by WorkbookVideos",
+    "url": "https://www.youtube.com/watch?v=kXAKsdp7P3g",
+    "kind": "youtube",
+    "stats": {
+     "views": 34
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -1596,6 +1811,24 @@
     "label": "X post by @BrianRoemmele (2026-10-14): an \"Email Newsletter Daily Report\" Grok Bot for 3,400+ newsletter subscriptions",
     "url": "https://x.com/BrianRoemmele/status/2110433542182457609",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “How I Summarize All My Newsletters In Minutes With n8n” by Monika AI",
+    "url": "https://www.youtube.com/watch?v=C7NCAIiwj88",
+    "kind": "youtube",
+    "stats": {
+     "views": 1722
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “I Get 50+ Newsletters - Here's How ChatGPT Creates a Daily Digest Summary” by Data Driven VC",
+    "url": "https://www.youtube.com/watch?v=bKQLb1TDXFU",
+    "kind": "youtube",
+    "stats": {
+     "views": 423
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -1668,6 +1901,28 @@
     "label": "X post by @RetiredArmy_Guy (2026-10-19): his Grok Bot got its own phone number and booked his dog's vet appointment by phone",
     "url": "https://x.com/RetiredArmy_Guy/status/2112154131028652535",
     "kind": "x"
+   },
+   {
+    "label": "Hacker News: “Show HN: Companies use AI to take your calls. I built AI to make them for you”",
+    "url": "https://news.ycombinator.com/item?id=44716414",
+    "kind": "hn",
+    "stats": {
+     "points": 237,
+     "comments": 176
+    },
+    "posted_at": "2025-07-28",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “Show HN: PlaceCall (YC W26) – agentic API to call businesses and get things done”",
+    "url": "https://news.ycombinator.com/item?id=49831231",
+    "kind": "hn",
+    "stats": {
+     "points": 16,
+     "comments": 4
+    },
+    "posted_at": "2026-09-24",
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -1748,6 +2003,24 @@
     "label": "Google search suggestions for “use ai to write a letter of recommendation” (checked 2026-10-19)",
     "url": "https://www.google.com/search?q=use+ai+to+write+a+letter+of+recommendation",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “How to Write a Letter of Recommendation Using Chatgpt” by Deliberate Spender",
+    "url": "https://www.youtube.com/watch?v=Gb1RbS37WFk",
+    "kind": "youtube",
+    "stats": {
+     "views": 7819
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “How to Write a Letter of Recommendation in Less Than 10 Minutes using ChatGPT” by Professor McLeod",
+    "url": "https://www.youtube.com/watch?v=I0sXeYMF9cs",
+    "kind": "youtube",
+    "stats": {
+     "views": 1629
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "tags": [
@@ -1795,6 +2068,24 @@
     "label": "X post by @PixelRainbowNFT (2026-10-19): a roundup of Grok Bot templates, including a Spam-Call Scrubber that files people-search opt-outs and re-checks",
     "url": "https://x.com/PixelRainbowNFT/status/2112256029543329930",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “I Used ChatGPT Agent Mode to Erase My Data Off the Internet” by Sabrina Ramonov 🍄",
+    "url": "https://www.youtube.com/watch?v=MRxoP0-XIUY",
+    "kind": "youtube",
+    "stats": {
+     "views": 37729
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Easiest way to remove yourself online using AI” by Cybersecurity Girl",
+    "url": "https://www.youtube.com/watch?v=KGCDeX1v62E",
+    "kind": "youtube",
+    "stats": {
+     "views": 1958
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -1860,6 +2151,15 @@
     "label": "X post by @RayFernando1337 (2026-10-20): his Grok Bot logs his food when he talks, gets a morning check-in from his Withings scale and does his receipts (video)",
     "url": "https://x.com/RayFernando1337/status/2112529809557401660",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “how I track my calories with AI (just my voice)” by gimegainzz",
+    "url": "https://www.youtube.com/watch?v=faMokVawrYQ",
+    "kind": "youtube",
+    "stats": {
+     "views": 895
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -1931,6 +2231,17 @@
     "label": "X post by @james_fowler_ (2026-10-18): a restaurant owner nearly hung up until the bot said it was an AI",
     "url": "https://x.com/james_fowler_/status/2111888527826813404",
     "kind": "x"
+   },
+   {
+    "label": "Hacker News: “Show HN: Companies use AI to take your calls. I built AI to make them for you”",
+    "url": "https://news.ycombinator.com/item?id=44716414",
+    "kind": "hn",
+    "stats": {
+     "points": 237,
+     "comments": 176
+    },
+    "posted_at": "2025-07-28",
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -2010,6 +2321,24 @@
     "label": "Google search suggestions for “ai to write resignation letter” (checked 2026-10-20)",
     "url": "https://www.google.com/search?q=ai+to+write+resignation+letter",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “Use ChatGPT to Craft the Perfect Resignation Letter in No Time #chatgpt” by PD blogs",
+    "url": "https://www.youtube.com/watch?v=SoFV9v9SqXw",
+    "kind": "youtube",
+    "stats": {
+     "views": 3716
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Using AI to write my resignation letter 👋” by Derek",
+    "url": "https://www.youtube.com/watch?v=qRidYDEXHAg",
+    "kind": "youtube",
+    "stats": {
+     "views": 1669
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "tags": [
@@ -2079,6 +2408,20 @@
     "label": "X post by @elijahbuildsai (2026-09-25): Claude meal plan from fridge photos plus Instacart",
     "url": "https://x.com/elijahbuildsai/status/2103607960996086113",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “My AI Agent Does Grocery Ordering AND Meal Planning Now | AI Homemaking” by Jesse Genet",
+    "url": "https://www.youtube.com/watch?v=NPifV3DbwSo",
+    "kind": "youtube",
+    "stats": {
+     "views": 1542
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Reddit r/AI_Agents thread “What is an AI agent that changed your life for real?” (Sep 30, 2026): u/sjm04f connected ChatGPT to a recipe database and Instacart and orders a recipe's groceries by voice",
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pd44cd2/",
+    "kind": "reddit"
    }
   ],
   "popularity": {
@@ -2226,6 +2569,15 @@
     "label": "Reddit r/AI_Agents: “What AI agents are actually worth running for personal use?” (archived snapshot, Sep 5 2026)",
     "url": "https://reddit.sentinel-team.org/posts/1w4e3ji/snapshots/2026-09-05T09%3A24%3A43.696105Z",
     "kind": "reddit"
+   },
+   {
+    "label": "YouTube: “Personal Agents, Clearly Explained” by Jeff Su",
+    "url": "https://www.youtube.com/watch?v=HdI_aYzgJIg",
+    "kind": "youtube",
+    "stats": {
+     "views": 252796
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -2292,6 +2644,15 @@
     "label": "X post by @BrianRoemmele (2026-10-13): a read-only Grok Bot that scores email scam risk every morning",
     "url": "https://x.com/BrianRoemmele/status/2110008406807568813",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “How to Analyze Phishing Emails with Claude AI (Headers Body + URL Check)” by SecOps Insider",
+    "url": "https://www.youtube.com/watch?v=dZc0oqZtnlc",
+    "kind": "youtube",
+    "stats": {
+     "views": 456
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -2361,6 +2722,15 @@
     "label": "X post by @RoundtableSpace (2026-10-21): Wabi 2.0 launched, one AI agent a whole group chat shares; updates everyone's calendar when pickup changes and books tickets",
     "url": "https://x.com/RoundtableSpace/status/2112918077314920688",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “I built an AI agent that turns family group chats into a shared calendar ft. neatlogs” by neatlogs",
+    "url": "https://www.youtube.com/watch?v=t7830Eqo9KM",
+    "kind": "youtube",
+    "stats": {
+     "views": 43
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -2442,6 +2812,15 @@
     "label": "TechCrunch, Sep 21 2026: Meta's AI agent has been blocked from using Amazon.com",
     "url": "https://techcrunch.com/2026/09/21/metas-ai-agent-has-been-blocked-from-using-amazon-com/",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “How to order groceries with ChatGPT agent mode #ai #artificialintelligence #aihacks #aitools” by Brennan Wells | AI Automation",
+    "url": "https://www.youtube.com/watch?v=-hHVC5WZHhc",
+    "kind": "youtube",
+    "stats": {
+     "views": 2043
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -2709,6 +3088,17 @@
     "label": "X post by @MilksandMatcha (2026-09-30): timed comparison of agents making a dinner reservation",
     "url": "https://x.com/MilksandMatcha/status/2105372125288976402",
     "kind": "x"
+   },
+   {
+    "label": "Hacker News: “Google's $250 AI agent can only help you book restaurant reservations”",
+    "url": "https://news.ycombinator.com/item?id=44974967",
+    "kind": "hn",
+    "stats": {
+     "points": 7,
+     "comments": 1
+    },
+    "posted_at": "2025-08-21",
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -2839,6 +3229,35 @@
     "label": "X post by @siyabuilt (2026-09-01): finance admin automated with Grok Bot + a receipts inbox, read-only",
     "url": "https://x.com/siyabuilt/status/2094755088841457892",
     "kind": "x"
+   },
+   {
+    "label": "Hacker News: “Show HN: Auto-Match – How We Built Receipt-to-Transaction Matching (Open Source)”",
+    "url": "https://news.ycombinator.com/item?id=45036761",
+    "kind": "hn",
+    "stats": {
+     "points": 39,
+     "comments": 8
+    },
+    "posted_at": "2025-08-27",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Process Receipts with AI (Claude Cowork)” by Hector Garcia CPA",
+    "url": "https://www.youtube.com/watch?v=5C-d-8LSEI4",
+    "kind": "youtube",
+    "stats": {
+     "views": 10703
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “n8n Bookkeeping AI Agent: Match Receipts to Bank Statements (Gemini 2.5 Flash)” by Eric Tech",
+    "url": "https://www.youtube.com/watch?v=iTEFeIkYg7E",
+    "kind": "youtube",
+    "stats": {
+     "views": 7096
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -2902,6 +3321,33 @@
     "label": "X post by @coreyganim (2026-09-15): the 2-sentence chief-of-staff prompt",
     "url": "https://x.com/coreyganim/status/2099808193178485185",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “Hermes Full Course: Build Your 24/7 AI Chief of Staff in 45 Minutes” by Peter Yang",
+    "url": "https://www.youtube.com/watch?v=2ZacwCbiLjg",
+    "kind": "youtube",
+    "stats": {
+     "views": 48974
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “How to Build an AI Chief of Staff in Claude (Full Setup)” by Darby Rollins",
+    "url": "https://www.youtube.com/watch?v=7EfWMObf6Mo",
+    "kind": "youtube",
+    "stats": {
+     "views": 4869
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “How to build an AI Chief of Staff agent with Claude Code. #claudecode #claude #ai” by Matt Paige",
+    "url": "https://www.youtube.com/watch?v=Jj69m2CA_5k",
+    "kind": "youtube",
+    "stats": {
+     "views": 3972
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -3027,6 +3473,15 @@
     "label": "X post by @DMAC_19 (2026-10-01): 8 days with an agent in a commercial real estate inbox",
     "url": "https://x.com/DMAC_19/status/2105719791751487542",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “Smart Email Alert Workflow | Automate Gmail Notifications with AI + n8n” by IoT by CosmicX",
+    "url": "https://www.youtube.com/watch?v=n0dXKDDDlwg",
+    "kind": "youtube",
+    "stats": {
+     "views": 257
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -3091,6 +3546,42 @@
     "label": "X post by @mikekamo (2026-09-23): Claude reads scanned paper mail, handles routine items and flags anything more than 20% different",
     "url": "https://x.com/mikekamo/status/2102768278812680522",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “Paperless-ngx + Local AI (Optional): Better OCR, Self-Hosted, No Cloud” by Techno Tim",
+    "url": "https://www.youtube.com/watch?v=NMAwHjleqHg",
+    "kind": "youtube",
+    "stats": {
+     "views": 242520
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Supercharge Paperless-NGX with AI | Automate Documents check | Self-Hosting Lab Series” by MRP",
+    "url": "https://www.youtube.com/watch?v=wpBoD4tv-gQ",
+    "kind": "youtube",
+    "stats": {
+     "views": 26726
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "GitHub: paperless-ngx/paperless-ngx (open-source scanner inbox that OCRs and files paper documents)",
+    "url": "https://github.com/paperless-ngx/paperless-ngx",
+    "kind": "github",
+    "stats": {
+     "stars": 47054
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "GitHub: clusterzx/paperless-ai (adds AI tagging and sorting to Paperless-ngx)",
+    "url": "https://github.com/clusterzx/paperless-ai",
+    "kind": "github",
+    "stats": {
+     "stars": 5979
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -3162,6 +3653,24 @@
     "label": "Reddit r/AI_Agents: “What AI agents are actually worth running for personal use?” (archived snapshot, Sep 5 2026)",
     "url": "https://reddit.sentinel-team.org/posts/1w4e3ji/snapshots/2026-09-05T09%3A24%3A43.696105Z",
     "kind": "reddit"
+   },
+   {
+    "label": "GitHub: dgtlmoon/changedetection.io (open-source web page change alerts)",
+    "url": "https://github.com/dgtlmoon/changedetection.io",
+    "kind": "github",
+    "stats": {
+     "stars": 35260
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Monitor Websites for Changes with Browse AI” by Browse AI",
+    "url": "https://www.youtube.com/watch?v=BFkgtLywV-Y",
+    "kind": "youtube",
+    "stats": {
+     "views": 7693
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -3292,6 +3801,15 @@
     "label": "X post by @Teevince_Ben (2026-08-21): lead-finding workflow with human approval before sending",
     "url": "https://x.com/Teevince_Ben/status/2090800086477389964",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “How to generate leads using Claude #anthropic #ai #aitools #leads #artificialintelligence” by Nathan Hodgson",
+    "url": "https://www.youtube.com/watch?v=RMeHgyOxb_w",
+    "kind": "youtube",
+    "stats": {
+     "views": 20259
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -3359,6 +3877,35 @@
     "label": "X post by @TheReal_BCM (2026-10-20): step by step, claimed a Grok Bot email address and set Gmail to forward a copy of every email to it",
     "url": "https://x.com/TheReal_BCM/status/2112514178871345362",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “AgentMail: The Email Inbox Built for AI Agents” by SyntaxGTM (Tom Granot)",
+    "url": "https://www.youtube.com/watch?v=hy1vucItiVw",
+    "kind": "youtube",
+    "stats": {
+     "views": 24931
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Agentmail Gives Every AI Agent Its Own Inbox (Free)” by Charlie Automates",
+    "url": "https://www.youtube.com/watch?v=nShpPxFckTE",
+    "kind": "youtube",
+    "stats": {
+     "views": 982
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “Show HN: AgentMailr – dedicated email inboxes for AI agents”",
+    "url": "https://news.ycombinator.com/item?id=47386367",
+    "kind": "hn",
+    "stats": {
+     "points": 7,
+     "comments": 5
+    },
+    "posted_at": "2026-03-15",
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -3437,6 +3984,24 @@
     "label": "X post by @siddaniagi (2026-09-28): Career Agent: evaluate jobs, tailor resumes, track applications",
     "url": "https://x.com/siddaniagi/status/2104457847010693524",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “Your Automated Job Search & Application AI Agent [No-code with n8n, LinkedIn, Deepseek & Perplexity]” by Andy Lo",
+    "url": "https://www.youtube.com/watch?v=coFz9CvKnZE",
+    "kind": "youtube",
+    "stats": {
+     "views": 221789
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Automate Your Job Search Using AI (Indeed, LinkedIn, ZipRecruiter)” by Jono Catliff",
+    "url": "https://www.youtube.com/watch?v=LIzZRgfW4ok",
+    "kind": "youtube",
+    "stats": {
+     "views": 113459
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -3517,6 +4082,15 @@
     "label": "X post by @Michael_Fenech_ (2026-10-09): school email manager prompt",
     "url": "https://x.com/Michael_Fenech_/status/2108579992456327489",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “AI can summarize school emails for you” by aiwithcassie ",
+    "url": "https://www.youtube.com/watch?v=Kvzc5h86m6w",
+    "kind": "youtube",
+    "stats": {
+     "views": 689
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": null,
@@ -3575,6 +4149,15 @@
     "label": "X post by @Jinfeng_tlqm (2026-10-10): beginner list of daily Grok Bot jobs",
     "url": "https://x.com/Jinfeng_tlqm/status/2108849705367327126",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “How I Use AI to Turn a Week of Emails Into Summaries and Insights” by Keymate AI",
+    "url": "https://www.youtube.com/watch?v=dQ6naFbAM38",
+    "kind": "youtube",
+    "stats": {
+     "views": 244
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": null,
@@ -3631,6 +4214,20 @@
     "label": "Original Reddit thread",
     "url": "https://www.reddit.com/r/AI_Agents/comments/1w4e3ji/what_ai_agents_are_actually_worth_running_for/",
     "kind": "reddit"
+   },
+   {
+    "label": "Reddit r/AI_Agents thread “What is an AI agent that changed your life for real?” (Sep 30, 2026): u/himiaoxin describes an email triage agent that scans the inbox each morning, flags what's urgent and drafts routine replies",
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pczrre1/",
+    "kind": "reddit"
+   },
+   {
+    "label": "YouTube: “AI Email Triage: Prioritize Your Inbox in 10 Minutes” by Avi Santoso",
+    "url": "https://www.youtube.com/watch?v=kHSk3f_Qrrg",
+    "kind": "youtube",
+    "stats": {
+     "views": 1120
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": null,
@@ -3685,6 +4282,15 @@
     "label": "X post by @mikekamo (2026-09-23): had Claude read 12 months of sent email so drafts sound like him",
     "url": "https://x.com/mikekamo/status/2102768278812680522",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “Claude AI Writes My Emails in My Own Voice” by Design with May",
+    "url": "https://www.youtube.com/watch?v=luB0YLajoS8",
+    "kind": "youtube",
+    "stats": {
+     "views": 2638
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": null,
@@ -3737,6 +4343,21 @@
     "label": "Google: Gemini Spark overview page (example tasks and schedules)",
     "url": "https://gemini.google/overview/agent/spark/",
     "kind": "official"
+   },
+   {
+    "label": "Reddit r/n8n: “Built an n8n workflow that scores new form submissions with AI and alerts me on Telegram” (Sep 29, 2026)",
+    "url": "https://www.reddit.com/r/n8n/comments/1wt203w/built_an_n8n_workflow_that_scores_new_form/",
+    "kind": "reddit",
+    "posted_at": "2026-09-29"
+   },
+   {
+    "label": "YouTube: “Turn Messy Client Order Emails into Clean Excel Sheets – Build a No-Code AI Agent in 7 Mins” by Titan AI Agent",
+    "url": "https://www.youtube.com/watch?v=0N439QvHOW4",
+    "kind": "youtube",
+    "stats": {
+     "views": 2525
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": null,
@@ -3794,6 +4415,29 @@
     "label": "X post by @Jinfeng_tlqm (2026-10-10): “Every morning, send me the 5 biggest AI stories in plain English”",
     "url": "https://x.com/Jinfeng_tlqm/status/2108849705367327126",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “Build a NEWS Briefing AI Agent 👩🏻‍💻” by Sundas Khalid",
+    "url": "https://www.youtube.com/watch?v=dN8sHamvN4U",
+    "kind": "youtube",
+    "stats": {
+     "views": 4505
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Set Up a Daily Morning Brief with Claude AI” by Nexus",
+    "url": "https://www.youtube.com/watch?v=D5nZOUfac_0",
+    "kind": "youtube",
+    "stats": {
+     "views": 4360
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Reddit r/AI_Agents thread “What is an AI agent that changed your life for real?” (Sep 30, 2026): u/SumGuy713 runs scheduled jobs that do market research and generate daily morning briefs",
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pda1m47/",
+    "kind": "reddit"
    }
   ],
   "popularity": null,
@@ -3892,6 +4536,24 @@
     "label": "X post by @_architected (2026-09-28): a reported Muse Marketplace mix-up (address shared, pickup when seller was out)",
     "url": "https://x.com/_architected/status/2104442538254123102",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “How I Automated Facebook Marketplace Sales (Meta Muse)” by Reezy Resells",
+    "url": "https://www.youtube.com/watch?v=8-OHQHUil70",
+    "kind": "youtube",
+    "stats": {
+     "views": 5892
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “I Built an AI Agent for Facebook Marketplace” by Ahmed Bafagih",
+    "url": "https://www.youtube.com/watch?v=IXLty4a00z0",
+    "kind": "youtube",
+    "stats": {
+     "views": 265
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -4103,6 +4765,15 @@
     "label": "X post by @robbieklages (2026-10-02): agent booked a hotel with a one-time-use virtual card",
     "url": "https://x.com/robbieklages/status/2105830877259346021",
     "kind": "x"
+   },
+   {
+    "label": "YouTube: “Privacy MCP: Create a Virtual Card for Your AI Agent in Seconds” by Privacy (from Privacy.com's own channel)",
+    "url": "https://www.youtube.com/watch?v=cLx9rrMBU_U",
+    "kind": "youtube",
+    "stats": {
+     "views": 389
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "popularity": {
@@ -4284,6 +4955,15 @@
     "label": "Google search suggestions for “using ai to appeal insurance denial” (checked 2026-10-19)",
     "url": "https://www.google.com/search?q=using+ai+to+appeal+insurance+denial",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “Health Insurance Denial AI Agent” by Buck Parker, M.D.",
+    "url": "https://www.youtube.com/watch?v=6tq6XAFDxgI",
+    "kind": "youtube",
+    "stats": {
+     "views": 893
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "real_examples": [
@@ -4614,6 +5294,17 @@
     "label": "Google search suggestions for “ai agent to book appointments” (checked 2026-10-19)",
     "url": "https://www.google.com/search?q=ai+agent+to+book+appointments",
     "kind": "article"
+   },
+   {
+    "label": "Hacker News: “Show HN: PlaceCall (YC W26) – agentic API to call businesses and get things done”",
+    "url": "https://news.ycombinator.com/item?id=49831231",
+    "kind": "hn",
+    "stats": {
+     "points": 16,
+     "comments": 4
+    },
+    "posted_at": "2026-09-24",
+    "measured_at": "2026-10-24"
    }
   ],
   "real_examples": [],
@@ -5086,6 +5777,24 @@
     "label": "OpenAI Help: Using cloud browser in ChatGPT",
     "url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “How to Use ChatGPT to Plan a Trip (Step-by-Step Tutorial)” by The Travel Coaches",
+    "url": "https://www.youtube.com/watch?v=Dcmoaa8yR1g",
+    "kind": "youtube",
+    "stats": {
+     "views": 28812
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “How to Plan a Trip Itinerary with Claude” by Prompt & Flow",
+    "url": "https://www.youtube.com/watch?v=3rzkZ7tJicc",
+    "kind": "youtube",
+    "stats": {
+     "views": 1038
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "tags": [
@@ -5163,6 +5872,15 @@
     "label": "AHRQ: Questions to ask your doctor",
     "url": "https://www.ahrq.gov/questions/index.html",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “Preparing for a doctor’s appointment with ChatGPT” by OpenAI (from OpenAI's own channel)",
+    "url": "https://www.youtube.com/watch?v=30RRJsIHmbQ",
+    "kind": "youtube",
+    "stats": {
+     "views": 16822
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "tags": [
@@ -5234,6 +5952,15 @@
     "label": "Reddit r/AgingParents: ChatGPT helped with an insurance discharge appeal",
     "url": "https://www.reddit.com/r/AgingParents/comments/1r1eimf/",
     "kind": "reddit"
+   },
+   {
+    "label": "YouTube: “How to Use AI to Help Care for an Aging Parent (Appointments, Meds List & Paperwork)” by Lamdis AI",
+    "url": "https://www.youtube.com/watch?v=a2Bt4u3B4pY",
+    "kind": "youtube",
+    "stats": {
+     "views": 27
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "real_examples": [
@@ -5318,6 +6045,24 @@
     "label": "Google search suggestions for “use ai to plan meals” (checked 2026-10-19)",
     "url": "https://www.google.com/search?q=use+ai+to+plan+meals",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “Using ChatGPT For EASY Meal Planning and Effortless Grocery Lists!” by The Cross Legacy",
+    "url": "https://www.youtube.com/watch?v=55yQ4bZeTkE",
+    "kind": "youtube",
+    "stats": {
+     "views": 6501
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “AI Generated My Weekly Meal Plan and Saved Me Hours (Claude CoWork)” by Hopeful Social AI",
+    "url": "https://www.youtube.com/watch?v=_PSNgaHlJUY",
+    "kind": "youtube",
+    "stats": {
+     "views": 702
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "tags": [
@@ -5392,6 +6137,15 @@
     "label": "Menlo Ventures, 2026 State of Consumer AI",
     "url": "https://menlovc.com/wp-content/uploads/2026/09/menlo_ventures_consumer_ai_report-2026.pdf",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “Build Your Own Socratic AI Tutor: Stop Copying, Start Learning!” by The AI Protocol",
+    "url": "https://www.youtube.com/watch?v=cCRlpqsgzHc",
+    "kind": "youtube",
+    "stats": {
+     "views": 150
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "tags": [
@@ -5483,6 +6237,20 @@
     "label": "Google search suggestions for “use ai to organize gmail” (checked 2026-10-19)",
     "url": "https://www.google.com/search?q=use+ai+to+organize+gmail",
     "kind": "article"
+   },
+   {
+    "label": "Reddit r/AI_Agents thread “What is an AI agent that changed your life for real?” (Sep 30, 2026): u/Zenith2012 has ChatGPT check email three times a day, archive the junk and list what needs a follow-up",
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pd141bl/",
+    "kind": "reddit"
+   },
+   {
+    "label": "YouTube: “I Gave Claude Cowork My Worst Inbox (47,693 Emails)...” by Charlie Automates",
+    "url": "https://www.youtube.com/watch?v=sJPux4buZN0",
+    "kind": "youtube",
+    "stats": {
+     "views": 64827
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "tags": [
@@ -5559,6 +6327,35 @@
     "label": "Google search suggestions for “can ai fill out job applications for me” (checked 2026-10-19)",
     "url": "https://www.google.com/search?q=can+ai+fill+out+job+applications+for+me",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “Tailor your resume using Gemini | Accelerate your job search with AI | Google” by Grow with Google (from Grow with Google)",
+    "url": "https://www.youtube.com/watch?v=IMCDNQJlBlc",
+    "kind": "youtube",
+    "stats": {
+     "views": 7662
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Tailor Your Resume in Under 3 Minutes Using ChatGPT (Step-by-Step)” by Ogaga Johnson (Project Management Coach)",
+    "url": "https://www.youtube.com/watch?v=DU5BGSS4Ugg",
+    "kind": "youtube",
+    "stats": {
+     "views": 81053
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “Show HN: I built a tool to auto-tailor resumes to job posts”",
+    "url": "https://news.ycombinator.com/item?id=43004494",
+    "kind": "hn",
+    "stats": {
+     "points": 17,
+     "comments": 5
+    },
+    "posted_at": "2025-02-10",
+    "measured_at": "2026-10-24"
    }
   ],
   "tags": [
@@ -5641,6 +6438,15 @@
     "label": "Google search suggestions for “ai to write listing description” (checked 2026-10-19)",
     "url": "https://www.google.com/search?q=ai+to+write+listing+description",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “How I Use AI to List 100 Items/Hour on eBay (FREE)” by Hustle at Home Mom",
+    "url": "https://www.youtube.com/watch?v=XAvnCkANxLE",
+    "kind": "youtube",
+    "stats": {
+     "views": 55565
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "tags": [
@@ -5721,6 +6527,15 @@
     "label": "Google search suggestions for “use ai to start a side hustle” (checked 2026-10-19)",
     "url": "https://www.google.com/search?q=use+ai+to+start+a+side+hustle",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “How to Validate Any Business Idea in 24 Hours Using AI” by Jon Law ",
+    "url": "https://www.youtube.com/watch?v=bSsBM1P7nOU",
+    "kind": "youtube",
+    "stats": {
+     "views": 128421
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "tags": [
@@ -5804,6 +6619,15 @@
     "label": "Google search suggestions for “ai to respond to google reviews” (checked 2026-10-19)",
     "url": "https://www.google.com/search?q=ai+to+respond+to+google+reviews",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “I JUST AUTOMATED MY GOOGLE REVIEW WITH AI (CHAT GPT)” by Jackie Lu",
+    "url": "https://www.youtube.com/watch?v=7liRdDbI0ZQ",
+    "kind": "youtube",
+    "stats": {
+     "views": 30312
+    },
+    "measured_at": "2026-10-24"
    }
   ],
   "tags": [
@@ -5879,6 +6703,26 @@
     "label": "Google search suggestions for “use ai to make invoices” (checked 2026-10-19)",
     "url": "https://www.google.com/search?q=use+ai+to+make+invoices",
     "kind": "article"
+   },
+   {
+    "label": "YouTube: “How to Automate Invoice Follow-Ups with Google Sheets + ChatGPT” by XL7 Vids",
+    "url": "https://www.youtube.com/watch?v=QMJRuH-QPzY",
+    "kind": "youtube",
+    "stats": {
+     "views": 33
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “Show HN: AI Invoicing with Jinna – Create, Send and Chase to Get Paid Faster”",
+    "url": "https://news.ycombinator.com/item?id=45808854",
+    "kind": "hn",
+    "stats": {
+     "points": 6,
+     "comments": 0
+    },
+    "posted_at": "2025-11-04",
+    "measured_at": "2026-10-24"
    }
   ],
   "tags": [
@@ -5904,5 +6748,1114 @@
   "setup": [],
   "popularity": null,
   "origin": "migrated-2026-10-19"
+ },
+ {
+  "slug": "get-a-researched-report-with-sources",
+  "title": "Get a researched report with sources on any question",
+  "category": "work",
+  "source_date": "2025-02-15",
+  "summary": "Ask one big question and let a research agent spend several minutes searching, reading and comparing pages. You get back a written report with links to every source.",
+  "what_the_bot_does": [
+   "Takes your question and asks a few follow-ups if it's unclear.",
+   "Plans a set of searches, then reads dozens of pages.",
+   "Compares what the sources say and notes where they disagree.",
+   "Writes a report with a link next to each claim."
+  ],
+  "what_you_end_up_with": "A multi-page report with linked sources that you can check, instead of 30 open tabs.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt",
+    "note": "Deep research"
+   },
+   {
+    "id": "gemini",
+    "note": "Deep Research; free accounts get a limited number"
+   },
+   {
+    "id": "claude",
+    "note": "Research, on paid plans"
+   }
+  ],
+  "prompt": "Research this for me: [your question, e.g. which home battery backup options work with a [brand] solar system in [state]]. Who it's for: [me / my family / my small business]. I care most about [safety, cost, reliability]. Give me a short summary first, then the details. Link a source for every claim, say when sources disagree, and tell me what you couldn't confirm. Don't buy, sign up or contact anyone.",
+  "setup": [
+   "Open ChatGPT, Gemini or Claude and pick the research mode (ChatGPT: Deep research in the tools menu; Gemini: Deep Research from the menu in the text box; Claude: + then Research, with web search on).",
+   "Type your question with who it's for and what matters most.",
+   "Answer any follow-up questions it asks, then let it run. It can take several minutes.",
+   "Open three or four of the linked sources and check the claims you'll act on."
+  ],
+  "watch_out": [
+   "Research agents can still cite a page that doesn't say what the report claims. Click the links for anything important.",
+   "Treat the report as a first draft. Check the sources for anything you'll act on, spend money on or repeat to others.",
+   "Claude's help page says Research can use your connected apps (like Gmail) without asking each time. Turn off connectors you don't want it reading."
+  ],
+  "sources": [
+   {
+    "label": "Hacker News: “Introducing deep research” (OpenAI's launch)",
+    "url": "https://news.ycombinator.com/item?id=42913251",
+    "kind": "hn",
+    "stats": {
+     "points": 593,
+     "comments": 418
+    },
+    "posted_at": "2025-02-03",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “Perplexity Deep Research”",
+    "url": "https://news.ycombinator.com/item?id=43061827",
+    "kind": "hn",
+    "stats": {
+     "points": 368,
+     "comments": 168
+    },
+    "posted_at": "2025-02-15",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “How to Use ChatGPT’s Deep Research to Save HOURS on Research” by Andy Stapleton",
+    "url": "https://www.youtube.com/watch?v=ld3XMuXwLcE",
+    "kind": "youtube",
+    "stats": {
+     "views": 219833
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Gemini Apps Help: Use Deep Research in Gemini Apps (checked 2026-10-24)",
+    "url": "https://support.google.com/gemini/answer/15719111",
+    "kind": "official"
+   },
+   {
+    "label": "Claude Help Center: Use research on Claude (paid plans; checked 2026-10-24)",
+    "url": "https://support.claude.com/en/articles/11088861-using-research-on-claude",
+    "kind": "official"
+   }
+  ],
+  "tags": [
+   "research",
+   "deep research",
+   "report",
+   "sources",
+   "citations",
+   "compare options"
+  ],
+  "date_added": "2026-10-24",
+  "last_checked": "2026-10-24",
+  "origin": "community-backfill-2026-10-24",
+  "popularity": null
+ },
+ {
+  "slug": "turn-documents-into-a-podcast",
+  "title": "Turn a pile of documents into a podcast you can listen to",
+  "category": "work",
+  "source_date": "2025-04-30",
+  "summary": "Upload PDFs, notes or links to Gemini Notebook (formerly NotebookLM) and it makes an audio overview: two AI hosts talking through your material, ready to play on a walk or in the car.",
+  "what_the_bot_does": [
+   "Reads the documents, links or notes you add to a notebook.",
+   "Writes a conversation between two AI hosts that covers the key points.",
+   "Turns it into audio you can play at the speed you like.",
+   "Answers follow-up questions from the same sources, with citations."
+  ],
+  "what_you_end_up_with": "A listenable summary of a long report, a course reading or a stack of meeting notes.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "notebooklm",
+    "note": "Audio Overview, in the Studio panel"
+   }
+  ],
+  "prompt": "(Type this in the Audio Overview customise box.) Focus on [the three decisions in this report / what a beginner needs to know / the risks]. My level is [new to this / I know the basics]. Keep it [shorter / default]. Point out anything the sources disagree on.",
+  "setup": [
+   "Go to notebooklm.google and sign in with a Google account.",
+   "Create a notebook and add your sources: PDFs, Google Docs, website links or pasted text.",
+   "In the Studio panel, choose Audio Overview. Pick a format (Deep Dive, Brief, Critique or Debate) and a language.",
+   "Optionally type what to focus on, then generate. It takes a few minutes.",
+   "Play it, and ask the notebook chat to show the source for anything surprising."
+  ],
+  "watch_out": [
+   "Google's help page says Audio Overviews are AI-generated and may contain inaccuracies or audio glitches. Check facts in the sources before you rely on them.",
+   "Only upload documents you're allowed to share with Google. Leave out private medical, legal or financial papers unless you're comfortable with that.",
+   "Free accounts have usage limits that refresh over time; heavier use needs a Google AI plan."
+  ],
+  "sources": [
+   {
+    "label": "Hacker News: “NotebookLM's automatically generated podcasts are surprisingly effective” (Simon Willison on how well the podcasts work)",
+    "url": "https://news.ycombinator.com/item?id=41693087",
+    "kind": "hn",
+    "stats": {
+     "points": 907,
+     "comments": 490
+    },
+    "posted_at": "2024-09-30",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “NotebookLM Audio Overviews are now available in over 50 languages”",
+    "url": "https://news.ycombinator.com/item?id=43848325",
+    "kind": "hn",
+    "stats": {
+     "points": 328,
+     "comments": 96
+    },
+    "posted_at": "2025-04-30",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Use NotebookLM to generate audio discussions #Google #Gemini #NotebookLM” by Google (from Google's own channel)",
+    "url": "https://www.youtube.com/watch?v=EgY9lP7VWng",
+    "kind": "youtube",
+    "stats": {
+     "views": 552733
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “How to Use Google NotebookLM (Full Tutorial)” by Kevin Stratvert",
+    "url": "https://www.youtube.com/watch?v=uSVBfyHBiDU",
+    "kind": "youtube",
+    "stats": {
+     "views": 436600
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Gemini Notebook Help: Generate Audio Overview (formats, languages, accuracy warning; checked 2026-10-24)",
+    "url": "https://support.google.com/notebooklm/answer/16212820",
+    "kind": "official"
+   },
+   {
+    "label": "Google blog: NotebookLM is now Gemini Notebook (Jul 16, 2026)",
+    "url": "https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/",
+    "kind": "official"
+   }
+  ],
+  "tags": [
+   "podcast",
+   "audio",
+   "listen",
+   "summary",
+   "study",
+   "NotebookLM",
+   "Gemini Notebook"
+  ],
+  "date_added": "2026-10-24",
+  "last_checked": "2026-10-24",
+  "origin": "community-backfill-2026-10-24",
+  "popularity": null
+ },
+ {
+  "slug": "control-your-smart-home-with-a-private-ai",
+  "title": "Control your smart home by talking to a private AI",
+  "category": "family",
+  "source_date": "2026-09-30",
+  "summary": "Connect Home Assistant to an AI model running on your own computer, then ask in plain words: “turn off everything downstairs” or “is the garage door open?”. Your voice and home data stay at home.",
+  "what_the_bot_does": [
+   "Listens to a plain-language request from the Home Assistant app or a voice speaker.",
+   "Works out which lights, plugs, locks or sensors you mean.",
+   "Controls only the devices you've exposed to it.",
+   "Answers questions about your home, like which windows are open."
+  ],
+  "what_you_end_up_with": "A voice assistant for your home that understands normal sentences and doesn't send your data to a big tech cloud.",
+  "difficulty": "Advanced",
+  "tools": [
+   {
+    "id": "home-assistant",
+    "note": "Assist voice assistant"
+   },
+   {
+    "id": "ollama",
+    "note": "Runs the AI model on your own computer"
+   }
+  ],
+  "prompt": "(Use this as the instructions for the Home Assistant conversation agent.) You control my home through Home Assistant. Only use the devices I've exposed. Before unlocking a door, opening the garage or turning off an alarm, ask me to confirm. If you're not sure which device I mean, ask. Keep answers to one short sentence.",
+  "setup": [
+   "Install Home Assistant on a small computer at home (Home Assistant's site has a getting-started guide) and add your smart devices.",
+   "Install Ollama on a computer on the same network and download a model.",
+   "In Home Assistant go to Settings > Devices & services > Add Integration > Ollama, and enter the Ollama server address.",
+   "In the Ollama options, allow it to control Home Assistant, then choose which devices it can see on the exposed entities page.",
+   "Set your voice assistant (Assist) to use the Ollama conversation agent, and try a simple request."
+  ],
+  "watch_out": [
+   "Home Assistant's docs call device control through Ollama an experimental feature. Expose only the devices you're happy for it to touch.",
+   "Small local models can misunderstand. Keep locks, alarms and heating behind a confirmation step.",
+   "A local model needs a reasonably capable computer to answer quickly."
+  ],
+  "sources": [
+   {
+    "label": "Hacker News: “Building a fully local LLM voice assistant to control my smart home”",
+    "url": "https://news.ycombinator.com/item?id=38985152",
+    "kind": "hn",
+    "stats": {
+     "points": 699,
+     "comments": 186
+    },
+    "posted_at": "2024-01-13",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "GitHub: acon96/home-llm (local AI models tuned for Home Assistant control)",
+    "url": "https://github.com/acon96/home-llm",
+    "kind": "github",
+    "stats": {
+     "stars": 1475
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “my local, AI Voice Assistant (I replaced Alexa!!)” by NetworkChuck",
+    "url": "https://www.youtube.com/watch?v=XvbVePuP7NY",
+    "kind": "youtube",
+    "stats": {
+     "views": 1624786
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Home Assistance Voice & Ollama Setup Guide - The Ultimate Local LLM Solution!” by TechteamGB",
+    "url": "https://www.youtube.com/watch?v=6nsiQXCgnYA",
+    "kind": "youtube",
+    "stats": {
+     "views": 60795
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Home Assistant docs: Ollama integration (control is experimental; checked 2026-10-24)",
+    "url": "https://www.home-assistant.io/integrations/ollama/",
+    "kind": "docs"
+   },
+   {
+    "label": "Reddit r/AI_Agents, “What is an AI agent that changed your life for real?”: u/Bencham95 uses an agent inside Home Assistant so home automations take much less time",
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pczh0a8/",
+    "kind": "reddit",
+    "posted_at": "2026-09-30"
+   }
+  ],
+  "tags": [
+   "smart home",
+   "Home Assistant",
+   "voice assistant",
+   "local AI",
+   "privacy",
+   "Ollama"
+  ],
+  "date_added": "2026-10-24",
+  "last_checked": "2026-10-24",
+  "origin": "community-backfill-2026-10-24",
+  "popularity": null
+ },
+ {
+  "slug": "show-ai-your-screen-for-tech-help",
+  "title": "Show AI your screen or camera and get live tech help",
+  "category": "family",
+  "source_date": "2025-04-07",
+  "summary": "Stuck on a phone setting, a confusing app or a blinking router? Share your screen or point your camera with Gemini Live and talk it through, like having a patient helper next to you.",
+  "what_the_bot_does": [
+   "Sees what's on your phone screen or in front of your camera while you talk.",
+   "Explains what you're looking at in plain words.",
+   "Walks you through the next tap or step, one at a time.",
+   "Answers follow-up questions as you go."
+  ],
+  "what_you_end_up_with": "The setting found, the error explained or the gadget set up, without waiting for a relative or a support line.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "gemini",
+    "note": "Gemini Live with camera and screen sharing (Android phone or tablet)"
+   }
+  ],
+  "prompt": "I'm not very technical. I'm sharing my screen. I'm trying to [turn on captions / free up storage / connect my printer]. Tell me one step at a time and wait for me to say “done” before the next one. Tell me before I change anything that could delete data.",
+  "setup": [
+   "Open the Gemini app on your Android phone and start Gemini Live (the Live button).",
+   "Tap the share-screen or camera button, then say what you're trying to do.",
+   "Follow one step at a time, and say “wait” or interrupt any time.",
+   "Stop sharing when you're done."
+  ],
+  "watch_out": [
+   "Don't share your screen while a password, bank app or private message is showing.",
+   "Google's help page asks you to respect other people's privacy and ask permission before pointing the camera at them.",
+   "AI can be wrong about menus that changed recently. If a step doesn't match your screen, tell it what you see."
+  ],
+  "sources": [
+   {
+    "label": "Hacker News: “Gemini Live with camera and screen sharing capabilities”",
+    "url": "https://news.ycombinator.com/item?id=43613463",
+    "kind": "hn",
+    "stats": {
+     "points": 193,
+     "comments": 99
+    },
+    "posted_at": "2025-04-07",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “How To Share Screen With Gemini (Updated 2026)” by AI Mastery",
+    "url": "https://www.youtube.com/watch?v=ZRzIdtRb2w0",
+    "kind": "youtube",
+    "stats": {
+     "views": 18414
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Google blog: 5 ways to use Gemini Live with camera and screen sharing (Apr 7, 2025)",
+    "url": "https://blog.google/products/gemini/gemini-live-android-tips/",
+    "kind": "official"
+   },
+   {
+    "label": "Gemini Apps Help: Talk naturally with Gemini Live (Android; checked 2026-10-24)",
+    "url": "https://support.google.com/gemini/answer/15274899",
+    "kind": "official"
+   }
+  ],
+  "tags": [
+   "tech help",
+   "screen share",
+   "camera",
+   "Gemini Live",
+   "seniors",
+   "setup help"
+  ],
+  "date_added": "2026-10-24",
+  "last_checked": "2026-10-24",
+  "origin": "community-backfill-2026-10-24",
+  "popularity": null
+ },
+ {
+  "slug": "get-meeting-notes-and-action-items",
+  "title": "Get meeting notes and action items written for you",
+  "category": "work",
+  "source_date": "2025-07-29",
+  "summary": "Turn on an AI note taker in your video call, or run an open-source one on your laptop. After the call you get a summary, decisions and a list of who does what.",
+  "what_the_bot_does": [
+   "Listens to the call (with everyone's knowledge).",
+   "Writes a summary of what was discussed and decided.",
+   "Pulls out action items with who owns each one.",
+   "Saves the notes where you'll find them, like Google Docs or a calendar event."
+  ],
+  "what_you_end_up_with": "Clean notes and a to-do list from every meeting, without typing during the call.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "gemini",
+    "note": "“Take notes for me” in Google Meet, on eligible Workspace or Google AI plans"
+   },
+   {
+    "id": "chatgpt",
+    "note": "Paste a transcript and ask for notes"
+   },
+   {
+    "id": "claude",
+    "note": "Paste a transcript and ask for notes"
+   }
+  ],
+  "prompt": "Here is a meeting transcript: [paste]. Write: 1) a 5-line summary, 2) decisions made, 3) action items as a table with owner and due date (write “not said” if none), 4) open questions. Quote the line from the transcript for each action item. Don't invent owners or dates.",
+  "setup": [
+   "Google Meet: in a meeting, select the Gemini notes option (“Take notes for me”). The organizer gets an email with the notes after the call.",
+   "Other apps: turn on the call's transcript, or use an open-source note taker like Meetily that runs on your own computer.",
+   "For a transcript, paste it into ChatGPT, Claude or Gemini with the prompt.",
+   "Read the action items and fix anything wrong before you share them."
+  ],
+  "watch_out": [
+   "Tell people the call is being recorded or transcribed, and follow your workplace's rules. Some places require everyone's consent.",
+   "Google's help page says “Take notes for me” works in a limited set of languages, one language per meeting.",
+   "AI notes can misattribute who said what. Check names on action items before sending."
+  ],
+  "sources": [
+   {
+    "label": "Hacker News: “Launch HN: Hyprnote (YC S25) – An open-source AI meeting notetaker”",
+    "url": "https://news.ycombinator.com/item?id=44725306",
+    "kind": "hn",
+    "stats": {
+     "points": 270,
+     "comments": 180
+    },
+    "posted_at": "2025-07-29",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "GitHub: Zackriya-Solutions/meetily (open-source meeting note taker that runs on your computer)",
+    "url": "https://github.com/Zackriya-Solutions/meetily",
+    "kind": "github",
+    "stats": {
+     "stars": 32114
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “How to Automate Meeting Notes in Microsoft Teams with AI!” by Scott Brant",
+    "url": "https://www.youtube.com/watch?v=9uEH72FMyJU",
+    "kind": "youtube",
+    "stats": {
+     "views": 198223
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Google Meet Help: “Take notes for me” in Google Meet (checked 2026-10-24)",
+    "url": "https://support.google.com/meet/answer/14754931",
+    "kind": "official"
+   }
+  ],
+  "tags": [
+   "meetings",
+   "notes",
+   "action items",
+   "transcript",
+   "summary",
+   "Google Meet"
+  ],
+  "date_added": "2026-10-24",
+  "last_checked": "2026-10-24",
+  "origin": "community-backfill-2026-10-24",
+  "popularity": null
+ },
+ {
+  "slug": "practice-speaking-a-new-language",
+  "title": "Practice speaking a new language out loud with AI",
+  "category": "family",
+  "source_date": "2026-01-30",
+  "summary": "Use an AI voice mode as a patient conversation partner. Pick a situation, like ordering food or checking into a hotel, and talk. It corrects you gently and adapts to your level.",
+  "what_the_bot_does": [
+   "Plays a role you choose, like a waiter, a shopkeeper or a new friend.",
+   "Talks at your level and slows down when you ask.",
+   "Corrects mistakes after you speak, without interrupting the flow.",
+   "Ends with a short list of words and phrases to review."
+  ],
+  "what_you_end_up_with": "Real speaking practice any time, without the nerves of talking to a stranger.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt",
+    "note": "Voice mode"
+   },
+   {
+    "id": "gemini",
+    "note": "Gemini Live"
+   }
+  ],
+  "prompt": "Let's practice [Spanish]. My level is [beginner / A2 / intermediate]. You are [a waiter in a café in Madrid]. Speak only in [Spanish], use short sentences, and speak slowly. After each of my answers, give one correction in English if I made a mistake, then continue. At the end, list 5 useful phrases from our chat.",
+  "setup": [
+   "Open the ChatGPT or Gemini app on your phone and start voice mode (ChatGPT) or Gemini Live.",
+   "Say or paste the prompt, filling in the language, level and situation.",
+   "Talk for 5 to 10 minutes. Ask it to repeat or slow down whenever you need.",
+   "Ask for the phrase list at the end and save it in your notes."
+  ],
+  "watch_out": [
+   "AI can sound confident even when a phrase is unnatural or regional. Check new phrases with a dictionary or a native speaker.",
+   "Use it alongside a teacher, an app course or real conversations, not as a full replacement.",
+   "Voice chats may be stored in your account history. Check the app's privacy settings."
+  ],
+  "sources": [
+   {
+    "label": "Hacker News: “Ask HN: Is anyone using AI conversation partners?”",
+    "url": "https://news.ycombinator.com/item?id=44112357",
+    "kind": "hn",
+    "stats": {
+     "points": 22,
+     "comments": 35
+    },
+    "posted_at": "2025-05-28",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “Show HN: I built an AI conversation partner to practice speaking languages”",
+    "url": "https://news.ycombinator.com/item?id=46830698",
+    "kind": "hn",
+    "stats": {
+     "points": 65,
+     "comments": 56
+    },
+    "posted_at": "2026-01-30",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “Show HN: Learn a language quickly by practising speaking with AI”",
+    "url": "https://news.ycombinator.com/item?id=36973400",
+    "kind": "hn",
+    "stats": {
+     "points": 325,
+     "comments": 253
+    },
+    "posted_at": "2023-08-02",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “ChatGPT's new update is HUGE for language learners” by Corinna Languages",
+    "url": "https://www.youtube.com/watch?v=czyWvwEW_g0",
+    "kind": "youtube",
+    "stats": {
+     "views": 94422
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “5 Mind-blowing Ways to Practice English with ChatGPT's Advanced Voice Mode” by Cloud English",
+    "url": "https://www.youtube.com/watch?v=1QOHGREQCJ0",
+    "kind": "youtube",
+    "stats": {
+     "views": 57081
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Gemini Apps Help: Talk naturally with Gemini Live (“Practice aloud”; checked 2026-10-24)",
+    "url": "https://support.google.com/gemini/answer/15274899",
+    "kind": "official"
+   }
+  ],
+  "tags": [
+   "language learning",
+   "speaking practice",
+   "conversation",
+   "voice mode",
+   "travel prep"
+  ],
+  "date_added": "2026-10-24",
+  "last_checked": "2026-10-24",
+  "origin": "community-backfill-2026-10-24",
+  "popularity": null
+ },
+ {
+  "slug": "practice-a-job-interview-out-loud",
+  "title": "Rehearse a job interview out loud with an AI interviewer",
+  "category": "work",
+  "summary": "Paste the job posting, let a voice AI play the interviewer, and answer out loud. Afterwards it tells you which answers were strong and which need a better example.",
+  "what_the_bot_does": [
+   "Reads the job posting and your resume.",
+   "Asks the kinds of questions this role is likely to get, one at a time.",
+   "Listens to your spoken answers and asks a follow-up like a real interviewer.",
+   "Gives feedback on each answer and suggests a stronger version."
+  ],
+  "what_you_end_up_with": "Several rounds of realistic practice and a short list of answers to polish before the real thing.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt",
+    "note": "Voice mode"
+   },
+   {
+    "id": "gemini",
+    "note": "Gemini Live"
+   },
+   {
+    "id": "claude"
+   }
+  ],
+  "prompt": "Be my interviewer for this role: [paste the job posting]. My resume: [paste, with your address and phone removed]. Ask me 6 questions, one at a time, mixing behavioural and role-specific ones. Wait for my full answer, ask one follow-up, then move on. At the end, rate each answer 1 to 5 with one specific tip, and point out any answer where I didn't give a concrete example.",
+  "setup": [
+   "Copy the job posting and your resume (remove your address, phone number and email).",
+   "Open ChatGPT voice mode or Gemini Live on your phone, or type in Claude if you'd rather write your answers.",
+   "Paste the prompt and answer each question out loud as if it were real.",
+   "Ask for the feedback summary, rewrite your two weakest answers, and run it again."
+  ],
+  "watch_out": [
+   "The AI doesn't know what this employer actually asks. Also look at the company's own careers page and recent interview tips from people in the field.",
+   "Practice in your own words. Interviewers can tell when an answer is memorised from an AI script.",
+   "Don't paste confidential details from a current employer into the chat."
+  ],
+  "sources": [
+   {
+    "label": "YouTube: “CHATGPT Voice Mode | Get READY for the BEST Interview of Your Life!” by The Oracle Guy: AI Unlocked",
+    "url": "https://www.youtube.com/watch?v=a7iDvy-MaVs",
+    "kind": "youtube",
+    "stats": {
+     "views": 165992
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “ChatGPT Voice Mode for Job Interviews?” by Resume Genius (from Resume Genius)",
+    "url": "https://www.youtube.com/watch?v=jdYAm9wklbE",
+    "kind": "youtube",
+    "stats": {
+     "views": 9920
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Interview Practice with AI: Advanced Voice Mode with ChatGPT!” by w/KMo",
+    "url": "https://www.youtube.com/watch?v=6wTaQ_aMeqc",
+    "kind": "youtube",
+    "stats": {
+     "views": 5740
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “Google Interview Warmup” (discussion of Google's AI interview practice tool, 2022)",
+    "url": "https://news.ycombinator.com/item?id=31605131",
+    "kind": "hn",
+    "stats": {
+     "points": 167,
+     "comments": 191
+    },
+    "posted_at": "2022-06-03",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Gemini Apps Help: Talk naturally with Gemini Live (“Practice aloud: rehearse for important moments”; checked 2026-10-24)",
+    "url": "https://support.google.com/gemini/answer/15274899",
+    "kind": "official"
+   }
+  ],
+  "tags": [
+   "job interview",
+   "practice",
+   "career",
+   "voice mode",
+   "feedback"
+  ],
+  "date_added": "2026-10-24",
+  "last_checked": "2026-10-24",
+  "origin": "community-backfill-2026-10-24",
+  "popularity": null
+ },
+ {
+  "slug": "build-a-small-app-by-describing-it",
+  "title": "Build a small app for yourself just by describing it",
+  "category": "work",
+  "source_date": "2026-09-30",
+  "summary": "Describe a little tool you wish existed, like a chore chart, a tip splitter or a packing checklist, and Claude builds a working version beside the chat. Ask for changes in plain words.",
+  "what_the_bot_does": [
+   "Turns your description into a small working app you can click on.",
+   "Shows it next to the chat so you can try it right away.",
+   "Changes it when you say what's wrong or missing.",
+   "Lets you share a link with family or co-workers."
+  ],
+  "what_you_end_up_with": "A custom mini app that does exactly the one job you need, without learning to code.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "claude",
+    "note": "Artifacts, on all plans"
+   }
+  ],
+  "prompt": "Build me a simple app: [a weekly chore chart for 3 kids where they tick off jobs and earn stars]. Who uses it: [kids on a tablet]. Must have: [big buttons, a reset every Sunday]. Keep it to one screen and explain how to use it in two sentences. Don't collect any personal data.",
+  "setup": [
+   "Open claude.ai (free plan works) and check Settings has code execution and file creation turned on, which artifacts need.",
+   "Describe the app: what it does, who uses it and the must-have features.",
+   "Try it in the panel beside the chat. Say what to change, one thing at a time.",
+   "When it works, use the share option if you want others to use it."
+  ],
+  "watch_out": [
+   "Don't put passwords, bank details or other private data into a home-made app.",
+   "This works best for small, single-purpose tools. Bigger projects get harder to keep working with chat alone.",
+   "If you share an artifact publicly, anyone with the link can see it."
+  ],
+  "sources": [
+   {
+    "label": "Hacker News: “Everything I built with Claude Artifacts this week” (Simon Willison's week of small apps)",
+    "url": "https://news.ycombinator.com/item?id=41929174",
+    "kind": "hn",
+    "stats": {
+     "points": 637,
+     "comments": 465
+    },
+    "posted_at": "2024-10-23",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “How to Use Claude Artifacts (Beginner Tutorial)” by Kevin Stratvert",
+    "url": "https://www.youtube.com/watch?v=1PRcdCu8n6M",
+    "kind": "youtube",
+    "stats": {
+     "views": 144592
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Claude Artifacts Tutorial - Build Apps, Documents, and Dashboards” by Howfinity",
+    "url": "https://www.youtube.com/watch?v=gf50PAw7R_w",
+    "kind": "youtube",
+    "stats": {
+     "views": 28591
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Claude Help Center: What are artifacts and how do I use them? (checked 2026-10-24)",
+    "url": "https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them",
+    "kind": "official"
+   },
+   {
+    "label": "Reddit r/AI_Agents, “What is an AI agent that changed your life for real?”: u/Daniel_SayGM says AI let them finish personal projects in spare 15-minute sessions",
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pdaqvjw/",
+    "kind": "reddit",
+    "posted_at": "2026-09-30"
+   }
+  ],
+  "tags": [
+   "no-code",
+   "mini app",
+   "build a tool",
+   "Claude artifacts",
+   "vibe coding"
+  ],
+  "date_added": "2026-10-24",
+  "last_checked": "2026-10-24",
+  "origin": "community-backfill-2026-10-24",
+  "popularity": null
+ },
+ {
+  "slug": "sort-and-rename-a-messy-folder",
+  "title": "Let an AI sort and rename a messy folder of files",
+  "category": "work",
+  "source_date": "2026-09-30",
+  "summary": "Point a desktop agent at your Downloads folder or a drive full of oddly named files. It proposes a folder structure and clear names, then moves things only after you approve.",
+  "what_the_bot_does": [
+   "Looks through a folder you choose and reads what each file is about.",
+   "Suggests a simple folder structure and a naming pattern.",
+   "Shows you the plan before it moves or renames anything.",
+   "Applies the plan and gives you a list of what changed."
+  ],
+  "what_you_end_up_with": "A tidy folder where files have names that say what they are.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "claude-cowork",
+    "note": "Works on folders you give it access to"
+   },
+   {
+    "id": "ollama",
+    "note": "For open-source organizers that run fully on your computer"
+   }
+  ],
+  "prompt": "Look at the files in [folder]. Propose a folder structure with no more than [6] folders and a naming pattern like [YYYY-MM-DD topic]. Show me the full plan as a table (old name, new name, new folder) and wait for my OK. Don't delete anything. Put files you're unsure about in a folder called “To check”.",
+  "setup": [
+   "Make a backup copy of the folder first, or try it on a copy.",
+   "In Claude Cowork, give it access to only that one folder.",
+   "Paste the prompt and read the plan it shows you. Ask for changes.",
+   "Say OK, then spot-check a few files in their new places."
+  ],
+  "watch_out": [
+   "Always keep a backup. An agent that can move files can also make a mess of them.",
+   "Give it one folder, not your whole computer.",
+   "Tiago Forte checked every decision an AI made when organizing his files. Do the same for anything important."
+  ],
+  "sources": [
+   {
+    "label": "Reddit r/ClaudeAI: “Beyond the ‘Life-Changing’ Hype, what are you actually using Claude Cowork for?” (Apr 8, 2026): the poster has it categorize and rename their Downloads folder",
+    "url": "https://www.reddit.com/r/ClaudeAI/comments/1sfhin6/beyond_the_lifechanging_hype_what_are_you/",
+    "kind": "reddit",
+    "posted_at": "2026-04-08"
+   },
+   {
+    "label": "Reddit r/AI_Agents, “What is an AI agent that changed your life for real?”: u/amulie had an agent pick a naming convention and rename hundreds of Google Docs",
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pd0hxlf/",
+    "kind": "reddit",
+    "posted_at": "2026-09-30"
+   },
+   {
+    "label": "Reddit r/AI_Agents, “What is an AI agent that changed your life for real?”: u/gol_2904 uses Claude Cowork to organize video footage on a drive",
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pd23c42/",
+    "kind": "reddit",
+    "posted_at": "2026-09-30"
+   },
+   {
+    "label": "YouTube: “AI Organized My Files. I Checked Every Decision. (Claude Code + PARA)” by Tiago Forte",
+    "url": "https://www.youtube.com/watch?v=HjWESsnoU6g",
+    "kind": "youtube",
+    "stats": {
+     "views": 79639
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “Local File Organizer: Organize your files using multi-modal LLMs”",
+    "url": "https://news.ycombinator.com/item?id=41715459",
+    "kind": "hn",
+    "stats": {
+     "points": 36,
+     "comments": 5
+    },
+    "posted_at": "2024-10-01",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "GitHub: QiuYannnn/Local-File-Organizer (open-source organizer that runs on your computer)",
+    "url": "https://github.com/QiuYannnn/Local-File-Organizer",
+    "kind": "github",
+    "stats": {
+     "stars": 3357
+    },
+    "measured_at": "2026-10-24"
+   }
+  ],
+  "tags": [
+   "files",
+   "folders",
+   "rename",
+   "organize",
+   "Downloads",
+   "declutter"
+  ],
+  "date_added": "2026-10-24",
+  "last_checked": "2026-10-24",
+  "origin": "community-backfill-2026-10-24",
+  "popularity": null
+ },
+ {
+  "slug": "turn-voice-memos-into-notes-and-tasks",
+  "title": "Turn rambling voice memos into tidy notes and a to-do list",
+  "category": "work",
+  "source_date": "2024-01-05",
+  "summary": "Talk into your phone while walking or driving, then let AI turn the transcript into organized notes, a to-do list and any drafts you mentioned.",
+  "what_the_bot_does": [
+   "Takes the transcript of your voice memo.",
+   "Groups your thoughts by topic and removes the “ums” and repeats.",
+   "Pulls out to-dos, dates and people to contact.",
+   "Drafts any message or note you said you needed to write."
+  ],
+  "what_you_end_up_with": "Clean notes and a task list from ideas you'd otherwise forget.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt"
+   },
+   {
+    "id": "claude"
+   },
+   {
+    "id": "gemini"
+   }
+  ],
+  "prompt": "Here's a transcript of a voice memo I recorded: [paste]. Turn it into: 1) a short summary, 2) notes grouped by topic, 3) a to-do list with any dates I mentioned, 4) drafts of any messages I said I'd send. Keep my wording where you can. Mark anything you're guessing with (?).",
+  "setup": [
+   "Record a memo in your phone's recorder app. Many recorder apps now show a transcript; otherwise upload the audio to an AI app that accepts audio files.",
+   "Copy the transcript.",
+   "Paste it with the prompt into ChatGPT, Claude or Gemini.",
+   "Move the to-dos into your task app or calendar."
+  ],
+  "watch_out": [
+   "Transcripts mishear names and numbers. Check phone numbers, amounts and dates before acting on them.",
+   "Don't record other people without their permission.",
+   "Delete memos with private details once you've saved the notes."
+  ],
+  "sources": [
+   {
+    "label": "YouTube: “Your iPhone's Secret AI Note Taker — No Code!” by Creator Magic",
+    "url": "https://www.youtube.com/watch?v=4fk4M_63rug",
+    "kind": "youtube",
+    "stats": {
+     "views": 448942
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Nobody uses Voice Memos like this on iPhone & Mac (AI Workflow)” by Shortcut Micha",
+    "url": "https://www.youtube.com/watch?v=ZMbWfw6Hl6I",
+    "kind": "youtube",
+    "stats": {
+     "views": 20458
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “Show HN: Local Transcription and Summarization of Voice Memos for iOS and Mac”",
+    "url": "https://news.ycombinator.com/item?id=38879064",
+    "kind": "hn",
+    "stats": {
+     "points": 10,
+     "comments": 1
+    },
+    "posted_at": "2024-01-05",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "GitHub: Thimm/transcribe_apple_voice_memos (local transcription and summaries of Apple Voice Memos)",
+    "url": "https://github.com/Thimm/transcribe_apple_voice_memos",
+    "kind": "github",
+    "stats": {
+     "stars": 10
+    },
+    "measured_at": "2026-10-24"
+   }
+  ],
+  "tags": [
+   "voice memo",
+   "dictation",
+   "notes",
+   "to-do",
+   "transcript",
+   "ideas"
+  ],
+  "date_added": "2026-10-24",
+  "last_checked": "2026-10-24",
+  "origin": "community-backfill-2026-10-24",
+  "popularity": null
+ },
+ {
+  "slug": "read-old-handwritten-letters-and-records",
+  "title": "Read old handwritten letters and family records with AI",
+  "category": "family",
+  "summary": "Grandma's letters, an old diary or a census page in hard-to-read cursive? Upload a photo and ask AI for a transcription, then check it line by line.",
+  "what_the_bot_does": [
+   "Reads a photo or scan of a handwritten page.",
+   "Types out the text, keeping the original spelling.",
+   "Marks words it can't read instead of guessing.",
+   "Can summarize the page or translate it if it's in another language."
+  ],
+  "what_you_end_up_with": "A typed copy of the document you can search, share with family and save with the original.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "gemini"
+   },
+   {
+    "id": "chatgpt"
+   },
+   {
+    "id": "claude"
+   }
+  ],
+  "prompt": "Transcribe this handwritten [letter / diary page / record] exactly as written, keeping original spelling and line breaks. Put [?] after any word you're unsure of and [illegible] where you can't read it. Then give a 3-line summary. Don't fill gaps with guesses.",
+  "setup": [
+   "Take a clear, flat, well-lit photo of each page (or scan it).",
+   "Upload one page at a time to Gemini, ChatGPT or Claude with the prompt.",
+   "Compare the transcription with the original, line by line, and fix mistakes.",
+   "Save the typed text next to the image with the date and who wrote it."
+  ],
+  "watch_out": [
+   "AI transcriptions of old handwriting contain mistakes, especially names, places and dates. Always check against the original.",
+   "Old records can include living people's private details. Think before uploading or sharing them.",
+   "Keep the original image. The transcription is a helper, not a replacement."
+  ],
+  "sources": [
+   {
+    "label": "YouTube: “How to Use AI to Transcribe Handwritten Documents” by FamilySearch (from FamilySearch)",
+    "url": "https://www.youtube.com/watch?v=mbc34nFYFMA",
+    "kind": "youtube",
+    "stats": {
+     "views": 6220
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Can Gen-AI transcribe old handwriting? I compare the models” by Gen-AI and Genealogy Made Simple (compares several AI models)",
+    "url": "https://www.youtube.com/watch?v=kgcsZqbxP3o",
+    "kind": "youtube",
+    "stats": {
+     "views": 1860
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "YouTube: “Can AI Really Read Old Handwriting? Testing Tools for Genealogists!” by Family Tree Support",
+    "url": "https://www.youtube.com/watch?v=wT88u8-QU3E",
+    "kind": "youtube",
+    "stats": {
+     "views": 970
+    },
+    "measured_at": "2026-10-24"
+   }
+  ],
+  "tags": [
+   "genealogy",
+   "handwriting",
+   "transcribe",
+   "family history",
+   "old letters",
+   "scan"
+  ],
+  "date_added": "2026-10-24",
+  "last_checked": "2026-10-24",
+  "origin": "community-backfill-2026-10-24",
+  "popularity": null
+ },
+ {
+  "slug": "turn-pdf-invoices-into-a-spreadsheet",
+  "title": "Turn a pile of PDF invoices and receipts into a spreadsheet",
+  "category": "business",
+  "source_date": "2026-09-30",
+  "summary": "Drop in a stack of invoices or receipts and get one tidy table: date, vendor, amount and tax for each, ready for your bookkeeper or a spreadsheet.",
+  "what_the_bot_does": [
+   "Reads each PDF or photo, even when layouts differ.",
+   "Pulls out the fields you choose, like date, vendor, invoice number, amount and tax.",
+   "Puts everything in one table and flags anything it couldn't read.",
+   "Can run automatically for new invoices that arrive by email."
+  ],
+  "what_you_end_up_with": "One spreadsheet of every invoice, instead of typing them in by hand.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "chatgpt",
+    "note": "Upload files and ask for a table"
+   },
+   {
+    "id": "claude"
+   },
+   {
+    "id": "gemini"
+   },
+   {
+    "id": "n8n",
+    "note": "To run it automatically on new invoices"
+   }
+  ],
+  "prompt": "Here are [12] invoices. Make a table with one row per invoice and these columns: date (YYYY-MM-DD), vendor, invoice number, total, tax, currency, file name. If a value isn't on the invoice, write “missing”. Don't calculate or guess values. After the table, list any invoice you had trouble reading.",
+  "setup": [
+   "Put the invoices in one folder. Start with 10 or fewer.",
+   "Upload them to ChatGPT, Claude or Gemini with the prompt.",
+   "Spot-check at least three rows against the original PDFs, especially totals.",
+   "Download or copy the table into your spreadsheet. To automate new invoices, an n8n workflow can extract the same fields as they arrive."
+  ],
+  "watch_out": [
+   "Check totals against the originals. AI can misread a 7 as a 1 or pick the wrong total on a busy invoice.",
+   "Invoices include business and bank details. Use a business account or a tool your accountant approves.",
+   "Keep the original files. Your tax records need the documents, not just the table."
+  ],
+  "sources": [
+   {
+    "label": "Reddit r/n8n: “3 Document Workflows Small Businesses Should Set Up Before Year End”, starting with auto-logging every invoice and receipt (Sep 30, 2026)",
+    "url": "https://www.reddit.com/r/n8n/comments/1wtzj4w/3_document_workflows_small_businesses_should_set/",
+    "kind": "reddit",
+    "posted_at": "2026-09-30"
+   },
+   {
+    "label": "YouTube: “How to Convert PDF Invoices to Excel” by Eamonn Cottrell",
+    "url": "https://www.youtube.com/watch?v=FOxk9R5JBvs",
+    "kind": "youtube",
+    "stats": {
+     "views": 10174
+    },
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “Launch HN: Midship (YC S24) – Turn PDFs, docs, and images into usable data”",
+    "url": "https://news.ycombinator.com/item?id=42066500",
+    "kind": "hn",
+    "stats": {
+     "points": 121,
+     "comments": 61
+    },
+    "posted_at": "2024-11-06",
+    "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Hacker News: “Show HN: Open-Source Document Extraction Tool”",
+    "url": "https://news.ycombinator.com/item?id=42706867",
+    "kind": "hn",
+    "stats": {
+     "points": 13,
+     "comments": 2
+    },
+    "posted_at": "2025-01-15",
+    "measured_at": "2026-10-24"
+   }
+  ],
+  "tags": [
+   "invoices",
+   "receipts",
+   "PDF",
+   "spreadsheet",
+   "bookkeeping",
+   "data entry"
+  ],
+  "date_added": "2026-10-24",
+  "last_checked": "2026-10-24",
+  "origin": "community-backfill-2026-10-24",
+  "popularity": null
  }
 ]
