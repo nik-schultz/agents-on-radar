@@ -42,8 +42,12 @@ p{margin:0 0 1em}.small{font-size:.88rem}.muted{color:var(--muted)}.center{text-
 @media(min-width:960px){.hero-grid{grid-template-columns:1.15fr .85fr}.hero{padding-top:56px}}
 .kinetic{font-size:clamp(2.3rem,6.4vw,4.6rem);font-weight:850;letter-spacing:-.035em;line-height:1.02;margin:.1em 0 .35em}
 .k-line{display:block}
-.rotator{display:block;height:1.24em;margin-bottom:-.16em;overflow:hidden;position:relative;background:linear-gradient(90deg,var(--c1),var(--c2) 50%,var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
-.rotator span{display:block;height:1.24em;white-space:nowrap;animation:rot 17.5s cubic-bezier(.7,0,.3,1) infinite}
+/* 2026-10-24: the gradient text-clip lives on each word, not on .rotator. WebKit (iOS Safari, Comet, every iOS browser) gives
+   transform-animated children their own compositing layer, and a parent's background-clip:text does not paint into those
+   layers, so the rotating words (color:transparent) rendered invisible: a blank line between "What AI agents" and "for real people." */
+.rotator{display:block;height:1.24em;margin-bottom:-.16em;overflow:hidden;position:relative}
+.rotator span{display:block;height:1.24em;white-space:nowrap;animation:rot 17.5s cubic-bezier(.7,0,.3,1) infinite;background:linear-gradient(90deg,var(--c1),var(--c2) 50%,var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+@supports not ((-webkit-background-clip:text) or (background-clip:text)){.rotator span{color:var(--c1);-webkit-text-fill-color:currentColor}}
 @keyframes rot{0%,11%{transform:translateY(0)}14%,25%{transform:translateY(-100%)}28%,39%{transform:translateY(-200%)}42%,53%{transform:translateY(-300%)}56%,67%{transform:translateY(-400%)}70%,81%{transform:translateY(-500%)}84%,97%{transform:translateY(-600%)}100%{transform:translateY(0)}}
 .kinetic-sm{font-size:clamp(2rem,5vw,3.4rem);font-weight:850;letter-spacing:-.03em;background:linear-gradient(100deg,#fff 30%,#c9d2ff 60%,var(--c1));-webkit-background-clip:text;background-clip:text;color:transparent}
 .lead{font-size:1.15rem;color:#cfd6f3;max-width:60ch}
@@ -244,8 +248,9 @@ div.bp-art.art-slot{border-radius:50%}
 
 /* ---- Hero headline rotation (2026-10-21): 4 headlines share one grid cell, so height never jumps ---- */
 .hl-stack{display:grid}
-.hl-stack>.hl{grid-area:1/1;animation:hl 28s cubic-bezier(.7,0,.3,1) infinite both}
-.hl-stack>.hl-1{animation-delay:7s}.hl-stack>.hl-2{animation-delay:14s}.hl-stack>.hl-3{animation-delay:21s}
+/* hl-0 starts already faded in (negative delay = the 2.5% fade-in of 28s), so the first headline is fully visible on the first frame */
+.hl-stack>.hl{grid-area:1/1;animation:hl 28s cubic-bezier(.7,0,.3,1) -.7s infinite both}
+.hl-stack>.hl-1{animation-delay:6.3s}.hl-stack>.hl-2{animation-delay:13.3s}.hl-stack>.hl-3{animation-delay:20.3s}
 .hl-stack>.hl:not(.hl-0){pointer-events:none}
 .k-grad{display:block;padding:0 .06em .16em 0;margin-bottom:-.16em;background:linear-gradient(90deg,var(--c1),var(--c2) 50%,var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent}
 @keyframes hl{0%{opacity:0;transform:translateY(.35em);filter:blur(6px)}2.5%,23%{opacity:1;transform:none;filter:none}25.5%,100%{opacity:0;transform:translateY(-.35em);filter:blur(6px)}}
