@@ -1,5 +1,10 @@
 # Ops changelog
 
+## 2026-10-24 (morning CT) — Per-page social preview images
+- 18 pages now have their own 1200x630 og:image / twitter:image: the top 15 use cases on /trending/ (snapshot Oct 24) plus /use-cases/, /trending/ and /blueprints/. Images were made by the Marketing bot.
+- Source PNGs live in static/og/<slug>.png and publish at /assets/og/<slug>.png. data/og_images.json maps canonical path -> image (trailing slash normalised). Every other page keeps /assets/og.png. All pages keep og:image:width 1200, og:image:height 630 and twitter:card summary_large_image. build.py prints a WARNING if a mapped path has no built page.
+- Regenerate when the ranking changes: edit RANK in scripts/make_og_images.py (it reads data/use-cases.json and needs the source art in /workspace/botsdothat/og-images/_art/<slug>.jpg plus Poppins fonts), run `python3 scripts/make_og_images.py` (writes to /workspace/botsdothat/og-images/ + manifest.csv), then copy the PNGs into static/og/, update data/og_images.json, and deploy with scripts/deploy.sh. Check each PNG is 1200x630 and under 1 MB.
+
 ## 2026-10-23 (7:30 PM CT) — Sponsor self-serve checkout is live (Stripe live mode)
 - /advertise/ "Book & pay" buttons now open live Stripe Payment Links (account acct_1UTrztBgq3cPhA7u). Featured $49, Run for less $99, Bundle $149, Newsletter issue $50; one-time, no renewal. Each collects website URL, headline + one-line description, and preferred start month (newsletter: optional logo link instead). Promo codes on, post-payment invoice on, redirect to /sponsor-thanks/, Managed Payments off.
 - Codes: FOUNDING (100% off once, featured only, 3 uses). New FIRST2 (100% off once, newsletter only, 2 uses) for Nik's "first 2 issues free"; shown on the newsletter tier.

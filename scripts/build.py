@@ -127,6 +127,15 @@ _CF_TOKEN = ((cfg.get("analytics") or {}).get("cloudflare_token") or "").strip()
 # Cloudflare Web Analytics (cookie-free). Emitted in every page's <head> only when a token is set in config.json.
 CF_BEACON = (f"<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{\"token\": \"{e(_CF_TOKEN)}\"}}'></script>\n" if _CF_TOKEN else "")
 
+# Per-page social preview images (1200x630 PNGs in static/og/, published at /assets/og/<slug>.png).
+# data/og_images.json maps a canonical path ("/use-cases/x/") to its image; every other page falls back to /assets/og.png.
+_OG_PATH = os.path.join(ROOT, "data", "og_images.json")
+OG_IMAGES = {("/" + k.strip("/") + "/").replace("//", "/"): v for k, v in (json.load(open(_OG_PATH)) if os.path.exists(_OG_PATH) else {}).items()}
+OG_USED = set()
+def _og_for(path):
+    key = ("/" + path.split("#")[0].split("?")[0].strip("/") + "/").replace("//", "/")
+    if key in OG_IMAGES: OG_USED.add(key); return OG_IMAGES[key]
+    return "/assets/og.png"
 def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="page", og_type="website", head_extra=""):
     canon = absu(u(path))
     _ldj = json.dumps(ld or [], ensure_ascii=False, sort_keys=True)
@@ -142,7 +151,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
         nl_end = f'<div class="wrap share-wrap">{share_bar(title, canon)}</div>' + nl_end
     # Keep <title> within ~62 chars (Google truncates longer ones); drop the brand suffix when it won't fit.
     full_title = title if (NAME in title or len(title) + len(NAME) + 3 > 62) else f"{title} · {NAME}"
-    og = absu(u("/assets/og.png"))
+    og = absu(u(_og_for(path)))
     nav = [("/what-can-bots-do/", "What's an AI agent?"), ("/trending/", "Trending"), ("/use-cases/", "Use cases"), ("/blueprints/", "Build a bot"), ("/news/", "AI news"), (LESS, "Run for less")]
     navh = "".join(f'<a href="{u(p)}"{" class=nav-less" if p == LESS else ""}{" aria-current=page" if path==p else ""}>{"<span class=nav-less-dot aria-hidden=true></span>" if p == LESS else ""}{t}</a>' for p, t in nav)
     doc = f"""<!doctype html><html lang="en" data-page="{kind}"><head><meta charset="utf-8">
@@ -290,6 +299,7 @@ for f in os.listdir(os.path.join(ROOT, "static")):
     sp = os.path.join(ROOT, "static", f)
     if os.path.isfile(sp): shutil.copy(sp, os.path.join(OUT, "assets", f))
 if os.path.isdir(IMG_DIR): shutil.copytree(IMG_DIR, os.path.join(OUT, "assets", "img"))
+if os.path.isdir(os.path.join(ROOT, "static", "og")): shutil.copytree(os.path.join(ROOT, "static", "og"), os.path.join(OUT, "assets", "og"))
 
 # ---------- HOME -----------------------------------------------------------------
 def radar(items):
@@ -1655,5 +1665,7 @@ def make_og():
     d.text((72, 540), f"{len(ucs)} use cases · {len(bps)} blueprints · real popularity numbers", font=font(24, False), fill=(140, 160, 210))
     im.save(os.path.join(OUT, "assets", "og.png"), optimize=True)
 make_og()
+_og_missing = sorted(set(OG_IMAGES) - OG_USED)
+if _og_missing: print("WARNING: og_images.json paths with no built page:", ", ".join(_og_missing))
 with open(_CD_PATH, "w") as fh: json.dump(dict(sorted(CONTENT_DATES.items())), fh, indent=1, ensure_ascii=False); fh.write("\n")
 print(f"Built {len(SITEMAP)} indexed pages + 404 into {OUT} (name: {NAME}, base: {BASE}{BP}); trending={len(TRENDING)}")
