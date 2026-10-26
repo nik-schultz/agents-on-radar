@@ -1,5 +1,13 @@
 # Ops changelog
 
+## 2026-10-26 (news update, 6:30 AM CT)
+- Added 6 items to data/news.json (newest first): Gemini API stores requests by default for new paid projects (Oct 26, minor); Block's Dessa full-duplex speech model, research preview only (Oct 23, notable, X @jack); OpenAI trains frontier models offline (Oct 23, notable, X @OpenAI); OpenAI Agents API scheduled automations (Oct 23, notable, docs + community post, no official X post found); OpenAI legacy model shutdown of GPT-4, GPT-3.5 Turbo, o1, o3-mini, o4-mini, gpt-image-1 and others (Oct 23, minor); ChatGPT locked chats (Oct 20, notable, missed earlier; no credible high-engagement X post).
+- New company "Block" in NEWS_CO (scripts/build.py).
+- Re-measured all 38 tracked X posts (research/x_news_measure_2026_10_26_am.json.txt, applied by research/news_x_2026_10_26_am.py). Top story is still Claude Duet (no new major item).
+- No pricing changes (retired OpenAI models weren't in data/ai-pricing.json). No new use case: Agents API automations is already covered by the scheduled-bot use cases.
+- Checked: OpenAI, Anthropic, Google/Gemini changelog, xAI news and release notes, Mistral, DeepSeek, OpenAI API changelog and deprecations, TechCrunch, and X posts from the major labs since Oct 23. Skipped: OpenAI Cosmos DB storage engineering post, Claude Code 2.1.310 (changelog-level), Gemini small-business tools (Oct 20, outside window), opinion pieces and roundups, and anything without an official or reputable source.
+- validate 0 errors; build 134 pages; check_links 0 broken.
+
 ## 2026-10-24 (late morning CT) — Sources beyond X: "Seen on" line, multi-site heat, 12 new use cases
 - Nik's ask: stop relying on X alone. Before: 61/162 source links were X (85% of community links); 37 of 82 use cases were X-only. After: 61/316 (28% of community links); 14 of 94 X-only. Full numbers and method: ops/source-mix.md (re-run `python3 scripts/source_mix.py`).
 - data/use-cases.json: 53 existing entries gained 96 non-X sources (YouTube, Hacker News, GitHub, Reddit). New optional source fields: `kind` can now be `hn`, `youtube` or `github`; `stats` {points|upvotes|comments|views|stars: int}; `measured_at`; `posted_at`. validate.py checks them (integers only, measured_at required).
@@ -411,3 +419,5 @@ Bugs fixed
 Improvement for visitors
 - Homepage search now tells people (and screen readers, via a polite live region) how many guides match, says when only the first 6 are shown, and a no-match message links straight to the all-guides search with their words already filled in.
 - Added `BACKLOG.md` with 18 candidate guides taken from the autocomplete research, so future runs have a queue of high-intent topics.
+
+- 2026-10-24: Added SaaSHub verification meta tag (deploy e96cb24); claimed and verified the SaaSHub listing (account botsdothat / hello@botsdothat.com). Listing still pending SaaSHub approval.

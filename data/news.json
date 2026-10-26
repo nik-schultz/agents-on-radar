@@ -9,6 +9,17 @@
  ],
  "items": [
   {
+   "id": "gemini-api-store-by-default",
+   "date": "2026-10-26",
+   "category": "feature",
+   "company": "Google",
+   "impact": "minor",
+   "headline": "Gemini API now saves requests by default for new paid projects",
+   "explainer": "If you set up a new paid Gemini API project, the prompts your bot sends are now stored by default, matching Google's Interactions API; existing projects don't change. If you'd rather they weren't kept, send store=false or turn off Generate Content API logging under Logs and Datasets.",
+   "source_url": "https://ai.google.dev/gemini-api/docs/changelog",
+   "source_name": "Gemini API changelog"
+  },
+  {
    "id": "kimi-k3-1-pro",
    "date": "2026-10-23",
    "category": "model release",
@@ -29,10 +40,10 @@
     "author": "@Kimi_Moonshot",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 14247,
-    "reposts": 1576,
-    "views": 781632,
-    "measured_at": "2026-10-23"
+    "likes": 29986,
+    "reposts": 3210,
+    "views": 3942700,
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -56,10 +67,10 @@
     "author": "@cursor_ai",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 3484,
-    "reposts": 236,
-    "views": 138526,
-    "measured_at": "2026-10-23"
+    "likes": 6386,
+    "reposts": 467,
+    "views": 400595,
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -83,11 +94,87 @@
     "author": "@NVIDIAAI",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 1001,
-    "reposts": 103,
-    "views": 88420,
-    "measured_at": "2026-10-23"
+    "likes": 2057,
+    "reposts": 258,
+    "views": 280432,
+    "measured_at": "2026-10-26"
    }
+  },
+  {
+   "id": "block-dessa",
+   "date": "2026-10-23",
+   "category": "model release",
+   "company": "Block",
+   "impact": "notable",
+   "headline": "Block shows Dessa, a voice AI that talks with human-like pauses and emotion",
+   "explainer": "Dessa is a speech model from the company behind Square and Cash App that listens and talks at the same time, so conversations with it sound strikingly like a real person. There's no public access yet, only early access for safety researchers, but it's a reminder that a lifelike voice on the phone may not be a person.",
+   "source_url": "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/",
+   "source_name": "TechCrunch",
+   "more_sources": [
+    {
+     "label": "Block: Dessa",
+     "url": "https://block.xyz/dessa"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/jack/status/2113697902916751661",
+    "author": "@jack",
+    "kind": "official",
+    "posted_at": "2026-10-23",
+    "likes": 68649,
+    "reposts": 7063,
+    "views": 13267171,
+    "measured_at": "2026-10-26"
+   }
+  },
+  {
+   "id": "openai-offline-training",
+   "date": "2026-10-23",
+   "category": "industry",
+   "company": "OpenAI",
+   "impact": "notable",
+   "headline": "OpenAI cuts its newest models off the live internet while they're being trained",
+   "explainer": "OpenAI says its frontier models now train in an offline copy of the web instead of the real internet, a safety step so a model in training can't reach outside systems. Nothing changes in ChatGPT for you, but it shows labs are treating stronger models as something to keep fenced in.",
+   "source_url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+   "source_name": "OpenAI",
+   "x": {
+    "url": "https://x.com/OpenAI/status/2113718797505036665",
+    "author": "@OpenAI",
+    "kind": "official",
+    "posted_at": "2026-10-23",
+    "likes": 13477,
+    "reposts": 1216,
+    "views": 7347286,
+    "measured_at": "2026-10-26"
+   }
+  },
+  {
+   "id": "openai-agents-api-scheduled-automations",
+   "date": "2026-10-23",
+   "category": "feature",
+   "company": "OpenAI",
+   "impact": "notable",
+   "headline": "OpenAI's Agents API can now run bots on a schedule",
+   "explainer": "Developers can now tell an OpenAI agent to run on a repeating schedule, like every morning at 10, or once at a set time, and the agent can even set up its own schedules when you ask in plain words. Expect more apps that do a recurring job for you, such as a daily digest, without you opening them.",
+   "source_url": "https://developers.openai.com/api/docs/guides/agents-api/sessions/automations",
+   "source_name": "OpenAI API docs",
+   "more_sources": [
+    {
+     "label": "OpenAI Developer Community announcement",
+     "url": "https://community.openai.com/t/introducing-scheduled-automations-to-the-agents-api/1409223"
+    }
+   ]
+  },
+  {
+   "id": "openai-legacy-models-shutdown-oct-23",
+   "date": "2026-10-23",
+   "category": "industry",
+   "company": "OpenAI",
+   "impact": "minor",
+   "headline": "OpenAI switched off older models including GPT-4, GPT-3.5 Turbo, o4-mini and gpt-image-1",
+   "explainer": "If an older app or bot of yours suddenly stopped working on Oct 23, this may be why: OpenAI retired a batch of older models announced back in April. Switching it to a current model such as GPT-5.6 usually fixes it.",
+   "source_url": "https://developers.openai.com/api/docs/deprecations",
+   "source_name": "OpenAI API deprecations"
   },
   {
    "id": "anthropic-agent-skills-to-aaif",
@@ -115,10 +202,10 @@
     "author": "@OpenAIDevs",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 1332,
-    "reposts": 97,
-    "views": 145570,
-    "measured_at": "2026-10-23"
+    "likes": 1378,
+    "reposts": 99,
+    "views": 166084,
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -136,10 +223,10 @@
     "author": "@canva",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 2955,
-    "reposts": 2314,
-    "views": 1778099,
-    "measured_at": "2026-10-23"
+    "likes": 3161,
+    "reposts": 420,
+    "views": 1901216,
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -157,10 +244,10 @@
     "author": "@claudeai",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 19107,
-    "reposts": 750,
-    "views": 2166946,
-    "measured_at": "2026-10-23"
+    "likes": 21009,
+    "reposts": 849,
+    "views": 2660385,
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -184,10 +271,10 @@
     "author": "@bot",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 13230,
-    "reposts": 1054,
-    "views": 2323595,
-    "measured_at": "2026-10-23"
+    "likes": 14322,
+    "reposts": 1131,
+    "views": 3024363,
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -211,10 +298,10 @@
     "author": "@bot",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 9293,
-    "reposts": 668,
-    "views": 833645,
-    "measured_at": "2026-10-23"
+    "likes": 9925,
+    "reposts": 702,
+    "views": 1198924,
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -232,10 +319,10 @@
     "author": "@GeminiApp",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 1104,
-    "reposts": 94,
-    "views": 79272,
-    "measured_at": "2026-10-23"
+    "likes": 1302,
+    "reposts": 111,
+    "views": 97356,
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -262,11 +349,11 @@
     "url": "https://x.com/claudeai/status/2112984664256241837",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 54465,
-    "reposts": 4164,
-    "views": 9470593,
+    "likes": 55082,
+    "reposts": 4220,
+    "views": 10680664,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -293,11 +380,11 @@
     "url": "https://x.com/OpenAI/status/2112907856018309586",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 14403,
-    "reposts": 2864,
-    "views": 5788088,
+    "likes": 14456,
+    "reposts": 2872,
+    "views": 5876793,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -314,11 +401,11 @@
     "url": "https://x.com/claudeai/status/2112962248218148878",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 11025,
-    "reposts": 563,
-    "views": 787697,
+    "likes": 11053,
+    "reposts": 566,
+    "views": 819367,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -341,11 +428,11 @@
     "url": "https://x.com/OpenAI/status/2112988118471295323",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 5218,
-    "reposts": 410,
-    "views": 479370,
+    "likes": 5253,
+    "reposts": 412,
+    "views": 508140,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -369,10 +456,10 @@
     "author": "@RichardSocher",
     "kind": "official",
     "posted_at": "2026-10-21",
-    "likes": 8343,
-    "reposts": 883,
-    "views": 3358873,
-    "measured_at": "2026-10-23"
+    "likes": 8395,
+    "reposts": 893,
+    "views": 3411630,
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -389,11 +476,11 @@
     "url": "https://x.com/MistralAI/status/2112574615318876178",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 3249,
+    "likes": 3269,
     "reposts": 377,
-    "views": 266914,
+    "views": 272862,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -410,11 +497,11 @@
     "url": "https://x.com/OpenAIDevs/status/2112603916076781778",
     "author": "@OpenAIDevs",
     "kind": "official",
-    "likes": 3602,
-    "reposts": 189,
-    "views": 1868373,
+    "likes": 3609,
+    "reposts": 187,
+    "views": 1953027,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -437,11 +524,11 @@
     "url": "https://x.com/deepseek_ai/status/2112476496283775135",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 42773,
-    "reposts": 4844,
-    "views": 6559036,
+    "likes": 43133,
+    "reposts": 4884,
+    "views": 6718384,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -476,11 +563,28 @@
     "author": "@Google",
     "kind": "official",
     "posted_at": "2026-10-20",
-    "likes": 2125,
-    "reposts": 186,
-    "views": 266343,
-    "measured_at": "2026-10-23"
+    "likes": 2130,
+    "reposts": 188,
+    "views": 272333,
+    "measured_at": "2026-10-26"
    }
+  },
+  {
+   "id": "chatgpt-locked-chats",
+   "date": "2026-10-20",
+   "category": "feature",
+   "company": "OpenAI",
+   "impact": "notable",
+   "headline": "ChatGPT lets you lock private chats behind a PIN",
+   "explainer": "You can now lock a sensitive ChatGPT chat from its ••• menu so it's hidden from your history and search and opens only with a 4-digit PIN or your phone's face or fingerprint unlock. Write the PIN down, because resetting a forgotten one deletes every locked chat for good; it's rolling out gradually.",
+   "source_url": "https://techcrunch.com/2026/10/20/chatgpt-now-lets-you-lock-your-chats/",
+   "source_name": "TechCrunch",
+   "more_sources": [
+    {
+     "label": "OpenAI Help Center: Using locked chats",
+     "url": "https://help.openai.com/en/articles/20001411-using-locked-chats-in-chatgpt"
+    }
+   ]
   },
   {
    "id": "android-police-gems-become-skills",
@@ -513,11 +617,11 @@
     "url": "https://x.com/deepseek_ai/status/2111375640717033777",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 37101,
-    "reposts": 4131,
-    "views": 7962515,
+    "likes": 37156,
+    "reposts": 4129,
+    "views": 8054312,
     "posted_at": "2026-10-17",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -534,11 +638,11 @@
     "url": "https://x.com/deepseek_ai/status/2111375650414309859",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 3488,
-    "reposts": 250,
-    "views": 961570,
+    "likes": 3494,
+    "reposts": 251,
+    "views": 967119,
     "posted_at": "2026-10-17",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -565,11 +669,11 @@
     "url": "https://x.com/AIatMeta/status/2110779754274292212",
     "author": "@AIatMeta",
     "kind": "official",
-    "likes": 11543,
-    "reposts": 1221,
-    "views": 1243069,
+    "likes": 11557,
+    "reposts": 1222,
+    "views": 1251579,
     "posted_at": "2026-10-15",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -592,11 +696,11 @@
     "url": "https://x.com/ArtificialAnlys/status/2110421964095713743",
     "author": "@ArtificialAnlys",
     "kind": "coverage",
-    "likes": 1311,
-    "reposts": 144,
-    "views": 909404,
+    "likes": 1310,
+    "reposts": 142,
+    "views": 912560,
     "posted_at": "2026-10-14",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -619,11 +723,11 @@
     "url": "https://x.com/GeminiApp/status/2110039322229649783",
     "author": "@GeminiApp",
     "kind": "official",
-    "likes": 7311,
-    "reposts": 772,
-    "views": 6571639,
+    "likes": 7385,
+    "reposts": 778,
+    "views": 9006195,
     "posted_at": "2026-10-13",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -646,11 +750,11 @@
     "url": "https://x.com/AIatMeta/status/2109691148943999167",
     "author": "@AIatMeta",
     "kind": "official",
-    "likes": 2208,
-    "reposts": 236,
-    "views": 316590,
+    "likes": 2207,
+    "reposts": 238,
+    "views": 322576,
     "posted_at": "2026-10-12",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -701,11 +805,11 @@
     "url": "https://x.com/claudeai/status/2108271552991252810",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 60552,
-    "reposts": 4603,
-    "views": 11414763,
+    "likes": 60544,
+    "reposts": 4599,
+    "views": 11436907,
     "posted_at": "2026-10-08",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -722,11 +826,11 @@
     "url": "https://x.com/OpenAI/status/2107894997538525580",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 24034,
-    "reposts": 1905,
-    "views": 6872291,
+    "likes": 24089,
+    "reposts": 1915,
+    "views": 6960413,
     "posted_at": "2026-10-07",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -743,11 +847,11 @@
     "url": "https://x.com/claudeai/status/2107894039626277339",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 45258,
-    "reposts": 3266,
-    "views": 6731690,
+    "likes": 45242,
+    "reposts": 3262,
+    "views": 6752694,
     "posted_at": "2026-10-07",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -764,11 +868,11 @@
     "url": "https://x.com/claudeai/status/2107894060229034197",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 11857,
-    "reposts": 588,
-    "views": 1578391,
+    "likes": 11851,
+    "reposts": 586,
+    "views": 1580314,
     "posted_at": "2026-10-07",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -785,11 +889,11 @@
     "url": "https://x.com/MistralAI/status/2107457414387622310",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 40660,
-    "reposts": 4574,
-    "views": 5712100,
+    "likes": 40657,
+    "reposts": 4568,
+    "views": 5722638,
     "posted_at": "2026-10-06",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -812,11 +916,11 @@
     "url": "https://x.com/claudeai/status/2107522596845822135",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 54370,
-    "reposts": 4303,
-    "views": 13337983,
+    "likes": 54357,
+    "reposts": 4305,
+    "views": 13351662,
     "posted_at": "2026-10-06",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -839,11 +943,11 @@
     "url": "https://x.com/OpenAI/status/2104986129686741046",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 21112,
-    "reposts": 1713,
-    "views": 3237031,
+    "likes": 21105,
+    "reposts": 1711,
+    "views": 3241048,
     "posted_at": "2026-09-29",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -881,11 +985,11 @@
     "url": "https://x.com/OpenAI/status/2104984504133918973",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 38105,
-    "reposts": 3366,
-    "views": 14824268,
+    "likes": 38096,
+    "reposts": 3368,
+    "views": 14895458,
     "posted_at": "2026-09-29",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -919,11 +1023,11 @@
     "url": "https://x.com/bot/status/2104661562715967548",
     "author": "@bot",
     "kind": "official",
-    "likes": 6407,
-    "reposts": 573,
-    "views": 39179001,
+    "likes": 6437,
+    "reposts": 571,
+    "views": 42535973,
     "posted_at": "2026-09-28",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -940,11 +1044,11 @@
     "url": "https://x.com/claudeai/status/2102435511222890900",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 97508,
-    "reposts": 9049,
-    "views": 28606423,
+    "likes": 97854,
+    "reposts": 9073,
+    "views": 29120544,
     "posted_at": "2026-09-22",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -961,11 +1065,11 @@
     "url": "https://x.com/OpenAI/status/2102460975790137662",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 53252,
-    "reposts": 5269,
-    "views": 10193952,
+    "likes": 53227,
+    "reposts": 5264,
+    "views": 10198719,
     "posted_at": "2026-09-22",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   },
   {
@@ -988,11 +1092,11 @@
     "url": "https://x.com/elonmusk/status/2102071804495872374",
     "author": "@elonmusk",
     "kind": "official",
-    "likes": 26955,
-    "reposts": 2555,
-    "views": 32255496,
+    "likes": 26916,
+    "reposts": 2529,
+    "views": 32256923,
     "posted_at": "2026-09-21",
-    "measured_at": "2026-10-23"
+    "measured_at": "2026-10-26"
    }
   }
  ],
