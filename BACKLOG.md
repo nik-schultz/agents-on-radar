@@ -113,3 +113,5 @@ Candidates not added yet:
 - Competitor watch: theagentfield.beehiiv.com / theagentfield.pages.dev (daily "real AI agent use cases" newsletter + site), agentsoftheday.com, botdidit.com, agentsinuse.com, grokbotagents.co.
 
 Bugs/complaints: none found on the site. Note: HN items API comment counts differ slightly from the search API's num_comments (deleted comments), so only points were refreshed from it.
+
+- (2026-10-26, from news) Let a bot do your Walmart grocery run with a spending cap: Walmart Agent Gateway + Agent Profiles (per-order approval or spending limit, agent never sees your card). Wait until Agent Profiles roll out (announced Oct 21 for "next month"), then write it with the Walmart page and TechCrunch as sources.

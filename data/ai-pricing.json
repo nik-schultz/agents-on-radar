@@ -28,6 +28,17 @@
   },
   {
    "provider": "OpenAI",
+   "model": "gpt-6.1-terra",
+   "tier": "mid",
+   "input": 1.0,
+   "output": 5.0,
+   "cached_input": 0.05,
+   "note": "New Oct 26, 2026. Short context (≤272K input tokens).",
+   "source_url": "https://platform.openai.com/docs/pricing",
+   "checked_on": "2026-10-26"
+  },
+  {
+   "provider": "OpenAI",
    "model": "gpt-6-luna",
    "tier": "small",
    "input": 0.1,

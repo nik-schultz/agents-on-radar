@@ -1,5 +1,14 @@
 # Ops changelog
 
+## 2026-10-26 (news update, 2:30 PM CT)
+- Added 6 items to data/news.json (newest first): GPT-6.1 Terra, OpenAI's new mid-size computer-use model at $1 in / $5 out (Oct 26, notable, X @OpenAI); Anthropic files S-1 for a Nasdaq IPO as "ANT" (Oct 26, notable, X @AnthropicAI); Claude for Nonprofits plugin (Oct 26, notable, X @claudeai); Claude Enterprise merges chat and Cowork (Oct 23, notable, missed earlier, no official X post found); Gemini Notebook as a Connected App in Gemini (Oct 23, notable, missed earlier); Walmart Agent Gateway and Agent Profiles for AI shopping agents (Oct 21, notable, missed earlier, no credible high-engagement X post).
+- Rated GPT-6.1 Terra notable, not major: it is OpenAI's mid tier, and GPT-6 Astra remains the flagship. Top story stays Claude Duet.
+- New company "Walmart" in NEWS_CO (scripts/build.py).
+- Pricing: added gpt-6.1-terra ($1.00 / $5.00, cached $0.05) to data/ai-pricing.json from the official OpenAI pricing page.
+- X numbers for the 3 new posts: research/x_news_measure_2026_10_26_pm.json.txt, applied by research/news_x_2026_10_26_pm.py. Other tracked posts were re-measured this morning.
+- No new use case: Terra's form filling and invoice entry are already covered by existing web-form and invoice use cases; Walmart agent shopping is logged for the backlog once Agent Profiles roll out.
+- Checked: OpenAI API changelog and pricing, Anthropic news, Claude blog, xAI news, Mistral, DeepSeek updates, Google blog and Workspace Updates, TechCrunch, and X posts from the major labs since this morning. Skipped: Mirendil Fern 0.1 and Nanbeige4.3-33B (small labs, research-scale), a Gemini "Remembered items" APK teardown (unreleased), and roundups.
+
 ## 2026-10-26 (daily QA run, 7:15 AM CT)
 Status: live site https://botsdothat.com/ is up (homepage 200 in about 0.2 s; /use-cases/, /trending/, /news/, /advertise/, app.js, style.css and the search index all 200).
 
