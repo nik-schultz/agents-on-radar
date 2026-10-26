@@ -1,0 +1,67 @@
+{
+ "slug": "watch-your-kids-team-apps-for-schedule-changes",
+ "title": "Have a bot watch your kids' team apps and tell you only when plans change",
+ "category": "family",
+ "source_date": "2026-10-11",
+ "summary": "Every team seems to have its own app, like TeamSnap, GameChanger or LeagueApps. A bot can check them all each morning, put practices and games in one place, and stay quiet unless a time changes, a game is added or something is cancelled.",
+ "what_the_bot_does": [
+  "Every morning at a time you pick, it reads the team emails and checks each team app or site you've signed it in to.",
+  "It pulls out practices, games, meets and cancellations for each child.",
+  "It compares them with what it saw yesterday and with your family calendar.",
+  "If something changed, like practice moving from Thursday to Tuesday, it messages you with the change and any clash it causes.",
+  "If nothing changed, it says nothing."
+ ],
+ "what_you_end_up_with": "One quiet check-in that covers every team, so you stop opening four apps a day and still catch the practice that moved.",
+ "difficulty": "Medium",
+ "tools": [
+  {
+   "id": "grok-bot",
+   "note": "A parent used it across TeamSnap, GameChanger and LeagueApps"
+  },
+  {
+   "id": "meta-muse",
+   "note": "A parent runs a daily TeamSnap check that stays silent unless something changes"
+  },
+  {
+   "id": "gemini-spark"
+  }
+ ],
+ "prompt": "Every morning at [7:00], check my kids' team schedules: [child 1] on [TeamSnap team name], [child 2] on [GameChanger team name], plus any emails from [coach or league addresses]. Compare everything with what you found yesterday and with my [family calendar]. Only message me if something changed: a new time, a new game or meet, a cancellation, or a clash with something already on the calendar. Say which child, what changed and what it clashes with. If nothing changed, don't message me. Don't RSVP, reply to coaches or change my calendar without asking.",
+ "setup": [
+  "List every child, team and app (TeamSnap, GameChanger, LeagueApps, a club website) plus the email addresses team news comes from.",
+  "Connect your email and calendar to your bot, and sign it in to each team app it needs to check. A password manager that lets your bot use approved logins keeps passwords out of the chat.",
+  "Set a daily schedule, early enough to fix a clash before school runs start.",
+  "Make \"quiet unless something changed\" the rule, and ask it to send one short note when a check fails, so silence never hides a problem.",
+  "For the first two weeks, compare its notes with the apps yourself before you trust it."
+ ],
+ "watch_out": [
+  "If a team app logs the bot out or changes its layout, the check can quietly fail. Ask for a note whenever it couldn't read an app.",
+  "Team apps hold kids' names, photos and locations. Connect only the teams you need, and don't let the bot post or reply in team chats.",
+  "Agents can sound sure while using stale info: the same parent's agent once sent him to a restaurant using old opening hours. For anything time-critical, ask it to check the live app and say when it last looked."
+ ],
+ "sources": [
+  {
+   "label": "Jay Kranda, “20 Things My AI Agents Do” (Oct 11, 2026): a Muse routine at 6:53am watches his boys' TeamSnap teams for practice changes, new meets and cancellations and stays silent otherwise",
+   "url": "https://www.jaykranda.com/blog/2026/10/11/20-things-my-ai-agents-do-so-i-dont-have-to",
+   "kind": "article",
+   "posted_at": "2026-10-11"
+  },
+  {
+   "label": "LinkedIn post by Conor Daly (Sep 2026): four kids, each team with its own app (TeamSnap, GameChanger, LeagueApps); Grok Bot pulled the messages from email, clicked through the sites he'd logged it into, and caught flag practice moving from Thursday to Tuesday",
+   "url": "https://www.linkedin.com/posts/conor-daly-9b97688_grokbot-activity-7503111121298542593-I1Em",
+   "kind": "article",
+   "posted_at": "2026-09-08"
+  }
+ ],
+ "popularity": null,
+ "tags": [
+  "kids",
+  "sports",
+  "TeamSnap",
+  "GameChanger",
+  "schedule changes",
+  "parents",
+  "quiet alerts",
+  "routine"
+ ]
+}

@@ -112,5 +112,17 @@
   "url": "https://www.home-assistant.io/",
   "cost": "Free, open source; runs on a small computer at home",
   "kind": "local"
+ },
+ "1password-agents": {
+  "name": "1Password for Agents",
+  "url": "https://1password.com/blog/1password-for-ai-agents",
+  "cost": "No extra cost on 1Password Individual and Family accounts on 1Password.com (not .eu or .ca), per 1Password, Oct 22, 2026; a 1Password subscription is needed",
+  "kind": "automation"
+ },
+ "manus-cue": {
+  "name": "Cue by Manus",
+  "url": "https://cue.im/",
+  "cost": "Invite code required; free during early access per reviewers; an agent phone number is a separate subscription in select countries",
+  "kind": "agent"
  }
 }

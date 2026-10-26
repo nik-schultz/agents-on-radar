@@ -1,0 +1,108 @@
+{
+ "slug": "let-a-bot-answer-and-screen-your-calls",
+ "title": "Let a bot answer your phone and take messages for you",
+ "category": "inbox",
+ "source_date": "2026-10-23",
+ "summary": "Forward your calls to an agent with its own phone number. It picks up, says it's your AI assistant, talks to the caller, takes a message and sends you a short summary. People who use it say many spam callers simply hang up.",
+ "what_the_bot_does": [
+  "Your agent gets its own phone number, and you forward your calls to it (all calls, or just the ones you miss).",
+  "It answers, tells the caller it's your AI assistant, and asks who they are and what they need.",
+  "It holds a normal conversation, takes a message, and can answer simple questions you've allowed, like when you're free.",
+  "After each call it sends you a summary in the app, so you only call back the people who matter.",
+  "Anything it isn't sure about, it leaves for you instead of promising something."
+ ],
+ "what_you_end_up_with": "Fewer interruptions, no more unknown-number roulette, and a tidy list of who called and what they wanted.",
+ "difficulty": "Medium",
+ "tools": [
+  {
+   "id": "manus-cue",
+   "note": "Agents can have their own number and take forwarded calls; select countries only"
+  }
+ ],
+ "prompt": "You answer calls I forward to you. Start every call with: \"Hi, this is [my name]'s AI assistant. This call may be recorded.\" Ask who is calling and why. Take a clear message with their name, number and what they need. You may tell callers [what they may know, e.g. that I usually call back the same day]. Never agree to anything, share my address, give out codes or account details, or make payments. If it sounds urgent, like [family, school, a doctor], text me right away. After each call, send me a two-line summary.",
+ "setup": [
+  "Get access to an agent app that can have its own phone number. Cue by Manus does this (invite code required); the number is a separate subscription and is only offered in some countries.",
+  "Create one agent just for calls and give it a short job description: who you are, who usually calls, what it may and may not say.",
+  "Turn on call forwarding on your phone to the agent's number. Start with \"forward when busy or unanswered\" so you can still pick up yourself.",
+  "Call it from a friend's phone a few times to hear how it sounds, then read the first week of summaries closely.",
+  "List the callers who should reach you straight away, like school, a carer or the doctor, and keep them on your own line."
+ ],
+ "watch_out": [
+  "Tell callers they're talking to an AI and that the call is recorded, and check the call-recording rules where you live; some places need everyone's consent.",
+  "Speech recognition can mishear names, numbers and addresses. Ask the caller to repeat anything important, and double-check it before you act.",
+  "Don't let it read out one-time codes or answer security questions. A phone number your agent controls is also a way into your accounts.",
+  "Reviewers found the US number handled calls but not texts at first, and payment features looked US-only, so check what works in your country first."
+ ],
+ "sources": [
+  {
+   "label": "X post by @pointmash (2026-10-23): diverts all his calls to Manus Cue; it “holds a perfectly normal conversation on my behalf and takes messages”, and most spam callers hang up at the AI-assistant greeting",
+   "url": "https://x.com/pointmash/status/2113459229940203777",
+   "kind": "x",
+   "posted_at": "2026-10-23"
+  },
+  {
+   "label": "Manus blog: Introducing Manus 2.0 and Cue, where each agent gets its own phone number and “can also take your calls and leave you a summary”",
+   "url": "https://manus.im/blog/introducing-manus-2-0",
+   "kind": "official"
+  },
+  {
+   "label": "Manus on X (2026-09-28): agents can now have their own phone number, make and receive calls and texts, and you can forward your calls to your agent",
+   "url": "https://x.com/ManusAI/status/2104628185501712789",
+   "kind": "official",
+   "posted_at": "2026-09-28"
+  },
+  {
+   "label": "The Next Web (Sep 29, 2026): Manus 2.0 and Cue give AI agents their own email, phone and wallet",
+   "url": "https://thenextweb.com/news/manus-2-0-cue-ai-agents-email-phone-wallet",
+   "kind": "article",
+   "posted_at": "2026-09-29"
+  },
+  {
+   "label": "MyClaw review (Oct 10, 2026): Cue agents answer forwarded calls and leave a summary; the number is billed separately and testers' US numbers handled calls but not SMS",
+   "url": "https://myclaw.ai/blog/manus-ai-agent-cue-review",
+   "kind": "article",
+   "posted_at": "2026-10-10"
+  },
+  {
+   "label": "YouTube: “Manus Cue Tutorial: My AI Agent Has Its Own Phone Number and Called Me (Live Test + Use Case)” by AI Automate with Shek",
+   "url": "https://www.youtube.com/watch?v=QgAiUNOLE0c",
+   "kind": "youtube",
+   "stats": {
+    "views": 572
+   },
+   "measured_at": "2026-10-26"
+  },
+  {
+   "label": "YouTube: “Manus Cue Explained: An AI Agent With Its Own Phone, Email and Wallet” by Scout AI Pro",
+   "url": "https://www.youtube.com/watch?v=XRyYgS9-PlA",
+   "kind": "youtube",
+   "stats": {
+    "views": 1197
+   },
+   "measured_at": "2026-10-26"
+  }
+ ],
+ "popularity": {
+  "platform": "x",
+  "post_id": "2113459229940203777",
+  "author": "@pointmash",
+  "url": "https://x.com/pointmash/status/2113459229940203777",
+  "posted_at": "2026-10-23",
+  "likes": 1,
+  "reposts": 0,
+  "replies": 0,
+  "bookmarks": 0,
+  "views": 120,
+  "measured_at": "2026-10-26"
+ },
+ "tags": [
+  "phone calls",
+  "call screening",
+  "spam calls",
+  "voicemail",
+  "messages",
+  "own phone number",
+  "Cue",
+  "Manus"
+ ]
+}

@@ -94,3 +94,22 @@ Skipped: Binance #MyAgentID promo spam, on-chain/trading agents, a harassment "a
 - [ ] Add NVIDIA Nemotron 3.5 Bolt E4B 4GB (free, text-only, 64K context, tool use, runs via llama.cpp; news id `nvidia-nemotron-3-5-bolt-e4b`) to the run-it-on-your-own-computer / local-models part of "Run your bots for less" as a small private-assistant option. Verify the RAM needs on real hardware before quoting them.
 - [ ] Possible Advanced guide: "let your coding bot test the app it built" with Cursor's computer use (news id `cursor-computer-use-desktop`). It's developer-leaning, so only add it if beginners ask for it.
 - [ ] Kimi K3.1 Pro (news id `kimi-k3-1-pro`): consider adding Moonshot to the pricing table once the open weights ship (due by Nov 4). The API price is $2 / $10 per MTok, from Kimi's launch post.
+
+## Trending watch 2026-10-26 (midday)
+
+Added: `let-your-bot-sign-in-without-seeing-your-passwords` (1Password for Agents), `let-a-bot-answer-and-screen-your-calls` (Cue by Manus call forwarding), `watch-your-kids-team-apps-for-schedule-changes` (TeamSnap/GameChanger/LeagueApps). Refreshed: 42 X posts, 28 HN source scores, plus new sources on school-email-digest (Jay Kranda blog), plan-and-book-a-whole-trip-by-text (wrong-name watch-out, @jasongrubb_fit) and email-scam-filter (@roadhardfit).
+
+Mentions/feedback: no third-party mentions of BotsDoThat found on X (since Oct 20), HN (Algolia "botsdothat" = 0) or the web.
+
+Candidates not added yet:
+- Couple's "[CONSENSUS]" agents negotiating plans between two partners' agents (Reddit u/LogGeneral5535, 2026-10-26, seen via agihunt.info/en/p/1a1781ebcb2c4c0a5e40122c9f4). Original Reddit post not reachable from the box (Reddit blocks it), so not added. Similar project: https://devpost.com/software/pakt
+- Daily summary of a school district grades/homework page by Grok Bot: X @XWardClerkChris https://x.com/XWardClerkChris/status/2106200433979265353 (5 likes, measured 2026-10-26). Could become a "watch your kid's grades portal" entry once a 2nd source turns up.
+- From Jay Kranda's "20 Things My AI Agents Do" (Oct 11): an agent watchdog that emails you when a scheduled report doesn't go out; book-key-point reminders every few days; a weekly Nextdoor summary that stays silent on quiet weeks; package tracker that only speaks on status changes. Each needs a 2nd independent source.
+- Lesson for a guide: "ask the agent to check a live source and say how fresh it is" (Kranda's Muse sent him to a closed restaurant using stale hours).
+- Safety watch-outs worth a guide: Techdirt "Grok Bot spills tech CEO's bank data in public Slack" (HN 50169169, 36 points) on agents posting in shared channels; Meta Muse share links leaking chats (Ars, HN 50174687, 408 points); "Ask HN: How do you sandbox your AI agent so it can't delete your files?" (HN 50192875).
+- Developer-leaning, skip for beginners for now: NVIDIA OpenShell (HN 50198675, 504 points); openbot.run open-source Muse/Dots/Grok Bot replacement (HN 50240879, 2 points); Memspace shared memory across assistants (X @AfshalGula32794, 0 likes).
+- Optional extra source for the 1Password entry: Tech With Tim "AI Can Finally Get Past Login Screens (Safely)" https://www.youtube.com/watch?v=ibpSIF3aeGc (1,597,661 views, 2 months old; content not checked, so not cited).
+- Skipped: #ProofOfAgent / #MyAgentID crypto spam on X; Adobe-fee-waived and Amazon-$70-refund stories (money-saving, out of scope).
+- Competitor watch: theagentfield.beehiiv.com / theagentfield.pages.dev (daily "real AI agent use cases" newsletter + site), agentsoftheday.com, botdidit.com, agentsinuse.com, grokbotagents.co.
+
+Bugs/complaints: none found on the site. Note: HN items API comment counts differ slightly from the search API's num_comments (deleted comments), so only points were refreshed from it.

@@ -56,3 +56,25 @@ Limits on what could be measured from the server:
 - Reddit: www.reddit.com JSON returns 403, old.reddit JSON redirects to login, pullpush returns 429. Reddit's RSS feeds are readable but slow (heavily rate-limited) and carry no upvote counts. So the new Reddit sources show no score; we never estimate one.
 - YouTube: watch pages return 429 from the server. View counts were read from YouTube search results on 2026-10-24 and titles/channels confirmed with YouTube's oEmbed endpoint. Exact upload dates weren't available, so YouTube sources have no posted_at.
 - Hacker News points/comments come from the hn.algolia.com API; GitHub stars from github.com, both on 2026-10-24.
+
+## After (measured 2026-10-26 midday)
+
+- Use cases: **98**; source links: **336**
+- X share of source links: **66/336 = 20%**
+- X share of community links (X, Reddit, Hacker News, YouTube, GitHub, Product Hunt): **66/224 = 29%**
+- X-only use cases (every source is an X post): **14** (14%)
+- Use cases with at least one non-X community source (Reddit, Hacker News, YouTube, GitHub, Product Hunt): **68**
+- x.com URLs anywhere in the file (sources + popularity blocks + examples): 110
+
+| Platform | Source links | Use cases citing it |
+|---|---:|---:|
+| YouTube | 91 | 62 |
+| Official docs, news and blogs | 90 | 45 |
+| X | 66 | 52 |
+| Hacker News | 29 | 23 |
+| Reddit | 27 | 20 |
+| Search demand (Google) | 22 | 18 |
+| GitHub | 11 | 9 |
+
+Top domains: youtube.com (91), x.com (66), news.ycombinator.com (29), reddit.com (23), google.com (22), support.google.com (11), github.com (11), docs.anthropic.com (7), menlovc.com (5), help.openai.com (4), mistral.ai (4), reddit.sentinel-team.org (4)
+

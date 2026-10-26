@@ -1,5 +1,289 @@
 [
  {
+  "slug": "watch-your-kids-team-apps-for-schedule-changes",
+  "title": "Have a bot watch your kids' team apps and tell you only when plans change",
+  "category": "family",
+  "source_date": "2026-10-11",
+  "summary": "Every team seems to have its own app, like TeamSnap, GameChanger or LeagueApps. A bot can check them all each morning, put practices and games in one place, and stay quiet unless a time changes, a game is added or something is cancelled.",
+  "what_the_bot_does": [
+   "Every morning at a time you pick, it reads the team emails and checks each team app or site you've signed it in to.",
+   "It pulls out practices, games, meets and cancellations for each child.",
+   "It compares them with what it saw yesterday and with your family calendar.",
+   "If something changed, like practice moving from Thursday to Tuesday, it messages you with the change and any clash it causes.",
+   "If nothing changed, it says nothing."
+  ],
+  "what_you_end_up_with": "One quiet check-in that covers every team, so you stop opening four apps a day and still catch the practice that moved.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "A parent used it across TeamSnap, GameChanger and LeagueApps"
+   },
+   {
+    "id": "meta-muse",
+    "note": "A parent runs a daily TeamSnap check that stays silent unless something changes"
+   },
+   {
+    "id": "gemini-spark"
+   }
+  ],
+  "prompt": "Every morning at [7:00], check my kids' team schedules: [child 1] on [TeamSnap team name], [child 2] on [GameChanger team name], plus any emails from [coach or league addresses]. Compare everything with what you found yesterday and with my [family calendar]. Only message me if something changed: a new time, a new game or meet, a cancellation, or a clash with something already on the calendar. Say which child, what changed and what it clashes with. If nothing changed, don't message me. Don't RSVP, reply to coaches or change my calendar without asking.",
+  "setup": [
+   "List every child, team and app (TeamSnap, GameChanger, LeagueApps, a club website) plus the email addresses team news comes from.",
+   "Connect your email and calendar to your bot, and sign it in to each team app it needs to check. A password manager that lets your bot use approved logins keeps passwords out of the chat.",
+   "Set a daily schedule, early enough to fix a clash before school runs start.",
+   "Make \"quiet unless something changed\" the rule, and ask it to send one short note when a check fails, so silence never hides a problem.",
+   "For the first two weeks, compare its notes with the apps yourself before you trust it."
+  ],
+  "watch_out": [
+   "If a team app logs the bot out or changes its layout, the check can quietly fail. Ask for a note whenever it couldn't read an app.",
+   "Team apps hold kids' names, photos and locations. Connect only the teams you need, and don't let the bot post or reply in team chats.",
+   "Agents can sound sure while using stale info: the same parent's agent once sent him to a restaurant using old opening hours. For anything time-critical, ask it to check the live app and say when it last looked."
+  ],
+  "sources": [
+   {
+    "label": "Jay Kranda, “20 Things My AI Agents Do” (Oct 11, 2026): a Muse routine at 6:53am watches his boys' TeamSnap teams for practice changes, new meets and cancellations and stays silent otherwise",
+    "url": "https://www.jaykranda.com/blog/2026/10/11/20-things-my-ai-agents-do-so-i-dont-have-to",
+    "kind": "article",
+    "posted_at": "2026-10-11"
+   },
+   {
+    "label": "LinkedIn post by Conor Daly (Sep 2026): four kids, each team with its own app (TeamSnap, GameChanger, LeagueApps); Grok Bot pulled the messages from email, clicked through the sites he'd logged it into, and caught flag practice moving from Thursday to Tuesday",
+    "url": "https://www.linkedin.com/posts/conor-daly-9b97688_grokbot-activity-7503111121298542593-I1Em",
+    "kind": "article",
+    "posted_at": "2026-09-08"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "kids",
+   "sports",
+   "TeamSnap",
+   "GameChanger",
+   "schedule changes",
+   "parents",
+   "quiet alerts",
+   "routine"
+  ],
+  "date_added": "2026-10-26",
+  "origin": "pipeline",
+  "last_checked": "2026-10-26"
+ },
+ {
+  "slug": "let-your-bot-sign-in-without-seeing-your-passwords",
+  "title": "Let your bot sign in to your accounts without seeing your passwords",
+  "category": "inbox",
+  "source_date": "2026-10-22",
+  "summary": "Agents get stuck at login pages, and pasting your password into a chat is risky. With 1Password for Agents, your bot asks to use a saved login, you approve it on your phone, and 1Password types it in, so the bot never sees the password.",
+  "what_the_bot_does": [
+   "It works on a task you gave it, like ordering groceries or checking an account, and reaches a sign-in page.",
+   "Instead of asking you to paste a password, it sends a request to 1Password for that one login.",
+   "You get an alert and approve (or refuse) that specific login.",
+   "1Password fills in the username, password and one-time code itself, so the bot can carry on without ever seeing them.",
+   "You can see which logins each bot has used and disconnect it at any time."
+  ],
+  "what_you_end_up_with": "A bot that can finish jobs behind a login without stopping for you each time, and without a copy of your password sitting in a chat history.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "1Password integration rolling out from Oct 22, 2026"
+   },
+   {
+    "id": "meta-muse",
+    "note": "1Password integration rolling out from Oct 22, 2026"
+   },
+   {
+    "id": "chatgpt-work",
+    "note": "1Password says ChatGPT Work and dots support is coming soon"
+   },
+   {
+    "id": "claude",
+    "note": "1Password says Claude Duet support is coming soon"
+   },
+   {
+    "id": "1password-agents"
+   }
+  ],
+  "prompt": "When you reach a sign-in page for [site], request the login from 1Password instead of asking me for the password. Only ask for the logins this task needs: [list the sites]. Never ask me to paste a password or a one-time code into the chat. Before you buy, send, delete or change any account setting after signing in, stop and ask me first.",
+  "setup": [
+   "You need a 1Password Individual or Family account on 1Password.com (1Password says .eu and .ca accounts aren't supported yet). There's no extra charge for the agent feature.",
+   "Make sure the logins your bot will need are saved in 1Password, not only in your browser. 1Password notes that agents can't use browser-saved passwords or passwords kept in notes.",
+   "In your bot's app, connect 1Password (look for it in the bot's connections or integrations list) and sign in to 1Password when asked.",
+   "Give your bot a small first job behind one login, and approve the request when your phone or 1Password app asks.",
+   "Check the list of approved logins after a week and remove any your bot no longer needs."
+  ],
+  "watch_out": [
+   "Approving a login gives the bot that whole account for the task. Approve only the sites the job needs, and keep banking and email logins for jobs where you're watching.",
+   "Banks are starting to notice agent activity in accounts, and Chase told Axios customers shouldn't give their usernames and passwords to anyone (reported by TechCrunch, Oct 22, 2026). Check your bank's rules before letting a bot sign in there.",
+   "Support depends on the agent: Grok Bot and Muse were rolling out first; Claude Duet, ChatGPT Work and dots were listed as coming soon on Oct 22, 2026."
+  ],
+  "sources": [
+   {
+    "label": "1Password blog (Oct 22, 2026): Introducing 1Password for Agents, with integrations for Muse, Claude Duet, ChatGPT Work and dots, Grok Bot and Townie",
+    "url": "https://1password.com/blog/1password-for-ai-agents",
+    "kind": "official",
+    "posted_at": "2026-10-22"
+   },
+   {
+    "label": "TechCrunch (Oct 22, 2026): 1Password launches a way for AI agents to log in on your behalf without seeing your password",
+    "url": "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/",
+    "kind": "article",
+    "posted_at": "2026-10-22"
+   },
+   {
+    "label": "YouTube: “Introducing 1Password for Agents” by 1Password",
+    "url": "https://www.youtube.com/watch?v=-1SE6cBbeZg",
+    "kind": "youtube",
+    "stats": {
+     "views": 4396
+    },
+    "measured_at": "2026-10-26"
+   },
+   {
+    "label": "Hacker News: discussion of the TechCrunch story",
+    "url": "https://news.ycombinator.com/item?id=50203268",
+    "kind": "hn",
+    "stats": {
+     "points": 1,
+     "comments": 1
+    },
+    "posted_at": "2026-10-23",
+    "measured_at": "2026-10-26"
+   },
+   {
+    "label": "Grok Bot on X (Oct 22, 2026): “Approve the logins you want to share, and your Bot signs in for you” (9,929 likes, 702 reposts on Oct 26)",
+    "url": "https://x.com/bot/status/2113332983226831339",
+    "kind": "official",
+    "posted_at": "2026-10-22"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "passwords",
+   "login",
+   "sign in",
+   "1Password",
+   "security",
+   "approval",
+   "one-time code"
+  ],
+  "date_added": "2026-10-26",
+  "origin": "pipeline",
+  "last_checked": "2026-10-26"
+ },
+ {
+  "slug": "let-a-bot-answer-and-screen-your-calls",
+  "title": "Let a bot answer your phone and take messages for you",
+  "category": "inbox",
+  "source_date": "2026-10-23",
+  "summary": "Forward your calls to an agent with its own phone number. It picks up, says it's your AI assistant, talks to the caller, takes a message and sends you a short summary. People who use it say many spam callers simply hang up.",
+  "what_the_bot_does": [
+   "Your agent gets its own phone number, and you forward your calls to it (all calls, or just the ones you miss).",
+   "It answers, tells the caller it's your AI assistant, and asks who they are and what they need.",
+   "It holds a normal conversation, takes a message, and can answer simple questions you've allowed, like when you're free.",
+   "After each call it sends you a summary in the app, so you only call back the people who matter.",
+   "Anything it isn't sure about, it leaves for you instead of promising something."
+  ],
+  "what_you_end_up_with": "Fewer interruptions, no more unknown-number roulette, and a tidy list of who called and what they wanted.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "manus-cue",
+    "note": "Agents can have their own number and take forwarded calls; select countries only"
+   }
+  ],
+  "prompt": "You answer calls I forward to you. Start every call with: \"Hi, this is [my name]'s AI assistant. This call may be recorded.\" Ask who is calling and why. Take a clear message with their name, number and what they need. You may tell callers [what they may know, e.g. that I usually call back the same day]. Never agree to anything, share my address, give out codes or account details, or make payments. If it sounds urgent, like [family, school, a doctor], text me right away. After each call, send me a two-line summary.",
+  "setup": [
+   "Get access to an agent app that can have its own phone number. Cue by Manus does this (invite code required); the number is a separate subscription and is only offered in some countries.",
+   "Create one agent just for calls and give it a short job description: who you are, who usually calls, what it may and may not say.",
+   "Turn on call forwarding on your phone to the agent's number. Start with \"forward when busy or unanswered\" so you can still pick up yourself.",
+   "Call it from a friend's phone a few times to hear how it sounds, then read the first week of summaries closely.",
+   "List the callers who should reach you straight away, like school, a carer or the doctor, and keep them on your own line."
+  ],
+  "watch_out": [
+   "Tell callers they're talking to an AI and that the call is recorded, and check the call-recording rules where you live; some places need everyone's consent.",
+   "Speech recognition can mishear names, numbers and addresses. Ask the caller to repeat anything important, and double-check it before you act.",
+   "Don't let it read out one-time codes or answer security questions. A phone number your agent controls is also a way into your accounts.",
+   "Reviewers found the US number handled calls but not texts at first, and payment features looked US-only, so check what works in your country first."
+  ],
+  "sources": [
+   {
+    "label": "X post by @pointmash (2026-10-23): diverts all his calls to Manus Cue; it “holds a perfectly normal conversation on my behalf and takes messages”, and most spam callers hang up at the AI-assistant greeting",
+    "url": "https://x.com/pointmash/status/2113459229940203777",
+    "kind": "x",
+    "posted_at": "2026-10-23"
+   },
+   {
+    "label": "Manus blog: Introducing Manus 2.0 and Cue, where each agent gets its own phone number and “can also take your calls and leave you a summary”",
+    "url": "https://manus.im/blog/introducing-manus-2-0",
+    "kind": "official"
+   },
+   {
+    "label": "Manus on X (2026-09-28): agents can now have their own phone number, make and receive calls and texts, and you can forward your calls to your agent",
+    "url": "https://x.com/ManusAI/status/2104628185501712789",
+    "kind": "official",
+    "posted_at": "2026-09-28"
+   },
+   {
+    "label": "The Next Web (Sep 29, 2026): Manus 2.0 and Cue give AI agents their own email, phone and wallet",
+    "url": "https://thenextweb.com/news/manus-2-0-cue-ai-agents-email-phone-wallet",
+    "kind": "article",
+    "posted_at": "2026-09-29"
+   },
+   {
+    "label": "MyClaw review (Oct 10, 2026): Cue agents answer forwarded calls and leave a summary; the number is billed separately and testers' US numbers handled calls but not SMS",
+    "url": "https://myclaw.ai/blog/manus-ai-agent-cue-review",
+    "kind": "article",
+    "posted_at": "2026-10-10"
+   },
+   {
+    "label": "YouTube: “Manus Cue Tutorial: My AI Agent Has Its Own Phone Number and Called Me (Live Test + Use Case)” by AI Automate with Shek",
+    "url": "https://www.youtube.com/watch?v=QgAiUNOLE0c",
+    "kind": "youtube",
+    "stats": {
+     "views": 572
+    },
+    "measured_at": "2026-10-26"
+   },
+   {
+    "label": "YouTube: “Manus Cue Explained: An AI Agent With Its Own Phone, Email and Wallet” by Scout AI Pro",
+    "url": "https://www.youtube.com/watch?v=XRyYgS9-PlA",
+    "kind": "youtube",
+    "stats": {
+     "views": 1197
+    },
+    "measured_at": "2026-10-26"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2113459229940203777",
+   "author": "@pointmash",
+   "url": "https://x.com/pointmash/status/2113459229940203777",
+   "posted_at": "2026-10-23",
+   "likes": 1,
+   "reposts": 0,
+   "replies": 0,
+   "bookmarks": 0,
+   "views": 120,
+   "measured_at": "2026-10-26"
+  },
+  "tags": [
+   "phone calls",
+   "call screening",
+   "spam calls",
+   "voicemail",
+   "messages",
+   "own phone number",
+   "Cue",
+   "Manus"
+  ],
+  "date_added": "2026-10-26",
+  "origin": "pipeline",
+  "last_checked": "2026-10-26"
+ },
+ {
   "slug": "compare-two-documents",
   "title": "Compare two versions of a document or contract",
   "category": "work",
@@ -138,12 +422,12 @@
    "author": "@mrfundman",
    "url": "https://x.com/mrfundman/status/2113621259279872107",
    "posted_at": "2026-10-23",
-   "likes": 30,
-   "reposts": 3,
-   "replies": 12,
-   "bookmarks": 10,
-   "views": 2768,
-   "measured_at": "2026-10-23"
+   "likes": 47,
+   "reposts": 5,
+   "replies": 13,
+   "bookmarks": 27,
+   "views": 5835,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "proactive",
@@ -328,12 +612,12 @@
    "author": "@emilios_eth",
    "url": "https://x.com/emilios_eth/status/2112999610394542544",
    "posted_at": "2026-10-21",
-   "likes": 28,
+   "likes": 29,
    "reposts": 0,
    "replies": 12,
    "bookmarks": 0,
-   "views": 1045,
-   "measured_at": "2026-10-23"
+   "views": 1090,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "fact check",
@@ -436,12 +720,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 488,
+   "likes": 506,
    "reposts": 15,
-   "replies": 30,
-   "bookmarks": 397,
-   "views": 175013,
-   "measured_at": "2026-10-23"
+   "replies": 32,
+   "bookmarks": 443,
+   "views": 177513,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "second brain",
@@ -560,7 +844,7 @@
      "comments": 0
     },
     "posted_at": "2025-04-14",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    }
   ],
   "popularity": null,
@@ -648,8 +932,8 @@
    "reposts": 6,
    "replies": 19,
    "bookmarks": 30,
-   "views": 5363,
-   "measured_at": "2026-10-23"
+   "views": 5404,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "read later",
@@ -734,8 +1018,8 @@
    "reposts": 2,
    "replies": 4,
    "bookmarks": 6,
-   "views": 1743,
-   "measured_at": "2026-10-23"
+   "views": 1772,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "contact form",
@@ -932,8 +1216,8 @@
    "reposts": 1,
    "replies": 3,
    "bookmarks": 6,
-   "views": 575,
-   "measured_at": "2026-10-23"
+   "views": 584,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "schedule",
@@ -1310,10 +1594,10 @@
    "posted_at": "2026-10-11",
    "likes": 251,
    "reposts": 15,
-   "replies": 25,
-   "bookmarks": 508,
-   "views": 25322,
-   "measured_at": "2026-10-23"
+   "replies": 26,
+   "bookmarks": 507,
+   "views": 25399,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "multi-agent",
@@ -1401,12 +1685,12 @@
    "author": "@Parul_Gautam7",
    "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
    "posted_at": "2026-10-08",
-   "likes": 204,
-   "reposts": 36,
+   "likes": 201,
+   "reposts": 35,
    "replies": 38,
-   "bookmarks": 82,
-   "views": 46404,
-   "measured_at": "2026-10-23"
+   "bookmarks": 80,
+   "views": 46406,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "multi-agent",
@@ -1479,7 +1763,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-10-23"
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "voice",
@@ -1541,8 +1825,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 0,
-   "views": 42,
-   "measured_at": "2026-10-23"
+   "views": 44,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "roadside assistance",
@@ -1602,7 +1886,7 @@
      "comments": 100
     },
     "posted_at": "2025-02-25",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "GitHub: browser-use/browser-use (open-source agent that operates a web browser)",
@@ -1638,8 +1922,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 392,
-   "measured_at": "2026-10-23"
+   "views": 396,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "computer use",
@@ -1710,8 +1994,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 0,
-   "views": 897,
-   "measured_at": "2026-10-23"
+   "views": 898,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "contractors",
@@ -1774,8 +2058,8 @@
    "reposts": 0,
    "replies": 5,
    "bookmarks": 0,
-   "views": 103,
-   "measured_at": "2026-10-23"
+   "views": 123,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "used car",
@@ -1837,8 +2121,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7473,
-   "measured_at": "2026-10-23"
+   "views": 7482,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "pharmacy",
@@ -1917,12 +2201,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2110433542182457609",
    "posted_at": "2026-10-14",
-   "likes": 212,
+   "likes": 213,
    "reposts": 24,
    "replies": 29,
    "bookmarks": 235,
-   "views": 324142,
-   "measured_at": "2026-10-23"
+   "views": 325003,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "newsletters",
@@ -1991,7 +2275,7 @@
      "comments": 176
     },
     "posted_at": "2025-07-28",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "Hacker News: “Show HN: PlaceCall (YC W26) – agentic API to call businesses and get things done”",
@@ -2002,7 +2286,7 @@
      "comments": 4
     },
     "posted_at": "2026-09-24",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    }
   ],
   "popularity": {
@@ -2011,12 +2295,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
    "posted_at": "2026-10-18",
-   "likes": 863,
-   "reposts": 94,
+   "likes": 867,
+   "reposts": 93,
    "replies": 196,
-   "bookmarks": 1007,
-   "views": 1200195,
-   "measured_at": "2026-10-23"
+   "bookmarks": 1009,
+   "views": 1213613,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "phone call",
@@ -2178,8 +2462,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 496,
-   "measured_at": "2026-10-23"
+   "views": 523,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "spam calls",
@@ -2251,9 +2535,9 @@
    "likes": 66,
    "reposts": 3,
    "replies": 8,
-   "bookmarks": 38,
-   "views": 5375,
-   "measured_at": "2026-10-23"
+   "bookmarks": 37,
+   "views": 5407,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "food log",
@@ -2321,7 +2605,7 @@
      "comments": 176
     },
     "posted_at": "2025-07-28",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    }
   ],
   "popularity": {
@@ -2330,12 +2614,12 @@
    "author": "@skeptrune",
    "url": "https://x.com/skeptrune/status/2112563230019289456",
    "posted_at": "2026-10-20",
-   "likes": 64,
+   "likes": 65,
    "reposts": 3,
    "replies": 12,
-   "bookmarks": 12,
-   "views": 2964,
-   "measured_at": "2026-10-23"
+   "bookmarks": 13,
+   "views": 3051,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "phone call",
@@ -2513,9 +2797,9 @@
    "likes": 1014,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2896,
-   "views": 310101,
-   "measured_at": "2026-10-23"
+   "bookmarks": 2895,
+   "views": 310540,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "meal plan",
@@ -2578,12 +2862,12 @@
    "author": "@Michael_Fenech_",
    "url": "https://x.com/Michael_Fenech_/status/2108579992456327489",
    "posted_at": "2026-10-09",
-   "likes": 506,
+   "likes": 505,
    "reposts": 34,
    "replies": 36,
-   "bookmarks": 1151,
-   "views": 66459,
-   "measured_at": "2026-10-23"
+   "bookmarks": 1152,
+   "views": 66594,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "calendar",
@@ -2668,10 +2952,10 @@
    "posted_at": "2026-10-05",
    "likes": 679,
    "reposts": 35,
-   "replies": 156,
-   "bookmarks": 724,
-   "views": 82498,
-   "measured_at": "2026-10-23"
+   "replies": 157,
+   "bookmarks": 723,
+   "views": 82755,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "personal agent",
@@ -2733,6 +3017,12 @@
      "views": 456
     },
     "measured_at": "2026-10-24"
+   },
+   {
+    "label": "X post by @roadhardfit (2026-10-26): Grok Bot flagged a stranger's urgent video-call email as a scam before any link existed; with his OK it marked it spam and filed a report",
+    "url": "https://x.com/roadhardfit/status/2114516756152873463",
+    "kind": "x",
+    "posted_at": "2026-10-26"
    }
   ],
   "popularity": {
@@ -2745,8 +3035,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41287,
-   "measured_at": "2026-10-23"
+   "views": 41333,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "scams",
@@ -2755,7 +3045,7 @@
    "safety",
    "older parents"
   ],
-  "last_checked": "2026-10-20",
+  "last_checked": "2026-10-26",
   "origin": "seed-2026-10-20"
  },
  {
@@ -2819,12 +3109,12 @@
    "author": "@saviomartin",
    "url": "https://x.com/saviomartin/status/2109330165381910817",
    "posted_at": "2026-10-11",
-   "likes": 162,
+   "likes": 164,
    "reposts": 14,
    "replies": 29,
    "bookmarks": 119,
-   "views": 25042,
-   "measured_at": "2026-10-23"
+   "views": 25110,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "family chat",
@@ -2913,8 +3203,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4065,
-   "measured_at": "2026-10-23"
+   "views": 4079,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "groceries",
@@ -2961,13 +3251,20 @@
   "setup": [],
   "watch_out": [
    "Use a card with a low limit, or a single-use virtual card.",
-   "Double-check dates, names and cancellation rules before you say yes."
+   "Double-check dates, names and cancellation rules before you say yes.",
+   "Check the traveller's name matches the passport or ID exactly before it books. One Muse user said his flight was booked under his middle name only and the airline wouldn't change it (Oct 23, 2026)."
   ],
   "sources": [
    {
     "label": "X post by @Teslaconomics (2026-10-15): a Grok bot booked flight, Turo, Vrbo, dinner and event tickets by text",
     "url": "https://x.com/Teslaconomics/status/2110721195817509068",
     "kind": "x"
+   },
+   {
+    "label": "X post by @jasongrubb_fit (2026-10-23): Muse booked his Copenhagen flight using only his middle name, and the airline and booking agent wouldn't fix it",
+    "url": "https://x.com/jasongrubb_fit/status/2113690458094236105",
+    "kind": "x",
+    "posted_at": "2026-10-23"
    }
   ],
   "popularity": {
@@ -2979,9 +3276,9 @@
    "likes": 62,
    "reposts": 12,
    "replies": 12,
-   "bookmarks": 12,
-   "views": 9631,
-   "measured_at": "2026-10-23"
+   "bookmarks": 11,
+   "views": 9646,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "travel",
@@ -2989,7 +3286,7 @@
    "vrbo",
    "texting"
   ],
-  "last_checked": "2026-10-20",
+  "last_checked": "2026-10-26",
   "origin": "seed-2026-10-20"
  },
  {
@@ -3049,8 +3346,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 1980,
-   "measured_at": "2026-10-23"
+   "views": 1996,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "flights",
@@ -3178,7 +3475,7 @@
      "comments": 1
     },
     "posted_at": "2025-08-21",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    }
   ],
   "popularity": {
@@ -3191,8 +3488,8 @@
    "reposts": 23,
    "replies": 63,
    "bookmarks": 241,
-   "views": 93568,
-   "measured_at": "2026-10-23"
+   "views": 93593,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "restaurant",
@@ -3255,8 +3552,8 @@
    "reposts": 4,
    "replies": 9,
    "bookmarks": 27,
-   "views": 4047,
-   "measured_at": "2026-10-23"
+   "views": 4053,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "appointment",
@@ -3319,7 +3616,7 @@
      "comments": 8
     },
     "posted_at": "2025-08-27",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "YouTube: “Process Receipts with AI (Claude Cowork)” by Hector Garcia CPA",
@@ -3350,8 +3647,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9173,
-   "measured_at": "2026-10-23"
+   "views": 9179,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "receipts",
@@ -3440,8 +3737,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 268,
-   "views": 9619,
-   "measured_at": "2026-10-23"
+   "views": 9689,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "chief of staff",
@@ -3498,10 +3795,10 @@
    "posted_at": "2026-10-05",
    "likes": 61,
    "reposts": 7,
-   "replies": 48,
+   "replies": 47,
    "bookmarks": 14,
-   "views": 1862,
-   "measured_at": "2026-10-23"
+   "views": 1868,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "multiple brands",
@@ -3570,12 +3867,12 @@
    "author": "@DMAC_19",
    "url": "https://x.com/DMAC_19/status/2105719791751487542",
    "posted_at": "2026-10-01",
-   "likes": 36,
+   "likes": 37,
    "reposts": 1,
    "replies": 12,
    "bookmarks": 27,
-   "views": 3238,
-   "measured_at": "2026-10-23"
+   "views": 3241,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "real estate",
@@ -3674,8 +3971,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 0,
-   "views": 74,
-   "measured_at": "2026-10-23"
+   "views": 77,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "paper mail",
@@ -3763,8 +4060,8 @@
    "reposts": 1,
    "replies": 1,
    "bookmarks": 0,
-   "views": 71,
-   "measured_at": "2026-10-23"
+   "views": 74,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "monitoring",
@@ -3828,8 +4125,8 @@
    "reposts": 2,
    "replies": 7,
    "bookmarks": 0,
-   "views": 1183,
-   "measured_at": "2026-10-23"
+   "views": 1278,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "follow up",
@@ -3902,8 +4199,8 @@
    "reposts": 4,
    "replies": 7,
    "bookmarks": 55,
-   "views": 4918,
-   "measured_at": "2026-10-23"
+   "views": 4920,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "leads",
@@ -3985,7 +4282,7 @@
      "comments": 5
     },
     "posted_at": "2026-03-15",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    }
   ],
   "popularity": {
@@ -3997,9 +4294,9 @@
    "likes": 17,
    "reposts": 1,
    "replies": 2,
-   "bookmarks": 18,
-   "views": 2123,
-   "measured_at": "2026-10-23"
+   "bookmarks": 19,
+   "views": 2139,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "email",
@@ -4171,6 +4468,12 @@
      "views": 689
     },
     "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Jay Kranda, “20 Things My AI Agents Do” (Oct 11, 2026): a Muse routine opens every ParentSquare digest for his three kids at three schools and says nothing if nothing matters",
+    "url": "https://www.jaykranda.com/blog/2026/10/11/20-things-my-ai-agents-do-so-i-dont-have-to",
+    "kind": "article",
+    "posted_at": "2026-10-11"
    }
   ],
   "popularity": null,
@@ -4181,7 +4484,7 @@
    "deadlines",
    "permission slips"
   ],
-  "last_checked": "2026-10-20",
+  "last_checked": "2026-10-26",
   "origin": "seed-2026-10-20"
  },
  {
@@ -4646,8 +4949,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 782,
-   "measured_at": "2026-10-23"
+   "views": 795,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "marketplace",
@@ -4867,7 +5170,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1505,
-   "measured_at": "2026-10-23"
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "payments",
@@ -4934,8 +5237,8 @@
    "reposts": 0,
    "replies": 4,
    "bookmarks": 3,
-   "views": 900,
-   "measured_at": "2026-10-23"
+   "views": 904,
+   "measured_at": "2026-10-26"
   },
   "tags": [
    "ads",
@@ -5384,7 +5687,7 @@
      "comments": 4
     },
     "posted_at": "2026-09-24",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    }
   ],
   "real_examples": [],
@@ -5786,7 +6089,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-10-23"
+   "measured_at": "2026-10-26"
   },
   "origin": "migrated-2026-10-19"
  },
@@ -6435,7 +6738,7 @@
      "comments": 5
     },
     "posted_at": "2025-02-10",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    }
   ],
   "tags": [
@@ -6802,7 +7105,7 @@
      "comments": 0
     },
     "posted_at": "2025-11-04",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    }
   ],
   "tags": [
@@ -6879,7 +7182,7 @@
      "comments": 418
     },
     "posted_at": "2025-02-03",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "Hacker News: “Perplexity Deep Research”",
@@ -6890,7 +7193,7 @@
      "comments": 168
     },
     "posted_at": "2025-02-15",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "YouTube: “How to Use ChatGPT’s Deep Research to Save HOURS on Research” by Andy Stapleton",
@@ -6968,7 +7271,7 @@
      "comments": 490
     },
     "posted_at": "2024-09-30",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "Hacker News: “NotebookLM Audio Overviews are now available in over 50 languages”",
@@ -6979,7 +7282,7 @@
      "comments": 96
     },
     "posted_at": "2025-04-30",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "YouTube: “Use NotebookLM to generate audio discussions #Google #Gemini #NotebookLM” by Google (from Google's own channel)",
@@ -7071,7 +7374,7 @@
      "comments": 186
     },
     "posted_at": "2024-01-13",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "GitHub: acon96/home-llm (local AI models tuned for Home Assistant control)",
@@ -7167,7 +7470,7 @@
      "comments": 99
     },
     "posted_at": "2025-04-07",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "YouTube: “How To Share Screen With Gemini (Updated 2026)” by AI Mastery",
@@ -7252,7 +7555,7 @@
      "comments": 180
     },
     "posted_at": "2025-07-29",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "GitHub: Zackriya-Solutions/meetily (open-source meeting note taker that runs on your computer)",
@@ -7337,7 +7640,7 @@
      "comments": 35
     },
     "posted_at": "2025-05-28",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "Hacker News: “Show HN: I built an AI conversation partner to practice speaking languages”",
@@ -7348,7 +7651,7 @@
      "comments": 56
     },
     "posted_at": "2026-01-30",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "Hacker News: “Show HN: Learn a language quickly by practising speaking with AI”",
@@ -7359,7 +7662,7 @@
      "comments": 253
     },
     "posted_at": "2023-08-02",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "YouTube: “ChatGPT's new update is HUGE for language learners” by Corinna Languages",
@@ -7472,7 +7775,7 @@
      "comments": 191
     },
     "posted_at": "2022-06-03",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "Gemini Apps Help: Talk naturally with Gemini Live (“Practice aloud: rehearse for important moments”; checked 2026-10-24)",
@@ -7534,7 +7837,7 @@
      "comments": 465
     },
     "posted_at": "2024-10-23",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "YouTube: “How to Use Claude Artifacts (Beginner Tutorial)” by Kevin Stratvert",
@@ -7651,7 +7954,7 @@
      "comments": 5
     },
     "posted_at": "2024-10-01",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "GitHub: QiuYannnn/Local-File-Organizer (open-source organizer that runs on your computer)",
@@ -7741,7 +8044,7 @@
      "comments": 1
     },
     "posted_at": "2024-01-05",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "GitHub: Thimm/transcribe_apple_voice_memos (local transcription and summaries of Apple Voice Memos)",
@@ -7911,7 +8214,7 @@
      "comments": 61
     },
     "posted_at": "2024-11-06",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    },
    {
     "label": "Hacker News: “Show HN: Open-Source Document Extraction Tool”",
@@ -7922,7 +8225,7 @@
      "comments": 2
     },
     "posted_at": "2025-01-15",
-    "measured_at": "2026-10-24"
+    "measured_at": "2026-10-26"
    }
   ],
   "tags": [
