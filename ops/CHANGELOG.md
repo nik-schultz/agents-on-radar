@@ -1,5 +1,20 @@
 # Ops changelog
 
+## 2026-10-26 (daily QA run, 7:15 AM CT)
+Status: live site https://botsdothat.com/ is up (homepage 200 in about 0.2 s; /use-cases/, /trending/, /news/, /advertise/, app.js, style.css and the search index all 200).
+
+Checks
+- validate 0 errors (94 use cases before this run); build 134 indexed pages + 404; check_links 0 broken internal links. A quick scan found no images without alt text and no empty links or buttons.
+- Outbound links (686 unique): no real breakages. Bot-check or rate-limit responses to scripts only: openai.com, help.openai.com, claude.ai, ftc.gov / consumer.ftc.gov (whole domain 403s to curl), investing.com, and 10 Hacker News items (429 rate limit; all 10 confirmed live stories through the HN API).
+- Console errors and real-device rendering were not checked in a browser this run (static review only).
+
+Bugs fixed
+- Meta moved its Muse help pages from /help/artificial-intelligence/ to /help/superintelligence/. The two old links redirected and then failed for scripts, so they now point at the new URLs (data/use-cases.json, data/tools.json); both new pages were opened and confirmed.
+
+Improvement for visitors
+- New guide from the backlog: `compare-two-documents` (work, Easy). Plain steps that pair AI's plain-words list of changes with Word's built-in Compare as the exact check, a prompt that asks for every change with both wordings quoted, watch-outs about missed deletions, getting a lawyer for binding documents and keeping private details out, and two FAQ answers. Sources: Microsoft Support, Contract Nerds, Draftable. No stats quoted.
+- After: validate 0 errors, 95 use cases; build 135 indexed pages + 404; check_links 0 broken internal.
+
 ## 2026-10-26 (news update, 6:30 AM CT)
 - Added 6 items to data/news.json (newest first): Gemini API stores requests by default for new paid projects (Oct 26, minor); Block's Dessa full-duplex speech model, research preview only (Oct 23, notable, X @jack); OpenAI trains frontier models offline (Oct 23, notable, X @OpenAI); OpenAI Agents API scheduled automations (Oct 23, notable, docs + community post, no official X post found); OpenAI legacy model shutdown of GPT-4, GPT-3.5 Turbo, o1, o3-mini, o4-mini, gpt-image-1 and others (Oct 23, minor); ChatGPT locked chats (Oct 20, notable, missed earlier; no credible high-engagement X post).
 - New company "Block" in NEWS_CO (scripts/build.py).

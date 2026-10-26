@@ -4,6 +4,44 @@ There's a bot for that. Here's how.
 
 A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
 
+## Compare two versions of a document or contract
+URL: https://botsdothat.com/use-cases/compare-two-documents/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-26
+Popularity: not measured
+
+Someone sent back an edited lease, contract or policy and you need to know what actually changed. AI can list the differences in plain words, while Word's built-in Compare double-checks it didn't miss any.
+
+What the bot does:
+1. Save both versions as files (Word, PDF or plain text) and name them clearly, like 'Version A, what we sent' and 'Version B, what came back'.
+2. If you have Microsoft Word, run its built-in Compare first (Review, then Compare). It marks every change exactly and doesn't guess.
+3. Upload both files to the AI and paste the prompt below. Ask for a table of every change with both wordings quoted.
+4. Match the AI's list against Word's marked-up compare. If the AI missed something, ask it again section by section.
+5. Use the plain-words list to decide what to accept, ask about or push back on, and get a lawyer for anything that matters.
+
+What you end up with: A plain-words list of every change between the two versions, with both wordings quoted, checked against a real side-by-side compare before you sign or reply.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+I'm attaching two versions of the same document.
+
+Version A is: [e.g. the lease I was sent last month]
+Version B is: [e.g. the new lease they sent back today]
+
+Go through both in order and list every difference. For each one, give the section or clause number, say whether it was added, removed or changed, quote the exact wording from Version A and Version B, and explain the change in one plain sentence. Include changes to dates, amounts, deadlines, names and words like 'must' versus 'may'. Don't skip small edits, and list removed sections, not just changed ones.
+
+Show it as a table. After the table, tell me how many differences you found. Don't tell me whether to sign, and don't give legal advice.
+
+Watch out:
+- AI can miss changes, especially deleted lines and small number edits, so check its list against Word's Compare or a careful read of both versions.
+- For anything legally binding, like a lease, job offer or business contract, have a lawyer or the other party confirm what the changes mean before you sign.
+- Remove account numbers, ID numbers and other private details you don't need before you upload, or use a tool your work has approved.
+
+Sources:
+- Microsoft Support: Compare and merge two versions of a document: https://support.microsoft.com/en-us/office/compare-and-merge-two-versions-of-a-document-f5059749-a797-4db7-a8fb-b3b27eb8b87e
+- Contract Nerds: Can you use ChatGPT to compare two contract versions?: https://contractnerds.com/can-you-use-chatgpt-to-compare-two-contract-versions/
+- Draftable: How to use ChatGPT to compare two documents (with prompts): https://www.draftable.com/draftable-legal-blog/how-to-use-chatgpt-compare-two-documents-with-prompts
+
 ## Get a bot that suggests your next moves twice a day
 URL: https://botsdothat.com/use-cases/proactive-next-moves-bot/
 Category: Work & career | Difficulty: Medium | Added: 2026-10-23
@@ -1042,7 +1080,7 @@ Watch out:
 
 Sources:
 - X post by @AlexFinn (2026-10-05): video: 6 everyday use cases for Meta Muse: https://x.com/AlexFinn/status/2107254007412756589
-- Meta Help Center: How to get started with Muse: https://www.meta.com/help/artificial-intelligence/1331373868832401/
+- Meta Help Center: How to get started with Muse: https://www.meta.com/help/superintelligence/1331373868832401/
 - Reddit r/AI_Agents: “What AI agents are actually worth running for personal use?” (archived snapshot, Sep 5 2026): https://reddit.sentinel-team.org/posts/1w4e3ji/snapshots/2026-09-05T09%3A24%3A43.696105Z
 - YouTube: “Personal Agents, Clearly Explained” by Jeff Su: https://www.youtube.com/watch?v=HdI_aYzgJIg
 
@@ -1743,7 +1781,7 @@ Watch out:
 - Click through on anything important; summaries can be wrong.
 
 Sources:
-- Meta Help Center: How Muse works with skills (morning news digest): https://www.meta.com/help/artificial-intelligence/2797651547267109/
+- Meta Help Center: How Muse works with skills (morning news digest): https://www.meta.com/help/superintelligence/2797651547267109/
 - X post by @Jinfeng_tlqm (2026-10-10): “Every morning, send me the 5 biggest AI stories in plain English”: https://x.com/Jinfeng_tlqm/status/2108849705367327126
 - YouTube: “Build a NEWS Briefing AI Agent 👩🏻‍💻” by Sundas Khalid: https://www.youtube.com/watch?v=dN8sHamvN4U
 - YouTube: “Set Up a Daily Morning Brief with Claude AI” by Nexus: https://www.youtube.com/watch?v=D5nZOUfac_0

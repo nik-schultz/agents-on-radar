@@ -1,0 +1,35 @@
+{
+ "slug": "compare-two-documents",
+ "title": "Compare two versions of a document or contract",
+ "category": "work",
+ "summary": "Someone sent back an edited lease, contract or policy and you need to know what actually changed. AI can list the differences in plain words, while Word's built-in Compare double-checks it didn't miss any.",
+ "problem": "You have two versions of the same document and reading both side by side to spot every change takes ages, and it's easy to miss a deleted line or a changed number.",
+ "outcome": "A plain-words list of every change between the two versions, with both wordings quoted, checked against a real side-by-side compare before you sign or reply.",
+ "what_the_bot_does": [
+  "Save both versions as files (Word, PDF or plain text) and name them clearly, like 'Version A, what we sent' and 'Version B, what came back'.",
+  "If you have Microsoft Word, run its built-in Compare first (Review, then Compare). It marks every change exactly and doesn't guess.",
+  "Upload both files to the AI and paste the prompt below. Ask for a table of every change with both wordings quoted.",
+  "Match the AI's list against Word's marked-up compare. If the AI missed something, ask it again section by section.",
+  "Use the plain-words list to decide what to accept, ask about or push back on, and get a lawyer for anything that matters."
+ ],
+ "what_you_end_up_with": "A plain-words list of every change between the two versions, with both wordings quoted, checked against a real side-by-side compare before you sign or reply.",
+ "difficulty": "Easy",
+ "tools": [{"id": "chatgpt"}, {"id": "claude"}, {"id": "gemini"}, {"id": "grok"}],
+ "prompt": "I'm attaching two versions of the same document.\n\nVersion A is: [e.g. the lease I was sent last month]\nVersion B is: [e.g. the new lease they sent back today]\n\nGo through both in order and list every difference. For each one, give the section or clause number, say whether it was added, removed or changed, quote the exact wording from Version A and Version B, and explain the change in one plain sentence. Include changes to dates, amounts, deadlines, names and words like 'must' versus 'may'. Don't skip small edits, and list removed sections, not just changed ones.\n\nShow it as a table. After the table, tell me how many differences you found. Don't tell me whether to sign, and don't give legal advice.",
+ "watch_out": [
+  "AI can miss changes, especially deleted lines and small number edits, so check its list against Word's Compare or a careful read of both versions.",
+  "For anything legally binding, like a lease, job offer or business contract, have a lawyer or the other party confirm what the changes mean before you sign.",
+  "Remove account numbers, ID numbers and other private details you don't need before you upload, or use a tool your work has approved."
+ ],
+ "faq": [
+  {"q": "Can AI compare two documents for differences?", "a": "Yes, ChatGPT, Claude, Gemini and Grok can read two uploaded files and list what changed. Ask for every change with both wordings quoted, then double-check the list, because AI can miss deletions and small edits."},
+  {"q": "What's the most reliable way to compare two Word documents?", "a": "Word's built-in Compare (Review, then Compare) marks every insertion and deletion exactly. Use AI on top of it to explain the changes in plain words."}
+ ],
+ "sources": [
+  {"label": "Microsoft Support: Compare and merge two versions of a document", "url": "https://support.microsoft.com/en-us/office/compare-and-merge-two-versions-of-a-document-f5059749-a797-4db7-a8fb-b3b27eb8b87e", "kind": "official"},
+  {"label": "Contract Nerds: Can you use ChatGPT to compare two contract versions?", "url": "https://contractnerds.com/can-you-use-chatgpt-to-compare-two-contract-versions/", "kind": "article"},
+  {"label": "Draftable: How to use ChatGPT to compare two documents (with prompts)", "url": "https://www.draftable.com/draftable-legal-blog/how-to-use-chatgpt-compare-two-documents-with-prompts", "kind": "article"}
+ ],
+ "tags": ["compare documents", "compare contracts", "what changed", "redline", "lease", "contract", "pdf", "word"],
+ "origin": "pipeline"
+}
