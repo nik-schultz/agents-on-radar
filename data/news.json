@@ -44,10 +44,10 @@
     "author": "@OpenAI",
     "kind": "official",
     "posted_at": "2026-10-26",
-    "likes": 11728,
-    "reposts": 852,
-    "views": 759776,
-    "measured_at": "2026-10-26"
+    "likes": 25247,
+    "reposts": 2212,
+    "views": 4249226,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -65,10 +65,10 @@
     "author": "@AnthropicAI",
     "kind": "official",
     "posted_at": "2026-10-26",
-    "likes": 14051,
-    "reposts": 1727,
-    "views": 3643586,
-    "measured_at": "2026-10-26"
+    "likes": 17238,
+    "reposts": 2241,
+    "views": 7350100,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -86,11 +86,43 @@
     "author": "@claudeai",
     "kind": "official",
     "posted_at": "2026-10-26",
-    "likes": 2240,
-    "reposts": 100,
-    "views": 160591,
-    "measured_at": "2026-10-26"
+    "likes": 5898,
+    "reposts": 270,
+    "views": 572150,
+    "measured_at": "2026-10-27"
    }
+  },
+  {
+   "id": "riverside-agents",
+   "date": "2026-10-26",
+   "category": "agent launch",
+   "company": "Riverside",
+   "impact": "notable",
+   "headline": "Riverside adds a team of AI agents that edit, clip and post your videos and podcasts",
+   "explainer": "If you record a podcast or videos on Riverside, four new agents can now prep your interview questions, edit the recording into a finished episode, cut social clips, and write captions and schedule posts. They're on web and mobile on every Riverside plan (some features depend on your tier), and nothing goes live until you approve it.",
+   "source_url": "https://riverside.com/blog/first-team-of-ai-agents-built-for-video",
+   "source_name": "Riverside",
+   "more_sources": [
+    {
+     "label": "Podnews: Riverside launches Riverside Agents",
+     "url": "https://podnews.net/press-release/riverside-agents"
+    },
+    {
+     "label": "Forbes: Riverside Agents are a new team for AI production of podcasts",
+     "url": "https://www.forbes.com/sites/marksparrow/2026/10/26/riverside-agents-are-a-new-team-for-ai-production-of-podcasts/"
+    }
+   ]
+  },
+  {
+   "id": "ant-lingguang-2",
+   "date": "2026-10-26",
+   "category": "agent launch",
+   "company": "Ant Group",
+   "impact": "notable",
+   "headline": "Ant Group's LingGuang 2.0 turns its AI assistant into a helper that acts before you ask",
+   "explainer": "Ant Group, the company behind Alipay, upgraded its LingGuang app into a personal agent that, with your permission, keeps working after you close the chat, following up on tasks and flagging things like price drops on a trip you booked or a subscription you forgot. It's another sign that everyday assistants are moving from answering questions to quietly running errands in the background.",
+   "source_url": "https://www.businesswire.com/news/home/20261026586960/en/Ant-Group-Upgrades-LingGuang-to-2.0-Turning-Its-AI-Assistant-into-a-Proactive-Personal-Agent",
+   "source_name": "Business Wire (Ant Group)"
   },
   {
    "id": "kimi-k3-1-pro",
@@ -113,10 +145,10 @@
     "author": "@Kimi_Moonshot",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 29986,
-    "reposts": 3210,
-    "views": 3942700,
-    "measured_at": "2026-10-26"
+    "likes": 30108,
+    "reposts": 3230,
+    "views": 4006469,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -140,10 +172,10 @@
     "author": "@cursor_ai",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 6386,
-    "reposts": 467,
-    "views": 400595,
-    "measured_at": "2026-10-26"
+    "likes": 6408,
+    "reposts": 470,
+    "views": 408606,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -167,10 +199,10 @@
     "author": "@NVIDIAAI",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 2057,
-    "reposts": 258,
-    "views": 280432,
-    "measured_at": "2026-10-26"
+    "likes": 2072,
+    "reposts": 259,
+    "views": 284278,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -194,10 +226,10 @@
     "author": "@jack",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 68649,
-    "reposts": 7063,
-    "views": 13267171,
-    "measured_at": "2026-10-26"
+    "likes": 69025,
+    "reposts": 7128,
+    "views": 13419450,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -215,10 +247,10 @@
     "author": "@OpenAI",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 13477,
-    "reposts": 1216,
-    "views": 7347286,
-    "measured_at": "2026-10-26"
+    "likes": 13638,
+    "reposts": 1244,
+    "views": 7581100,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -303,10 +335,10 @@
     "author": "@OpenAIDevs",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 1378,
+    "likes": 1382,
     "reposts": 99,
-    "views": 166084,
-    "measured_at": "2026-10-26"
+    "views": 169106,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -324,10 +356,10 @@
     "author": "@canva",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 3161,
-    "reposts": 420,
-    "views": 1901216,
-    "measured_at": "2026-10-26"
+    "likes": 3151,
+    "reposts": 4168,
+    "views": 1915543,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -345,10 +377,10 @@
     "author": "@claudeai",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 21009,
-    "reposts": 849,
-    "views": 2660385,
-    "measured_at": "2026-10-26"
+    "likes": 21030,
+    "reposts": 848,
+    "views": 2711886,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -372,10 +404,10 @@
     "author": "@bot",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 14322,
-    "reposts": 1131,
-    "views": 3024363,
-    "measured_at": "2026-10-26"
+    "likes": 14367,
+    "reposts": 1130,
+    "views": 3163749,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -399,10 +431,10 @@
     "author": "@bot",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 9925,
-    "reposts": 702,
-    "views": 1198924,
-    "measured_at": "2026-10-26"
+    "likes": 9936,
+    "reposts": 699,
+    "views": 1315844,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -420,10 +452,10 @@
     "author": "@GeminiApp",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 1302,
+    "likes": 1309,
     "reposts": 111,
-    "views": 97356,
-    "measured_at": "2026-10-26"
+    "views": 100747,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -450,11 +482,11 @@
     "url": "https://x.com/claudeai/status/2112984664256241837",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 55082,
-    "reposts": 4220,
-    "views": 10680664,
+    "likes": 55198,
+    "reposts": 4233,
+    "views": 10797172,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -481,11 +513,11 @@
     "url": "https://x.com/OpenAI/status/2112907856018309586",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 14456,
-    "reposts": 2872,
-    "views": 5876793,
+    "likes": 14469,
+    "reposts": 2875,
+    "views": 5900531,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -502,11 +534,11 @@
     "url": "https://x.com/claudeai/status/2112962248218148878",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 11053,
-    "reposts": 566,
-    "views": 819367,
+    "likes": 11057,
+    "reposts": 567,
+    "views": 828121,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -529,11 +561,11 @@
     "url": "https://x.com/OpenAI/status/2112988118471295323",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 5253,
-    "reposts": 412,
-    "views": 508140,
+    "likes": 5272,
+    "reposts": 413,
+    "views": 520892,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -558,9 +590,9 @@
     "kind": "official",
     "posted_at": "2026-10-21",
     "likes": 8395,
-    "reposts": 893,
-    "views": 3411630,
-    "measured_at": "2026-10-26"
+    "reposts": 895,
+    "views": 3425265,
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -598,11 +630,11 @@
     "url": "https://x.com/MistralAI/status/2112574615318876178",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 3269,
+    "likes": 3274,
     "reposts": 377,
-    "views": 272862,
+    "views": 274823,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -619,11 +651,11 @@
     "url": "https://x.com/OpenAIDevs/status/2112603916076781778",
     "author": "@OpenAIDevs",
     "kind": "official",
-    "likes": 3609,
-    "reposts": 187,
-    "views": 1953027,
+    "likes": 3612,
+    "reposts": 188,
+    "views": 1966161,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -646,11 +678,11 @@
     "url": "https://x.com/deepseek_ai/status/2112476496283775135",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 43133,
-    "reposts": 4884,
-    "views": 6718384,
+    "likes": 43254,
+    "reposts": 4890,
+    "views": 6761037,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   },
   {
@@ -685,10 +717,10 @@
     "author": "@Google",
     "kind": "official",
     "posted_at": "2026-10-20",
-    "likes": 2130,
+    "likes": 2131,
     "reposts": 188,
-    "views": 272333,
-    "measured_at": "2026-10-26"
+    "views": 273774,
+    "measured_at": "2026-10-27"
    }
   },
   {

@@ -445,3 +445,9 @@ Improvement for visitors
 - Added `BACKLOG.md` with 18 candidate guides taken from the autocomplete research, so future runs have a queue of high-intent topics.
 
 - 2026-10-24: Added SaaSHub verification meta tag (deploy e96cb24); claimed and verified the SaaSHub listing (account botsdothat / hello@botsdothat.com). Listing still pending SaaSHub approval.
+
+## 2026-10-27 (AM news update, 6:30 AM CT)
+- News: added Riverside Agents (AI team that preps, edits, clips and posts videos and podcasts, Oct 26) and Ant Group LingGuang 2.0 (proactive personal agent, Oct 26). New companies Riverside and Ant Group added to `NEWS_CO` in build.py. No official X launch post found for either, so no X numbers.
+- X: refreshed likes, reposts and views for 23 news items posted since Oct 19 (measured 2026-10-27). GPT-6.1 Terra's @OpenAI post is now 25.2K likes and 4.2M views.
+- Checked OpenAI, Anthropic, Google/Gemini, xAI, Mistral and DeepSeek newsrooms and changelogs: nothing new since yesterday afternoon. No price changes, so the AI pricing table is unchanged.
+- BACKLOG: logged a Riverside podcast/video use case and a LingGuang-style forgotten-subscription idea.
