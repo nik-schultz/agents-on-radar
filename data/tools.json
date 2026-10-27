@@ -124,5 +124,23 @@
   "url": "https://cue.im/",
   "cost": "Invite code required; free during early access per reviewers; an agent phone number is a separate subscription in select countries",
   "kind": "agent"
+ },
+ "riverside-agents": {
+  "name": "Riverside Agents",
+  "url": "https://riverside.com/agents",
+  "cost": "Included on all Riverside plans; some tasks use AI credits and the agent asks first",
+  "kind": "agent"
+ },
+ "hob": {
+  "name": "Hob",
+  "url": "https://hob.chat/",
+  "cost": "Free and open source (MIT); runs on your own computer",
+  "kind": "agent"
+ },
+ "kiwi": {
+  "name": "Kiwi",
+  "url": "https://heykiwi.co/",
+  "cost": "Free during the pilot; you pay for anything it books",
+  "kind": "agent"
  }
 }

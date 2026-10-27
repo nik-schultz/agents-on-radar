@@ -1,0 +1,90 @@
+{
+ "slug": "turn-a-recording-into-an-episode-clips-and-posts",
+ "title": "Hand your podcast or video edit to a team of AI agents",
+ "category": "business",
+ "source_date": "2026-10-26",
+ "summary": "Record your episode, then let a small team of agents do everything after: one plans the edit, one cuts short clips, one writes the captions and schedules the posts. Nothing goes live until you say yes.",
+ "what_the_bot_does": [
+  "Before you record, a Producer agent suggests questions, talking points and a studio layout.",
+  "When you stop recording, an Editor agent proposes an editing plan: where to tighten, what the hook is, captions and branding. You tell it what stays.",
+  "A Clipper agent picks the moments worth sharing and turns each one into a short vertical clip.",
+  "A Marketer agent writes post copy, show notes and thumbnails, and queues each clip for the right channel.",
+  "You get a phone notification, review everything, and approve or change it. The agents learn from what you keep."
+ ],
+ "what_you_end_up_with": "A finished episode, a batch of ready-to-post clips and scheduled posts, without spending your evening in an editor.",
+ "difficulty": "Easy",
+ "tools": [
+  {
+   "id": "riverside-agents",
+   "note": "Producer, Editor, Clipper and Marketer agents, on web and iPhone"
+  }
+ ],
+ "prompt": "Editor: here's today's recording with [guest name]. Make a full episode around [length] minutes. Cut long pauses and filler words, keep [the story about X], and start with the strongest moment as a hook. Use my saved branding. Clipper: find [3] clips under [60] seconds that make sense on their own. Marketer: draft captions for [YouTube, Instagram, LinkedIn] in my usual tone and suggest posting times. Don't publish or spend AI credits without asking me first.",
+ "setup": [
+  "Record (or upload) an episode in Riverside. The agents are included on all Riverside plans, on the web and the iPhone app.",
+  "Set up your branding first (logo, background, caption style) so edits and clips come out on-brand.",
+  "Open the Editor agent from your recording and ask for an editing plan. Read the plan before saying yes.",
+  "Ask the Clipper for a few clips, keep the ones you like and reject the rest so it learns your taste.",
+  "Connect your social channels or podcast host, and let the Marketer only draft or schedule, never post on its own, until you trust it."
+ ],
+ "watch_out": [
+  "Some tasks use AI credits. Riverside's help page says the agent shows the cost and asks before spending them, so read those prompts.",
+  "AI picks the clips, but you know your audience. Check every clip and caption before it posts.",
+  "Get your guest's OK before clips of them go out on social media.",
+  "Tone and workflow settings apply to all agents at once; you can't give each agent its own style."
+ ],
+ "sources": [
+  {
+   "label": "Riverside blog (Oct 26, 2026): “The first team of AI agents built for video”, with Producer, Editor, Clipper and Marketer; “Nothing goes out without your sign-off”",
+   "url": "https://riverside.com/blog/first-team-of-ai-agents-built-for-video",
+   "kind": "official",
+   "posted_at": "2026-10-26"
+  },
+  {
+   "label": "Riverside Help Center: how the agents hand tasks to each other, remember your chat, and ask before spending AI credits",
+   "url": "https://support.riverside.com/hc/en-us/articles/28827095144733-Riverside-AI-agents-Overview",
+   "kind": "docs"
+  },
+  {
+   "label": "Forbes (Oct 26, 2026): Riverside Agents are a new team for AI production of podcasts; agents work after recording ends and nothing goes live without approval",
+   "url": "https://www.forbes.com/sites/marksparrow/2026/10/26/riverside-agents-are-a-new-team-for-ai-production-of-podcasts/",
+   "kind": "article",
+   "posted_at": "2026-10-26"
+  },
+  {
+   "label": "Podnews press release (Oct 27, 2026): Riverside Agents available on web and mobile across all Riverside plans",
+   "url": "https://podnews.net/press-release/riverside-agents",
+   "kind": "article",
+   "posted_at": "2026-10-27"
+  },
+  {
+   "label": "X post by Riverside CEO @NadavKeyson (2026-10-26): launch announcement of Riverside Agents",
+   "url": "https://x.com/NadavKeyson/status/2114759149770723804",
+   "kind": "x",
+   "posted_at": "2026-10-26"
+  }
+ ],
+ "popularity": {
+  "platform": "x",
+  "post_id": "2114759149770723804",
+  "author": "@NadavKeyson",
+  "url": "https://x.com/NadavKeyson/status/2114759149770723804",
+  "posted_at": "2026-10-26",
+  "likes": 560,
+  "reposts": 1917,
+  "replies": 149,
+  "bookmarks": 643,
+  "views": 991250,
+  "measured_at": "2026-10-27"
+ },
+ "tags": [
+  "podcast",
+  "video editing",
+  "clips",
+  "social media",
+  "creators",
+  "small business",
+  "team of agents",
+  "Riverside"
+ ]
+}

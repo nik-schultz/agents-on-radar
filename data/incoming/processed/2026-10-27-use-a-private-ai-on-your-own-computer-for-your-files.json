@@ -1,0 +1,86 @@
+{
+ "slug": "use-a-private-ai-on-your-own-computer-for-your-files",
+ "title": "Let a private AI on your own computer work through your files",
+ "category": "work",
+ "source_date": "2026-10-26",
+ "summary": "A free desktop app picks an AI model that fits your computer, downloads it, and then reads, edits and fills in your documents, PDFs and spreadsheets without sending them anywhere. It works offline.",
+ "what_the_bot_does": [
+  "On first launch it checks your computer's memory and graphics card and downloads the best open model that will run well on it.",
+  "You point it at a folder you allow. It can read and change files there, look at images and big PDFs, and fill in PDF forms.",
+  "For number crunching or file conversions it writes and runs small bits of code in a locked-down sandbox, and can draw charts.",
+  "It asks before changing anything and lets you undo changes.",
+  "Web search is optional and can be switched off, so private paperwork never leaves your machine."
+ ],
+ "what_you_end_up_with": "A Cowork-style helper for private paperwork (contracts, medical records, tax forms) that costs nothing per use and doesn't upload your files.",
+ "difficulty": "Medium",
+ "tools": [
+  {
+   "id": "hob",
+   "note": "Free, open-source (MIT), Mac, Windows and Linux"
+  },
+  {
+   "id": "ollama",
+   "note": "Alternative if you're happy with a plain chat window"
+  }
+ ],
+ "prompt": "Work only inside the folder [folder name]. Read every PDF in it and make a table with [document name, date, who it's from, amount, deadline]. Save it as [summary.csv] in the same folder. Don't delete or rename anything, and ask me before you change any existing file.",
+ "setup": [
+  "Check your computer: Hob needs at least 8 GB of RAM (16 GB is better) and 10 to 25 GB of free disk space; the biggest model needs about 75 GB.",
+  "Download Hob for Mac, Windows or Linux from hob.chat or the GitHub releases page. No account is needed.",
+  "Let it pick and download a model on first run. This is a big download, so do it on Wi-Fi.",
+  "Make a test folder with copies of a few documents, and try one small job first, like a summary table.",
+  "Turn off web search in settings if you want everything to stay offline."
+ ],
+ "watch_out": [
+  "Local models are much weaker than Claude or ChatGPT on long, multi-step jobs; one HN commenter summed up the problem as “the models are really dumb, mainly.” Keep jobs small and check the results.",
+  "Work on copies of important files until you trust it.",
+  "The models are large. One HN tester complained there was no easy way to clean up the 18 GB it downloaded, so you may need to delete the model files yourself.",
+  "It's a two-week-old open-source project from a small startup. Expect rough edges and updates."
+ ],
+ "sources": [
+  {
+   "label": "Hacker News: “Show HN: Hob – Open-source, on device alternative to Claude Cowork and ChatGPT”",
+   "url": "https://news.ycombinator.com/item?id=50246238",
+   "kind": "hn",
+   "stats": {
+    "points": 159,
+    "comments": 36
+   },
+   "posted_at": "2026-10-26",
+   "measured_at": "2026-10-27"
+  },
+  {
+   "label": "GitHub: FrigadeHQ/hob (free MIT-licensed desktop app that runs open models like Gemma and gpt-oss on your own computer)",
+   "url": "https://github.com/FrigadeHQ/hob",
+   "kind": "github",
+   "stats": {
+    "stars": 243
+   },
+   "measured_at": "2026-10-27"
+  },
+  {
+   "label": "FounderMag (Oct 26, 2026): Hob reads and edits files you allow, fills in PDFs, asks before changing anything; needs 8 GB RAM, 16 GB better",
+   "url": "https://foundermag.co/launches/hob/",
+   "kind": "article",
+   "posted_at": "2026-10-26"
+  },
+  {
+   "label": "Open Source For You (Oct 27, 2026): Hob runs open models locally and works fully offline",
+   "url": "https://www.opensourceforu.com/2026/10/reclaim-your-privacy-with-unfiltered-local-ai-hob/",
+   "kind": "article",
+   "posted_at": "2026-10-27"
+  }
+ ],
+ "popularity": null,
+ "tags": [
+  "private AI",
+  "offline",
+  "local model",
+  "PDF forms",
+  "documents",
+  "files",
+  "Claude Cowork alternative",
+  "open source",
+  "Hob"
+ ]
+}

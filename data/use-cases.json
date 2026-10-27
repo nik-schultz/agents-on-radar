@@ -1,5 +1,266 @@
 [
  {
+  "slug": "use-a-private-ai-on-your-own-computer-for-your-files",
+  "title": "Let a private AI on your own computer work through your files",
+  "category": "work",
+  "source_date": "2026-10-26",
+  "summary": "A free desktop app picks an AI model that fits your computer, downloads it, and then reads, edits and fills in your documents, PDFs and spreadsheets without sending them anywhere. It works offline.",
+  "what_the_bot_does": [
+   "On first launch it checks your computer's memory and graphics card and downloads the best open model that will run well on it.",
+   "You point it at a folder you allow. It can read and change files there, look at images and big PDFs, and fill in PDF forms.",
+   "For number crunching or file conversions it writes and runs small bits of code in a locked-down sandbox, and can draw charts.",
+   "It asks before changing anything and lets you undo changes.",
+   "Web search is optional and can be switched off, so private paperwork never leaves your machine."
+  ],
+  "what_you_end_up_with": "A Cowork-style helper for private paperwork (contracts, medical records, tax forms) that costs nothing per use and doesn't upload your files.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "hob",
+    "note": "Free, open-source (MIT), Mac, Windows and Linux"
+   },
+   {
+    "id": "ollama",
+    "note": "Alternative if you're happy with a plain chat window"
+   }
+  ],
+  "prompt": "Work only inside the folder [folder name]. Read every PDF in it and make a table with [document name, date, who it's from, amount, deadline]. Save it as [summary.csv] in the same folder. Don't delete or rename anything, and ask me before you change any existing file.",
+  "setup": [
+   "Check your computer: Hob needs at least 8 GB of RAM (16 GB is better) and 10 to 25 GB of free disk space; the biggest model needs about 75 GB.",
+   "Download Hob for Mac, Windows or Linux from hob.chat or the GitHub releases page. No account is needed.",
+   "Let it pick and download a model on first run. This is a big download, so do it on Wi-Fi.",
+   "Make a test folder with copies of a few documents, and try one small job first, like a summary table.",
+   "Turn off web search in settings if you want everything to stay offline."
+  ],
+  "watch_out": [
+   "Local models are much weaker than Claude or ChatGPT on long, multi-step jobs; one HN commenter summed up the problem as “the models are really dumb, mainly.” Keep jobs small and check the results.",
+   "Work on copies of important files until you trust it.",
+   "The models are large. One HN tester complained there was no easy way to clean up the 18 GB it downloaded, so you may need to delete the model files yourself.",
+   "It's a two-week-old open-source project from a small startup. Expect rough edges and updates."
+  ],
+  "sources": [
+   {
+    "label": "Hacker News: “Show HN: Hob – Open-source, on device alternative to Claude Cowork and ChatGPT”",
+    "url": "https://news.ycombinator.com/item?id=50246238",
+    "kind": "hn",
+    "stats": {
+     "points": 159,
+     "comments": 36
+    },
+    "posted_at": "2026-10-26",
+    "measured_at": "2026-10-27"
+   },
+   {
+    "label": "GitHub: FrigadeHQ/hob (free MIT-licensed desktop app that runs open models like Gemma and gpt-oss on your own computer)",
+    "url": "https://github.com/FrigadeHQ/hob",
+    "kind": "github",
+    "stats": {
+     "stars": 243
+    },
+    "measured_at": "2026-10-27"
+   },
+   {
+    "label": "FounderMag (Oct 26, 2026): Hob reads and edits files you allow, fills in PDFs, asks before changing anything; needs 8 GB RAM, 16 GB better",
+    "url": "https://foundermag.co/launches/hob/",
+    "kind": "article",
+    "posted_at": "2026-10-26"
+   },
+   {
+    "label": "Open Source For You (Oct 27, 2026): Hob runs open models locally and works fully offline",
+    "url": "https://www.opensourceforu.com/2026/10/reclaim-your-privacy-with-unfiltered-local-ai-hob/",
+    "kind": "article",
+    "posted_at": "2026-10-27"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "private AI",
+   "offline",
+   "local model",
+   "PDF forms",
+   "documents",
+   "files",
+   "Claude Cowork alternative",
+   "open source",
+   "Hob"
+  ],
+  "date_added": "2026-10-27",
+  "origin": "pipeline",
+  "last_checked": "2026-10-27"
+ },
+ {
+  "slug": "turn-a-recording-into-an-episode-clips-and-posts",
+  "title": "Hand your podcast or video edit to a team of AI agents",
+  "category": "business",
+  "source_date": "2026-10-26",
+  "summary": "Record your episode, then let a small team of agents do everything after: one plans the edit, one cuts short clips, one writes the captions and schedules the posts. Nothing goes live until you say yes.",
+  "what_the_bot_does": [
+   "Before you record, a Producer agent suggests questions, talking points and a studio layout.",
+   "When you stop recording, an Editor agent proposes an editing plan: where to tighten, what the hook is, captions and branding. You tell it what stays.",
+   "A Clipper agent picks the moments worth sharing and turns each one into a short vertical clip.",
+   "A Marketer agent writes post copy, show notes and thumbnails, and queues each clip for the right channel.",
+   "You get a phone notification, review everything, and approve or change it. The agents learn from what you keep."
+  ],
+  "what_you_end_up_with": "A finished episode, a batch of ready-to-post clips and scheduled posts, without spending your evening in an editor.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "riverside-agents",
+    "note": "Producer, Editor, Clipper and Marketer agents, on web and iPhone"
+   }
+  ],
+  "prompt": "Editor: here's today's recording with [guest name]. Make a full episode around [length] minutes. Cut long pauses and filler words, keep [the story about X], and start with the strongest moment as a hook. Use my saved branding. Clipper: find [3] clips under [60] seconds that make sense on their own. Marketer: draft captions for [YouTube, Instagram, LinkedIn] in my usual tone and suggest posting times. Don't publish or spend AI credits without asking me first.",
+  "setup": [
+   "Record (or upload) an episode in Riverside. The agents are included on all Riverside plans, on the web and the iPhone app.",
+   "Set up your branding first (logo, background, caption style) so edits and clips come out on-brand.",
+   "Open the Editor agent from your recording and ask for an editing plan. Read the plan before saying yes.",
+   "Ask the Clipper for a few clips, keep the ones you like and reject the rest so it learns your taste.",
+   "Connect your social channels or podcast host, and let the Marketer only draft or schedule, never post on its own, until you trust it."
+  ],
+  "watch_out": [
+   "Some tasks use AI credits. Riverside's help page says the agent shows the cost and asks before spending them, so read those prompts.",
+   "AI picks the clips, but you know your audience. Check every clip and caption before it posts.",
+   "Get your guest's OK before clips of them go out on social media.",
+   "Tone and workflow settings apply to all agents at once; you can't give each agent its own style."
+  ],
+  "sources": [
+   {
+    "label": "Riverside blog (Oct 26, 2026): “The first team of AI agents built for video”, with Producer, Editor, Clipper and Marketer; “Nothing goes out without your sign-off”",
+    "url": "https://riverside.com/blog/first-team-of-ai-agents-built-for-video",
+    "kind": "official",
+    "posted_at": "2026-10-26"
+   },
+   {
+    "label": "Riverside Help Center: how the agents hand tasks to each other, remember your chat, and ask before spending AI credits",
+    "url": "https://support.riverside.com/hc/en-us/articles/28827095144733-Riverside-AI-agents-Overview",
+    "kind": "docs"
+   },
+   {
+    "label": "Forbes (Oct 26, 2026): Riverside Agents are a new team for AI production of podcasts; agents work after recording ends and nothing goes live without approval",
+    "url": "https://www.forbes.com/sites/marksparrow/2026/10/26/riverside-agents-are-a-new-team-for-ai-production-of-podcasts/",
+    "kind": "article",
+    "posted_at": "2026-10-26"
+   },
+   {
+    "label": "Podnews press release (Oct 27, 2026): Riverside Agents available on web and mobile across all Riverside plans",
+    "url": "https://podnews.net/press-release/riverside-agents",
+    "kind": "article",
+    "posted_at": "2026-10-27"
+   },
+   {
+    "label": "X post by Riverside CEO @NadavKeyson (2026-10-26): launch announcement of Riverside Agents",
+    "url": "https://x.com/NadavKeyson/status/2114759149770723804",
+    "kind": "x",
+    "posted_at": "2026-10-26"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2114759149770723804",
+   "author": "@NadavKeyson",
+   "url": "https://x.com/NadavKeyson/status/2114759149770723804",
+   "posted_at": "2026-10-26",
+   "likes": 560,
+   "reposts": 1917,
+   "replies": 149,
+   "bookmarks": 643,
+   "views": 991250,
+   "measured_at": "2026-10-27"
+  },
+  "tags": [
+   "podcast",
+   "video editing",
+   "clips",
+   "social media",
+   "creators",
+   "small business",
+   "team of agents",
+   "Riverside"
+  ],
+  "date_added": "2026-10-27",
+  "origin": "pipeline",
+  "last_checked": "2026-10-27"
+ },
+ {
+  "slug": "get-a-text-before-something-needs-doing",
+  "title": "Get a text from your bot before something needs doing",
+  "category": "family",
+  "source_date": "2026-10-26",
+  "summary": "Instead of waiting for you to ask, the assistant watches your calendar and email and texts you first: your flight is late, want a car? Saturday is free, want a plan with the kids? Reply yes and it does it.",
+  "what_the_bot_does": [
+   "It reads the calendar and email you connect, so it knows your trips, plans, deliveries and who's involved.",
+   "When something needs doing, it sends you one text in iMessage or WhatsApp at the right moment, with an offer.",
+   "You reply with a word or two. It books, orders, moves or replies on the app or website for you.",
+   "Anything that costs money shows the price first, and it only says something is booked once the company confirms it.",
+   "Each morning it can send a short brief of what's coming up, and it stays quiet when nothing needs you."
+  ],
+  "what_you_end_up_with": "Fewer surprises: a heads-up text with the fix already lined up, so a yes is all it takes.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "kiwi",
+    "note": "Free during the pilot; iMessage or WhatsApp"
+   },
+   {
+    "id": "grok-bot",
+    "note": "Can do similar check-ins on a schedule if you set them up"
+   }
+  ],
+  "prompt": "Every morning at [7:30], look at my calendar and email for today and tomorrow. Text me only if something needs a decision: a delay, a clash, a reply someone is waiting for, or a free block I said I wanted to fill with [family time]. Offer one fix with the price. Don't book, buy or reply until I say yes, and never text me between [9 pm] and [7 am].",
+  "setup": [
+   "Sign up at heykiwi.co and pick iMessage or WhatsApp. It opens a chat with “Hi Kiwi” already written; press send.",
+   "Answer its setup questions in the chat, then connect only your calendar and email to start.",
+   "Ask it to watch one thing for you, like “tell me when Marta replies about the deposit”, to see how it works.",
+   "When it offers to book something, check the price and details before you say yes.",
+   "If a type of suggestion annoys you, tell it to stop suggesting that kind of thing."
+  ],
+  "watch_out": [
+   "It reads your calendar and email, so connect only the accounts you're comfortable sharing.",
+   "Some websites ask you to prove you're human, and the maker says Kiwi can get stuck there. Have a plan B for anything time-critical.",
+   "A yes can spend money. Read the price in the message every time.",
+   "Product Hunt users asked for quiet hours, so set clear do-not-disturb times in your instructions."
+  ],
+  "sources": [
+   {
+    "label": "Product Hunt (Oct 26, 2026): Kiwi – “A proactive AI assistant that texts you before you ask”, #11 product of the day",
+    "url": "https://www.producthunt.com/leaderboard/daily/2026/10/26",
+    "kind": "article",
+    "stats": {
+     "upvotes": 109,
+     "comments": 15
+    },
+    "posted_at": "2026-10-26",
+    "measured_at": "2026-10-27"
+   },
+   {
+    "label": "Kiwi blog (Oct 12, 2026): Kiwi on WhatsApp keeps an eye on your calendar and email and messages you first; it shows prices first and only sees apps you connect",
+    "url": "https://heykiwi.co/blogs/kiwi-on-whatsapp",
+    "kind": "official",
+    "posted_at": "2026-10-12"
+   },
+   {
+    "label": "Business Wire (Oct 26, 2026): Ant Group's LingGuang 2.0 turns its AI assistant into a proactive personal agent that acts before you ask",
+    "url": "https://www.businesswire.com/news/home/20261026586960/en/Ant-Group-Upgrades-LingGuang-to-2.0-Turning-Its-AI-Assistant-into-a-Proactive-Personal-Agent",
+    "kind": "article",
+    "posted_at": "2026-10-26"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "proactive assistant",
+   "texts you first",
+   "iMessage",
+   "WhatsApp",
+   "flight delay",
+   "family plans",
+   "calendar",
+   "Kiwi"
+  ],
+  "date_added": "2026-10-27",
+  "origin": "pipeline",
+  "last_checked": "2026-10-27"
+ },
+ {
   "slug": "find-an-apartment-that-fits-your-list",
   "title": "Find an apartment that fits your must-have list",
   "category": "family",
@@ -228,7 +489,7 @@
      "comments": 1
     },
     "posted_at": "2026-10-23",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "Grok Bot on X (Oct 22, 2026): “Approve the logins you want to share, and your Bot signs in for you” (9,929 likes, 702 reposts on Oct 26)",
@@ -345,8 +606,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 0,
-   "views": 120,
-   "measured_at": "2026-10-26"
+   "views": 130,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "phone calls",
@@ -505,8 +766,8 @@
    "reposts": 5,
    "replies": 13,
    "bookmarks": 27,
-   "views": 5835,
-   "measured_at": "2026-10-26"
+   "views": 5856,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "proactive",
@@ -695,8 +956,8 @@
    "reposts": 0,
    "replies": 12,
    "bookmarks": 0,
-   "views": 1090,
-   "measured_at": "2026-10-26"
+   "views": 1096,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "fact check",
@@ -799,12 +1060,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 506,
+   "likes": 492,
    "reposts": 15,
    "replies": 32,
-   "bookmarks": 443,
-   "views": 177513,
-   "measured_at": "2026-10-26"
+   "bookmarks": 430,
+   "views": 177845,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "second brain",
@@ -923,7 +1184,7 @@
      "comments": 0
     },
     "posted_at": "2025-04-14",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   ],
   "popularity": null,
@@ -1011,8 +1272,8 @@
    "reposts": 6,
    "replies": 19,
    "bookmarks": 30,
-   "views": 5404,
-   "measured_at": "2026-10-26"
+   "views": 5418,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "read later",
@@ -1097,8 +1358,8 @@
    "reposts": 2,
    "replies": 4,
    "bookmarks": 6,
-   "views": 1772,
-   "measured_at": "2026-10-26"
+   "views": 1775,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "contact form",
@@ -1296,7 +1557,7 @@
    "replies": 3,
    "bookmarks": 6,
    "views": 584,
-   "measured_at": "2026-10-26"
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "schedule",
@@ -1674,9 +1935,9 @@
    "likes": 251,
    "reposts": 15,
    "replies": 26,
-   "bookmarks": 507,
-   "views": 25399,
-   "measured_at": "2026-10-26"
+   "bookmarks": 506,
+   "views": 25408,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "multi-agent",
@@ -1764,12 +2025,12 @@
    "author": "@Parul_Gautam7",
    "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
    "posted_at": "2026-10-08",
-   "likes": 201,
+   "likes": 200,
    "reposts": 35,
    "replies": 38,
-   "bookmarks": 80,
-   "views": 46406,
-   "measured_at": "2026-10-26"
+   "bookmarks": 79,
+   "views": 46407,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "multi-agent",
@@ -1842,7 +2103,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-10-26"
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "voice",
@@ -1905,7 +2166,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 44,
-   "measured_at": "2026-10-26"
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "roadside assistance",
@@ -1965,7 +2226,7 @@
      "comments": 100
     },
     "posted_at": "2025-02-25",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "GitHub: browser-use/browser-use (open-source agent that operates a web browser)",
@@ -2002,7 +2263,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 396,
-   "measured_at": "2026-10-26"
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "computer use",
@@ -2073,8 +2334,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 0,
-   "views": 898,
-   "measured_at": "2026-10-26"
+   "views": 902,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "contractors",
@@ -2137,8 +2398,8 @@
    "reposts": 0,
    "replies": 5,
    "bookmarks": 0,
-   "views": 123,
-   "measured_at": "2026-10-26"
+   "views": 125,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "used car",
@@ -2200,8 +2461,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7482,
-   "measured_at": "2026-10-26"
+   "views": 7484,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "pharmacy",
@@ -2284,8 +2545,8 @@
    "reposts": 24,
    "replies": 29,
    "bookmarks": 235,
-   "views": 325003,
-   "measured_at": "2026-10-26"
+   "views": 325270,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "newsletters",
@@ -2354,7 +2615,7 @@
      "comments": 176
     },
     "posted_at": "2025-07-28",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "Hacker News: “Show HN: PlaceCall (YC W26) – agentic API to call businesses and get things done”",
@@ -2365,7 +2626,7 @@
      "comments": 4
     },
     "posted_at": "2026-09-24",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   ],
   "popularity": {
@@ -2376,10 +2637,10 @@
    "posted_at": "2026-10-18",
    "likes": 867,
    "reposts": 93,
-   "replies": 196,
-   "bookmarks": 1009,
-   "views": 1213613,
-   "measured_at": "2026-10-26"
+   "replies": 195,
+   "bookmarks": 1008,
+   "views": 1215715,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "phone call",
@@ -2541,8 +2802,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 523,
-   "measured_at": "2026-10-26"
+   "views": 531,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "spam calls",
@@ -2615,8 +2876,8 @@
    "reposts": 3,
    "replies": 8,
    "bookmarks": 37,
-   "views": 5407,
-   "measured_at": "2026-10-26"
+   "views": 5414,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "food log",
@@ -2684,7 +2945,7 @@
      "comments": 176
     },
     "posted_at": "2025-07-28",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   ],
   "popularity": {
@@ -2697,8 +2958,8 @@
    "reposts": 3,
    "replies": 12,
    "bookmarks": 13,
-   "views": 3051,
-   "measured_at": "2026-10-26"
+   "views": 3063,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "phone call",
@@ -2873,12 +3134,12 @@
    "author": "@lyndallschreinr",
    "url": "https://x.com/lyndallschreinr/status/2107888353630908437",
    "posted_at": "2026-10-07",
-   "likes": 1014,
+   "likes": 1015,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2895,
-   "views": 310540,
-   "measured_at": "2026-10-26"
+   "bookmarks": 2894,
+   "views": 311057,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "meal plan",
@@ -2933,6 +3194,15 @@
     "label": "X post by @Michael_Fenech_ (2026-10-09): 7 jobs to give a family bot, with prompts",
     "url": "https://x.com/Michael_Fenech_/status/2108579992456327489",
     "kind": "x"
+   },
+   {
+    "label": "GitHub: awesome-openclaw-usecases “Family Calendar Aggregation & Household Assistant”: pulls every family calendar into one briefing with a 3-day look-ahead for conflicts",
+    "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/family-calendar-household-assistant.md",
+    "kind": "github",
+    "stats": {
+     "stars": 31642
+    },
+    "measured_at": "2026-10-27"
    }
   ],
   "popularity": {
@@ -2941,12 +3211,12 @@
    "author": "@Michael_Fenech_",
    "url": "https://x.com/Michael_Fenech_/status/2108579992456327489",
    "posted_at": "2026-10-09",
-   "likes": 505,
+   "likes": 506,
    "reposts": 34,
    "replies": 36,
    "bookmarks": 1152,
-   "views": 66594,
-   "measured_at": "2026-10-26"
+   "views": 66647,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "calendar",
@@ -2954,7 +3224,7 @@
    "school",
    "weekly"
   ],
-  "last_checked": "2026-10-20",
+  "last_checked": "2026-10-27",
   "origin": "seed-2026-10-20"
  },
  {
@@ -3032,9 +3302,9 @@
    "likes": 679,
    "reposts": 35,
    "replies": 157,
-   "bookmarks": 723,
-   "views": 82755,
-   "measured_at": "2026-10-26"
+   "bookmarks": 725,
+   "views": 82814,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "personal agent",
@@ -3114,8 +3384,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41333,
-   "measured_at": "2026-10-26"
+   "views": 41353,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "scams",
@@ -3191,9 +3461,9 @@
    "likes": 164,
    "reposts": 14,
    "replies": 29,
-   "bookmarks": 119,
-   "views": 25110,
-   "measured_at": "2026-10-26"
+   "bookmarks": 118,
+   "views": 25130,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "family chat",
@@ -3282,8 +3552,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4079,
-   "measured_at": "2026-10-26"
+   "views": 4083,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "groceries",
@@ -3344,6 +3614,12 @@
     "url": "https://x.com/jasongrubb_fit/status/2113690458094236105",
     "kind": "x",
     "posted_at": "2026-10-23"
+   },
+   {
+    "label": "Kiwi blog (Oct 12, 2026): an assistant in iMessage spots a delayed flight and offers to book a car for when you land, showing the price first",
+    "url": "https://heykiwi.co/blogs/kiwi-on-imessage",
+    "kind": "official",
+    "posted_at": "2026-10-12"
    }
   ],
   "popularity": {
@@ -3356,8 +3632,8 @@
    "reposts": 12,
    "replies": 12,
    "bookmarks": 11,
-   "views": 9646,
-   "measured_at": "2026-10-26"
+   "views": 9653,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "travel",
@@ -3365,7 +3641,7 @@
    "vrbo",
    "texting"
   ],
-  "last_checked": "2026-10-26",
+  "last_checked": "2026-10-27",
   "origin": "seed-2026-10-20"
  },
  {
@@ -3425,8 +3701,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 1996,
-   "measured_at": "2026-10-26"
+   "views": 2000,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "flights",
@@ -3554,7 +3830,7 @@
      "comments": 1
     },
     "posted_at": "2025-08-21",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   ],
   "popularity": {
@@ -3563,12 +3839,12 @@
    "author": "@MilksandMatcha",
    "url": "https://x.com/MilksandMatcha/status/2105372125288976402",
    "posted_at": "2026-09-30",
-   "likes": 533,
+   "likes": 534,
    "reposts": 23,
    "replies": 63,
    "bookmarks": 241,
-   "views": 93593,
-   "measured_at": "2026-10-26"
+   "views": 93638,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "restaurant",
@@ -3631,8 +3907,8 @@
    "reposts": 4,
    "replies": 9,
    "bookmarks": 27,
-   "views": 4053,
-   "measured_at": "2026-10-26"
+   "views": 4054,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "appointment",
@@ -3695,7 +3971,7 @@
      "comments": 8
     },
     "posted_at": "2025-08-27",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "YouTube: “Process Receipts with AI (Claude Cowork)” by Hector Garcia CPA",
@@ -3726,8 +4002,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9179,
-   "measured_at": "2026-10-26"
+   "views": 9182,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "receipts",
@@ -3816,8 +4092,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 268,
-   "views": 9689,
-   "measured_at": "2026-10-26"
+   "views": 9714,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "chief of staff",
@@ -3874,10 +4150,10 @@
    "posted_at": "2026-10-05",
    "likes": 61,
    "reposts": 7,
-   "replies": 47,
+   "replies": 48,
    "bookmarks": 14,
-   "views": 1868,
-   "measured_at": "2026-10-26"
+   "views": 1873,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "multiple brands",
@@ -3951,7 +4227,7 @@
    "replies": 12,
    "bookmarks": 27,
    "views": 3241,
-   "measured_at": "2026-10-26"
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "real estate",
@@ -4051,7 +4327,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 77,
-   "measured_at": "2026-10-26"
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "paper mail",
@@ -4140,7 +4416,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 74,
-   "measured_at": "2026-10-26"
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "monitoring",
@@ -4192,6 +4468,12 @@
     "label": "X post by @BassamDahabra (2026-09-23): an n8n automation found 19 dead conversations",
     "url": "https://x.com/BassamDahabra/status/2102701286307119565",
     "kind": "x"
+   },
+   {
+    "label": "Reddit r/AI_Agents “What is one AI agent workflow that sounds simple but is actually useful?” (Aug 26, 2026): u/HTxBarbz runs an agent that finds messages with a question and no reply in 24h and drafts a 2-line follow-up to approve",
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1vytnh6/what_is_one_ai_agent_workflow_that_sounds_simple/",
+    "kind": "reddit",
+    "posted_at": "2026-08-26"
    }
   ],
   "popularity": {
@@ -4204,8 +4486,8 @@
    "reposts": 2,
    "replies": 7,
    "bookmarks": 0,
-   "views": 1278,
-   "measured_at": "2026-10-26"
+   "views": 1286,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "follow up",
@@ -4213,7 +4495,7 @@
    "networking",
    "n8n"
   ],
-  "last_checked": "2026-10-20",
+  "last_checked": "2026-10-27",
   "origin": "seed-2026-10-20"
  },
  {
@@ -4278,8 +4560,8 @@
    "reposts": 4,
    "replies": 7,
    "bookmarks": 55,
-   "views": 4920,
-   "measured_at": "2026-10-26"
+   "views": 4922,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "leads",
@@ -4361,7 +4643,7 @@
      "comments": 5
     },
     "posted_at": "2026-03-15",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   ],
   "popularity": {
@@ -4374,8 +4656,8 @@
    "reposts": 1,
    "replies": 2,
    "bookmarks": 19,
-   "views": 2139,
-   "measured_at": "2026-10-26"
+   "views": 2144,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "email",
@@ -5029,7 +5311,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 795,
-   "measured_at": "2026-10-26"
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "marketplace",
@@ -5079,6 +5361,15 @@
     "label": "X post by @Michael_Fenech_ (2026-10-09): household restocking manager prompt",
     "url": "https://x.com/Michael_Fenech_/status/2108579992456327489",
     "kind": "x"
+   },
+   {
+    "label": "GitHub: awesome-openclaw-usecases “Family Calendar Aggregation & Household Assistant”: keeps a pantry inventory either partner can ask about, tracks what's running low and builds the shopping list",
+    "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/family-calendar-household-assistant.md",
+    "kind": "github",
+    "stats": {
+     "stars": 31642
+    },
+    "measured_at": "2026-10-27"
    }
   ],
   "popularity": null,
@@ -5087,7 +5378,7 @@
    "household",
    "restock"
   ],
-  "last_checked": "2026-10-20",
+  "last_checked": "2026-10-27",
   "origin": "seed-2026-10-20"
  },
  {
@@ -5129,6 +5420,17 @@
     "label": "X post by @Michael_Fenech_ (2026-10-09): family activities planner prompt",
     "url": "https://x.com/Michael_Fenech_/status/2108579992456327489",
     "kind": "x"
+   },
+   {
+    "label": "Product Hunt (Oct 26, 2026): Kiwi, a proactive assistant that texts “Your Saturday afternoon is free. Want me to plan something with the kids?” and books the plan when you say yes",
+    "url": "https://www.producthunt.com/leaderboard/daily/2026/10/26",
+    "kind": "article",
+    "stats": {
+     "upvotes": 109,
+     "comments": 15
+    },
+    "posted_at": "2026-10-26",
+    "measured_at": "2026-10-27"
    }
   ],
   "popularity": null,
@@ -5137,7 +5439,7 @@
    "weekend",
    "activities"
   ],
-  "last_checked": "2026-10-20",
+  "last_checked": "2026-10-27",
   "origin": "seed-2026-10-20"
  },
  {
@@ -5177,6 +5479,11 @@
     "label": "X post by @saviomartin (2026-10-11): family agent: “remind Grandma to take her meds”, book dentist appointments",
     "url": "https://x.com/saviomartin/status/2109330165381910817",
     "kind": "x"
+   },
+   {
+    "label": "FamilyCheck: an AI voice assistant calls your parent daily about their medication and texts up to 3 caregivers the result after every call",
+    "url": "https://familycheckai.com/",
+    "kind": "official"
    }
   ],
   "popularity": null,
@@ -5186,7 +5493,7 @@
    "reminders",
    "caregiving"
   ],
-  "last_checked": "2026-10-20",
+  "last_checked": "2026-10-27",
   "origin": "seed-2026-10-20"
  },
  {
@@ -5249,7 +5556,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1505,
-   "measured_at": "2026-10-26"
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "payments",
@@ -5316,8 +5623,8 @@
    "reposts": 0,
    "replies": 4,
    "bookmarks": 3,
-   "views": 904,
-   "measured_at": "2026-10-26"
+   "views": 906,
+   "measured_at": "2026-10-27"
   },
   "tags": [
    "ads",
@@ -5766,7 +6073,7 @@
      "comments": 4
     },
     "posted_at": "2026-09-24",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   ],
   "real_examples": [],
@@ -6168,7 +6475,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-10-26"
+   "measured_at": "2026-10-27"
   },
   "origin": "migrated-2026-10-19"
  },
@@ -6817,7 +7124,7 @@
      "comments": 5
     },
     "posted_at": "2025-02-10",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   ],
   "tags": [
@@ -7184,7 +7491,7 @@
      "comments": 0
     },
     "posted_at": "2025-11-04",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   ],
   "tags": [
@@ -7261,7 +7568,7 @@
      "comments": 418
     },
     "posted_at": "2025-02-03",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "Hacker News: “Perplexity Deep Research”",
@@ -7272,7 +7579,7 @@
      "comments": 168
     },
     "posted_at": "2025-02-15",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "YouTube: “How to Use ChatGPT’s Deep Research to Save HOURS on Research” by Andy Stapleton",
@@ -7350,7 +7657,7 @@
      "comments": 490
     },
     "posted_at": "2024-09-30",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "Hacker News: “NotebookLM Audio Overviews are now available in over 50 languages”",
@@ -7361,7 +7668,7 @@
      "comments": 96
     },
     "posted_at": "2025-04-30",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "YouTube: “Use NotebookLM to generate audio discussions #Google #Gemini #NotebookLM” by Google (from Google's own channel)",
@@ -7453,7 +7760,7 @@
      "comments": 186
     },
     "posted_at": "2024-01-13",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "GitHub: acon96/home-llm (local AI models tuned for Home Assistant control)",
@@ -7549,7 +7856,7 @@
      "comments": 99
     },
     "posted_at": "2025-04-07",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "YouTube: “How To Share Screen With Gemini (Updated 2026)” by AI Mastery",
@@ -7634,7 +7941,7 @@
      "comments": 180
     },
     "posted_at": "2025-07-29",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "GitHub: Zackriya-Solutions/meetily (open-source meeting note taker that runs on your computer)",
@@ -7719,7 +8026,7 @@
      "comments": 35
     },
     "posted_at": "2025-05-28",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "Hacker News: “Show HN: I built an AI conversation partner to practice speaking languages”",
@@ -7730,7 +8037,7 @@
      "comments": 56
     },
     "posted_at": "2026-01-30",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "Hacker News: “Show HN: Learn a language quickly by practising speaking with AI”",
@@ -7741,7 +8048,7 @@
      "comments": 253
     },
     "posted_at": "2023-08-02",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "YouTube: “ChatGPT's new update is HUGE for language learners” by Corinna Languages",
@@ -7854,7 +8161,7 @@
      "comments": 191
     },
     "posted_at": "2022-06-03",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "Gemini Apps Help: Talk naturally with Gemini Live (“Practice aloud: rehearse for important moments”; checked 2026-10-24)",
@@ -7916,7 +8223,7 @@
      "comments": 465
     },
     "posted_at": "2024-10-23",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "YouTube: “How to Use Claude Artifacts (Beginner Tutorial)” by Kevin Stratvert",
@@ -8033,7 +8340,7 @@
      "comments": 5
     },
     "posted_at": "2024-10-01",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "GitHub: QiuYannnn/Local-File-Organizer (open-source organizer that runs on your computer)",
@@ -8123,7 +8430,7 @@
      "comments": 1
     },
     "posted_at": "2024-01-05",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "GitHub: Thimm/transcribe_apple_voice_memos (local transcription and summaries of Apple Voice Memos)",
@@ -8293,7 +8600,7 @@
      "comments": 61
     },
     "posted_at": "2024-11-06",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    },
    {
     "label": "Hacker News: “Show HN: Open-Source Document Extraction Tool”",
@@ -8304,7 +8611,7 @@
      "comments": 2
     },
     "posted_at": "2025-01-15",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-27"
    }
   ],
   "tags": [

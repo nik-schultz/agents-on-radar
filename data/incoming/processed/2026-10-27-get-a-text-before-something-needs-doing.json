@@ -1,0 +1,76 @@
+{
+ "slug": "get-a-text-before-something-needs-doing",
+ "title": "Get a text from your bot before something needs doing",
+ "category": "family",
+ "source_date": "2026-10-26",
+ "summary": "Instead of waiting for you to ask, the assistant watches your calendar and email and texts you first: your flight is late, want a car? Saturday is free, want a plan with the kids? Reply yes and it does it.",
+ "what_the_bot_does": [
+  "It reads the calendar and email you connect, so it knows your trips, plans, deliveries and who's involved.",
+  "When something needs doing, it sends you one text in iMessage or WhatsApp at the right moment, with an offer.",
+  "You reply with a word or two. It books, orders, moves or replies on the app or website for you.",
+  "Anything that costs money shows the price first, and it only says something is booked once the company confirms it.",
+  "Each morning it can send a short brief of what's coming up, and it stays quiet when nothing needs you."
+ ],
+ "what_you_end_up_with": "Fewer surprises: a heads-up text with the fix already lined up, so a yes is all it takes.",
+ "difficulty": "Easy",
+ "tools": [
+  {
+   "id": "kiwi",
+   "note": "Free during the pilot; iMessage or WhatsApp"
+  },
+  {
+   "id": "grok-bot",
+   "note": "Can do similar check-ins on a schedule if you set them up"
+  }
+ ],
+ "prompt": "Every morning at [7:30], look at my calendar and email for today and tomorrow. Text me only if something needs a decision: a delay, a clash, a reply someone is waiting for, or a free block I said I wanted to fill with [family time]. Offer one fix with the price. Don't book, buy or reply until I say yes, and never text me between [9 pm] and [7 am].",
+ "setup": [
+  "Sign up at heykiwi.co and pick iMessage or WhatsApp. It opens a chat with “Hi Kiwi” already written; press send.",
+  "Answer its setup questions in the chat, then connect only your calendar and email to start.",
+  "Ask it to watch one thing for you, like “tell me when Marta replies about the deposit”, to see how it works.",
+  "When it offers to book something, check the price and details before you say yes.",
+  "If a type of suggestion annoys you, tell it to stop suggesting that kind of thing."
+ ],
+ "watch_out": [
+  "It reads your calendar and email, so connect only the accounts you're comfortable sharing.",
+  "Some websites ask you to prove you're human, and the maker says Kiwi can get stuck there. Have a plan B for anything time-critical.",
+  "A yes can spend money. Read the price in the message every time.",
+  "Product Hunt users asked for quiet hours, so set clear do-not-disturb times in your instructions."
+ ],
+ "sources": [
+  {
+   "label": "Product Hunt (Oct 26, 2026): Kiwi – “A proactive AI assistant that texts you before you ask”, #11 product of the day",
+   "url": "https://www.producthunt.com/leaderboard/daily/2026/10/26",
+   "kind": "article",
+   "stats": {
+    "upvotes": 109,
+    "comments": 15
+   },
+   "posted_at": "2026-10-26",
+   "measured_at": "2026-10-27"
+  },
+  {
+   "label": "Kiwi blog (Oct 12, 2026): Kiwi on WhatsApp keeps an eye on your calendar and email and messages you first; it shows prices first and only sees apps you connect",
+   "url": "https://heykiwi.co/blogs/kiwi-on-whatsapp",
+   "kind": "official",
+   "posted_at": "2026-10-12"
+  },
+  {
+   "label": "Business Wire (Oct 26, 2026): Ant Group's LingGuang 2.0 turns its AI assistant into a proactive personal agent that acts before you ask",
+   "url": "https://www.businesswire.com/news/home/20261026586960/en/Ant-Group-Upgrades-LingGuang-to-2.0-Turning-Its-AI-Assistant-into-a-Proactive-Personal-Agent",
+   "kind": "article",
+   "posted_at": "2026-10-26"
+  }
+ ],
+ "popularity": null,
+ "tags": [
+  "proactive assistant",
+  "texts you first",
+  "iMessage",
+  "WhatsApp",
+  "flight delay",
+  "family plans",
+  "calendar",
+  "Kiwi"
+ ]
+}

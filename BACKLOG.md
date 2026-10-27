@@ -117,3 +117,22 @@ Bugs/complaints: none found on the site. Note: HN items API comment counts diffe
 - (2026-10-26, from news) Let a bot do your Walmart grocery run with a spending cap: Walmart Agent Gateway + Agent Profiles (per-order approval or spending limit, agent never sees your card). Wait until Agent Profiles roll out (announced Oct 21 for "next month"), then write it with the Walmart page and TechCrunch as sources.
 - (2026-10-27, from news) Turn one recording into a finished podcast episode, clips and scheduled posts with Riverside Agents (Producer, Editor, Clipper, Marketer; nothing posts without your approval). Sources: riverside.com/blog/first-team-of-ai-agents-built-for-video, Podnews press release, Forbes (Oct 26). Good everyday entry for solo creators and small businesses.
 - (2026-10-27, from news) A background assistant that flags forgotten subscriptions and price drops on trips you booked: Ant Group LingGuang 2.0 (Business Wire, Oct 26). Mostly China-market; could support a "catch forgotten subscriptions" entry alongside a US tool.
+
+## Trending watch 2026-10-27 (midday)
+
+Added: `turn-a-recording-into-an-episode-clips-and-posts` (Riverside Agents), `use-a-private-ai-on-your-own-computer-for-your-files` (Hob, HN 159 points), `get-a-text-before-something-needs-doing` (Kiwi, Product Hunt #11, 109 upvotes). Non-X sources added to 6 X-only entries. Refreshed 43 X posts and 28 HN source scores (HN points unchanged).
+
+Mentions/feedback: none. X search "botsdothat" / "botsdothat.com" / "bots do that" since Oct 25 = only unrelated uses of the phrase; HN Algolia stories + comments for "botsdothat" = 0. Web search only returned our own pages.
+
+Candidates not added yet:
+- [ ] Phone-using agent that runs on the phone itself: "Show HN: Computer use on the phone itself: a 2B model that operates Android apps" (HN 50180190, 18 points, Oct 21; getopposable.com/blog/computer-use-on-the-phone). Developer demo today; revisit when a consumer app ships.
+- [ ] "Check this every morning and only ping me if something changed" pattern (r/AI_Agents 1vytnh6, Aug 26, comments by u/buildwithatlas and u/agentel_tech). Fits `watch-a-web-page-for-changes` as an extra source/tip; also u/dooddyman's daily Reddit/X/YouTube brand-mention digest (business idea, weak source).
+- [ ] Family calendar via OpenClaw: r/openclaw "anyone else using openclaw to wrangle family calendar chaos?" (1u33i1r). Reddit wouldn't load from the box, so it isn't cited; could be another source for `sunday-family-calendar-check`.
+- [ ] Used-car listing checkers (try.vin listing analyzer, SiftCar, CalCar) as non-X sources for `research-a-used-car-from-a-listing`; vendor pages not opened yet.
+- [ ] AI wiki from a big email archive with every fact cited ("Show HN: We had AI write a wiki from 45k Enron emails", HN 50207620, 70 points). Possible "turn years of email into a searchable family/business wiki" entry; needs a beginner tool.
+- Watch-outs for guides: "Now Google says it might use your Gmail and Google Photos data to target ads" (The Verge, HN 50214218, 394 points) for Gemini Personal Intelligence entries; "ChatGPT keeps telling people 404 Media can solve their tech support problems" (HN 50247630, 256 points) as a "check who the bot tells you to contact" tip for `show-ai-your-screen-for-tech-help`.
+- Note on Riverside: the CEO's launch post (@NadavKeyson) has far more reposts (1,917) than likes (560), and many near-identical "Riverside Agents" posts appeared on X on Oct 26, which looks like a coordinated launch campaign. Its heat puts the entry at #1 on Trending. Re-check next run; consider a rule for amplified launch posts.
+- Competitor seen: agentsightings.com ("Agent Sightings", 106 email/inbox sightings, a reusable prompt per case, added Oct 15). Also at-your-service.beehiiv.com ("Last Week in AI Agents" newsletter).
+- Skipped: #ProofOfAgent / #MyAgentID crypto-agent spam on X (still heavy); developer-only launches (OpenShell, Corgi, AI Bridge, VibeiDE, ManyAgents).
+
+Bugs/complaints: none found.

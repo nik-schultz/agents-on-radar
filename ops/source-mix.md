@@ -78,3 +78,28 @@ Limits on what could be measured from the server:
 
 Top domains: youtube.com (91), x.com (66), news.ycombinator.com (29), reddit.com (23), google.com (22), support.google.com (11), github.com (11), docs.anthropic.com (7), menlovc.com (5), help.openai.com (4), mistral.ai (4), reddit.sentinel-team.org (4)
 
+
+## After (measured 2026-10-27 midday)
+
+- Use cases: **102**; source links: **358**
+- X share of source links: **67/358 = 19%**
+- X share of community links (X, Reddit, Hacker News, YouTube, GitHub, Product Hunt): **67/232 = 29%**
+- X-only use cases (every source is an X post): **8** (8%)
+- Use cases with at least one non-X community source (Reddit, Hacker News, YouTube, GitHub, Product Hunt): **74**
+- x.com URLs anywhere in the file (sources + popularity blocks + examples): 112
+
+| Platform | Source links | Use cases citing it |
+|---|---:|---:|
+| Official docs, news and blogs | 104 | 51 |
+| YouTube | 91 | 62 |
+| X | 67 | 53 |
+| Hacker News | 30 | 24 |
+| Reddit | 28 | 21 |
+| Search demand (Google) | 22 | 18 |
+| GitHub | 14 | 12 |
+| Product Hunt | 2 | 2 |
+
+Top domains: youtube.com (91), x.com (67), news.ycombinator.com (30), reddit.com (24), google.com (22), github.com (14), support.google.com (11), docs.anthropic.com (7), menlovc.com (5), help.openai.com (4), mistral.ai (4), reddit.sentinel-team.org (4)
+
+
+What changed in this pass (2026-10-27 midday): 3 new use cases (Riverside Agents, Hob, Kiwi) with 12 links, only 1 of them on X. Non-X sources added to 6 X-only entries (weekend-family-activities, plan-and-book-a-whole-trip-by-text, sunday-family-calendar-check, household-restock-list, find-dead-conversations-to-follow-up, medication-reminders-for-a-parent). X-only entries left: give-your-agents-a-shared-apple-account, get-roadside-help-abroad, research-a-used-car-from-a-listing, prescription-ready-and-time-to-leave, book-a-haircut-by-email, one-bot-per-brand, daily-ads-and-sales-report, proactive-next-moves-bot (its 2nd source is an official X post).
