@@ -1,7 +1,7 @@
 {
  "/ai-agent-examples/": {
-  "hash": "f8de86a3ba59a1dbaa780386a1f284bacbde2490",
-  "date": "2026-10-26"
+  "hash": "faebb373371a5d5a367f5ca6cd21f7a443d13f2c",
+  "date": "2026-10-27"
  },
  "/disclosure/": {
   "hash": "0b6fc5d8646bb94c6544e8534e3d3a3430a104d1",
@@ -12,8 +12,8 @@
   "date": "2026-10-23"
  },
  "/how-to-build-an-ai-agent-without-coding/": {
-  "hash": "cbfa4e6a89b8a20f8075b6381542d17a2849f710",
-  "date": "2026-10-26"
+  "hash": "7a76f08277ef65af6aaa0b2fbcd8ac82b6434f76",
+  "date": "2026-10-27"
  },
  "/is-it-safe-to-give-an-ai-agent-your-email/": {
   "hash": "003ca9f64b8036ac584664bd322ee6de584c97fe",
@@ -24,7 +24,7 @@
   "date": "2026-10-23"
  },
  "/what-can-bots-do/": {
-  "hash": "5055349c30d41ecc20f1f807b8a35fff816dcf12",
-  "date": "2026-10-26"
+  "hash": "172cbc1e581806cfb3155ee32a8a2ee02328025a",
+  "date": "2026-10-27"
  }
 }

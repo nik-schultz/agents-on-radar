@@ -1,0 +1,73 @@
+{
+ "slug": "find-an-apartment-that-fits-your-list",
+ "title": "Find an apartment that fits your must-have list",
+ "category": "inbox",
+ "summary": "Tell ChatGPT your budget, area, pets and must-haves, and a rental app inside it (Apartments.com, Zumper, RentCafe or Apartment List) searches live listings, compares them side by side and can request a tour.",
+ "problem": "Apartment hunting means checking several rental sites, re-entering the same filters, and losing track of which places allow your dog, include laundry or are actually available when you need to move.",
+ "outcome": "A short list of real, currently listed apartments that match your must-haves, compared on rent, fees and pet rules, with tours requested only for the ones you pick.",
+ "what_the_bot_does": [
+  "Write down your must-haves before you start: city or ZIP code, top rent, bedrooms, move-in date, pets, and one or two features you won't give up, like parking or in-unit laundry.",
+  "In ChatGPT, open Apps, connect a rental app such as Apartments.com, Zumper, RentCafe or Apartment List, then type @ and the app's name before your request so it searches that site's live listings.",
+  "Paste the prompt below. Change one thing at a time (price, area, a feature) so you can see what each trade-off costs you.",
+  "Ask it to compare your favorites side by side on rent, required fees, pet rules and move-in date, and to give you the link to each full listing.",
+  "Request tours or message the property only for the places you choose, and check every detail on the listing site and in person before you apply or pay anything."
+ ],
+ "what_you_end_up_with": "A short list of real, currently listed apartments that match your must-haves, compared on rent, fees and pet rules, with tours requested only for the ones you pick.",
+ "difficulty": "Easy",
+ "tools": [
+  {
+   "id": "chatgpt"
+  }
+ ],
+ "prompt": "I'm looking for a place to rent. Here's my list:\n\nArea: [city, neighborhood or ZIP code]\nTop monthly rent: [e.g. $1,800]\nBedrooms: [e.g. 2]\nMove-in date: [e.g. around March 1]\nPets: [e.g. one 50 lb dog]\nMust-haves: [e.g. in-unit laundry, parking]\nNice to have: [e.g. near a grocery store, a balcony]\n\nSearch current listings and show me up to 8 that meet every must-have. Put them in a table with the address or building name, rent, required monthly and move-in fees, pet rules and fees, move-in availability, and a link to the full listing. Say clearly if any detail isn't shown in the listing instead of guessing. Then tell me which must-have, if any, is ruling out the most places. Don't contact anyone or book a tour until I tell you which ones.",
+ "watch_out": [
+  "Listings can be out of date or wrong. Confirm rent, fees and availability on the listing site and with the property before you apply.",
+  "Rental scams copy real listings. Never pay a deposit or fee for a place you haven't seen, and never pay by wire, gift card, crypto or a payment app. The FTC says to search the address for duplicate listings and call the company's own number.",
+  "Don't share your Social Security number, ID or pay stubs in the chat or with a landlord until you've agreed to rent from a company you've checked out.",
+  "Each app only shows its own site's listings, so a place listed elsewhere won't appear. Try a second app if results are thin."
+ ],
+ "faq": [
+  {
+   "q": "Can ChatGPT find apartments for rent?",
+   "a": "Yes. Rental apps inside ChatGPT, such as Apartments.com, Zumper, RentCafe and Apartment List, search their live listings when you describe what you need. Connect one under Apps, then type @ and its name before your request."
+  },
+  {
+   "q": "Can AI book an apartment tour for me?",
+   "a": "The Apartments.com app in ChatGPT can message a property manager or request or book a tour, and RentCafe lets you request a tour from a listing. Ask it to act only on the places you pick, and check the listing yourself before you pay anything."
+  }
+ ],
+ "sources": [
+  {
+   "label": "CoStar Group: Apartments.com app in ChatGPT (Sep 8, 2026)",
+   "url": "https://costargroup-prod.acquia.dshrp.com/press-room/2026/openai-features-apartmentscom-gpt-6-astra-apartment-hunting-demo",
+   "kind": "official"
+  },
+  {
+   "label": "RentCafe Help: How to find apartments with the RentCafe ChatGPT app",
+   "url": "https://www.rentcafe.com/help/how-to-find-apartments-rentcafe-chatgpt-app/",
+   "kind": "official"
+  },
+  {
+   "label": "Zumper: Zumper listings are now available in the ChatGPT app",
+   "url": "https://www.zumper.com/manage/resources/zumper-chatgpt-app/",
+   "kind": "official"
+  },
+  {
+   "label": "FTC Consumer Advice: Rental listing scams",
+   "url": "https://consumer.ftc.gov/articles/rental-listing-scams",
+   "kind": "official"
+  }
+ ],
+ "tags": [
+  "apartment",
+  "rent",
+  "rental",
+  "apartment hunting",
+  "find an apartment",
+  "chatgpt apps",
+  "apartments.com",
+  "zumper",
+  "moving",
+  "tour"
+ ]
+}

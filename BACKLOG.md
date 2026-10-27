@@ -19,7 +19,7 @@ More run-for-less ideas (source from official docs before adding): per-provider 
 - [ ] Book flights with an AI agent (autocomplete: "ai agent to book flights"); reframed 2026-10-21: agent does the booking, not bargain-hunting
 - [x] Book a restaurant reservation with an AI agent → `restaurant-reservations-by-agent`
 - [~] ~~Find coupon or discount codes~~ DROPPED 2026-10-21 (money-saving, out of scope)
-- [ ] Find an apartment that fits your list (autocomplete: "use chatgpt to find apartments")
+- [x] Find an apartment that fits your list (autocomplete: "use chatgpt to find apartments") → `find-an-apartment-that-fits-your-list`
 - [x] Compare two documents or contracts (autocomplete: "use ai to compare two documents") → `compare-two-documents`
 - [~] ~~Compare prices before you buy~~ DROPPED 2026-10-21 (money-saving, out of scope)
 - [ ] Organize your photos (autocomplete: "use ai to organize photos", "use ai to organize google photos")

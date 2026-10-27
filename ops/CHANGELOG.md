@@ -1,5 +1,20 @@
 # Ops changelog
 
+## 2026-10-27 (daily QA run, 7:00 AM CT)
+Status: live site https://botsdothat.com/ is up (homepage 200 in about 0.26 s; /use-cases/, /trending/, /news/, /advertise/, /ai-pricing/, app.js, style.css, sitemap.xml and llms.txt all 200).
+
+Checks
+- validate 0 errors (98 use cases before this run); build 138 indexed pages + 404; check_links 0 broken internal links. app.js passes a syntax check; the search index loads (114 entries). Every page has one h1 and a viewport tag; no images without alt text, no empty links or buttons, no missing local images or scripts.
+- Outbound links (470 unique): no real breakages. Script-only blocks: openai.com and help.openai.com (403), claude.ai (403), investing.com and retaildive.com (403), YouTube and Hacker News (429 rate limits), kit.com/privacy (429). ftc.gov and consumer.ftc.gov now return 404 to scripts for every page, even the homepage (they used to 403); the three FTC pages we link still show up in a current web search, so this is a bot block, not moved pages. Meta help (400), dev.meta.ai (500) and Business Wire (timeout) failed to curl but loaded fine through a normal fetch.
+- Console errors and real-device rendering were not checked in a browser this run (static review only).
+
+Bugs fixed
+- None found.
+
+Improvement for visitors
+- New guide from the backlog: `find-an-apartment-that-fits-your-list` (Family & home, Easy). It walks through using the rental apps inside ChatGPT (Apartments.com, Zumper, RentCafe, Apartment List) to search live listings from a must-have list, compare rent, fees and pet rules, and request tours only for picked places. The prompt tells the AI not to guess missing details or contact anyone without a go-ahead. Watch-outs cover stale listings, rental scams (FTC advice) and not sharing ID or SSN early. Sources: CoStar/Apartments.com press release (Sep 8, 2026), RentCafe help, Zumper, FTC. No stats quoted. BACKLOG item marked done.
+- After: validate 0 errors, 99 use cases; build 139 indexed pages + 404; check_links 0 broken internal.
+
 ## 2026-10-26 (news update, 2:30 PM CT)
 - Added 6 items to data/news.json (newest first): GPT-6.1 Terra, OpenAI's new mid-size computer-use model at $1 in / $5 out (Oct 26, notable, X @OpenAI); Anthropic files S-1 for a Nasdaq IPO as "ANT" (Oct 26, notable, X @AnthropicAI); Claude for Nonprofits plugin (Oct 26, notable, X @claudeai); Claude Enterprise merges chat and Cowork (Oct 23, notable, missed earlier, no official X post found); Gemini Notebook as a Connected App in Gemini (Oct 23, notable, missed earlier); Walmart Agent Gateway and Agent Profiles for AI shopping agents (Oct 21, notable, missed earlier, no credible high-engagement X post).
 - Rated GPT-6.1 Terra notable, not major: it is OpenAI's mid tier, and GPT-6 Astra remains the flagship. Top story stays Claude Duet.
