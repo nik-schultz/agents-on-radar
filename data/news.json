@@ -9,6 +9,75 @@
  ],
  "items": [
   {
+   "id": "google-genie-4",
+   "date": "2026-10-27",
+   "category": "model release",
+   "company": "Google",
+   "impact": "notable",
+   "headline": "Google DeepMind shows Genie 4, a world model you can steer like a live video game",
+   "explainer": "Genie 4 builds a realistic, explorable scene from a text prompt, with sound and talking characters, and changes it in real time when you type things like 'make it rain'. It's only with trusted testers for now; Google says Google AI Ultra subscribers (in Project Genie) and early Gemini API partners come next, so there's nothing for your bots to use yet.",
+   "source_url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+   "source_name": "Google DeepMind blog",
+   "more_sources": [
+    {
+     "label": "Google: Introducing Genie 4",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/GoogleDeepMind/status/2115114028338962672",
+    "author": "@GoogleDeepMind",
+    "kind": "official",
+    "likes": 9027,
+    "reposts": 978,
+    "views": 762182,
+    "posted_at": "2026-10-27T16:10:55Z",
+    "measured_at": "2026-10-27"
+   }
+  },
+  {
+   "id": "liquid-ai-lfm3",
+   "date": "2026-10-27",
+   "category": "model release",
+   "company": "Liquid AI",
+   "impact": "notable",
+   "headline": "Liquid AI releases LFM3, free small models that run on a phone or laptop",
+   "explainer": "LFM3 is a family of six open-weight 2B-size models for text, images, audio and more; the text one fits in about 1 GB and reads up to 256K tokens. That makes it a good fit for a private bot that runs on your own device, and anyone handy can fine-tune it on a single GPU.",
+   "source_url": "https://www.liquid.ai/blog/lfm3",
+   "source_name": "Liquid AI blog",
+   "x": {
+    "url": "https://x.com/liquidai/status/2115128329003303107",
+    "author": "@liquidai",
+    "kind": "official",
+    "likes": 2038,
+    "reposts": 1229,
+    "views": 384206,
+    "posted_at": "2026-10-27T17:07:45Z",
+    "measured_at": "2026-10-27"
+   }
+  },
+  {
+   "id": "microsoft-mai-image-2-7",
+   "date": "2026-10-27",
+   "category": "model release",
+   "company": "Microsoft",
+   "impact": "notable",
+   "headline": "Microsoft's MAI Image 2.7 photo editor ranks near the top, in preview",
+   "explainer": "Microsoft's new image-editing model can relight a scene, change text on a sign, or restore an old photo while keeping it looking natural. It's in preview in MAI Playground and debuts #3 on Arena's image-edit leaderboard, so expect sharper edit-my-photo features in Microsoft apps.",
+   "source_url": "https://microsoft.ai/news/mai-image-2-7-debut/",
+   "source_name": "Microsoft AI",
+   "x": {
+    "url": "https://x.com/MicrosoftAI/status/2115102961957499069",
+    "author": "@MicrosoftAI",
+    "kind": "official",
+    "likes": 143,
+    "reposts": 10,
+    "views": 12858,
+    "posted_at": "2026-10-27T15:26:57Z",
+    "measured_at": "2026-10-27"
+   }
+  },
+  {
    "id": "gemini-api-store-by-default",
    "date": "2026-10-26",
    "category": "feature",

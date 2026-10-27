@@ -487,3 +487,8 @@ Improvement for visitors
 - X: refreshed likes, reposts and views for 23 news items posted since Oct 19 (measured 2026-10-27). GPT-6.1 Terra's @OpenAI post is now 25.2K likes and 4.2M views.
 - Checked OpenAI, Anthropic, Google/Gemini, xAI, Mistral and DeepSeek newsrooms and changelogs: nothing new since yesterday afternoon. No price changes, so the AI pricing table is unchanged.
 - BACKLOG: logged a Riverside podcast/video use case and a LingGuang-style forgotten-subscription idea.
+
+## 2026-10-27 (PM news update, 2:30 PM CT)
+- News: added Google DeepMind Genie 4 (interactive world model, trusted testers only), Liquid AI LFM3 (open-weight 2B-class on-device models) and Microsoft MAI Image 2.7 Preview (image editing, #3 on Arena). All three marked notable. New companies Liquid AI and Microsoft added to `NEWS_CO` in build.py.
+- X: recorded official launch-post numbers for all three (measured 2026-10-27). Genie 4's @GoogleDeepMind post had 9.0K likes and 762K views.
+- Skipped: Claude "Fable 5.5" chatter (leaks and prediction markets only, no announcement). Checked OpenAI, Anthropic, Google, xAI, Meta, Mistral, DeepSeek and Groq: nothing else new since this morning. No price changes, so the AI pricing table is unchanged; no new everyday use case worth a BACKLOG entry.
