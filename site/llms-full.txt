@@ -47,7 +47,7 @@ Sources:
 - Zumper: Zumper listings are now available in the ChatGPT app: https://www.zumper.com/manage/resources/zumper-chatgpt-app/
 - FTC Consumer Advice: Rental listing scams: https://consumer.ftc.gov/articles/rental-listing-scams
 
-## Have a bot watch your kids' team apps and tell you only when plans change
+## Have a bot watch your kids' team apps for plan changes
 URL: https://botsdothat.com/use-cases/watch-your-kids-team-apps-for-schedule-changes/
 Category: Family & home | Difficulty: Medium | Added: 2026-10-26
 Popularity: not measured
@@ -77,7 +77,7 @@ Sources:
 - Jay Kranda, “20 Things My AI Agents Do” (Oct 11, 2026): a Muse routine at 6:53am watches his boys' TeamSnap teams for practice changes, new meets and cancellations and stays silent otherwise: https://www.jaykranda.com/blog/2026/10/11/20-things-my-ai-agents-do-so-i-dont-have-to
 - LinkedIn post by Conor Daly (Sep 2026): four kids, each team with its own app (TeamSnap, GameChanger, LeagueApps); Grok Bot pulled the messages from email, clicked through the sites he'd logged it into, and caught flag practice moving from Thursday to Tuesday: https://www.linkedin.com/posts/conor-daly-9b97688_grokbot-activity-7503111121298542593-I1Em
 
-## Let your bot sign in to your accounts without seeing your passwords
+## Let your bot sign in without seeing your passwords
 URL: https://botsdothat.com/use-cases/let-your-bot-sign-in-without-seeing-your-passwords/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-26
 Popularity: not measured
@@ -665,7 +665,7 @@ You are a triage step. Read the task below and answer with one word: SIMPLE (sum
 
 Watch out:
 - Test the small model on 10 real examples before switching. Cheap is no good if it gets things wrong.
-- Prices change. Anthropic's small Haiku 5.5 lists $0.10 / $0.50 per million tokens and its top Fable 5.1 $10 / $50 (checked Oct 21, 2026); see our price table for the latest.
+- Prices change. Anthropic's small Haiku 5.5 lists $0.10 / $0.50 per million tokens and its top Fable 5.1 $10 / $50 (checked Oct 27, 2026); see our price table for the latest.
 
 Sources:
 - Anthropic pricing docs: "Choose Haiku for simple tasks, Sonnet for most production workloads, and Opus for the most complex reasoning": https://docs.anthropic.com/en/docs/about-claude/pricing
@@ -3466,13 +3466,13 @@ Questions:
 - Do I need to know how to code to build an AI agent? No. Agent apps take instructions in plain words: you describe the job, connect the apps it needs with the official connect button, and tell it when to run. Our blueprints give you the exact words to paste.
 - What's the easiest AI agent to build first? A read-only one that only reads and reports, so nothing can go wrong. Our easiest blueprints are the Morning Inbox Briefing, Web Page Watcher, Scam Checker, Weekly Meal Plan Bot, Family Calendar Guardian and New Inquiry Logger.
 - Can I build an AI agent for free? Partly. ChatGPT, Claude, Gemini and Grok each list a free plan (paid plans add more), so you can paste a blueprint's instructions into one whenever you need it, even without a scheduled agent. n8n is free to self-host, and Zapier and Make have free plans. Some agent features cost money: Gemini Spark is for Google AI Pro and Ultra subscribers in select countries, and ChatGPT's cloud browser needs a paid ChatGPT plan. Plans change, so check each tool's own page.
-- How much does it cost to run an AI agent? Inside an app plan it runs within your plan's limits. On a pay-per-use AI API it depends on how often it runs and how much it reads. Our example, the Morning Inbox Briefing (22 runs a month, about 15,000 tokens in and 800 out each time, our estimate), comes to about $0.03 a month on Groq openai/gpt-oss-20b and about $4.18 on Anthropic Claude Fable 5.1 at standard API prices checked Oct 21, 2026.
+- How much does it cost to run an AI agent? Inside an app plan it runs within your plan's limits. On a pay-per-use AI API it depends on how often it runs and how much it reads. Our example, the Morning Inbox Briefing (22 runs a month, about 15,000 tokens in and 800 out each time, our estimate), comes to about $0.03 a month on Groq openai/gpt-oss-20b and about $4.18 on Anthropic Claude Fable 5.1 at standard API prices checked Oct 27, 2026.
 - Is it safe to connect my email to an AI agent? It can be, if you keep it on a short leash: start read-only, make it ask before it sends, buys or deletes anything, connect apps only with the official connect button (never paste passwords into a chat), tell it to ignore instructions found inside emails from strangers, and check the first week of results.
 - What's the difference between an AI agent and an automation? An automation follows the exact steps you set up, the same way every time. An AI agent reads your plain-English instructions and works out the steps itself, which is more flexible but needs approval rules. Tools like Zapier, Make and n8n let you build the step-by-step kind.
 
 ## How much does it cost to run an AI agent?
 URL: https://botsdothat.com/how-much-does-it-cost-to-run-an-ai-agent/
-Prices checked 2026-10-21, standard API tier. Token counts are editor estimates.
+Prices checked 2026-10-27, standard API tier. Token counts are editor estimates.
 - Morning Inbox Briefing: 22 runs/month, 15000 tokens in / 800 out per run; cheapest Groq openai/gpt-oss-20b $0.03/month, priciest Anthropic Claude Fable 5.1 $4.18/month
 - School Email Digest: 4 runs/month, 20000 tokens in / 1000 out per run; cheapest Groq openai/gpt-oss-20b $0.01/month, priciest Anthropic Claude Fable 5.1 $1.00/month
 - Web Page Watcher: 30 runs/month, 7500 tokens in / 200 out per run; cheapest Groq openai/gpt-oss-20b $0.02/month, priciest Anthropic Claude Fable 5.1 $2.55/month
@@ -3484,7 +3484,8 @@ Prices checked 2026-10-21, standard API tier. Token counts are editor estimates.
 - Job Match Scout: 22 runs/month, 20000 tokens in / 800 out per run; cheapest Groq openai/gpt-oss-20b $0.04/month, priciest Anthropic Claude Fable 5.1 $5.28/month
 - Receipt Matcher (small business): 4 runs/month, 15000 tokens in / 1000 out per run; cheapest Groq openai/gpt-oss-20b $0.01/month, priciest Anthropic Claude Fable 5.1 $0.80/month
 - New Inquiry Logger: 40 runs/month, 1500 tokens in / 200 out per run; cheapest Groq openai/gpt-oss-20b $0.01/month, priciest Anthropic Claude Fable 5.1 $1.00/month
-Q: How much does it cost to run an AI agent? A: Inside an app plan, a bot runs within your plan's usage limits. On a pay-per-use AI API, our 11 blueprint estimates range from under 1¢ to $5.28 a month depending on the bot and the model, at standard API prices checked Oct 21, 2026. Agents that browse the web or use many tools can use several times more tokens than these estimates.
+Q: How much does it cost to run an AI agent? A: Inside an app plan, a bot runs within your plan's usage limits. On a pay-per-use AI API, our 11 blueprint estimates range from under 1¢ to $5.28 a month depending on the bot and the model, at standard API prices checked Oct 27, 2026. Agents that browse the web or use many tools can use several times more tokens than these estimates.
+Q: How do I work out what my AI agent will cost? A: Use this formula: monthly cost = runs a month × (input tokens per run × input price + output tokens per run × output price) ÷ 1,000,000, with prices per 1 million tokens. Steps: 1. Count the runs a month (once every weekday is about 22). 2. Run the bot once, then open your AI account's usage page to see how many tokens that run read and wrote. 3. Look up the model's input and output price in our AI price table. 4. Multiply it out, or use our cost calculator. Example: 22 runs × (15,000 × $0.075 + 800 × $0.30) ÷ 1,000,000 = about $0.03 a month on Groq openai/gpt-oss-20b.
 Q: What decides the price of an AI agent? A: Three things: how often it runs, how much it reads and writes each time (counted in tokens), and which model it uses. Within one company, the small model can cost up to 100× less than the flagship in our price table.
 Q: Is a ChatGPT or Claude plan cheaper than paying for the API? A: For a few small bots, pay-per-use API prices are often a few dollars a month or less. App plans charge a flat monthly fee with usage limits and include the app itself. If you already pay for a plan that can run scheduled tasks, that may be the simplest option.
 Q: How much does OpenClaw or Hermes Agent cost? A: Both are free, open-source software. You pay for the AI model you connect (an API key, or a plan you already have where supported) and for the computer it runs on, unless you run it on a machine you already own. OpenClaw says it has no paid tier or hosted service. Nous Research says Hermes Agent is free under the MIT license and that model providers and optional hosted services have their own pricing.
@@ -3588,14 +3589,16 @@ Monthly cost = runs per month x (input tokens x input price + output tokens x ou
 
 ## AI price table
 URL: https://botsdothat.com/ai-pricing/
-Checked: 2026-10-21. USD per 1M tokens, standard tier. Official sources only.
+Checked: 2026-10-27. USD per 1M tokens, standard tier. Official sources only.
+Cheapest AI API by job: Cheapest per token overall: Groq openai/gpt-oss-20b, $0.075 / $0.30 per 1M input / output tokens. Cheapest small model from OpenAI, Anthropic, Google or xAI: OpenAI gpt-6-luna and Anthropic Claude Haiku 5.5, $0.10 / $0.50 per 1M input / output tokens. Cheapest model with a free tier: Google gemini-3.1-flash-lite, $0.25 / $1.50 per 1M input / output tokens. Cheapest mid-size model: Groq openai/gpt-oss-120b, $0.15 / $0.60 per 1M input / output tokens. Cheapest flagship model: xAI grok-4.7, $2.00 / $6.00 per 1M input / output tokens. With off-peak pricing, DeepSeek deepseek-flash (V4.1-Flash-1017) drops to $0.15 / $0.60 outside DeepSeek's peak hours. Jobs that can wait a few hours cost 50% less through the batch API at Anthropic, Google, Mistral, OpenAI.
 Q: What is a token? A: A token is a small chunk of text, a few characters long. AI APIs charge per million tokens, with one price for the tokens the model reads (input) and another for the tokens it writes (output). Every price in this table is per 1 million tokens.
-Q: What is the cheapest LLM API? A: Of the models in our price table, the cheapest per token is Groq openai/gpt-oss-20b at $0.075 per 1M input tokens and $0.30 per 1M output tokens (official pricing page, checked Oct 21, 2026). Cheapest isn't always good enough: test it on your real job first.
+Q: What is the cheapest LLM API? A: Of the models in our price table, the cheapest per token is Groq openai/gpt-oss-20b at $0.075 per 1M input tokens and $0.30 per 1M output tokens (official pricing page, checked Oct 27, 2026). Cheapest isn't always good enough: test it on your real job first.
 Q: What's the cheapest way to call an LLM API? A: Use the smallest model that does the job well, keep prompts and pasted pages short, reuse the same opening instructions so they can be billed at the lower cached-input price where the provider offers it, and send jobs that can wait through a batch API (50% off at Anthropic, Google, Mistral, OpenAI). Test on a free tier first and set a spend limit before anything runs on autopilot.
 Q: What does “cached input” mean? A: Some providers bill prompt text they have already cached, like instructions you send every time, at a lower rate. For example, OpenAI gpt-6-astra lists $10.00 per 1M input tokens and $1.00 per 1M cached input tokens on its official pricing page. The Cached input column shows this rate where the provider publishes one.
+Q: What is the cheapest AI API for each kind of job? A: Cheapest per token overall: Groq openai/gpt-oss-20b, $0.075 / $0.30 per 1M input / output tokens. Cheapest small model from OpenAI, Anthropic, Google or xAI: OpenAI gpt-6-luna and Anthropic Claude Haiku 5.5, $0.10 / $0.50 per 1M input / output tokens. Cheapest model with a free tier: Google gemini-3.1-flash-lite, $0.25 / $1.50 per 1M input / output tokens. Cheapest mid-size model: Groq openai/gpt-oss-120b, $0.15 / $0.60 per 1M input / output tokens. Cheapest flagship model: xAI grok-4.7, $2.00 / $6.00 per 1M input / output tokens. With off-peak pricing, DeepSeek deepseek-flash (V4.1-Flash-1017) drops to $0.15 / $0.60 outside DeepSeek's peak hours. Jobs that can wait a few hours cost 50% less through the batch API at Anthropic, Google, Mistral, OpenAI. Prices from official pages, checked Oct 27, 2026. Cheapest isn't always good enough: test it on your real job first.
 Q: How much does an AI agent cost to run? A: It depends on how often it runs and how much it reads. Example: a morning inbox briefing that reads about 15,000 tokens and writes 800 on 22 weekdays a month costs about $0.03 a month on Groq openai/gpt-oss-20b, and about $4.18 on Anthropic Claude Fable 5.1, at standard API prices. Use the cost calculator for your own numbers.
 Q: Is a monthly AI plan cheaper than paying per use? A: If you run a few small bots, pay-per-use API prices are often a few dollars a month or less. App plans charge a flat monthly fee with usage limits, and include the app itself. Compare both before you commit.
-Q: How current are these prices? A: Every price comes from the provider's official pricing page (or, for a brand-new model, its official launch post), and each row shows the date we checked it. The table was last checked Oct 21, 2026. Prices change often, so check the official page before you commit.
+Q: How current are these prices? A: Every price comes from the provider's official pricing page (or, for a brand-new model, its official launch post), and each row shows the date we checked it. The table was last checked Oct 27, 2026. Prices change often, so check the official page before you commit.
 - OpenAI gpt-6-astra: input 10.0, output 50.0, cached input 1.0. Short context (≤272K input tokens). Source: https://platform.openai.com/docs/pricing
 - OpenAI gpt-6.1-sol: input 2.0, output 10.0, cached input 0.1. Short context (≤272K input tokens). Source: https://platform.openai.com/docs/pricing
 - OpenAI gpt-6.1-terra: input 1.0, output 5.0, cached input 0.05. New Oct 26, 2026. Short context (≤272K input tokens). Source: https://platform.openai.com/docs/pricing
@@ -3612,9 +3615,9 @@ Q: How current are these prices? A: Every price comes from the provider's offici
 - Groq openai/gpt-oss-120b: input 0.15, output 0.6. Open-weight model hosted by Groq (Developer plan). Source: https://console.groq.com/docs/models
 - Groq openai/gpt-oss-20b: input 0.075, output 0.3. Open-weight model hosted by Groq (Developer plan). Source: https://console.groq.com/docs/models
 - Mistral Mistral Large: input 0.5, output 1.5. As quoted in the FAQ on Mistral's pricing page. Source: https://mistral.ai/pricing
-- Meta Muse Wonder: input 4.0, output 20.0. Meta Model API. Price from Meta's launch post (Oct 12, 2026). Source: https://dev.meta.ai/resources/blog/build-with-muse-wonder
-- DeepSeek deepseek-flash (V4.1-Flash-1017): input 0.3, output 1.2, cached input 0.006. Peak-hour price; off-peak (most hours and weekends) is half. Source: https://api-docs.deepseek.com/quick_start/pricing
-- DeepSeek deepseek-v4-pro: input 1.32, output 3.96, cached input 0.044. Peak-hour price; off-peak is half. Source: https://api-docs.deepseek.com/quick_start/pricing
+- Meta Muse Wonder: input 4.0, output 20.0, cached input 0.2. Meta Model API. Price from Meta's launch post (Oct 12, 2026), which now also lists cached input at $0.20. Source: https://dev.meta.ai/resources/blog/build-with-muse-wonder
+- DeepSeek deepseek-flash (V4.1-Flash-1017): input 0.3, output 1.2, cached input 0.006. Peak-hour price; off-peak (most hours and weekends) is half. Source: https://api-docs.deepseek.com/quick_start/pricing/
+- DeepSeek deepseek-v4-pro: input 1.32, output 3.96, cached input 0.044. Peak-hour price; off-peak is half. Source: https://api-docs.deepseek.com/quick_start/pricing/
 Plans:
 - Anthropic Claude Free: $0 Source: https://claude.com/pricing
 - Anthropic Claude Pro: $20 per month billed monthly ($17/month billed annually, $200 up front) Source: https://claude.com/pricing
@@ -3623,3 +3626,4 @@ Plans:
 - Mistral Pro: $14.99 per month Source: https://mistral.ai/pricing
 - OpenAI ChatGPT Free: $0 Source: https://chatgpt.com/pricing
 - Google Gemini (free): $0 Source: https://gemini.google/subscriptions/
+- Google Google AI Ultra: from $99.99 per month Source: https://gemini.google/subscriptions/
