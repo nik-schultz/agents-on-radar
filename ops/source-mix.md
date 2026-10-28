@@ -103,3 +103,28 @@ Top domains: youtube.com (91), x.com (67), news.ycombinator.com (30), reddit.com
 
 
 What changed in this pass (2026-10-27 midday): 3 new use cases (Riverside Agents, Hob, Kiwi) with 12 links, only 1 of them on X. Non-X sources added to 6 X-only entries (weekend-family-activities, plan-and-book-a-whole-trip-by-text, sunday-family-calendar-check, household-restock-list, find-dead-conversations-to-follow-up, medication-reminders-for-a-parent). X-only entries left: give-your-agents-a-shared-apple-account, get-roadside-help-abroad, research-a-used-car-from-a-listing, prescription-ready-and-time-to-leave, book-a-haircut-by-email, one-bot-per-brand, daily-ads-and-sales-report, proactive-next-moves-bot (its 2nd source is an official X post).
+
+## After (measured 2026-10-28 midday)
+
+- Use cases: **106**; source links: **382**
+- X share of source links: **69/382 = 18%**
+- X share of community links (X, Reddit, Hacker News, YouTube, GitHub, Product Hunt): **69/237 = 29%**
+- X-only use cases (every source is an X post): **8** (8%)
+- Use cases with at least one non-X community source (Reddit, Hacker News, YouTube, GitHub, Product Hunt): **75**
+- x.com URLs anywhere in the file (sources + popularity blocks + examples): 115
+
+| Platform | Source links | Use cases citing it |
+|---|---:|---:|
+| Official docs, news and blogs | 123 | 57 |
+| YouTube | 91 | 62 |
+| X | 69 | 54 |
+| Hacker News | 31 | 25 |
+| Reddit | 28 | 21 |
+| Search demand (Google) | 22 | 18 |
+| GitHub | 15 | 13 |
+| Product Hunt | 3 | 3 |
+
+Top domains: youtube.com (91), x.com (69), news.ycombinator.com (31), reddit.com (24), google.com (22), github.com (15), support.google.com (14), docs.anthropic.com (7), menlovc.com (5), techcrunch.com (4), support.claude.com (4), blog.google (4)
+
+
+What changed (2026-10-28 midday trending run): 1 new use case (Instinct group chats; 2 news sources + 1 X post) and 5 non-X sources added to existing entries (Link help center, The Defiant, TechCrunch, Product Hunt Off Grid AI). 4 of the 6 new links are non-X.

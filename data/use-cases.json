@@ -1,5 +1,90 @@
 [
  {
+  "slug": "add-an-ai-to-your-friends-group-chat-to-make-plans",
+  "title": "Add an AI to your friends' group chat to make plans happen",
+  "category": "travel",
+  "source_date": "2026-10-27",
+  "summary": "Instead of 60 messages about where and when, you add an AI agent to the iMessage group. It suggests options, gets everyone to agree, and then books the table, tickets or rental car for the group once someone says yes.",
+  "what_the_bot_does": [
+   "You add the agent to an existing group chat like any other contact. Friends don't need their own account.",
+   "Someone asks it for help, like \"plan us a hike on Saturday\" or \"find a dinner spot for six on Friday\".",
+   "It posts a few options, keeps track of who said yes, and works out times, pickups or who's bringing what.",
+   "When the group agrees and someone says \"book it\", it books and posts the confirmation and plan in the thread.",
+   "It can keep going with ongoing jobs: buying tickets the moment they go on sale and splitting the cost, a carpool rota or a fantasy league's reminders."
+  ],
+  "what_you_end_up_with": "A plan everyone agreed to, already booked, with the details pinned in the same chat where you talked about it.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "instinct",
+    "note": "Group chats open to every iMessage user since Oct 27, 2026"
+   },
+   {
+    "id": "meta-muse",
+    "note": "Meta's older Meta AI can join WhatsApp and Messenger group chats"
+   }
+  ],
+  "prompt": "You're helping our group plan [a weekend trip to the lake / dinner on Friday]. Ask everyone in the chat for the dates and budget that work, suggest 2 or 3 options with prices, and keep a running list of who's in. Don't book or pay for anything until [I / the organiser] replies \"book it\", and post the confirmation number in the chat when it's done.",
+  "setup": [
+   "Make sure you're on an iPhone with iMessage, then sign up for Instinct at instinct.co and finish its setup chat.",
+   "Open the group chat you want help with and add Instinct as a new member, the same way you'd add a friend.",
+   "Tell the group what it's for, then ask it one clear job, like \"find us three brunch spots near Union Square for Sunday at 11\".",
+   "Pick one person who's allowed to say \"book it\", so nothing gets booked by accident.",
+   "If your own Instinct asks to share your info with the group's Instinct, only say yes for groups you trust."
+  ],
+  "watch_out": [
+   "The group's agent only sees what's in the chat, not anyone's accounts, but anything you type in the thread is visible to it. Keep private details out of the group (per Instinct's founder, Oct 27, 2026).",
+   "Your personal Instinct asks before connecting to a group or sharing anything, and you can remove a group's trust any time (TechCrunch, Oct 5, 2026). Say no when you're not sure.",
+   "Bookings cost real money. Check the price, date and number of people before anyone says \"book it\".",
+   "If someone new joins the chat, Instinct holds back your personal agent's replies until you OK sharing with the bigger group."
+  ],
+  "sources": [
+   {
+    "label": "TechCrunch (Oct 5, 2026): Instinct brings its AI agent to group chats, even for friends without an account; trip planning, tickets, carpools and Thanksgiving lists",
+    "url": "https://techcrunch.com/2026/10/05/instinct-brings-its-ai-agent-to-group-chats-even-for-friends-without-an-account/",
+    "kind": "article",
+    "posted_at": "2026-10-05"
+   },
+   {
+    "label": "Business Insider (Oct 6, 2026): Instinct's AI agents are coming to your group chat, to end the endless back-and-forth over plans",
+    "url": "https://www.businessinsider.com/instincts-ai-agents-are-coming-to-your-group-chat-2026-10",
+    "kind": "article",
+    "posted_at": "2026-10-06"
+   },
+   {
+    "label": "X post by @noahrshinn (2026-10-27): Instinct in group chats is now available to everyone on iMessage; the group gets its own Instinct that only knows what's in the chat",
+    "url": "https://x.com/noahrshinn/status/2115143830924341534",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2115143830924341534",
+   "author": "@noahrshinn",
+   "url": "https://x.com/noahrshinn/status/2115143830924341534",
+   "posted_at": "2026-10-27",
+   "likes": 1068,
+   "reposts": 37,
+   "replies": 94,
+   "bookmarks": 244,
+   "views": 137199,
+   "measured_at": "2026-10-28"
+  },
+  "tags": [
+   "group chat",
+   "iMessage",
+   "friends",
+   "plan a trip",
+   "dinner plans",
+   "tickets",
+   "carpool",
+   "Instinct"
+  ],
+  "date_added": "2026-10-28",
+  "origin": "pipeline",
+  "last_checked": "2026-10-28"
+ },
+ {
   "slug": "keep-an-ai-agent-from-deleting-your-files",
   "title": "Keep an AI agent from deleting your files",
   "category": "work",
@@ -334,7 +419,12 @@
  },
  {
   "slug": "use-a-private-ai-on-your-own-computer-for-your-files",
-  "see_also": [{"slug": "keep-an-ai-agent-from-deleting-your-files", "why": "Before you let any agent work on your files:"}],
+  "see_also": [
+   {
+    "slug": "keep-an-ai-agent-from-deleting-your-files",
+    "why": "Before you let any agent work on your files:"
+   }
+  ],
   "title": "Let a private AI on your own computer work through your files",
   "category": "work",
   "source_date": "2026-10-26",
@@ -404,6 +494,16 @@
     "url": "https://www.opensourceforu.com/2026/10/reclaim-your-privacy-with-unfiltered-local-ai-hob/",
     "kind": "article",
     "posted_at": "2026-10-27"
+   },
+   {
+    "label": "Product Hunt (Oct 27, 2026): Off Grid AI, free open-source private AI for your phone and computer that works with Wi-Fi off and drafts replies it only sends after your yes",
+    "url": "https://www.producthunt.com/products/off-grid-ai",
+    "kind": "article",
+    "stats": {
+     "upvotes": 108
+    },
+    "posted_at": "2026-10-27",
+    "measured_at": "2026-10-28"
    }
   ],
   "popularity": null,
@@ -420,7 +520,7 @@
   ],
   "date_added": "2026-10-27",
   "origin": "pipeline",
-  "last_checked": "2026-10-27"
+  "last_checked": "2026-10-28"
  },
  {
   "slug": "turn-a-recording-into-an-episode-clips-and-posts",
@@ -494,12 +594,12 @@
    "author": "@NadavKeyson",
    "url": "https://x.com/NadavKeyson/status/2114759149770723804",
    "posted_at": "2026-10-26",
-   "likes": 560,
-   "reposts": 1917,
-   "replies": 149,
-   "bookmarks": 643,
-   "views": 991250,
-   "measured_at": "2026-10-27"
+   "likes": 636,
+   "reposts": 126,
+   "replies": 166,
+   "bookmarks": 791,
+   "views": 1022577,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "podcast",
@@ -939,9 +1039,9 @@
    "likes": 1,
    "reposts": 0,
    "replies": 0,
-   "bookmarks": 0,
-   "views": 130,
-   "measured_at": "2026-10-27"
+   "bookmarks": 1,
+   "views": 144,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "phone calls",
@@ -1100,8 +1200,8 @@
    "reposts": 5,
    "replies": 13,
    "bookmarks": 27,
-   "views": 5856,
-   "measured_at": "2026-10-27"
+   "views": 5869,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "proactive",
@@ -1290,8 +1390,8 @@
    "reposts": 0,
    "replies": 12,
    "bookmarks": 0,
-   "views": 1096,
-   "measured_at": "2026-10-27"
+   "views": 1101,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "fact check",
@@ -1394,12 +1494,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 492,
+   "likes": 460,
    "reposts": 15,
    "replies": 32,
-   "bookmarks": 430,
-   "views": 177845,
-   "measured_at": "2026-10-27"
+   "bookmarks": 327,
+   "views": 178187,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "second brain",
@@ -1606,8 +1706,8 @@
    "reposts": 6,
    "replies": 19,
    "bookmarks": 30,
-   "views": 5418,
-   "measured_at": "2026-10-27"
+   "views": 5425,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "read later",
@@ -1693,7 +1793,7 @@
    "replies": 4,
    "bookmarks": 6,
    "views": 1775,
-   "measured_at": "2026-10-27"
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "contact form",
@@ -1890,8 +1990,8 @@
    "reposts": 1,
    "replies": 3,
    "bookmarks": 6,
-   "views": 584,
-   "measured_at": "2026-10-27"
+   "views": 585,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "schedule",
@@ -2270,8 +2370,8 @@
    "reposts": 15,
    "replies": 26,
    "bookmarks": 506,
-   "views": 25408,
-   "measured_at": "2026-10-27"
+   "views": 25422,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "multi-agent",
@@ -2359,12 +2459,12 @@
    "author": "@Parul_Gautam7",
    "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
    "posted_at": "2026-10-08",
-   "likes": 200,
+   "likes": 198,
    "reposts": 35,
    "replies": 38,
    "bookmarks": 79,
-   "views": 46407,
-   "measured_at": "2026-10-27"
+   "views": 46410,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "multi-agent",
@@ -2437,7 +2537,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-10-27"
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "voice",
@@ -2452,7 +2552,12 @@
  },
  {
   "slug": "get-roadside-help-abroad",
-  "see_also": [{"slug": "put-together-an-insurance-claim-with-an-ai-agent", "why": "Back home and need to file the claim?"}],
+  "see_also": [
+   {
+    "slug": "put-together-an-insurance-claim-with-an-ai-agent",
+    "why": "Back home and need to file the claim?"
+   }
+  ],
   "title": "Get roadside help abroad when nobody speaks your language",
   "category": "travel",
   "source_date": "2026-10-18",
@@ -2501,7 +2606,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 44,
-   "measured_at": "2026-10-27"
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "roadside assistance",
@@ -2598,7 +2703,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 396,
-   "measured_at": "2026-10-27"
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "computer use",
@@ -2669,8 +2774,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 0,
-   "views": 902,
-   "measured_at": "2026-10-27"
+   "views": 905,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "contractors",
@@ -2734,7 +2839,7 @@
    "replies": 5,
    "bookmarks": 0,
    "views": 125,
-   "measured_at": "2026-10-27"
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "used car",
@@ -2796,8 +2901,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7484,
-   "measured_at": "2026-10-27"
+   "views": 7485,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "pharmacy",
@@ -2879,9 +2984,9 @@
    "likes": 213,
    "reposts": 24,
    "replies": 29,
-   "bookmarks": 235,
-   "views": 325270,
-   "measured_at": "2026-10-27"
+   "bookmarks": 236,
+   "views": 325470,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "newsletters",
@@ -2970,12 +3075,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
    "posted_at": "2026-10-18",
-   "likes": 867,
-   "reposts": 93,
+   "likes": 866,
+   "reposts": 94,
    "replies": 195,
-   "bookmarks": 1008,
-   "views": 1215715,
-   "measured_at": "2026-10-27"
+   "bookmarks": 1006,
+   "views": 1217894,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "phone call",
@@ -3137,8 +3242,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 531,
-   "measured_at": "2026-10-27"
+   "views": 542,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "spam calls",
@@ -3211,8 +3316,8 @@
    "reposts": 3,
    "replies": 8,
    "bookmarks": 37,
-   "views": 5414,
-   "measured_at": "2026-10-27"
+   "views": 5431,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "food log",
@@ -3293,8 +3398,8 @@
    "reposts": 3,
    "replies": 12,
    "bookmarks": 13,
-   "views": 3063,
-   "measured_at": "2026-10-27"
+   "views": 3067,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "phone call",
@@ -3395,7 +3500,12 @@
  },
  {
   "slug": "family-meal-plan-and-grocery-order",
-  "see_also": [{"slug": "weekly-meal-plan-and-grocery-list", "why": "Just want a one-off plan and a list, with no cart or schedule?"}],
+  "see_also": [
+   {
+    "slug": "weekly-meal-plan-and-grocery-list",
+    "why": "Just want a one-off plan and a list, with no cart or schedule?"
+   }
+  ],
   "title": "Plan a week of family meals and fill the grocery cart",
   "category": "shopping",
   "date_added": "2026-10-20",
@@ -3474,8 +3584,8 @@
    "reposts": 29,
    "replies": 81,
    "bookmarks": 2894,
-   "views": 311057,
-   "measured_at": "2026-10-27"
+   "views": 311237,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "meal plan",
@@ -3551,8 +3661,8 @@
    "reposts": 34,
    "replies": 36,
    "bookmarks": 1152,
-   "views": 66647,
-   "measured_at": "2026-10-27"
+   "views": 66679,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "calendar",
@@ -3638,9 +3748,9 @@
    "likes": 679,
    "reposts": 35,
    "replies": 157,
-   "bookmarks": 725,
-   "views": 82814,
-   "measured_at": "2026-10-27"
+   "bookmarks": 724,
+   "views": 82858,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "personal agent",
@@ -3720,8 +3830,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41353,
-   "measured_at": "2026-10-27"
+   "views": 41367,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "scams",
@@ -3786,6 +3896,12 @@
      "views": 43
     },
     "measured_at": "2026-10-24"
+   },
+   {
+    "label": "TechCrunch (Oct 5, 2026): Instinct joins group chats to sort carpools, tickets and who's bringing what to Thanksgiving, even for members without an account",
+    "url": "https://techcrunch.com/2026/10/05/instinct-brings-its-ai-agent-to-group-chats-even-for-friends-without-an-account/",
+    "kind": "article",
+    "posted_at": "2026-10-05"
    }
   ],
   "popularity": {
@@ -3798,8 +3914,8 @@
    "reposts": 14,
    "replies": 29,
    "bookmarks": 118,
-   "views": 25130,
-   "measured_at": "2026-10-27"
+   "views": 25152,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "family chat",
@@ -3807,7 +3923,7 @@
    "groceries",
    "dentist"
   ],
-  "last_checked": "2026-10-21",
+  "last_checked": "2026-10-28",
   "origin": "seed-2026-10-20"
  },
  {
@@ -3888,8 +4004,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4083,
-   "measured_at": "2026-10-27"
+   "views": 4085,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "groceries",
@@ -3968,8 +4084,8 @@
    "reposts": 12,
    "replies": 12,
    "bookmarks": 11,
-   "views": 9653,
-   "measured_at": "2026-10-27"
+   "views": 9655,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "travel",
@@ -4038,7 +4154,7 @@
    "replies": 6,
    "bookmarks": 0,
    "views": 2000,
-   "measured_at": "2026-10-27"
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "flights",
@@ -4179,8 +4295,8 @@
    "reposts": 23,
    "replies": 63,
    "bookmarks": 241,
-   "views": 93638,
-   "measured_at": "2026-10-27"
+   "views": 93662,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "restaurant",
@@ -4243,8 +4359,8 @@
    "reposts": 4,
    "replies": 9,
    "bookmarks": 27,
-   "views": 4054,
-   "measured_at": "2026-10-27"
+   "views": 4055,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "appointment",
@@ -4338,8 +4454,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9182,
-   "measured_at": "2026-10-27"
+   "views": 9187,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "receipts",
@@ -4428,8 +4544,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 268,
-   "views": 9714,
-   "measured_at": "2026-10-27"
+   "views": 9733,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "chief of staff",
@@ -4488,8 +4604,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1873,
-   "measured_at": "2026-10-27"
+   "views": 1876,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "multiple brands",
@@ -4563,7 +4679,7 @@
    "replies": 12,
    "bookmarks": 27,
    "views": 3241,
-   "measured_at": "2026-10-27"
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "real estate",
@@ -4663,7 +4779,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 77,
-   "measured_at": "2026-10-27"
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "paper mail",
@@ -4752,7 +4868,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 74,
-   "measured_at": "2026-10-27"
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "monitoring",
@@ -4822,8 +4938,8 @@
    "reposts": 2,
    "replies": 7,
    "bookmarks": 0,
-   "views": 1286,
-   "measured_at": "2026-10-27"
+   "views": 1301,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "follow up",
@@ -4892,12 +5008,12 @@
    "author": "@Teevince_Ben",
    "url": "https://x.com/Teevince_Ben/status/2090800086477389964",
    "posted_at": "2026-08-21",
-   "likes": 72,
+   "likes": 71,
    "reposts": 4,
    "replies": 7,
    "bookmarks": 55,
-   "views": 4922,
-   "measured_at": "2026-10-27"
+   "views": 4923,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "leads",
@@ -4992,8 +5108,8 @@
    "reposts": 1,
    "replies": 2,
    "bookmarks": 19,
-   "views": 2144,
-   "measured_at": "2026-10-27"
+   "views": 2146,
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "email",
@@ -5647,7 +5763,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 795,
-   "measured_at": "2026-10-27"
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "marketplace",
@@ -5863,7 +5979,8 @@
   "prompt": "For this booking, use only the virtual card ending in [last 4]. Its limit is [$]. If the total is higher, stop and ask me. Never save this card to the site.",
   "setup": [],
   "watch_out": [
-   "Check whether your bank offers single-use or merchant-locked cards before you start."
+   "Check whether your bank offers single-use or merchant-locked cards before you start.",
+   "A prepaid agent balance (like Link balance in Instinct) caps each purchase, not your total, and Link's terms make you responsible for the agent's mistakes. Keep the balance small (Link's setup link takes $150 or less at a time)."
   ],
   "sources": [
    {
@@ -5879,6 +5996,21 @@
      "views": 389
     },
     "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Link help center: set up a Link balance so your agent can buy things up to a per-purchase limit you choose, without seeing your card; set it to $0 to require approval every time",
+    "url": "https://support.link.com/questions/set-up-a-balance-for-agent-wallet-purchases",
+    "kind": "official"
+   },
+   {
+    "label": "The Defiant (Oct 2026): Instinct rolls out Link balance for AI shopping with spending limits; balances are held in USDC",
+    "url": "https://thedefiant.io/converge/tradfi-and-fintech/instinct-rolls-out-link-balance-for-ai-shopping-with-spending-limits",
+    "kind": "article"
+   },
+   {
+    "label": "X post by @instinct (2026-10-26): Link balance is live in Instinct; add money, set a per-purchase limit, and Instinct buys within it",
+    "url": "https://x.com/instinct/status/2114799582760861732",
+    "kind": "x"
    }
   ],
   "popularity": {
@@ -5892,7 +6024,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1505,
-   "measured_at": "2026-10-27"
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "payments",
@@ -5900,7 +6032,7 @@
    "virtual card",
    "booking"
   ],
-  "last_checked": "2026-10-21",
+  "last_checked": "2026-10-28",
   "origin": "seed-2026-10-20"
  },
  {
@@ -5960,7 +6092,7 @@
    "replies": 4,
    "bookmarks": 3,
    "views": 906,
-   "measured_at": "2026-10-27"
+   "measured_at": "2026-10-28"
   },
   "tags": [
    "ads",
@@ -5973,7 +6105,12 @@
  },
  {
   "slug": "appeal-a-health-insurance-denial",
-  "see_also": [{"slug": "put-together-an-insurance-claim-with-an-ai-agent", "why": "Filing a home or car claim instead?"}],
+  "see_also": [
+   {
+    "slug": "put-together-an-insurance-claim-with-an-ai-agent",
+    "why": "Filing a home or car claim instead?"
+   }
+  ],
   "category": "health",
   "flagship": true,
   "title": "Appeal a health insurance denial with AI",
@@ -6812,7 +6949,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-10-27"
+   "measured_at": "2026-10-28"
   },
   "origin": "migrated-2026-10-19"
  },
@@ -7103,7 +7240,12 @@
  },
  {
   "slug": "weekly-meal-plan-and-grocery-list",
-  "see_also": [{"slug": "family-meal-plan-and-grocery-order", "why": "Want a bot that keeps your family's recipes and fills the grocery cart every week? That's the agent version:"}],
+  "see_also": [
+   {
+    "slug": "family-meal-plan-and-grocery-order",
+    "why": "Want a bot that keeps your family's recipes and fills the grocery cart every week? That's the agent version:"
+   }
+  ],
   "category": "family",
   "title": "Make a weekly meal plan and grocery list",
   "problem": "Deciding what's for dinner every night is exhausting, and you keep buying food that goes to waste.",
@@ -8607,7 +8749,12 @@
  },
  {
   "slug": "sort-and-rename-a-messy-folder",
-  "see_also": [{"slug": "keep-an-ai-agent-from-deleting-your-files", "why": "Before you let an agent loose on a folder:"}],
+  "see_also": [
+   {
+    "slug": "keep-an-ai-agent-from-deleting-your-files",
+    "why": "Before you let an agent loose on a folder:"
+   }
+  ],
   "title": "Let an AI sort and rename a messy folder of files",
   "category": "work",
   "source_date": "2026-09-30",

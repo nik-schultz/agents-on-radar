@@ -1,5 +1,11 @@
 # Ops changelog
 
+## 2026-10-28 (Trending watch, midday)
+- New: `add-an-ai-to-your-friends-group-chat-to-make-plans` (Bookings & travel, Easy), Instinct group chats on iMessage. Sources: TechCrunch (Oct 5), Business Insider (Oct 6), X @noahrshinn (Oct 27; 1,068 likes, 37 reposts, 137,199 views measured Oct 28).
+- Extra sources: Link balance (Link help center, The Defiant, X @instinct) + watch-out on `pay-with-a-single-use-virtual-card`; Off Grid AI Product Hunt on the private-AI entry; TechCrunch on the family group-chat entry.
+- Refreshed 45 X posts. Source mix: 106 use cases, X 69/382 links (18%), X-only entries 8.
+- Mentions/feedback: none. Bugs: none.
+
 ## 2026-10-28 (Weekly SEO run (Wed), 10:15 AM CT)
 Research (free sources: Google autocomplete, HN, web search)
 - Gaps picked: agent file safety/sandboxing (autocomplete "sandbox ai agents", "best sandbox for ai agents", "are ai agents safe to use", "is hermes ai agent safe"; Ask HN 50192875) and insurance claims (autocomplete "ai to help with insurance claims", "chatgpt for insurance claims", "ai agent for insurance claims"; open BACKLOG item). Riverside candidate was already shipped on 10-27.
@@ -27,7 +33,7 @@ Proposals (need approval, see BACKLOG)
 - Rework or label the 14 chat-prompt use cases; clarify /use-cases/ vs /ai-agent-examples/ with cross-pointers; meal-plan canonical only if they still compete.
 
 Deploy
-- scripts/deploy.sh (details below once finished).
+- scripts/deploy.sh at 10:15 AM CT (no other deploy running; origin/main was 458fac8). main f7970a4 / publish db419ba; GitHub Actions run 40714089308 succeeded in 35s (10:15 AM CT). Live checks 10:16 AM CT, all 200: both new pages, /what-can-bots-do/, /ai-agent-examples/, the email-safety guide, /openclaw-vs-hermes-agent/, both meal-plan pages (See also box present), /use-cases/, /, llms.txt, llms-full.txt, sitemap.xml (both new URLs listed). This deploy line is committed with the next deploy.
 
 ## 2026-10-28 (daily QA run, 7:10 AM CT)
 Status: live site https://botsdothat.com/ is up (homepage 200 in about 0.22 s; /use-cases/, /trending/, /news/, /advertise/, /ai-pricing/, /assets/app.js, /assets/style.css, the search index, sitemap.xml and llms.txt all 200).

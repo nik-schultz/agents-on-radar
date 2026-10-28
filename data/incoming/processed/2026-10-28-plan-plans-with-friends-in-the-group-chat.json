@@ -1,0 +1,42 @@
+{
+  "slug": "add-an-ai-to-your-friends-group-chat-to-make-plans",
+  "title": "Add an AI to your friends' group chat to make plans happen",
+  "category": "travel",
+  "source_date": "2026-10-27",
+  "summary": "Instead of 60 messages about where and when, you add an AI agent to the iMessage group. It suggests options, gets everyone to agree, and then books the table, tickets or rental car for the group once someone says yes.",
+  "what_the_bot_does": [
+    "You add the agent to an existing group chat like any other contact. Friends don't need their own account.",
+    "Someone asks it for help, like \"plan us a hike on Saturday\" or \"find a dinner spot for six on Friday\".",
+    "It posts a few options, keeps track of who said yes, and works out times, pickups or who's bringing what.",
+    "When the group agrees and someone says \"book it\", it books and posts the confirmation and plan in the thread.",
+    "It can keep going with ongoing jobs: buying tickets the moment they go on sale and splitting the cost, a carpool rota or a fantasy league's reminders."
+  ],
+  "what_you_end_up_with": "A plan everyone agreed to, already booked, with the details pinned in the same chat where you talked about it.",
+  "difficulty": "Easy",
+  "tools": [
+    {"id": "instinct", "note": "Group chats open to every iMessage user since Oct 27, 2026"},
+    {"id": "meta-muse", "note": "Meta's older Meta AI can join WhatsApp and Messenger group chats"}
+  ],
+  "prompt": "You're helping our group plan [a weekend trip to the lake / dinner on Friday]. Ask everyone in the chat for the dates and budget that work, suggest 2 or 3 options with prices, and keep a running list of who's in. Don't book or pay for anything until [I / the organiser] replies \"book it\", and post the confirmation number in the chat when it's done.",
+  "setup": [
+    "Make sure you're on an iPhone with iMessage, then sign up for Instinct at instinct.co and finish its setup chat.",
+    "Open the group chat you want help with and add Instinct as a new member, the same way you'd add a friend.",
+    "Tell the group what it's for, then ask it one clear job, like \"find us three brunch spots near Union Square for Sunday at 11\".",
+    "Pick one person who's allowed to say \"book it\", so nothing gets booked by accident.",
+    "If your own Instinct asks to share your info with the group's Instinct, only say yes for groups you trust."
+  ],
+  "watch_out": [
+    "The group's agent only sees what's in the chat, not anyone's accounts, but anything you type in the thread is visible to it. Keep private details out of the group (per Instinct's founder, Oct 27, 2026).",
+    "Your personal Instinct asks before connecting to a group or sharing anything, and you can remove a group's trust any time (TechCrunch, Oct 5, 2026). Say no when you're not sure.",
+    "Bookings cost real money. Check the price, date and number of people before anyone says \"book it\".",
+    "If someone new joins the chat, Instinct holds back your personal agent's replies until you OK sharing with the bigger group."
+  ],
+  "sources": [
+    {"label": "TechCrunch (Oct 5, 2026): Instinct brings its AI agent to group chats, even for friends without an account; trip planning, tickets, carpools and Thanksgiving lists", "url": "https://techcrunch.com/2026/10/05/instinct-brings-its-ai-agent-to-group-chats-even-for-friends-without-an-account/", "kind": "article", "posted_at": "2026-10-05"},
+    {"label": "Business Insider (Oct 6, 2026): Instinct's AI agents are coming to your group chat, to end the endless back-and-forth over plans", "url": "https://www.businessinsider.com/instincts-ai-agents-are-coming-to-your-group-chat-2026-10", "kind": "article", "posted_at": "2026-10-06"},
+    {"label": "X post by @noahrshinn (2026-10-27): Instinct in group chats is now available to everyone on iMessage; the group gets its own Instinct that only knows what's in the chat", "url": "https://x.com/noahrshinn/status/2115143830924341534", "kind": "x"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2115143830924341534", "author": "@noahrshinn", "url": "https://x.com/noahrshinn/status/2115143830924341534", "posted_at": "2026-10-27",
+                 "likes": 1068, "reposts": 37, "replies": 94, "bookmarks": 244, "views": 137199, "measured_at": "2026-10-28"},
+  "tags": ["group chat", "iMessage", "friends", "plan a trip", "dinner plans", "tickets", "carpool", "Instinct"]
+}

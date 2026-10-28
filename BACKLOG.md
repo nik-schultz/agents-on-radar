@@ -142,3 +142,20 @@ Bugs/complaints: none found.
 - [ ] PROPOSAL (needs approval): 14 chat-prompt use cases drifting from agentic bots. Either rewrite each as an agent task (schedule, tool access, approval step) or move them under a "one-off prompts" note. No deletions without approval.
 - [ ] PROPOSAL (needs approval): /use-cases/ vs /ai-agent-examples/ overlap. Keep /use-cases/ as the filterable directory and /ai-agent-examples/ as the beginner "examples for everyday life" list (it was the first result in our web-search tool on 2026-10-28 for "everyday AI agent use cases" and "AI agent examples for everyday life", though not in Bing's top 10); add a sentence at the top of each pointing to the other.
 - New autocomplete seen 2026-10-28: "sandbox ai agents", "best sandbox for ai agents", "macos sandbox ai agent", "are ai agents safe to use", "is hermes ai agent safe", "chatgpt for insurance claims".
+
+## Trending watch 2026-10-28 (midday)
+
+Added: `add-an-ai-to-your-friends-group-chat-to-make-plans` (Instinct group chats open to all iMessage users Oct 27; TechCrunch, Business Insider, X @noahrshinn 1,068 likes / 137K views on Oct 28). Extra sources: Instinct Link balance (Link help center, The Defiant, X @instinct 581 likes) on `pay-with-a-single-use-virtual-card` plus a watch-out on per-purchase caps; Off Grid AI (Product Hunt Oct 27, score 108) on `use-a-private-ai-on-your-own-computer-for-your-files`; TechCrunch on `run-family-logistics-from-the-group-chat`. Refreshed 45 X posts.
+
+Mentions/feedback: none. X search "botsdothat" / "botsdothat.com" / "bots do that" since Oct 27 = only unrelated uses of the phrase.
+
+Candidates not added yet:
+- [ ] Grok Bot booked airport parking, checked a traveler in for a flight and sent the boarding pass (X @TobiasLeyland, https://x.com/TobiasLeyland/status/2115457039530885214, 1 like, Oct 28). Possible "let your bot check you in for flights" entry; needs a 2nd independent source.
+- [ ] Survival LLM: offline AI assistant + emergency library on your own computer (HN 50264853, 472 points, 174 comments, Oct 27; brangus.io/survival-llm). Not agentic; maybe a tip in `run-open-models-on-your-own-computer`.
+- [ ] SavorApp_AI (Product Hunt Oct 27, #5, ~172 score): capture intentions, reminders, beta "Take Action" that plans and drafts. Revisit if the action side matures.
+- [ ] Instinct on the iPhone Action Button (X RT of @noahrshinn, Oct 26): could be a tip on `hand-off-tasks-by-voice-while-driving`.
+- [ ] Update tools.json Instinct cost note ("Invite-only beta per WIRED, Sep 2026") once signup status is confirmed on instinct.co.
+- Watch-out for guides: NYT (Oct 27) "She Worried About Cutting Her Medication Dose. ChatGPT Told Her to Push On" (HN 50263012, 43 points) for health entries.
+- Skipped: #ProofOfAgent crypto spam (still heavy); developer launches (Cursor Agent SDK, Overmind, Spacesheep, Paddock, PulseDev); Nuvio (finance admin for startups, edges into money tools).
+
+Bugs/complaints: none found.
