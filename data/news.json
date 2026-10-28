@@ -28,11 +28,11 @@
     "url": "https://x.com/GoogleDeepMind/status/2115114028338962672",
     "author": "@GoogleDeepMind",
     "kind": "official",
-    "likes": 9027,
-    "reposts": 978,
-    "views": 762182,
+    "likes": 20349,
+    "reposts": 2228,
+    "views": 2603811,
     "posted_at": "2026-10-27T16:10:55Z",
-    "measured_at": "2026-10-27"
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -49,11 +49,11 @@
     "url": "https://x.com/liquidai/status/2115128329003303107",
     "author": "@liquidai",
     "kind": "official",
-    "likes": 2038,
-    "reposts": 1229,
-    "views": 384206,
+    "likes": 7222,
+    "reposts": 2408,
+    "views": 1404211,
     "posted_at": "2026-10-27T17:07:45Z",
-    "measured_at": "2026-10-27"
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -70,12 +70,104 @@
     "url": "https://x.com/MicrosoftAI/status/2115102961957499069",
     "author": "@MicrosoftAI",
     "kind": "official",
-    "likes": 143,
-    "reposts": 10,
-    "views": 12858,
+    "likes": 282,
+    "reposts": 28,
+    "views": 25131,
     "posted_at": "2026-10-27T15:26:57Z",
-    "measured_at": "2026-10-27"
+    "measured_at": "2026-10-28"
    }
+  },
+  {
+   "id": "apple-iwork-assistant-mcp",
+   "date": "2026-10-27",
+   "category": "feature",
+   "company": "Apple",
+   "impact": "notable",
+   "headline": "Apple puts an AI assistant in Pages, Keynote and Numbers, and opens them to outside agents",
+   "explainer": "Your bot will be able to read and edit Pages, Keynote and Numbers files on a Mac. Apple's new assistant (built on Apple models and OpenAI) drafts text, builds slides and charts data, and new MCP support lets outside AI agents work in the apps directly; it arrives in November for Apple Creator Studio subscribers ($12.99/month), in beta, US English only, and MCP needs macOS 27.",
+   "source_url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+   "source_name": "Apple Newsroom",
+   "more_sources": [
+    {
+     "label": "The Verge",
+     "url": "https://www.theverge.com/tech/1019373/apple-pages-keynote-numbers-ai-chatbot-update"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/twid/status/2115131652259434648",
+    "author": "@twid",
+    "kind": "coverage",
+    "likes": 844,
+    "reposts": 49,
+    "views": 50401,
+    "posted_at": "2026-10-27T17:20:57Z",
+    "measured_at": "2026-10-28"
+   }
+  },
+  {
+   "id": "meta-muse-singapore",
+   "date": "2026-10-27",
+   "category": "agent launch",
+   "company": "Meta",
+   "impact": "notable",
+   "headline": "Meta's Muse personal agent launches in Singapore, its first country after the US",
+   "explainer": "Muse, Meta's do-it-for-you agent, now works in Singapore with local apps like Grab, Shopee and Singapore Airlines. It's free for most tasks, keeps your passwords and cards out of the agent's view, and asks before sending an email or buying anything.",
+   "source_url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
+   "source_name": "Meta",
+   "more_sources": [
+    {
+     "label": "CNA",
+     "url": "https://www.channelnewsasia.com/singapore/meta-muse-ai-agent-singapore-shopping-travel-email-connectors-6499331"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/alexandr_wang/status/2115252079593967826",
+    "author": "@alexandr_wang",
+    "kind": "official",
+    "likes": 1727,
+    "reposts": 84,
+    "views": 114086,
+    "posted_at": "2026-10-28T01:19:29Z",
+    "measured_at": "2026-10-28"
+   }
+  },
+  {
+   "id": "openai-oracle-apps-chatgpt",
+   "date": "2026-10-27",
+   "category": "industry",
+   "company": "OpenAI",
+   "impact": "notable",
+   "headline": "OpenAI and Oracle plan to bring Oracle business apps into ChatGPT",
+   "explainer": "If your job runs on Oracle software, you may soon handle approved tasks like finance or HR lookups by asking ChatGPT. Oracle AI Workspace is still in development with no launch date; what's live now is that US Oracle customers can buy ChatGPT Work, Codex and the OpenAI API through Oracle Marketplace.",
+   "source_url": "https://openai.com/index/oracle-apps-in-chatgpt",
+   "source_name": "OpenAI",
+   "more_sources": [
+    {
+     "label": "Oracle blog",
+     "url": "https://blogs.oracle.com/ai-and-datascience/introducing-oracle-ai-workspace"
+    },
+    {
+     "label": "CNBC",
+     "url": "https://www.cnbc.com/2026/10/27/oracle-openai-chatgpt-codex-google-tpus.html"
+    }
+   ]
+  },
+  {
+   "id": "anthropic-gsa-40-discount",
+   "date": "2026-10-27",
+   "category": "pricing",
+   "company": "Anthropic",
+   "impact": "minor",
+   "headline": "Anthropic gives US federal, state and local governments 40% off Claude",
+   "explainer": "Government offices can now buy Claude Enterprise, Claude for Government and the Claude API at 40% off with no minimum spend. Prices for everyone else don't change, but your city or state may start using Claude for forms and backlogs.",
+   "source_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+   "source_name": "Anthropic",
+   "more_sources": [
+    {
+     "label": "GSA",
+     "url": "https://www.gsa.gov/about-gsa/newsroom/news-releases/gsa-anthropic-reach-onegov-agreement-on-discounted-consumptionbased-pricing-10272026"
+    }
+   ]
   },
   {
    "id": "gemini-api-store-by-default",
@@ -113,10 +205,10 @@
     "author": "@OpenAI",
     "kind": "official",
     "posted_at": "2026-10-26",
-    "likes": 25247,
-    "reposts": 2212,
-    "views": 4249226,
-    "measured_at": "2026-10-27"
+    "likes": 27569,
+    "reposts": 2455,
+    "views": 6210028,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -134,10 +226,10 @@
     "author": "@AnthropicAI",
     "kind": "official",
     "posted_at": "2026-10-26",
-    "likes": 17238,
-    "reposts": 2241,
-    "views": 7350100,
-    "measured_at": "2026-10-27"
+    "likes": 18075,
+    "reposts": 2351,
+    "views": 8538797,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -155,10 +247,10 @@
     "author": "@claudeai",
     "kind": "official",
     "posted_at": "2026-10-26",
-    "likes": 5898,
-    "reposts": 270,
-    "views": 572150,
-    "measured_at": "2026-10-27"
+    "likes": 7022,
+    "reposts": 327,
+    "views": 759917,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -214,10 +306,10 @@
     "author": "@Kimi_Moonshot",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 30108,
-    "reposts": 3230,
-    "views": 4006469,
-    "measured_at": "2026-10-27"
+    "likes": 30177,
+    "reposts": 3235,
+    "views": 4054466,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -241,10 +333,10 @@
     "author": "@cursor_ai",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 6408,
-    "reposts": 470,
-    "views": 408606,
-    "measured_at": "2026-10-27"
+    "likes": 6420,
+    "reposts": 469,
+    "views": 412356,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -268,10 +360,10 @@
     "author": "@NVIDIAAI",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 2072,
-    "reposts": 259,
-    "views": 284278,
-    "measured_at": "2026-10-27"
+    "likes": 2074,
+    "reposts": 260,
+    "views": 286528,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -295,10 +387,10 @@
     "author": "@jack",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 69025,
-    "reposts": 7128,
-    "views": 13419450,
-    "measured_at": "2026-10-27"
+    "likes": 69080,
+    "reposts": 7134,
+    "views": 13481310,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -316,10 +408,10 @@
     "author": "@OpenAI",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 13638,
-    "reposts": 1244,
-    "views": 7581100,
-    "measured_at": "2026-10-27"
+    "likes": 13686,
+    "reposts": 1248,
+    "views": 7649125,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -404,10 +496,10 @@
     "author": "@OpenAIDevs",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 1382,
+    "likes": 1383,
     "reposts": 99,
-    "views": 169106,
-    "measured_at": "2026-10-27"
+    "views": 170291,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -425,10 +517,10 @@
     "author": "@canva",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 3151,
-    "reposts": 4168,
-    "views": 1915543,
-    "measured_at": "2026-10-27"
+    "likes": 3144,
+    "reposts": 866,
+    "views": 1921909,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -446,10 +538,10 @@
     "author": "@claudeai",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 21030,
-    "reposts": 848,
-    "views": 2711886,
-    "measured_at": "2026-10-27"
+    "likes": 21037,
+    "reposts": 850,
+    "views": 2756695,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -473,10 +565,10 @@
     "author": "@bot",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 14367,
-    "reposts": 1130,
-    "views": 3163749,
-    "measured_at": "2026-10-27"
+    "likes": 14406,
+    "reposts": 1134,
+    "views": 3298297,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -500,10 +592,10 @@
     "author": "@bot",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 9936,
-    "reposts": 699,
-    "views": 1315844,
-    "measured_at": "2026-10-27"
+    "likes": 9966,
+    "reposts": 700,
+    "views": 1432708,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -521,10 +613,10 @@
     "author": "@GeminiApp",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 1309,
+    "likes": 1318,
     "reposts": 111,
-    "views": 100747,
-    "measured_at": "2026-10-27"
+    "views": 103618,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -551,11 +643,11 @@
     "url": "https://x.com/claudeai/status/2112984664256241837",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 55198,
-    "reposts": 4233,
-    "views": 10797172,
+    "likes": 55395,
+    "reposts": 4250,
+    "views": 11099334,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-27"
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -582,11 +674,11 @@
     "url": "https://x.com/OpenAI/status/2112907856018309586",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 14469,
-    "reposts": 2875,
-    "views": 5900531,
+    "likes": 14472,
+    "reposts": 2872,
+    "views": 5918671,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-27"
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -603,11 +695,11 @@
     "url": "https://x.com/claudeai/status/2112962248218148878",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 11057,
-    "reposts": 567,
-    "views": 828121,
+    "likes": 11060,
+    "reposts": 568,
+    "views": 835373,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-27"
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -630,11 +722,11 @@
     "url": "https://x.com/OpenAI/status/2112988118471295323",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 5272,
-    "reposts": 413,
-    "views": 520892,
+    "likes": 5277,
+    "reposts": 414,
+    "views": 529832,
     "posted_at": "2026-10-21",
-    "measured_at": "2026-10-27"
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -658,10 +750,10 @@
     "author": "@RichardSocher",
     "kind": "official",
     "posted_at": "2026-10-21",
-    "likes": 8395,
+    "likes": 8388,
     "reposts": 895,
-    "views": 3425265,
-    "measured_at": "2026-10-27"
+    "views": 3436994,
+    "measured_at": "2026-10-28"
    }
   },
   {

@@ -392,7 +392,7 @@ NEWS_CAT_ICON = {"model release": "🧠", "agent launch": "🤖", "feature": "�
 NEWS_CO = {"OpenAI": ("OA", "#5ef2d6"), "Anthropic": ("An", "#ffb38a"), "Google": ("G", "#7cb2ff"), "xAI": ("xA", "#e6ebff"),
            "Meta": ("M", "#8f9bff"), "Mistral": ("Mi", "#ffcf6e"), "DeepSeek": ("DS", "#5aa8ff"), "Groq": ("Gq", "#ff8fa3"), "Recursive": ("Rc", "#b9f27c"), "Canva": ("Cv", "#c9a2ff"),
            "Moonshot": ("Ki", "#9ad7ff"), "Cursor": ("Cu", "#d8dde8"), "NVIDIA": ("NV", "#9be15d"), "Block": ("Bk", "#f5e27a"), "Walmart": ("Wm", "#6fb6ff"),
-           "Riverside": ("Rv", "#ff9ad5"), "Ant Group": ("AG", "#7fe0c3"),
+           "Riverside": ("Rv", "#ff9ad5"), "Ant Group": ("AG", "#7fe0c3"), "Apple": ("Ap", "#e8e8ee"),
            "Liquid AI": ("Lq", "#8be9fd"), "Microsoft": ("Ms", "#7fd0ff")}
 NEWS_ART = {"model release": "hero-radar", "agent launch": "cat-work", "pricing": "cat-money", "feature": "cat-inbox", "industry": "cat-business"}
 def news_heat(n):
