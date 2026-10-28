@@ -9,6 +9,247 @@
  ],
  "items": [
   {
+   "id": "google-gemini-4-carbon",
+   "date": "2026-10-28",
+   "category": "model release",
+   "company": "Google",
+   "impact": "major",
+   "headline": "Google announces Gemini 4 Carbon, its new top model, but only a few security teams can use it so far",
+   "explainer": "Carbon is Google's strongest model yet: it now ranks #1 on the Artificial Analysis Intelligence Index and is built for long coding jobs and for finding and fixing security holes. This week only selected cyber defenders get it; Google says developers, businesses and the Gemini app get it 'as soon as possible', at the same intro API price as Argon ($2 in / $10 out per million tokens, later $4 / $20).",
+   "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+   "source_name": "Google blog",
+   "more_sources": [
+    {
+     "label": "9to5Google",
+     "url": "https://9to5google.com/2026/10/28/gemini-4-carbon-announcement/"
+    },
+    {
+     "label": "VentureBeat",
+     "url": "https://venturebeat.com/technology/google-unveils-gemini-4-carbon-retaking-the-worlds-no-1-spot-on-updated-harder-benchmarks-but-access-is-limited"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/sundarpichai/status/2115489219804352921",
+    "author": "@sundarpichai",
+    "kind": "official",
+    "likes": 15791,
+    "reposts": 1173,
+    "views": 1301637,
+    "posted_at": "2026-10-28T17:01:48Z",
+    "measured_at": "2026-10-28"
+   }
+  },
+  {
+   "id": "chatgpt-dots-texting",
+   "date": "2026-10-28",
+   "category": "feature",
+   "company": "OpenAI",
+   "impact": "notable",
+   "headline": "You can now text your ChatGPT dot over iMessage or RCS",
+   "explainer": "Your dot (ChatGPT's always-on agent) can now take tasks by text, photo or voice note from your phone's Messages app, and text you back when something needs you. It's a beta for US ChatGPT Pro users only, one-to-one (no group chats), and it can't see your other text conversations.",
+   "source_url": "https://learn.chatgpt.com/docs/dots/channels",
+   "source_name": "ChatGPT Learn",
+   "more_sources": [
+    {
+     "label": "The Verge",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1021183/openai-now-lets-you-text-your-dot"
+    },
+    {
+     "label": "9to5Mac",
+     "url": "https://9to5mac.com/2026/10/28/openai-expanding-chatgpt-dot-access-to-imessage-and-rcs/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/ChatGPT/status/2115496387613786374",
+    "author": "@ChatGPT",
+    "kind": "official",
+    "likes": 3084,
+    "reposts": 136,
+    "views": 242297,
+    "posted_at": "2026-10-28T17:30:17Z",
+    "measured_at": "2026-10-28"
+   }
+  },
+  {
+   "id": "claude-for-legal-artifacts",
+   "date": "2026-10-28",
+   "category": "feature",
+   "company": "Anthropic",
+   "impact": "notable",
+   "headline": "Claude for Legal gets ready-made tools for contract review, cite checks and rule tracking",
+   "explainer": "Legal teams can start from a gallery of ready-to-use Claude 'artifacts', such as a contract comparison table, a citation checker and a regulation timeline, add their own documents and share them with coworkers. Every answer links back to its source, and a lawyer still reviews the result; it's aimed at businesses and law firms, not personal legal advice.",
+   "source_url": "https://claude.com/resources/articles/introducing-artifacts-for-legal-work",
+   "source_name": "Claude blog",
+   "more_sources": [
+    {
+     "label": "Reuters via Economic Times",
+     "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/anthropic-unveils-additional-claude-tools-for-lawyers/articleshow/135271177.cms"
+    },
+    {
+     "label": "Legal IT Insider",
+     "url": "https://legaltechnology.com/anthropic-moves-further-up-the-legal-tech-stack-with-launch-of-claude-for-legal-artifacts/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/claudeai/status/2115467192276025500",
+    "author": "@claudeai",
+    "kind": "official",
+    "likes": 13363,
+    "reposts": 702,
+    "views": 1535190,
+    "posted_at": "2026-10-28T15:34:16Z",
+    "measured_at": "2026-10-28"
+   }
+  },
+  {
+   "id": "google-connected-apps-platform",
+   "date": "2026-10-28",
+   "category": "feature",
+   "company": "Google",
+   "impact": "notable",
+   "headline": "Google opens Gemini and Search to more outside apps, starting with Adobe, Calm and Peloton",
+   "explainer": "More of the apps you already use will work right inside the Gemini app and Google Search, so you can ask Gemini to plan a Peloton workout or use Adobe without switching apps. Google launched a developer preview (US, waitlist) that lets any app plug in through MCP; more than 50 Connected Apps are live, and Calm is coming to both Search and Gemini.",
+   "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/connected-apps-one-place/",
+   "source_name": "Google blog",
+   "more_sources": [
+    {
+     "label": "TechCrunch",
+     "url": "https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/Marie_Haynes/status/2115507306163208445",
+    "author": "@Marie_Haynes",
+    "kind": "coverage",
+    "likes": 27,
+    "reposts": 2,
+    "views": 2243,
+    "posted_at": "2026-10-28T18:13:40Z",
+    "measured_at": "2026-10-28"
+   }
+  },
+  {
+   "id": "github-copilot-fusion",
+   "date": "2026-10-28",
+   "category": "feature",
+   "company": "Microsoft",
+   "impact": "notable",
+   "headline": "GitHub Copilot Fusion picks the AI model for you, and Microsoft opens its Copilot agent engine to builders",
+   "explainer": "If you code with GitHub Copilot, you can now choose 'Copilot Fusion' and an effort level instead of a model; it routes each task to cheaper or stronger models and GitHub says it came within 2 points of Claude Code with Opus 5.5 at about half the cost per task (30% off for paid plans through Nov 30). Microsoft also made the harness behind Copilot available in Microsoft Foundry, so companies can build their own agents on it.",
+   "source_url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/",
+   "source_name": "GitHub Changelog",
+   "more_sources": [
+    {
+     "label": "Microsoft blog: Copilot harness",
+     "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/"
+    },
+    {
+     "label": "GitHub Universe 2026",
+     "url": "https://github.blog/news-insights/company-news/github-universe-2026-evolving-every-layer-of-the-stack/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/satyanadella/status/2115490856685990244",
+    "author": "@satyanadella",
+    "kind": "official",
+    "likes": 554,
+    "reposts": 70,
+    "views": 58996,
+    "posted_at": "2026-10-28T17:08:18Z",
+    "measured_at": "2026-10-28"
+   }
+  },
+  {
+   "id": "nvidia-nemotron-3-5-transcribe",
+   "date": "2026-10-28",
+   "category": "model release",
+   "company": "NVIDIA",
+   "impact": "notable",
+   "headline": "NVIDIA releases Nemotron 3.5 Transcribe, a free open model that writes up recordings and says who spoke",
+   "explainer": "Expect better, cheaper meeting-notes and transcription bots: this free, open-weight model transcribes 40 languages, translates, tells up to eight speakers apart and handles recordings up to an hour. It works on recorded audio, not live calls, and is meant for app builders rather than a ready-made app.",
+   "source_url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+   "source_name": "NVIDIA on Hugging Face",
+   "more_sources": [
+    {
+     "label": "TechCrunch",
+     "url": "https://techcrunch.com/2026/10/28/voice-ai-in-vogue-nvidia-releases-new-open-transcription-model/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/NVIDIAAI/status/2115462300241141882",
+    "author": "@NVIDIAAI",
+    "kind": "official",
+    "likes": 3106,
+    "reposts": 245,
+    "views": 223086,
+    "posted_at": "2026-10-28T15:14:50Z",
+    "measured_at": "2026-10-28"
+   }
+  },
+  {
+   "id": "perplexity-voice-gpt-live-1",
+   "date": "2026-10-28",
+   "category": "feature",
+   "company": "Perplexity",
+   "impact": "minor",
+   "headline": "Perplexity's voice mode can now run several Computer tasks at once",
+   "explainer": "On the Mac app and web, Pro and Max subscribers can talk to Perplexity to start new Computer tasks, check on several running at once and manage Projects in one voice session. It now runs on OpenAI's gpt-live-1 voice model, which can listen while it talks.",
+   "source_url": "https://9to5mac.com/2026/10/28/perplexity-upgrades-mac-app-with-chatgpt-powered-voice-mode/",
+   "source_name": "9to5Mac",
+   "x": {
+    "url": "https://x.com/AskPerplexity/status/2115471825031610611",
+    "author": "@AskPerplexity",
+    "kind": "official",
+    "likes": 152,
+    "reposts": 13,
+    "views": 31495,
+    "posted_at": "2026-10-28T15:52:41Z",
+    "measured_at": "2026-10-28"
+   }
+  },
+  {
+   "id": "gemini-immersive-explorations",
+   "date": "2026-10-28",
+   "category": "feature",
+   "company": "Google",
+   "impact": "minor",
+   "headline": "Gemini adds interactive 'immersive explorations' for learning a topic layer by layer",
+   "explainer": "Students and curious adults can zoom through interactive scenes, like inside a jet engine or along the Silk Road, and tap labels to dig deeper. It's free for all users from the Gemini student hub for now, with direct access in chats and audio narration coming soon.",
+   "source_url": "https://blog.google/innovation-and-ai/products/gemini-app/immersive-explorations-student-hub/",
+   "source_name": "Google blog",
+   "x": {
+    "url": "https://x.com/GeminiApp/status/2115507092660289631",
+    "author": "@GeminiApp",
+    "kind": "official",
+    "likes": 385,
+    "reposts": 29,
+    "views": 21792,
+    "posted_at": "2026-10-28T18:12:49Z",
+    "measured_at": "2026-10-28"
+   }
+  },
+  {
+   "id": "meta-waddle-world",
+   "date": "2026-10-28",
+   "category": "feature",
+   "company": "Meta",
+   "impact": "minor",
+   "headline": "Meta tests Waddle World, an AI virtual pet app, in the Philippines",
+   "explainer": "Waddle World is a Tamagotchi-style app where an AI pixel pet gets to know you, turns what you tell it into illustrated journal entries and can send a weekly email. It's a test in the Philippines only (iOS and Android, 18+), and Meta says it's not a chatbot or an assistant.",
+   "source_url": "https://techcrunch.com/2026/10/28/meta-has-a-new-ai-pet-app-called-waddle-world/",
+   "source_name": "TechCrunch",
+   "x": {
+    "url": "https://x.com/MattNavarra/status/2115210391462551845",
+    "author": "@MattNavarra",
+    "kind": "coverage",
+    "likes": 33,
+    "reposts": 1,
+    "views": 8233,
+    "posted_at": "2026-10-27T22:33:50Z",
+    "measured_at": "2026-10-28"
+   }
+  },
+  {
    "id": "google-genie-4",
    "date": "2026-10-27",
    "category": "model release",
@@ -28,9 +269,9 @@
     "url": "https://x.com/GoogleDeepMind/status/2115114028338962672",
     "author": "@GoogleDeepMind",
     "kind": "official",
-    "likes": 20349,
-    "reposts": 2228,
-    "views": 2603811,
+    "likes": 22510,
+    "reposts": 2473,
+    "views": 3095464,
     "posted_at": "2026-10-27T16:10:55Z",
     "measured_at": "2026-10-28"
    }
@@ -49,9 +290,9 @@
     "url": "https://x.com/liquidai/status/2115128329003303107",
     "author": "@liquidai",
     "kind": "official",
-    "likes": 7222,
-    "reposts": 2408,
-    "views": 1404211,
+    "likes": 8215,
+    "reposts": 1134,
+    "views": 1685655,
     "posted_at": "2026-10-27T17:07:45Z",
     "measured_at": "2026-10-28"
    }
@@ -70,9 +311,9 @@
     "url": "https://x.com/MicrosoftAI/status/2115102961957499069",
     "author": "@MicrosoftAI",
     "kind": "official",
-    "likes": 282,
-    "reposts": 28,
-    "views": 25131,
+    "likes": 317,
+    "reposts": 33,
+    "views": 27888,
     "posted_at": "2026-10-27T15:26:57Z",
     "measured_at": "2026-10-28"
    }
@@ -97,9 +338,9 @@
     "url": "https://x.com/twid/status/2115131652259434648",
     "author": "@twid",
     "kind": "coverage",
-    "likes": 844,
-    "reposts": 49,
-    "views": 50401,
+    "likes": 948,
+    "reposts": 57,
+    "views": 60799,
     "posted_at": "2026-10-27T17:20:57Z",
     "measured_at": "2026-10-28"
    }
@@ -124,9 +365,9 @@
     "url": "https://x.com/alexandr_wang/status/2115252079593967826",
     "author": "@alexandr_wang",
     "kind": "official",
-    "likes": 1727,
-    "reposts": 84,
-    "views": 114086,
+    "likes": 2090,
+    "reposts": 96,
+    "views": 151075,
     "posted_at": "2026-10-28T01:19:29Z",
     "measured_at": "2026-10-28"
    }
@@ -205,9 +446,9 @@
     "author": "@OpenAI",
     "kind": "official",
     "posted_at": "2026-10-26",
-    "likes": 27569,
-    "reposts": 2455,
-    "views": 6210028,
+    "likes": 27832,
+    "reposts": 2475,
+    "views": 6374852,
     "measured_at": "2026-10-28"
    }
   },
@@ -226,9 +467,9 @@
     "author": "@AnthropicAI",
     "kind": "official",
     "posted_at": "2026-10-26",
-    "likes": 18075,
-    "reposts": 2351,
-    "views": 8538797,
+    "likes": 18174,
+    "reposts": 2359,
+    "views": 9088291,
     "measured_at": "2026-10-28"
    }
   },
@@ -247,9 +488,9 @@
     "author": "@claudeai",
     "kind": "official",
     "posted_at": "2026-10-26",
-    "likes": 7022,
-    "reposts": 327,
-    "views": 759917,
+    "likes": 7100,
+    "reposts": 330,
+    "views": 781143,
     "measured_at": "2026-10-28"
    }
   },
@@ -306,9 +547,9 @@
     "author": "@Kimi_Moonshot",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 30177,
-    "reposts": 3235,
-    "views": 4054466,
+    "likes": 30190,
+    "reposts": 3236,
+    "views": 4064917,
     "measured_at": "2026-10-28"
    }
   },
@@ -333,9 +574,9 @@
     "author": "@cursor_ai",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 6420,
+    "likes": 6423,
     "reposts": 469,
-    "views": 412356,
+    "views": 413472,
     "measured_at": "2026-10-28"
    }
   },
@@ -360,9 +601,9 @@
     "author": "@NVIDIAAI",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 2074,
+    "likes": 2077,
     "reposts": 260,
-    "views": 286528,
+    "views": 287296,
     "measured_at": "2026-10-28"
    }
   },
@@ -387,9 +628,9 @@
     "author": "@jack",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 69080,
-    "reposts": 7134,
-    "views": 13481310,
+    "likes": 69109,
+    "reposts": 7135,
+    "views": 13499266,
     "measured_at": "2026-10-28"
    }
   },
@@ -408,9 +649,9 @@
     "author": "@OpenAI",
     "kind": "official",
     "posted_at": "2026-10-23",
-    "likes": 13686,
-    "reposts": 1248,
-    "views": 7649125,
+    "likes": 13695,
+    "reposts": 1246,
+    "views": 7664775,
     "measured_at": "2026-10-28"
    }
   },
@@ -496,9 +737,9 @@
     "author": "@OpenAIDevs",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 1383,
+    "likes": 1381,
     "reposts": 99,
-    "views": 170291,
+    "views": 170621,
     "measured_at": "2026-10-28"
    }
   },
@@ -517,9 +758,9 @@
     "author": "@canva",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 3144,
-    "reposts": 866,
-    "views": 1921909,
+    "likes": 3106,
+    "reposts": 670,
+    "views": 1923599,
     "measured_at": "2026-10-28"
    }
   },
@@ -538,9 +779,9 @@
     "author": "@claudeai",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 21037,
+    "likes": 21036,
     "reposts": 850,
-    "views": 2756695,
+    "views": 2770664,
     "measured_at": "2026-10-28"
    }
   },
@@ -565,9 +806,9 @@
     "author": "@bot",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 14406,
-    "reposts": 1134,
-    "views": 3298297,
+    "likes": 14420,
+    "reposts": 1133,
+    "views": 3340698,
     "measured_at": "2026-10-28"
    }
   },
@@ -592,9 +833,9 @@
     "author": "@bot",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 9966,
-    "reposts": 700,
-    "views": 1432708,
+    "likes": 9978,
+    "reposts": 701,
+    "views": 1468307,
     "measured_at": "2026-10-28"
    }
   },
@@ -613,9 +854,9 @@
     "author": "@GeminiApp",
     "kind": "official",
     "posted_at": "2026-10-22",
-    "likes": 1318,
-    "reposts": 111,
-    "views": 103618,
+    "likes": 1323,
+    "reposts": 110,
+    "views": 105156,
     "measured_at": "2026-10-28"
    }
   },
@@ -643,9 +884,9 @@
     "url": "https://x.com/claudeai/status/2112984664256241837",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 55395,
-    "reposts": 4250,
-    "views": 11099334,
+    "likes": 55452,
+    "reposts": 4254,
+    "views": 11174624,
     "posted_at": "2026-10-21",
     "measured_at": "2026-10-28"
    }
@@ -674,9 +915,9 @@
     "url": "https://x.com/OpenAI/status/2112907856018309586",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 14472,
-    "reposts": 2872,
-    "views": 5918671,
+    "likes": 14474,
+    "reposts": 2871,
+    "views": 5923430,
     "posted_at": "2026-10-21",
     "measured_at": "2026-10-28"
    }
@@ -695,9 +936,9 @@
     "url": "https://x.com/claudeai/status/2112962248218148878",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 11060,
+    "likes": 11063,
     "reposts": 568,
-    "views": 835373,
+    "views": 838190,
     "posted_at": "2026-10-21",
     "measured_at": "2026-10-28"
    }
@@ -722,9 +963,9 @@
     "url": "https://x.com/OpenAI/status/2112988118471295323",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 5277,
+    "likes": 5284,
     "reposts": 414,
-    "views": 529832,
+    "views": 532196,
     "posted_at": "2026-10-21",
     "measured_at": "2026-10-28"
    }
@@ -750,9 +991,9 @@
     "author": "@RichardSocher",
     "kind": "official",
     "posted_at": "2026-10-21",
-    "likes": 8388,
-    "reposts": 895,
-    "views": 3436994,
+    "likes": 8377,
+    "reposts": 893,
+    "views": 3440572,
     "measured_at": "2026-10-28"
    }
   },
@@ -791,11 +1032,11 @@
     "url": "https://x.com/MistralAI/status/2112574615318876178",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 3274,
+    "likes": 3280,
     "reposts": 377,
-    "views": 274823,
+    "views": 277295,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-27"
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -812,11 +1053,11 @@
     "url": "https://x.com/OpenAIDevs/status/2112603916076781778",
     "author": "@OpenAIDevs",
     "kind": "official",
-    "likes": 3612,
+    "likes": 3610,
     "reposts": 188,
-    "views": 1966161,
+    "views": 1982331,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-27"
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -839,11 +1080,11 @@
     "url": "https://x.com/deepseek_ai/status/2112476496283775135",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 43254,
-    "reposts": 4890,
-    "views": 6761037,
+    "likes": 43378,
+    "reposts": 4901,
+    "views": 6815691,
     "posted_at": "2026-10-20",
-    "measured_at": "2026-10-27"
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -879,9 +1120,9 @@
     "kind": "official",
     "posted_at": "2026-10-20",
     "likes": 2131,
-    "reposts": 188,
-    "views": 273774,
-    "measured_at": "2026-10-27"
+    "reposts": 189,
+    "views": 275298,
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -932,11 +1173,11 @@
     "url": "https://x.com/deepseek_ai/status/2111375640717033777",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 37156,
-    "reposts": 4129,
-    "views": 8054312,
+    "likes": 37166,
+    "reposts": 4130,
+    "views": 8097891,
     "posted_at": "2026-10-17",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -953,11 +1194,11 @@
     "url": "https://x.com/deepseek_ai/status/2111375650414309859",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 3494,
+    "likes": 3493,
     "reposts": 251,
-    "views": 967119,
+    "views": 970416,
     "posted_at": "2026-10-17",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -984,11 +1225,11 @@
     "url": "https://x.com/AIatMeta/status/2110779754274292212",
     "author": "@AIatMeta",
     "kind": "official",
-    "likes": 11557,
-    "reposts": 1222,
-    "views": 1251579,
+    "likes": 11578,
+    "reposts": 1220,
+    "views": 1260032,
     "posted_at": "2026-10-15",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-28"
    }
   },
   {
@@ -1011,11 +1252,11 @@
     "url": "https://x.com/ArtificialAnlys/status/2110421964095713743",
     "author": "@ArtificialAnlys",
     "kind": "coverage",
-    "likes": 1310,
+    "likes": 1307,
     "reposts": 142,
-    "views": 912560,
+    "views": 914702,
     "posted_at": "2026-10-14",
-    "measured_at": "2026-10-26"
+    "measured_at": "2026-10-28"
    }
   },
   {

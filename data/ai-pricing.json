@@ -346,6 +346,11 @@
    "provider": "Groq",
    "what": "Consumer plan",
    "why": "Groq sells API access, not a consumer chat plan."
+  },
+  {
+   "provider": "Google",
+   "what": "Gemini 4 Carbon API price",
+   "why": "Announced Oct 28, 2026 at an introductory $2 / $10 per 1M tokens (later $4 / $20), but it's limited to selected cyber defenders and not on the official Gemini API pricing page yet."
   }
  ],
  "blueprint_models": [

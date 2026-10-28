@@ -159,3 +159,8 @@ Candidates not added yet:
 - Skipped: #ProofOfAgent crypto spam (still heavy); developer launches (Cursor Agent SDK, Overmind, Spacesheep, Paddock, PulseDev); Nuvio (finance admin for startups, edges into money tools).
 
 Bugs/complaints: none found.
+
+## News run 2026-10-28 PM
+- [ ] Extra source + setup note: ChatGPT dots can now be texted over iMessage/RCS (US Pro beta, one-to-one; learn.chatgpt.com/docs/dots/channels, @ChatGPT 2115496387613786374). Fits `get-a-text-before-something-needs-doing` and `hand-your-most-hated-chores-to-a-personal-agent`; add once it leaves Pro-only beta or as a "Pro only" option.
+- [ ] Possible guide once live for normal users: "Plan a workout or use your apps from inside Gemini" via Google Connected Apps (Peloton, Adobe, Calm coming). Developer preview only today (US waitlist); re-check in a few weeks.
+- Developer-leaning, skip for beginners: NVIDIA Nemotron 3.5 Transcribe (open transcription model), GitHub Copilot Fusion / Copilot harness in Foundry.

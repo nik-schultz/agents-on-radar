@@ -1,5 +1,14 @@
 # Ops changelog
 
+## 2026-10-28 (News update, PM)
+- Added 9 items (all dated Oct 28): `google-gemini-4-carbon` (MAJOR, model release; Google blog, 9to5Google, VentureBeat; X @sundarpichai 15,791 likes / 1,173 reposts / 1,301,637 views), `chatgpt-dots-texting` (notable; ChatGPT Learn, The Verge, 9to5Mac; @ChatGPT 3,084 / 136 / 242,297), `claude-for-legal-artifacts` (notable; Claude blog, Reuters, Legal IT Insider; @claudeai 13,363 / 702 / 1,535,190), `google-connected-apps-platform` (notable; Google blog, TechCrunch; coverage @Marie_Haynes 27 / 2 / 2,243), `github-copilot-fusion` (notable, company Microsoft; GitHub changelog + Microsoft Copilot harness blog; @satyanadella 554 / 70 / 58,996), `nvidia-nemotron-3-5-transcribe` (notable; NVIDIA on Hugging Face, TechCrunch; @NVIDIAAI 3,106 / 245 / 223,086), `perplexity-voice-gpt-live-1` (minor; 9to5Mac; @AskPerplexity 152 / 13 / 31,495), `gemini-immersive-explorations` (minor; Google blog; @GeminiApp 385 / 29 / 21,792), `meta-waddle-world` (minor; TechCrunch; coverage @MattNavarra 33 / 1 / 8,233). All measured Oct 28 PM.
+- New NEWS_CO entry: Perplexity. Gemini 4 Carbon is now the Top story.
+- Refreshed X numbers on 32 existing items (all items from Oct 14 on); raw response in research/x_news_measure_2026_10_28_pm.json.txt (local only), applied with research/news_x_2026_10_28_pm.py.
+- Pricing: no table change. Gemini 4 Carbon's announced intro price ($2 / $10, later $4 / $20) isn't on the Gemini API pricing page and the model isn't open to developers yet, so it's listed under not_verified. GitHub Copilot Fusion's 30% discount (through Nov 30) is noted in the news item only.
+- Skipped: "Grok 5" (only a fan site; nothing on x.ai/news or the xAI release notes), OpenAI reportedly buying Google TPUs (unconfirmed), Amazon Alexa Photo Frame (no date on the official page), OpenAI-ServiceNow and Claude Enterprise smart reports (enterprise-only), Cloudflare GLM-5.3 data exposure, Giotto Alto/Solo.
+- BACKLOG: dots texting as an extra source for the text-me agent entries; Connected Apps guide once it's live for normal users.
+- Checks: validate 0 errors (106 use cases); build 146 indexed pages + 404; check_links 11,105 links, 0 broken internal.
+
 ## 2026-10-28 (Trending watch, midday)
 - New: `add-an-ai-to-your-friends-group-chat-to-make-plans` (Bookings & travel, Easy), Instinct group chats on iMessage. Sources: TechCrunch (Oct 5), Business Insider (Oct 6), X @noahrshinn (Oct 27; 1,068 likes, 37 reposts, 137,199 views measured Oct 28).
 - Extra sources: Link balance (Link help center, The Defiant, X @instinct) + watch-out on `pay-with-a-single-use-virtual-card`; Off Grid AI Product Hunt on the private-AI entry; TechCrunch on the family group-chat entry.
