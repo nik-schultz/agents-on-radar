@@ -1,5 +1,20 @@
 # Ops changelog
 
+## 2026-10-28 (daily QA run, 7:10 AM CT)
+Status: live site https://botsdothat.com/ is up (homepage 200 in about 0.22 s; /use-cases/, /trending/, /news/, /advertise/, /ai-pricing/, /assets/app.js, /assets/style.css, the search index, sitemap.xml and llms.txt all 200).
+
+Checks
+- validate 0 errors (102 use cases before this run); build 142 indexed pages + 404; check_links 10,756 links, 0 broken internal. app.js passes a syntax check.
+- Outbound links (628 unique): 563 OK, 65 not-200, none real. The checker's HEAD requests got 404 from support.google.com (10 help pages) and thenextweb.com (2 articles) and 405 from Hacker News and Zumper; every one returned 200 with the right page title on a normal GET (Zumper serves a bot challenge). Still script-only blocks: openai.com / help.openai.com, claude.ai, ftc.gov, Riverside help, RentCafe, Retail Dive, Android Authority, AHRQ, kit.com/privacy (429); Business Wire timed out.
+- Console errors and real-device rendering were not checked in a browser this run (static review only).
+
+Bugs fixed
+- None found.
+
+Improvement for visitors
+- New guide from the backlog: `organize-your-photos-by-asking` (Family & home, Easy). Connect Google Photos to Gemini and use a task to pick the best shots from a trip or event, skip near-duplicates and save them to a new private album, optionally on a monthly schedule. The prompt forbids deleting, moving, editing or sharing anything. Watch-outs cover the gradual rollout (18+, not in some US regions), wrong picks (Ask Photos is experimental), albums being labels not folders, and checking shared albums for private photos. Sources: Gemini Apps Help, Google Photos Help (Ask Photos, albums), Google blog (Feb 10, 2026). No stats quoted. BACKLOG item marked done.
+- After: validate 0 errors, 103 use cases; build 143 indexed pages + 404; check_links 10,824 links, 0 broken internal.
+
 ## 2026-10-27 (trending watch, midday)
 - Added 3 use cases: turn-a-recording-into-an-episode-clips-and-posts (Riverside Agents; Riverside blog + help center, Forbes, Podnews, @NadavKeyson launch post 560 likes / 1,917 reposts / 991,250 views), use-a-private-ai-on-your-own-computer-for-your-files (Hob; HN 159 points / 36 comments, GitHub 243 stars, FounderMag, OSFY), get-a-text-before-something-needs-doing (Kiwi; Product Hunt #11 with 109 upvotes / 15 comments, Kiwi blog, Business Wire on Ant LingGuang 2.0). All measured Oct 27. New tools: riverside-agents, hob, kiwi.
 - Non-X sources added to 6 X-only entries (X-only count 14 -> 8). Refreshed 43 X posts and 28 HN scores.

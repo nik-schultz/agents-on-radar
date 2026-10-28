@@ -4,6 +4,39 @@ There's a bot for that. Here's how.
 
 A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
 
+## Organize your photos by just asking
+URL: https://botsdothat.com/use-cases/organize-your-photos-by-asking/
+Category: Family & home | Difficulty: Easy | Added: 2026-10-28
+Popularity: not measured
+
+Connect Google Photos to Gemini and give it a task in plain words: find the best shots from a trip, skip the near-duplicates, and put them in a new private album, or do it on a schedule every month.
+
+What the bot does:
+1. Make sure the photos you want are backed up to Google Photos. The AI features only work on backed-up photos. This works on iPhone too if you use the Google Photos app.
+2. Open the Gemini app or gemini.google.com, connect Google Photos under Connected Apps, then tap Task above the text box.
+3. Paste the prompt below and fill in the trip or event. Gemini searches by people, place, date or event, picks the best shots and leaves out near-duplicates.
+4. Look through the album it makes before doing anything else. New albums are private, and Gemini asks before it shares an album or sends an email.
+5. To keep up with new photos, ask for a repeat task, such as a highlights album at the end of every month.
+
+What you end up with: Curated albums of your best photos from each trip or event, made by describing what you want, and kept private until you say to share them.
+
+Tools: Gemini
+
+Prompt:
+Look in my Google Photos for pictures from [the trip, party or event, e.g. our beach trip last July]. Pick the best [15] photos and videos, leave out blurry shots and near-duplicates, and put them in a new private album called '[album name]'. Don't delete, move or edit any of my original photos, and don't share the album or email anyone. When you're done, tell me how many you added and list anything you weren't sure belonged, so I can check it.
+
+Watch out:
+- This is still rolling out. Google says Photos tasks in Gemini may not be available to you yet and aren't available in some US regions, and you must be 18 or over. If you don't see it, the Ask tab in Google Photos can still find photos when you describe them.
+- It can pick the wrong photos. Google calls Ask Photos experimental and says it may give inaccurate results, so check an album before you share it.
+- Albums are labels, not folders. Removing a photo from an album keeps it in your library, but deleting it from the main Photos view removes it everywhere.
+- Shared albums can be seen by anyone with the link. Check for private photos, like screenshots of documents, before you share.
+
+Sources:
+- Gemini Apps Help: Streamline your Google Photos workflows in Gemini Apps: https://support.google.com/gemini/answer/18116629?hl=en
+- Google Photos Help: Use Ask Photos to search, edit and get assistance: https://support.google.com/photos/answer/15318661?hl=en
+- Google Photos Help: Create and edit photo albums: https://support.google.com/photos/answer/6128849?hl=en
+- Google Blog: 9 fun questions to try asking Google Photos (Feb 10, 2026): https://blog.google/products-and-platforms/products/photos/ask-button-ask-photos-tips/
+
 ## Let a private AI on your own computer work through your files
 URL: https://botsdothat.com/use-cases/use-a-private-ai-on-your-own-computer-for-your-files/
 Category: Work & career | Difficulty: Medium | Added: 2026-10-27

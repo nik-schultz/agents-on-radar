@@ -22,7 +22,7 @@ More run-for-less ideas (source from official docs before adding): per-provider 
 - [x] Find an apartment that fits your list (autocomplete: "use chatgpt to find apartments") → `find-an-apartment-that-fits-your-list`
 - [x] Compare two documents or contracts (autocomplete: "use ai to compare two documents") → `compare-two-documents`
 - [~] ~~Compare prices before you buy~~ DROPPED 2026-10-21 (money-saving, out of scope)
-- [ ] Organize your photos (autocomplete: "use ai to organize photos", "use ai to organize google photos")
+- [x] Organize your photos (autocomplete: "use ai to organize photos", "use ai to organize google photos") → `organize-your-photos-by-asking`
 - [ ] Plan your day or week (autocomplete: "ai to plan my day")
 - [ ] File an insurance claim (car or home) (autocomplete: "ai to help with insurance claims")
 - [ ] Understand your MRI or lab report before the appointment (autocomplete: "ai to read my mri"; strict "ask your doctor" guardrails)
