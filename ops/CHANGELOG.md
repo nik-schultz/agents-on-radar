@@ -1,5 +1,34 @@
 # Ops changelog
 
+## 2026-10-28 (Weekly SEO run (Wed), 10:15 AM CT)
+Research (free sources: Google autocomplete, HN, web search)
+- Gaps picked: agent file safety/sandboxing (autocomplete "sandbox ai agents", "best sandbox for ai agents", "are ai agents safe to use", "is hermes ai agent safe"; Ask HN 50192875) and insurance claims (autocomplete "ai to help with insurance claims", "chatgpt for insurance claims", "ai agent for insurance claims"; open BACKLOG item). Riverside candidate was already shipped on 10-27.
+
+New pages
+- `keep-an-ai-agent-from-deleting-your-files` (Work, Easy): one working folder, sandbox on, ask before deleting/moving, backups and a test restore, setup notes for Claude Cowork, Codex, OpenClaw and Hermes Agent. Sources: Claude Help (Use Cowork safely), Claude Academy best practices, OpenAI Codex sandboxing docs, OpenClaw sandboxing/workspace-access docs, Hermes Agent secure-on-a-work-machine guide, The Register (Jul 16, 2026), Ask HN 50192875 (4 points, 6 comments, measured Oct 28), GitHub anthropics/claude-code #86872. No time-saved claims.
+- `put-together-an-insurance-claim-with-an-ai-agent` (Inbox & paperwork, Easy): agent gathers photos, receipts and dates into a claim packet and draft; you submit it yourself. Sources: NAIC, Insurance Information Institute, Texas Department of Insurance, Claude Help (Cowork). No stats quoted.
+- New tools in data/tools.json: openclaw, hermes-agent.
+
+Other improvements
+- New "See also" box (build.py `see_also_html`, data field `see_also`). Used to fix the duplicate meal-plan backlog item: the one-off plan page and the recurring grocery-agent page now explain the difference and link to each other (no canonical, no deletion).
+- Internal links into the new pages from: sort-and-rename-a-messy-folder, use-a-private-ai-on-your-own-computer-for-your-files, appeal-a-health-insurance-denial, get-roadside-help-abroad, the email-safety guide (Related), the OpenClaw vs Hermes safety section, and the "Are AI agents safe to use?" FAQ on /what-can-bots-do/ and /ai-agent-examples/. Plus automatic tag-based Related links, hubs and categories.
+- llms.txt, llms-full.txt, sitemap.xml and the search index include both new pages. FAQPage, HowTo and BreadcrumbList JSON-LD are generated for both.
+
+Checks
+- validate 0 errors (105 use cases, 12 blueprints); build 145 indexed pages + 404; check_links 11,000 links, 0 broken internal, 647 unique external.
+
+AI-citation check (Oct 28, ~10:10 AM CT)
+- Web search tool: botsdothat.com/ai-agent-examples/ was the #1 result for "everyday AI agent use cases" and "AI agent examples for everyday life". Not in results for "what is an AI agent for beginners", "OpenClaw vs Hermes Agent", "how much does it cost to run an AI agent" or "how to keep an AI agent from deleting your files" (new page, not live yet at check time).
+- Bing (top 10, plain HTML fetch) and DuckDuckGo HTML: botsdothat.com not present for any of the 6 queries (DuckDuckGo served a bot challenge for 2 of them).
+- X: no posts mentioning botsdothat from other accounts.
+- Not tested: Perplexity (403 without login), ChatGPT, Google AI Overviews and Grok answers (no logged-out access or tool for these).
+
+Proposals (need approval, see BACKLOG)
+- Rework or label the 14 chat-prompt use cases; clarify /use-cases/ vs /ai-agent-examples/ with cross-pointers; meal-plan canonical only if they still compete.
+
+Deploy
+- scripts/deploy.sh (details below once finished).
+
 ## 2026-10-28 (daily QA run, 7:10 AM CT)
 Status: live site https://botsdothat.com/ is up (homepage 200 in about 0.22 s; /use-cases/, /trending/, /news/, /advertise/, /ai-pricing/, /assets/app.js, /assets/style.css, the search index, sitemap.xml and llms.txt all 200).
 

@@ -142,5 +142,17 @@
   "url": "https://heykiwi.co/",
   "cost": "Free during the pilot; you pay for anything it books",
   "kind": "agent"
+ },
+ "openclaw": {
+  "name": "OpenClaw",
+  "url": "https://openclaw.ai/",
+  "cost": "Free and open source; the AI model you connect may cost extra",
+  "kind": "agent"
+ },
+ "hermes-agent": {
+  "name": "Hermes Agent",
+  "url": "https://hermes-agent.nousresearch.com/",
+  "cost": "Free and open source (Nous Research); the AI model you connect may cost extra",
+  "kind": "agent"
  }
 }

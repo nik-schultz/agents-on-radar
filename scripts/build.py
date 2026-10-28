@@ -719,6 +719,12 @@ def cost_run_html(x):
     return (f'<section class="glass endup cost-run"><h2>What this costs to run</h2><p>{main}</p>'
             f'<p class="small">Tip: <a href="{u("/use-cases/"+g["slug"]+"/")}">{e(g["title"])}</a>. More in <a href="{u(LESS)}">Run your bots for less</a> and <a href="{u(COST_GUIDE)}">how much an AI agent costs</a>.</p></section>')
 
+def see_also_html(x):
+    """Optional hand-picked 'See also' links (data field see_also: [{slug, why}]); used to tell near-duplicate pages apart."""
+    items = [s for s in x.get("see_also", []) if s.get("slug") in UC and s["slug"] != x["slug"]]
+    if not items: return ""
+    return '<aside class="glass endup see-also" aria-label="See also"><h2>See also</h2><ul class="plain">' + "".join(
+        f'<li>{e(s.get("why", ""))} <a href="{u("/use-cases/"+s["slug"]+"/")}">{e(UC[s["slug"]]["title"])}</a></li>' for s in items) + "</ul></aside>"
 KIND_NAME = {"hn": "Hacker News", "youtube": "YouTube", "github": "GitHub"}
 def src_stats(s):
     t = stat_txt(s)
@@ -791,7 +797,7 @@ for x in ucs:
 <div class="uc-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span><span class="muted small">Updated <time datetime="{e(_mod)}">{nice_date(_mod)}</time> · By <a href="{u('/about/')}">{e(NAME)}</a> · Added {nice_date(x['date_added'])}</span>{pop_chip(x, long=True)}</div>{seen_on(x, long=True)}</header>
 <div class="uc-grid"><div class="uc-main">
 <section><h2>What the bot does</h2><ol class="steps">{steps}</ol></section>
-<section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p></section>{less_callout if x['category'] == 'run-for-less' else ''}{tool_listing(cat=x['category'])}
+<section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p></section>{see_also_html(x)}{less_callout if x['category'] == 'run-for-less' else ''}{tool_listing(cat=x['category'])}
 <section><h2>Copy-paste prompt</h2><p class="muted small">Fill in the [brackets]. Then paste it into any tool below.</p>{copybox(x['prompt'])}
 <p class="small">New to this? <a href="{u(BUILD_GUIDE)}">How to build an AI agent without coding</a>, or <a href="{u('/blueprints/#how-to')}">set up a bot in 5 plain steps →</a>{(' Connecting email or a calendar? Read <a href="' + u(SAFE_GUIDE) + '">is it safe to give an AI agent your email and calendar?</a>') if (x['category'] == 'inbox' or any(t.lower() in ('gmail', 'outlook', 'calendar', 'google calendar', 'email') for t in x.get('tags', []))) else ''}</p></section>
 {setup}
@@ -913,7 +919,9 @@ EXPLAIN_FAQ = [
     ("Are AI agents safe to use?", "Start with read-only jobs, make the agent ask before it sends, buys or deletes anything, connect apps only with the official connect button, and check the first week of results. Don't trust them yet with your money, your address or decisions you can't undo."),
     ("Do I need to know how to code to use an AI agent?", "No. Agent apps take instructions in plain words, and our blueprints give you the exact words to paste. Our step-by-step guide shows how to build your first one without coding."),
 ]
-explain_faq_html = "".join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in EXPLAIN_FAQ)
+_SAFE_MORE = f' More: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> and <a href="{u("/use-cases/keep-an-ai-agent-from-deleting-your-files/")}">how to keep an AI agent from deleting your files</a>.'
+_faq_more = lambda q: _SAFE_MORE if q == "Are AI agents safe to use?" else ""
+explain_faq_html = "".join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}{_faq_more(q)}</p></details>' for q, a in EXPLAIN_FAQ)
 explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 <header class="page-head"><p class="eyebrow">Plain English</p><h1 class="kinetic-sm">What is an AI agent? (in simple terms)</h1>
 <p class="lead">Short answer: an AI agent is an AI assistant that does a job for you, not just answers questions. Agents are good at reading, watching, sorting and drafting. They're getting OK at booking and buying while you watch. They aren't safe to trust with your money, your address or decisions you can't undo.</p>
@@ -994,7 +1002,7 @@ ex_body = f"""<article class="wrap narrow explainer">{crumbs([("Home", "/"), ("A
 <p class="lead">Short answer: an AI agent is an assistant that does a job for you, like reading your email, watching a web page or making a phone call, instead of only answering questions. Here are {len(ex_items)} real, everyday examples, grouped by part of life. Each one links to a plain-English guide with a copy-paste prompt.</p>
 <p class="small muted">Updated <time datetime="{MOD_ISO}">{MOD_NICE}</time>. New to agents? Read <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>, or <a href="{u(BUILD_GUIDE)}">build one without coding</a>.</p>
 {ex_groups}
-<section><h2>Questions people ask</h2>{''.join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in ex_faq)}</section>
+<section><h2>Questions people ask</h2>{''.join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}{_faq_more(q)}</p></details>' for q, a in ex_faq)}</section>
 <section class="glass explain-card"><h2>Want it on autopilot?</h2><p>Turn any of these into a bot that runs on a schedule with a <a href="{u('/blueprints/')}">build-your-own-bot blueprint</a>. Never built one? Follow <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>.</p></section>
 </article>"""
 page("/ai-agent-examples/", f"{len(ex_items)} AI agent examples for everyday life", mdesc(f"{len(ex_items)} real AI agent examples for everyday life: inbox, phone calls, shopping, travel, family, health and work, each with a plain-English guide and copy-paste prompt."), ex_body,
@@ -1406,7 +1414,7 @@ claw_body = f"""<article class="wrap narrow explainer">{wbc}
 <li><b>Run the audit.</b> <code>openclaw security audit</code> tells you if you've drifted from the safe defaults ({C('oc_sec', 'OpenClaw security')}).</li>
 <li><b>Keep it private.</b> OpenClaw's Gateway only listens on your own machine by default; if you need remote access, its docs recommend authenticated private access such as an SSH tunnel or tailnet rather than opening it to the internet ({C('oc_secfaq', 'OpenClaw security FAQ')}).</li>
 <li><b>Use a reader for email.</b> OpenClaw's docs suggest sending untrusted mail to a read-only reader agent first ({C('oc_pi')}); Hermes' docs show how to give the agent its own mailbox ({C('hm_mail')}).</li></ol>
-<p>The full beginner version: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a></p></section>
+<p>The full beginner version: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> For files: how to {_ua('keep-an-ai-agent-from-deleting-your-files')}, with the exact OpenClaw and Hermes settings.</p></section>
 
 <section class="reveal"><h2>Jobs people use them for</h2><p>Any of our {len(bps)} <a href="{u('/blueprints/')}">blueprints</a> works as instructions for either agent. Good first ones: {_ba('morning-inbox-briefing')}, {_ba('web-page-watcher')} and {_ba('scam-checker')}. Related: {_ua('team-of-agents-with-roles')}, {_ua('give-your-agent-its-own-email-address')}, {_ua('run-open-models-on-your-own-computer')}.</p></section>
 
@@ -1465,7 +1473,8 @@ safe_body = f"""<article class="wrap narrow explainer">{sbc}
 <li>{_ba('school-email-digest-bot')}: summarizes school email and drafts replies, but never sends them.</li>
 <li>{_ba('family-calendar-guardian')}: flags calendar clashes and never adds, moves or deletes events.</li>
 <li>{_ba('scam-checker')}: read-only verdict on suspicious messages before you click.</li></ul>
-<p>Related: {_ua('flag-only-emails-that-need-a-reply')}, {_ua('email-scam-filter')}, {_ua('give-your-agent-its-own-email-address')}, {_ua('sunday-family-calendar-check')}, {_ua('add-events-and-reminders-by-asking-your-bot')}.</p></section>
+<p>Related: {_ua('flag-only-emails-that-need-a-reply')}, {_ua('email-scam-filter')}, {_ua('give-your-agent-its-own-email-address')}, {_ua('sunday-family-calendar-check')}, {_ua('add-events-and-reminders-by-asking-your-bot')}.</p>
+<p>Letting an agent work on files too? Read how to {_ua('keep-an-ai-agent-from-deleting-your-files')} (one working folder of copies, a backup it can't reach, sandbox and approvals on).</p></section>
 
 <section class="reveal" id="self-hosted"><h2>Using OpenClaw or Hermes Agent?</h2>
 <p>Self-hosted agents give you more control and more responsibility. OpenClaw suggests routing untrusted mail to a read-only reader agent and warns that sandboxing is off by default ({C('oc_pi', 'prompt injection')}, {C('oc_sandbox', 'sandboxing')}). Hermes asks before dangerous commands by default, and its email channel ignores unknown senders unless you change that ({C('hm_sec', 'Hermes security')}). Side-by-side: <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a>.</p></section>

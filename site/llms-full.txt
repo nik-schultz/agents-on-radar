@@ -4,6 +4,79 @@ There's a bot for that. Here's how.
 
 A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
 
+## Keep an AI agent from deleting your files
+URL: https://botsdothat.com/use-cases/keep-an-ai-agent-from-deleting-your-files/
+Category: Work & career | Difficulty: Easy | Added: 2026-10-28
+Popularity: not measured
+
+Before an agent like Claude Cowork, Codex, OpenClaw or Hermes works on your computer, give it one working folder of copies, keep a backup it can't reach, and turn on its read-only or sandbox setting, so one wrong command can't wipe your files.
+
+What the bot does:
+1. Make a new working folder just for the agent and copy in only the files this job needs. Don't point it at Documents, Downloads, Desktop or your whole home folder.
+2. Back up anything you can't replace to somewhere the agent can't reach, such as a cloud backup or a drive that isn't connected.
+3. Pick the safest mode that still does the job: read-only if it only needs to read, and write access limited to the working folder if it needs to make files.
+4. Keep approvals on, so it has to ask before it deletes files or runs risky commands. Read what it wants to do before you click Allow.
+5. Try every new job on copies first. Once you've watched it behave, point it at the real folder.
+6. When it's done, paste the prompt's last line into the chat to get a list of every file it created or changed, and check them.
+
+What you end up with: An agent that can only touch one folder of copies, has to ask before it deletes anything, and can't reach the backup that saves you if it gets something wrong.
+
+Tools: Claude Cowork, OpenClaw, Hermes Agent, Hob
+
+Prompt:
+Work only inside the folder [folder name]. Don't delete, move or rename anything, and don't run commands that touch files outside this folder. Save anything new in a subfolder called [agent-output]. Before any step that would overwrite or remove a file, stop, show me exactly which files it would touch, and wait for my OK. When you're done, list every file you created or changed.
+
+Watch out:
+- Full-access modes are where the horror stories come from. In July 2026 OpenAI confirmed GPT-5.6 Sol had deleted some users' files; its Codex lead said this usually happened in Full-Access mode without the sandbox or Auto-review (The Register).
+- A sandbox only protects what's outside it. Inside the folder you allowed, the agent can still overwrite or wipe things, as a Hacker News commenter pointed out about git commands inside a project folder. Work on copies and keep a backup.
+- Clicking Allow out of habit defeats the point. Anthropic's Cowork course puts it plainly: Claude won't delete without asking, but the cost of clicking through the wrong confirmation is the cost of the file.
+- Safety checks can fail. A Claude Code bug report on GitHub describes a sub-agent that ran a delete outside the working folder and wiped a whole Windows user profile, so a backup the agent can't reach is your real safety net.
+- Hermes skips its dangerous-command check inside a Docker container, because the container is the boundary. Don't mount your real home folder into it.
+
+Sources:
+- Claude Help Center: Use Claude Cowork safely: https://support.claude.com/en/articles/13364135-use-claude-cowork-safely
+- Claude Academy: Best practices for working safely in Cowork: https://academy.claude.com/courses/introduction-to-claude-cowork/permissions-usage-choosing-your-model
+- OpenAI Codex docs: Sandbox modes and approvals: https://learn.chatgpt.com/docs/sandboxing
+- OpenClaw docs: Sandbox workspace access: https://docs.openclaw.ai/gateway/sandboxing/workspace-access
+- Hermes Agent docs: Running Hermes on a personal or work machine: https://hermes-agent.nousresearch.com/docs/guides/secure-hermes-on-a-work-machine
+- The Register: OpenAI admits GPT-5.6 occasionally deletes files (Jul 16, 2026): https://www.theregister.com/ai-and-ml/2026/07/16/openai-admits-gpt-56-occasionally-deletes-files-but-its-an-honest-mistake/5274008
+- Hacker News: “Ask HN: How do you sandbox your AI agent so it can't delete your files?”: https://news.ycombinator.com/item?id=50192875
+- GitHub (anthropics/claude-code #86872): sub-agent ran a delete outside the working folder: https://github.com/anthropics/claude-code/issues/86872
+
+## Put together a home or car insurance claim with an AI agent
+URL: https://botsdothat.com/use-cases/put-together-an-insurance-claim-with-an-ai-agent/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-28
+Popularity: not measured
+
+Drop your photos, receipts and policy into one folder and let an agent build the damage list, a dated timeline and the questions to ask your insurer. You check every line and file the claim yourself.
+
+What the bot does:
+1. Put everything in one folder: photos and videos of the damage, receipts, repair quotes, the police report if there is one, and copies of your policy documents.
+2. Point an agent that can work on a folder, like Claude Cowork, at it and paste the prompt. It reads the photos and receipts and builds a room-by-room (or part-by-part) list of what was damaged, with the file each item comes from.
+3. It writes a short, dated timeline of what happened and a list of what's still missing, like a receipt, the claim number or the adjuster's name.
+4. It pulls your deductible, any deadlines and the documents your policy asks for out of the policy, quoting the page, and drafts the questions to ask your insurer.
+5. You report the claim yourself in your insurer's app, website or phone line. After every call, add who you spoke to, when and what they said to the agent's contact log.
+
+What you end up with: A claim folder with a damage list that points to your photos and receipts, a dated timeline, your deadlines and the questions to ask, ready for you to submit and for the adjuster's visit.
+
+Tools: Claude Cowork, Hob, ChatGPT
+
+Prompt:
+Work only in the folder [claim folder]. It has photos, receipts and my [home/car] insurance policy for [what happened and when, e.g. a burst pipe in the kitchen on March 3]. 1) Make a spreadsheet of every damaged item: item, room or part, what's wrong, which photo shows it, and the receipt or proof file. Leave the value blank unless a receipt shows it. 2) Write a dated timeline from the photo dates and my notes. 3) From the policy, list my deductible, any deadline for reporting the claim or sending documents, and the documents it asks for, quoting the page. 4) List what's missing and the questions I should ask my insurer. Don't guess values, don't add anything I didn't tell you was lost, don't contact anyone, and don't delete or move any files.
+
+Watch out:
+- Report the claim right away; don't wait for the folder to be perfect. The NAIC says how long you have to report a claim varies by state.
+- Only claim what you really lost, at real values. AI can misread a photo or a receipt, and you're the one who signs the claim, so check every line. Adding items or inflating values is insurance fraud.
+- The AI's reading of your policy can be wrong. Confirm the deductible, coverage and deadlines with your insurer or agent; the III suggests asking about time limits for filing, for disputes and for sending more information.
+- Don't let the agent tidy up the folder. Keep every original photo and receipt, and work on copies (see how to keep an agent from deleting your files).
+- Your policy, photos and receipts are personal. Connect only the claim folder, not your whole drive, or use a local tool like Hob.
+
+Sources:
+- NAIC: What you need to know when filing a homeowners claim: https://content.naic.org/article/what-you-need-know-when-filing-homeowners-claim
+- Insurance Information Institute: How to file an auto insurance claim: https://www-legacy.iii.org/article/how-do-i-file-claim
+- Texas Department of Insurance: Tips for auto insurance claims after a wreck: https://www.tdi.texas.gov/tips/what-to-do-after-a-wreck.html
+- Claude Help Center: Get started with Claude Cowork (folder access, deletion protection): https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork
+
 ## Organize your photos by just asking
 URL: https://botsdothat.com/use-cases/organize-your-photos-by-asking/
 Category: Family & home | Difficulty: Easy | Added: 2026-10-28

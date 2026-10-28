@@ -24,7 +24,7 @@ More run-for-less ideas (source from official docs before adding): per-provider 
 - [~] ~~Compare prices before you buy~~ DROPPED 2026-10-21 (money-saving, out of scope)
 - [x] Organize your photos (autocomplete: "use ai to organize photos", "use ai to organize google photos") → `organize-your-photos-by-asking`
 - [ ] Plan your day or week (autocomplete: "ai to plan my day")
-- [ ] File an insurance claim (car or home) (autocomplete: "ai to help with insurance claims")
+- [x] File an insurance claim (car or home) (autocomplete: "ai to help with insurance claims", "ai agent for insurance claims") → `put-together-an-insurance-claim-with-an-ai-agent` (2026-10-28)
 - [ ] Understand your MRI or lab report before the appointment (autocomplete: "ai to read my mri"; strict "ask your doctor" guardrails)
 
 New autocomplete gaps seen 2026-10-20 (weekly SEO run): "ai agent for everyday use/life", "ai agents examples" (now served by `/ai-agent-examples/`), "best ai agent for personal assistant", "best ai agent for personal finance", "how to use ai agent to apply for jobs", "can ai help me decorate a room", "can ai help me write a letter".
@@ -106,7 +106,7 @@ Candidates not added yet:
 - Daily summary of a school district grades/homework page by Grok Bot: X @XWardClerkChris https://x.com/XWardClerkChris/status/2106200433979265353 (5 likes, measured 2026-10-26). Could become a "watch your kid's grades portal" entry once a 2nd source turns up.
 - From Jay Kranda's "20 Things My AI Agents Do" (Oct 11): an agent watchdog that emails you when a scheduled report doesn't go out; book-key-point reminders every few days; a weekly Nextdoor summary that stays silent on quiet weeks; package tracker that only speaks on status changes. Each needs a 2nd independent source.
 - Lesson for a guide: "ask the agent to check a live source and say how fresh it is" (Kranda's Muse sent him to a closed restaurant using stale hours).
-- Safety watch-outs worth a guide: Techdirt "Grok Bot spills tech CEO's bank data in public Slack" (HN 50169169, 36 points) on agents posting in shared channels; Meta Muse share links leaking chats (Ars, HN 50174687, 408 points); "Ask HN: How do you sandbox your AI agent so it can't delete your files?" (HN 50192875).
+- Safety watch-outs worth a guide: Techdirt "Grok Bot spills tech CEO's bank data in public Slack" (HN 50169169, 36 points) on agents posting in shared channels; Meta Muse share links leaking chats (Ars, HN 50174687, 408 points); "Ask HN: How do you sandbox your AI agent so it can't delete your files?" (HN 50192875). DONE 2026-10-28 → `keep-an-ai-agent-from-deleting-your-files`.
 - Developer-leaning, skip for beginners for now: NVIDIA OpenShell (HN 50198675, 504 points); openbot.run open-source Muse/Dots/Grok Bot replacement (HN 50240879, 2 points); Memspace shared memory across assistants (X @AfshalGula32794, 0 likes).
 - Optional extra source for the 1Password entry: Tech With Tim "AI Can Finally Get Past Login Screens (Safely)" https://www.youtube.com/watch?v=ibpSIF3aeGc (1,597,661 views, 2 months old; content not checked, so not cited).
 - Skipped: #ProofOfAgent / #MyAgentID crypto spam on X; Adobe-fee-waived and Amazon-$70-refund stories (money-saving, out of scope).
@@ -115,7 +115,7 @@ Candidates not added yet:
 Bugs/complaints: none found on the site. Note: HN items API comment counts differ slightly from the search API's num_comments (deleted comments), so only points were refreshed from it.
 
 - (2026-10-26, from news) Let a bot do your Walmart grocery run with a spending cap: Walmart Agent Gateway + Agent Profiles (per-order approval or spending limit, agent never sees your card). Wait until Agent Profiles roll out (announced Oct 21 for "next month"), then write it with the Walmart page and TechCrunch as sources.
-- (2026-10-27, from news) Turn one recording into a finished podcast episode, clips and scheduled posts with Riverside Agents (Producer, Editor, Clipper, Marketer; nothing posts without your approval). Sources: riverside.com/blog/first-team-of-ai-agents-built-for-video, Podnews press release, Forbes (Oct 26). Good everyday entry for solo creators and small businesses.
+- [x] (already shipped 2026-10-27 as `turn-a-recording-into-an-episode-clips-and-posts`) (2026-10-27, from news) Turn one recording into a finished podcast episode, clips and scheduled posts with Riverside Agents (Producer, Editor, Clipper, Marketer; nothing posts without your approval). Sources: riverside.com/blog/first-team-of-ai-agents-built-for-video, Podnews press release, Forbes (Oct 26). Good everyday entry for solo creators and small businesses.
 - (2026-10-27, from news) A background assistant that flags forgotten subscriptions and price drops on trips you booked: Ant Group LingGuang 2.0 (Business Wire, Oct 26). Mostly China-market; could support a "catch forgotten subscriptions" entry alongside a US tool.
 
 ## Trending watch 2026-10-27 (midday)
@@ -136,3 +136,9 @@ Candidates not added yet:
 - Skipped: #ProofOfAgent / #MyAgentID crypto-agent spam on X (still heavy); developer-only launches (OpenShell, Corgi, AI Bridge, VibeiDE, ManyAgents).
 
 Bugs/complaints: none found.
+
+## Weekly SEO run 2026-10-28 (Wed)
+- [x] Duplicate meal-plan pages: differentiated instead of merged. `weekly-meal-plan-and-grocery-list` (one-off plan + list) and `family-meal-plan-and-grocery-order` (recurring agent that fills the cart) now link to each other with a one-line "which one is for you" note. No canonical or deletion. Proposal only: if they still compete in GSC in a month, canonical the one-off page to the agent page.
+- [ ] PROPOSAL (needs approval): 14 chat-prompt use cases drifting from agentic bots. Either rewrite each as an agent task (schedule, tool access, approval step) or move them under a "one-off prompts" note. No deletions without approval.
+- [ ] PROPOSAL (needs approval): /use-cases/ vs /ai-agent-examples/ overlap. Keep /use-cases/ as the filterable directory and /ai-agent-examples/ as the beginner "examples for everyday life" list (it was the first result in our web-search tool on 2026-10-28 for "everyday AI agent use cases" and "AI agent examples for everyday life", though not in Bing's top 10); add a sentence at the top of each pointing to the other.
+- New autocomplete seen 2026-10-28: "sandbox ai agents", "best sandbox for ai agents", "macos sandbox ai agent", "are ai agents safe to use", "is hermes ai agent safe", "chatgpt for insurance claims".
