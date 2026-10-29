@@ -563,3 +563,19 @@ Improvement for visitors
 - X: official posts recorded (measured 2026-10-29): @OpenAIDevs 7.4K likes / 1.4M views, @tobi 757 likes / 107K views, @grok 224 likes / 347K views. Refreshed numbers for 33 news items posted since Oct 21: Gemini 4 Carbon's @sundarpichai post is now 30.7K likes and 5.1M views, Claude for Legal 26.9K likes / 5.6M views, Genie 4 23.5K likes / 3.3M views.
 - Skipped: Anthropic's drug-development and AI for Science posts (research programs, not products), Particle-1, Amp macOS Satellites, Rime Prism and Articul8 Bivia (developer or enterprise-only, single-source). No public model price changes, so the AI pricing table is unchanged.
 - BACKLOG: logged a Shop Pay / shop.md shopping-agent guide idea.
+
+## 2026-10-29 (daily QA, 7:00 AM CT)
+Checks
+- Live site: up. Homepage, /news/, /ai-pricing/, /use-cases/ (all guides) and three guide pages all returned 200 before and after the deploy.
+- Internal links, anchors, assets: 0 broken (11,197 links scanned across 147 pages + 404); every same-page and cross-page `#anchor` points at a real id; every page has a viewport tag; 9 images, all with alt text, none broken.
+- Outbound links (566 unique checked with HEAD, then GET with a browser user agent): no real breakages. All 91 YouTube videos exist (oEmbed 200); Hacker News 503s were rate limiting and all 29 threads load when checked slowly. ftc.gov and consumer.ftc.gov answer 404 to this box for every URL, including their homepages (bot block); the 4 FTC pages were confirmed live through web search. openai.com, help.openai.com, claude.ai, Product Hunt, Business Wire, investing.com and kit.com return 403/429 to scripts as usual; Retail Dive, RentCafe, NAIC, Digital Commerce 360, Oracle's blog, dev.meta.ai (500 to curl) and meta.com help (400 to curl) all loaded fine with a normal fetch.
+- Real browser check (headless Chromium, local build and live site): no horizontal scroll at 320px or 1280px on 9 key pages, no broken images, no JS errors (the only console message locally is the Cloudflare analytics beacon refusing localhost, expected). Copy-prompt button copies the prompt and shows "Copied ✓". All-guides search and `?q=` links work.
+
+Bugs fixed
+- Homepage instant search was broken on the live site since Oct 23: the script built the search-index URL by stripping `assets/style.css` off the stylesheet link, but the link has carried a `?v=` cache-buster since e3dab69, so it fetched a garbage URL, got CSS back and showed nothing. Pressing Enter (the all-guides search) still worked. Fixed the pattern in `static/app.js`; verified live that "insurance denied", "shop pay" and "apartment" return results.
+- If the search index ever fails to load, the homepage box now says "Quick search didn't load. Press Enter to search all guides." instead of failing silently with an unhandled promise error, and retries on the next keystroke.
+
+Improvement for visitors
+- New guide `let-your-ai-shop-for-you-with-shop-pay` (shopping): connect Shopify's Shop skill from shop.md to ChatGPT or Claude, or use Shop Pay inside Muse, Instinct, Claude Duet or Grok Bot, to find, check out and track orders, with you approving every purchase. Sources: Shop Help Center and Shopify's Fall '26 Edition (official), The Verge (Oct 13) and @benjaminsehl's launch post (X; 85 likes, 38.7K views, measured 2026-10-29). Watch-outs come from Shop's own help center (wrong prices possible, agent accepts store return rules for you, disputes may fail once you've approved, what gets shared). Now 107 use cases; X is 70 of 387 source links (18%).
+- Added the Shop Help Center (one-time payment credentials at stores without Shop Pay) as a source on `pay-with-a-single-use-virtual-card`. BACKLOG item marked done; `ops/source-mix.md` updated.
+- Deploy: 4ffd9c2 (main) / def914a (publish); GitHub Actions run succeeded.
