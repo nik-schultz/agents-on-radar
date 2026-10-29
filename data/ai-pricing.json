@@ -181,6 +181,17 @@
    "checked_on": "2026-10-27"
   },
   {
+   "provider": "Mistral",
+   "model": "Mistral Large 4",
+   "tier": "flagship",
+   "input": 0.7,
+   "output": 2.1,
+   "cached_input": 0.07,
+   "note": "Open-weight ('Le Chonk'), weights released Oct 29, 2026. Price from Mistral's launch post; the pricing page FAQ still quotes Mistral Large at $0.50 / $1.50.",
+   "source_url": "https://mistral.ai/news/mistral-large-4-oss/",
+   "checked_on": "2026-10-29"
+  },
+  {
    "provider": "Meta",
    "model": "Muse Wonder",
    "tier": "flagship",

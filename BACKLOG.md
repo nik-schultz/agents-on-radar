@@ -188,3 +188,9 @@ Candidates not added yet:
 - Skipped: MAO / Gologin / Radar / TopAgent / Floot (developer or marketing tools); "I cancelled $1,175 a month of paid tools" and "Grok Bot saved me $604" X posts (money-saving, out of scope); #ProofOfAgent crypto spam.
 
 Bugs/complaints: none found.
+
+## 2026-10-29 (from PM news run)
+- [ ] Guide candidate: "Find and cancel the subscriptions you forgot about" (and "start a free trial that cancels itself before it bills"). Grok Bot 0.78.1 templates: Try it, don't pay for it / Find unused subscriptions / Watch subscription prices, Bot confirms before changing anything (x.ai/changelog/bot, Oct 27; thetechsignal.co Oct 29; X @ericzakariasson 2115586309096083730). Alexa for Shopping now skips/pauses Subscribe & Save and answers Prime/Audible renewal questions (aboutamazon.com + TechCrunch, Oct 29). Link to `cancel-a-subscription-by-phone` and LingGuang note above; needs a non-vendor second source on real use.
+- [ ] Extra tool/source: Alexa for Shopping (list/registry edits, delivery instructions, refund tracking) for `reorder-your-regular-groceries` and `make-a-customer-service-call` ("Where is my refund?" without a call).
+- [ ] Extra source: Gemini file editing in chat (blog.google Oct 29; "PDF study guide from handwritten notes") for homework/study entries such as `homework-help-that-teaches`.
+- [ ] Watch: Claude voice mode in CarPlay (X @claudeai 2115859377488072879, Oct 29) for any "talk to your AI while driving" entry; Granola free voice typing (Mac) as a tool note for dictation-style prompts.
