@@ -4,6 +4,39 @@ There's a bot for that. Here's how.
 
 A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
 
+## Let your AI find and buy things for you with Shop Pay
+URL: https://botsdothat.com/use-cases/let-your-ai-shop-for-you-with-shop-pay/
+Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-29
+Popularity: 85 likes, 7 reposts on X (https://x.com/benjaminsehl/status/2110101061499539825, measured 2026-10-29)
+
+Connect Shopify's free Shop skill to ChatGPT or Claude (or use Shop Pay inside Muse, Instinct, Claude Duet or Grok Bot) and your AI can search online stores, fill in a checkout and pay with Shop Pay. You approve every purchase, and your card number is never handed to the AI.
+
+What the bot does:
+1. You describe what you want in plain words, like "waterproof hiking boots under $150, size 10, delivered by Friday".
+2. It searches products from Shopify stores, using your Shop sizes, preferences and past orders if you've signed in.
+3. It shows you a few picks with prices, shipping and the store's return policy.
+4. When you pick one, it prepares the checkout with your saved address already filled in.
+5. You review the total and approve the payment in Shop. Afterwards it can track the order and check if it's returnable.
+
+What you end up with: The thing you wanted, found and ordered from one chat, with every purchase approved by you and the order tracked in your Shop app.
+
+Tools: ChatGPT, Claude, Meta Muse, Instinct, Grok Bot (personal agents)
+
+Prompt:
+Use the Shop connection to help me buy [what you want, e.g. a rain jacket for a 10-year-old]. My budget is [$] including shipping, and it needs to arrive by [date]. Only show items from stores that accept returns for at least 30 days. Give me your top 3 with the total price, delivery date and return window for each. Don't check out or pay for anything until I reply "buy number [1/2/3]".
+
+Watch out:
+- Shop's help center says agents can get prices, taxes, shipping, stock or return details wrong. Check the total and the store before you approve.
+- When the agent buys for you it accepts the store's shipping, return and cancellation rules on your behalf. Tell it to skip stores that don't take returns.
+- If you approved a purchase or gave the agent a budget, disputing the charge later may not work (Shop help center). Start with approval for every order.
+- Connecting shares your name, email, phone, addresses and order history with the AI app. You can disconnect any time in Shop, but that doesn't delete what was already shared.
+
+Sources:
+- Shop Help Center: using Shop with AI agents (add the Shop skill to ChatGPT, Claude and others; Shop Pay in Muse, Instinct and Claude Duet; approvals, budgets and what gets shared): https://help.shop.app/en/shop/shopping/personal-agents
+- Shopify Fall '26 Edition (Oct 28, 2026): shop.md shopping skill for any AI agent, and Shop Pay inside Muse, Claude Duet, Grok Bot and Instinct; your card is never shared with the agent: https://www.shopify.com/news/fall-26-edition-merchant
+- The Verge (Oct 13, 2026): Shopify lets shoppers connect any AI agent to buy from its catalog with Shop Pay; you can set rules like a budget, and must approve each purchase: https://www.theverge.com/news/1010365/shopify-opens-its-catalog-up-to-more-ai-agents
+- X post by @benjaminsehl, Shopify product director (2026-10-13): launch of shop.md and the Shop MCP behind it: https://x.com/benjaminsehl/status/2110101061499539825
+
 ## Add an AI to your friends' group chat to make plans happen
 URL: https://botsdothat.com/use-cases/add-an-ai-to-your-friends-group-chat-to-make-plans/
 Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-28
@@ -2340,6 +2373,7 @@ Sources:
 - Link help center: set up a Link balance so your agent can buy things up to a per-purchase limit you choose, without seeing your card; set it to $0 to require approval every time: https://support.link.com/questions/set-up-a-balance-for-agent-wallet-purchases
 - The Defiant (Oct 2026): Instinct rolls out Link balance for AI shopping with spending limits; balances are held in USDC: https://thedefiant.io/converge/tradfi-and-fintech/instinct-rolls-out-link-balance-for-ai-shopping-with-spending-limits
 - X post by @instinct (2026-10-26): Link balance is live in Instinct; add money, set a per-purchase limit, and Instinct buys within it: https://x.com/instinct/status/2114799582760861732
+- Shop Help Center: at stores without Shop Pay, Instinct and Claude Duet get a one-time payment credential after you approve the store, amount and spending limit, so your saved card isn't shared with the agent or the store: https://help.shop.app/en/shop/shopping/personal-agents
 
 ## Get your ads and sales numbers every morning without logging in
 URL: https://botsdothat.com/use-cases/daily-ads-and-sales-report/

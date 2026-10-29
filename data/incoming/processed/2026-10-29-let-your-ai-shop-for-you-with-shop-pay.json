@@ -1,0 +1,46 @@
+{
+  "slug": "let-your-ai-shop-for-you-with-shop-pay",
+  "title": "Let your AI find and buy things for you with Shop Pay",
+  "category": "shopping",
+  "source_date": "2026-10-28",
+  "summary": "Connect Shopify's free Shop skill to ChatGPT or Claude (or use Shop Pay inside Muse, Instinct, Claude Duet or Grok Bot) and your AI can search online stores, fill in a checkout and pay with Shop Pay. You approve every purchase, and your card number is never handed to the AI.",
+  "what_the_bot_does": [
+    "You describe what you want in plain words, like \"waterproof hiking boots under $150, size 10, delivered by Friday\".",
+    "It searches products from Shopify stores, using your Shop sizes, preferences and past orders if you've signed in.",
+    "It shows you a few picks with prices, shipping and the store's return policy.",
+    "When you pick one, it prepares the checkout with your saved address already filled in.",
+    "You review the total and approve the payment in Shop. Afterwards it can track the order and check if it's returnable."
+  ],
+  "what_you_end_up_with": "The thing you wanted, found and ordered from one chat, with every purchase approved by you and the order tracked in your Shop app.",
+  "difficulty": "Easy",
+  "tools": [
+    {"id": "chatgpt", "note": "Add the Shop skill from shop.md"},
+    {"id": "claude", "note": "Add the Shop skill from shop.md; Shop Pay also works in Claude Duet"},
+    {"id": "meta-muse", "note": "Shop Pay built in, Shopify stores only"},
+    {"id": "instinct", "note": "Shop Pay built in, works at stores off Shopify too"},
+    {"id": "grok-bot", "note": "Shop Pay built in, works at stores off Shopify too"}
+  ],
+  "prompt": "Use the Shop connection to help me buy [what you want, e.g. a rain jacket for a 10-year-old]. My budget is [$] including shipping, and it needs to arrive by [date]. Only show items from stores that accept returns for at least 30 days. Give me your top 3 with the total price, delivery date and return window for each. Don't check out or pay for anything until I reply \"buy number [1/2/3]\".",
+  "setup": [
+    "If you don't have one yet, make a free Shop account at shop.com (it's the same Shop app many stores use for package tracking).",
+    "Go to shop.md and choose Add to ChatGPT or Add to Claude. For another AI, copy the prompt shop.md gives you and paste it into a chat.",
+    "When your AI asks you to sign in to Shop, open the link and approve it on Shop's own page. Never type your Shop code or passkey into the chat.",
+    "Already using Muse, Instinct, Claude Duet or Grok Bot? Just ask it to buy something and follow its prompt to connect Shop Pay.",
+    "Leave \"Allow agent to pay for me\" off at first, so you approve every order. You can turn it on later in the Shop app under Account > Connections, with a weekly, monthly or total budget."
+  ],
+  "watch_out": [
+    "Shop's help center says agents can get prices, taxes, shipping, stock or return details wrong. Check the total and the store before you approve.",
+    "When the agent buys for you it accepts the store's shipping, return and cancellation rules on your behalf. Tell it to skip stores that don't take returns.",
+    "If you approved a purchase or gave the agent a budget, disputing the charge later may not work (Shop help center). Start with approval for every order.",
+    "Connecting shares your name, email, phone, addresses and order history with the AI app. You can disconnect any time in Shop, but that doesn't delete what was already shared."
+  ],
+  "sources": [
+    {"label": "Shop Help Center: using Shop with AI agents (add the Shop skill to ChatGPT, Claude and others; Shop Pay in Muse, Instinct and Claude Duet; approvals, budgets and what gets shared)", "url": "https://help.shop.app/en/shop/shopping/personal-agents", "kind": "official"},
+    {"label": "Shopify Fall '26 Edition (Oct 28, 2026): shop.md shopping skill for any AI agent, and Shop Pay inside Muse, Claude Duet, Grok Bot and Instinct; your card is never shared with the agent", "url": "https://www.shopify.com/news/fall-26-edition-merchant", "kind": "official"},
+    {"label": "The Verge (Oct 13, 2026): Shopify lets shoppers connect any AI agent to buy from its catalog with Shop Pay; you can set rules like a budget, and must approve each purchase", "url": "https://www.theverge.com/news/1010365/shopify-opens-its-catalog-up-to-more-ai-agents", "kind": "article"},
+    {"label": "X post by @benjaminsehl, Shopify product director (2026-10-13): launch of shop.md and the Shop MCP behind it", "url": "https://x.com/benjaminsehl/status/2110101061499539825", "kind": "x"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2110101061499539825", "author": "@benjaminsehl", "url": "https://x.com/benjaminsehl/status/2110101061499539825", "posted_at": "2026-10-13",
+                 "likes": 85, "reposts": 7, "replies": 25, "bookmarks": 66, "views": 38653, "measured_at": "2026-10-29"},
+  "tags": ["online shopping", "buy for me", "Shop Pay", "Shopify", "shop.md", "checkout", "gift ideas", "order tracking", "returns", "personal shopper"]
+}

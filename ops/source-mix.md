@@ -128,3 +128,28 @@ Top domains: youtube.com (91), x.com (69), news.ycombinator.com (31), reddit.com
 
 
 What changed (2026-10-28 midday trending run): 1 new use case (Instinct group chats; 2 news sources + 1 X post) and 5 non-X sources added to existing entries (Link help center, The Defiant, TechCrunch, Product Hunt Off Grid AI). 4 of the 6 new links are non-X.
+
+## After (measured 2026-10-29 daily QA)
+
+- Use cases: **107**; source links: **387**
+- X share of source links: **70/387 = 18%**
+- X share of community links (X, Reddit, Hacker News, YouTube, GitHub, Product Hunt): **70/238 = 29%**
+- X-only use cases (every source is an X post): **8** (7%)
+- Use cases with at least one non-X community source (Reddit, Hacker News, YouTube, GitHub, Product Hunt): **75**
+- x.com URLs anywhere in the file (sources + popularity blocks + examples): 117
+
+| Platform | Source links | Use cases citing it |
+|---|---:|---:|
+| Official docs, news and blogs | 127 | 58 |
+| YouTube | 91 | 62 |
+| X | 70 | 55 |
+| Hacker News | 31 | 25 |
+| Reddit | 28 | 21 |
+| Search demand (Google) | 22 | 18 |
+| GitHub | 15 | 13 |
+| Product Hunt | 3 | 3 |
+
+Top domains: youtube.com (91), x.com (70), news.ycombinator.com (31), reddit.com (24), google.com (22), github.com (15), support.google.com (14), docs.anthropic.com (7), menlovc.com (5), techcrunch.com (4), support.claude.com (4), blog.google (4)
+
+
+What changed (2026-10-29 daily QA run): 1 new use case (let-your-ai-shop-for-you-with-shop-pay; 2 official Shopify/Shop pages + The Verge + 1 X post) and 1 official source (Shop Help Center) added to pay-with-a-single-use-virtual-card. 4 of the 5 new links are non-X.

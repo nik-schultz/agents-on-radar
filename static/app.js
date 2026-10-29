@@ -74,8 +74,9 @@
   var hs = d.querySelector('[data-home-search]');
   if (hs) {
     var out = d.querySelector('.home-results'), idx = null;
-    var load = function () { if (idx) return Promise.resolve(idx); var base = (d.querySelector('link[rel=stylesheet]').getAttribute('href') || '').replace(/assets\/style\.css$/, ''); return fetch(base + 'assets/search-index.json').then(function (r) { return r.json(); }).then(function (j) { idx = j; return j; }); };
-    hs.addEventListener('focus', load, { once: true });
+    var load = function () { if (idx) return Promise.resolve(idx); var base = (d.querySelector('link[rel=stylesheet]').getAttribute('href') || '').replace(/assets\/style\.css(\?.*)?$/, ''); return fetch(base + 'assets/search-index.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (j) { idx = j; return j; }); };
+    var fail = function () { out.innerHTML = '<p class="small muted">Quick search didn\u2019t load. Press Enter to search all guides.</p>'; };
+    hs.addEventListener('focus', function () { load().catch(function () {}); }, { once: true });
     hs.addEventListener('input', function () {
       var words = norm(hs.value).split(' ').filter(Boolean);
       if (!words.length) { out.innerHTML = ''; return; }
@@ -85,7 +86,7 @@
         var esc = function (s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
         out.innerHTML = hits.length ? '<ul class="glass">' + hits.map(function (h) { return '<li><a href="' + esc(h.u) + '"><span aria-hidden="true">' + h.i + '</span><span>' + esc(h.t) + '</span><span class="hr-cat">' + esc(h.c) + '</span></a></li>'; }).join('') + '</ul>'
           : '<p class="small muted">No match yet. Press Enter to search everything.</p>';
-      });
+      }).catch(fail);
     });
   }
 
