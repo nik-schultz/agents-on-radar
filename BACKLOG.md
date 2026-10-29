@@ -168,3 +168,23 @@ Bugs/complaints: none found.
 ## News run 2026-10-29 AM
 - [x] (done 2026-10-29: `let-your-ai-shop-for-you-with-shop-pay`, second source The Verge Oct 13; also added the Shop Help Center to `pay-with-a-single-use-virtual-card`) New guide candidate: "Have your AI find and buy something for you with Shop Pay" via Shopify's shop.md skill (works with ChatGPT/Claude; Shop Pay also in Muse, Claude Duet, Grok Bot, Instinct; card never shared, you approve each purchase). Sources: shopify.com/news/fall-26-edition-merchant, shopify.com/editions/fall2026, @tobi 2115476197572506077. Needs a second independent source (e.g. TechCrunch/The Verge coverage or a Reddit/HN thread) before publishing; could also be a source for `pay-with-a-single-use-virtual-card`.
 - Developer-leaning, skip for beginners: OpenAI API credits for ChatGPT Pro/Business (mention in /run-your-bots-for-less/ on the next SEO run), Grok API `guidelines` field, Particle-1, Amp macOS Satellites.
+
+## Trending watch 2026-10-29 (midday)
+
+Added: `let-chatgpt-run-your-icloud-mail-and-calendar` (OpenAI Help, MacRumors, 9to5Mac, Engadget, r/ChatGPT; X @ChatGPT 5,790 likes / 391 reposts / 1.92M views on Oct 29), `tell-ifttt-what-to-automate-in-plain-words` (IFTTT blog + AI Agent page + Help Center, Product Hunt #8 Oct 29 score 98 / 7 comments, HiTecWeb; X @ltibbets 25 likes), `get-an-ai-coach-that-helps-you-start-overwhelming-tasks` (r/ChatGPT parent post Oct 28, manast.me ADHD body-double guide, OpenAI Help scheduled tasks + Projects). The Straits Times Muse test (Oct 28) added to `proactive-next-moves-bot` and `restaurant-reservations-by-agent`. New tool: `ifttt`. Refreshed 46 tracked X posts.
+
+Mentions/feedback: none. X search "botsdothat" / "botsdothat.com" / "bots do that" since Oct 28 = only unrelated uses of the phrase; HN Algolia 0 hits; web search shows only our own pages.
+
+Candidates not added yet:
+- [ ] ChatGPT Chat and Work merge: some users saw a "Chat and Work, all in one place" popup on Oct 28 (r/ChatGPT threads), but OpenAI's Tibo Sottiaux said on X it's "not rolling out just yet" (techcityauthority.com, Oct 29). When it ships, update every entry/tool note that says "ChatGPT Work" (tool `chatgpt-work`).
+- [ ] Grok Bot answering calls on an old Android phone and booking a doctor (X @lumixsv 2115483550560530478, 16 likes, Oct 28) and a week of call screening (@Wombaflow 2115480552966893736, 26 likes). Extra X sources for `let-a-bot-answer-and-screen-your-calls`; need a non-X corroboration.
+- [ ] Grok Bot sorted an Amazon order/shipping problem (X @realpeteyb123 2115470366051356989, 189 likes, 8,474 views, Oct 28). Could be an X source for `make-a-customer-service-call`; the post's "large discount" angle is money-saving, so quote only the order-fix part.
+- [ ] Empacer (Product Hunt #1 Oct 29, score 329, 63 comments): voice-first assistant for small business owners, nothing sent without approval. Revisit for a small-business entry after reviews.
+- [ ] Scape (Product Hunt #2 Oct 29, score 236): AI email client that drafts replies and tracks follow-ups. Possible extra tool for `flag-only-emails-that-need-a-reply`.
+- [ ] DeepTutor (GitHub HKUDS/DeepTutor, 49,546 stars, +1,926 today on Oct 29): open-source lifelong personal tutor. Developer setup; maybe a source for `homework-help-that-teaches` if a hosted version is beginner-friendly.
+- [ ] OpenMausBot (GitHub, 7,260 stars, +1,190 today) and "Solar" (r/AI_Agents, Oct 28): free Grok Bot alternatives with their own VM / Mac app. Developer-leaning; watch.
+- Watch-out for guides: "Claude Code regularly sends each background agent's transcript to its model" (HN 50284255, 527 points, 214 comments, Oct 29), for `keep-an-ai-agent-from-deleting-your-files` / privacy notes. Also "If someone has to check every AI agent action, how much work have you actually automated?" and "Do you still read your agent's approval prompts, or do you just hit yes?" (r/AI_Agents, Oct 29), a possible beginner explainer on approval fatigue.
+- Reader questions seen: "For anyone who's used Meta's Muse agent: where did it fail or need a lot of hand-holding?" (r/AI_Agents, Oct 28); "Been using TAB, curious about Instinct" (asking for invites). Possible "Muse vs Instinct vs dots: which personal agent for you" comparison page.
+- Skipped: MAO / Gologin / Radar / TopAgent / Floot (developer or marketing tools); "I cancelled $1,175 a month of paid tools" and "Grok Bot saved me $604" X posts (money-saving, out of scope); #ProofOfAgent crypto spam.
+
+Bugs/complaints: none found.

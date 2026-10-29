@@ -1,0 +1,46 @@
+{
+  "slug": "let-chatgpt-run-your-icloud-mail-and-calendar",
+  "title": "Let ChatGPT catch you up on your iCloud Mail and update your iPhone calendar",
+  "category": "inbox",
+  "source_date": "2026-10-27",
+  "summary": "If your email ends in @icloud.com, @me.com or @mac.com, ChatGPT can now read and search it, draft replies and add or move events on the calendar you see on your iPhone. It works on every ChatGPT plan, including Free, and ChatGPT's always-on dots can use it too.",
+  "what_the_bot_does": [
+    "You connect two plugins in ChatGPT, iCloud Mail and iCloud Calendar, using a special one-off password you make at Apple.",
+    "You ask in plain words, like \"catch me up on unread mail from this week\" or \"find last week's delivery notice\".",
+    "It searches your iCloud inbox, sums up what matters and can draft a reply for you to check.",
+    "It reads your iCloud calendar, tells you what's next and can add or change an event, for example from a booking email.",
+    "If you use a ChatGPT dot (Pro), the dot can use the same plugins to keep an eye on things and tell you when something needs you."
+  ],
+  "what_you_end_up_with": "A short catch-up of your iCloud inbox and an up-to-date iPhone calendar, without opening the Mail or Calendar apps.",
+  "difficulty": "Easy",
+  "tools": [
+    {"id": "chatgpt", "note": "iCloud Mail and iCloud Calendar plugins, all plans, web, desktop and iOS"},
+    {"id": "chatgpt-dots", "note": "Dots can use the iCloud plugins too"}
+  ],
+  "prompt": "Using my iCloud Mail and iCloud Calendar: 1) Give me a 5-line catch-up of unread email from the last [3] days. Put anything with a date, deadline or payment first. 2) For any email that has an appointment or booking in it, show me the event you'd add (title, date, time, place) and wait for me to say \"add it\". 3) List emails that need a reply and draft a short one for each. Don't send any email, delete anything or change my calendar until I say yes to that specific item.",
+  "setup": [
+    "On your iPhone open Settings, tap your name, then Sign-In & Security > App-Specific Passwords (or go to account.apple.com). Make a new password and name it \"ChatGPT Mail\". You need two-factor authentication turned on.",
+    "In ChatGPT open Settings > Plugins, find iCloud Mail and choose Install. Type your @icloud.com, @me.com or @mac.com address and paste the app-specific password into the connection form, never into the chat.",
+    "Make a second app-specific password named \"ChatGPT Calendar\" and connect the iCloud Calendar plugin with your main Apple Account email (it can differ from your iCloud Mail address).",
+    "Test it: ask \"What's on my calendar tomorrow?\" and check the answer against your iPhone's Calendar app.",
+    "To stop it later, disconnect the plugin in ChatGPT and also revoke the password at Apple. Disconnecting in ChatGPT alone doesn't cancel the password."
+  ],
+  "watch_out": [
+    "It only sees your iCloud account, not Gmail or Outlook mail you also read in the iPhone Mail app (MacRumors, Oct 27, 2026).",
+    "The Mail plugin can send email and the Calendar plugin can change events. Tell it to show you every email and event first and only act after your yes.",
+    "Never paste your Apple password or the app-specific password into a chat. It goes only in the plugin's connection form (OpenAI Help Center).",
+    "If you change or reset your main Apple password, Apple cancels your app-specific passwords and you'll need to make new ones and reconnect each plugin.",
+    "Contacts lookup is read-only, and there's no Reminders plugin yet (OpenAI Help Center)."
+  ],
+  "sources": [
+    {"label": "OpenAI Help Center: connecting iCloud Mail or Calendar in ChatGPT (app-specific password, separate Mail and Calendar connections, read-only contacts, revoke the password at Apple)", "url": "https://help.openai.com/en/articles/20001494-connecting-and-managing-app-accounts-in-chatgpt", "kind": "official"},
+    {"label": "MacRumors (Oct 27, 2026): ChatGPT can now access your iCloud Mail and Calendar; read, schedule and update events, search mail, manage drafts and send email, on all plans; Dots can use it", "url": "https://www.macrumors.com/2026/10/27/chatgpt-icloud-mail-calendar-plugin/", "kind": "article", "posted_at": "2026-10-27"},
+    {"label": "9to5Mac (Oct 27, 2026): iCloud Mail and Calendar plugins now work with ChatGPT, and they make ChatGPT dots work with iCloud for the first time", "url": "https://9to5mac.com/2026/10/27/icloud-mail-and-calendar-plugins-now-work-with-chatgpt/", "kind": "article", "posted_at": "2026-10-27"},
+    {"label": "Engadget (Oct 27, 2026): ChatGPT can work with your iCloud Mail and Calendar thanks to new plugin support; free and paid accounts", "url": "https://www.engadget.com/2299026/chatgpt-can-work-with-your-icloud-mail-and-calendar-thanks-to-new-plugin-support/", "kind": "article", "posted_at": "2026-10-27"},
+    {"label": "Reddit r/ChatGPT (Oct 29, 2026): \"The new Apple iCloud plugins for mail and calendar are going to be game changers for me\"", "url": "https://www.reddit.com/r/ChatGPT/comments/1xij3do/icloud_mail_and_icloud_calendar/", "kind": "reddit", "posted_at": "2026-10-29"},
+    {"label": "X post by @ChatGPT (2026-10-27): iCloud Mail and Calendar plugins are available in ChatGPT on all plans", "url": "https://x.com/ChatGPT/status/2115139248458191070", "kind": "x"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2115139248458191070", "author": "@ChatGPT", "url": "https://x.com/ChatGPT/status/2115139248458191070", "posted_at": "2026-10-27",
+                 "likes": 5790, "reposts": 391, "replies": 391, "bookmarks": 1081, "views": 1920915, "measured_at": "2026-10-29"},
+  "tags": ["iCloud", "iPhone", "Apple Mail", "Apple Calendar", "ChatGPT plugins", "inbox catch-up", "calendar", "app-specific password", "dots", "email summary"]
+}

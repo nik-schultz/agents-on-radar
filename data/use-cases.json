@@ -1,5 +1,306 @@
 [
  {
+  "slug": "tell-ifttt-what-to-automate-in-plain-words",
+  "title": "Describe an automation in plain words and let IFTTT's AI build and run it",
+  "category": "work",
+  "source_date": "2026-10-28",
+  "summary": "IFTTT (\"if this, then that\") is now IFTTT.ai. You type what you want, like \"when a package is delivered, flash my lights\" or \"email me when it's going to rain tomorrow\", and it builds the automation and runs it around the clock. Its new AI Agent can also watch a web page for new items, or act across your connected apps from a plain-language instruction.",
+  "what_the_bot_does": [
+   "You describe the job in IFTTT's chat (or ask Claude or ChatGPT, which can connect to IFTTT).",
+   "It builds an Applet: one clear trigger (\"if this\") and one or more actions (\"then that\") across 1,000+ apps and devices.",
+   "The trigger can be something happening, like a new email, a delivery, a weather change, or a new item showing up on a web page you pick.",
+   "When it fires, the action runs: a notification, a calendar event, a row in a spreadsheet, a smart-home change, or an AI step that writes a summary or message.",
+   "An activity page shows every run, including what it skipped and why, and you can switch any Applet off with one tap."
+  ],
+  "what_you_end_up_with": "Small always-on helpers that react the moment something happens, built by describing them, with a clear trigger and action you can read and turn off.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "ifttt",
+    "note": "Unlimited Applets and all services on the Free plan since Oct 28, 2026; runs use monthly credits"
+   },
+   {
+    "id": "claude",
+    "note": "Optional: connect IFTTT under Settings > Connectors"
+   },
+   {
+    "id": "chatgpt",
+    "note": "Optional: connect IFTTT as an app"
+   }
+  ],
+  "prompt": "Build me an IFTTT Applet: when [a new email arrives from my kid's school / it's going to rain tomorrow / a new job is posted on this page: URL], then [send me a phone notification / add an event to my Google Calendar / add a row to my Google Sheet] with [what it should say]. Use only the apps I've already connected. Show me the trigger and action in plain words before you turn it on, and don't add any step that sends a message to someone else.",
+  "setup": [
+   "Make a free account at ifttt.com and install the IFTTT app on your phone if you want notifications.",
+   "Open IFTTT's chat and describe one small job in a sentence. Or start from a ready-made Applet in Explore.",
+   "Connect only the services that Applet needs (for example Gmail and Notifications). IFTTT asks you to sign in to each one on its own page.",
+   "Read the trigger and action it shows you, then turn it on. Check the activity page after the first few runs.",
+   "Optional: in Claude (Settings > Connectors) or ChatGPT, add IFTTT so you can say \"turn on the Applet that...\" from your chat."
+  ],
+  "watch_out": [
+   "Runs now use credits. The Free plan has 1,000 a month; when they run out your Applets pause until next month (nothing is deleted). Paid plans start at $2.09 a month billed yearly (IFTTT plans page, Oct 29, 2026).",
+   "On Free, IFTTT checks for new triggers only once an hour (every 15 minutes on Starter, 5 on Pro), so it's not for things that need a second-by-second reaction.",
+   "Some shop and web pages that load with JavaScript don't work with the page-watching trigger yet (IFTTT launch guide, per HiTecWeb).",
+   "An AI action can send messages or post for you. Keep actions to notifications, your own calendar and your own sheets until you trust it."
+  ],
+  "sources": [
+   {
+    "label": "IFTTT (Oct 28, 2026): \"Put AI to work for you\": IFTTT becomes IFTTT.ai, launches an AI Agent service, and removes Applet and service limits on every plan, including Free",
+    "url": "https://ifttt.com/explore/put-ai-to-work-for-you",
+    "kind": "official",
+    "posted_at": "2026-10-28"
+   },
+   {
+    "label": "IFTTT AI Agent service: watch a web page for a new item or a changed number, or run plain-language actions across your connected apps",
+    "url": "https://ifttt.com/ai_agent",
+    "kind": "official"
+   },
+   {
+    "label": "IFTTT Help Center: using IFTTT with AI assistants like Claude and ChatGPT (turn on Applets, build new ones by asking)",
+    "url": "https://help.ifttt.com/hc/en-us/articles/47690989390619-Using-IFTTT-with-AI-Assistants",
+    "kind": "official"
+   },
+   {
+    "label": "Product Hunt (Oct 29, 2026): IFTTT.ai, \"The easiest way to automate anything\", #8 on the day, score 98 with 7 comments; founder Linden Tibbets answering questions",
+    "url": "https://www.producthunt.com/products/ifttt",
+    "kind": "article",
+    "stats": {
+     "comments": 7
+    },
+    "posted_at": "2026-10-29",
+    "measured_at": "2026-10-29"
+   },
+   {
+    "label": "HiTecWeb (Oct 28, 2026, Arabic): IFTTT.ai launches an agent that watches the web and runs tasks; some JavaScript-heavy pages don't work yet",
+    "url": "https://hitecweb.com/ifttt-ai-agent-web-monitoring-launch/",
+    "kind": "article",
+    "posted_at": "2026-10-28"
+   },
+   {
+    "label": "X post by @ltibbets, IFTTT founder (2026-10-28): \"Today IFTTT becomes IFTTT.ai... taking down our paywalls on every plan, including Free\"",
+    "url": "https://x.com/ltibbets/status/2115481237808726130",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2115481237808726130",
+   "author": "@ltibbets",
+   "url": "https://x.com/ltibbets/status/2115481237808726130",
+   "posted_at": "2026-10-28",
+   "likes": 25,
+   "reposts": 5,
+   "replies": 13,
+   "bookmarks": 1,
+   "views": 2846,
+   "measured_at": "2026-10-29"
+  },
+  "tags": [
+   "IFTTT",
+   "if this then that",
+   "no-code automation",
+   "triggers",
+   "smart home",
+   "notifications",
+   "web page watcher",
+   "beginner",
+   "Applets",
+   "build a bot"
+  ],
+  "date_added": "2026-10-29",
+  "origin": "pipeline",
+  "last_checked": "2026-10-29"
+ },
+ {
+  "slug": "let-chatgpt-run-your-icloud-mail-and-calendar",
+  "title": "Let ChatGPT catch you up on your iCloud Mail and update your iPhone calendar",
+  "category": "inbox",
+  "source_date": "2026-10-27",
+  "summary": "If your email ends in @icloud.com, @me.com or @mac.com, ChatGPT can now read and search it, draft replies and add or move events on the calendar you see on your iPhone. It works on every ChatGPT plan, including Free, and ChatGPT's always-on dots can use it too.",
+  "what_the_bot_does": [
+   "You connect two plugins in ChatGPT, iCloud Mail and iCloud Calendar, using a special one-off password you make at Apple.",
+   "You ask in plain words, like \"catch me up on unread mail from this week\" or \"find last week's delivery notice\".",
+   "It searches your iCloud inbox, sums up what matters and can draft a reply for you to check.",
+   "It reads your iCloud calendar, tells you what's next and can add or change an event, for example from a booking email.",
+   "If you use a ChatGPT dot (Pro), the dot can use the same plugins to keep an eye on things and tell you when something needs you."
+  ],
+  "what_you_end_up_with": "A short catch-up of your iCloud inbox and an up-to-date iPhone calendar, without opening the Mail or Calendar apps.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt",
+    "note": "iCloud Mail and iCloud Calendar plugins, all plans, web, desktop and iOS"
+   },
+   {
+    "id": "chatgpt-dots",
+    "note": "Dots can use the iCloud plugins too"
+   }
+  ],
+  "prompt": "Using my iCloud Mail and iCloud Calendar: 1) Give me a 5-line catch-up of unread email from the last [3] days. Put anything with a date, deadline or payment first. 2) For any email that has an appointment or booking in it, show me the event you'd add (title, date, time, place) and wait for me to say \"add it\". 3) List emails that need a reply and draft a short one for each. Don't send any email, delete anything or change my calendar until I say yes to that specific item.",
+  "setup": [
+   "On your iPhone open Settings, tap your name, then Sign-In & Security > App-Specific Passwords (or go to account.apple.com). Make a new password and name it \"ChatGPT Mail\". You need two-factor authentication turned on.",
+   "In ChatGPT open Settings > Plugins, find iCloud Mail and choose Install. Type your @icloud.com, @me.com or @mac.com address and paste the app-specific password into the connection form, never into the chat.",
+   "Make a second app-specific password named \"ChatGPT Calendar\" and connect the iCloud Calendar plugin with your main Apple Account email (it can differ from your iCloud Mail address).",
+   "Test it: ask \"What's on my calendar tomorrow?\" and check the answer against your iPhone's Calendar app.",
+   "To stop it later, disconnect the plugin in ChatGPT and also revoke the password at Apple. Disconnecting in ChatGPT alone doesn't cancel the password."
+  ],
+  "watch_out": [
+   "It only sees your iCloud account, not Gmail or Outlook mail you also read in the iPhone Mail app (MacRumors, Oct 27, 2026).",
+   "The Mail plugin can send email and the Calendar plugin can change events. Tell it to show you every email and event first and only act after your yes.",
+   "Never paste your Apple password or the app-specific password into a chat. It goes only in the plugin's connection form (OpenAI Help Center).",
+   "If you change or reset your main Apple password, Apple cancels your app-specific passwords and you'll need to make new ones and reconnect each plugin.",
+   "Contacts lookup is read-only, and there's no Reminders plugin yet (OpenAI Help Center)."
+  ],
+  "sources": [
+   {
+    "label": "OpenAI Help Center: connecting iCloud Mail or Calendar in ChatGPT (app-specific password, separate Mail and Calendar connections, read-only contacts, revoke the password at Apple)",
+    "url": "https://help.openai.com/en/articles/20001494-connecting-and-managing-app-accounts-in-chatgpt",
+    "kind": "official"
+   },
+   {
+    "label": "MacRumors (Oct 27, 2026): ChatGPT can now access your iCloud Mail and Calendar; read, schedule and update events, search mail, manage drafts and send email, on all plans; Dots can use it",
+    "url": "https://www.macrumors.com/2026/10/27/chatgpt-icloud-mail-calendar-plugin/",
+    "kind": "article",
+    "posted_at": "2026-10-27"
+   },
+   {
+    "label": "9to5Mac (Oct 27, 2026): iCloud Mail and Calendar plugins now work with ChatGPT, and they make ChatGPT dots work with iCloud for the first time",
+    "url": "https://9to5mac.com/2026/10/27/icloud-mail-and-calendar-plugins-now-work-with-chatgpt/",
+    "kind": "article",
+    "posted_at": "2026-10-27"
+   },
+   {
+    "label": "Engadget (Oct 27, 2026): ChatGPT can work with your iCloud Mail and Calendar thanks to new plugin support; free and paid accounts",
+    "url": "https://www.engadget.com/2299026/chatgpt-can-work-with-your-icloud-mail-and-calendar-thanks-to-new-plugin-support/",
+    "kind": "article",
+    "posted_at": "2026-10-27"
+   },
+   {
+    "label": "Reddit r/ChatGPT (Oct 29, 2026): \"The new Apple iCloud plugins for mail and calendar are going to be game changers for me\"",
+    "url": "https://www.reddit.com/r/ChatGPT/comments/1xij3do/icloud_mail_and_icloud_calendar/",
+    "kind": "reddit",
+    "posted_at": "2026-10-29"
+   },
+   {
+    "label": "X post by @ChatGPT (2026-10-27): iCloud Mail and Calendar plugins are available in ChatGPT on all plans",
+    "url": "https://x.com/ChatGPT/status/2115139248458191070",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2115139248458191070",
+   "author": "@ChatGPT",
+   "url": "https://x.com/ChatGPT/status/2115139248458191070",
+   "posted_at": "2026-10-27",
+   "likes": 5790,
+   "reposts": 391,
+   "replies": 391,
+   "bookmarks": 1081,
+   "views": 1920915,
+   "measured_at": "2026-10-29"
+  },
+  "tags": [
+   "iCloud",
+   "iPhone",
+   "Apple Mail",
+   "Apple Calendar",
+   "ChatGPT plugins",
+   "inbox catch-up",
+   "calendar",
+   "app-specific password",
+   "dots",
+   "email summary"
+  ],
+  "date_added": "2026-10-29",
+  "origin": "pipeline",
+  "last_checked": "2026-10-29"
+ },
+ {
+  "slug": "get-an-ai-coach-that-helps-you-start-overwhelming-tasks",
+  "title": "Set up an AI coach that helps you (or your teen) start overwhelming tasks and checks in",
+  "category": "family",
+  "source_date": "2026-10-28",
+  "summary": "A parent shared how they set up ChatGPT as a \"getting started\" coach for their 20-year-old son with ADHD: one chat for schedule and check-ins, a Project for each big job so it remembers progress, and instructions to ask one question at a time and give one five-minute first step. Scheduled check-ins keep it going without anyone nagging.",
+  "what_the_bot_does": [
+   "It keeps one main chat for your schedule, goals and daily check-ins, plus a separate Project for each big job (clean the room, register for college) so it remembers where you left off.",
+   "When you're stuck, you tell it (or show it a photo or video of the mess) and it asks one question at a time.",
+   "It gives you one small next step with a clear end, ideally five minutes or less, and fits the plan around your real schedule.",
+   "If you miss a day, it shrinks the next step and restarts without piling on extra work.",
+   "A scheduled task can check in at a set time each day (\"Did you start the first step?\") and send a phone or email notification."
+  ],
+  "what_you_end_up_with": "A plan with small steps and a finish date for the job you've been avoiding, and a coach that remembers your progress and nudges you on a schedule.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt",
+    "note": "Projects to remember each job; scheduled tasks for check-ins (Free: up to once a day)"
+   },
+   {
+    "id": "claude"
+   },
+   {
+    "id": "gemini"
+   }
+  ],
+  "prompt": "You're my getting-started coach. I find it hard to start big tasks. Rules: ask me one question at a time; look at my real schedule ([work hours, classes]); give me ONE next step that takes five minutes or less and has a clear end; if I say I'm stuck, make the step smaller; if I miss a day, restart with a small step and no guilt trip. My first job is: [clean and clear out my old bedroom by (date)]. Make a plan with three small stages and breaks, then ask me what I want to do first.",
+  "setup": [
+   "In ChatGPT, make a Project for the big job (for example \"Clean my room\") and paste the coach rules above into the Project's instructions.",
+   "Start by describing the job, or attach a photo or short video so you don't have to explain the mess in words.",
+   "Ask it: \"Every day at [6pm], check in on today's step and give me the next one.\" It creates a scheduled task. Allow notifications when asked (Settings > Notifications).",
+   "If you're setting this up for your teen or adult child, do it on their own account with them, and let them choose the check-in time.",
+   "After a week, review: ask \"What did I finish, and what should I change about the plan?\""
+  ],
+  "watch_out": [
+   "This is a helper for getting started, not ADHD treatment or a replacement for a doctor, therapist or coach.",
+   "A scheduled task created inside a Project can't read files you uploaded to that Project (OpenAI Help Center). Put key details in the task's instructions.",
+   "Free ChatGPT allows only 3 active scheduled tasks and runs them at most once a day in a rough time window (morning, afternoon, night). Exact times need a paid plan (OpenAI Help Center).",
+   "Keep health details, passwords and account numbers out of task titles and instructions; shared task links show them (OpenAI Help Center).",
+   "The parent who shared this says it's still early. Check after a couple of weeks whether it's actually helping."
+  ],
+  "sources": [
+   {
+    "label": "Reddit r/ChatGPT (Oct 28, 2026): \"I used ChatGPT Plus to build an executive function coaching system for my adult son. Here's what we actually did.\" One main chat, Projects per task, one question at a time, a five-minute first step",
+    "url": "https://www.reddit.com/r/ChatGPT/comments/1xhu06h/i_used_chatgpt_plus_to_build_an_executive/",
+    "kind": "reddit",
+    "posted_at": "2026-10-28"
+   },
+   {
+    "label": "Manas Takalpati (Feb 7, 2026): Using ChatGPT as an ADHD body double, with a task-launcher prompt for the smallest first step and check-in prompts",
+    "url": "https://www.manast.me/blog/chatgpt-adhd-body-double",
+    "kind": "article",
+    "posted_at": "2026-02-07"
+   },
+   {
+    "label": "OpenAI Help Center: Scheduled tasks in ChatGPT (recurring check-ins, notifications, plan limits, tasks inside Projects)",
+    "url": "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt",
+    "kind": "official"
+   },
+   {
+    "label": "OpenAI Help Center: Projects in ChatGPT (keep the chats, files and instructions for one job together)",
+    "url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+    "kind": "official"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "ADHD",
+   "executive function",
+   "getting started",
+   "procrastination",
+   "body double",
+   "check-ins",
+   "teen",
+   "adult child",
+   "parenting",
+   "cleaning",
+   "ChatGPT Projects",
+   "scheduled tasks"
+  ],
+  "date_added": "2026-10-29",
+  "origin": "pipeline",
+  "last_checked": "2026-10-29"
+ },
+ {
   "slug": "let-your-ai-shop-for-you-with-shop-pay",
   "title": "Let your AI find and buy things for you with Shop Pay",
   "category": "shopping",
@@ -82,7 +383,7 @@
    "reposts": 7,
    "replies": 25,
    "bookmarks": 66,
-   "views": 38653,
+   "views": 38725,
    "measured_at": "2026-10-29"
   },
   "tags": [
@@ -165,12 +466,12 @@
    "author": "@noahrshinn",
    "url": "https://x.com/noahrshinn/status/2115143830924341534",
    "posted_at": "2026-10-27",
-   "likes": 1068,
-   "reposts": 37,
-   "replies": 94,
-   "bookmarks": 244,
-   "views": 137199,
-   "measured_at": "2026-10-28"
+   "likes": 1138,
+   "reposts": 38,
+   "replies": 97,
+   "bookmarks": 294,
+   "views": 235991,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "group chat",
@@ -696,12 +997,12 @@
    "author": "@NadavKeyson",
    "url": "https://x.com/NadavKeyson/status/2114759149770723804",
    "posted_at": "2026-10-26",
-   "likes": 636,
-   "reposts": 126,
-   "replies": 166,
-   "bookmarks": 791,
-   "views": 1022577,
-   "measured_at": "2026-10-28"
+   "likes": 644,
+   "reposts": 101,
+   "replies": 172,
+   "bookmarks": 796,
+   "views": 1027033,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "podcast",
@@ -1142,8 +1443,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 1,
-   "views": 144,
-   "measured_at": "2026-10-28"
+   "views": 160,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "phone calls",
@@ -1265,6 +1566,10 @@
    },
    {
     "id": "chatgpt-dots"
+   },
+   {
+    "id": "meta-muse",
+    "note": "Sends proactive reminders from your calendar and the web (Straits Times test, Oct 2026)"
    }
   ],
   "prompt": "You are my next-moves assistant. Twice a day, at [9am] and [3pm], look at what's new in my [Gmail, Calendar and Notion]. Pick the 2 or 3 most useful things I should do next and, for each one, tell me in one line why it matters and write a ready-to-use draft (a reply, an agenda, a checklist). Keep everything as drafts: never send, schedule, delete or buy anything without my yes. If nothing is worth my time, say so in one line. [Optional: when I approve a task, hand it to my [writing / research / scheduling] bot.]",
@@ -1290,6 +1595,12 @@
     "label": "Anthropic on X (2026-10-21): Claude Duet research preview, a proactive agent that checks with you before acting",
     "url": "https://x.com/claudeai/status/2112984664256241837",
     "kind": "official"
+   },
+   {
+    "label": "The Straits Times (Oct 28, 2026): in testing, Meta's Muse watched the weather forecast on its own to send umbrella reminders and spotted an overseas trip in the reporter's calendar, flagging visa rules and the digital arrival card",
+    "url": "https://www.straitstimes.com/tech/meta-rolls-out-consumer-ai-agent-in-singapore-amid-global-safety-retail-pushback",
+    "kind": "article",
+    "posted_at": "2026-10-28"
    }
   ],
   "popularity": {
@@ -1302,8 +1613,8 @@
    "reposts": 5,
    "replies": 13,
    "bookmarks": 27,
-   "views": 5869,
-   "measured_at": "2026-10-28"
+   "views": 5875,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "proactive",
@@ -1492,8 +1803,8 @@
    "reposts": 0,
    "replies": 12,
    "bookmarks": 0,
-   "views": 1101,
-   "measured_at": "2026-10-28"
+   "views": 1104,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "fact check",
@@ -1596,12 +1907,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 460,
+   "likes": 448,
    "reposts": 15,
-   "replies": 32,
-   "bookmarks": 327,
-   "views": 178187,
-   "measured_at": "2026-10-28"
+   "replies": 33,
+   "bookmarks": 323,
+   "views": 178450,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "second brain",
@@ -1808,8 +2119,8 @@
    "reposts": 6,
    "replies": 19,
    "bookmarks": 30,
-   "views": 5425,
-   "measured_at": "2026-10-28"
+   "views": 5426,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "read later",
@@ -1894,8 +2205,8 @@
    "reposts": 2,
    "replies": 4,
    "bookmarks": 6,
-   "views": 1775,
-   "measured_at": "2026-10-28"
+   "views": 1777,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "contact form",
@@ -2093,7 +2404,7 @@
    "replies": 3,
    "bookmarks": 6,
    "views": 585,
-   "measured_at": "2026-10-28"
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "schedule",
@@ -2472,8 +2783,8 @@
    "reposts": 15,
    "replies": 26,
    "bookmarks": 506,
-   "views": 25422,
-   "measured_at": "2026-10-28"
+   "views": 25429,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "multi-agent",
@@ -2565,8 +2876,8 @@
    "reposts": 35,
    "replies": 38,
    "bookmarks": 79,
-   "views": 46410,
-   "measured_at": "2026-10-28"
+   "views": 46413,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "multi-agent",
@@ -2639,7 +2950,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-10-28"
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "voice",
@@ -2707,8 +3018,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 0,
-   "views": 44,
-   "measured_at": "2026-10-28"
+   "views": 45,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "roadside assistance",
@@ -2805,7 +3116,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 396,
-   "measured_at": "2026-10-28"
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "computer use",
@@ -2877,7 +3188,7 @@
    "replies": 2,
    "bookmarks": 0,
    "views": 905,
-   "measured_at": "2026-10-28"
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "contractors",
@@ -2940,8 +3251,8 @@
    "reposts": 0,
    "replies": 5,
    "bookmarks": 0,
-   "views": 125,
-   "measured_at": "2026-10-28"
+   "views": 127,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "used car",
@@ -3004,7 +3315,7 @@
    "replies": 18,
    "bookmarks": 29,
    "views": 7485,
-   "measured_at": "2026-10-28"
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "pharmacy",
@@ -3087,8 +3398,8 @@
    "reposts": 24,
    "replies": 29,
    "bookmarks": 236,
-   "views": 325470,
-   "measured_at": "2026-10-28"
+   "views": 325658,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "newsletters",
@@ -3177,12 +3488,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
    "posted_at": "2026-10-18",
-   "likes": 866,
+   "likes": 867,
    "reposts": 94,
-   "replies": 195,
-   "bookmarks": 1006,
-   "views": 1217894,
-   "measured_at": "2026-10-28"
+   "replies": 194,
+   "bookmarks": 1005,
+   "views": 1219518,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "phone call",
@@ -3344,8 +3655,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 542,
-   "measured_at": "2026-10-28"
+   "views": 547,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "spam calls",
@@ -3418,8 +3729,8 @@
    "reposts": 3,
    "replies": 8,
    "bookmarks": 37,
-   "views": 5431,
-   "measured_at": "2026-10-28"
+   "views": 5438,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "food log",
@@ -3500,8 +3811,8 @@
    "reposts": 3,
    "replies": 12,
    "bookmarks": 13,
-   "views": 3067,
-   "measured_at": "2026-10-28"
+   "views": 3076,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "phone call",
@@ -3685,9 +3996,9 @@
    "likes": 1015,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2894,
-   "views": 311237,
-   "measured_at": "2026-10-28"
+   "bookmarks": 2893,
+   "views": 311364,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "meal plan",
@@ -3763,8 +4074,8 @@
    "reposts": 34,
    "replies": 36,
    "bookmarks": 1152,
-   "views": 66679,
-   "measured_at": "2026-10-28"
+   "views": 66715,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "calendar",
@@ -3847,12 +4158,12 @@
    "author": "@AlexFinn",
    "url": "https://x.com/AlexFinn/status/2107254007412756589",
    "posted_at": "2026-10-05",
-   "likes": 679,
+   "likes": 680,
    "reposts": 35,
    "replies": 157,
-   "bookmarks": 724,
-   "views": 82858,
-   "measured_at": "2026-10-28"
+   "bookmarks": 723,
+   "views": 82929,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "personal agent",
@@ -3932,8 +4243,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41367,
-   "measured_at": "2026-10-28"
+   "views": 41376,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "scams",
@@ -4012,12 +4323,12 @@
    "author": "@saviomartin",
    "url": "https://x.com/saviomartin/status/2109330165381910817",
    "posted_at": "2026-10-11",
-   "likes": 164,
+   "likes": 163,
    "reposts": 14,
    "replies": 29,
    "bookmarks": 118,
-   "views": 25152,
-   "measured_at": "2026-10-28"
+   "views": 25170,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "family chat",
@@ -4106,8 +4417,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4085,
-   "measured_at": "2026-10-28"
+   "views": 4087,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "groceries",
@@ -4186,8 +4497,8 @@
    "reposts": 12,
    "replies": 12,
    "bookmarks": 11,
-   "views": 9655,
-   "measured_at": "2026-10-28"
+   "views": 9657,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "travel",
@@ -4255,8 +4566,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 2000,
-   "measured_at": "2026-10-28"
+   "views": 2001,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "flights",
@@ -4362,7 +4673,8 @@
   "setup": [],
   "watch_out": [
    "It can be slower than doing it yourself. One startup timed agents taking 4 to 14+ minutes for a dinner booking; the founder did it in 37 seconds.",
-   "Don't let it hold tables you won't use. WIRED reports one investor got banned from Resy after his bot hit it about 200 times an hour."
+   "Don't let it hold tables you won't use. WIRED reports one investor got banned from Resy after his bot hit it about 200 times an hour.",
+   "Cancelling can trip it up. In a Straits Times test (Oct 28, 2026), Muse made a booking easily but failed to cancel it, and it suggested a restaurant that had just closed. Check cancellations yourself."
   ],
   "sources": [
    {
@@ -4385,6 +4697,12 @@
     },
     "posted_at": "2025-08-21",
     "measured_at": "2026-10-27"
+   },
+   {
+    "label": "The Straits Times (Oct 28, 2026): Meta's Muse booked a restaurant table easily but failed to cancel it, and once suggested a restaurant that had recently closed",
+    "url": "https://www.straitstimes.com/tech/meta-rolls-out-consumer-ai-agent-in-singapore-amid-global-safety-retail-pushback",
+    "kind": "article",
+    "posted_at": "2026-10-28"
    }
   ],
   "popularity": {
@@ -4397,8 +4715,8 @@
    "reposts": 23,
    "replies": 63,
    "bookmarks": 241,
-   "views": 93662,
-   "measured_at": "2026-10-28"
+   "views": 93700,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "restaurant",
@@ -4461,8 +4779,8 @@
    "reposts": 4,
    "replies": 9,
    "bookmarks": 27,
-   "views": 4055,
-   "measured_at": "2026-10-28"
+   "views": 4059,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "appointment",
@@ -4556,8 +4874,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9187,
-   "measured_at": "2026-10-28"
+   "views": 9189,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "receipts",
@@ -4645,9 +4963,9 @@
    "likes": 104,
    "reposts": 6,
    "replies": 12,
-   "bookmarks": 268,
-   "views": 9733,
-   "measured_at": "2026-10-28"
+   "bookmarks": 269,
+   "views": 9754,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "chief of staff",
@@ -4706,8 +5024,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1876,
-   "measured_at": "2026-10-28"
+   "views": 1877,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "multiple brands",
@@ -4780,8 +5098,8 @@
    "reposts": 1,
    "replies": 12,
    "bookmarks": 27,
-   "views": 3241,
-   "measured_at": "2026-10-28"
+   "views": 3243,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "real estate",
@@ -4876,12 +5194,12 @@
    "author": "@mikekamo",
    "url": "https://x.com/mikekamo/status/2102768278812680522",
    "posted_at": "2026-09-23",
-   "likes": 0,
+   "likes": 1,
    "reposts": 0,
    "replies": 0,
    "bookmarks": 0,
-   "views": 77,
-   "measured_at": "2026-10-28"
+   "views": 79,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "paper mail",
@@ -4970,7 +5288,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 74,
-   "measured_at": "2026-10-28"
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "monitoring",
@@ -5040,8 +5358,8 @@
    "reposts": 2,
    "replies": 7,
    "bookmarks": 0,
-   "views": 1301,
-   "measured_at": "2026-10-28"
+   "views": 1303,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "follow up",
@@ -5114,8 +5432,8 @@
    "reposts": 4,
    "replies": 7,
    "bookmarks": 55,
-   "views": 4923,
-   "measured_at": "2026-10-28"
+   "views": 4924,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "leads",
@@ -5210,8 +5528,8 @@
    "reposts": 1,
    "replies": 2,
    "bookmarks": 19,
-   "views": 2146,
-   "measured_at": "2026-10-28"
+   "views": 2148,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "email",
@@ -5864,8 +6182,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 795,
-   "measured_at": "2026-10-28"
+   "views": 798,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "marketplace",
@@ -6131,7 +6449,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1505,
-   "measured_at": "2026-10-28"
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "payments",
@@ -6198,8 +6516,8 @@
    "reposts": 0,
    "replies": 4,
    "bookmarks": 3,
-   "views": 906,
-   "measured_at": "2026-10-28"
+   "views": 907,
+   "measured_at": "2026-10-29"
   },
   "tags": [
    "ads",
@@ -7056,7 +7374,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-10-28"
+   "measured_at": "2026-10-29"
   },
   "origin": "migrated-2026-10-19"
  },

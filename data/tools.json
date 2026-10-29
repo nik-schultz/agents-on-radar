@@ -154,5 +154,11 @@
   "url": "https://hermes-agent.nousresearch.com/",
   "cost": "Free and open source (Nous Research); the AI model you connect may cost extra",
   "kind": "agent"
+ },
+ "ifttt": {
+  "name": "IFTTT.ai",
+  "url": "https://ifttt.com",
+  "cost": "Free plan (1,000 credits a month, unlimited Applets); paid plans from $2.09/month billed yearly",
+  "kind": "automation"
  }
 }

@@ -1,0 +1,46 @@
+{
+  "slug": "tell-ifttt-what-to-automate-in-plain-words",
+  "title": "Describe an automation in plain words and let IFTTT's AI build and run it",
+  "category": "work",
+  "source_date": "2026-10-28",
+  "summary": "IFTTT (\"if this, then that\") is now IFTTT.ai. You type what you want, like \"when a package is delivered, flash my lights\" or \"email me when it's going to rain tomorrow\", and it builds the automation and runs it around the clock. Its new AI Agent can also watch a web page for new items, or act across your connected apps from a plain-language instruction.",
+  "what_the_bot_does": [
+    "You describe the job in IFTTT's chat (or ask Claude or ChatGPT, which can connect to IFTTT).",
+    "It builds an Applet: one clear trigger (\"if this\") and one or more actions (\"then that\") across 1,000+ apps and devices.",
+    "The trigger can be something happening, like a new email, a delivery, a weather change, or a new item showing up on a web page you pick.",
+    "When it fires, the action runs: a notification, a calendar event, a row in a spreadsheet, a smart-home change, or an AI step that writes a summary or message.",
+    "An activity page shows every run, including what it skipped and why, and you can switch any Applet off with one tap."
+  ],
+  "what_you_end_up_with": "Small always-on helpers that react the moment something happens, built by describing them, with a clear trigger and action you can read and turn off.",
+  "difficulty": "Easy",
+  "tools": [
+    {"id": "ifttt", "note": "Unlimited Applets and all services on the Free plan since Oct 28, 2026; runs use monthly credits"},
+    {"id": "claude", "note": "Optional: connect IFTTT under Settings > Connectors"},
+    {"id": "chatgpt", "note": "Optional: connect IFTTT as an app"}
+  ],
+  "prompt": "Build me an IFTTT Applet: when [a new email arrives from my kid's school / it's going to rain tomorrow / a new job is posted on this page: URL], then [send me a phone notification / add an event to my Google Calendar / add a row to my Google Sheet] with [what it should say]. Use only the apps I've already connected. Show me the trigger and action in plain words before you turn it on, and don't add any step that sends a message to someone else.",
+  "setup": [
+    "Make a free account at ifttt.com and install the IFTTT app on your phone if you want notifications.",
+    "Open IFTTT's chat and describe one small job in a sentence. Or start from a ready-made Applet in Explore.",
+    "Connect only the services that Applet needs (for example Gmail and Notifications). IFTTT asks you to sign in to each one on its own page.",
+    "Read the trigger and action it shows you, then turn it on. Check the activity page after the first few runs.",
+    "Optional: in Claude (Settings > Connectors) or ChatGPT, add IFTTT so you can say \"turn on the Applet that...\" from your chat."
+  ],
+  "watch_out": [
+    "Runs now use credits. The Free plan has 1,000 a month; when they run out your Applets pause until next month (nothing is deleted). Paid plans start at $2.09 a month billed yearly (IFTTT plans page, Oct 29, 2026).",
+    "On Free, IFTTT checks for new triggers only once an hour (every 15 minutes on Starter, 5 on Pro), so it's not for things that need a second-by-second reaction.",
+    "Some shop and web pages that load with JavaScript don't work with the page-watching trigger yet (IFTTT launch guide, per HiTecWeb).",
+    "An AI action can send messages or post for you. Keep actions to notifications, your own calendar and your own sheets until you trust it."
+  ],
+  "sources": [
+    {"label": "IFTTT (Oct 28, 2026): \"Put AI to work for you\": IFTTT becomes IFTTT.ai, launches an AI Agent service, and removes Applet and service limits on every plan, including Free", "url": "https://ifttt.com/explore/put-ai-to-work-for-you", "kind": "official", "posted_at": "2026-10-28"},
+    {"label": "IFTTT AI Agent service: watch a web page for a new item or a changed number, or run plain-language actions across your connected apps", "url": "https://ifttt.com/ai_agent", "kind": "official"},
+    {"label": "IFTTT Help Center: using IFTTT with AI assistants like Claude and ChatGPT (turn on Applets, build new ones by asking)", "url": "https://help.ifttt.com/hc/en-us/articles/47690989390619-Using-IFTTT-with-AI-Assistants", "kind": "official"},
+    {"label": "Product Hunt (Oct 29, 2026): IFTTT.ai, \"The easiest way to automate anything\", #8 on the day, score 98 with 7 comments; founder Linden Tibbets answering questions", "url": "https://www.producthunt.com/products/ifttt", "kind": "article", "stats": {"comments": 7}, "posted_at": "2026-10-29", "measured_at": "2026-10-29"},
+    {"label": "HiTecWeb (Oct 28, 2026, Arabic): IFTTT.ai launches an agent that watches the web and runs tasks; some JavaScript-heavy pages don't work yet", "url": "https://hitecweb.com/ifttt-ai-agent-web-monitoring-launch/", "kind": "article", "posted_at": "2026-10-28"},
+    {"label": "X post by @ltibbets, IFTTT founder (2026-10-28): \"Today IFTTT becomes IFTTT.ai... taking down our paywalls on every plan, including Free\"", "url": "https://x.com/ltibbets/status/2115481237808726130", "kind": "x"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2115481237808726130", "author": "@ltibbets", "url": "https://x.com/ltibbets/status/2115481237808726130", "posted_at": "2026-10-28",
+                 "likes": 25, "reposts": 5, "replies": 13, "bookmarks": 1, "views": 2846, "measured_at": "2026-10-29"},
+  "tags": ["IFTTT", "if this then that", "no-code automation", "triggers", "smart home", "notifications", "web page watcher", "beginner", "Applets", "build a bot"]
+}

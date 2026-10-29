@@ -1,0 +1,44 @@
+{
+  "slug": "get-an-ai-coach-that-helps-you-start-overwhelming-tasks",
+  "title": "Set up an AI coach that helps you (or your teen) start overwhelming tasks and checks in",
+  "category": "family",
+  "source_date": "2026-10-28",
+  "summary": "A parent shared how they set up ChatGPT as a \"getting started\" coach for their 20-year-old son with ADHD: one chat for schedule and check-ins, a Project for each big job so it remembers progress, and instructions to ask one question at a time and give one five-minute first step. Scheduled check-ins keep it going without anyone nagging.",
+  "what_the_bot_does": [
+    "It keeps one main chat for your schedule, goals and daily check-ins, plus a separate Project for each big job (clean the room, register for college) so it remembers where you left off.",
+    "When you're stuck, you tell it (or show it a photo or video of the mess) and it asks one question at a time.",
+    "It gives you one small next step with a clear end, ideally five minutes or less, and fits the plan around your real schedule.",
+    "If you miss a day, it shrinks the next step and restarts without piling on extra work.",
+    "A scheduled task can check in at a set time each day (\"Did you start the first step?\") and send a phone or email notification."
+  ],
+  "what_you_end_up_with": "A plan with small steps and a finish date for the job you've been avoiding, and a coach that remembers your progress and nudges you on a schedule.",
+  "difficulty": "Easy",
+  "tools": [
+    {"id": "chatgpt", "note": "Projects to remember each job; scheduled tasks for check-ins (Free: up to once a day)"},
+    {"id": "claude"},
+    {"id": "gemini"}
+  ],
+  "prompt": "You're my getting-started coach. I find it hard to start big tasks. Rules: ask me one question at a time; look at my real schedule ([work hours, classes]); give me ONE next step that takes five minutes or less and has a clear end; if I say I'm stuck, make the step smaller; if I miss a day, restart with a small step and no guilt trip. My first job is: [clean and clear out my old bedroom by (date)]. Make a plan with three small stages and breaks, then ask me what I want to do first.",
+  "setup": [
+    "In ChatGPT, make a Project for the big job (for example \"Clean my room\") and paste the coach rules above into the Project's instructions.",
+    "Start by describing the job, or attach a photo or short video so you don't have to explain the mess in words.",
+    "Ask it: \"Every day at [6pm], check in on today's step and give me the next one.\" It creates a scheduled task. Allow notifications when asked (Settings > Notifications).",
+    "If you're setting this up for your teen or adult child, do it on their own account with them, and let them choose the check-in time.",
+    "After a week, review: ask \"What did I finish, and what should I change about the plan?\""
+  ],
+  "watch_out": [
+    "This is a helper for getting started, not ADHD treatment or a replacement for a doctor, therapist or coach.",
+    "A scheduled task created inside a Project can't read files you uploaded to that Project (OpenAI Help Center). Put key details in the task's instructions.",
+    "Free ChatGPT allows only 3 active scheduled tasks and runs them at most once a day in a rough time window (morning, afternoon, night). Exact times need a paid plan (OpenAI Help Center).",
+    "Keep health details, passwords and account numbers out of task titles and instructions; shared task links show them (OpenAI Help Center).",
+    "The parent who shared this says it's still early. Check after a couple of weeks whether it's actually helping."
+  ],
+  "sources": [
+    {"label": "Reddit r/ChatGPT (Oct 28, 2026): \"I used ChatGPT Plus to build an executive function coaching system for my adult son. Here's what we actually did.\" One main chat, Projects per task, one question at a time, a five-minute first step", "url": "https://www.reddit.com/r/ChatGPT/comments/1xhu06h/i_used_chatgpt_plus_to_build_an_executive/", "kind": "reddit", "posted_at": "2026-10-28"},
+    {"label": "Manas Takalpati (Feb 7, 2026): Using ChatGPT as an ADHD body double, with a task-launcher prompt for the smallest first step and check-in prompts", "url": "https://www.manast.me/blog/chatgpt-adhd-body-double", "kind": "article", "posted_at": "2026-02-07"},
+    {"label": "OpenAI Help Center: Scheduled tasks in ChatGPT (recurring check-ins, notifications, plan limits, tasks inside Projects)", "url": "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt", "kind": "official"},
+    {"label": "OpenAI Help Center: Projects in ChatGPT (keep the chats, files and instructions for one job together)", "url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt", "kind": "official"}
+  ],
+  "popularity": null,
+  "tags": ["ADHD", "executive function", "getting started", "procrastination", "body double", "check-ins", "teen", "adult child", "parenting", "cleaning", "ChatGPT Projects", "scheduled tasks"]
+}
