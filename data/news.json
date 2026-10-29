@@ -1,1665 +1,1748 @@
 {
- "_help": "Latest in AI. Newest first. Every item: date (official publish date), category, company (tile colour/monogram), impact (major|notable|minor = importance, see _impact_rule), plain headline, 1-2 sentence beginner explainer (first sentence = one-line 'For you'), source_url (official announcement or reputable outlet you actually opened). Optional x: the announcing post (kind official) or most-engaged credible post about it (kind coverage), real likes/reposts/views + posted_at + measured_at; no post found = no x block. Heat/top story/trending are computed in build.py. If an item changes model prices, update data/ai-pricing.json too.",
- "categories": [
-  "model release",
-  "agent launch",
-  "feature",
-  "pricing",
-  "industry"
- ],
- "items": [
-  {
-   "id": "google-gemini-4-carbon",
-   "date": "2026-10-28",
-   "category": "model release",
-   "company": "Google",
-   "impact": "major",
-   "headline": "Google announces Gemini 4 Carbon, its new top model, but only a few security teams can use it so far",
-   "explainer": "Carbon is Google's strongest model yet: it now ranks #1 on the Artificial Analysis Intelligence Index and is built for long coding jobs and for finding and fixing security holes. This week only selected cyber defenders get it; Google says developers, businesses and the Gemini app get it 'as soon as possible', at the same intro API price as Argon ($2 in / $10 out per million tokens, later $4 / $20).",
-   "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
-   "source_name": "Google blog",
-   "more_sources": [
+  "_help": "Latest in AI. Newest first. Every item: date (official publish date), category, company (tile colour/monogram), impact (major|notable|minor = importance, see _impact_rule), plain headline, 1-2 sentence beginner explainer (first sentence = one-line 'For you'), source_url (official announcement or reputable outlet you actually opened). Optional x: the announcing post (kind official) or most-engaged credible post about it (kind coverage), real likes/reposts/views + posted_at + measured_at; no post found = no x block. Heat/top story/trending are computed in build.py. If an item changes model prices, update data/ai-pricing.json too.",
+  "categories": [
+    "model release",
+    "agent launch",
+    "feature",
+    "pricing",
+    "industry"
+  ],
+  "items": [
     {
-     "label": "9to5Google",
-     "url": "https://9to5google.com/2026/10/28/gemini-4-carbon-announcement/"
+      "id": "shopify-shop-pay-in-ai-agents",
+      "date": "2026-10-28",
+      "category": "agent launch",
+      "company": "Shopify",
+      "impact": "notable",
+      "headline": "Shopify lets AI agents shop for you across a billion products and pay with Shop Pay",
+      "explainer": "You can now point ChatGPT, Claude or another assistant at Shopify's shop.md skill and have it search over a billion products, check out with Shop Pay and track your orders, and Shop Pay also works inside Meta's Muse, Claude Duet, Grok Bot and Instinct. Your card is never shared with the bot and you still approve each purchase, but double-check what's in the cart before you say yes.",
+      "source_url": "https://www.shopify.com/news/fall-26-edition-merchant",
+      "source_name": "Shopify news",
+      "more_sources": [
+        {
+          "label": "Shopify Editions Fall '26",
+          "url": "https://www.shopify.com/editions/fall2026"
+        },
+        {
+          "label": "Shopify developer news",
+          "url": "https://www.shopify.com/news/fall-26-edition-developer"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/tobi/status/2115476197572506077",
+        "author": "@tobi",
+        "kind": "official",
+        "likes": 757,
+        "reposts": 100,
+        "views": 107385,
+        "posted_at": "2026-10-28T16:10:03Z",
+        "measured_at": "2026-10-29"
+      }
     },
     {
-     "label": "VentureBeat",
-     "url": "https://venturebeat.com/technology/google-unveils-gemini-4-carbon-retaking-the-worlds-no-1-spot-on-updated-harder-benchmarks-but-access-is-limited"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/sundarpichai/status/2115489219804352921",
-    "author": "@sundarpichai",
-    "kind": "official",
-    "likes": 15791,
-    "reposts": 1173,
-    "views": 1301637,
-    "posted_at": "2026-10-28T17:01:48Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "chatgpt-dots-texting",
-   "date": "2026-10-28",
-   "category": "feature",
-   "company": "OpenAI",
-   "impact": "notable",
-   "headline": "You can now text your ChatGPT dot over iMessage or RCS",
-   "explainer": "Your dot (ChatGPT's always-on agent) can now take tasks by text, photo or voice note from your phone's Messages app, and text you back when something needs you. It's a beta for US ChatGPT Pro users only, one-to-one (no group chats), and it can't see your other text conversations.",
-   "source_url": "https://learn.chatgpt.com/docs/dots/channels",
-   "source_name": "ChatGPT Learn",
-   "more_sources": [
-    {
-     "label": "The Verge",
-     "url": "https://www.theverge.com/ai-artificial-intelligence/1021183/openai-now-lets-you-text-your-dot"
+      "id": "openai-api-credits-for-chatgpt-pro-business",
+      "date": "2026-10-28",
+      "category": "pricing",
+      "company": "OpenAI",
+      "impact": "notable",
+      "headline": "ChatGPT Pro and Business plans now come with up to $500 a month of free API credits",
+      "explainer": "If you pay for ChatGPT Pro you get API credits equal to your plan price ($100, $200 or $500 a month), and Business workspaces get $20 per Standard seat and $100 per Premium seat, capped at $500, so running your own bots on OpenAI's API can cost nothing extra. Credits expire each billing cycle, need a paid plan at least 7 days old and the same email on both accounts, and don't cover Codex or Plus.",
+      "source_url": "https://developers.openai.com/api/docs/guides/chatgpt-api-credits",
+      "source_name": "OpenAI developer docs",
+      "more_sources": [
+        {
+          "label": "OpenAI Help Center",
+          "url": "https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions"
+        },
+        {
+          "label": "OpenAI API changelog",
+          "url": "https://developers.openai.com/api/docs/changelog"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/OpenAIDevs/status/2115583698074755078",
+        "author": "@OpenAIDevs",
+        "kind": "official",
+        "likes": 7385,
+        "reposts": 642,
+        "views": 1408999,
+        "posted_at": "2026-10-28T23:17:13Z",
+        "measured_at": "2026-10-29"
+      }
     },
     {
-     "label": "9to5Mac",
-     "url": "https://9to5mac.com/2026/10/28/openai-expanding-chatgpt-dot-access-to-imessage-and-rcs/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/ChatGPT/status/2115496387613786374",
-    "author": "@ChatGPT",
-    "kind": "official",
-    "likes": 3084,
-    "reposts": 136,
-    "views": 242297,
-    "posted_at": "2026-10-28T17:30:17Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "claude-for-legal-artifacts",
-   "date": "2026-10-28",
-   "category": "feature",
-   "company": "Anthropic",
-   "impact": "notable",
-   "headline": "Claude for Legal gets ready-made tools for contract review, cite checks and rule tracking",
-   "explainer": "Legal teams can start from a gallery of ready-to-use Claude 'artifacts', such as a contract comparison table, a citation checker and a regulation timeline, add their own documents and share them with coworkers. Every answer links back to its source, and a lawyer still reviews the result; it's aimed at businesses and law firms, not personal legal advice.",
-   "source_url": "https://claude.com/resources/articles/introducing-artifacts-for-legal-work",
-   "source_name": "Claude blog",
-   "more_sources": [
-    {
-     "label": "Reuters via Economic Times",
-     "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/anthropic-unveils-additional-claude-tools-for-lawyers/articleshow/135271177.cms"
+      "id": "grok-api-guidelines",
+      "date": "2026-10-28",
+      "category": "feature",
+      "company": "xAI",
+      "impact": "minor",
+      "headline": "Grok's API now takes plain-language guidelines for how to handle sensitive topics",
+      "explainer": "Developers can add a guidelines field to Grok API requests to steer how it handles specific content categories, which makes Grok-powered bots easier to keep on-brand and family-safe. It's available to all API customers; nothing changes in the Grok app itself.",
+      "source_url": "https://x.com/grok/status/2115584612122718296",
+      "source_name": "@grok on X",
+      "x": {
+        "url": "https://x.com/grok/status/2115584612122718296",
+        "author": "@grok",
+        "kind": "official",
+        "likes": 224,
+        "reposts": 30,
+        "views": 347181,
+        "posted_at": "2026-10-28T23:20:51Z",
+        "measured_at": "2026-10-29"
+      }
     },
     {
-     "label": "Legal IT Insider",
-     "url": "https://legaltechnology.com/anthropic-moves-further-up-the-legal-tech-stack-with-launch-of-claude-for-legal-artifacts/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/claudeai/status/2115467192276025500",
-    "author": "@claudeai",
-    "kind": "official",
-    "likes": 13363,
-    "reposts": 702,
-    "views": 1535190,
-    "posted_at": "2026-10-28T15:34:16Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "google-connected-apps-platform",
-   "date": "2026-10-28",
-   "category": "feature",
-   "company": "Google",
-   "impact": "notable",
-   "headline": "Google opens Gemini and Search to more outside apps, starting with Adobe, Calm and Peloton",
-   "explainer": "More of the apps you already use will work right inside the Gemini app and Google Search, so you can ask Gemini to plan a Peloton workout or use Adobe without switching apps. Google launched a developer preview (US, waitlist) that lets any app plug in through MCP; more than 50 Connected Apps are live, and Calm is coming to both Search and Gemini.",
-   "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/connected-apps-one-place/",
-   "source_name": "Google blog",
-   "more_sources": [
-    {
-     "label": "TechCrunch",
-     "url": "https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/Marie_Haynes/status/2115507306163208445",
-    "author": "@Marie_Haynes",
-    "kind": "coverage",
-    "likes": 27,
-    "reposts": 2,
-    "views": 2243,
-    "posted_at": "2026-10-28T18:13:40Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "github-copilot-fusion",
-   "date": "2026-10-28",
-   "category": "feature",
-   "company": "Microsoft",
-   "impact": "notable",
-   "headline": "GitHub Copilot Fusion picks the AI model for you, and Microsoft opens its Copilot agent engine to builders",
-   "explainer": "If you code with GitHub Copilot, you can now choose 'Copilot Fusion' and an effort level instead of a model; it routes each task to cheaper or stronger models and GitHub says it came within 2 points of Claude Code with Opus 5.5 at about half the cost per task (30% off for paid plans through Nov 30). Microsoft also made the harness behind Copilot available in Microsoft Foundry, so companies can build their own agents on it.",
-   "source_url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/",
-   "source_name": "GitHub Changelog",
-   "more_sources": [
-    {
-     "label": "Microsoft blog: Copilot harness",
-     "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/"
+      "id": "google-gemini-4-carbon",
+      "date": "2026-10-28",
+      "category": "model release",
+      "company": "Google",
+      "impact": "major",
+      "headline": "Google announces Gemini 4 Carbon, its new top model, but only a few security teams can use it so far",
+      "explainer": "Carbon is Google's strongest model yet: it now ranks #1 on the Artificial Analysis Intelligence Index and is built for long coding jobs and for finding and fixing security holes. This week only selected cyber defenders get it; Google says developers, businesses and the Gemini app get it 'as soon as possible', at the same intro API price as Argon ($2 in / $10 out per million tokens, later $4 / $20).",
+      "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+      "source_name": "Google blog",
+      "more_sources": [
+        {
+          "label": "9to5Google",
+          "url": "https://9to5google.com/2026/10/28/gemini-4-carbon-announcement/"
+        },
+        {
+          "label": "VentureBeat",
+          "url": "https://venturebeat.com/technology/google-unveils-gemini-4-carbon-retaking-the-worlds-no-1-spot-on-updated-harder-benchmarks-but-access-is-limited"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/sundarpichai/status/2115489219804352921",
+        "author": "@sundarpichai",
+        "kind": "official",
+        "likes": 30675,
+        "reposts": 2439,
+        "views": 5095122,
+        "posted_at": "2026-10-28T17:01:48Z",
+        "measured_at": "2026-10-29"
+      }
     },
     {
-     "label": "GitHub Universe 2026",
-     "url": "https://github.blog/news-insights/company-news/github-universe-2026-evolving-every-layer-of-the-stack/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/satyanadella/status/2115490856685990244",
-    "author": "@satyanadella",
-    "kind": "official",
-    "likes": 554,
-    "reposts": 70,
-    "views": 58996,
-    "posted_at": "2026-10-28T17:08:18Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "nvidia-nemotron-3-5-transcribe",
-   "date": "2026-10-28",
-   "category": "model release",
-   "company": "NVIDIA",
-   "impact": "notable",
-   "headline": "NVIDIA releases Nemotron 3.5 Transcribe, a free open model that writes up recordings and says who spoke",
-   "explainer": "Expect better, cheaper meeting-notes and transcription bots: this free, open-weight model transcribes 40 languages, translates, tells up to eight speakers apart and handles recordings up to an hour. It works on recorded audio, not live calls, and is meant for app builders rather than a ready-made app.",
-   "source_url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
-   "source_name": "NVIDIA on Hugging Face",
-   "more_sources": [
-    {
-     "label": "TechCrunch",
-     "url": "https://techcrunch.com/2026/10/28/voice-ai-in-vogue-nvidia-releases-new-open-transcription-model/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/NVIDIAAI/status/2115462300241141882",
-    "author": "@NVIDIAAI",
-    "kind": "official",
-    "likes": 3106,
-    "reposts": 245,
-    "views": 223086,
-    "posted_at": "2026-10-28T15:14:50Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "perplexity-voice-gpt-live-1",
-   "date": "2026-10-28",
-   "category": "feature",
-   "company": "Perplexity",
-   "impact": "minor",
-   "headline": "Perplexity's voice mode can now run several Computer tasks at once",
-   "explainer": "On the Mac app and web, Pro and Max subscribers can talk to Perplexity to start new Computer tasks, check on several running at once and manage Projects in one voice session. It now runs on OpenAI's gpt-live-1 voice model, which can listen while it talks.",
-   "source_url": "https://9to5mac.com/2026/10/28/perplexity-upgrades-mac-app-with-chatgpt-powered-voice-mode/",
-   "source_name": "9to5Mac",
-   "x": {
-    "url": "https://x.com/AskPerplexity/status/2115471825031610611",
-    "author": "@AskPerplexity",
-    "kind": "official",
-    "likes": 152,
-    "reposts": 13,
-    "views": 31495,
-    "posted_at": "2026-10-28T15:52:41Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "gemini-immersive-explorations",
-   "date": "2026-10-28",
-   "category": "feature",
-   "company": "Google",
-   "impact": "minor",
-   "headline": "Gemini adds interactive 'immersive explorations' for learning a topic layer by layer",
-   "explainer": "Students and curious adults can zoom through interactive scenes, like inside a jet engine or along the Silk Road, and tap labels to dig deeper. It's free for all users from the Gemini student hub for now, with direct access in chats and audio narration coming soon.",
-   "source_url": "https://blog.google/innovation-and-ai/products/gemini-app/immersive-explorations-student-hub/",
-   "source_name": "Google blog",
-   "x": {
-    "url": "https://x.com/GeminiApp/status/2115507092660289631",
-    "author": "@GeminiApp",
-    "kind": "official",
-    "likes": 385,
-    "reposts": 29,
-    "views": 21792,
-    "posted_at": "2026-10-28T18:12:49Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "meta-waddle-world",
-   "date": "2026-10-28",
-   "category": "feature",
-   "company": "Meta",
-   "impact": "minor",
-   "headline": "Meta tests Waddle World, an AI virtual pet app, in the Philippines",
-   "explainer": "Waddle World is a Tamagotchi-style app where an AI pixel pet gets to know you, turns what you tell it into illustrated journal entries and can send a weekly email. It's a test in the Philippines only (iOS and Android, 18+), and Meta says it's not a chatbot or an assistant.",
-   "source_url": "https://techcrunch.com/2026/10/28/meta-has-a-new-ai-pet-app-called-waddle-world/",
-   "source_name": "TechCrunch",
-   "x": {
-    "url": "https://x.com/MattNavarra/status/2115210391462551845",
-    "author": "@MattNavarra",
-    "kind": "coverage",
-    "likes": 33,
-    "reposts": 1,
-    "views": 8233,
-    "posted_at": "2026-10-27T22:33:50Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "google-genie-4",
-   "date": "2026-10-27",
-   "category": "model release",
-   "company": "Google",
-   "impact": "notable",
-   "headline": "Google DeepMind shows Genie 4, a world model you can steer like a live video game",
-   "explainer": "Genie 4 builds a realistic, explorable scene from a text prompt, with sound and talking characters, and changes it in real time when you type things like 'make it rain'. It's only with trusted testers for now; Google says Google AI Ultra subscribers (in Project Genie) and early Gemini API partners come next, so there's nothing for your bots to use yet.",
-   "source_url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
-   "source_name": "Google DeepMind blog",
-   "more_sources": [
-    {
-     "label": "Google: Introducing Genie 4",
-     "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/GoogleDeepMind/status/2115114028338962672",
-    "author": "@GoogleDeepMind",
-    "kind": "official",
-    "likes": 22510,
-    "reposts": 2473,
-    "views": 3095464,
-    "posted_at": "2026-10-27T16:10:55Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "liquid-ai-lfm3",
-   "date": "2026-10-27",
-   "category": "model release",
-   "company": "Liquid AI",
-   "impact": "notable",
-   "headline": "Liquid AI releases LFM3, free small models that run on a phone or laptop",
-   "explainer": "LFM3 is a family of six open-weight 2B-size models for text, images, audio and more; the text one fits in about 1 GB and reads up to 256K tokens. That makes it a good fit for a private bot that runs on your own device, and anyone handy can fine-tune it on a single GPU.",
-   "source_url": "https://www.liquid.ai/blog/lfm3",
-   "source_name": "Liquid AI blog",
-   "x": {
-    "url": "https://x.com/liquidai/status/2115128329003303107",
-    "author": "@liquidai",
-    "kind": "official",
-    "likes": 8215,
-    "reposts": 1134,
-    "views": 1685655,
-    "posted_at": "2026-10-27T17:07:45Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "microsoft-mai-image-2-7",
-   "date": "2026-10-27",
-   "category": "model release",
-   "company": "Microsoft",
-   "impact": "notable",
-   "headline": "Microsoft's MAI Image 2.7 photo editor ranks near the top, in preview",
-   "explainer": "Microsoft's new image-editing model can relight a scene, change text on a sign, or restore an old photo while keeping it looking natural. It's in preview in MAI Playground and debuts #3 on Arena's image-edit leaderboard, so expect sharper edit-my-photo features in Microsoft apps.",
-   "source_url": "https://microsoft.ai/news/mai-image-2-7-debut/",
-   "source_name": "Microsoft AI",
-   "x": {
-    "url": "https://x.com/MicrosoftAI/status/2115102961957499069",
-    "author": "@MicrosoftAI",
-    "kind": "official",
-    "likes": 317,
-    "reposts": 33,
-    "views": 27888,
-    "posted_at": "2026-10-27T15:26:57Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "apple-iwork-assistant-mcp",
-   "date": "2026-10-27",
-   "category": "feature",
-   "company": "Apple",
-   "impact": "notable",
-   "headline": "Apple puts an AI assistant in Pages, Keynote and Numbers, and opens them to outside agents",
-   "explainer": "Your bot will be able to read and edit Pages, Keynote and Numbers files on a Mac. Apple's new assistant (built on Apple models and OpenAI) drafts text, builds slides and charts data, and new MCP support lets outside AI agents work in the apps directly; it arrives in November for Apple Creator Studio subscribers ($12.99/month), in beta, US English only, and MCP needs macOS 27.",
-   "source_url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
-   "source_name": "Apple Newsroom",
-   "more_sources": [
-    {
-     "label": "The Verge",
-     "url": "https://www.theverge.com/tech/1019373/apple-pages-keynote-numbers-ai-chatbot-update"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/twid/status/2115131652259434648",
-    "author": "@twid",
-    "kind": "coverage",
-    "likes": 948,
-    "reposts": 57,
-    "views": 60799,
-    "posted_at": "2026-10-27T17:20:57Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "meta-muse-singapore",
-   "date": "2026-10-27",
-   "category": "agent launch",
-   "company": "Meta",
-   "impact": "notable",
-   "headline": "Meta's Muse personal agent launches in Singapore, its first country after the US",
-   "explainer": "Muse, Meta's do-it-for-you agent, now works in Singapore with local apps like Grab, Shopee and Singapore Airlines. It's free for most tasks, keeps your passwords and cards out of the agent's view, and asks before sending an email or buying anything.",
-   "source_url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
-   "source_name": "Meta",
-   "more_sources": [
-    {
-     "label": "CNA",
-     "url": "https://www.channelnewsasia.com/singapore/meta-muse-ai-agent-singapore-shopping-travel-email-connectors-6499331"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/alexandr_wang/status/2115252079593967826",
-    "author": "@alexandr_wang",
-    "kind": "official",
-    "likes": 2090,
-    "reposts": 96,
-    "views": 151075,
-    "posted_at": "2026-10-28T01:19:29Z",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "openai-oracle-apps-chatgpt",
-   "date": "2026-10-27",
-   "category": "industry",
-   "company": "OpenAI",
-   "impact": "notable",
-   "headline": "OpenAI and Oracle plan to bring Oracle business apps into ChatGPT",
-   "explainer": "If your job runs on Oracle software, you may soon handle approved tasks like finance or HR lookups by asking ChatGPT. Oracle AI Workspace is still in development with no launch date; what's live now is that US Oracle customers can buy ChatGPT Work, Codex and the OpenAI API through Oracle Marketplace.",
-   "source_url": "https://openai.com/index/oracle-apps-in-chatgpt",
-   "source_name": "OpenAI",
-   "more_sources": [
-    {
-     "label": "Oracle blog",
-     "url": "https://blogs.oracle.com/ai-and-datascience/introducing-oracle-ai-workspace"
+      "id": "chatgpt-dots-texting",
+      "date": "2026-10-28",
+      "category": "feature",
+      "company": "OpenAI",
+      "impact": "notable",
+      "headline": "You can now text your ChatGPT dot over iMessage or RCS",
+      "explainer": "Your dot (ChatGPT's always-on agent) can now take tasks by text, photo or voice note from your phone's Messages app, and text you back when something needs you. It's a beta for US ChatGPT Pro users only, one-to-one (no group chats), and it can't see your other text conversations.",
+      "source_url": "https://learn.chatgpt.com/docs/dots/channels",
+      "source_name": "ChatGPT Learn",
+      "more_sources": [
+        {
+          "label": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1021183/openai-now-lets-you-text-your-dot"
+        },
+        {
+          "label": "9to5Mac",
+          "url": "https://9to5mac.com/2026/10/28/openai-expanding-chatgpt-dot-access-to-imessage-and-rcs/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/ChatGPT/status/2115496387613786374",
+        "author": "@ChatGPT",
+        "kind": "official",
+        "likes": 6529,
+        "reposts": 340,
+        "views": 1636254,
+        "posted_at": "2026-10-28T17:30:17Z",
+        "measured_at": "2026-10-29"
+      }
     },
     {
-     "label": "CNBC",
-     "url": "https://www.cnbc.com/2026/10/27/oracle-openai-chatgpt-codex-google-tpus.html"
-    }
-   ]
-  },
-  {
-   "id": "anthropic-gsa-40-discount",
-   "date": "2026-10-27",
-   "category": "pricing",
-   "company": "Anthropic",
-   "impact": "minor",
-   "headline": "Anthropic gives US federal, state and local governments 40% off Claude",
-   "explainer": "Government offices can now buy Claude Enterprise, Claude for Government and the Claude API at 40% off with no minimum spend. Prices for everyone else don't change, but your city or state may start using Claude for forms and backlogs.",
-   "source_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
-   "source_name": "Anthropic",
-   "more_sources": [
-    {
-     "label": "GSA",
-     "url": "https://www.gsa.gov/about-gsa/newsroom/news-releases/gsa-anthropic-reach-onegov-agreement-on-discounted-consumptionbased-pricing-10272026"
-    }
-   ]
-  },
-  {
-   "id": "gemini-api-store-by-default",
-   "date": "2026-10-26",
-   "category": "feature",
-   "company": "Google",
-   "impact": "minor",
-   "headline": "Gemini API now saves requests by default for new paid projects",
-   "explainer": "If you set up a new paid Gemini API project, the prompts your bot sends are now stored by default, matching Google's Interactions API; existing projects don't change. If you'd rather they weren't kept, send store=false or turn off Generate Content API logging under Logs and Datasets.",
-   "source_url": "https://ai.google.dev/gemini-api/docs/changelog",
-   "source_name": "Gemini API changelog"
-  },
-  {
-   "id": "openai-gpt-6-1-terra",
-   "date": "2026-10-26",
-   "category": "model release",
-   "company": "OpenAI",
-   "impact": "notable",
-   "headline": "GPT-6.1 Terra: OpenAI's new fast, cheaper model for bots that use apps and screens",
-   "explainer": "GPT-6.1 Terra is a new mid-size OpenAI model that's better at reading what's on a screen and clicking through apps for you, like filling out forms or entering invoices, and makes fewer factual mistakes than GPT-5.6 Terra. It's in ChatGPT Work, Codex and the API at $1 in / $5 out per million tokens, half the price of GPT-6.1 Sol, so bots that do lots of computer work get cheaper to run; the benchmark claims are OpenAI's own.",
-   "source_url": "https://developers.openai.com/api/docs/changelog",
-   "source_name": "OpenAI API changelog",
-   "more_sources": [
-    {
-     "label": "OpenAI: Introducing GPT-6.1 Terra",
-     "url": "https://openai.com/index/introducing-gpt-6-1-terra"
+      "id": "claude-for-legal-artifacts",
+      "date": "2026-10-28",
+      "category": "feature",
+      "company": "Anthropic",
+      "impact": "notable",
+      "headline": "Claude for Legal gets ready-made tools for contract review, cite checks and rule tracking",
+      "explainer": "Legal teams can start from a gallery of ready-to-use Claude 'artifacts', such as a contract comparison table, a citation checker and a regulation timeline, add their own documents and share them with coworkers. Every answer links back to its source, and a lawyer still reviews the result; it's aimed at businesses and law firms, not personal legal advice.",
+      "source_url": "https://claude.com/resources/articles/introducing-artifacts-for-legal-work",
+      "source_name": "Claude blog",
+      "more_sources": [
+        {
+          "label": "Reuters via Economic Times",
+          "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/anthropic-unveils-additional-claude-tools-for-lawyers/articleshow/135271177.cms"
+        },
+        {
+          "label": "Legal IT Insider",
+          "url": "https://legaltechnology.com/anthropic-moves-further-up-the-legal-tech-stack-with-launch-of-claude-for-legal-artifacts/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/claudeai/status/2115467192276025500",
+        "author": "@claudeai",
+        "kind": "official",
+        "likes": 26868,
+        "reposts": 1762,
+        "views": 5638517,
+        "posted_at": "2026-10-28T15:34:16Z",
+        "measured_at": "2026-10-29"
+      }
     },
     {
-     "label": "AWS: GPT-6.1 Terra on Amazon Bedrock",
-     "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-6-1-terra-on-amazon-bedrock/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/OpenAI/status/2114780711664398349",
-    "author": "@OpenAI",
-    "kind": "official",
-    "posted_at": "2026-10-26",
-    "likes": 27832,
-    "reposts": 2475,
-    "views": 6374852,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "anthropic-s1-ipo-filing",
-   "date": "2026-10-26",
-   "category": "industry",
-   "company": "Anthropic",
-   "impact": "notable",
-   "headline": "Anthropic, the maker of Claude, files to go public on Nasdaq",
-   "explainer": "Anthropic has filed the paperwork with the SEC for a stock market listing under the symbol ANT; the share count and price aren't set yet. Nothing changes in Claude for you today, but a public Anthropic will have to report its business openly, which can shape pricing and plans down the road.",
-   "source_url": "https://www.anthropic.com/news/s1-sec",
-   "source_name": "Anthropic",
-   "x": {
-    "url": "https://x.com/AnthropicAI/status/2114705042817110293",
-    "author": "@AnthropicAI",
-    "kind": "official",
-    "posted_at": "2026-10-26",
-    "likes": 18174,
-    "reposts": 2359,
-    "views": 9088291,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "claude-for-nonprofits-plugin",
-   "date": "2026-10-26",
-   "category": "feature",
-   "company": "Anthropic",
-   "impact": "notable",
-   "headline": "Claude gets a free plugin for nonprofits that helps with fundraising, marketing and hiring",
-   "explainer": "Verified nonprofits using Claude now get a plugin, built with about 30 nonprofits, with ready-made skills for grant research, donor reports, marketing and hiring that follow the group's own policies. If you volunteer for or run a small nonprofit, it's a quicker way to get Claude doing the paperwork that eats your week.",
-   "source_url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
-   "source_name": "Claude",
-   "x": {
-    "url": "https://x.com/claudeai/status/2114780227465338985",
-    "author": "@claudeai",
-    "kind": "official",
-    "posted_at": "2026-10-26",
-    "likes": 7100,
-    "reposts": 330,
-    "views": 781143,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "riverside-agents",
-   "date": "2026-10-26",
-   "category": "agent launch",
-   "company": "Riverside",
-   "impact": "notable",
-   "headline": "Riverside adds a team of AI agents that edit, clip and post your videos and podcasts",
-   "explainer": "If you record a podcast or videos on Riverside, four new agents can now prep your interview questions, edit the recording into a finished episode, cut social clips, and write captions and schedule posts. They're on web and mobile on every Riverside plan (some features depend on your tier), and nothing goes live until you approve it.",
-   "source_url": "https://riverside.com/blog/first-team-of-ai-agents-built-for-video",
-   "source_name": "Riverside",
-   "more_sources": [
-    {
-     "label": "Podnews: Riverside launches Riverside Agents",
-     "url": "https://podnews.net/press-release/riverside-agents"
+      "id": "google-connected-apps-platform",
+      "date": "2026-10-28",
+      "category": "feature",
+      "company": "Google",
+      "impact": "notable",
+      "headline": "Google opens Gemini and Search to more outside apps, starting with Adobe, Calm and Peloton",
+      "explainer": "More of the apps you already use will work right inside the Gemini app and Google Search, so you can ask Gemini to plan a Peloton workout or use Adobe without switching apps. Google launched a developer preview (US, waitlist) that lets any app plug in through MCP; more than 50 Connected Apps are live, and Calm is coming to both Search and Gemini.",
+      "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/connected-apps-one-place/",
+      "source_name": "Google blog",
+      "more_sources": [
+        {
+          "label": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/Marie_Haynes/status/2115507306163208445",
+        "author": "@Marie_Haynes",
+        "kind": "coverage",
+        "likes": 418,
+        "reposts": 42,
+        "views": 30044,
+        "posted_at": "2026-10-28T18:13:40Z",
+        "measured_at": "2026-10-29"
+      }
     },
     {
-     "label": "Forbes: Riverside Agents are a new team for AI production of podcasts",
-     "url": "https://www.forbes.com/sites/marksparrow/2026/10/26/riverside-agents-are-a-new-team-for-ai-production-of-podcasts/"
-    }
-   ]
-  },
-  {
-   "id": "ant-lingguang-2",
-   "date": "2026-10-26",
-   "category": "agent launch",
-   "company": "Ant Group",
-   "impact": "notable",
-   "headline": "Ant Group's LingGuang 2.0 turns its AI assistant into a helper that acts before you ask",
-   "explainer": "Ant Group, the company behind Alipay, upgraded its LingGuang app into a personal agent that, with your permission, keeps working after you close the chat, following up on tasks and flagging things like price drops on a trip you booked or a subscription you forgot. It's another sign that everyday assistants are moving from answering questions to quietly running errands in the background.",
-   "source_url": "https://www.businesswire.com/news/home/20261026586960/en/Ant-Group-Upgrades-LingGuang-to-2.0-Turning-Its-AI-Assistant-into-a-Proactive-Personal-Agent",
-   "source_name": "Business Wire (Ant Group)"
-  },
-  {
-   "id": "kimi-k3-1-pro",
-   "date": "2026-10-23",
-   "category": "model release",
-   "company": "Moonshot",
-   "impact": "notable",
-   "headline": "Kimi K3.1 Pro: a new open model that says it nearly matches Claude Opus 5.5 at coding",
-   "explainer": "Moonshot's new Kimi K3.1 Pro is out now in the Kimi apps and API, and its full weights are due by Nov 4, so anyone will be able to download and run it. Its API price is $2 in / $10 out per million tokens, half of Claude Opus 5.5's list price; the coding scores are Moonshot's own and haven't been checked independently yet.",
-   "source_url": "https://thenextweb.com/news/moonshot-kimi-k3-1-pro-open-weight-cyber",
-   "source_name": "The Next Web",
-   "more_sources": [
-    {
-     "label": "Kimi: Introducing Kimi K3.1 Pro",
-     "url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/Kimi_Moonshot/status/2113680701770068067",
-    "author": "@Kimi_Moonshot",
-    "kind": "official",
-    "posted_at": "2026-10-23",
-    "likes": 30190,
-    "reposts": 3236,
-    "views": 4064917,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "cursor-computer-use-desktop",
-   "date": "2026-10-23",
-   "category": "feature",
-   "company": "Cursor",
-   "impact": "notable",
-   "headline": "Cursor's coding bot can now click and type in other apps on your computer",
-   "explainer": "After you update the Cursor app, its agent can drive desktop apps such as the iPhone simulator to test the features it just built, instead of you tapping through them yourself. Because it works by looking at your screen, close private windows before you let it take over.",
-   "source_url": "https://x.com/cursor_ai/status/2113661506634305834",
-   "source_name": "Cursor (on X)",
-   "more_sources": [
-    {
-     "label": "AlphaSignal",
-     "url": "https://alphasignal.ai/news/cursor-s-computer-use-lets-its-coding-agent-click-through-desktop-apps"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/cursor_ai/status/2113661506634305834",
-    "author": "@cursor_ai",
-    "kind": "official",
-    "posted_at": "2026-10-23",
-    "likes": 6423,
-    "reposts": 469,
-    "views": 413472,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "nvidia-nemotron-3-5-bolt-e4b",
-   "date": "2026-10-23",
-   "category": "model release",
-   "company": "NVIDIA",
-   "impact": "notable",
-   "headline": "NVIDIA releases a free 4GB AI model for assistants that run on your own device",
-   "explainer": "Nemotron 3.5 Bolt E4B is a small, free open model built for fast local voice and device assistants that can follow instructions and use tools, so a simple bot can run on your own computer with no per-message bill. It's text-only with a 64K-token memory, so save bigger jobs for the large cloud models.",
-   "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
-   "source_name": "NVIDIA (Hugging Face)",
-   "more_sources": [
-    {
-     "label": "NVIDIA build page",
-     "url": "https://build.nvidia.com/nvidia/nemotron-3.5-bolt-e4b"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/NVIDIAAI/status/2113657112408785153",
-    "author": "@NVIDIAAI",
-    "kind": "official",
-    "posted_at": "2026-10-23",
-    "likes": 2077,
-    "reposts": 260,
-    "views": 287296,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "block-dessa",
-   "date": "2026-10-23",
-   "category": "model release",
-   "company": "Block",
-   "impact": "notable",
-   "headline": "Block shows Dessa, a voice AI that talks with human-like pauses and emotion",
-   "explainer": "Dessa is a speech model from the company behind Square and Cash App that listens and talks at the same time, so conversations with it sound strikingly like a real person. There's no public access yet, only early access for safety researchers, but it's a reminder that a lifelike voice on the phone may not be a person.",
-   "source_url": "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/",
-   "source_name": "TechCrunch",
-   "more_sources": [
-    {
-     "label": "Block: Dessa",
-     "url": "https://block.xyz/dessa"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/jack/status/2113697902916751661",
-    "author": "@jack",
-    "kind": "official",
-    "posted_at": "2026-10-23",
-    "likes": 69109,
-    "reposts": 7135,
-    "views": 13499266,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "openai-offline-training",
-   "date": "2026-10-23",
-   "category": "industry",
-   "company": "OpenAI",
-   "impact": "notable",
-   "headline": "OpenAI cuts its newest models off the live internet while they're being trained",
-   "explainer": "OpenAI says its frontier models now train in an offline copy of the web instead of the real internet, a safety step so a model in training can't reach outside systems. Nothing changes in ChatGPT for you, but it shows labs are treating stronger models as something to keep fenced in.",
-   "source_url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
-   "source_name": "OpenAI",
-   "x": {
-    "url": "https://x.com/OpenAI/status/2113718797505036665",
-    "author": "@OpenAI",
-    "kind": "official",
-    "posted_at": "2026-10-23",
-    "likes": 13695,
-    "reposts": 1246,
-    "views": 7664775,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "openai-agents-api-scheduled-automations",
-   "date": "2026-10-23",
-   "category": "feature",
-   "company": "OpenAI",
-   "impact": "notable",
-   "headline": "OpenAI's Agents API can now run bots on a schedule",
-   "explainer": "Developers can now tell an OpenAI agent to run on a repeating schedule, like every morning at 10, or once at a set time, and the agent can even set up its own schedules when you ask in plain words. Expect more apps that do a recurring job for you, such as a daily digest, without you opening them.",
-   "source_url": "https://developers.openai.com/api/docs/guides/agents-api/sessions/automations",
-   "source_name": "OpenAI API docs",
-   "more_sources": [
-    {
-     "label": "OpenAI Developer Community announcement",
-     "url": "https://community.openai.com/t/introducing-scheduled-automations-to-the-agents-api/1409223"
-    }
-   ]
-  },
-  {
-   "id": "openai-legacy-models-shutdown-oct-23",
-   "date": "2026-10-23",
-   "category": "industry",
-   "company": "OpenAI",
-   "impact": "minor",
-   "headline": "OpenAI switched off older models including GPT-4, GPT-3.5 Turbo, o4-mini and gpt-image-1",
-   "explainer": "If an older app or bot of yours suddenly stopped working on Oct 23, this may be why: OpenAI retired a batch of older models announced back in April. Switching it to a current model such as GPT-5.6 usually fixes it.",
-   "source_url": "https://developers.openai.com/api/docs/deprecations",
-   "source_name": "OpenAI API deprecations"
-  },
-  {
-   "id": "claude-enterprise-chat-cowork-merge",
-   "date": "2026-10-23",
-   "category": "feature",
-   "company": "Anthropic",
-   "impact": "notable",
-   "headline": "Claude Enterprise merges chat and Cowork into one Claude that keeps working in the cloud",
-   "explainer": "At companies on Claude Enterprise, people no longer pick between a quick chat and handing Claude a bigger job: every conversation starts as a chat and moves into the cloud when it needs to work with files or code, then hands back the finished document or deck. The work keeps going after you close your laptop, and admins get controls and a new Efficient mode to manage usage.",
-   "source_url": "https://claude.com/resources/articles/unified-claude-enterprise",
-   "source_name": "Claude"
-  },
-  {
-   "id": "gemini-notebook-connected-app",
-   "date": "2026-10-23",
-   "category": "feature",
-   "company": "Google",
-   "impact": "notable",
-   "headline": "Gemini can now create notebooks and add sources to Gemini Notebook from your chat",
-   "explainer": "Type @Gemini Notebook in a Gemini chat to make a notebook, add a link or this chat as a source, or ask what your notebooks say, without switching apps. It's on by default for personal and Workspace accounts outside Europe, so double-check before asking it to delete anything, since it can change your notebooks too.",
-   "source_url": "https://workspaceupdates.googleblog.com/2026/10/take-actions-on-your-notebooks-from-Gemini-Notebook-directly-in-the-Gemini-app.html",
-   "source_name": "Google Workspace Updates",
-   "more_sources": [
-    {
-     "label": "9to5Google: Gemini Notebook now a Connected App",
-     "url": "https://9to5google.com/2026/10/23/gemini-notebook-connected-app/"
-    }
-   ]
-  },
-  {
-   "id": "anthropic-agent-skills-to-aaif",
-   "date": "2026-10-22",
-   "category": "industry",
-   "company": "Anthropic",
-   "impact": "notable",
-   "headline": "Anthropic hands Agent Skills to a neutral foundation",
-   "explainer": "Skills are little instruction folders that teach an AI agent a specific task, and more than 70 tools, including ChatGPT, Cursor and GitHub Copilot, already read them. Moving the standard to the Linux Foundation's Agentic AI Foundation makes it more likely a skill you set up once keeps working across different bots.",
-   "source_url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
-   "source_name": "Anthropic"
-  },
-  {
-   "id": "openai-decisions-api-ga",
-   "date": "2026-10-22",
-   "category": "feature",
-   "company": "OpenAI",
-   "impact": "minor",
-   "headline": "OpenAI's quick-answer Decisions API is now open to all developers",
-   "explainer": "The Decisions API turns text or images into short typed answers, like sorting an email or approving a request, without writing a full reply, and it now handles up to 400 questions per request with prompt-cache discounts. Apps built on it can make these small calls faster and cheaper, which adds up for bots that triage a lot.",
-   "source_url": "https://developers.openai.com/api/docs/changelog",
-   "source_name": "OpenAI API changelog",
-   "x": {
-    "url": "https://x.com/OpenAIDevs/status/2113346642787086538",
-    "author": "@OpenAIDevs",
-    "kind": "official",
-    "posted_at": "2026-10-22",
-    "likes": 1381,
-    "reposts": 99,
-    "views": 170621,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "canva-craft",
-   "date": "2026-10-22",
-   "category": "model release",
-   "company": "Canva",
-   "impact": "notable",
-   "headline": "Canva launches Craft, its own image model built for designs with readable text",
-   "explainer": "Craft plans the layout first, then makes images up to 2K in about 30 sizes, and is trained on human-made Canva templates so text comes out legible. It's available to all Canva users in the Dream Lab tab, and Canva plans to let ChatGPT and Gemini use it too.",
-   "source_url": "https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/",
-   "source_name": "TechCrunch",
-   "x": {
-    "url": "https://x.com/canva/status/2113348707223753165",
-    "author": "@canva",
-    "kind": "official",
-    "posted_at": "2026-10-22",
-    "likes": 3106,
-    "reposts": 670,
-    "views": 1923599,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "claude-auto-mode-default-apps",
-   "date": "2026-10-22",
-   "category": "feature",
-   "company": "Anthropic",
-   "impact": "notable",
-   "headline": "Claude will stop asking permission for every step, starting next week",
-   "explainer": "Starting next week, Claude's web, desktop and mobile apps on Pro, Max and Team plans begin sessions in auto mode, where an automated check lets safe actions go ahead and blocks risky ones instead of asking you to approve each step. Longer tasks finish with fewer interruptions, and you can switch any session back to manual approvals.",
-   "source_url": "https://claude.com/resources/articles/auto-mode-default-in-claude-code",
-   "source_name": "Anthropic",
-   "x": {
-    "url": "https://x.com/claudeai/status/2113360845409583307",
-    "author": "@claudeai",
-    "kind": "official",
-    "posted_at": "2026-10-22",
-    "likes": 21036,
-    "reposts": 850,
-    "views": 2770664,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "grok-bot-phone-apps",
-   "date": "2026-10-22",
-   "category": "feature",
-   "company": "xAI",
-   "impact": "notable",
-   "headline": "Grok Bot can now use your phone's Calendar, Reminders and Contacts",
-   "explainer": "With your permission, Grok Bot on iOS and Android can add calendar events, set and check reminders, look up contacts and reach apps like Messages and Home, and you allow each app separately. That makes \"add this to my calendar\" or \"remind me tonight\" something you can just ask your bot to do; it's rolling out now.",
-   "source_url": "https://www.digitaltrends.com/phones/grok-bot-can-now-manage-your-calendar-reminders-and-more/",
-   "source_name": "Digital Trends",
-   "more_sources": [
-    {
-     "label": "TeslaNorth",
-     "url": "https://teslanorth.com/2026/10/22/grok-bot-phone-calendar-reminders-contacts/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/bot/status/2113393684209176718",
-    "author": "@bot",
-    "kind": "official",
-    "posted_at": "2026-10-22",
-    "likes": 14420,
-    "reposts": 1133,
-    "views": 3340698,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "grok-bot-1password",
-   "date": "2026-10-22",
-   "category": "feature",
-   "company": "xAI",
-   "impact": "notable",
-   "headline": "Grok Bot can sign in to your accounts with 1Password, without seeing your passwords",
-   "explainer": "You approve which saved logins your bot may use, and 1Password fills them in, one-time codes included, so the bot never sees the password. 1Password says the same approach is rolling out for Meta's Muse and coming soon to Claude Duet and ChatGPT Work, at no extra cost on its Individual and Family plans.",
-   "source_url": "https://1password.com/partners/spacexsi-grokbot",
-   "source_name": "1Password",
-   "more_sources": [
-    {
-     "label": "1Password blog: 1Password for Agents",
-     "url": "https://1password.com/blog/1password-for-ai-agents"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/bot/status/2113332983226831339",
-    "author": "@bot",
-    "kind": "official",
-    "posted_at": "2026-10-22",
-    "likes": 9978,
-    "reposts": 701,
-    "views": 1468307,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "gemini-maps-saved-places",
-   "date": "2026-10-22",
-   "category": "feature",
-   "company": "Google",
-   "impact": "notable",
-   "headline": "Gemini can now plan your day from your Google Maps saved places and calendar",
-   "explainer": "If you turn on Personal Intelligence, Gemini can check your Maps searches and saved places alongside your Calendar, so \"which restaurant on my list is near my last meeting?\" gets a real answer. Google is also telling AI Ultra subscribers that Gemini 4 Argon will soon replace the Deep Think mode.",
-   "source_url": "https://9to5google.com/2026/10/22/gemini-personal-intelligence-maps/",
-   "source_name": "9to5Google",
-   "x": {
-    "url": "https://x.com/GeminiApp/status/2113343041805127839",
-    "author": "@GeminiApp",
-    "kind": "official",
-    "posted_at": "2026-10-22",
-    "likes": 1323,
-    "reposts": 110,
-    "views": 105156,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "anthropic-claude-duet",
-   "date": "2026-10-21",
-   "category": "agent launch",
-   "company": "Anthropic",
-   "impact": "major",
-   "headline": "Anthropic opens Claude Duet, a proactive agent that comes to you",
-   "explainer": "Claude Duet sends you a morning brief from your connected apps, keeps an eye on them through the day, works on tasks while you're away, and asks before it does anything big like paying or deleting. It's a waitlist research preview for US Pro and Max subscribers, on iOS, Android and claude.ai, and Anthropic says it can still misjudge what's urgent.",
-   "source_url": "https://claude.com/blog/claude-duet",
-   "source_name": "Anthropic",
-   "more_sources": [
-    {
-     "label": "The Verge",
-     "url": "https://www.theverge.com/ai-artificial-intelligence/1015843/anthropic-claude-duet-ai-agent"
+      "id": "github-copilot-fusion",
+      "date": "2026-10-28",
+      "category": "feature",
+      "company": "Microsoft",
+      "impact": "notable",
+      "headline": "GitHub Copilot Fusion picks the AI model for you, and Microsoft opens its Copilot agent engine to builders",
+      "explainer": "If you code with GitHub Copilot, you can now choose 'Copilot Fusion' and an effort level instead of a model; it routes each task to cheaper or stronger models and GitHub says it came within 2 points of Claude Code with Opus 5.5 at about half the cost per task (30% off for paid plans through Nov 30). Microsoft also made the harness behind Copilot available in Microsoft Foundry, so companies can build their own agents on it.",
+      "source_url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/",
+      "source_name": "GitHub Changelog",
+      "more_sources": [
+        {
+          "label": "Microsoft blog: Copilot harness",
+          "url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/"
+        },
+        {
+          "label": "GitHub Universe 2026",
+          "url": "https://github.blog/news-insights/company-news/github-universe-2026-evolving-every-layer-of-the-stack/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/satyanadella/status/2115490856685990244",
+        "author": "@satyanadella",
+        "kind": "official",
+        "likes": 1328,
+        "reposts": 164,
+        "views": 182690,
+        "posted_at": "2026-10-28T17:08:18Z",
+        "measured_at": "2026-10-29"
+      }
     },
     {
-     "label": "9to5Mac",
-     "url": "https://9to5mac.com/2026/10/21/anthropic-takes-on-chatgpt-dots-and-meta-muse-with-claude-duet/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/claudeai/status/2112984664256241837",
-    "author": "@claudeai",
-    "kind": "official",
-    "likes": 55452,
-    "reposts": 4254,
-    "views": 11174624,
-    "posted_at": "2026-10-21",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "openai-patch-the-planet-php",
-   "date": "2026-10-21",
-   "category": "industry",
-   "company": "OpenAI",
-   "impact": "notable",
-   "headline": "AI agents helped find critical PHP flaws that affect most websites",
-   "explainer": "If you run a website or blog on PHP (WordPress included), make sure your host has updated PHP to the patched version now. OpenAI says its models helped researchers find the bugs before attackers did, and it's sharing a version checker and a Codex skill to help site owners check.",
-   "source_url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
-   "source_name": "OpenAI",
-   "more_sources": [
-    {
-     "label": "The PHP Foundation",
-     "url": "https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/"
+      "id": "nvidia-nemotron-3-5-transcribe",
+      "date": "2026-10-28",
+      "category": "model release",
+      "company": "NVIDIA",
+      "impact": "notable",
+      "headline": "NVIDIA releases Nemotron 3.5 Transcribe, a free open model that writes up recordings and says who spoke",
+      "explainer": "Expect better, cheaper meeting-notes and transcription bots: this free, open-weight model transcribes 40 languages, translates, tells up to eight speakers apart and handles recordings up to an hour. It works on recorded audio, not live calls, and is meant for app builders rather than a ready-made app.",
+      "source_url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+      "source_name": "NVIDIA on Hugging Face",
+      "more_sources": [
+        {
+          "label": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/28/voice-ai-in-vogue-nvidia-releases-new-open-transcription-model/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/NVIDIAAI/status/2115462300241141882",
+        "author": "@NVIDIAAI",
+        "kind": "official",
+        "likes": 7300,
+        "reposts": 596,
+        "views": 707890,
+        "posted_at": "2026-10-28T15:14:50Z",
+        "measured_at": "2026-10-29"
+      }
     },
     {
-     "label": "BleepingComputer",
-     "url": "https://www.bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/OpenAI/status/2112907856018309586",
-    "author": "@OpenAI",
-    "kind": "official",
-    "likes": 14474,
-    "reposts": 2871,
-    "views": 5923430,
-    "posted_at": "2026-10-21",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "claude-security-continuous-scans",
-   "date": "2026-10-21",
-   "category": "feature",
-   "company": "Anthropic",
-   "impact": "minor",
-   "headline": "Claude Security now re-scans your code every time it changes",
-   "explainer": "Teams on Claude Enterprise can connect their code once and Claude keeps checking new changes for security holes, marking each one fixed when the fix lands. It's a public beta for businesses, not something personal plans get.",
-   "source_url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
-   "source_name": "Anthropic",
-   "x": {
-    "url": "https://x.com/claudeai/status/2112962248218148878",
-    "author": "@claudeai",
-    "kind": "official",
-    "likes": 11063,
-    "reposts": 568,
-    "views": 838190,
-    "posted_at": "2026-10-21",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "openai-models-on-google-cloud",
-   "date": "2026-10-21",
-   "category": "industry",
-   "company": "OpenAI",
-   "impact": "notable",
-   "headline": "OpenAI's models are coming to Google Cloud",
-   "explainer": "Companies on Google Cloud will be able to use GPT-6 models and Codex without a separate OpenAI account (private preview now, wider launch planned in the coming weeks). For you it mostly means more places your work tools can quietly plug in OpenAI models.",
-   "source_url": "https://openai.com/index/openai-models-google-cloud",
-   "source_name": "OpenAI",
-   "more_sources": [
-    {
-     "label": "CNBC",
-     "url": "https://www.cnbc.com/2026/10/21/openai-bring-its-ai-models-to-googles-cloud-expands-beyond-microsoft.html"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/OpenAI/status/2112988118471295323",
-    "author": "@OpenAI",
-    "kind": "official",
-    "likes": 5284,
-    "reposts": 414,
-    "views": 532196,
-    "posted_at": "2026-10-21",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "recursive-flint",
-   "date": "2026-10-21",
-   "category": "model release",
-   "company": "Recursive",
-   "impact": "notable",
-   "headline": "Recursive releases Flint, a free coding model that runs on a laptop",
-   "explainer": "Flint is a free, open coding model small enough to run on an ordinary laptop, so a coding bot can work offline, keep your files private and skip per-use fees. Its maker says it still needs smaller, step-by-step tasks than the big paid assistants.",
-   "source_url": "https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/",
-   "source_name": "TechCrunch",
-   "more_sources": [
-    {
-     "label": "Richard Socher on X",
-     "url": "https://x.com/RichardSocher/status/2112944385415426249"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/RichardSocher/status/2112944385415426249",
-    "author": "@RichardSocher",
-    "kind": "official",
-    "posted_at": "2026-10-21",
-    "likes": 8377,
-    "reposts": 893,
-    "views": 3440572,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "walmart-agent-gateway",
-   "date": "2026-10-21",
-   "category": "agent launch",
-   "company": "Walmart",
-   "impact": "notable",
-   "headline": "Walmart opens its store to AI shopping agents, with spending limits you set",
-   "explainer": "Walmart is building a direct connection so approved AI agents like ChatGPT, Gemini and Muse can search and buy from Walmart and Sam's Club for you, starting with an invite-only beta for developers. Next month, each agent gets its own profile in your Walmart account where you can require approval for every order or set a spending cap, and agents never see your card details.",
-   "source_url": "https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers",
-   "source_name": "Walmart",
-   "more_sources": [
-    {
-     "label": "TechCrunch: While Amazon blocks AI agents, Walmart rolls out the welcome mat",
-     "url": "https://techcrunch.com/2026/10/21/while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-mat/"
+      "id": "perplexity-voice-gpt-live-1",
+      "date": "2026-10-28",
+      "category": "feature",
+      "company": "Perplexity",
+      "impact": "minor",
+      "headline": "Perplexity's voice mode can now run several Computer tasks at once",
+      "explainer": "On the Mac app and web, Pro and Max subscribers can talk to Perplexity to start new Computer tasks, check on several running at once and manage Projects in one voice session. It now runs on OpenAI's gpt-live-1 voice model, which can listen while it talks.",
+      "source_url": "https://9to5mac.com/2026/10/28/perplexity-upgrades-mac-app-with-chatgpt-powered-voice-mode/",
+      "source_name": "9to5Mac",
+      "x": {
+        "url": "https://x.com/AskPerplexity/status/2115471825031610611",
+        "author": "@AskPerplexity",
+        "kind": "official",
+        "likes": 210,
+        "reposts": 18,
+        "views": 55588,
+        "posted_at": "2026-10-28T15:52:41Z",
+        "measured_at": "2026-10-29"
+      }
     },
     {
-     "label": "Retail Dive: Walmart welcomes external AI agents",
-     "url": "https://www.retaildive.com/news/walmart-welcomes-external-ai-shopping-agents-terms-boundaries/833723/"
-    }
-   ]
-  },
-  {
-   "id": "mistral-voxtral-3",
-   "date": "2026-10-20",
-   "category": "model release",
-   "company": "Mistral",
-   "impact": "notable",
-   "headline": "Mistral launches Voxtral 3 for voice agents that can take calls",
-   "explainer": "A new set of speech models plus a kit for building phone and web voice agents that listen, look things up and talk back in 50+ languages. Mistral lists its voice agent API at $0.04 a minute with Mistral Small 4, so phone bots keep getting cheaper to run.",
-   "source_url": "https://mistral.ai/news/voxtral-3/",
-   "source_name": "Mistral",
-   "x": {
-    "url": "https://x.com/MistralAI/status/2112574615318876178",
-    "author": "@MistralAI",
-    "kind": "official",
-    "likes": 3280,
-    "reposts": 377,
-    "views": 277295,
-    "posted_at": "2026-10-20",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "openai-12-hour-prompt-caching",
-   "date": "2026-10-20",
-   "category": "pricing",
-   "company": "OpenAI",
-   "impact": "minor",
-   "headline": "OpenAI adds 12-hour prompt caching",
-   "explainer": "Bots that run hours apart (like a morning and an evening check) can now keep their fixed instructions cached and pay the lower cached-input price. Writing to the 12-hour cache costs 2.5x the normal input price, so it pays off when the same setup is reused several times.",
-   "source_url": "https://developers.openai.com/api/docs/changelog",
-   "source_name": "OpenAI API changelog",
-   "x": {
-    "url": "https://x.com/OpenAIDevs/status/2112603916076781778",
-    "author": "@OpenAIDevs",
-    "kind": "official",
-    "likes": 3610,
-    "reposts": 188,
-    "views": 1982331,
-    "posted_at": "2026-10-20",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "deepseek-deepinfer",
-   "date": "2026-10-20",
-   "category": "industry",
-   "company": "DeepSeek",
-   "impact": "minor",
-   "headline": "DeepSeek open-sources the engine that runs its own API",
-   "explainer": "DeepInfer is the software DeepSeek uses to serve V4.1 Flash cheaply, now free under Apache 2.0. Hosting companies can copy the tricks, which could push the price of running open models down for your bots.",
-   "source_url": "https://github.com/deepseek-ai/DeepInfer",
-   "source_name": "DeepSeek (GitHub)",
-   "more_sources": [
-    {
-     "label": "The New Stack",
-     "url": "https://thenewstack.io/deepseek-deepinfer-huawei-nvidia/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/deepseek_ai/status/2112476496283775135",
-    "author": "@deepseek_ai",
-    "kind": "official",
-    "likes": 43378,
-    "reposts": 4901,
-    "views": 6815691,
-    "posted_at": "2026-10-20",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "meta-muse-sharing-paused",
-   "date": "2026-10-20",
-   "category": "feature",
-   "company": "Meta",
-   "impact": "notable",
-   "headline": "Meta pauses Muse chat sharing after shared chats turned up on the web",
-   "explainer": "Researchers found more than 6,800 Muse share links through public web records, some showing loan applications, revenue reviews and work calendars, so Meta switched sharing off while it reviews. Treat any AI \"share link\" as public, and keep private details out of chats you share.",
-   "source_url": "https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats",
-   "source_name": "The Verge",
-   "more_sources": [
-    {
-     "label": "Ars Technica",
-     "url": "https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/"
-    }
-   ]
-  },
-  {
-   "id": "gemini-android-auto-personal-intelligence",
-   "date": "2026-10-20",
-   "category": "feature",
-   "company": "Google",
-   "impact": "notable",
-   "headline": "Gemini in your car can now use your Gmail, Calendar and Maps to help",
-   "explainer": "With your permission, Gemini on Android Auto can pull your flight gate from email, find the restaurant you saved, or take you to your next appointment without you looking anything up. It's rolling out now on Android Auto for eligible personal accounts and is off until you turn it on.",
-   "source_url": "https://blog.google/products-and-platforms/platforms/android/android-auto-cars-with-google-built-in-gemini-personal-intelligence/",
-   "source_name": "Google",
-   "x": {
-    "url": "https://x.com/Google/status/2112655614132285592",
-    "author": "@Google",
-    "kind": "official",
-    "posted_at": "2026-10-20",
-    "likes": 2131,
-    "reposts": 189,
-    "views": 275298,
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "chatgpt-locked-chats",
-   "date": "2026-10-20",
-   "category": "feature",
-   "company": "OpenAI",
-   "impact": "notable",
-   "headline": "ChatGPT lets you lock private chats behind a PIN",
-   "explainer": "You can now lock a sensitive ChatGPT chat from its ••• menu so it's hidden from your history and search and opens only with a 4-digit PIN or your phone's face or fingerprint unlock. Write the PIN down, because resetting a forgotten one deletes every locked chat for good; it's rolling out gradually.",
-   "source_url": "https://techcrunch.com/2026/10/20/chatgpt-now-lets-you-lock-your-chats/",
-   "source_name": "TechCrunch",
-   "more_sources": [
-    {
-     "label": "OpenAI Help Center: Using locked chats",
-     "url": "https://help.openai.com/en/articles/20001411-using-locked-chats-in-chatgpt"
-    }
-   ]
-  },
-  {
-   "id": "android-police-gems-become-skills",
-   "date": "2026-10-18",
-   "category": "feature",
-   "company": "Google",
-   "impact": "notable",
-   "headline": "Google turns Gemini Gems into Skills and moves Spark into the main chat",
-   "explainer": "From November 17, Google starts converting personal Gems into Skills you call with a slash in the main chat, and Scheduled Actions no longer need a paid plan (still rolling out to free accounts). If you built a Gem-based bot, test it before the switch.",
-   "source_url": "https://www.androidpolice.com/googles-renamed-gemini-features-field-guide/",
-   "source_name": "Android Police"
-  },
-  {
-   "id": "deepseek-v4-1-flash-1017",
-   "date": "2026-10-17",
-   "category": "model release",
-   "company": "DeepSeek",
-   "impact": "notable",
-   "headline": "DeepSeek updates its V4.1 Flash model: faster and shorter answers, same price",
-   "explainer": "DeepSeek says the update finishes tasks faster with shorter outputs, which means fewer tokens to pay for. The API name and prices are unchanged, and the open weights are on Hugging Face.",
-   "source_url": "https://api-docs.deepseek.com/updates/",
-   "source_name": "DeepSeek API changelog",
-   "more_sources": [
-    {
-     "label": "SiliconANGLE",
-     "url": "https://siliconangle.com/2026/10/18/deepseek-releases-updated-v4-1-flash-model-it-says-completes-tasks-faster/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/deepseek_ai/status/2111375640717033777",
-    "author": "@deepseek_ai",
-    "kind": "official",
-    "likes": 37166,
-    "reposts": 4130,
-    "views": 8097891,
-    "posted_at": "2026-10-17",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "deepseek-search-fetch-api",
-   "date": "2026-10-17",
-   "category": "pricing",
-   "company": "DeepSeek",
-   "impact": "minor",
-   "headline": "DeepSeek opens its own web search and page-fetch tools to developers",
-   "explainer": "Bots built on DeepSeek can now search the web and read pages through DeepSeek's own API at $0.75 per 1,000 requests each. Calls made through some coding agents are free until billing starts on November 1 (Beijing time).",
-   "source_url": "https://api-docs.deepseek.com/quick_start/pricing",
-   "source_name": "DeepSeek pricing",
-   "x": {
-    "url": "https://x.com/deepseek_ai/status/2111375650414309859",
-    "author": "@deepseek_ai",
-    "kind": "official",
-    "likes": 3493,
-    "reposts": 251,
-    "views": 970416,
-    "posted_at": "2026-10-17",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "meta-muse-spark-open",
-   "date": "2026-10-15",
-   "category": "model release",
-   "company": "Meta",
-   "impact": "notable",
-   "headline": "Meta releases Muse Spark Open, the most capable US open-weight model so far",
-   "explainer": "Meta's new open model is built for coding and agent work, and you can call it on day one through Groq, OpenRouter, Together AI and other APIs. Groq runs it at 350+ tokens per second per user. That speed matters for agents, because each task is a long chain of model calls.",
-   "source_url": "https://research.meta.ai/blog/muse-spark-open",
-   "source_name": "Meta",
-   "more_sources": [
-    {
-     "label": "Groq (limited preview)",
-     "url": "https://groq.com/blog/meta-s-muse-spark-open-release-is-now-in-limited-preview-on-groqcloud"
+      "id": "gemini-immersive-explorations",
+      "date": "2026-10-28",
+      "category": "feature",
+      "company": "Google",
+      "impact": "minor",
+      "headline": "Gemini adds interactive 'immersive explorations' for learning a topic layer by layer",
+      "explainer": "Students and curious adults can zoom through interactive scenes, like inside a jet engine or along the Silk Road, and tap labels to dig deeper. It's free for all users from the Gemini student hub for now, with direct access in chats and audio narration coming soon.",
+      "source_url": "https://blog.google/innovation-and-ai/products/gemini-app/immersive-explorations-student-hub/",
+      "source_name": "Google blog",
+      "x": {
+        "url": "https://x.com/GeminiApp/status/2115507092660289631",
+        "author": "@GeminiApp",
+        "kind": "official",
+        "likes": 1022,
+        "reposts": 87,
+        "views": 65076,
+        "posted_at": "2026-10-28T18:12:49Z",
+        "measured_at": "2026-10-29"
+      }
     },
     {
-     "label": "Hugging Face",
-     "url": "https://huggingface.co/blog/meta-muse-spark-open"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/AIatMeta/status/2110779754274292212",
-    "author": "@AIatMeta",
-    "kind": "official",
-    "likes": 11578,
-    "reposts": 1220,
-    "views": 1260032,
-    "posted_at": "2026-10-15",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "grok-voice-3",
-   "date": "2026-10-14",
-   "category": "model release",
-   "company": "xAI",
-   "impact": "notable",
-   "headline": "xAI releases Grok Voice 3.0, its new speech-to-speech model",
-   "explainer": "The voice model behind Grok Bot's voice mode and Tesla's in-car assistant got an upgrade, at the same $0.08 a minute on the API. xAI says it answers in under a second and handles interruptions, which is what makes a phone bot feel natural.",
-   "source_url": "https://x.ai/news/grok-voice-3",
-   "source_name": "xAI",
-   "more_sources": [
-    {
-     "label": "SiliconANGLE",
-     "url": "https://siliconangle.com/2026/10/14/grok-voice-3-0-from-spacexsi-outscores-openai-and-google-on-speech-to-speech-index/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/ArtificialAnlys/status/2110421964095713743",
-    "author": "@ArtificialAnlys",
-    "kind": "coverage",
-    "likes": 1307,
-    "reposts": 142,
-    "views": 914702,
-    "posted_at": "2026-10-14",
-    "measured_at": "2026-10-28"
-   }
-  },
-  {
-   "id": "gemini-4-argon-available",
-   "date": "2026-10-13",
-   "category": "model release",
-   "company": "Google",
-   "impact": "major",
-   "headline": "Google's Gemini 4 Argon is now available to developers and paid Gemini users",
-   "explainer": "Google's new top model is in the API at an introductory $2 / $10 per million tokens, and in the Gemini app for Google AI Pro and Ultra subscribers. Google built it for long, multi-step work, the kind agents do.",
-   "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
-   "source_name": "Google",
-   "more_sources": [
-    {
-     "label": "Gemini API release notes",
-     "url": "https://ai.google.dev/gemini-api/docs/changelog"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/GeminiApp/status/2110039322229649783",
-    "author": "@GeminiApp",
-    "kind": "official",
-    "likes": 7385,
-    "reposts": 778,
-    "views": 9006195,
-    "posted_at": "2026-10-13",
-    "measured_at": "2026-10-26"
-   }
-  },
-  {
-   "id": "meta-muse-wonder",
-   "date": "2026-10-12",
-   "category": "model release",
-   "company": "Meta",
-   "impact": "major",
-   "headline": "Meta releases Muse Wonder, its first frontier model",
-   "explainer": "Meta says Muse Wonder will soon power its Muse personal agent, starting with paying subscribers. Developers can use it through Meta's API at $4 / $20 per million tokens.",
-   "source_url": "https://dev.meta.ai/resources/blog/build-with-muse-wonder",
-   "source_name": "Meta",
-   "more_sources": [
-    {
-     "label": "TechCrunch",
-     "url": "https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/AIatMeta/status/2109691148943999167",
-    "author": "@AIatMeta",
-    "kind": "official",
-    "likes": 2207,
-    "reposts": 238,
-    "views": 322576,
-    "posted_at": "2026-10-12",
-    "measured_at": "2026-10-26"
-   }
-  },
-  {
-   "id": "gemini-spark-becomes-task",
-   "date": "2026-10-12",
-   "category": "feature",
-   "company": "Google",
-   "impact": "minor",
-   "headline": "Gemini's Spark agent moves to a \"Task\" button on the app's home screen",
-   "explainer": "Handing a job to Google's background agent is now one tap away in the Gemini app, with a new Scheduled page that shows active, paused and finished tasks. It's live on Android and iOS; web wasn't confirmed yet.",
-   "source_url": "https://9to5google.com/2026/10/12/gemini-spark-task-redesign/",
-   "source_name": "9to5Google",
-   "more_sources": [
-    {
-     "label": "Android Authority",
-     "url": "https://www.androidauthority.com/gemini-spark-tasks-button-3723394/"
-    }
-   ]
-  },
-  {
-   "id": "openai-agents-sandbox-billing",
-   "date": "2026-10-09",
-   "category": "pricing",
-   "company": "OpenAI",
-   "impact": "minor",
-   "headline": "OpenAI stops charging agents for idle sandbox time",
-   "explainer": "Agents built on OpenAI's Agents API run in a hosted sandbox computer, and that is now billed only during active turns, not while the agent waits for you. Sandboxes can also be pre-warmed so replies start faster.",
-   "source_url": "https://developers.openai.com/api/docs/changelog",
-   "source_name": "OpenAI API changelog"
-  },
-  {
-   "id": "claude-dashboards-motion",
-   "date": "2026-10-08",
-   "category": "feature",
-   "company": "Anthropic",
-   "impact": "notable",
-   "headline": "Claude can now build live dashboards from your data and animated explainers",
-   "explainer": "Ask a question in plain words and Claude builds a dashboard that stays current, showing the query behind every number. Motion turns a report into a short animation you can export as MP4. Both are in beta on paid plans (Motion on Team and Enterprise).",
-   "source_url": "https://claude.com/resources/articles/dashboards-and-motion",
-   "source_name": "Anthropic",
-   "more_sources": [
-    {
-     "label": "Reuters via Investing.com",
-     "url": "https://www.investing.com/news/stock-market-news/anthropic-launches-dashboard-animation-tools-for-claude-4939641"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/claudeai/status/2108271552991252810",
-    "author": "@claudeai",
-    "kind": "official",
-    "likes": 60544,
-    "reposts": 4599,
-    "views": 11436907,
-    "posted_at": "2026-10-08",
-    "measured_at": "2026-10-26"
-   }
-  },
-  {
-   "id": "gpt-6-for-everyone",
-   "date": "2026-10-07",
-   "category": "model release",
-   "company": "OpenAI",
-   "impact": "major",
-   "headline": "GPT-6 rolls out to everyone in ChatGPT, with interactive answers",
-   "explainer": "ChatGPT answers can now include charts, buttons, forms and small tools you use right in the chat. Paid plans get GPT-6 Sol and Free and Go users get GPT-6 Luna, starting October 8.",
-   "source_url": "https://openai.com/index/gpt-6-for-everyone/",
-   "source_name": "OpenAI",
-   "x": {
-    "url": "https://x.com/OpenAI/status/2107894997538525580",
-    "author": "@OpenAI",
-    "kind": "official",
-    "likes": 24089,
-    "reposts": 1915,
-    "views": 6960413,
-    "posted_at": "2026-10-07",
-    "measured_at": "2026-10-26"
-   }
-  },
-  {
-   "id": "claude-haiku-5-5",
-   "date": "2026-10-07",
-   "category": "model release",
-   "company": "Anthropic",
-   "impact": "notable",
-   "headline": "Anthropic releases Claude Haiku 5.5, a fast, cheap model for high-volume bot work",
-   "explainer": "At $0.10 / $0.50 per million tokens for prompts up to 100,000 tokens, Anthropic says it costs about 75% less to run than Haiku 4.5. It's built for summaries, sorting and browser use: the simple, repeated jobs most everyday bots do.",
-   "source_url": "https://www.anthropic.com/news/claude-haiku-5-5",
-   "source_name": "Anthropic",
-   "x": {
-    "url": "https://x.com/claudeai/status/2107894039626277339",
-    "author": "@claudeai",
-    "kind": "official",
-    "likes": 45242,
-    "reposts": 3262,
-    "views": 6752694,
-    "posted_at": "2026-10-07",
-    "measured_at": "2026-10-26"
-   }
-  },
-  {
-   "id": "claude-sonnet-cache-cut-and-credits",
-   "date": "2026-10-07",
-   "category": "pricing",
-   "company": "Anthropic",
-   "impact": "notable",
-   "headline": "Anthropic halves Sonnet 5.5 cache reads and gives Max and Team plans monthly API credits",
-   "explainer": "Cached reads on Claude Sonnet 5.5 dropped from $0.20 to $0.10 per million tokens, which Anthropic says makes most agent work about 20% cheaper. Max subscribers get $100 or $200 a month in API credits, and Team plans up to $500, to build their own bots.",
-   "source_url": "https://www.anthropic.com/news/claude-haiku-5-5",
-   "source_name": "Anthropic",
-   "x": {
-    "url": "https://x.com/claudeai/status/2107894060229034197",
-    "author": "@claudeai",
-    "kind": "official",
-    "likes": 11851,
-    "reposts": 586,
-    "views": 1580314,
-    "posted_at": "2026-10-07",
-    "measured_at": "2026-10-26"
-   }
-  },
-  {
-   "id": "mistral-large-4-preview",
-   "date": "2026-10-06",
-   "category": "model release",
-   "company": "Mistral",
-   "impact": "notable",
-   "headline": "Mistral previews Mistral Large 4, with open weights promised by month's end",
-   "explainer": "Mistral's biggest model yet is in a public preview on its API, and Mistral says anyone will be able to download and run it themselves later this month. That's good news if you want a strong model you can host privately.",
-   "source_url": "https://mistral.ai/news/mistral-large-4",
-   "source_name": "Mistral",
-   "x": {
-    "url": "https://x.com/MistralAI/status/2107457414387622310",
-    "author": "@MistralAI",
-    "kind": "official",
-    "likes": 40657,
-    "reposts": 4568,
-    "views": 5722638,
-    "posted_at": "2026-10-06",
-    "measured_at": "2026-10-26"
-   }
-  },
-  {
-   "id": "claude-google-workspace",
-   "date": "2026-10-06",
-   "category": "feature",
-   "company": "Anthropic",
-   "impact": "notable",
-   "headline": "Claude now works inside Google Docs, Sheets and Slides",
-   "explainer": "A Claude sidebar can read the file you have open and edit it in place, asking before each change by default. It's in beta on all paid Claude plans, so your doc-and-spreadsheet chores can go to Claude without copy-pasting.",
-   "source_url": "https://claude.com/resources/articles/claude-now-works-in-google-docs-sheets-and-slides",
-   "source_name": "Anthropic",
-   "more_sources": [
-    {
-     "label": "The Verge",
-     "url": "https://www.theverge.com/ai-artificial-intelligence/1006111/you-can-use-claude-directly-in-google-docs-slides-and-sheets-with-a-new-add-on"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/claudeai/status/2107522596845822135",
-    "author": "@claudeai",
-    "kind": "official",
-    "likes": 54357,
-    "reposts": 4305,
-    "views": 13351662,
-    "posted_at": "2026-10-06",
-    "measured_at": "2026-10-26"
-   }
-  },
-  {
-   "id": "gpt-6-1-sol",
-   "date": "2026-09-29",
-   "category": "model release",
-   "company": "OpenAI",
-   "impact": "notable",
-   "headline": "OpenAI releases GPT-6.1 Sol: near-top performance at a fifth of the price",
-   "explainer": "OpenAI says GPT-6.1 Sol nearly matches its top model, GPT-6 Astra, on agent work at one-fifth of Astra's token prices ($2 / $10 per million). For bot builders, it's a cheaper middle option for jobs a small model can't handle.",
-   "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
-   "source_name": "OpenAI",
-   "more_sources": [
-    {
-     "label": "OpenAI API changelog",
-     "url": "https://developers.openai.com/api/docs/changelog"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/OpenAI/status/2104986129686741046",
-    "author": "@OpenAI",
-    "kind": "official",
-    "likes": 21105,
-    "reposts": 1711,
-    "views": 3241048,
-    "posted_at": "2026-09-29",
-    "measured_at": "2026-10-26"
-   }
-  },
-  {
-   "id": "openai-agents-api-computer-use",
-   "date": "2026-09-29",
-   "category": "feature",
-   "company": "OpenAI",
-   "impact": "notable",
-   "headline": "OpenAI's Agents API can now use a web browser",
-   "explainer": "Agents built on OpenAI's platform can now complete tasks in an OpenAI-hosted browser, with the app asking you before it visits a site and handling sign-in. Expect more third-party bots that click through websites for you.",
-   "source_url": "https://developers.openai.com/api/docs/changelog",
-   "source_name": "OpenAI API changelog"
-  },
-  {
-   "id": "openai-dots",
-   "date": "2026-09-29",
-   "category": "agent launch",
-   "company": "OpenAI",
-   "impact": "major",
-   "headline": "OpenAI launches dots: always-on agents with their own computer",
-   "explainer": "A dot runs on GPT-6 Astra with its own cloud computer, connects to your apps, and keeps working between chats, checking with you on decisions. It's rolling out to ChatGPT Pro and Business Premium users first (not the EU, Switzerland or the UK on Pro at launch).",
-   "source_url": "https://openai.com/index/introducing-dots/",
-   "source_name": "OpenAI",
-   "more_sources": [
-    {
-     "label": "OpenAI Help Center",
-     "url": "https://help.openai.com/en/articles/20001530-getting-started-with-your-dot"
+      "id": "meta-waddle-world",
+      "date": "2026-10-28",
+      "category": "feature",
+      "company": "Meta",
+      "impact": "minor",
+      "headline": "Meta tests Waddle World, an AI virtual pet app, in the Philippines",
+      "explainer": "Waddle World is a Tamagotchi-style app where an AI pixel pet gets to know you, turns what you tell it into illustrated journal entries and can send a weekly email. It's a test in the Philippines only (iOS and Android, 18+), and Meta says it's not a chatbot or an assistant.",
+      "source_url": "https://techcrunch.com/2026/10/28/meta-has-a-new-ai-pet-app-called-waddle-world/",
+      "source_name": "TechCrunch",
+      "x": {
+        "url": "https://x.com/MattNavarra/status/2115210391462551845",
+        "author": "@MattNavarra",
+        "kind": "coverage",
+        "likes": 41,
+        "reposts": 2,
+        "views": 10913,
+        "posted_at": "2026-10-27T22:33:50Z",
+        "measured_at": "2026-10-29"
+      }
     },
     {
-     "label": "The Verge",
-     "url": "https://www.theverge.com/ai-artificial-intelligence/1002033/openai-dots-launch-muse-competitor"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/OpenAI/status/2104984504133918973",
-    "author": "@OpenAI",
-    "kind": "official",
-    "likes": 38096,
-    "reposts": 3368,
-    "views": 14895458,
-    "posted_at": "2026-09-29",
-    "measured_at": "2026-10-26"
-   }
-  },
-  {
-   "id": "claude-sonnet-5-5",
-   "date": "2026-09-28",
-   "category": "model release",
-   "company": "Anthropic",
-   "impact": "notable",
-   "headline": "Anthropic releases Claude Sonnet 5.5",
-   "explainer": "Anthropic says Sonnet 5.5 runs 30%+ faster than Sonnet 5 and costs up to 30% less for most work. It's the middle model many agent apps use by default.",
-   "source_url": "https://www.anthropic.com/news/claude-sonnet-5-5",
-   "source_name": "Anthropic"
-  },
-  {
-   "id": "grok-bot-team-bots",
-   "date": "2026-09-28",
-   "category": "agent launch",
-   "company": "xAI",
-   "impact": "notable",
-   "headline": "Grok Bot adds Team Bots: shared AI teammates for a whole team",
-   "explainer": "One person sets up a bot with the files, apps and skills it needs, then the whole team can use it in Slack or Grok Bot, while each person's chats stay private. It's in public beta for Teams and Enterprise plans.",
-   "source_url": "https://x.ai/news/team-bots",
-   "source_name": "xAI",
-   "more_sources": [
+      "id": "google-genie-4",
+      "date": "2026-10-27",
+      "category": "model release",
+      "company": "Google",
+      "impact": "notable",
+      "headline": "Google DeepMind shows Genie 4, a world model you can steer like a live video game",
+      "explainer": "Genie 4 builds a realistic, explorable scene from a text prompt, with sound and talking characters, and changes it in real time when you type things like 'make it rain'. It's only with trusted testers for now; Google says Google AI Ultra subscribers (in Project Genie) and early Gemini API partners come next, so there's nothing for your bots to use yet.",
+      "source_url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "source_name": "Google DeepMind blog",
+      "more_sources": [
+        {
+          "label": "Google: Introducing Genie 4",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/GoogleDeepMind/status/2115114028338962672",
+        "author": "@GoogleDeepMind",
+        "kind": "official",
+        "likes": 23490,
+        "reposts": 2597,
+        "views": 3313093,
+        "posted_at": "2026-10-27T16:10:55Z",
+        "measured_at": "2026-10-29"
+      }
+    },
     {
-     "label": "TeslaNorth",
-     "url": "https://teslanorth.com/2026/09/28/spacexai-team-bots-launch/"
-    }
-   ],
-   "x": {
-    "url": "https://x.com/bot/status/2104661562715967548",
-    "author": "@bot",
-    "kind": "official",
-    "likes": 6437,
-    "reposts": 571,
-    "views": 42535973,
-    "posted_at": "2026-09-28",
-    "measured_at": "2026-10-26"
-   }
-  },
-  {
-   "id": "claude-opus-5-5",
-   "date": "2026-09-22",
-   "category": "model release",
-   "company": "Anthropic",
-   "impact": "major",
-   "headline": "Anthropic releases Claude Opus 5.5",
-   "explainer": "Anthropic says Opus 5.5 leads in agentic coding and knowledge work and costs 40% less to run than Opus 5 on typical workloads. It's the model to reach for when a bot's job is hard, not routine.",
-   "source_url": "https://www.anthropic.com/news/claude-opus-5-5",
-   "source_name": "Anthropic",
-   "x": {
-    "url": "https://x.com/claudeai/status/2102435511222890900",
-    "author": "@claudeai",
-    "kind": "official",
-    "likes": 97854,
-    "reposts": 9073,
-    "views": 29120544,
-    "posted_at": "2026-09-22",
-    "measured_at": "2026-10-26"
-   }
-  },
-  {
-   "id": "gpt-6-sol-and-luna",
-   "date": "2026-09-22",
-   "category": "model release",
-   "company": "OpenAI",
-   "impact": "notable",
-   "headline": "OpenAI releases GPT-6 Sol and GPT-6 Luna",
-   "explainer": "Two new models: Sol for most work and Luna, a very cheap one at $0.10 / $0.50 per million tokens. Luna is the kind of model to use for simple, frequent bot jobs.",
-   "source_url": "https://developers.openai.com/api/docs/changelog",
-   "source_name": "OpenAI API changelog",
-   "x": {
-    "url": "https://x.com/OpenAI/status/2102460975790137662",
-    "author": "@OpenAI",
-    "kind": "official",
-    "likes": 53227,
-    "reposts": 5264,
-    "views": 10198719,
-    "posted_at": "2026-09-22",
-    "measured_at": "2026-10-26"
-   }
-  },
-  {
-   "id": "grok-4-7",
-   "date": "2026-09-21",
-   "category": "model release",
-   "company": "xAI",
-   "impact": "major",
-   "headline": "xAI releases Grok 4.7",
-   "explainer": "xAI's new model for coding and knowledge work keeps the same $2 / $6 per million token price as Grok 4.6. xAI says it was trained to work inside the Grok Bot harness, which should make Grok Bot better at everyday tasks.",
-   "source_url": "https://x.ai/news/grok-4-7",
-   "source_name": "xAI",
-   "more_sources": [
+      "id": "liquid-ai-lfm3",
+      "date": "2026-10-27",
+      "category": "model release",
+      "company": "Liquid AI",
+      "impact": "notable",
+      "headline": "Liquid AI releases LFM3, free small models that run on a phone or laptop",
+      "explainer": "LFM3 is a family of six open-weight 2B-size models for text, images, audio and more; the text one fits in about 1 GB and reads up to 256K tokens. That makes it a good fit for a private bot that runs on your own device, and anyone handy can fine-tune it on a single GPU.",
+      "source_url": "https://www.liquid.ai/blog/lfm3",
+      "source_name": "Liquid AI blog",
+      "x": {
+        "url": "https://x.com/liquidai/status/2115128329003303107",
+        "author": "@liquidai",
+        "kind": "official",
+        "likes": 8732,
+        "reposts": 1198,
+        "views": 1848515,
+        "posted_at": "2026-10-27T17:07:45Z",
+        "measured_at": "2026-10-29"
+      }
+    },
     {
-     "label": "SiliconANGLE",
-     "url": "https://siliconangle.com/2026/09/21/spacex-launches-grok-4-7-with-long-horizon-processing-safety-upgrades/"
+      "id": "microsoft-mai-image-2-7",
+      "date": "2026-10-27",
+      "category": "model release",
+      "company": "Microsoft",
+      "impact": "notable",
+      "headline": "Microsoft's MAI Image 2.7 photo editor ranks near the top, in preview",
+      "explainer": "Microsoft's new image-editing model can relight a scene, change text on a sign, or restore an old photo while keeping it looking natural. It's in preview in MAI Playground and debuts #3 on Arena's image-edit leaderboard, so expect sharper edit-my-photo features in Microsoft apps.",
+      "source_url": "https://microsoft.ai/news/mai-image-2-7-debut/",
+      "source_name": "Microsoft AI",
+      "x": {
+        "url": "https://x.com/MicrosoftAI/status/2115102961957499069",
+        "author": "@MicrosoftAI",
+        "kind": "official",
+        "likes": 324,
+        "reposts": 34,
+        "views": 28934,
+        "posted_at": "2026-10-27T15:26:57Z",
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "apple-iwork-assistant-mcp",
+      "date": "2026-10-27",
+      "category": "feature",
+      "company": "Apple",
+      "impact": "notable",
+      "headline": "Apple puts an AI assistant in Pages, Keynote and Numbers, and opens them to outside agents",
+      "explainer": "Your bot will be able to read and edit Pages, Keynote and Numbers files on a Mac. Apple's new assistant (built on Apple models and OpenAI) drafts text, builds slides and charts data, and new MCP support lets outside AI agents work in the apps directly; it arrives in November for Apple Creator Studio subscribers ($12.99/month), in beta, US English only, and MCP needs macOS 27.",
+      "source_url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+      "source_name": "Apple Newsroom",
+      "more_sources": [
+        {
+          "label": "The Verge",
+          "url": "https://www.theverge.com/tech/1019373/apple-pages-keynote-numbers-ai-chatbot-update"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/twid/status/2115131652259434648",
+        "author": "@twid",
+        "kind": "coverage",
+        "likes": 963,
+        "reposts": 58,
+        "views": 62598,
+        "posted_at": "2026-10-27T17:20:57Z",
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "meta-muse-singapore",
+      "date": "2026-10-27",
+      "category": "agent launch",
+      "company": "Meta",
+      "impact": "notable",
+      "headline": "Meta's Muse personal agent launches in Singapore, its first country after the US",
+      "explainer": "Muse, Meta's do-it-for-you agent, now works in Singapore with local apps like Grab, Shopee and Singapore Airlines. It's free for most tasks, keeps your passwords and cards out of the agent's view, and asks before sending an email or buying anything.",
+      "source_url": "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/",
+      "source_name": "Meta",
+      "more_sources": [
+        {
+          "label": "CNA",
+          "url": "https://www.channelnewsasia.com/singapore/meta-muse-ai-agent-singapore-shopping-travel-email-connectors-6499331"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/alexandr_wang/status/2115252079593967826",
+        "author": "@alexandr_wang",
+        "kind": "official",
+        "likes": 2169,
+        "reposts": 102,
+        "views": 168656,
+        "posted_at": "2026-10-28T01:19:29Z",
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "openai-oracle-apps-chatgpt",
+      "date": "2026-10-27",
+      "category": "industry",
+      "company": "OpenAI",
+      "impact": "notable",
+      "headline": "OpenAI and Oracle plan to bring Oracle business apps into ChatGPT",
+      "explainer": "If your job runs on Oracle software, you may soon handle approved tasks like finance or HR lookups by asking ChatGPT. Oracle AI Workspace is still in development with no launch date; what's live now is that US Oracle customers can buy ChatGPT Work, Codex and the OpenAI API through Oracle Marketplace.",
+      "source_url": "https://openai.com/index/oracle-apps-in-chatgpt",
+      "source_name": "OpenAI",
+      "more_sources": [
+        {
+          "label": "Oracle blog",
+          "url": "https://blogs.oracle.com/ai-and-datascience/introducing-oracle-ai-workspace"
+        },
+        {
+          "label": "CNBC",
+          "url": "https://www.cnbc.com/2026/10/27/oracle-openai-chatgpt-codex-google-tpus.html"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-gsa-40-discount",
+      "date": "2026-10-27",
+      "category": "pricing",
+      "company": "Anthropic",
+      "impact": "minor",
+      "headline": "Anthropic gives US federal, state and local governments 40% off Claude",
+      "explainer": "Government offices can now buy Claude Enterprise, Claude for Government and the Claude API at 40% off with no minimum spend. Prices for everyone else don't change, but your city or state may start using Claude for forms and backlogs.",
+      "source_url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+      "source_name": "Anthropic",
+      "more_sources": [
+        {
+          "label": "GSA",
+          "url": "https://www.gsa.gov/about-gsa/newsroom/news-releases/gsa-anthropic-reach-onegov-agreement-on-discounted-consumptionbased-pricing-10272026"
+        }
+      ]
+    },
+    {
+      "id": "gemini-api-store-by-default",
+      "date": "2026-10-26",
+      "category": "feature",
+      "company": "Google",
+      "impact": "minor",
+      "headline": "Gemini API now saves requests by default for new paid projects",
+      "explainer": "If you set up a new paid Gemini API project, the prompts your bot sends are now stored by default, matching Google's Interactions API; existing projects don't change. If you'd rather they weren't kept, send store=false or turn off Generate Content API logging under Logs and Datasets.",
+      "source_url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "source_name": "Gemini API changelog"
+    },
+    {
+      "id": "openai-gpt-6-1-terra",
+      "date": "2026-10-26",
+      "category": "model release",
+      "company": "OpenAI",
+      "impact": "notable",
+      "headline": "GPT-6.1 Terra: OpenAI's new fast, cheaper model for bots that use apps and screens",
+      "explainer": "GPT-6.1 Terra is a new mid-size OpenAI model that's better at reading what's on a screen and clicking through apps for you, like filling out forms or entering invoices, and makes fewer factual mistakes than GPT-5.6 Terra. It's in ChatGPT Work, Codex and the API at $1 in / $5 out per million tokens, half the price of GPT-6.1 Sol, so bots that do lots of computer work get cheaper to run; the benchmark claims are OpenAI's own.",
+      "source_url": "https://developers.openai.com/api/docs/changelog",
+      "source_name": "OpenAI API changelog",
+      "more_sources": [
+        {
+          "label": "OpenAI: Introducing GPT-6.1 Terra",
+          "url": "https://openai.com/index/introducing-gpt-6-1-terra"
+        },
+        {
+          "label": "AWS: GPT-6.1 Terra on Amazon Bedrock",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-6-1-terra-on-amazon-bedrock/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/OpenAI/status/2114780711664398349",
+        "author": "@OpenAI",
+        "kind": "official",
+        "posted_at": "2026-10-26",
+        "likes": 27924,
+        "reposts": 2489,
+        "views": 6534785,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "anthropic-s1-ipo-filing",
+      "date": "2026-10-26",
+      "category": "industry",
+      "company": "Anthropic",
+      "impact": "notable",
+      "headline": "Anthropic, the maker of Claude, files to go public on Nasdaq",
+      "explainer": "Anthropic has filed the paperwork with the SEC for a stock market listing under the symbol ANT; the share count and price aren't set yet. Nothing changes in Claude for you today, but a public Anthropic will have to report its business openly, which can shape pricing and plans down the road.",
+      "source_url": "https://www.anthropic.com/news/s1-sec",
+      "source_name": "Anthropic",
+      "x": {
+        "url": "https://x.com/AnthropicAI/status/2114705042817110293",
+        "author": "@AnthropicAI",
+        "kind": "official",
+        "posted_at": "2026-10-26",
+        "likes": 18231,
+        "reposts": 2366,
+        "views": 9341042,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "claude-for-nonprofits-plugin",
+      "date": "2026-10-26",
+      "category": "feature",
+      "company": "Anthropic",
+      "impact": "notable",
+      "headline": "Claude gets a free plugin for nonprofits that helps with fundraising, marketing and hiring",
+      "explainer": "Verified nonprofits using Claude now get a plugin, built with about 30 nonprofits, with ready-made skills for grant research, donor reports, marketing and hiring that follow the group's own policies. If you volunteer for or run a small nonprofit, it's a quicker way to get Claude doing the paperwork that eats your week.",
+      "source_url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+      "source_name": "Claude",
+      "x": {
+        "url": "https://x.com/claudeai/status/2114780227465338985",
+        "author": "@claudeai",
+        "kind": "official",
+        "posted_at": "2026-10-26",
+        "likes": 7116,
+        "reposts": 331,
+        "views": 796685,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "riverside-agents",
+      "date": "2026-10-26",
+      "category": "agent launch",
+      "company": "Riverside",
+      "impact": "notable",
+      "headline": "Riverside adds a team of AI agents that edit, clip and post your videos and podcasts",
+      "explainer": "If you record a podcast or videos on Riverside, four new agents can now prep your interview questions, edit the recording into a finished episode, cut social clips, and write captions and schedule posts. They're on web and mobile on every Riverside plan (some features depend on your tier), and nothing goes live until you approve it.",
+      "source_url": "https://riverside.com/blog/first-team-of-ai-agents-built-for-video",
+      "source_name": "Riverside",
+      "more_sources": [
+        {
+          "label": "Podnews: Riverside launches Riverside Agents",
+          "url": "https://podnews.net/press-release/riverside-agents"
+        },
+        {
+          "label": "Forbes: Riverside Agents are a new team for AI production of podcasts",
+          "url": "https://www.forbes.com/sites/marksparrow/2026/10/26/riverside-agents-are-a-new-team-for-ai-production-of-podcasts/"
+        }
+      ]
+    },
+    {
+      "id": "ant-lingguang-2",
+      "date": "2026-10-26",
+      "category": "agent launch",
+      "company": "Ant Group",
+      "impact": "notable",
+      "headline": "Ant Group's LingGuang 2.0 turns its AI assistant into a helper that acts before you ask",
+      "explainer": "Ant Group, the company behind Alipay, upgraded its LingGuang app into a personal agent that, with your permission, keeps working after you close the chat, following up on tasks and flagging things like price drops on a trip you booked or a subscription you forgot. It's another sign that everyday assistants are moving from answering questions to quietly running errands in the background.",
+      "source_url": "https://www.businesswire.com/news/home/20261026586960/en/Ant-Group-Upgrades-LingGuang-to-2.0-Turning-Its-AI-Assistant-into-a-Proactive-Personal-Agent",
+      "source_name": "Business Wire (Ant Group)"
+    },
+    {
+      "id": "kimi-k3-1-pro",
+      "date": "2026-10-23",
+      "category": "model release",
+      "company": "Moonshot",
+      "impact": "notable",
+      "headline": "Kimi K3.1 Pro: a new open model that says it nearly matches Claude Opus 5.5 at coding",
+      "explainer": "Moonshot's new Kimi K3.1 Pro is out now in the Kimi apps and API, and its full weights are due by Nov 4, so anyone will be able to download and run it. Its API price is $2 in / $10 out per million tokens, half of Claude Opus 5.5's list price; the coding scores are Moonshot's own and haven't been checked independently yet.",
+      "source_url": "https://thenextweb.com/news/moonshot-kimi-k3-1-pro-open-weight-cyber",
+      "source_name": "The Next Web",
+      "more_sources": [
+        {
+          "label": "Kimi: Introducing Kimi K3.1 Pro",
+          "url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/Kimi_Moonshot/status/2113680701770068067",
+        "author": "@Kimi_Moonshot",
+        "kind": "official",
+        "posted_at": "2026-10-23",
+        "likes": 30198,
+        "reposts": 3235,
+        "views": 4078491,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "cursor-computer-use-desktop",
+      "date": "2026-10-23",
+      "category": "feature",
+      "company": "Cursor",
+      "impact": "notable",
+      "headline": "Cursor's coding bot can now click and type in other apps on your computer",
+      "explainer": "After you update the Cursor app, its agent can drive desktop apps such as the iPhone simulator to test the features it just built, instead of you tapping through them yourself. Because it works by looking at your screen, close private windows before you let it take over.",
+      "source_url": "https://x.com/cursor_ai/status/2113661506634305834",
+      "source_name": "Cursor (on X)",
+      "more_sources": [
+        {
+          "label": "AlphaSignal",
+          "url": "https://alphasignal.ai/news/cursor-s-computer-use-lets-its-coding-agent-click-through-desktop-apps"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/cursor_ai/status/2113661506634305834",
+        "author": "@cursor_ai",
+        "kind": "official",
+        "posted_at": "2026-10-23",
+        "likes": 6425,
+        "reposts": 468,
+        "views": 414979,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "nvidia-nemotron-3-5-bolt-e4b",
+      "date": "2026-10-23",
+      "category": "model release",
+      "company": "NVIDIA",
+      "impact": "notable",
+      "headline": "NVIDIA releases a free 4GB AI model for assistants that run on your own device",
+      "explainer": "Nemotron 3.5 Bolt E4B is a small, free open model built for fast local voice and device assistants that can follow instructions and use tools, so a simple bot can run on your own computer with no per-message bill. It's text-only with a 64K-token memory, so save bigger jobs for the large cloud models.",
+      "source_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB",
+      "source_name": "NVIDIA (Hugging Face)",
+      "more_sources": [
+        {
+          "label": "NVIDIA build page",
+          "url": "https://build.nvidia.com/nvidia/nemotron-3.5-bolt-e4b"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/NVIDIAAI/status/2113657112408785153",
+        "author": "@NVIDIAAI",
+        "kind": "official",
+        "posted_at": "2026-10-23",
+        "likes": 2080,
+        "reposts": 260,
+        "views": 288374,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "block-dessa",
+      "date": "2026-10-23",
+      "category": "model release",
+      "company": "Block",
+      "impact": "notable",
+      "headline": "Block shows Dessa, a voice AI that talks with human-like pauses and emotion",
+      "explainer": "Dessa is a speech model from the company behind Square and Cash App that listens and talks at the same time, so conversations with it sound strikingly like a real person. There's no public access yet, only early access for safety researchers, but it's a reminder that a lifelike voice on the phone may not be a person.",
+      "source_url": "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/",
+      "source_name": "TechCrunch",
+      "more_sources": [
+        {
+          "label": "Block: Dessa",
+          "url": "https://block.xyz/dessa"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/jack/status/2113697902916751661",
+        "author": "@jack",
+        "kind": "official",
+        "posted_at": "2026-10-23",
+        "likes": 69107,
+        "reposts": 7139,
+        "views": 13523540,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "openai-offline-training",
+      "date": "2026-10-23",
+      "category": "industry",
+      "company": "OpenAI",
+      "impact": "notable",
+      "headline": "OpenAI cuts its newest models off the live internet while they're being trained",
+      "explainer": "OpenAI says its frontier models now train in an offline copy of the web instead of the real internet, a safety step so a model in training can't reach outside systems. Nothing changes in ChatGPT for you, but it shows labs are treating stronger models as something to keep fenced in.",
+      "source_url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+      "source_name": "OpenAI",
+      "x": {
+        "url": "https://x.com/OpenAI/status/2113718797505036665",
+        "author": "@OpenAI",
+        "kind": "official",
+        "posted_at": "2026-10-23",
+        "likes": 13702,
+        "reposts": 1246,
+        "views": 7692103,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "openai-agents-api-scheduled-automations",
+      "date": "2026-10-23",
+      "category": "feature",
+      "company": "OpenAI",
+      "impact": "notable",
+      "headline": "OpenAI's Agents API can now run bots on a schedule",
+      "explainer": "Developers can now tell an OpenAI agent to run on a repeating schedule, like every morning at 10, or once at a set time, and the agent can even set up its own schedules when you ask in plain words. Expect more apps that do a recurring job for you, such as a daily digest, without you opening them.",
+      "source_url": "https://developers.openai.com/api/docs/guides/agents-api/sessions/automations",
+      "source_name": "OpenAI API docs",
+      "more_sources": [
+        {
+          "label": "OpenAI Developer Community announcement",
+          "url": "https://community.openai.com/t/introducing-scheduled-automations-to-the-agents-api/1409223"
+        }
+      ]
+    },
+    {
+      "id": "openai-legacy-models-shutdown-oct-23",
+      "date": "2026-10-23",
+      "category": "industry",
+      "company": "OpenAI",
+      "impact": "minor",
+      "headline": "OpenAI switched off older models including GPT-4, GPT-3.5 Turbo, o4-mini and gpt-image-1",
+      "explainer": "If an older app or bot of yours suddenly stopped working on Oct 23, this may be why: OpenAI retired a batch of older models announced back in April. Switching it to a current model such as GPT-5.6 usually fixes it.",
+      "source_url": "https://developers.openai.com/api/docs/deprecations",
+      "source_name": "OpenAI API deprecations"
+    },
+    {
+      "id": "claude-enterprise-chat-cowork-merge",
+      "date": "2026-10-23",
+      "category": "feature",
+      "company": "Anthropic",
+      "impact": "notable",
+      "headline": "Claude Enterprise merges chat and Cowork into one Claude that keeps working in the cloud",
+      "explainer": "At companies on Claude Enterprise, people no longer pick between a quick chat and handing Claude a bigger job: every conversation starts as a chat and moves into the cloud when it needs to work with files or code, then hands back the finished document or deck. The work keeps going after you close your laptop, and admins get controls and a new Efficient mode to manage usage.",
+      "source_url": "https://claude.com/resources/articles/unified-claude-enterprise",
+      "source_name": "Claude"
+    },
+    {
+      "id": "gemini-notebook-connected-app",
+      "date": "2026-10-23",
+      "category": "feature",
+      "company": "Google",
+      "impact": "notable",
+      "headline": "Gemini can now create notebooks and add sources to Gemini Notebook from your chat",
+      "explainer": "Type @Gemini Notebook in a Gemini chat to make a notebook, add a link or this chat as a source, or ask what your notebooks say, without switching apps. It's on by default for personal and Workspace accounts outside Europe, so double-check before asking it to delete anything, since it can change your notebooks too.",
+      "source_url": "https://workspaceupdates.googleblog.com/2026/10/take-actions-on-your-notebooks-from-Gemini-Notebook-directly-in-the-Gemini-app.html",
+      "source_name": "Google Workspace Updates",
+      "more_sources": [
+        {
+          "label": "9to5Google: Gemini Notebook now a Connected App",
+          "url": "https://9to5google.com/2026/10/23/gemini-notebook-connected-app/"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-agent-skills-to-aaif",
+      "date": "2026-10-22",
+      "category": "industry",
+      "company": "Anthropic",
+      "impact": "notable",
+      "headline": "Anthropic hands Agent Skills to a neutral foundation",
+      "explainer": "Skills are little instruction folders that teach an AI agent a specific task, and more than 70 tools, including ChatGPT, Cursor and GitHub Copilot, already read them. Moving the standard to the Linux Foundation's Agentic AI Foundation makes it more likely a skill you set up once keeps working across different bots.",
+      "source_url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+      "source_name": "Anthropic"
+    },
+    {
+      "id": "openai-decisions-api-ga",
+      "date": "2026-10-22",
+      "category": "feature",
+      "company": "OpenAI",
+      "impact": "minor",
+      "headline": "OpenAI's quick-answer Decisions API is now open to all developers",
+      "explainer": "The Decisions API turns text or images into short typed answers, like sorting an email or approving a request, without writing a full reply, and it now handles up to 400 questions per request with prompt-cache discounts. Apps built on it can make these small calls faster and cheaper, which adds up for bots that triage a lot.",
+      "source_url": "https://developers.openai.com/api/docs/changelog",
+      "source_name": "OpenAI API changelog",
+      "x": {
+        "url": "https://x.com/OpenAIDevs/status/2113346642787086538",
+        "author": "@OpenAIDevs",
+        "kind": "official",
+        "posted_at": "2026-10-22",
+        "likes": 1378,
+        "reposts": 99,
+        "views": 171591,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "canva-craft",
+      "date": "2026-10-22",
+      "category": "model release",
+      "company": "Canva",
+      "impact": "notable",
+      "headline": "Canva launches Craft, its own image model built for designs with readable text",
+      "explainer": "Craft plans the layout first, then makes images up to 2K in about 30 sizes, and is trained on human-made Canva templates so text comes out legible. It's available to all Canva users in the Dream Lab tab, and Canva plans to let ChatGPT and Gemini use it too.",
+      "source_url": "https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/",
+      "source_name": "TechCrunch",
+      "x": {
+        "url": "https://x.com/canva/status/2113348707223753165",
+        "author": "@canva",
+        "kind": "official",
+        "posted_at": "2026-10-22",
+        "likes": 3091,
+        "reposts": 581,
+        "views": 1930183,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "claude-auto-mode-default-apps",
+      "date": "2026-10-22",
+      "category": "feature",
+      "company": "Anthropic",
+      "impact": "notable",
+      "headline": "Claude will stop asking permission for every step, starting next week",
+      "explainer": "Starting next week, Claude's web, desktop and mobile apps on Pro, Max and Team plans begin sessions in auto mode, where an automated check lets safe actions go ahead and blocks risky ones instead of asking you to approve each step. Longer tasks finish with fewer interruptions, and you can switch any session back to manual approvals.",
+      "source_url": "https://claude.com/resources/articles/auto-mode-default-in-claude-code",
+      "source_name": "Anthropic",
+      "x": {
+        "url": "https://x.com/claudeai/status/2113360845409583307",
+        "author": "@claudeai",
+        "kind": "official",
+        "posted_at": "2026-10-22",
+        "likes": 21042,
+        "reposts": 848,
+        "views": 2790567,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "grok-bot-phone-apps",
+      "date": "2026-10-22",
+      "category": "feature",
+      "company": "xAI",
+      "impact": "notable",
+      "headline": "Grok Bot can now use your phone's Calendar, Reminders and Contacts",
+      "explainer": "With your permission, Grok Bot on iOS and Android can add calendar events, set and check reminders, look up contacts and reach apps like Messages and Home, and you allow each app separately. That makes \"add this to my calendar\" or \"remind me tonight\" something you can just ask your bot to do; it's rolling out now.",
+      "source_url": "https://www.digitaltrends.com/phones/grok-bot-can-now-manage-your-calendar-reminders-and-more/",
+      "source_name": "Digital Trends",
+      "more_sources": [
+        {
+          "label": "TeslaNorth",
+          "url": "https://teslanorth.com/2026/10/22/grok-bot-phone-calendar-reminders-contacts/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/bot/status/2113393684209176718",
+        "author": "@bot",
+        "kind": "official",
+        "posted_at": "2026-10-22",
+        "likes": 14447,
+        "reposts": 1134,
+        "views": 3408033,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "grok-bot-1password",
+      "date": "2026-10-22",
+      "category": "feature",
+      "company": "xAI",
+      "impact": "notable",
+      "headline": "Grok Bot can sign in to your accounts with 1Password, without seeing your passwords",
+      "explainer": "You approve which saved logins your bot may use, and 1Password fills them in, one-time codes included, so the bot never sees the password. 1Password says the same approach is rolling out for Meta's Muse and coming soon to Claude Duet and ChatGPT Work, at no extra cost on its Individual and Family plans.",
+      "source_url": "https://1password.com/partners/spacexsi-grokbot",
+      "source_name": "1Password",
+      "more_sources": [
+        {
+          "label": "1Password blog: 1Password for Agents",
+          "url": "https://1password.com/blog/1password-for-ai-agents"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/bot/status/2113332983226831339",
+        "author": "@bot",
+        "kind": "official",
+        "posted_at": "2026-10-22",
+        "likes": 9996,
+        "reposts": 702,
+        "views": 1526690,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "gemini-maps-saved-places",
+      "date": "2026-10-22",
+      "category": "feature",
+      "company": "Google",
+      "impact": "notable",
+      "headline": "Gemini can now plan your day from your Google Maps saved places and calendar",
+      "explainer": "If you turn on Personal Intelligence, Gemini can check your Maps searches and saved places alongside your Calendar, so \"which restaurant on my list is near my last meeting?\" gets a real answer. Google is also telling AI Ultra subscribers that Gemini 4 Argon will soon replace the Deep Think mode.",
+      "source_url": "https://9to5google.com/2026/10/22/gemini-personal-intelligence-maps/",
+      "source_name": "9to5Google",
+      "x": {
+        "url": "https://x.com/GeminiApp/status/2113343041805127839",
+        "author": "@GeminiApp",
+        "kind": "official",
+        "posted_at": "2026-10-22",
+        "likes": 1327,
+        "reposts": 112,
+        "views": 106978,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "anthropic-claude-duet",
+      "date": "2026-10-21",
+      "category": "agent launch",
+      "company": "Anthropic",
+      "impact": "major",
+      "headline": "Anthropic opens Claude Duet, a proactive agent that comes to you",
+      "explainer": "Claude Duet sends you a morning brief from your connected apps, keeps an eye on them through the day, works on tasks while you're away, and asks before it does anything big like paying or deleting. It's a waitlist research preview for US Pro and Max subscribers, on iOS, Android and claude.ai, and Anthropic says it can still misjudge what's urgent.",
+      "source_url": "https://claude.com/blog/claude-duet",
+      "source_name": "Anthropic",
+      "more_sources": [
+        {
+          "label": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1015843/anthropic-claude-duet-ai-agent"
+        },
+        {
+          "label": "9to5Mac",
+          "url": "https://9to5mac.com/2026/10/21/anthropic-takes-on-chatgpt-dots-and-meta-muse-with-claude-duet/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/claudeai/status/2112984664256241837",
+        "author": "@claudeai",
+        "kind": "official",
+        "likes": 55499,
+        "reposts": 4266,
+        "views": 11233814,
+        "posted_at": "2026-10-21",
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "openai-patch-the-planet-php",
+      "date": "2026-10-21",
+      "category": "industry",
+      "company": "OpenAI",
+      "impact": "notable",
+      "headline": "AI agents helped find critical PHP flaws that affect most websites",
+      "explainer": "If you run a website or blog on PHP (WordPress included), make sure your host has updated PHP to the patched version now. OpenAI says its models helped researchers find the bugs before attackers did, and it's sharing a version checker and a Codex skill to help site owners check.",
+      "source_url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
+      "source_name": "OpenAI",
+      "more_sources": [
+        {
+          "label": "The PHP Foundation",
+          "url": "https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/"
+        },
+        {
+          "label": "BleepingComputer",
+          "url": "https://www.bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/OpenAI/status/2112907856018309586",
+        "author": "@OpenAI",
+        "kind": "official",
+        "likes": 14467,
+        "reposts": 2869,
+        "views": 5930957,
+        "posted_at": "2026-10-21",
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "claude-security-continuous-scans",
+      "date": "2026-10-21",
+      "category": "feature",
+      "company": "Anthropic",
+      "impact": "minor",
+      "headline": "Claude Security now re-scans your code every time it changes",
+      "explainer": "Teams on Claude Enterprise can connect their code once and Claude keeps checking new changes for security holes, marking each one fixed when the fix lands. It's a public beta for businesses, not something personal plans get.",
+      "source_url": "https://claude.com/resources/articles/claude-security-now-scans-continuously-and-tracks-fixes",
+      "source_name": "Anthropic",
+      "x": {
+        "url": "https://x.com/claudeai/status/2112962248218148878",
+        "author": "@claudeai",
+        "kind": "official",
+        "likes": 11066,
+        "reposts": 568,
+        "views": 841659,
+        "posted_at": "2026-10-21",
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "openai-models-on-google-cloud",
+      "date": "2026-10-21",
+      "category": "industry",
+      "company": "OpenAI",
+      "impact": "notable",
+      "headline": "OpenAI's models are coming to Google Cloud",
+      "explainer": "Companies on Google Cloud will be able to use GPT-6 models and Codex without a separate OpenAI account (private preview now, wider launch planned in the coming weeks). For you it mostly means more places your work tools can quietly plug in OpenAI models.",
+      "source_url": "https://openai.com/index/openai-models-google-cloud",
+      "source_name": "OpenAI",
+      "more_sources": [
+        {
+          "label": "CNBC",
+          "url": "https://www.cnbc.com/2026/10/21/openai-bring-its-ai-models-to-googles-cloud-expands-beyond-microsoft.html"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/OpenAI/status/2112988118471295323",
+        "author": "@OpenAI",
+        "kind": "official",
+        "likes": 5282,
+        "reposts": 413,
+        "views": 536651,
+        "posted_at": "2026-10-21",
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "recursive-flint",
+      "date": "2026-10-21",
+      "category": "model release",
+      "company": "Recursive",
+      "impact": "notable",
+      "headline": "Recursive releases Flint, a free coding model that runs on a laptop",
+      "explainer": "Flint is a free, open coding model small enough to run on an ordinary laptop, so a coding bot can work offline, keep your files private and skip per-use fees. Its maker says it still needs smaller, step-by-step tasks than the big paid assistants.",
+      "source_url": "https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/",
+      "source_name": "TechCrunch",
+      "more_sources": [
+        {
+          "label": "Richard Socher on X",
+          "url": "https://x.com/RichardSocher/status/2112944385415426249"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/RichardSocher/status/2112944385415426249",
+        "author": "@RichardSocher",
+        "kind": "official",
+        "posted_at": "2026-10-21",
+        "likes": 8363,
+        "reposts": 893,
+        "views": 3444466,
+        "measured_at": "2026-10-29"
+      }
+    },
+    {
+      "id": "walmart-agent-gateway",
+      "date": "2026-10-21",
+      "category": "agent launch",
+      "company": "Walmart",
+      "impact": "notable",
+      "headline": "Walmart opens its store to AI shopping agents, with spending limits you set",
+      "explainer": "Walmart is building a direct connection so approved AI agents like ChatGPT, Gemini and Muse can search and buy from Walmart and Sam's Club for you, starting with an invite-only beta for developers. Next month, each agent gets its own profile in your Walmart account where you can require approval for every order or set a spending cap, and agents never see your card details.",
+      "source_url": "https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers",
+      "source_name": "Walmart",
+      "more_sources": [
+        {
+          "label": "TechCrunch: While Amazon blocks AI agents, Walmart rolls out the welcome mat",
+          "url": "https://techcrunch.com/2026/10/21/while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-mat/"
+        },
+        {
+          "label": "Retail Dive: Walmart welcomes external AI agents",
+          "url": "https://www.retaildive.com/news/walmart-welcomes-external-ai-shopping-agents-terms-boundaries/833723/"
+        }
+      ]
+    },
+    {
+      "id": "mistral-voxtral-3",
+      "date": "2026-10-20",
+      "category": "model release",
+      "company": "Mistral",
+      "impact": "notable",
+      "headline": "Mistral launches Voxtral 3 for voice agents that can take calls",
+      "explainer": "A new set of speech models plus a kit for building phone and web voice agents that listen, look things up and talk back in 50+ languages. Mistral lists its voice agent API at $0.04 a minute with Mistral Small 4, so phone bots keep getting cheaper to run.",
+      "source_url": "https://mistral.ai/news/voxtral-3/",
+      "source_name": "Mistral",
+      "x": {
+        "url": "https://x.com/MistralAI/status/2112574615318876178",
+        "author": "@MistralAI",
+        "kind": "official",
+        "likes": 3280,
+        "reposts": 377,
+        "views": 277295,
+        "posted_at": "2026-10-20",
+        "measured_at": "2026-10-28"
+      }
+    },
+    {
+      "id": "openai-12-hour-prompt-caching",
+      "date": "2026-10-20",
+      "category": "pricing",
+      "company": "OpenAI",
+      "impact": "minor",
+      "headline": "OpenAI adds 12-hour prompt caching",
+      "explainer": "Bots that run hours apart (like a morning and an evening check) can now keep their fixed instructions cached and pay the lower cached-input price. Writing to the 12-hour cache costs 2.5x the normal input price, so it pays off when the same setup is reused several times.",
+      "source_url": "https://developers.openai.com/api/docs/changelog",
+      "source_name": "OpenAI API changelog",
+      "x": {
+        "url": "https://x.com/OpenAIDevs/status/2112603916076781778",
+        "author": "@OpenAIDevs",
+        "kind": "official",
+        "likes": 3610,
+        "reposts": 188,
+        "views": 1982331,
+        "posted_at": "2026-10-20",
+        "measured_at": "2026-10-28"
+      }
+    },
+    {
+      "id": "deepseek-deepinfer",
+      "date": "2026-10-20",
+      "category": "industry",
+      "company": "DeepSeek",
+      "impact": "minor",
+      "headline": "DeepSeek open-sources the engine that runs its own API",
+      "explainer": "DeepInfer is the software DeepSeek uses to serve V4.1 Flash cheaply, now free under Apache 2.0. Hosting companies can copy the tricks, which could push the price of running open models down for your bots.",
+      "source_url": "https://github.com/deepseek-ai/DeepInfer",
+      "source_name": "DeepSeek (GitHub)",
+      "more_sources": [
+        {
+          "label": "The New Stack",
+          "url": "https://thenewstack.io/deepseek-deepinfer-huawei-nvidia/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/deepseek_ai/status/2112476496283775135",
+        "author": "@deepseek_ai",
+        "kind": "official",
+        "likes": 43378,
+        "reposts": 4901,
+        "views": 6815691,
+        "posted_at": "2026-10-20",
+        "measured_at": "2026-10-28"
+      }
+    },
+    {
+      "id": "meta-muse-sharing-paused",
+      "date": "2026-10-20",
+      "category": "feature",
+      "company": "Meta",
+      "impact": "notable",
+      "headline": "Meta pauses Muse chat sharing after shared chats turned up on the web",
+      "explainer": "Researchers found more than 6,800 Muse share links through public web records, some showing loan applications, revenue reviews and work calendars, so Meta switched sharing off while it reviews. Treat any AI \"share link\" as public, and keep private details out of chats you share.",
+      "source_url": "https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats",
+      "source_name": "The Verge",
+      "more_sources": [
+        {
+          "label": "Ars Technica",
+          "url": "https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/"
+        }
+      ]
+    },
+    {
+      "id": "gemini-android-auto-personal-intelligence",
+      "date": "2026-10-20",
+      "category": "feature",
+      "company": "Google",
+      "impact": "notable",
+      "headline": "Gemini in your car can now use your Gmail, Calendar and Maps to help",
+      "explainer": "With your permission, Gemini on Android Auto can pull your flight gate from email, find the restaurant you saved, or take you to your next appointment without you looking anything up. It's rolling out now on Android Auto for eligible personal accounts and is off until you turn it on.",
+      "source_url": "https://blog.google/products-and-platforms/platforms/android/android-auto-cars-with-google-built-in-gemini-personal-intelligence/",
+      "source_name": "Google",
+      "x": {
+        "url": "https://x.com/Google/status/2112655614132285592",
+        "author": "@Google",
+        "kind": "official",
+        "posted_at": "2026-10-20",
+        "likes": 2131,
+        "reposts": 189,
+        "views": 275298,
+        "measured_at": "2026-10-28"
+      }
+    },
+    {
+      "id": "chatgpt-locked-chats",
+      "date": "2026-10-20",
+      "category": "feature",
+      "company": "OpenAI",
+      "impact": "notable",
+      "headline": "ChatGPT lets you lock private chats behind a PIN",
+      "explainer": "You can now lock a sensitive ChatGPT chat from its ••• menu so it's hidden from your history and search and opens only with a 4-digit PIN or your phone's face or fingerprint unlock. Write the PIN down, because resetting a forgotten one deletes every locked chat for good; it's rolling out gradually.",
+      "source_url": "https://techcrunch.com/2026/10/20/chatgpt-now-lets-you-lock-your-chats/",
+      "source_name": "TechCrunch",
+      "more_sources": [
+        {
+          "label": "OpenAI Help Center: Using locked chats",
+          "url": "https://help.openai.com/en/articles/20001411-using-locked-chats-in-chatgpt"
+        }
+      ]
+    },
+    {
+      "id": "android-police-gems-become-skills",
+      "date": "2026-10-18",
+      "category": "feature",
+      "company": "Google",
+      "impact": "notable",
+      "headline": "Google turns Gemini Gems into Skills and moves Spark into the main chat",
+      "explainer": "From November 17, Google starts converting personal Gems into Skills you call with a slash in the main chat, and Scheduled Actions no longer need a paid plan (still rolling out to free accounts). If you built a Gem-based bot, test it before the switch.",
+      "source_url": "https://www.androidpolice.com/googles-renamed-gemini-features-field-guide/",
+      "source_name": "Android Police"
+    },
+    {
+      "id": "deepseek-v4-1-flash-1017",
+      "date": "2026-10-17",
+      "category": "model release",
+      "company": "DeepSeek",
+      "impact": "notable",
+      "headline": "DeepSeek updates its V4.1 Flash model: faster and shorter answers, same price",
+      "explainer": "DeepSeek says the update finishes tasks faster with shorter outputs, which means fewer tokens to pay for. The API name and prices are unchanged, and the open weights are on Hugging Face.",
+      "source_url": "https://api-docs.deepseek.com/updates/",
+      "source_name": "DeepSeek API changelog",
+      "more_sources": [
+        {
+          "label": "SiliconANGLE",
+          "url": "https://siliconangle.com/2026/10/18/deepseek-releases-updated-v4-1-flash-model-it-says-completes-tasks-faster/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/deepseek_ai/status/2111375640717033777",
+        "author": "@deepseek_ai",
+        "kind": "official",
+        "likes": 37166,
+        "reposts": 4130,
+        "views": 8097891,
+        "posted_at": "2026-10-17",
+        "measured_at": "2026-10-28"
+      }
+    },
+    {
+      "id": "deepseek-search-fetch-api",
+      "date": "2026-10-17",
+      "category": "pricing",
+      "company": "DeepSeek",
+      "impact": "minor",
+      "headline": "DeepSeek opens its own web search and page-fetch tools to developers",
+      "explainer": "Bots built on DeepSeek can now search the web and read pages through DeepSeek's own API at $0.75 per 1,000 requests each. Calls made through some coding agents are free until billing starts on November 1 (Beijing time).",
+      "source_url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "source_name": "DeepSeek pricing",
+      "x": {
+        "url": "https://x.com/deepseek_ai/status/2111375650414309859",
+        "author": "@deepseek_ai",
+        "kind": "official",
+        "likes": 3493,
+        "reposts": 251,
+        "views": 970416,
+        "posted_at": "2026-10-17",
+        "measured_at": "2026-10-28"
+      }
+    },
+    {
+      "id": "meta-muse-spark-open",
+      "date": "2026-10-15",
+      "category": "model release",
+      "company": "Meta",
+      "impact": "notable",
+      "headline": "Meta releases Muse Spark Open, the most capable US open-weight model so far",
+      "explainer": "Meta's new open model is built for coding and agent work, and you can call it on day one through Groq, OpenRouter, Together AI and other APIs. Groq runs it at 350+ tokens per second per user. That speed matters for agents, because each task is a long chain of model calls.",
+      "source_url": "https://research.meta.ai/blog/muse-spark-open",
+      "source_name": "Meta",
+      "more_sources": [
+        {
+          "label": "Groq (limited preview)",
+          "url": "https://groq.com/blog/meta-s-muse-spark-open-release-is-now-in-limited-preview-on-groqcloud"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/blog/meta-muse-spark-open"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/AIatMeta/status/2110779754274292212",
+        "author": "@AIatMeta",
+        "kind": "official",
+        "likes": 11578,
+        "reposts": 1220,
+        "views": 1260032,
+        "posted_at": "2026-10-15",
+        "measured_at": "2026-10-28"
+      }
+    },
+    {
+      "id": "grok-voice-3",
+      "date": "2026-10-14",
+      "category": "model release",
+      "company": "xAI",
+      "impact": "notable",
+      "headline": "xAI releases Grok Voice 3.0, its new speech-to-speech model",
+      "explainer": "The voice model behind Grok Bot's voice mode and Tesla's in-car assistant got an upgrade, at the same $0.08 a minute on the API. xAI says it answers in under a second and handles interruptions, which is what makes a phone bot feel natural.",
+      "source_url": "https://x.ai/news/grok-voice-3",
+      "source_name": "xAI",
+      "more_sources": [
+        {
+          "label": "SiliconANGLE",
+          "url": "https://siliconangle.com/2026/10/14/grok-voice-3-0-from-spacexsi-outscores-openai-and-google-on-speech-to-speech-index/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/ArtificialAnlys/status/2110421964095713743",
+        "author": "@ArtificialAnlys",
+        "kind": "coverage",
+        "likes": 1307,
+        "reposts": 142,
+        "views": 914702,
+        "posted_at": "2026-10-14",
+        "measured_at": "2026-10-28"
+      }
+    },
+    {
+      "id": "gemini-4-argon-available",
+      "date": "2026-10-13",
+      "category": "model release",
+      "company": "Google",
+      "impact": "major",
+      "headline": "Google's Gemini 4 Argon is now available to developers and paid Gemini users",
+      "explainer": "Google's new top model is in the API at an introductory $2 / $10 per million tokens, and in the Gemini app for Google AI Pro and Ultra subscribers. Google built it for long, multi-step work, the kind agents do.",
+      "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+      "source_name": "Google",
+      "more_sources": [
+        {
+          "label": "Gemini API release notes",
+          "url": "https://ai.google.dev/gemini-api/docs/changelog"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/GeminiApp/status/2110039322229649783",
+        "author": "@GeminiApp",
+        "kind": "official",
+        "likes": 7385,
+        "reposts": 778,
+        "views": 9006195,
+        "posted_at": "2026-10-13",
+        "measured_at": "2026-10-26"
+      }
+    },
+    {
+      "id": "meta-muse-wonder",
+      "date": "2026-10-12",
+      "category": "model release",
+      "company": "Meta",
+      "impact": "major",
+      "headline": "Meta releases Muse Wonder, its first frontier model",
+      "explainer": "Meta says Muse Wonder will soon power its Muse personal agent, starting with paying subscribers. Developers can use it through Meta's API at $4 / $20 per million tokens.",
+      "source_url": "https://dev.meta.ai/resources/blog/build-with-muse-wonder",
+      "source_name": "Meta",
+      "more_sources": [
+        {
+          "label": "TechCrunch",
+          "url": "https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/AIatMeta/status/2109691148943999167",
+        "author": "@AIatMeta",
+        "kind": "official",
+        "likes": 2207,
+        "reposts": 238,
+        "views": 322576,
+        "posted_at": "2026-10-12",
+        "measured_at": "2026-10-26"
+      }
+    },
+    {
+      "id": "gemini-spark-becomes-task",
+      "date": "2026-10-12",
+      "category": "feature",
+      "company": "Google",
+      "impact": "minor",
+      "headline": "Gemini's Spark agent moves to a \"Task\" button on the app's home screen",
+      "explainer": "Handing a job to Google's background agent is now one tap away in the Gemini app, with a new Scheduled page that shows active, paused and finished tasks. It's live on Android and iOS; web wasn't confirmed yet.",
+      "source_url": "https://9to5google.com/2026/10/12/gemini-spark-task-redesign/",
+      "source_name": "9to5Google",
+      "more_sources": [
+        {
+          "label": "Android Authority",
+          "url": "https://www.androidauthority.com/gemini-spark-tasks-button-3723394/"
+        }
+      ]
+    },
+    {
+      "id": "openai-agents-sandbox-billing",
+      "date": "2026-10-09",
+      "category": "pricing",
+      "company": "OpenAI",
+      "impact": "minor",
+      "headline": "OpenAI stops charging agents for idle sandbox time",
+      "explainer": "Agents built on OpenAI's Agents API run in a hosted sandbox computer, and that is now billed only during active turns, not while the agent waits for you. Sandboxes can also be pre-warmed so replies start faster.",
+      "source_url": "https://developers.openai.com/api/docs/changelog",
+      "source_name": "OpenAI API changelog"
+    },
+    {
+      "id": "claude-dashboards-motion",
+      "date": "2026-10-08",
+      "category": "feature",
+      "company": "Anthropic",
+      "impact": "notable",
+      "headline": "Claude can now build live dashboards from your data and animated explainers",
+      "explainer": "Ask a question in plain words and Claude builds a dashboard that stays current, showing the query behind every number. Motion turns a report into a short animation you can export as MP4. Both are in beta on paid plans (Motion on Team and Enterprise).",
+      "source_url": "https://claude.com/resources/articles/dashboards-and-motion",
+      "source_name": "Anthropic",
+      "more_sources": [
+        {
+          "label": "Reuters via Investing.com",
+          "url": "https://www.investing.com/news/stock-market-news/anthropic-launches-dashboard-animation-tools-for-claude-4939641"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/claudeai/status/2108271552991252810",
+        "author": "@claudeai",
+        "kind": "official",
+        "likes": 60544,
+        "reposts": 4599,
+        "views": 11436907,
+        "posted_at": "2026-10-08",
+        "measured_at": "2026-10-26"
+      }
+    },
+    {
+      "id": "gpt-6-for-everyone",
+      "date": "2026-10-07",
+      "category": "model release",
+      "company": "OpenAI",
+      "impact": "major",
+      "headline": "GPT-6 rolls out to everyone in ChatGPT, with interactive answers",
+      "explainer": "ChatGPT answers can now include charts, buttons, forms and small tools you use right in the chat. Paid plans get GPT-6 Sol and Free and Go users get GPT-6 Luna, starting October 8.",
+      "source_url": "https://openai.com/index/gpt-6-for-everyone/",
+      "source_name": "OpenAI",
+      "x": {
+        "url": "https://x.com/OpenAI/status/2107894997538525580",
+        "author": "@OpenAI",
+        "kind": "official",
+        "likes": 24089,
+        "reposts": 1915,
+        "views": 6960413,
+        "posted_at": "2026-10-07",
+        "measured_at": "2026-10-26"
+      }
+    },
+    {
+      "id": "claude-haiku-5-5",
+      "date": "2026-10-07",
+      "category": "model release",
+      "company": "Anthropic",
+      "impact": "notable",
+      "headline": "Anthropic releases Claude Haiku 5.5, a fast, cheap model for high-volume bot work",
+      "explainer": "At $0.10 / $0.50 per million tokens for prompts up to 100,000 tokens, Anthropic says it costs about 75% less to run than Haiku 4.5. It's built for summaries, sorting and browser use: the simple, repeated jobs most everyday bots do.",
+      "source_url": "https://www.anthropic.com/news/claude-haiku-5-5",
+      "source_name": "Anthropic",
+      "x": {
+        "url": "https://x.com/claudeai/status/2107894039626277339",
+        "author": "@claudeai",
+        "kind": "official",
+        "likes": 45242,
+        "reposts": 3262,
+        "views": 6752694,
+        "posted_at": "2026-10-07",
+        "measured_at": "2026-10-26"
+      }
+    },
+    {
+      "id": "claude-sonnet-cache-cut-and-credits",
+      "date": "2026-10-07",
+      "category": "pricing",
+      "company": "Anthropic",
+      "impact": "notable",
+      "headline": "Anthropic halves Sonnet 5.5 cache reads and gives Max and Team plans monthly API credits",
+      "explainer": "Cached reads on Claude Sonnet 5.5 dropped from $0.20 to $0.10 per million tokens, which Anthropic says makes most agent work about 20% cheaper. Max subscribers get $100 or $200 a month in API credits, and Team plans up to $500, to build their own bots.",
+      "source_url": "https://www.anthropic.com/news/claude-haiku-5-5",
+      "source_name": "Anthropic",
+      "x": {
+        "url": "https://x.com/claudeai/status/2107894060229034197",
+        "author": "@claudeai",
+        "kind": "official",
+        "likes": 11851,
+        "reposts": 586,
+        "views": 1580314,
+        "posted_at": "2026-10-07",
+        "measured_at": "2026-10-26"
+      }
+    },
+    {
+      "id": "mistral-large-4-preview",
+      "date": "2026-10-06",
+      "category": "model release",
+      "company": "Mistral",
+      "impact": "notable",
+      "headline": "Mistral previews Mistral Large 4, with open weights promised by month's end",
+      "explainer": "Mistral's biggest model yet is in a public preview on its API, and Mistral says anyone will be able to download and run it themselves later this month. That's good news if you want a strong model you can host privately.",
+      "source_url": "https://mistral.ai/news/mistral-large-4",
+      "source_name": "Mistral",
+      "x": {
+        "url": "https://x.com/MistralAI/status/2107457414387622310",
+        "author": "@MistralAI",
+        "kind": "official",
+        "likes": 40657,
+        "reposts": 4568,
+        "views": 5722638,
+        "posted_at": "2026-10-06",
+        "measured_at": "2026-10-26"
+      }
+    },
+    {
+      "id": "claude-google-workspace",
+      "date": "2026-10-06",
+      "category": "feature",
+      "company": "Anthropic",
+      "impact": "notable",
+      "headline": "Claude now works inside Google Docs, Sheets and Slides",
+      "explainer": "A Claude sidebar can read the file you have open and edit it in place, asking before each change by default. It's in beta on all paid Claude plans, so your doc-and-spreadsheet chores can go to Claude without copy-pasting.",
+      "source_url": "https://claude.com/resources/articles/claude-now-works-in-google-docs-sheets-and-slides",
+      "source_name": "Anthropic",
+      "more_sources": [
+        {
+          "label": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1006111/you-can-use-claude-directly-in-google-docs-slides-and-sheets-with-a-new-add-on"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/claudeai/status/2107522596845822135",
+        "author": "@claudeai",
+        "kind": "official",
+        "likes": 54357,
+        "reposts": 4305,
+        "views": 13351662,
+        "posted_at": "2026-10-06",
+        "measured_at": "2026-10-26"
+      }
+    },
+    {
+      "id": "gpt-6-1-sol",
+      "date": "2026-09-29",
+      "category": "model release",
+      "company": "OpenAI",
+      "impact": "notable",
+      "headline": "OpenAI releases GPT-6.1 Sol: near-top performance at a fifth of the price",
+      "explainer": "OpenAI says GPT-6.1 Sol nearly matches its top model, GPT-6 Astra, on agent work at one-fifth of Astra's token prices ($2 / $10 per million). For bot builders, it's a cheaper middle option for jobs a small model can't handle.",
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "source_name": "OpenAI",
+      "more_sources": [
+        {
+          "label": "OpenAI API changelog",
+          "url": "https://developers.openai.com/api/docs/changelog"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/OpenAI/status/2104986129686741046",
+        "author": "@OpenAI",
+        "kind": "official",
+        "likes": 21105,
+        "reposts": 1711,
+        "views": 3241048,
+        "posted_at": "2026-09-29",
+        "measured_at": "2026-10-26"
+      }
+    },
+    {
+      "id": "openai-agents-api-computer-use",
+      "date": "2026-09-29",
+      "category": "feature",
+      "company": "OpenAI",
+      "impact": "notable",
+      "headline": "OpenAI's Agents API can now use a web browser",
+      "explainer": "Agents built on OpenAI's platform can now complete tasks in an OpenAI-hosted browser, with the app asking you before it visits a site and handling sign-in. Expect more third-party bots that click through websites for you.",
+      "source_url": "https://developers.openai.com/api/docs/changelog",
+      "source_name": "OpenAI API changelog"
+    },
+    {
+      "id": "openai-dots",
+      "date": "2026-09-29",
+      "category": "agent launch",
+      "company": "OpenAI",
+      "impact": "major",
+      "headline": "OpenAI launches dots: always-on agents with their own computer",
+      "explainer": "A dot runs on GPT-6 Astra with its own cloud computer, connects to your apps, and keeps working between chats, checking with you on decisions. It's rolling out to ChatGPT Pro and Business Premium users first (not the EU, Switzerland or the UK on Pro at launch).",
+      "source_url": "https://openai.com/index/introducing-dots/",
+      "source_name": "OpenAI",
+      "more_sources": [
+        {
+          "label": "OpenAI Help Center",
+          "url": "https://help.openai.com/en/articles/20001530-getting-started-with-your-dot"
+        },
+        {
+          "label": "The Verge",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1002033/openai-dots-launch-muse-competitor"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/OpenAI/status/2104984504133918973",
+        "author": "@OpenAI",
+        "kind": "official",
+        "likes": 38096,
+        "reposts": 3368,
+        "views": 14895458,
+        "posted_at": "2026-09-29",
+        "measured_at": "2026-10-26"
+      }
+    },
+    {
+      "id": "claude-sonnet-5-5",
+      "date": "2026-09-28",
+      "category": "model release",
+      "company": "Anthropic",
+      "impact": "notable",
+      "headline": "Anthropic releases Claude Sonnet 5.5",
+      "explainer": "Anthropic says Sonnet 5.5 runs 30%+ faster than Sonnet 5 and costs up to 30% less for most work. It's the middle model many agent apps use by default.",
+      "source_url": "https://www.anthropic.com/news/claude-sonnet-5-5",
+      "source_name": "Anthropic"
+    },
+    {
+      "id": "grok-bot-team-bots",
+      "date": "2026-09-28",
+      "category": "agent launch",
+      "company": "xAI",
+      "impact": "notable",
+      "headline": "Grok Bot adds Team Bots: shared AI teammates for a whole team",
+      "explainer": "One person sets up a bot with the files, apps and skills it needs, then the whole team can use it in Slack or Grok Bot, while each person's chats stay private. It's in public beta for Teams and Enterprise plans.",
+      "source_url": "https://x.ai/news/team-bots",
+      "source_name": "xAI",
+      "more_sources": [
+        {
+          "label": "TeslaNorth",
+          "url": "https://teslanorth.com/2026/09/28/spacexai-team-bots-launch/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/bot/status/2104661562715967548",
+        "author": "@bot",
+        "kind": "official",
+        "likes": 6437,
+        "reposts": 571,
+        "views": 42535973,
+        "posted_at": "2026-09-28",
+        "measured_at": "2026-10-26"
+      }
+    },
+    {
+      "id": "claude-opus-5-5",
+      "date": "2026-09-22",
+      "category": "model release",
+      "company": "Anthropic",
+      "impact": "major",
+      "headline": "Anthropic releases Claude Opus 5.5",
+      "explainer": "Anthropic says Opus 5.5 leads in agentic coding and knowledge work and costs 40% less to run than Opus 5 on typical workloads. It's the model to reach for when a bot's job is hard, not routine.",
+      "source_url": "https://www.anthropic.com/news/claude-opus-5-5",
+      "source_name": "Anthropic",
+      "x": {
+        "url": "https://x.com/claudeai/status/2102435511222890900",
+        "author": "@claudeai",
+        "kind": "official",
+        "likes": 97854,
+        "reposts": 9073,
+        "views": 29120544,
+        "posted_at": "2026-09-22",
+        "measured_at": "2026-10-26"
+      }
+    },
+    {
+      "id": "gpt-6-sol-and-luna",
+      "date": "2026-09-22",
+      "category": "model release",
+      "company": "OpenAI",
+      "impact": "notable",
+      "headline": "OpenAI releases GPT-6 Sol and GPT-6 Luna",
+      "explainer": "Two new models: Sol for most work and Luna, a very cheap one at $0.10 / $0.50 per million tokens. Luna is the kind of model to use for simple, frequent bot jobs.",
+      "source_url": "https://developers.openai.com/api/docs/changelog",
+      "source_name": "OpenAI API changelog",
+      "x": {
+        "url": "https://x.com/OpenAI/status/2102460975790137662",
+        "author": "@OpenAI",
+        "kind": "official",
+        "likes": 53227,
+        "reposts": 5264,
+        "views": 10198719,
+        "posted_at": "2026-09-22",
+        "measured_at": "2026-10-26"
+      }
+    },
+    {
+      "id": "grok-4-7",
+      "date": "2026-09-21",
+      "category": "model release",
+      "company": "xAI",
+      "impact": "major",
+      "headline": "xAI releases Grok 4.7",
+      "explainer": "xAI's new model for coding and knowledge work keeps the same $2 / $6 per million token price as Grok 4.6. xAI says it was trained to work inside the Grok Bot harness, which should make Grok Bot better at everyday tasks.",
+      "source_url": "https://x.ai/news/grok-4-7",
+      "source_name": "xAI",
+      "more_sources": [
+        {
+          "label": "SiliconANGLE",
+          "url": "https://siliconangle.com/2026/09/21/spacex-launches-grok-4-7-with-long-horizon-processing-safety-upgrades/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/elonmusk/status/2102071804495872374",
+        "author": "@elonmusk",
+        "kind": "official",
+        "likes": 26916,
+        "reposts": 2529,
+        "views": 32256923,
+        "posted_at": "2026-09-21",
+        "measured_at": "2026-10-26"
+      }
     }
-   ],
-   "x": {
-    "url": "https://x.com/elonmusk/status/2102071804495872374",
-    "author": "@elonmusk",
-    "kind": "official",
-    "likes": 26916,
-    "reposts": 2529,
-    "views": 32256923,
-    "posted_at": "2026-09-21",
-    "measured_at": "2026-10-26"
-   }
-  }
- ],
- "impact_levels": [
-  "major",
-  "notable",
-  "minor"
- ],
- "_impact_rule": "Importance, not popularity. major = a new flagship model or a major agent launch from a big lab (OpenAI, Anthropic, Google, Meta, xAI). minor = small changelog-level tweaks (a billing detail, a new tool price, a UI move, infrastructure code). notable = everything in between."
+  ],
+  "impact_levels": [
+    "major",
+    "notable",
+    "minor"
+  ],
+  "_impact_rule": "Importance, not popularity. major = a new flagship model or a major agent launch from a big lab (OpenAI, Anthropic, Google, Meta, xAI). minor = small changelog-level tweaks (a billing detail, a new tool price, a UI move, infrastructure code). notable = everything in between."
 }

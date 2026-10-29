@@ -164,3 +164,7 @@ Bugs/complaints: none found.
 - [ ] Extra source + setup note: ChatGPT dots can now be texted over iMessage/RCS (US Pro beta, one-to-one; learn.chatgpt.com/docs/dots/channels, @ChatGPT 2115496387613786374). Fits `get-a-text-before-something-needs-doing` and `hand-your-most-hated-chores-to-a-personal-agent`; add once it leaves Pro-only beta or as a "Pro only" option.
 - [ ] Possible guide once live for normal users: "Plan a workout or use your apps from inside Gemini" via Google Connected Apps (Peloton, Adobe, Calm coming). Developer preview only today (US waitlist); re-check in a few weeks.
 - Developer-leaning, skip for beginners: NVIDIA Nemotron 3.5 Transcribe (open transcription model), GitHub Copilot Fusion / Copilot harness in Foundry.
+
+## News run 2026-10-29 AM
+- [ ] New guide candidate: "Have your AI find and buy something for you with Shop Pay" via Shopify's shop.md skill (works with ChatGPT/Claude; Shop Pay also in Muse, Claude Duet, Grok Bot, Instinct; card never shared, you approve each purchase). Sources: shopify.com/news/fall-26-edition-merchant, shopify.com/editions/fall2026, @tobi 2115476197572506077. Needs a second independent source (e.g. TechCrunch/The Verge coverage or a Reddit/HN thread) before publishing; could also be a source for `pay-with-a-single-use-virtual-card`.
+- Developer-leaning, skip for beginners: OpenAI API credits for ChatGPT Pro/Business (mention in /run-your-bots-for-less/ on the next SEO run), Grok API `guidelines` field, Particle-1, Amp macOS Satellites.
