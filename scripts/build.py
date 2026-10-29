@@ -1546,7 +1546,7 @@ def nl_sponsor(iss):
         return f"""<aside class="featured glass sponsored">{paid_label()}<h3>{e(s['headline'])}</h3><p>{e(s.get('body',''))}</p>
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change what we pick.</p></aside>"""
     return f"""<aside class="featured glass house"><span class="label">Your spot here</span><h3>Sponsor the {e(NAME)} Weekly</h3>
-<p>One short, clearly labeled sponsor block that matches the week's topic. Your first 2 issues are free.</p><a class="btn btn-ghost" href="{u('/advertise/')}">See sponsor options</a></aside>"""
+<p>One short, clearly labeled sponsor block that matches the week's topic. {('The first 2 newsletter slots are free: use code <b>' + e(NL_PROMO_CODE) + '</b> at checkout.') if NL_PROMO_CODE else 'Your first 2 issues are free.'}</p><a class="btn btn-ghost" href="{u('/advertise/')}">See sponsor options</a></aside>"""
 def nl_issue_html(iss):
     parts = [f'<p class="lead">{e(iss["intro"])}</p>']
     for k, it in enumerate(iss["items"], 1):
@@ -1560,7 +1560,7 @@ def nl_issue_html(iss):
         parts.append(f'<section class="nl-item glass" id="new-page"><p class="eyebrow">New on the site</p><h2><a href="{href}">{e(x["title"] if x else np_.get("title",""))}</a></h2><p>{e(np_["note"])}</p><p><a class="btn btn-sm" href="{href}">Read the guide</a></p></section>')
     w = NEWS_BY_ID.get(iss.get("watch_out") or "")
     if w:
-        parts.append(f'<section class="nl-item" id="watch-out"><p class="eyebrow">One thing that went wrong</p><h2>{e(w["headline"])}</h2><p>{e(w["explainer"])}</p><p class="small muted">Source: <a href="{e(w["source_url"])}" rel="noopener">{e(w["source_name"])}</a>, {nice_date(w["date"])}</p></section>')
+        parts.append(f'<section class="nl-item" id="watch-out"><p class="eyebrow">{e(iss.get("watch_out_label") or "One thing that went wrong")}</p><h2>{e(w["headline"])}</h2><p>{e(w["explainer"])}</p><p class="small muted">Source: <a href="{e(w["source_url"])}" rel="noopener">{e(w["source_name"])}</a>, {nice_date(w["date"])}</p></section>')
     parts.append(nl_sponsor(iss))
     return "".join(parts)
 for iss in NL:

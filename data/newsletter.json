@@ -1,5 +1,5 @@
 {
- "_help": "Web issues of the BotsDoThat Weekly. Each issue lists 3-5 use-case slugs (outcome, prompt and sources are pulled from data/use-cases.json at build time), one new or improved page, an optional watch-out (news id from data/news.json) and a sponsor (null = house ad). sent_on stays null until the issue is emailed to subscribers.",
+ "_help": "Web issues of the BotsDoThat Weekly. Each issue lists 3-5 use-case slugs (outcome, prompt and sources are pulled from data/use-cases.json at build time), one new or improved page, an optional watch-out (news id from data/news.json) and a sponsor (null = house ad). Optional: preview (email preview text) and watch_out_label (heading for the watch-out, default \"One thing that went wrong\"). sent_on stays null until the issue is emailed to subscribers.",
  "issues": [
   {
    "number": 1,
@@ -15,6 +15,25 @@
    ],
    "new_page": {"slug": "fill-out-a-job-application-faster", "note": "Write a fact sheet once, let a browser agent type it into the employer's careers page, sign in yourself, and stop before Submit. It also covers what to keep out of the chat and the job-scam signs the FTC warns about."},
    "watch_out": "meta-muse-sharing-paused",
+   "sponsor": null,
+   "sent_on": null
+  },
+  {
+   "number": 2,
+   "slug": "2026-10-29",
+   "date": "2026-10-29",
+   "subject": "Let AI shop, plan and sort for you (it asks first)",
+   "preview": "Four jobs to hand to AI this week, each with a prompt to copy, plus how to keep an agent away from files you care about.",
+   "intro": "This week's picks are about AI that does things, not just answers: buying, booking, sorting and nudging. Each prompt below tells the AI to stop and ask you before any money moves or anything gets shared or deleted. Copy one, fill in the brackets, and try it.",
+   "items": [
+    {"slug": "let-your-ai-shop-for-you-with-shop-pay", "why": "Holiday lists are starting. Shopify's free Shop connection lets ChatGPT or Claude search stores and check out with Shop Pay, and you approve every purchase. Your card number never goes to the AI."},
+    {"slug": "add-an-ai-to-your-friends-group-chat-to-make-plans", "why": "Friendsgiving or a weekend away stuck in a 60-message thread? Instinct's group-chat agent opened to all iMessage users on Oct 27. It collects dates and budgets, suggests options and books only when someone says so."},
+    {"slug": "organize-your-photos-by-asking", "why": "After Halloween and fall trips, ask Gemini to pull the best shots into a private album. The prompt tells it to leave your originals alone. It's rolling out gradually, so you may not have it yet."},
+    {"slug": "get-a-text-before-something-needs-doing", "why": "If your calendar runs your week, have an assistant watch it and text you only when something needs a decision, with one fix ready and quiet hours you choose."}
+   ],
+   "new_page": {"slug": "keep-an-ai-agent-from-deleting-your-files", "note": "Before an agent works on your computer, give it one folder of copies, keep a backup it can't reach, and turn on its sandbox or ask-first setting. The guide has setup notes for Claude Cowork, Codex, OpenClaw and Hermes, plus the real cases where agents wiped files."},
+   "watch_out": "gemini-api-store-by-default",
+   "watch_out_label": "One setting to check",
    "sponsor": null,
    "sent_on": null
   }
