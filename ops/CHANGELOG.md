@@ -1,5 +1,19 @@
 # Ops changelog
 
+## 2026-10-30 (SEO agent: newsletter conversion + SEO quick wins, Nik's growth request)
+Newsletter (Kit form 10088120, unchanged; no test signup submitted)
+- Signup box now also at the end of /use-cases/, /blueprints/, /ai-pricing/, /run-your-bots-for-less/ and /about/ (`NL_END_PATHS`). These were the only content hubs without one.
+- "Forward it" line under every form now links the shareable /newsletter/ page (was /#subscribe).
+- /newsletter/ landing page: title "Free AI agents newsletter: the BotsDoThat Weekly", visible breadcrumb, "What's in each issue" (only what issues really contain), "Read the latest issue" button, 5-question FAQ (free, weekly, no coding, unsubscribe, what happens to your email) with FAQPage + BreadcrumbList JSON-LD.
+- Audit finding: no issue has been emailed yet (both sent_on null); new subscribers get only Kit's confirmation. Flagged in ops/growth-plan.md as the main newsletter blocker (send needs Grok CEO + Nik approval).
+SEO quick wins (GSC Oct 22-26: cost and no-code queries at positions 61-98, /news/ 33 impressions at 8.2)
+- Cost guide: title "How much does it cost to run an AI agent per month?" (Google autocomplete "ai agent cost per month", "how much does an ai agent cost per month"), description rewritten to 147 chars so it no longer truncates, new "AI agent cost at a glance" box (software, pay-per-use range from the existing table, voice per-minute, model choice) with jump links to the calculator and no-code guide. No new numbers; all values come from the page's existing computed data.
+- No-code guide: title "How to build an AI agent without coding in 7 steps", new description.
+- /news/: description reworded so the key part shows; new "New to AI agents?" line linking the explainer, no-code guide, cost guide and /newsletter/. Title unchanged (it already ranks ~8).
+Plan and drafts
+- New ops/growth-plan.md: newsletter audit, top 5 actions, weekly X content system + 5 X drafts for BotsDoThat - Marketing / Nik, 4-week SEO page plan from real autocomplete gaps, and free listing/backlink drafts (E-G). Nothing posted, emailed or submitted.
+- Homepage, /advertise/, config.json sponsor_checkout and the @botsdothat account untouched.
+
 ## 2026-10-30 (daily QA, 7:00 AM CT)
 Checks
 - Live site: up. Homepage, /news/, /ai-pricing/, /use-cases/, /advertise/ and /newsletter/ all returned 200.
@@ -12,6 +26,7 @@ Bugs fixed
 
 Improvement for visitors
 - New guide `plan-your-day-from-your-calendar-and-to-do-list` (family, Easy), from the BACKLOG autocomplete item "ai to plan my day": an assistant connected to your calendar and task list proposes a time-blocked plan, you approve it, then it adds the blocks. Sources: r/todoist (Mar 24, 2026, Claude + Todoist + Google Calendar daily planner), r/ChatGPT (Jul 2025, weekly plan), Gemini Apps Help (Calendar, Google Tasks, Daily Brief), Claude Help Center (Google Workspace connectors) and Google search suggestions. Watch-out notes that Claude's own pages differ on whether its Calendar connector can add events. Now 111 use cases; X is 72 of 412 source links (17%). BACKLOG item marked done; `ops/source-mix.md` updated.
+- Deploy: main c26aaa2 / publish 34f53ab; GitHub Actions run 41053581941 succeeded. New guide page returns 200 live. This deploy line is committed with the next deploy.
 
 ## 2026-10-30 (News update, AM, ~6:40 AM CT)
 - Added 3 items (all dated Oct 29): `chatgpt-pro-usage-doubled` (notable, pricing; ChatGPT release notes, BleepingComputer, The Decoder; X @thsottiaux 36,588 likes / 2,552 reposts / 4,778,683 views, now Trending #1), `google-jules-winding-down` (notable, industry; @julesagent post, The Verge; @julesagent 1,131 / 62 / 154,851), `meta-style-sketch-ai-closet` (minor, feature; TechCrunch; coverage @MattNavarra 98 / 7 / 19,139). All measured Oct 30 AM.

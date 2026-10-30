@@ -287,7 +287,7 @@ def share_bar(title, url):
 <label class="share-nojs"><span class="sr">Link to this page</span><input type="text" readonly value="{e(url)}" size="34"></label>
 <a class="share-btn" href="{e(mh)}" aria-label="Email this page to a friend">{msvg}<span>Email a friend</span></a>
 </div><p class="share-status small" role="status" aria-live="polite"></p></section>"""
-NL_END_PATHS = {"/trending/", "/news/", BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/"}
+NL_END_PATHS = {"/trending/", "/news/", BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", PRICING, LESS, "/about/"}
 def newsletter_box(uid="nl", variant="full"):
     """Kit signup (form 10088120 via config). uid keeps element ids unique when a page has more than one form.
     variant: full (homepage/newsletter), card (sidebar, replaces an unsold sponsor spot), inline (end of content pages)."""
@@ -300,7 +300,7 @@ def newsletter_box(uid="nl", variant="full"):
     cls = {"full": "news glass reveal", "card": "news glass nl-card", "inline": "news glass nl-inline"}[variant]
     hid = f"{uid}-h"
     sid = ' id="newsletter"' if uid == "nl" else ""
-    fwd = f'<p class="small nl-fwd">Know someone who\'d like this? Forward it, or send them to <a href="{e(absu(u("/")))}#subscribe">botsdothat.com/#subscribe</a></p>'
+    fwd = f'<p class="small nl-fwd">Know someone who\'d like this? Forward it, or send them to <a href="{e(absu(u("/newsletter/")))}">botsdothat.com/newsletter</a></p>'
     h = "h3" if variant == "card" else "h2"
     lead = ("Real examples with sources, a prompt to copy, one new guide and one thing that went wrong. Free, one email a week." if variant != "card"
             else "Real examples with sources and a prompt to copy. Free, one email a week.")
@@ -1214,7 +1214,7 @@ guide_body = f"""<article class="wrap narrow explainer">{gbc}
 <section class="glass explain-card"><h2>Next step</h2><p>Pick a blueprint, copy its four lines and instructions, and do one test run today.</p>
 <p><a class="btn" href="{u('/blueprints/')}">See all {len(bps)} blueprints</a> <a class="btn btn-ghost" href="{u('/ai-agent-examples/')}">Browse {len(ucs)} AI agent examples</a></p></section>
 </article>"""
-page(BUILD_GUIDE, "How to build an AI agent without coding", mdesc("How to build an AI agent without coding, in plain English: pick one job, write it in four lines, paste instructions into an agent app, test once, then schedule it safely. Worked example included."), guide_body,
+page(BUILD_GUIDE, f"How to build an AI agent without coding in {len(GUIDE_STEPS)} steps", mdesc(f"Build an AI agent without coding in {len(GUIDE_STEPS)} plain-English steps: pick one job, paste instructions into an agent app, test once, then schedule it safely. Worked example."), guide_body,
      [gbld,
       {"@context": "https://schema.org", "@type": "HowTo", "name": "How to build an AI agent without coding", "description": "Build your first AI agent (bot) for an everyday job without writing code, using a copy-paste blueprint.",
        "datePublished": "2026-10-23", "dateModified": MOD_ISO,
@@ -1306,11 +1306,18 @@ COST_FAQ = [
   "Set a spend limit and usage alerts on your AI account before anything runs on autopilot (" + _ua("set-ai-spend-limits-and-alerts") + "), test on a free tier first (" + _ua("test-your-bot-on-a-free-tier") + "), and check the first week's usage."),
 ]
 cbc, cbld = crumbs([("Home", "/"), ("Run your bots for less", LESS), ("What an AI agent costs", None)])
-_cost_desc = mdesc(f"How much does it cost to run an AI agent? Real monthly estimates for {len(_cost_rows)} everyday bots, from {money(_lo_all)} to {money(_hi_all)} a month at official API prices, with the math shown and a calculator.")
+_cost_desc = mdesc(f"What an AI agent costs per month: {money(_lo_all)} to {money(_hi_all)} for {len(_cost_rows)} everyday bots at official API prices, plus app plans, OpenClaw and Hermes. Math shown.")
 cost_body = f"""<article class="wrap narrow explainer">{cbc}
 <header class="page-head"><p class="eyebrow">Costs, in plain English</p><h1 class="kinetic-sm">How much does it cost to run an AI agent?</h1>
 <p class="lead">Short answer: inside an app plan you already pay for, your bot runs within that plan's limits. On a pay-per-use AI API, the {len(_cost_rows)} everyday bots in our blueprints come to between <b>{money(_lo_all)}</b> and <b>{money(_hi_all)}</b> a month, depending on the bot and the model. Every number below is worked out from official prices checked {nice_date(PR['checked_on'])}.</p>
 {_byline()}</header>
+
+<section class="glass explain-card reveal" id="at-a-glance"><h2>AI agent cost at a glance</h2><ul class="big-list">
+<li><b>The agent software:</b> often free. OpenClaw and Hermes Agent are free and open source; agent apps like Claude Cowork, ChatGPT dots, Gemini Spark and Grok Bot run inside a plan (<a href="#plans">plan prices</a>).</li>
+<li><b>The AI model, pay-per-use:</b> {money(_lo_all)} to {money(_hi_all)} a month for each of our {len(_cost_rows)} everyday bots, depending on the bot and the model (<a href="#examples">full table</a>).</li>
+<li><b>Phone and voice bots:</b> billed per minute, not per token (<a href="#voice">examples</a>).</li>
+<li><b>The biggest lever:</b> model choice. Within one company, the small model can cost up to {LESS_RATIO}× less than the flagship (<a href="#cut">how to pay less</a>).</li></ul>
+<p><a class="btn btn-sm" href="{u(LESS)}#calculator">Work out your own bot's cost</a> <a class="btn btn-sm btn-ghost" href="{u(BUILD_GUIDE)}">Build one without coding</a></p></section>
 
 <section class="reveal"><h2>What sets the price</h2><ol class="rules">
 <li><b>How often it runs.</b> Once a weekday is {_units['weekday']} runs a month; every day is {_units['day']}.</li>
@@ -1349,7 +1356,7 @@ cost_body = f"""<article class="wrap narrow explainer">{cbc}
 <section class="glass explain-card"><h2>Next step</h2><p>Pick a bot, open the calculator with it loaded, and set a spend limit before it runs on autopilot. New to agents? Start with <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, and before you connect your inbox read <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a></p>
 <p><a class="btn" href="{u(LESS)}#calculator">Open the cost calculator</a> <a class="btn btn-ghost" href="{u(PRICING)}">See every AI price, with sources</a></p></section>
 </article>"""
-page(COST_GUIDE, "How much does it cost to run an AI agent?", _cost_desc, cost_body,
+page(COST_GUIDE, "How much does it cost to run an AI agent per month?", _cost_desc, cost_body,
      [cbld, _art_ld(COST_GUIDE, "How much does it cost to run an AI agent?", _cost_desc), _faq_ld(COST_FAQ)], og_type="article")
 
 # ----- 2. OpenClaw vs Hermes Agent -----
@@ -1512,10 +1519,11 @@ news_ld = [bld, {"@context": "https://schema.org", "@type": "ItemList", "name": 
 news_ld += [{"@context": "https://schema.org", "@type": "NewsArticle", "headline": n["headline"][:110], "description": n["explainer"], "datePublished": n["date"],
              "url": absu(u("/news/#" + n["id"])), "isBasedOn": n["source_url"], "image": absu(u("/assets/og.png")),
              "author": {"@type": "Organization", "name": NAME}, "publisher": {"@type": "Organization", "name": NAME}} for n in NEWS[:20]]
-page("/news/", "Latest in AI: new models and AI agent launches, explained", mdesc(f"AI news for normal people: new models from OpenAI, Anthropic, Google, xAI, Meta, Mistral and DeepSeek, plus AI agent launches, each with what it means for you and a source. Updated {nice_date(NEWS[0]['date'])}."),
+page("/news/", "Latest in AI: new models and AI agent launches, explained", mdesc(f"AI news in plain English, updated {nice_date(NEWS[0]['date'])}: new models from OpenAI, Anthropic, Google, xAI and more, plus AI agent launches, what they mean for you, sourced."),
      f"""<div class="wrap page-head news-head">{bc}<p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Latest in AI · updated {nice_date(NEWS[0]['date'])}</p><h1 class="kinetic-sm">Latest in AI</h1>
 <p class="lead">The AI news that matters for you and your bots, in plain words. <b>Top story</b> = most important. <b>Trending</b> = most likes and reposts on X right now. Every story links to its source.</p>
 <p class="small muted">{len(NEWS)} stories · {cat_counts} · {sum(1 for n in NEWS if n.get('x'))} with measured X numbers · <a href="{u('/news/feed.xml')}">RSS feed</a> · Price changes also go into the <a href="{u(PRICING)}">AI price table</a>. <a href="{u('/about/#popularity')}">How we measure</a>.</p>
+<p class="small news-start">New to AI agents? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is</a>, <a href="{u(BUILD_GUIDE)}">how to build one without coding</a> and <a href="{u(COST_GUIDE)}">what one costs to run</a>. Want the useful parts once a week? <a href="{u('/newsletter/')}">Get the {e(NAME)} Weekly</a>, free.</p>
 <div class="chips news-chips" role="group" aria-label="Filter news" hidden>{news_chips}</div></div>
 <div class="wrap news-wrap"><div id="news-bento">{news_body}</div><div id="news-results" class="nt-grid" hidden></div><p class="empty" id="news-empty" hidden>Nothing in this filter yet.</p>
 <p class="small muted nb-note">How we rank. <b>Heat</b> = (likes + 2 × reposts) on the announcing X post (or the most-engaged post about it), divided by weeks since it was posted. Numbers were measured on the date in each tooltip. Stories with no post we could find get no number. <b>Major</b> means a new flagship model or a big agent launch from OpenAI, Anthropic, Google, Meta or xAI. It describes importance, not popularity.</p></div>""",
@@ -1571,9 +1579,23 @@ for iss in NL:
          [crld, {"@context": "https://schema.org", "@type": "Article", "headline": iss["subject"], "datePublished": iss["date"], "author": {"@type": "Organization", "name": NAME}, "publisher": {"@type": "Organization", "name": NAME}, "mainEntityOfPage": absu(u(nl_path(iss)))}],
          lastmod=iss["date"], og_type="article", head_extra=f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)} Weekly" href="{u("/newsletter/feed.xml")}">')
 _nl_list = "".join(f'<li class="glass nl-arch"><a href="{u(nl_path(i))}"><span class="small muted">Issue {i["number"]} · {nice_date(i["date"])}</span><b>{e(i["subject"])}</b><span class="small">{e(", ".join(UC[it["slug"]]["title"] for it in i["items"]))}</span></a></li>' for i in NL)
-page("/newsletter/", f"The {NAME} Weekly newsletter", mdesc(f"One email a week: {NL_PROMISE}, each with the result and a copy-paste prompt, plus one new guide and one thing that went wrong."),
-     f'<div class="wrap narrow"><p class="eyebrow">Newsletter</p><h1 class="kinetic-sm">The {e(NAME)} Weekly</h1><p class="lead">Every week: {NL_PROMISE.replace(' each week', '')}, each with what you end up with and a prompt to copy, plus one new guide and one thing that went wrong so you don\'t repeat it.</p>{newsletter_box()}' + (f'<p class="small muted">Between issues, follow <a href="{e(X_URL)}" rel="me noopener">@{e(X_HANDLE)} on X</a>.</p>' if X_URL else '')
+NL_FAQ = [
+    ("Is the BotsDoThat Weekly free?", "Yes. It's a free email. If an issue ever has a sponsor, the sponsor block is clearly labeled and it doesn't change what we pick.", None),
+    ("How often will I get it?", "One email a week, no more.", None),
+    ("Do I need to know how to code?", "No. Every job comes with a plain-English prompt you can paste into an AI app you already use, and the full guide on the site says what you end up with and what to watch out for.", None),
+    ("How do I unsubscribe?", "Every email has an unsubscribe link at the bottom. One click and you're off the list.", None),
+    ("What happens to my email address?", "We use it only to send the newsletter. Signups are double opt-in: you get a confirmation email and you aren't subscribed until you click it. We never sell or share it.",
+     f'We use it only to send the newsletter. Signups are double opt-in: you get a confirmation email and you aren\'t subscribed until you click it. We never sell or share it. Details: <a href="{u(PRIVACY)}">privacy</a>.'),
+]
+_nlc, _nlld = crumbs([("Home", "/"), ("Newsletter", None)])
+_nl_latest = (f'<p><a class="btn btn-ghost" href="{u(nl_path(NL[0]))}">Read the latest issue: {e(NL[0]["subject"])}</a></p>' if NL else "")
+page("/newsletter/", f"Free AI agents newsletter: the {NAME} Weekly", mdesc(f"The {NAME} Weekly is a free email: {NL_PROMISE}, each with a copy-paste prompt, plus one new guide and one thing to watch out for."),
+     f'<div class="wrap narrow">{_nlc}<p class="eyebrow">Newsletter</p><h1 class="kinetic-sm">The {e(NAME)} Weekly</h1><p class="lead">A free weekly email about AI that does things, not just answers. Every week: {NL_PROMISE.replace(" each week", "")}, each with what you end up with and a prompt to copy, plus one new guide and one thing that went wrong so you don\'t repeat it.</p>{newsletter_box()}'
+     + f'<section class="reveal" id="whats-inside"><h2>What\'s in each issue</h2><ul class="big-list"><li><b>{NL_PROMISE[:1].upper() + NL_PROMISE[1:].replace(" each week", "")}</b>, picked from real people\'s posts and articles, each with a source.</li><li><b>A prompt to copy</b> for each one, and a link to the full guide with its watch-outs.</li><li><b>One new guide</b> from the site.</li><li><b>One thing to watch out for</b>, from <a href="{u("/news/")}">the AI news</a>: a setting to check or something that went wrong.</li></ul>{_nl_latest}</section>'
+     + f'<section class="reveal" id="nl-faq"><h2>Questions about the newsletter</h2>{_faq_html(NL_FAQ)}</section>'
+     + (f'<p class="small muted">Between issues, follow <a href="{e(X_URL)}" rel="me noopener">@{e(X_HANDLE)} on X</a>.</p>' if X_URL else '')
      + (f'<h2>Past issues</h2><p class="small muted">Read every issue on the web, or follow the <a href="{u("/newsletter/feed.xml")}">newsletter RSS feed</a>.</p><ul class="nl-archive">{_nl_list}</ul>' if NL else "") + '</div>',
+     [_nlld, _faq_ld(NL_FAQ)],
      lastmod=NL[0]["date"] if NL else None, head_extra=f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)} Weekly" href="{u("/newsletter/feed.xml")}">')
 
 def tier_cta(spot, label="Email us about this spot", key=None, note=""):
