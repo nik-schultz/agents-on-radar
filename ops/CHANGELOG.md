@@ -1,5 +1,9 @@
 # Ops changelog
 
+## 2026-10-30 (midday trending watch)
+- New use case `catch-calendar-clashes-hiding-in-your-email` (WIRED six-agent test, Fast Company, r/AI_Agents, Fieldwork, X). Extra non-X sources on `proactive-next-moves-bot` (HN 50292727) and `hand-your-most-hated-chores-to-a-personal-agent` (WIRED). Refreshed 48 X posts. 112 use cases, X 17% of source links (73/419).
+- Checks: validate 0 errors; build 153 indexed pages + 404; check_links 11,718 links, 0 broken internal. No site mentions or complaints found.
+
 ## 2026-10-30 (SEO agent: newsletter conversion + SEO quick wins, Nik's growth request)
 Newsletter (Kit form 10088120, unchanged; no test signup submitted)
 - Signup box now also at the end of /use-cases/, /blueprints/, /ai-pricing/, /run-your-bots-for-less/ and /about/ (`NL_END_PATHS`). These were the only content hubs without one.
@@ -13,6 +17,8 @@ SEO quick wins (GSC Oct 22-26: cost and no-code queries at positions 61-98, /new
 Plan and drafts
 - New ops/growth-plan.md: newsletter audit, top 5 actions, weekly X content system + 5 X drafts for BotsDoThat - Marketing / Nik, 4-week SEO page plan from real autocomplete gaps, and free listing/backlink drafts (E-G). Nothing posted, emailed or submitted.
 - Homepage, /advertise/, config.json sponsor_checkout and the @botsdothat account untouched.
+- Checks: validate 0 errors (111 use cases, 12 blueprints); build 152 indexed pages + 404; check_links 11,631 links, 0 broken internal. Headless Chromium at 390px: no horizontal scroll, no JS errors on /newsletter/ and the cost guide.
+- Deploy: scripts/deploy.sh at 8:38 AM CT (no other deploy running; origin/main was 34f53ab). main edeb45c / publish 36dc4e3; GitHub Actions run 41064875899 succeeded (finished 8:42 AM CT). Live checks 8:42 AM CT, all 200 with new titles and a signup form: /newsletter/, cost guide, no-code guide, /news/, /use-cases/, /blueprints/, /ai-pricing/, /run-your-bots-for-less/, /about/. This deploy line is committed with the next deploy.
 
 ## 2026-10-30 (daily QA, 7:00 AM CT)
 Checks

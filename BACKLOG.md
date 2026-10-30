@@ -199,3 +199,19 @@ Bugs/complaints: none found.
 - [ ] Watch: Meta Style Sketch (Oct 29, TechCrunch) builds a closet from Instagram photos and plans day-by-day trip outfits from weather + itinerary; only Indonesia, Singapore, Thailand. Candidate "plan outfits and pack for a trip with AI" entry once it's in the US or with Gemini/ChatGPT alternatives.
 - [ ] Google Jules is winding down (Oct 29); if any entry links Jules, point it to Antigravity.
 
+
+## Trending watch 2026-10-30 (midday)
+
+Added: `catch-calendar-clashes-hiding-in-your-email` (WIRED Oct 27 six-agent test, Fast Company Oct 9 McCracken/Dots, r/AI_Agents 7am agent, Fieldwork calendar health check, X @ryanelliott Oct 30). Extra sources: HN 50292727 "Claude Duet is the first personal-assistant-type harness that feels useful" (122 points / 136 comments, measured Oct 30) on `proactive-next-moves-bot`; WIRED six-agent test on `hand-your-most-hated-chores-to-a-personal-agent`. Refreshed 48 tracked X posts.
+
+Mentions/feedback: none. X search "botsdothat" / "botsdothat.com" / "bots do that" since Oct 29 = only unrelated uses of the phrase; HN Algolia "botsdothat" 0 hits.
+
+Candidates not added yet:
+- [ ] "Which always-on agent should you try first?" comparison page: WIRED Oct 27 scored Muse, Dots, Instinct, Claude Duet, Gemini Spark and Grok Bot on 5 everyday tests (Dots best overall, Muse most accessible/free, Duet best interface); fig.blue/HN 50292727 on Duet vs Muse vs Dot; r/AI_Agents "where did Muse fail?" thread (Oct 28). Good SEO page.
+- [ ] Get a background brief on whoever books a call with you (X @NYDrewReynolds Oct 30, Cal.com booking -> agent researches the person; r/AI_Agents OpenClaw sales assistant "meeting prep", 18 points / 21 comments, Mar 2026). Needs a beginner-friendly tool path.
+- [ ] SpeakON Agent (Product Hunt #3 Oct 30, score 200 / 18 comments): speak a request and it drafts emails / schedules meetings across iPhone apps, you approve sends. Possible tool for `hand-off-tasks-by-voice-while-driving`.
+- [ ] Riverside Agents and Cartesia Managed Agents trending on X news (Oct 26 / Oct 30); Riverside already a tool; Cartesia is developer-only, skip.
+- Watch-out for guides: HN 50300683 / 50302334 (Oct 30, 382 and 645 points): a backdoored Claude Code VS Code extension on the Cursor/Open VSX marketplace. Developer-facing; consider a line in `keep-an-ai-agent-from-deleting-your-files` about only installing extensions from the official publisher.
+- Skipped: budget/payday morning bot (money, out of scope), #ProofOfAgent crypto posts, sales cold-email frameworks.
+
+Bugs/complaints: none found.

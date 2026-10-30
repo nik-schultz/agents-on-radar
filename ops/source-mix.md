@@ -203,3 +203,28 @@ Top domains: youtube.com (91), x.com (72), news.ycombinator.com (31), reddit.com
 
 
 What changed (2026-10-30 daily QA): new use case `plan-your-day-from-your-calendar-and-to-do-list` with 7 links (2 Reddit, 4 official Gemini/Claude help pages, 1 Google search suggestions), none on X.
+
+## After (measured 2026-10-30 midday trending run)
+
+- Use cases: **112**; source links: **419**
+- X share of source links: **73/419 = 17%**
+- X share of community links (X, Reddit, Hacker News, YouTube, GitHub, Product Hunt): **73/248 = 29%**
+- X-only use cases (every source is an X post): **7** (6%)
+- Use cases with at least one non-X community source (Reddit, Hacker News, YouTube, GitHub, Product Hunt): **81**
+- x.com URLs anywhere in the file (sources + popularity blocks + examples): 122
+
+| Platform | Source links | Use cases citing it |
+|---|---:|---:|
+| Official docs, news and blogs | 148 | 64 |
+| YouTube | 91 | 62 |
+| X | 73 | 58 |
+| Reddit | 33 | 25 |
+| Hacker News | 32 | 26 |
+| Search demand (Google) | 23 | 19 |
+| GitHub | 15 | 13 |
+| Product Hunt | 4 | 4 |
+
+Top domains: youtube.com (91), x.com (73), news.ycombinator.com (32), reddit.com (29), google.com (23), support.google.com (17), github.com (15), help.openai.com (7), docs.anthropic.com (7), wired.com (5), support.claude.com (5), menlovc.com (5)
+
+
+What changed (2026-10-30 midday trending run): new use case `catch-calendar-clashes-hiding-in-your-email` with 5 links (WIRED, Fast Company, r/AI_Agents, Fieldwork, 1 X post), so 4 of 5 are non-X; added HN 50292727 (Claude Duet post) to `proactive-next-moves-bot` and WIRED's six-agent test to `hand-your-most-hated-chores-to-a-personal-agent`. 6 of 7 new links are non-X.

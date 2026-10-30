@@ -1,0 +1,45 @@
+{
+  "slug": "catch-calendar-clashes-hiding-in-your-email",
+  "title": "Have your bot catch calendar clashes hiding in your email",
+  "category": "inbox",
+  "source_date": "2026-10-27",
+  "summary": "Plans don't only live in your calendar. A rescheduled event in a confirmation email, or a \"call Mom at 2\" note you emailed yourself, can quietly clash with what's booked. An always-on agent can compare your email with your calendar every morning and text you before a clash, but in WIRED's test of six agents only two caught one on their own, so ask for this check by name.",
+  "what_the_bot_does": [
+    "Every morning it reads the next few days of your calendar.",
+    "It searches your email for anything with a date or time in it: confirmations, invitations, reschedule notices and reminders you sent yourself.",
+    "It flags where the two disagree: a different date in the email than in the calendar, two things at the same time, or no travel time between two places.",
+    "It texts or messages you with a short list and a suggested fix for each, well before the clash.",
+    "It doesn't move, accept, decline or reply to anything until you say so."
+  ],
+  "what_you_end_up_with": "A short morning heads-up, only when something clashes, so you don't show up on the wrong day or double-book yourself.",
+  "difficulty": "Easy",
+  "tools": [
+    {"id": "chatgpt-dots", "note": "Scored best in WIRED's Oct 2026 test and flagged the clash almost right away; Dots needs a ChatGPT plan starting at $100 a month (Fast Company, WIRED)"},
+    {"id": "grok-bot", "note": "Missed the clash in WIRED's test until told to check self-sent reminder emails too; ask for a daily scheduled check"},
+    {"id": "meta-muse", "note": "Free; in WIRED's test it missed the clash at first, then offered to cross-check email reminders against the calendar"},
+    {"id": "claude", "note": "Claude Duet (US Pro/Max waitlist) flagged the clash hours ahead in WIRED's test but didn't suggest a new time"}
+  ],
+  "prompt": "Every weekday at [7:30am], check my calendar for the next [3] days and search my email for anything that mentions a date or time: confirmations, invitations, reschedule notices and reminders I sent myself. Tell me only when something doesn't line up: a different date or time in an email than in my calendar, two things at the same time, or back-to-back events in different places with no travel time. For each one, give me a one-line fix. If nothing clashes, say so in one line or stay quiet. Don't move, accept, decline, delete or reply to anything without asking me first.",
+  "setup": [
+    "Pick an agent that can read both your email and your calendar (for example ChatGPT Dots, Grok Bot, Meta Muse or Claude Duet) and connect Gmail or Outlook plus your calendar when it asks.",
+    "Paste the prompt above and ask it to save it as a daily scheduled check, not a one-time answer.",
+    "Test it once: put a fake event in your calendar, then email yourself a note about something else at the same time. See whether the bot flags it, the way WIRED tested six agents.",
+    "If it misses the test, tell it exactly what it missed (\"check emails I send myself, not just the calendar\") and run the test again.",
+    "Keep the rule that it only reports. You fix the calendar yourself, or tell it which change to make."
+  ],
+  "watch_out": [
+    "Most agents didn't do this unprompted: in WIRED's test of six agents, only Dots and Claude Duet caught a clash between an emailed reminder and a calendar event (WIRED, Oct 27, 2026).",
+    "This needs broad access to your email and calendar. Only connect the accounts you're comfortable sharing, and keep work and personal accounts separate if your employer has rules.",
+    "Don't let it accept, decline or move meetings on its own. A wrong guess can cancel something important.",
+    "Recent emails can look more urgent than they are, and a messy calendar gives a messy report (r/AI_Agents)."
+  ],
+  "sources": [
+    {"label": "WIRED (Oct 27, 2026): \"I Tested Every Major AI Agent for a Day.\" A calendar meeting at 2 pm clashed with an emailed reminder to call Mom at 2 pm; only OpenAI Dots and Claude Duet flagged it, while Grok Bot, Instinct, Muse and Gemini Spark missed it", "url": "https://www.wired.com/story/i-tested-every-major-ai-agent-for-a-day-heres-the-best-one/", "kind": "article", "posted_at": "2026-10-27"},
+    {"label": "Fast Company (Oct 9, 2026), Harry McCracken: Dots noticed a speaking engagement had one date in his calendar and another in the confirmation email; the organizers had rescheduled without telling him", "url": "https://www.fastcompany.com/91620082/openai-dots-agent-review", "kind": "article", "posted_at": "2026-10-09"},
+    {"label": "Reddit r/AI_Agents: \"we built a 7am agent that reads email, calendar, and Todoist\": one daily brief with meetings that need prep, missing info and replies still owed, plus where it still messes up", "url": "https://www.reddit.com/r/AI_Agents/comments/1tqc237/we_built_a_7am_agent_that_reads_email_calendar/", "kind": "reddit"},
+    {"label": "Fieldwork: \"Calendar health check\" automation, a weekday 7:30 AM check for double bookings, missing meeting links and no travel time that never edits your calendar", "url": "https://fieldwork.ai/automations/calendar-health", "kind": "official"},
+    {"label": "X post by @ryanelliott (Oct 30, 2026): the most useful thing his AI agents did that week was catch two meetings booked on top of each other and a customer email he'd skimmed past", "url": "https://x.com/ryanelliott/status/2116214236233826609", "kind": "x", "posted_at": "2026-10-30"}
+  ],
+  "popularity": null,
+  "tags": ["calendar conflicts", "double booked", "schedule clash", "rescheduled event", "email and calendar", "morning check", "Dots", "Grok Bot", "Muse", "Claude Duet", "Gmail", "Google Calendar"]
+}

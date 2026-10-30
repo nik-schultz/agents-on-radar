@@ -1,5 +1,101 @@
 [
  {
+  "slug": "catch-calendar-clashes-hiding-in-your-email",
+  "title": "Have your bot catch calendar clashes hiding in your email",
+  "category": "inbox",
+  "source_date": "2026-10-27",
+  "summary": "Plans don't only live in your calendar. A rescheduled event in a confirmation email, or a \"call Mom at 2\" note you emailed yourself, can quietly clash with what's booked. An always-on agent can compare your email with your calendar every morning and text you before a clash, but in WIRED's test of six agents only two caught one on their own, so ask for this check by name.",
+  "what_the_bot_does": [
+   "Every morning it reads the next few days of your calendar.",
+   "It searches your email for anything with a date or time in it: confirmations, invitations, reschedule notices and reminders you sent yourself.",
+   "It flags where the two disagree: a different date in the email than in the calendar, two things at the same time, or no travel time between two places.",
+   "It texts or messages you with a short list and a suggested fix for each, well before the clash.",
+   "It doesn't move, accept, decline or reply to anything until you say so."
+  ],
+  "what_you_end_up_with": "A short morning heads-up, only when something clashes, so you don't show up on the wrong day or double-book yourself.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt-dots",
+    "note": "Scored best in WIRED's Oct 2026 test and flagged the clash almost right away; Dots needs a ChatGPT plan starting at $100 a month (Fast Company, WIRED)"
+   },
+   {
+    "id": "grok-bot",
+    "note": "Missed the clash in WIRED's test until told to check self-sent reminder emails too; ask for a daily scheduled check"
+   },
+   {
+    "id": "meta-muse",
+    "note": "Free; in WIRED's test it missed the clash at first, then offered to cross-check email reminders against the calendar"
+   },
+   {
+    "id": "claude",
+    "note": "Claude Duet (US Pro/Max waitlist) flagged the clash hours ahead in WIRED's test but didn't suggest a new time"
+   }
+  ],
+  "prompt": "Every weekday at [7:30am], check my calendar for the next [3] days and search my email for anything that mentions a date or time: confirmations, invitations, reschedule notices and reminders I sent myself. Tell me only when something doesn't line up: a different date or time in an email than in my calendar, two things at the same time, or back-to-back events in different places with no travel time. For each one, give me a one-line fix. If nothing clashes, say so in one line or stay quiet. Don't move, accept, decline, delete or reply to anything without asking me first.",
+  "setup": [
+   "Pick an agent that can read both your email and your calendar (for example ChatGPT Dots, Grok Bot, Meta Muse or Claude Duet) and connect Gmail or Outlook plus your calendar when it asks.",
+   "Paste the prompt above and ask it to save it as a daily scheduled check, not a one-time answer.",
+   "Test it once: put a fake event in your calendar, then email yourself a note about something else at the same time. See whether the bot flags it, the way WIRED tested six agents.",
+   "If it misses the test, tell it exactly what it missed (\"check emails I send myself, not just the calendar\") and run the test again.",
+   "Keep the rule that it only reports. You fix the calendar yourself, or tell it which change to make."
+  ],
+  "watch_out": [
+   "Most agents didn't do this unprompted: in WIRED's test of six agents, only Dots and Claude Duet caught a clash between an emailed reminder and a calendar event (WIRED, Oct 27, 2026).",
+   "This needs broad access to your email and calendar. Only connect the accounts you're comfortable sharing, and keep work and personal accounts separate if your employer has rules.",
+   "Don't let it accept, decline or move meetings on its own. A wrong guess can cancel something important.",
+   "Recent emails can look more urgent than they are, and a messy calendar gives a messy report (r/AI_Agents)."
+  ],
+  "sources": [
+   {
+    "label": "WIRED (Oct 27, 2026): \"I Tested Every Major AI Agent for a Day.\" A calendar meeting at 2 pm clashed with an emailed reminder to call Mom at 2 pm; only OpenAI Dots and Claude Duet flagged it, while Grok Bot, Instinct, Muse and Gemini Spark missed it",
+    "url": "https://www.wired.com/story/i-tested-every-major-ai-agent-for-a-day-heres-the-best-one/",
+    "kind": "article",
+    "posted_at": "2026-10-27"
+   },
+   {
+    "label": "Fast Company (Oct 9, 2026), Harry McCracken: Dots noticed a speaking engagement had one date in his calendar and another in the confirmation email; the organizers had rescheduled without telling him",
+    "url": "https://www.fastcompany.com/91620082/openai-dots-agent-review",
+    "kind": "article",
+    "posted_at": "2026-10-09"
+   },
+   {
+    "label": "Reddit r/AI_Agents: \"we built a 7am agent that reads email, calendar, and Todoist\": one daily brief with meetings that need prep, missing info and replies still owed, plus where it still messes up",
+    "url": "https://www.reddit.com/r/AI_Agents/comments/1tqc237/we_built_a_7am_agent_that_reads_email_calendar/",
+    "kind": "reddit"
+   },
+   {
+    "label": "Fieldwork: \"Calendar health check\" automation, a weekday 7:30 AM check for double bookings, missing meeting links and no travel time that never edits your calendar",
+    "url": "https://fieldwork.ai/automations/calendar-health",
+    "kind": "official"
+   },
+   {
+    "label": "X post by @ryanelliott (Oct 30, 2026): the most useful thing his AI agents did that week was catch two meetings booked on top of each other and a customer email he'd skimmed past",
+    "url": "https://x.com/ryanelliott/status/2116214236233826609",
+    "kind": "x",
+    "posted_at": "2026-10-30"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "calendar conflicts",
+   "double booked",
+   "schedule clash",
+   "rescheduled event",
+   "email and calendar",
+   "morning check",
+   "Dots",
+   "Grok Bot",
+   "Muse",
+   "Claude Duet",
+   "Gmail",
+   "Google Calendar"
+  ],
+  "date_added": "2026-10-30",
+  "origin": "pipeline",
+  "last_checked": "2026-10-30"
+ },
+ {
   "slug": "plan-your-day-from-your-calendar-and-to-do-list",
   "title": "Have your AI plan your day from your real calendar and to-do list",
   "category": "family",
@@ -188,12 +284,12 @@
    "author": "@ltibbets",
    "url": "https://x.com/ltibbets/status/2115481237808726130",
    "posted_at": "2026-10-28",
-   "likes": 25,
+   "likes": 33,
    "reposts": 5,
-   "replies": 13,
+   "replies": 20,
    "bookmarks": 1,
-   "views": 2846,
-   "measured_at": "2026-10-29"
+   "views": 4034,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "IFTTT",
@@ -293,12 +389,12 @@
    "author": "@ChatGPT",
    "url": "https://x.com/ChatGPT/status/2115139248458191070",
    "posted_at": "2026-10-27",
-   "likes": 5790,
-   "reposts": 391,
-   "replies": 391,
-   "bookmarks": 1081,
-   "views": 1920915,
-   "measured_at": "2026-10-29"
+   "likes": 5810,
+   "reposts": 390,
+   "replies": 395,
+   "bookmarks": 1082,
+   "views": 1987897,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "iCloud",
@@ -484,8 +580,8 @@
    "reposts": 7,
    "replies": 25,
    "bookmarks": 66,
-   "views": 38725,
-   "measured_at": "2026-10-29"
+   "views": 38886,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "online shopping",
@@ -567,12 +663,12 @@
    "author": "@noahrshinn",
    "url": "https://x.com/noahrshinn/status/2115143830924341534",
    "posted_at": "2026-10-27",
-   "likes": 1138,
+   "likes": 1126,
    "reposts": 38,
    "replies": 97,
-   "bookmarks": 294,
-   "views": 235991,
-   "measured_at": "2026-10-29"
+   "bookmarks": 309,
+   "views": 326364,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "group chat",
@@ -1098,12 +1194,12 @@
    "author": "@NadavKeyson",
    "url": "https://x.com/NadavKeyson/status/2114759149770723804",
    "posted_at": "2026-10-26",
-   "likes": 644,
-   "reposts": 101,
+   "likes": 650,
+   "reposts": 86,
    "replies": 172,
-   "bookmarks": 796,
-   "views": 1027033,
-   "measured_at": "2026-10-29"
+   "bookmarks": 806,
+   "views": 1031544,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "podcast",
@@ -1544,8 +1640,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 1,
-   "views": 160,
-   "measured_at": "2026-10-29"
+   "views": 163,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "phone calls",
@@ -1702,6 +1798,17 @@
     "url": "https://www.straitstimes.com/tech/meta-rolls-out-consumer-ai-agent-in-singapore-amid-global-safety-retail-pushback",
     "kind": "article",
     "posted_at": "2026-10-28"
+   },
+   {
+    "label": "Hacker News: “Claude Duet is the first personal-assistant-type harness that feels useful” (fig.blue, Oct 29, 2026): fast replies, channels it organizes for you, and it never asks for your passwords",
+    "url": "https://news.ycombinator.com/item?id=50292727",
+    "kind": "hn",
+    "stats": {
+     "points": 122,
+     "comments": 136
+    },
+    "posted_at": "2026-10-29",
+    "measured_at": "2026-10-30"
    }
   ],
   "popularity": {
@@ -1714,8 +1821,8 @@
    "reposts": 5,
    "replies": 13,
    "bookmarks": 27,
-   "views": 5875,
-   "measured_at": "2026-10-29"
+   "views": 5889,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "proactive",
@@ -1904,8 +2011,8 @@
    "reposts": 0,
    "replies": 12,
    "bookmarks": 0,
-   "views": 1104,
-   "measured_at": "2026-10-29"
+   "views": 1105,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "fact check",
@@ -2008,12 +2115,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 448,
+   "likes": 424,
    "reposts": 15,
    "replies": 33,
-   "bookmarks": 323,
-   "views": 178450,
-   "measured_at": "2026-10-29"
+   "bookmarks": 282,
+   "views": 178568,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "second brain",
@@ -2219,9 +2326,9 @@
    "likes": 65,
    "reposts": 6,
    "replies": 19,
-   "bookmarks": 30,
-   "views": 5426,
-   "measured_at": "2026-10-29"
+   "bookmarks": 29,
+   "views": 5428,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "read later",
@@ -2307,7 +2414,7 @@
    "replies": 4,
    "bookmarks": 6,
    "views": 1777,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "contact form",
@@ -2505,7 +2612,7 @@
    "replies": 3,
    "bookmarks": 6,
    "views": 585,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "schedule",
@@ -2884,8 +2991,8 @@
    "reposts": 15,
    "replies": 26,
    "bookmarks": 506,
-   "views": 25429,
-   "measured_at": "2026-10-29"
+   "views": 25446,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "multi-agent",
@@ -2973,12 +3080,12 @@
    "author": "@Parul_Gautam7",
    "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
    "posted_at": "2026-10-08",
-   "likes": 198,
-   "reposts": 35,
+   "likes": 192,
+   "reposts": 34,
    "replies": 38,
-   "bookmarks": 79,
-   "views": 46413,
-   "measured_at": "2026-10-29"
+   "bookmarks": 76,
+   "views": 46414,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "multi-agent",
@@ -3051,7 +3158,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "voice",
@@ -3120,7 +3227,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 45,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "roadside assistance",
@@ -3217,7 +3324,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 396,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "computer use",
@@ -3288,8 +3395,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 0,
-   "views": 905,
-   "measured_at": "2026-10-29"
+   "views": 907,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "contractors",
@@ -3353,7 +3460,7 @@
    "replies": 5,
    "bookmarks": 0,
    "views": 127,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "used car",
@@ -3415,8 +3522,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7485,
-   "measured_at": "2026-10-29"
+   "views": 7488,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "pharmacy",
@@ -3499,8 +3606,8 @@
    "reposts": 24,
    "replies": 29,
    "bookmarks": 236,
-   "views": 325658,
-   "measured_at": "2026-10-29"
+   "views": 325815,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "newsletters",
@@ -3589,12 +3696,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
    "posted_at": "2026-10-18",
-   "likes": 867,
+   "likes": 863,
    "reposts": 94,
    "replies": 194,
-   "bookmarks": 1005,
-   "views": 1219518,
-   "measured_at": "2026-10-29"
+   "bookmarks": 1003,
+   "views": 1220658,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "phone call",
@@ -3756,8 +3863,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 547,
-   "measured_at": "2026-10-29"
+   "views": 550,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "spam calls",
@@ -3830,8 +3937,8 @@
    "reposts": 3,
    "replies": 8,
    "bookmarks": 37,
-   "views": 5438,
-   "measured_at": "2026-10-29"
+   "views": 5439,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "food log",
@@ -3912,8 +4019,8 @@
    "reposts": 3,
    "replies": 12,
    "bookmarks": 13,
-   "views": 3076,
-   "measured_at": "2026-10-29"
+   "views": 3084,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "phone call",
@@ -4097,9 +4204,9 @@
    "likes": 1015,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2893,
-   "views": 311364,
-   "measured_at": "2026-10-29"
+   "bookmarks": 2892,
+   "views": 311429,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "meal plan",
@@ -4173,10 +4280,10 @@
    "posted_at": "2026-10-09",
    "likes": 506,
    "reposts": 34,
-   "replies": 36,
-   "bookmarks": 1152,
-   "views": 66715,
-   "measured_at": "2026-10-29"
+   "replies": 37,
+   "bookmarks": 1153,
+   "views": 66759,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "calendar",
@@ -4251,6 +4358,12 @@
      "views": 252796
     },
     "measured_at": "2026-10-24"
+   },
+   {
+    "label": "WIRED (Oct 27, 2026): six always-on agents (Muse, Dots, Instinct, Claude Duet, Gemini Spark, Grok Bot) tested on a morning brief, a lunch order, a schedule clash, a trip plan and a late-night check-in; Dots best overall, Muse most accessible and free",
+    "url": "https://www.wired.com/story/i-tested-every-major-ai-agent-for-a-day-heres-the-best-one/",
+    "kind": "article",
+    "posted_at": "2026-10-27"
    }
   ],
   "popularity": {
@@ -4259,12 +4372,12 @@
    "author": "@AlexFinn",
    "url": "https://x.com/AlexFinn/status/2107254007412756589",
    "posted_at": "2026-10-05",
-   "likes": 680,
+   "likes": 679,
    "reposts": 35,
    "replies": 157,
-   "bookmarks": 723,
-   "views": 82929,
-   "measured_at": "2026-10-29"
+   "bookmarks": 722,
+   "views": 82962,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "personal agent",
@@ -4340,12 +4453,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2110008406807568813",
    "posted_at": "2026-10-13",
-   "likes": 203,
+   "likes": 204,
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41376,
-   "measured_at": "2026-10-29"
+   "views": 41393,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "scams",
@@ -4424,12 +4537,12 @@
    "author": "@saviomartin",
    "url": "https://x.com/saviomartin/status/2109330165381910817",
    "posted_at": "2026-10-11",
-   "likes": 163,
+   "likes": 164,
    "reposts": 14,
    "replies": 29,
    "bookmarks": 118,
-   "views": 25170,
-   "measured_at": "2026-10-29"
+   "views": 25193,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "family chat",
@@ -4519,7 +4632,7 @@
    "replies": 10,
    "bookmarks": 15,
    "views": 4087,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "groceries",
@@ -4598,8 +4711,8 @@
    "reposts": 12,
    "replies": 12,
    "bookmarks": 11,
-   "views": 9657,
-   "measured_at": "2026-10-29"
+   "views": 9658,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "travel",
@@ -4667,8 +4780,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 2001,
-   "measured_at": "2026-10-29"
+   "views": 2003,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "flights",
@@ -4816,8 +4929,8 @@
    "reposts": 23,
    "replies": 63,
    "bookmarks": 241,
-   "views": 93700,
-   "measured_at": "2026-10-29"
+   "views": 93711,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "restaurant",
@@ -4881,7 +4994,7 @@
    "replies": 9,
    "bookmarks": 27,
    "views": 4059,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "appointment",
@@ -4975,8 +5088,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9189,
-   "measured_at": "2026-10-29"
+   "views": 9192,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "receipts",
@@ -5065,8 +5178,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 269,
-   "views": 9754,
-   "measured_at": "2026-10-29"
+   "views": 9766,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "chief of staff",
@@ -5126,7 +5239,7 @@
    "replies": 48,
    "bookmarks": 14,
    "views": 1877,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "multiple brands",
@@ -5200,7 +5313,7 @@
    "replies": 12,
    "bookmarks": 27,
    "views": 3243,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "real estate",
@@ -5300,7 +5413,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 79,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "paper mail",
@@ -5388,8 +5501,8 @@
    "reposts": 1,
    "replies": 1,
    "bookmarks": 0,
-   "views": 74,
-   "measured_at": "2026-10-29"
+   "views": 75,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "monitoring",
@@ -5459,8 +5572,8 @@
    "reposts": 2,
    "replies": 7,
    "bookmarks": 0,
-   "views": 1303,
-   "measured_at": "2026-10-29"
+   "views": 1331,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "follow up",
@@ -5534,7 +5647,7 @@
    "replies": 7,
    "bookmarks": 55,
    "views": 4924,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "leads",
@@ -5629,8 +5742,8 @@
    "reposts": 1,
    "replies": 2,
    "bookmarks": 19,
-   "views": 2148,
-   "measured_at": "2026-10-29"
+   "views": 2150,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "email",
@@ -6283,8 +6396,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 798,
-   "measured_at": "2026-10-29"
+   "views": 799,
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "marketplace",
@@ -6550,7 +6663,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1505,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "payments",
@@ -6618,7 +6731,7 @@
    "replies": 4,
    "bookmarks": 3,
    "views": 907,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "tags": [
    "ads",
@@ -7475,7 +7588,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-10-29"
+   "measured_at": "2026-10-30"
   },
   "origin": "migrated-2026-10-19"
  },
