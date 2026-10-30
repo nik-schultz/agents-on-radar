@@ -194,3 +194,8 @@ Bugs/complaints: none found.
 - [ ] Extra tool/source: Alexa for Shopping (list/registry edits, delivery instructions, refund tracking) for `reorder-your-regular-groceries` and `make-a-customer-service-call` ("Where is my refund?" without a call).
 - [ ] Extra source: Gemini file editing in chat (blog.google Oct 29; "PDF study guide from handwritten notes") for homework/study entries such as `homework-help-that-teaches`.
 - [ ] Watch: Claude voice mode in CarPlay (X @claudeai 2115859377488072879, Oct 29) for any "talk to your AI while driving" entry; Granola free voice typing (Mac) as a tool note for dictation-style prompts.
+
+## News run 2026-10-30 (AM)
+- [ ] Watch: Meta Style Sketch (Oct 29, TechCrunch) builds a closet from Instagram photos and plans day-by-day trip outfits from weather + itinerary; only Indonesia, Singapore, Thailand. Candidate "plan outfits and pack for a trip with AI" entry once it's in the US or with Gemini/ChatGPT alternatives.
+- [ ] Google Jules is winding down (Oct 29); if any entry links Jules, point it to Antigravity.
+
