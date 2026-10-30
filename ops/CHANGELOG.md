@@ -1,5 +1,14 @@
 # Ops changelog
 
+## 2026-10-30 (News update, PM, ~1:40 PM MT)
+- Added 7 items: `openai-teen-violence-safeguards` (Oct 30, notable, feature; OpenAI, Reuters via US News; no x block, no OpenAI post found), `zest-text-restaurant-concierge` (Oct 30, notable, agent launch; TechCrunch; no x block, only low-engagement aggregators), `doordash-amazon-agent-orders-tiny` (Oct 30, notable, industry; TechCrunch, Fortune; coverage @TechCrunch 38 likes / 7 reposts / 20,252 views), `gemini-api-computer-use-ga` (Oct 30, minor, feature; Gemini API release notes + Computer Use guide; no x block), `openai-robots-txt-ai-training-signal` (Oct 30, minor, industry; OpenAI, Google Search Central, Unite.AI; no x block), `pika-h3-flex-open-weights` (Oct 29, notable, model release; Pika blog, Business Wire, Hugging Face; @pika_labs 1,539 / 281 / 808,632), `elevenlabs-sfx-v3` (Oct 29, notable, model release; ElevenLabs blog; @ElevenLabs 477 / 115 / 995,333). All measured Oct 30 PM.
+- New NEWS_CO entries: Zest, DoorDash, ElevenLabs, Pika. Top story unchanged (Gemini 4 Carbon); trending: ChatGPT Pro limits, Block Dessa, Claude for Legal.
+- Refreshed X numbers on 54 existing items (items from Oct 14 on); Gemini 4 Carbon @sundarpichai now 33,990 likes / 2,742 reposts / 6.76M views; ChatGPT Pro limits @thsottiaux 37,637 / 2,616 / 5.55M. Raw response in research/x_news_measure_2026_10_30_pm.json.txt (local only), applied with research/news_x_2026_10_30_pm.py.
+- Pricing: no table change (no official API token price changes found; Gemini Computer Use is billed as regular tokens).
+- Skipped: OpenAI Private Intelligence promo post (product announced Sep 29 at DevDay, not new), OpenAI agent-monitoring research (safety research, same as AM skip), GPT-6.2 / Grok 4.8 leaks (rumors), Claude Enterprise Smart Reports and pooled budgets, Claude API 128 MB request limit, Microsoft Copilot harness in Foundry (enterprise/developer), Tencent WorkBuddy remote control (China-only), Cartesia Managed Agents, Mischief 1, Nace Drex Max (developer-only or single-source), CrowdStrike agent intrusion report and Alphabet/Reddit stock drop (security/markets). Nothing new from Anthropic models, xAI, Mistral, DeepSeek, Groq or Qwen since AM; Grok Bot changelog still v0.78.1.
+- BACKLOG: Zest as a possible extra tool for `restaurant-reservations-by-agent`; "finish checkout yourself" watch-out for shopping guides; SFX v3 home-video sound guide idea; robots.txt AI-training opt-out note for the site.
+- Checks: validate 0 errors (112 use cases); build 153 indexed pages + 404; check_links 11,734 links, 0 broken internal.
+
 ## 2026-10-30 (midday trending watch)
 - New use case `catch-calendar-clashes-hiding-in-your-email` (WIRED six-agent test, Fast Company, r/AI_Agents, Fieldwork, X). Extra non-X sources on `proactive-next-moves-bot` (HN 50292727) and `hand-your-most-hated-chores-to-a-personal-agent` (WIRED). Refreshed 48 X posts. 112 use cases, X 17% of source links (73/419).
 - Checks: validate 0 errors; build 153 indexed pages + 404; check_links 11,718 links, 0 broken internal. No site mentions or complaints found.
@@ -651,3 +660,9 @@ Improvement for visitors
 - newsletter issue ready, send approval needed
 - The Monday report must ask Grok CEO to approve sending. Send only after both Grok CEO and Nik approve. Kit draft status will be added separately.
 - Kit: draft broadcast 26680437 built (Text only template, HTML block, subject + preview set), not sent/tested/scheduled; sender pending confirmation as hello@botsdothat.com.
+
+## 2026-10-30 (SEO agent, Nik approved in chat) — Newsletter #2 emailed
+- Kit broadcast 26680437 ("Let AI shop, plan and sort for you (it asks first)") sent to all 4 subscribers from hello@botsdothat.com at 11:47 AM MT. Copies arrived in Gmail's inbox (Updates tab). Issue #1 stays an unsent draft.
+- The Kit form "BotsDoThat Weekly signup" (10088120) now redirects after confirmation to https://botsdothat.com/newsletter/2026-10-29/ instead of Kit's default page. Double opt-in is unchanged.
+- data/newsletter.json: issue 2 sent_on set to 2026-10-30. Not deployed yet; it goes out with the next deploy.
+- Kit is on a Creator free trial (7 of 14 days left as of 10/30), so pick a plan before it ends.

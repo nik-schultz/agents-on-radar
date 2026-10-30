@@ -215,3 +215,10 @@ Candidates not added yet:
 - Skipped: budget/payday morning bot (money, out of scope), #ProofOfAgent crypto posts, sales cold-email frameworks.
 
 Bugs/complaints: none found.
+
+## News watch 2026-10-30 (PM)
+
+- [ ] Zest text-message restaurant concierge (TechCrunch Oct 30): text (212) 470-6067, it suggests places and books via OpenTable/Resy/SevenRooms, runs a vote in group chats, optional card linking (via Plaid) to learn your taste. Candidate extra tool for `restaurant-reservations-by-agent` and the group-chat dinner-plans angle; needs a second independent source (Reddit/HN/review) before adding, plus a privacy watch-out on card linking.
+- [ ] Watch-out line for shopping guides: outside agents still rarely complete orders (DoorDash "several hundred" agent orders, TechCrunch Oct 30; Amazon's Jassy "still not great", Fortune Oct 29). Suggest "let the agent find and compare, finish checkout yourself where it stalls" in `let-your-ai-shop-for-you-with-shop-pay` / Muse-related guides.
+- [ ] Possible guide "Add real sound to your home videos with one sentence" (ElevenLabs SFX v3, Oct 29; @ElevenLabs 477 likes / 995K views). Needs a second independent source and a check of free-tier limits first.
+- Site-owner note: shared robots.txt AI-training opt-out (OpenAI + Google, Oct 30) is coming; when live, consider whether botsdothat.com wants to set it (decision for Nik, not urgent).
