@@ -4,6 +4,43 @@ There's a bot for that. Here's how.
 
 A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
 
+## Have your AI plan your day from your real calendar and to-do list
+URL: https://botsdothat.com/use-cases/plan-your-day-from-your-calendar-and-to-do-list/
+Category: Family & home | Difficulty: Easy | Added: 2026-10-30
+Popularity: not measured
+
+Say "plan my day" and an assistant connected to your calendar and task list reads what's already booked and what's due, then proposes a time-blocked plan with breaks. You approve or change it, and only then does it add the blocks to your calendar. A Todoist user who set this up with Claude says the key is giving every task a deadline and a rough length.
+
+What the bot does:
+1. It reads today's events from your calendar and your open tasks (for example Google Tasks or Todoist), so it plans around what's actually booked.
+2. It flags tasks with no deadline or no time estimate and asks you to fill them in before it schedules anything.
+3. It proposes a time-blocked plan with short breaks, putting the hardest task where you said you have the most energy.
+4. It points out when you've planned more than fits in the day and asks what can move to tomorrow.
+5. Once you say yes, it adds the blocks to your calendar or updates task dates. In the evening, it can review what got done and carry the rest forward.
+
+What you end up with: A realistic plan for today on your own calendar, built around your existing appointments, plus a short list of what moved to later.
+
+Tools: Gemini, Claude, ChatGPT
+
+Prompt:
+Plan my day for [today, date]. Look at my calendar and my open tasks. My working hours are [9am-5pm]; I have the most energy in the [morning]. Rules: don't move any existing events; keep [lunch 12-1] free; add 10-minute breaks between blocks; if a task has no deadline or time estimate, ask me before scheduling it; if everything doesn't fit, tell me what to push to tomorrow and why. Show me the plan as a list first. Don't add anything to my calendar until I say yes.
+
+Watch out:
+- Don't let it move or delete existing appointments. Say so in the prompt, and review before you approve any calendar change.
+- It can repeat tasks you already finished if you only told it in chat. Mark tasks done in your task app so it reads the real status.
+- Gemini can get details wrong; Google's help pages say to check the sources it shows (Gemini Apps Help).
+- Gemini's Daily Brief is US-only, English-only, for personal Google accounts, and is still rolling out, so you may not see it yet (Gemini Apps Help).
+- Claude's own pages differ on whether its Google Calendar connector can add events or only read them. If it says it can't add them, ask for the plan as a list and add the blocks yourself.
+
+Sources:
+- Reddit r/todoist (Mar 24, 2026): "I turned Claude + Todoist into a daily planning assistant": say "plan my day", it reads tasks and Google Calendar, proposes a time-blocked schedule you approve, flags tasks missing a deadline or duration, and does an evening review: https://www.reddit.com/r/todoist/comments/1s2tcei/i_turned_claude_todoist_into_a_daily_planning/
+- Reddit r/ChatGPT (Jul 2025): "How I used ChatGPT to plan my week": a Sunday brain dump turned into a time-blocked weekly plan, with the tip to ask "what am I overcommitting to?": https://www.reddit.com/r/ChatGPT/comments/1mbnmsq/how_i_used_chatgpt_to_plan_my_week/
+- Gemini Apps Help: Create & manage your calendar events with Gemini Apps: https://support.google.com/gemini/answer/15305236?hl=en
+- Gemini Apps Help: Capture your tasks & reminders with Gemini Apps (Google Tasks): https://support.google.com/gemini/answer/15230285?hl=en
+- Gemini Apps Help: Get started with your daily brief in Gemini Apps: https://support.google.com/gemini/answer/17077455?hl=en
+- Claude Help Center: Use Google Workspace connectors (Google Calendar; each action asks for your approval by default): https://support.claude.com/en/articles/10166901-use-google-workspace-connectors
+- Google search suggestions for “ai to plan my day” and “using chatgpt to plan my day” (checked 2026-10-19): https://www.google.com/search?q=ai+to+plan+my+day
+
 ## Describe an automation in plain words and let IFTTT's AI build and run it
 URL: https://botsdothat.com/use-cases/tell-ifttt-what-to-automate-in-plain-words/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-29

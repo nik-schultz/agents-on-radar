@@ -1,5 +1,18 @@
 # Ops changelog
 
+## 2026-10-30 (daily QA, 7:00 AM CT)
+Checks
+- Live site: up. Homepage, /news/, /ai-pricing/, /use-cases/, /advertise/ and /newsletter/ all returned 200.
+- Internal links, anchors, assets: 0 broken (check_links); validate 0 errors.
+- Outbound links (617 unique, HEAD then GET with a browser user agent): no real breakages. Re-checked the flagged ones slowly: support.google.com (429 rate limit) and the Hacker News thread load fine (200). The rest are the usual bot blocks: openai.com, help.openai.com, chatgpt.com and claude.ai (403), ftc.gov / consumer.ftc.gov (404 to this box for every URL, same as Oct 29), meta.com help (400 to scripts), and Cloudflare challenges at Oracle's blog, Business Wire, Forbes, investing.com, NAIC, RentCafe, Retail Dive and StreetInsider (new since the Oct 29 PM news run; it's a "Just a moment..." challenge page, not a 404).
+- Real browser check (headless Chromium, local build): no horizontal scroll at 320px or 1280px on 10 key pages (incl. the new iCloud Mail and IFTTT guides), no broken images, no JS errors (only the Cloudflare analytics beacon refusing localhost, expected). Copy-prompt button copies and shows "Copied ✓". Homepage instant search, `?q=` links, all-guides filter and the index-failure fallback all work. Live site at 390px: instant search returns results, no console errors.
+
+Bugs fixed
+- None found.
+
+Improvement for visitors
+- New guide `plan-your-day-from-your-calendar-and-to-do-list` (family, Easy), from the BACKLOG autocomplete item "ai to plan my day": an assistant connected to your calendar and task list proposes a time-blocked plan, you approve it, then it adds the blocks. Sources: r/todoist (Mar 24, 2026, Claude + Todoist + Google Calendar daily planner), r/ChatGPT (Jul 2025, weekly plan), Gemini Apps Help (Calendar, Google Tasks, Daily Brief), Claude Help Center (Google Workspace connectors) and Google search suggestions. Watch-out notes that Claude's own pages differ on whether its Calendar connector can add events. Now 111 use cases; X is 72 of 412 source links (17%). BACKLOG item marked done; `ops/source-mix.md` updated.
+
 ## 2026-10-30 (News update, AM, ~6:40 AM CT)
 - Added 3 items (all dated Oct 29): `chatgpt-pro-usage-doubled` (notable, pricing; ChatGPT release notes, BleepingComputer, The Decoder; X @thsottiaux 36,588 likes / 2,552 reposts / 4,778,683 views, now Trending #1), `google-jules-winding-down` (notable, industry; @julesagent post, The Verge; @julesagent 1,131 / 62 / 154,851), `meta-style-sketch-ai-closet` (minor, feature; TechCrunch; coverage @MattNavarra 98 / 7 / 19,139). All measured Oct 30 AM.
 - Extra sources on `gemini-edit-files-in-chat`: The Verge, 9to5Google. No new NEWS_CO entries. Top story unchanged (Gemini 4 Carbon); trending: ChatGPT Pro limits, Block Dessa, Claude for Legal.
@@ -8,6 +21,7 @@
 - Skipped: OpenAI misalignment monitoring and Anthropic self-assessment (safety research, consistent with the Oct 29 skip), Le Chonk "training camp" post (same release as Mistral Large 4), Claude Usage & Cost Analytics API and GitHub Copilot code review updates (developer-only), xAI custom moderation (covered by grok-api-guidelines), Meta x Ohio State Muse research, WIRED Accenture/Pentagon story (disputed), DeepSeek/Moonshot distillation report (unconfirmed), Canada-Cohere stake (not verified from a primary source), Alphabet stock, Rivian/VW assistant licensing. No new models from xAI, Anthropic, DeepSeek, Groq or Mistral since the last run; Grok Bot changelog still v0.78.1.
 - BACKLOG: Style Sketch trip-outfit planning as a watch item for a "plan outfits / pack for a trip" entry once it's outside SEA; Jules users moving to Antigravity noted.
 - Checks: validate 0 errors (110 use cases); build 151 indexed pages + 404; check_links 11,532 links, 0 broken internal.
+- Deploy: main e0265a8 / publish d0e09bc; GitHub Actions run 41049255882 succeeded in 23s (6:36 AM CT). Live /news/ shows all 3 new items, with the ChatGPT Pro item at Trending #1. This deploy line is committed with the next deploy.
 
 ## 2026-10-29 (News update, PM, ~2:30 PM CT)
 - Added 8 items: `mistral-large-4-open-weights` (Oct 29, notable, model release; Mistral news, TechCrunch, Hugging Face; X @MistralAI 4,076 likes / 532 reposts / 313,778 views), `claude-mobile-carplay-multi-account` (Oct 29, notable; @claudeai 4,218 / 151 / 213,017; Crypto Briefing), `gemini-edit-files-in-chat` (Oct 29, notable; Google blog; @GeminiApp 1,527 / 146 / 75,771), `amazon-alexa-for-shopping-100-actions` (Oct 29, notable; aboutamazon.com, TechCrunch; @amazonnews 13 / 2 / 1,670), `openai-model-spec-five-values` (Oct 29, notable, industry; OpenAI, model-spec.openai.com, Reuters; no x block: no OpenAI post found, only low-engagement aggregators), `granola-voice-typing` (Oct 29, minor; TechCrunch; @meetgranola 1,128 / 46 / 103,309), `gemini-shared-avatars` (Oct 29, minor; @GeminiApp 73 / 5 / 7,099; Gemini Help), `grok-bot-shopping-subscriptions` (Oct 27 changelog date, notable; x.ai/changelog/bot, The Tech Signal; @ericzakariasson 1,152 / 38 / 124,621). All measured Oct 29 PM.

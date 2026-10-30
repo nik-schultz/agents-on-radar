@@ -23,7 +23,7 @@ More run-for-less ideas (source from official docs before adding): per-provider 
 - [x] Compare two documents or contracts (autocomplete: "use ai to compare two documents") → `compare-two-documents`
 - [~] ~~Compare prices before you buy~~ DROPPED 2026-10-21 (money-saving, out of scope)
 - [x] Organize your photos (autocomplete: "use ai to organize photos", "use ai to organize google photos") → `organize-your-photos-by-asking`
-- [ ] Plan your day or week (autocomplete: "ai to plan my day")
+- [x] Plan your day or week (autocomplete: "ai to plan my day") → `plan-your-day-from-your-calendar-and-to-do-list` (2026-10-30)
 - [x] File an insurance claim (car or home) (autocomplete: "ai to help with insurance claims", "ai agent for insurance claims") → `put-together-an-insurance-claim-with-an-ai-agent` (2026-10-28)
 - [ ] Understand your MRI or lab report before the appointment (autocomplete: "ai to read my mri"; strict "ask your doctor" guardrails)
 

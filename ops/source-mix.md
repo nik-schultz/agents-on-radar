@@ -178,3 +178,28 @@ Top domains: youtube.com (91), x.com (72), news.ycombinator.com (31), reddit.com
 
 
 What changed (2026-10-29 midday trending run): 3 new use cases (ChatGPT iCloud Mail/Calendar, IFTTT.ai, AI getting-started coach) with 16 links, 2 of them on X; The Straits Times (Oct 28) added to `proactive-next-moves-bot` (no longer X-only) and `restaurant-reservations-by-agent`. 16 of the 18 new links are non-X. X-only entries left (7): give-your-agents-a-shared-apple-account, get-roadside-help-abroad, research-a-used-car-from-a-listing, prescription-ready-and-time-to-leave, book-a-haircut-by-email, one-bot-per-brand, daily-ads-and-sales-report.
+
+## After (measured 2026-10-30 daily QA)
+
+- Use cases: **111**; source links: **412**
+- X share of source links: **72/412 = 17%**
+- X share of community links (X, Reddit, Hacker News, YouTube, GitHub, Product Hunt): **72/245 = 29%**
+- X-only use cases (every source is an X post): **7** (6%)
+- Use cases with at least one non-X community source (Reddit, Hacker News, YouTube, GitHub, Product Hunt): **79**
+- x.com URLs anywhere in the file (sources + popularity blocks + examples): 121
+
+| Platform | Source links | Use cases citing it |
+|---|---:|---:|
+| Official docs, news and blogs | 144 | 63 |
+| YouTube | 91 | 62 |
+| X | 72 | 57 |
+| Reddit | 32 | 24 |
+| Hacker News | 31 | 25 |
+| Search demand (Google) | 23 | 19 |
+| GitHub | 15 | 13 |
+| Product Hunt | 4 | 4 |
+
+Top domains: youtube.com (91), x.com (72), news.ycombinator.com (31), reddit.com (28), google.com (23), support.google.com (17), github.com (15), help.openai.com (7), docs.anthropic.com (7), support.claude.com (5), menlovc.com (5), producthunt.com (4)
+
+
+What changed (2026-10-30 daily QA): new use case `plan-your-day-from-your-calendar-and-to-do-list` with 7 links (2 Reddit, 4 official Gemini/Claude help pages, 1 Google search suggestions), none on X.
