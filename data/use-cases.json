@@ -1,5 +1,88 @@
 [
  {
+  "slug": "practice-negotiating-your-salary-or-job-offer",
+  "title": "Prepare and practice negotiating your salary or a job offer",
+  "category": "work",
+  "summary": "You got an offer, or you want a raise, and the money talk makes you nervous. AI can help you pick your numbers from real pay data, draft a friendly counteroffer email and play the recruiter or manager so you can rehearse first.",
+  "problem": "You have an offer or a raise conversation coming up, you don't know what number to ask for, and you're worried you'll freeze or give in the moment they push back.",
+  "outcome": "A target number, a walk-away number, a short counteroffer email in your own words, and a few practice rounds against a realistic recruiter or manager.",
+  "what_the_bot_does": [
+   "Look up real pay for your job and area first, for example the free BLS wage profiles or pay ranges listed in similar job posts. The AI doesn't know real salaries on its own.",
+   "Give it the offer (or your current pay), those ranges, and two or three results you're proud of, and ask it to help you pick a target, a slightly higher ask and a walk-away number.",
+   "Let it draft a short, warm counteroffer or raise email, then rewrite anything that doesn't sound like you.",
+   "Ask it to play the recruiter or your manager, push back the way a real one would, and give you feedback after each answer. Try a friendly, a skeptical and a budget-conscious version.",
+   "Use voice mode if your app has it, so you practice saying the number out loud before the real call."
+  ],
+  "what_you_end_up_with": "A target number, a walk-away number, a short counteroffer email in your own words, and a few practice rounds against a realistic recruiter or manager.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt"
+   },
+   {
+    "id": "claude"
+   },
+   {
+    "id": "gemini"
+   },
+   {
+    "id": "grok"
+   }
+  ],
+  "prompt": "Help me get ready to negotiate my pay.\n\nSituation: [JOB OFFER / ASKING FOR A RAISE]\nJob title and location: [TITLE, CITY OR REMOTE]\nOffer or current pay: [BASE, BONUS, OTHER PERKS]\nReal pay ranges I found: [PASTE RANGES AND WHERE THEY CAME FROM]\nMy strongest results: [2-3 THINGS I ACHIEVED, WITH NUMBERS IF I HAVE THEM]\nOther things I'd value: [e.g. start date, remote days, extra vacation]\n\n1. Suggest a target, a slightly higher ask and a walk-away number, and explain why in plain language. If my pay data is thin, tell me what to look up instead of guessing.\n2. Draft a counteroffer or raise email under 150 words: thankful, confident, not demanding.\n3. Then play the recruiter or my manager. Push back realistically (\"that's above our budget\", \"this is our best offer\"), one message at a time, and wait for my reply. After each reply, tell me one thing that worked and one phrase to improve.\n\nEverything must stay true: never invent a competing offer, a job title or a number I didn't give you.",
+  "watch_out": [
+   "The AI doesn't know what your job really pays where you live. Check every number against real sources, like BLS wage data or pay ranges in job posts, before you use it.",
+   "Keep it honest. Don't let it invent a competing offer or experience you don't have; that can backfire if they ask about it.",
+   "Leave out confidential details such as your company's internal pay bands or coworkers' salaries. The AI only needs your role, the offer and your own results."
+  ],
+  "faq": [
+   {
+    "q": "Can ChatGPT help me negotiate my salary?",
+    "a": "Yes, as a practice partner. Give it the offer and real pay ranges you found, and it can help you pick your numbers, write a short counteroffer email and play the recruiter so you can rehearse. It can't tell you what your job really pays, so bring your own pay data."
+   },
+   {
+    "q": "Where do I find real salary numbers?",
+    "a": "In the US, the Bureau of Labor Statistics publishes free wage data by job and area, including what the lower and higher earners make. Pay ranges listed in job posts for similar roles are another good check."
+   }
+  ],
+  "sources": [
+   {
+    "label": "Forbes: ChatGPT salary negotiation prompts, including manager role-play practice (Jun 15, 2025)",
+    "url": "https://www.forbes.com/sites/carolinecastrillon/2025/06/15/chatgpt-salary-negotiation-tips/",
+    "kind": "article"
+   },
+   {
+    "label": "Fortune: How to ask for a pay raise using ChatGPT (May 25, 2023)",
+    "url": "https://fortune.com/2023/05/25/how-to-use-chatgpt-to-help-land-a-pay-rise-and-counter-managers-objections/",
+    "kind": "article"
+   },
+   {
+    "label": "U.S. Bureau of Labor Statistics: Using wage data during salary negotiations",
+    "url": "https://www.bls.gov/oes/earnings.htm",
+    "kind": "article"
+   },
+   {
+    "label": "Google search suggestions for “ai to negotiate salary” (BACKLOG autocomplete research)",
+    "url": "https://www.google.com/search?q=ai+to+negotiate+salary",
+    "kind": "article"
+   }
+  ],
+  "tags": [
+   "salary negotiation",
+   "job offer",
+   "ask for a raise",
+   "counteroffer",
+   "career",
+   "role play"
+  ],
+  "popularity": null,
+  "source_date": null,
+  "date_added": "2026-11-02",
+  "origin": "pipeline",
+  "last_checked": "2026-11-02",
+  "setup": []
+ },
+ {
   "slug": "catch-calendar-clashes-hiding-in-your-email",
   "title": "Have your bot catch calendar clashes hiding in your email",
   "category": "inbox",

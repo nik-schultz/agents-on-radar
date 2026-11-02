@@ -10,7 +10,7 @@ More run-for-less ideas (source from official docs before adding): per-provider 
 
 - [~] ~~Dispute an error on your credit report~~ → was `dispute-a-credit-report-error`; ARCHIVED 2026-10-21 (money refocus, see `data/archive/`)
 - [~] ~~Negotiate a hospital or medical bill down~~ DROPPED 2026-10-21: in-progress guide stopped; everyday money-saving is out of scope (Nik)
-- [ ] Negotiate your salary or a job offer (autocomplete: "ai to negotiate salary")
+- [x] Negotiate your salary or a job offer (autocomplete: "ai to negotiate salary") → `practice-negotiating-your-salary-or-job-offer` (2026-11-02)
 - [~] ~~Negotiate a car price~~ DROPPED 2026-10-21 (money-saving, out of scope)
 - [x] Write a resignation letter (autocomplete: "use ai to write a letter of resignation") → `write-a-resignation-letter`
 - [x] Write a letter of recommendation (autocomplete: "use ai to write a letter of recommendation") → `write-a-letter-of-recommendation`

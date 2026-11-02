@@ -4,6 +4,51 @@ There's a bot for that. Here's how.
 
 A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
 
+## Prepare and practice negotiating your salary or a job offer
+URL: https://botsdothat.com/use-cases/practice-negotiating-your-salary-or-job-offer/
+Category: Work & career | Difficulty: Easy | Added: 2026-11-02
+Popularity: not measured
+
+You got an offer, or you want a raise, and the money talk makes you nervous. AI can help you pick your numbers from real pay data, draft a friendly counteroffer email and play the recruiter or manager so you can rehearse first.
+
+What the bot does:
+1. Look up real pay for your job and area first, for example the free BLS wage profiles or pay ranges listed in similar job posts. The AI doesn't know real salaries on its own.
+2. Give it the offer (or your current pay), those ranges, and two or three results you're proud of, and ask it to help you pick a target, a slightly higher ask and a walk-away number.
+3. Let it draft a short, warm counteroffer or raise email, then rewrite anything that doesn't sound like you.
+4. Ask it to play the recruiter or your manager, push back the way a real one would, and give you feedback after each answer. Try a friendly, a skeptical and a budget-conscious version.
+5. Use voice mode if your app has it, so you practice saying the number out loud before the real call.
+
+What you end up with: A target number, a walk-away number, a short counteroffer email in your own words, and a few practice rounds against a realistic recruiter or manager.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+Help me get ready to negotiate my pay.
+
+Situation: [JOB OFFER / ASKING FOR A RAISE]
+Job title and location: [TITLE, CITY OR REMOTE]
+Offer or current pay: [BASE, BONUS, OTHER PERKS]
+Real pay ranges I found: [PASTE RANGES AND WHERE THEY CAME FROM]
+My strongest results: [2-3 THINGS I ACHIEVED, WITH NUMBERS IF I HAVE THEM]
+Other things I'd value: [e.g. start date, remote days, extra vacation]
+
+1. Suggest a target, a slightly higher ask and a walk-away number, and explain why in plain language. If my pay data is thin, tell me what to look up instead of guessing.
+2. Draft a counteroffer or raise email under 150 words: thankful, confident, not demanding.
+3. Then play the recruiter or my manager. Push back realistically ("that's above our budget", "this is our best offer"), one message at a time, and wait for my reply. After each reply, tell me one thing that worked and one phrase to improve.
+
+Everything must stay true: never invent a competing offer, a job title or a number I didn't give you.
+
+Watch out:
+- The AI doesn't know what your job really pays where you live. Check every number against real sources, like BLS wage data or pay ranges in job posts, before you use it.
+- Keep it honest. Don't let it invent a competing offer or experience you don't have; that can backfire if they ask about it.
+- Leave out confidential details such as your company's internal pay bands or coworkers' salaries. The AI only needs your role, the offer and your own results.
+
+Sources:
+- Forbes: ChatGPT salary negotiation prompts, including manager role-play practice (Jun 15, 2025): https://www.forbes.com/sites/carolinecastrillon/2025/06/15/chatgpt-salary-negotiation-tips/
+- Fortune: How to ask for a pay raise using ChatGPT (May 25, 2023): https://fortune.com/2023/05/25/how-to-use-chatgpt-to-help-land-a-pay-rise-and-counter-managers-objections/
+- U.S. Bureau of Labor Statistics: Using wage data during salary negotiations: https://www.bls.gov/oes/earnings.htm
+- Google search suggestions for “ai to negotiate salary” (BACKLOG autocomplete research): https://www.google.com/search?q=ai+to+negotiate+salary
+
 ## Have your bot catch calendar clashes hiding in your email
 URL: https://botsdothat.com/use-cases/catch-calendar-clashes-hiding-in-your-email/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-30

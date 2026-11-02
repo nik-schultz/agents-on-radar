@@ -205,6 +205,7 @@ p{margin:0 0 1em}.small{font-size:.88rem}.muted{color:var(--muted)}.center{text-
 .intro-term p{margin:.2em 0;overflow:hidden;white-space:nowrap;width:0;animation:type .45s steps(30) forwards}.intro-term .l1{animation-delay:.1s}.intro-term .l2{animation-delay:.6s}.intro-term .l3{animation-delay:1.05s;color:#fff}
 .intro-skip{position:absolute;right:18px;bottom:18px;font:inherit;font-size:.85rem;color:var(--ink);background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;cursor:pointer}
 .intro.gone{display:none!important}
+@media(max-width:380px){.intro-term{font-size:.8rem;padding:12px 14px}}
 .intro-on .hero-copy>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(1.75s + var(--n,0)*90ms)}
 .hero-copy>*:nth-child(2){--n:1}.hero-copy>*:nth-child(3){--n:2}.hero-copy>*:nth-child(4){--n:3}.hero-copy>*:nth-child(5){--n:4}
 @keyframes type{to{width:100%}}@keyframes introZoom{from{transform:scale(.6);opacity:0}to{transform:scale(1.15);opacity:1}}
