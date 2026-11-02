@@ -225,3 +225,22 @@ Bugs/complaints: none found.
 - [ ] Cost note (2026-11-02 news run): from December ChatGPT Plus/Pro/Business chats and Codex/agent work share one token-based allowance (OpenAI Help Center 20001625; Instant chats excluded), and OpenAI now caps paid ChatGPT accounts per device/card (20001559). Claude Max 20x is now "Ultra" ($200, no five-hour limit for verified accounts, weekly limit unchanged; support.claude.com 17728952). Update plan names/limits wording in `/run-your-bots-for-less/` and the cost guide where they mention ChatGPT or Claude subscription limits.
 - [ ] Watch: Apple Intelligence in China (iOS 27.3 beta Nov 4, full release December, Qwen inside Siri/Writing Tools/Visual Intelligence; Apple China newsroom Oct 31). Candidate note on iPhone-based guides once it ships; no new use case yet.
 - [ ] Watch: DeepSeek dsh-superagent (MIT research prototype, Oct 31): always-on repo agent that takes requests from team chat and returns PRs. Possible example for an "always-on agent" comparison page (see Oct 30 backlog idea) once there are independent user reports.
+
+## Trending watch 2026-11-02 (midday)
+
+Added: `turn-a-photo-of-your-shopping-list-into-a-cart` (Walmart newsroom Oct 30, PPC Land, Winning With Walmart, Market & Tech Nov 2, Hip2Save Oct 14) and `make-your-agent-prove-it-finished-the-job` (Eon Oct 28, Ctech Oct 30, arXiv 2606.09863, booking-truth, Singhal Substack). Extra non-X sources: Engadget Claude Duet how-to (Oct 31) on `daily-ads-and-sales-report`; CAR Confidence guide on `research-a-used-car-from-a-listing`. Refreshed 48 tracked X posts.
+
+Mentions/feedback: none. X search (botsdothat OR "botsdothat.com" OR "bots do that" OR @botsdothat) since Oct 30 = only unrelated uses of the phrase; HN Algolia "botsdothat" 0 hits; Reddit blocks this box (403), web search found only our own pages.
+
+Candidates not added yet:
+- [ ] Rescue your data from a dead or abandoned app with Claude Code (X @mika_systems Oct 29, 61 likes / 4 reposts / 4,096 views; @cabbitar Nov 1, 26 likes, old budgeting app). Needs a non-X source and a beginner-safe path.
+- [ ] Add a "did it really happen?" line to `restaurant-reservations-by-agent` and `book-an-appointment-with-an-ai-agent` linking the new proof guide (Eon/arXiv false-success findings).
+- [ ] Muse watch-out: HN 50328293 (Nov 1, 56 points / 6 comments), paulfwalsh.substack.com post on Muse and surveillance/privacy. Read in full before adding a line to Muse guides.
+- [ ] Dead-man's switch for scheduled bots: get a message when a morning routine silently fails to run (r/AI_Agents "One agent runs my mornings", u/Antony_Richards, Jul 19, 24 comments). Pairs with the proof guide.
+- [ ] Sparky voice ordering (Walmart says chainwide by end of 2026); revisit when live. Holiday timing: list-to-cart / party-supply searches peak in Nov-Dec.
+- [ ] Agent phone calls from your own number to book a dentist (X @DialValet); single source, vendor post.
+- [ ] GitHub trending Oct 30-Nov 2: agent-desktop (+4,866 stars in 3 days), claude-mem (+4,332), OpenMausBot, OpenBot. Developer-leaning; revisit if a beginner use emerges.
+- [ ] Product Hunt Nov 1: Screen Studio 4.0 (417), ClawsGO Science (276), Riverside Agents (217, tool already listed), Embage, agentmash, Click. Dev/business; skip for now.
+- Skipped: DialValet retention-offer calls and bill-cutting posts (money-saving, out of scope), #ProofOfAgent crypto spam, Minecraft agent swarms (HN 50325662), Claude Code VS Code extension backdoor (already logged Oct 30), corporate travel auto-rebooking.
+
+Bugs/complaints: none found.

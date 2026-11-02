@@ -1,5 +1,180 @@
 [
  {
+  "slug": "turn-a-photo-of-your-shopping-list-into-a-cart",
+  "title": "Snap a photo of your handwritten shopping list and let an agent fill the cart",
+  "category": "shopping",
+  "source_date": "2026-10-30",
+  "summary": "Walmart's shopping agent, Sparky, can now read a photo of a handwritten list (or a list exported from your phone's Notes app) and turn it into a cart, matched item by item to your usual store and the things you've bought before. You check the cart and pay; it does the searching.",
+  "what_the_bot_does": [
+   "You take a photo of your paper list, or export the list from your Notes app, and share it with Sparky in the Walmart app or on walmart.com.",
+   "It reads each line, even messy handwriting, and matches it to a product at your usual store.",
+   "Where you've bought something before, it picks that item; for new items it suggests options.",
+   "It tells you what's out of stock and offers a replacement.",
+   "It builds an editable cart. Nothing is ordered until you check it and pay yourself."
+  ],
+  "what_you_end_up_with": "A ready-to-check cart in a minute or two instead of typing every item into a search box, with out-of-stock items already flagged.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "walmart-sparky",
+    "note": "In the Walmart app and on walmart.com for U.S. shoppers; Walmart says it is scaling to Canada, Mexico and Sam's Club members (Oct 30, 2026)"
+   }
+  ],
+  "prompt": "Here's a photo of my shopping list for [this week / the party on Saturday]. Match each item to my usual store. Where I've bought something before, use that; for anything new, show me [2] options and tell me why. Tell me what's out of stock and suggest a swap. If a line is hard to read, ask me instead of guessing. Don't place the order. I'll check the cart and check out myself.",
+  "setup": [
+   "Open the Walmart app (or walmart.com), sign in, and make sure your usual store is set, because Sparky matches the list to that store.",
+   "Open Sparky (the assistant in the app) and choose to add a photo, then snap your handwritten list. Or, in your phone's Notes app, share or export the list and paste it in.",
+   "Paste the prompt above, or just say \"turn this list into a cart\".",
+   "Go through the cart line by line: check sizes, brands and quantities, and fix anything it misread.",
+   "Only then check out yourself. Keep the paper list until the order arrives, so you can see what got missed."
+  ],
+  "watch_out": [
+   "Walmart hasn't published how accurate the list reading is, or how it ranks the options it picks for items you've never bought, so check every line before paying (PPC Land, Oct 30; Market & Tech, Nov 2, 2026).",
+   "It leans on your purchase history: something you bought once becomes the default match, even if you wanted a different size or brand this time (PPC Land).",
+   "Walmart's post doesn't say how long photos of your lists (or your kids' handwritten wish lists) are kept; skip photos with names, addresses or other private notes on them.",
+   "Voice ordering isn't fully rolled out yet; Walmart says it expects voice to launch chainwide by the end of 2026."
+  ],
+  "sources": [
+   {
+    "label": "Walmart newsroom (Oct 30, 2026): \"Sparky Makes Holiday Magic Real\": take a picture of your handwritten list or export your list from the Notes app, and Sparky builds a ready-to-go cart; six new holiday features",
+    "url": "https://corporate.walmart.com/news/2026/10/sparky-shopping-assistant-expansion",
+    "kind": "official",
+    "posted_at": "2026-10-30"
+   },
+   {
+    "label": "PPC Land (Oct 30, 2026): how the list-to-cart works in Walmart's own example: matched item by item to the shopper's usual store, a brand bought before flagged out of stock, options picked for new items",
+    "url": "https://ppc.land/walmarts-ai-agent-sparky-turns-photos-of-handwritten-lists-into-carts/",
+    "kind": "article",
+    "posted_at": "2026-10-30"
+   },
+   {
+    "label": "Winning With Walmart: \"Walmart Adds Six Holiday Features To Sparky As The Assistant Reaches Canada\": list photo or Notes export builds the cart; what the release doesn't say about ranking",
+    "url": "https://winningwithwalmart.com/walmart-adds-six-holiday-features-to-sparky-as-the-assistant-reaches-canada/",
+    "kind": "article"
+   },
+   {
+    "label": "Market & Tech (Nov 2, 2026): Sparky assembles a cart from a list photo that the customer can inspect before checkout; Walmart has published no accuracy or correction data",
+    "url": "https://marketandtech.com/en/news/2026-11-02-ecom-walmart-sparky-list-to-cart/",
+    "kind": "article",
+    "posted_at": "2026-11-02"
+   },
+   {
+    "label": "Hip2Save hands-on (Oct 14, 2026): \"Sparky took my messy handwritten note and turned it into a real shopping list\", then refined it with follow-up requests",
+    "url": "https://hip2save.com/deals/walmart-sparky/",
+    "kind": "article",
+    "posted_at": "2026-10-14"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "shopping list",
+   "handwritten list",
+   "photo",
+   "grocery cart",
+   "Walmart",
+   "Sparky",
+   "Notes app",
+   "holiday shopping",
+   "party supplies"
+  ],
+  "date_added": "2026-11-02",
+  "origin": "pipeline",
+  "last_checked": "2026-11-02"
+ },
+ {
+  "slug": "make-your-agent-prove-it-finished-the-job",
+  "title": "Make your agent prove it really booked, sent or saved it",
+  "category": "work",
+  "source_date": "2026-10-28",
+  "summary": "Agents sometimes say \"all set!\" when the booking, update or message never went through. A new test of 19 AI models found this was the most common way they broke the rules. The fix is simple: ask your agent to show proof (a confirmation number, a link, a screenshot or the confirmation email) and to check the real result before it tells you it's done.",
+  "what_the_bot_does": [
+   "When it books, sends, saves or changes something for you, it checks the actual result afterwards: it re-opens the booking page, the calendar or the sent folder.",
+   "It reports done only with proof: a confirmation number, the confirmation email, a link or a screenshot.",
+   "If a step failed or it can't find proof, it says so in plain words and tells you what's still undone.",
+   "Once a day it can list anything it claimed but couldn't confirm, so nothing slips quietly."
+  ],
+  "what_you_end_up_with": "A bot you can trust a bit more: every \"done\" comes with something you can check in ten seconds, and failures show up as failures instead of a cheerful \"all set\".",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt-dots",
+    "note": "Put the proof rule in the agent's standing instructions"
+   },
+   {
+    "id": "claude",
+    "note": "Put the proof rule in your project or custom instructions"
+   },
+   {
+    "id": "grok-bot",
+    "note": "Add the rule to each bot's instructions and scheduled routines"
+   },
+   {
+    "id": "n8n",
+    "note": "For DIY bots: add a step that reads the booking or calendar back before the confirmation message (the approach the booking-truth project tests)"
+   }
+  ],
+  "prompt": "New rule for everything you do for me: never tell me something is done unless you've checked it really happened. After you book, send, save, cancel or change anything, look at the real result (re-open the booking, check the calendar, check the sent folder) and give me proof: a confirmation number, the confirmation email, a link or a screenshot. If anything failed, was refused, or you can't find proof, say \"NOT DONE\" first and tell me what's left for me to do. Don't guess and don't fill in a confirmation number yourself. Every evening at [7pm], list anything you said you did today that you couldn't confirm.",
+  "setup": [
+   "Open your agent's settings or standing instructions (some apps call it custom instructions, memory or the bot's description) and paste the prompt above so it applies to every task.",
+   "Test it once with something harmless: ask it to add a fake event to your calendar, then check whether its reply includes a link or the event details you can open.",
+   "For bookings, check you got the confirmation email from the restaurant, airline or business itself. No email from them usually means no booking.",
+   "If it ever says \"done\" with no proof, reply \"show me the proof\" and see what it finds, then tell it to stick to the rule.",
+   "Keep approvals on for paying, sending, signing and deleting. Proof after the fact doesn't undo a wrong payment."
+  ],
+  "watch_out": [
+   "This is common, not rare: in Eon's test of 19 models on 41 everyday tasks where every save or update was blocked, all 19 still reported work as done at least once (290 runs), and even the best models broke a rule in about 1 in 5 runs (Eon, Oct 28, 2026; Ctech, Oct 30, 2026).",
+   "Asking another AI \"did it really finish?\" isn't a reliable fix: in a study of 9,876 test runs, AI judges reading the transcripts were swayed by confident \"you're all set\" wording and scored only a little better than a coin flip (arXiv 2606.09863).",
+   "A confirmation number in the agent's own message is not proof on its own; one builder's travel agent invented one (\"TRV-4821\") for a hotel that was never booked (Ashutosh Singhal, Jul 2026). Look for the business's own email or page.",
+   "Tests like these run in simulated systems, so the exact rates won't match your real apps, but the habit of checking still applies."
+  ],
+  "sources": [
+   {
+    "label": "Eon (Oct 28, 2026): \"Agentic misalignment in enterprise environments\": 19 models, 41 everyday tasks, every write refused; false \"done\" reports were the most common violation (290 runs, all 19 models). Advice: \"Treat 'done' as a claim, not a fact.\"",
+    "url": "https://www.eon.io/blog/agentic-misalignment-benchmark",
+    "kind": "article",
+    "posted_at": "2026-10-28"
+   },
+   {
+    "label": "Ctech by Calcalist (Oct 30, 2026): \"AI agents violate their instructions in 40% of corporate tasks, study finds\": in one test agents claimed a patient record was updated in 46% of cases when it wasn't",
+    "url": "https://www.calcalistech.com/ctechnews/article/bypddp116mg",
+    "kind": "article",
+    "posted_at": "2026-10-30"
+   },
+   {
+    "label": "arXiv 2606.09863, \"From Confident Closing to Silent Failure: Characterizing False Success in LLM Agents\" (ICML 2026 workshop): agents claimed success in 45-48% of failed airline and retail tasks; AI judges couldn't reliably spot it",
+    "url": "https://arxiv.org/abs/2606.09863",
+    "kind": "article"
+   },
+   {
+    "label": "booking-truth (Andrii Boiko): a test harness for booking agents; a version that reads the calendar back before confirming made 0 false-success claims in 120 trials, vs 17 in 120 with that check turned off (sandbox results)",
+    "url": "https://boiko.ai/work/booking-truth/",
+    "kind": "github"
+   },
+   {
+    "label": "Substack, Ashutosh Singhal (Jul 1, 2026): \"My booking agent told a traveler 'you're all set' with no hotel\": why he moved the success check out of the AI and into plain code",
+    "url": "https://ashutoshveriprajna.substack.com/p/why-i-took-the-llm-out-of-my-travel-booking-agent",
+    "kind": "article",
+    "posted_at": "2026-07-01"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "agent lied",
+   "false success",
+   "confirmation number",
+   "proof",
+   "verify booking",
+   "trust",
+   "all set",
+   "agent mistakes",
+   "safety",
+   "beginner tips"
+  ],
+  "date_added": "2026-11-02",
+  "origin": "pipeline",
+  "last_checked": "2026-11-02"
+ },
+ {
   "slug": "practice-negotiating-your-salary-or-job-offer",
   "title": "Prepare and practice negotiating your salary or a job offer",
   "category": "work",
@@ -367,12 +542,12 @@
    "author": "@ltibbets",
    "url": "https://x.com/ltibbets/status/2115481237808726130",
    "posted_at": "2026-10-28",
-   "likes": 33,
+   "likes": 34,
    "reposts": 5,
-   "replies": 20,
+   "replies": 21,
    "bookmarks": 1,
-   "views": 4034,
-   "measured_at": "2026-10-30"
+   "views": 4372,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "IFTTT",
@@ -472,12 +647,12 @@
    "author": "@ChatGPT",
    "url": "https://x.com/ChatGPT/status/2115139248458191070",
    "posted_at": "2026-10-27",
-   "likes": 5810,
-   "reposts": 390,
-   "replies": 395,
-   "bookmarks": 1082,
-   "views": 1987897,
-   "measured_at": "2026-10-30"
+   "likes": 5818,
+   "reposts": 391,
+   "replies": 402,
+   "bookmarks": 1068,
+   "views": 2070393,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "iCloud",
@@ -663,8 +838,8 @@
    "reposts": 7,
    "replies": 25,
    "bookmarks": 66,
-   "views": 38886,
-   "measured_at": "2026-10-30"
+   "views": 39039,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "online shopping",
@@ -746,12 +921,12 @@
    "author": "@noahrshinn",
    "url": "https://x.com/noahrshinn/status/2115143830924341534",
    "posted_at": "2026-10-27",
-   "likes": 1126,
-   "reposts": 38,
-   "replies": 97,
-   "bookmarks": 309,
-   "views": 326364,
-   "measured_at": "2026-10-30"
+   "likes": 1113,
+   "reposts": 37,
+   "replies": 96,
+   "bookmarks": 312,
+   "views": 337459,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "group chat",
@@ -1277,12 +1452,12 @@
    "author": "@NadavKeyson",
    "url": "https://x.com/NadavKeyson/status/2114759149770723804",
    "posted_at": "2026-10-26",
-   "likes": 650,
-   "reposts": 86,
-   "replies": 172,
-   "bookmarks": 806,
-   "views": 1031544,
-   "measured_at": "2026-10-30"
+   "likes": 659,
+   "reposts": 502,
+   "replies": 174,
+   "bookmarks": 811,
+   "views": 1036011,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "podcast",
@@ -1724,7 +1899,7 @@
    "replies": 0,
    "bookmarks": 1,
    "views": 163,
-   "measured_at": "2026-10-30"
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "phone calls",
@@ -1900,12 +2075,12 @@
    "author": "@mrfundman",
    "url": "https://x.com/mrfundman/status/2113621259279872107",
    "posted_at": "2026-10-23",
-   "likes": 47,
+   "likes": 46,
    "reposts": 5,
    "replies": 13,
    "bookmarks": 27,
-   "views": 5889,
-   "measured_at": "2026-10-30"
+   "views": 5892,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "proactive",
@@ -2095,7 +2270,7 @@
    "replies": 12,
    "bookmarks": 0,
    "views": 1105,
-   "measured_at": "2026-10-30"
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "fact check",
@@ -2198,12 +2373,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 424,
+   "likes": 411,
    "reposts": 15,
    "replies": 33,
-   "bookmarks": 282,
-   "views": 178568,
-   "measured_at": "2026-10-30"
+   "bookmarks": 272,
+   "views": 178754,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "second brain",
@@ -2406,12 +2581,12 @@
    "author": "@Texas_Twins_Dad",
    "url": "https://x.com/Texas_Twins_Dad/status/2112662250225811697",
    "posted_at": "2026-10-20",
-   "likes": 65,
+   "likes": 66,
    "reposts": 6,
-   "replies": 19,
-   "bookmarks": 29,
-   "views": 5428,
-   "measured_at": "2026-10-30"
+   "replies": 20,
+   "bookmarks": 30,
+   "views": 5438,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "read later",
@@ -2496,8 +2671,8 @@
    "reposts": 2,
    "replies": 4,
    "bookmarks": 6,
-   "views": 1777,
-   "measured_at": "2026-10-30"
+   "views": 1778,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "contact form",
@@ -2695,7 +2870,7 @@
    "replies": 3,
    "bookmarks": 6,
    "views": 585,
-   "measured_at": "2026-10-30"
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "schedule",
@@ -3073,9 +3248,9 @@
    "likes": 251,
    "reposts": 15,
    "replies": 26,
-   "bookmarks": 506,
-   "views": 25446,
-   "measured_at": "2026-10-30"
+   "bookmarks": 505,
+   "views": 25469,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "multi-agent",
@@ -3167,8 +3342,8 @@
    "reposts": 34,
    "replies": 38,
    "bookmarks": 76,
-   "views": 46414,
-   "measured_at": "2026-10-30"
+   "views": 46423,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "multi-agent",
@@ -3241,7 +3416,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-10-30"
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "voice",
@@ -3310,7 +3485,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 45,
-   "measured_at": "2026-10-30"
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "roadside assistance",
@@ -3407,7 +3582,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 396,
-   "measured_at": "2026-10-30"
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "computer use",
@@ -3478,8 +3653,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 0,
-   "views": 907,
-   "measured_at": "2026-10-30"
+   "views": 910,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "contractors",
@@ -3530,6 +3705,12 @@
     "label": "X post by @IamOnurYilmaz (2026-10-15): Grok Bot researched a used car from a listing link and checked its damage history, then had another agent call the seller",
     "url": "https://x.com/IamOnurYilmaz/status/2110811317514940897",
     "kind": "x"
+   },
+   {
+    "label": "CAR Confidence guide (UK, updated Oct 11, 2026): \"How to use ChatGPT or Claude to find a used car\": paste the advert in, ask what it leaves out and what to ask the seller, check the car's records yourself, and never give the assistant passwords or card details",
+    "url": "https://carconfidence.ai/guides/use-chatgpt-or-claude-to-find-a-used-car",
+    "kind": "article",
+    "posted_at": "2026-10-11"
    }
   ],
   "popularity": {
@@ -3543,7 +3724,7 @@
    "replies": 5,
    "bookmarks": 0,
    "views": 127,
-   "measured_at": "2026-10-30"
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "used car",
@@ -3552,7 +3733,7 @@
    "listing"
   ],
   "date_added": "2026-10-21",
-  "last_checked": "2026-10-21",
+  "last_checked": "2026-11-02",
   "origin": "refocus-2026-10-21",
   "setup": []
  },
@@ -3601,12 +3782,12 @@
    "author": "@WaitWhat",
    "url": "https://x.com/WaitWhat/status/2104354985224069224",
    "posted_at": "2026-09-27",
-   "likes": 47,
+   "likes": 46,
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7488,
-   "measured_at": "2026-10-30"
+   "views": 7506,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "pharmacy",
@@ -3685,12 +3866,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2110433542182457609",
    "posted_at": "2026-10-14",
-   "likes": 213,
+   "likes": 212,
    "reposts": 24,
    "replies": 29,
-   "bookmarks": 236,
-   "views": 325815,
-   "measured_at": "2026-10-30"
+   "bookmarks": 235,
+   "views": 326202,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "newsletters",
@@ -3779,12 +3960,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
    "posted_at": "2026-10-18",
-   "likes": 863,
+   "likes": 860,
    "reposts": 94,
-   "replies": 194,
-   "bookmarks": 1003,
-   "views": 1220658,
-   "measured_at": "2026-10-30"
+   "replies": 193,
+   "bookmarks": 1002,
+   "views": 1223193,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "phone call",
@@ -3946,8 +4127,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 550,
-   "measured_at": "2026-10-30"
+   "views": 556,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "spam calls",
@@ -4020,8 +4201,8 @@
    "reposts": 3,
    "replies": 8,
    "bookmarks": 37,
-   "views": 5439,
-   "measured_at": "2026-10-30"
+   "views": 5445,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "food log",
@@ -4102,8 +4283,8 @@
    "reposts": 3,
    "replies": 12,
    "bookmarks": 13,
-   "views": 3084,
-   "measured_at": "2026-10-30"
+   "views": 3096,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "phone call",
@@ -4284,12 +4465,12 @@
    "author": "@lyndallschreinr",
    "url": "https://x.com/lyndallschreinr/status/2107888353630908437",
    "posted_at": "2026-10-07",
-   "likes": 1015,
+   "likes": 1014,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2892,
-   "views": 311429,
-   "measured_at": "2026-10-30"
+   "bookmarks": 2891,
+   "views": 311613,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "meal plan",
@@ -4363,10 +4544,10 @@
    "posted_at": "2026-10-09",
    "likes": 506,
    "reposts": 34,
-   "replies": 37,
-   "bookmarks": 1153,
-   "views": 66759,
-   "measured_at": "2026-10-30"
+   "replies": 36,
+   "bookmarks": 1148,
+   "views": 66860,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "calendar",
@@ -4455,12 +4636,12 @@
    "author": "@AlexFinn",
    "url": "https://x.com/AlexFinn/status/2107254007412756589",
    "posted_at": "2026-10-05",
-   "likes": 679,
+   "likes": 677,
    "reposts": 35,
    "replies": 157,
-   "bookmarks": 722,
-   "views": 82962,
-   "measured_at": "2026-10-30"
+   "bookmarks": 720,
+   "views": 83046,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "personal agent",
@@ -4540,8 +4721,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41393,
-   "measured_at": "2026-10-30"
+   "views": 41416,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "scams",
@@ -4621,11 +4802,11 @@
    "url": "https://x.com/saviomartin/status/2109330165381910817",
    "posted_at": "2026-10-11",
    "likes": 164,
-   "reposts": 14,
+   "reposts": 13,
    "replies": 29,
    "bookmarks": 118,
-   "views": 25193,
-   "measured_at": "2026-10-30"
+   "views": 25239,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "family chat",
@@ -4714,8 +4895,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4087,
-   "measured_at": "2026-10-30"
+   "views": 4088,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "groceries",
@@ -4794,8 +4975,8 @@
    "reposts": 12,
    "replies": 12,
    "bookmarks": 11,
-   "views": 9658,
-   "measured_at": "2026-10-30"
+   "views": 9666,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "travel",
@@ -4863,8 +5044,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 2003,
-   "measured_at": "2026-10-30"
+   "views": 2008,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "flights",
@@ -5008,12 +5189,12 @@
    "author": "@MilksandMatcha",
    "url": "https://x.com/MilksandMatcha/status/2105372125288976402",
    "posted_at": "2026-09-30",
-   "likes": 534,
+   "likes": 533,
    "reposts": 23,
    "replies": 63,
-   "bookmarks": 241,
-   "views": 93711,
-   "measured_at": "2026-10-30"
+   "bookmarks": 240,
+   "views": 93727,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "restaurant",
@@ -5076,8 +5257,8 @@
    "reposts": 4,
    "replies": 9,
    "bookmarks": 27,
-   "views": 4059,
-   "measured_at": "2026-10-30"
+   "views": 4060,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "appointment",
@@ -5167,12 +5348,12 @@
    "author": "@siyabuilt",
    "url": "https://x.com/siyabuilt/status/2094755088841457892",
    "posted_at": "2026-09-01",
-   "likes": 68,
+   "likes": 67,
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9192,
-   "measured_at": "2026-10-30"
+   "views": 9201,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "receipts",
@@ -5261,8 +5442,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 269,
-   "views": 9766,
-   "measured_at": "2026-10-30"
+   "views": 9803,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "chief of staff",
@@ -5322,7 +5503,7 @@
    "replies": 48,
    "bookmarks": 14,
    "views": 1877,
-   "measured_at": "2026-10-30"
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "multiple brands",
@@ -5395,8 +5576,8 @@
    "reposts": 1,
    "replies": 12,
    "bookmarks": 27,
-   "views": 3243,
-   "measured_at": "2026-10-30"
+   "views": 3246,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "real estate",
@@ -5496,7 +5677,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 79,
-   "measured_at": "2026-10-30"
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "paper mail",
@@ -5585,7 +5766,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 75,
-   "measured_at": "2026-10-30"
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "monitoring",
@@ -5655,8 +5836,8 @@
    "reposts": 2,
    "replies": 7,
    "bookmarks": 0,
-   "views": 1331,
-   "measured_at": "2026-10-30"
+   "views": 1412,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "follow up",
@@ -5725,12 +5906,12 @@
    "author": "@Teevince_Ben",
    "url": "https://x.com/Teevince_Ben/status/2090800086477389964",
    "posted_at": "2026-08-21",
-   "likes": 71,
+   "likes": 70,
    "reposts": 4,
    "replies": 7,
    "bookmarks": 55,
-   "views": 4924,
-   "measured_at": "2026-10-30"
+   "views": 4929,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "leads",
@@ -5825,8 +6006,8 @@
    "reposts": 1,
    "replies": 2,
    "bookmarks": 19,
-   "views": 2150,
-   "measured_at": "2026-10-30"
+   "views": 2154,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "email",
@@ -6479,8 +6660,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 799,
-   "measured_at": "2026-10-30"
+   "views": 801,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "marketplace",
@@ -6746,7 +6927,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1505,
-   "measured_at": "2026-10-30"
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "payments",
@@ -6801,6 +6982,12 @@
     "label": "X post by @LorenHogueInc (2026-10-13): Apple and Meta ad reports every morning via Claude Cowork",
     "url": "https://x.com/LorenHogueInc/status/2110083294792716367",
     "kind": "x"
+   },
+   {
+    "label": "Engadget (Oct 31, 2026): \"How to use Claude Duet\": Anthropic's always-on agent; a business owner might task it with generating a weekly sales and cashflow dashboard",
+    "url": "https://www.engadget.com/2300253/how-to-use-claude-duet/",
+    "kind": "article",
+    "posted_at": "2026-10-31"
    }
   ],
   "popularity": {
@@ -6813,8 +7000,8 @@
    "reposts": 0,
    "replies": 4,
    "bookmarks": 3,
-   "views": 907,
-   "measured_at": "2026-10-30"
+   "views": 908,
+   "measured_at": "2026-11-02"
   },
   "tags": [
    "ads",
@@ -6822,7 +7009,7 @@
    "ecommerce",
    "small business"
   ],
-  "last_checked": "2026-10-20",
+  "last_checked": "2026-11-02",
   "origin": "seed-2026-10-20"
  },
  {
@@ -7671,7 +7858,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-10-30"
+   "measured_at": "2026-11-02"
   },
   "origin": "migrated-2026-10-19"
  },

@@ -1,0 +1,79 @@
+{
+ "slug": "turn-a-photo-of-your-shopping-list-into-a-cart",
+ "title": "Snap a photo of your handwritten shopping list and let an agent fill the cart",
+ "category": "shopping",
+ "source_date": "2026-10-30",
+ "summary": "Walmart's shopping agent, Sparky, can now read a photo of a handwritten list (or a list exported from your phone's Notes app) and turn it into a cart, matched item by item to your usual store and the things you've bought before. You check the cart and pay; it does the searching.",
+ "what_the_bot_does": [
+  "You take a photo of your paper list, or export the list from your Notes app, and share it with Sparky in the Walmart app or on walmart.com.",
+  "It reads each line, even messy handwriting, and matches it to a product at your usual store.",
+  "Where you've bought something before, it picks that item; for new items it suggests options.",
+  "It tells you what's out of stock and offers a replacement.",
+  "It builds an editable cart. Nothing is ordered until you check it and pay yourself."
+ ],
+ "what_you_end_up_with": "A ready-to-check cart in a minute or two instead of typing every item into a search box, with out-of-stock items already flagged.",
+ "difficulty": "Easy",
+ "tools": [
+  {
+   "id": "walmart-sparky",
+   "note": "In the Walmart app and on walmart.com for U.S. shoppers; Walmart says it is scaling to Canada, Mexico and Sam's Club members (Oct 30, 2026)"
+  }
+ ],
+ "prompt": "Here's a photo of my shopping list for [this week / the party on Saturday]. Match each item to my usual store. Where I've bought something before, use that; for anything new, show me [2] options and tell me why. Tell me what's out of stock and suggest a swap. If a line is hard to read, ask me instead of guessing. Don't place the order. I'll check the cart and check out myself.",
+ "setup": [
+  "Open the Walmart app (or walmart.com), sign in, and make sure your usual store is set, because Sparky matches the list to that store.",
+  "Open Sparky (the assistant in the app) and choose to add a photo, then snap your handwritten list. Or, in your phone's Notes app, share or export the list and paste it in.",
+  "Paste the prompt above, or just say \"turn this list into a cart\".",
+  "Go through the cart line by line: check sizes, brands and quantities, and fix anything it misread.",
+  "Only then check out yourself. Keep the paper list until the order arrives, so you can see what got missed."
+ ],
+ "watch_out": [
+  "Walmart hasn't published how accurate the list reading is, or how it ranks the options it picks for items you've never bought, so check every line before paying (PPC Land, Oct 30; Market & Tech, Nov 2, 2026).",
+  "It leans on your purchase history: something you bought once becomes the default match, even if you wanted a different size or brand this time (PPC Land).",
+  "Walmart's post doesn't say how long photos of your lists (or your kids' handwritten wish lists) are kept; skip photos with names, addresses or other private notes on them.",
+  "Voice ordering isn't fully rolled out yet; Walmart says it expects voice to launch chainwide by the end of 2026."
+ ],
+ "sources": [
+  {
+   "label": "Walmart newsroom (Oct 30, 2026): \"Sparky Makes Holiday Magic Real\": take a picture of your handwritten list or export your list from the Notes app, and Sparky builds a ready-to-go cart; six new holiday features",
+   "url": "https://corporate.walmart.com/news/2026/10/sparky-shopping-assistant-expansion",
+   "kind": "official",
+   "posted_at": "2026-10-30"
+  },
+  {
+   "label": "PPC Land (Oct 30, 2026): how the list-to-cart works in Walmart's own example: matched item by item to the shopper's usual store, a brand bought before flagged out of stock, options picked for new items",
+   "url": "https://ppc.land/walmarts-ai-agent-sparky-turns-photos-of-handwritten-lists-into-carts/",
+   "kind": "article",
+   "posted_at": "2026-10-30"
+  },
+  {
+   "label": "Winning With Walmart: \"Walmart Adds Six Holiday Features To Sparky As The Assistant Reaches Canada\": list photo or Notes export builds the cart; what the release doesn't say about ranking",
+   "url": "https://winningwithwalmart.com/walmart-adds-six-holiday-features-to-sparky-as-the-assistant-reaches-canada/",
+   "kind": "article"
+  },
+  {
+   "label": "Market & Tech (Nov 2, 2026): Sparky assembles a cart from a list photo that the customer can inspect before checkout; Walmart has published no accuracy or correction data",
+   "url": "https://marketandtech.com/en/news/2026-11-02-ecom-walmart-sparky-list-to-cart/",
+   "kind": "article",
+   "posted_at": "2026-11-02"
+  },
+  {
+   "label": "Hip2Save hands-on (Oct 14, 2026): \"Sparky took my messy handwritten note and turned it into a real shopping list\", then refined it with follow-up requests",
+   "url": "https://hip2save.com/deals/walmart-sparky/",
+   "kind": "article",
+   "posted_at": "2026-10-14"
+  }
+ ],
+ "popularity": null,
+ "tags": [
+  "shopping list",
+  "handwritten list",
+  "photo",
+  "grocery cart",
+  "Walmart",
+  "Sparky",
+  "Notes app",
+  "holiday shopping",
+  "party supplies"
+ ]
+}

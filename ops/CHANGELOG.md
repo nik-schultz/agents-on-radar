@@ -1,5 +1,12 @@
 # Ops changelog
 
+## 2026-11-02 (Trending watch, midday)
+- New: `turn-a-photo-of-your-shopping-list-into-a-cart` (shopping, Easy): photograph a handwritten list or export it from Notes and Walmart's Sparky turns it into a cart matched to your usual store and past purchases; you check every line and pay yourself. Sources: Walmart newsroom (Oct 30), PPC Land (Oct 30), Winning With Walmart, Market & Tech (Nov 2), Hip2Save hands-on (Oct 14). New tool `walmart-sparky` in tools.json. No price/deal framing.
+- New: `make-your-agent-prove-it-finished-the-job` (work, Easy): a standing "no proof, not done" rule so agents show a confirmation number, email, link or screenshot and say NOT DONE when something failed. Sources: Eon benchmark (Oct 28; 19 models, 41 tasks, false "done" the most common violation, 290 runs, all 19 models), Ctech (Oct 30), arXiv 2606.09863 (false success 45-48% of failures in airline/retail tasks; AI judges best AUROC 0.65), booking-truth (0 vs 17 false successes in 120 sandbox trials), Ashutosh Singhal Substack (Jul 1).
+- Extra sources: Engadget "How to use Claude Duet" (Oct 31; weekly sales and cashflow dashboard example) on `daily-ads-and-sales-report`; CAR Confidence used-car guide (UK, updated Oct 11) on `research-a-used-car-from-a-listing`. Both were X-only; X-only use cases now 5 (was 7).
+- Refreshed 48 X posts. 115 use cases; X 17% of source links (73/435); all 12 new links are non-X.
+- Checks: validate 0 errors; build 156 indexed pages + 404; check_links 11,965 links, 0 broken internal. Mentions/feedback: none (X search botsdothat / botsdothat.com / "bots do that" / @botsdothat since Oct 30 = unrelated uses; HN Algolia "botsdothat" 0 hits; web search shows only our own pages). Bugs/complaints: none.
+
 ## 2026-11-02 (daily QA, 7:00 AM CT)
 Checks
 - Live site: up. Homepage, /news/, /use-cases/, /ai-pricing/, /advertise/, /newsletter/ and /run-your-bots-for-less/ all returned 200 (0.13-0.25s).
@@ -12,6 +19,7 @@ Bug fixed
 
 Improvement for visitors
 - New guide `practice-negotiating-your-salary-or-job-offer` (work, Easy), from the BACKLOG autocomplete item "ai to negotiate salary": pick a target and walk-away number from real pay data, draft a short counteroffer or raise email, and role-play the recruiter or manager with feedback. Sources: Forbes (Jun 15, 2025), Fortune (May 25, 2023), the BLS guide to using wage data in salary negotiations, and Google search suggestions. Watch-outs: the AI doesn't know real pay for your area, never invent a competing offer, keep internal pay data out of the chat. No stats or claims beyond the sources. Now 113 use cases; X is 73 of 423 source links (17%). BACKLOG item marked done; `ops/source-mix.md` updated.
+- Deploy: main ce56a9b / publish 62761a8; GitHub Actions run 41451320890 succeeded. Live: the new guide returns 200 and the live stylesheet has the narrow-phone fix. This deploy line is committed with the next deploy.
 
 ## 2026-11-02 (News update, AM, ~7:30 AM ET)
 - Added 6 items: `chatgpt-codex-shared-usage-december` (Oct 31, notable, pricing; OpenAI Help Center usage-limits + card/device-limits articles, The Decoder; coverage @codexresets_ 663 likes / 57 reposts / 80,390 views), `deepseek-dsh-superagent-prototype` (Oct 31, notable, agent launch; GitHub, TechNode, Help Net Security; no x block, no official DeepSeek post), `apple-intelligence-china-qwen` (Oct 31, notable, feature; Apple China newsroom, The Verge, The Next Web; no x block, only low-engagement reposts), `grok-api-text-watermark` (Oct 31, minor, feature; xAI docs; no x block), `claude-ultra-plan-no-5-hour-limit` (Oct 30, notable, pricing; Claude Help Center, The Next Web, claude.com/pricing; @claudeai 31,905 / 1,931 / 6.90M), `chatgpt-mobile-account-switching` (Oct 30, minor, feature; ChatGPT release notes; @thsottiaux 14,461 / 650 / 3.17M). All measured Nov 2 AM.

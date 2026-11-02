@@ -160,5 +160,11 @@
   "url": "https://ifttt.com",
   "cost": "Free plan (1,000 credits a month, unlimited Applets); paid plans from $2.09/month billed yearly",
   "kind": "automation"
+ },
+ "walmart-sparky": {
+  "name": "Walmart Sparky",
+  "url": "https://corporate.walmart.com/news/2026/10/sparky-shopping-assistant-expansion",
+  "cost": "Free in the Walmart app and on walmart.com (U.S.); you pay for the groceries",
+  "kind": "agent"
  }
 }
