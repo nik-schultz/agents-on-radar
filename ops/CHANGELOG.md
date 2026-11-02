@@ -1,11 +1,20 @@
 # Ops changelog
 
+## 2026-11-02 (News update, PM, ~3:30 PM ET)
+- Added 6 items, all dated 2026-11-02: Claude API message threads beta (Claude Platform release notes; @ClaudeDevs), OpenAI LifeVal everyday-tasks eval (openai.com; @OpenAI), Meituan LongCat-2.5 (LongCat API changelog; @Meituan_LongCat), SemiAnalysis GDPx benchmark (SemiAnalysis; @SemiAnalysis_), ChatGPT Chat+Work tab merge and ChatGPT Classic retiring Jan 30, 2027 (TechCrunch, 9to5Mac; @9to5mac), Claude watermark extended to Mythos 5 / Opus 4.7 / Opus 4.6 / Sonnet 4.6 from Nov 3 (Mashable, Claude Help Center; no X post).
+- build.py NEWS_CO: added Meituan and SemiAnalysis.
+- X: re-measured 79 posts (74 existing refreshed + 5 new), measured_at 2026-11-02; raw file research/x_news_measure_2026_11_02_pm.json.txt (local, gitignored); script research/news_x_2026_11_02_pm.py.
+- Top story unchanged: Gemini 4 Carbon (major, Oct 28), 34,089 likes / 2,750 reposts / 6.90M views. No MAJOR release this run.
+- Pricing: no change to data/ai-pricing.json. BACKLOG: LifeVal chores as use-case ideas, GDPx watch-out, Chat+Work/Classic guide updates.
+- Checks: validate 0 errors; check_links 11,986 links, 0 broken internal.
+
 ## 2026-11-02 (Trending watch, midday)
 - New: `turn-a-photo-of-your-shopping-list-into-a-cart` (shopping, Easy): photograph a handwritten list or export it from Notes and Walmart's Sparky turns it into a cart matched to your usual store and past purchases; you check every line and pay yourself. Sources: Walmart newsroom (Oct 30), PPC Land (Oct 30), Winning With Walmart, Market & Tech (Nov 2), Hip2Save hands-on (Oct 14). New tool `walmart-sparky` in tools.json. No price/deal framing.
 - New: `make-your-agent-prove-it-finished-the-job` (work, Easy): a standing "no proof, not done" rule so agents show a confirmation number, email, link or screenshot and say NOT DONE when something failed. Sources: Eon benchmark (Oct 28; 19 models, 41 tasks, false "done" the most common violation, 290 runs, all 19 models), Ctech (Oct 30), arXiv 2606.09863 (false success 45-48% of failures in airline/retail tasks; AI judges best AUROC 0.65), booking-truth (0 vs 17 false successes in 120 sandbox trials), Ashutosh Singhal Substack (Jul 1).
 - Extra sources: Engadget "How to use Claude Duet" (Oct 31; weekly sales and cashflow dashboard example) on `daily-ads-and-sales-report`; CAR Confidence used-car guide (UK, updated Oct 11) on `research-a-used-car-from-a-listing`. Both were X-only; X-only use cases now 5 (was 7).
 - Refreshed 48 X posts. 115 use cases; X 17% of source links (73/435); all 12 new links are non-X.
 - Checks: validate 0 errors; build 156 indexed pages + 404; check_links 11,965 links, 0 broken internal. Mentions/feedback: none (X search botsdothat / botsdothat.com / "bots do that" / @botsdothat since Oct 30 = unrelated uses; HN Algolia "botsdothat" 0 hits; web search shows only our own pages). Bugs/complaints: none.
+- Deploy: main e0eecfc / publish acfda08; GitHub Actions run 41497739366 succeeded (1:08 PM ET). Live: both new guides and the two updated guides return 200. This deploy line is committed with the next deploy.
 
 ## 2026-11-02 (daily QA, 7:00 AM CT)
 Checks

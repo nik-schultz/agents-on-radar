@@ -244,3 +244,11 @@ Candidates not added yet:
 - Skipped: DialValet retention-offer calls and bill-cutting posts (money-saving, out of scope), #ProofOfAgent crypto spam, Minecraft agent swarms (HN 50325662), Claude Code VS Code extension backdoor (already logged Oct 30), corporate travel auto-rebooking.
 
 Bugs/complaints: none found.
+
+## News run 2026-11-02 (PM)
+
+- [ ] LifeVal everyday tasks as use-case ideas (OpenAI, Nov 2, https://openai.com/index/lifeval/): survey-picked chores such as childcare/school sign-ups, government services, budgeting, grocery ordering and finding a home. Check which we lack a guide for; needs non-OpenAI sources and a beginner-safe path before adding.
+- [ ] GDPx reality check (SemiAnalysis, Nov 2): best model 12% on 206 long expert tasks, 0 on finance/legal. Possible "don't hand an agent your taxes or contract yet" watch-out line on money/legal guides.
+- [ ] ChatGPT Chat+Work merge and ChatGPT Classic retirement (Jan 30, 2027): update any guide that tells readers to open the "Work" tab or the Classic Mac app once the merged screen ships widely.
+- [ ] Claude API message threads (beta): faster long agent sessions; no guide change needed now.
+- Skipped: OpenAI Abu Dhabi deals and Grid Protectors (industry/policy), Gemini parental time limits (APK teardown, unconfirmed), xAI "Data Bot" blog (case study of already-listed Team Bots), ServiceNow Apriel Voice 27B preview (developer research model), Vercel agent-desktop (dev tool, logged midday).
