@@ -1,5 +1,11 @@
 # Ops changelog
 
+## 2026-11-03 (News update, AM, ~7:40 AM ET)
+- Added 3 items: `google-dreambeans-india` (Nov 3, minor, feature; Google India blog, TechCrunch, The Hindu; no x block, only low-engagement coverage), `gemini-2-5-auto-route-december` (Nov 2, notable, pricing; Gemini API changelog + deprecations; no x block), `apple-watch-live-rewind-siri-recap-beta` (Nov 2, notable, feature; TechCrunch, Apple Support, Engadget; no x block, top posts under 5 likes).
+- X: re-measured 79 posts, measured_at 2026-11-03; raw research/x_news_measure_2026_11_03_am.json.txt (local), script research/news_x_2026_11_03_am.py. Top story unchanged: Gemini 4 Carbon 34,093 likes / 2,750 reposts / 6.91M views. No MAJOR release.
+- Pricing: no table change (no Gemini 2.5 rows in the table). BACKLOG: Apple Watch recap use-case idea; Gemini 2.5 auto-route note for cost pages.
+- Skipped: Claude message threads (already covered Nov 2), OpenAI Grid Protectors (energy policy), Anthropic amended S-1 (already covered), NYT v. Brave lawsuit, Squarespace/SUSE layoffs, Garry Tan token spend, GPT-Rosalind-6 (trusted access only), Hydrogen-1.0 (developer science model), enterprise agent press releases (Aion, Sequel, Abacum, Tripo, 10x), markets news, a mis-dated "Grok 4 released" aggregator entry.
+
 ## 2026-11-02 (News update, PM, ~3:30 PM ET)
 - Added 6 items, all dated 2026-11-02: Claude API message threads beta (Claude Platform release notes; @ClaudeDevs), OpenAI LifeVal everyday-tasks eval (openai.com; @OpenAI), Meituan LongCat-2.5 (LongCat API changelog; @Meituan_LongCat), SemiAnalysis GDPx benchmark (SemiAnalysis; @SemiAnalysis_), ChatGPT Chat+Work tab merge and ChatGPT Classic retiring Jan 30, 2027 (TechCrunch, 9to5Mac; @9to5mac), Claude watermark extended to Mythos 5 / Opus 4.7 / Opus 4.6 / Sonnet 4.6 from Nov 3 (Mashable, Claude Help Center; no X post).
 - build.py NEWS_CO: added Meituan and SemiAnalysis.
@@ -7,6 +13,7 @@
 - Top story unchanged: Gemini 4 Carbon (major, Oct 28), 34,089 likes / 2,750 reposts / 6.90M views. No MAJOR release this run.
 - Pricing: no change to data/ai-pricing.json. BACKLOG: LifeVal chores as use-case ideas, GDPx watch-out, Chat+Work/Classic guide updates.
 - Checks: validate 0 errors; check_links 11,986 links, 0 broken internal.
+- Deploy: main 4960b80 / publish 627fe47; GitHub Actions run 41519811834 succeeded (3:31 PM ET). Live: /news/ 200 with the new items. This deploy line is committed with the next deploy.
 
 ## 2026-11-02 (Trending watch, midday)
 - New: `turn-a-photo-of-your-shopping-list-into-a-cart` (shopping, Easy): photograph a handwritten list or export it from Notes and Walmart's Sparky turns it into a cart matched to your usual store and past purchases; you check every line and pay yourself. Sources: Walmart newsroom (Oct 30), PPC Land (Oct 30), Winning With Walmart, Market & Tech (Nov 2), Hip2Save hands-on (Oct 14). New tool `walmart-sparky` in tools.json. No price/deal framing.
