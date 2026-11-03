@@ -252,6 +252,8 @@ def tool_names(x, n=3):
     more = f' <span class="more">+{len(names)-n}</span>' if len(names) > n else ""
     return "".join(f'<span class="tchip">{e(t)}</span>' for t in names[:n]) + more
 
+# chat_prompt: {"agentic_alt": slug} marks a one-off chat prompt (not an agent that acts, watches or runs on a schedule); badge + pointer to an agentic page.
+CHAT_BADGE = '<span class="chat-badge" title="A one-off prompt you paste into a chat app, not a bot that acts for you">Chat prompt</span>'
 def card(x, rank=None, big=False):
     c = CAT[x["category"]]
     r = f'<span class="rank">#{rank}</span>' if rank else ""
@@ -262,7 +264,7 @@ def card(x, rank=None, big=False):
     return f"""<li class="card{' card--big' if big else ''}" data-cat="{e(x['category'])}" data-heat="{x['_heat']}" data-added="{e(x['date_added'])}{e(x.get('source_date') or '')}" data-diff="{DIFF_ORDER.get(x['difficulty'],1)}" data-search="{e(search_text(x))}">
 <a class="card-link" href="{u('/use-cases/'+x['slug']+'/')}"><div class="card-top"><span class="cat-tag cat-{e(x['category'])}">{c['icon']} {e(c['name'])}</span>{r}{new}</div>
 <h3>{e(x['title'])}</h3><p class="card-sum">{e(x['summary'])}</p>{extra}
-<div class="card-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span><span class="tools-mini">{tool_names(x)}</span></div></a>
+<div class="card-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span>{CHAT_BADGE if x.get('chat_prompt') else ''}<span class="tools-mini">{tool_names(x)}</span></div></a>
 <div class="card-pop">{pop_chip(x)}{seen_on(x)}</div></li>"""
 
 def featured_slot(slot, cat=None):
@@ -668,8 +670,9 @@ page("/trending/", "Trending AI agent use cases this week", "The AI agent use ca
      [itemlist("Trending AI agent use cases this week", TRENDING[:20])], lastmod=BUILD_DATE)
 
 allcards = "".join(card(x) for x in TRENDING) + "".join(card(x) for x in NEWEST if x["_heat"] == 0)
-page("/use-cases/", "AI agent use cases", f"Browse {len(ucs)} real, sourced AI agent use cases for everyday life: what the bot does, what you end up with, tools that can do it today and a copy-paste prompt.",
+page("/use-cases/", "AI agent use cases you can copy and run, step by step", f"{len(ucs)} step-by-step AI agent use cases you can copy and run: what the bot does, setup, the tools that can do it today and a copy-paste prompt, each with sources.",
      f"""<div class="wrap page-head"><p class="eyebrow">The whole feed</p><h1 class="kinetic-sm">Use cases</h1><p class="lead">{len(ucs)} things real people get bots to do, each with sources.</p>
+<p class="small hub-note">Each use case is a step-by-step page you can copy and run: what the bot does, setup, the tools and a prompt. Want a quick overview first? <a href="{u('/ai-agent-examples/')}">AI agent examples</a> puts everything agents can do on one page, grouped by part of life. Pages marked {CHAT_BADGE} are one-off prompts for a chat app, not bots that act for you.</p>
 {searchbox(id_="q2")}<div class="index-tools">{chips()}<label class="sort"><span>Sort</span><select id="sort"><option value="heat">Trending</option><option value="new">Newest</option><option value="easy">Easiest first</option></select></label></div>
 <p class="small muted" id="count" aria-live="polite"></p></div>
 <div class="wrap"><h2 class="sr">All {len(ucs)} use cases</h2><ul class="grid" id="cards">{allcards}</ul><p class="empty" hidden>No matches. Try a simpler word like “email” or “calendar”.</p></div>""",
@@ -804,6 +807,9 @@ for x in ucs:
     bpbox = ("<div class='glass side-box'><h2 class='side-h'>Build it as a bot</h2><ul class='side-list'>" + "".join(f'<li><a href="{u("/blueprints/"+b["slug"]+"/")}">⚙ {e(b["title"])}</a></li>' for b in rbp) + "</ul></div>") if rbp else ""
     rel = [y for y in NEWEST if y["category"] == x["category"] and y["slug"] != x["slug"]][:4]
     relbox = "<div class='glass side-box'><h2 class='side-h'>More in " + e(c["name"]) + "</h2><ul class='side-list'>" + "".join(f'<li><a href="{u("/use-cases/"+y["slug"]+"/")}">{e(y["title"])}</a></li>' for y in rel) + f'<li class="small"><a href="{u("/category/"+c["slug"]+"/")}">All {e(c["name"])} use cases →</a></li><li class="small"><a href="{u("/ai-agent-examples/")}">Every AI agent example on one page →</a></li>' + "</ul></div>"
+    _cp = x.get("chat_prompt") or {}
+    _alt = _cp.get("agentic_alt") if isinstance(_cp, dict) else None
+    chat_note = (f'<p class="chat-note small"><span class="chat-badge">Chat prompt</span> This one is a prompt you paste into a chat app, and you do the steps yourself. Want an agent that does the legwork for you? See <a href="{u("/use-cases/"+_alt+"/")}">{e(UC[_alt]["title"])}</a>.</p>') if _alt in UC else ""
     setup = ("<section><h2>Setup</h2><ol>" + "".join(f"<li>{e(s)}</li>" for s in x["setup"]) + "</ol></section>") if x.get("setup") else ""
     _mod = x.get("last_checked") or x["date_added"]  # same value as the HowTo dateModified below
     relx = REL_X.get(x["slug"], [])
@@ -812,9 +818,9 @@ for x in ucs:
     body = f"""<article class="wrap uc">{bc}
 <header class="uc-head"><p class="eyebrow"><a class="cat-tag cat-{e(x['category'])}" href="{u('/category/'+c['slug']+'/')}">{c['icon']} {e(c['name'])}</a></p>
 <h1 class="kinetic-sm">{e(x['title'])}</h1><p class="lead">{e(x['summary'])}</p>
-<div class="uc-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span><span class="muted small">Updated <time datetime="{e(_mod)}">{nice_date(_mod)}</time> · By <a href="{u('/about/')}">{e(NAME)}</a> · Added {nice_date(x['date_added'])}</span>{pop_chip(x, long=True)}</div>{seen_on(x, long=True)}</header>
+<div class="uc-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span>{CHAT_BADGE if x.get('chat_prompt') else ''}<span class="muted small">Updated <time datetime="{e(_mod)}">{nice_date(_mod)}</time> · By <a href="{u('/about/')}">{e(NAME)}</a> · Added {nice_date(x['date_added'])}</span>{pop_chip(x, long=True)}</div>{seen_on(x, long=True)}</header>
 <div class="uc-grid"><div class="uc-main">
-<section><h2>What the bot does</h2><ol class="steps">{steps}</ol></section>
+<section><h2>What the bot does</h2>{chat_note}<ol class="steps">{steps}</ol></section>
 <section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p></section>{see_also_html(x)}{less_callout if x['category'] == 'run-for-less' else ''}{tool_listing(cat=x['category'])}
 <section><h2>Copy-paste prompt</h2><p class="muted small">Fill in the [brackets]. Then paste it into any tool below.</p>{copybox(x['prompt'])}
 <p class="small">New to this? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>, then <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, or <a href="{u('/blueprints/#how-to')}">set up a bot in 5 plain steps →</a>{(' Choosing a self-hosted agent? See <a href="' + u(CLAW_GUIDE) + '">OpenClaw vs Hermes Agent for beginners</a>.') if any(t["id"] in ("openclaw", "hermes-agent") for t in x["tools"]) else ''}{(' Connecting email or a calendar? Read <a href="' + u(SAFE_GUIDE) + '">is it safe to give an AI agent your email and calendar?</a>') if (x['category'] == 'inbox' or any(t.lower() in ('gmail', 'outlook', 'calendar', 'google calendar', 'email') for t in x.get('tags', []))) else ''}</p>
@@ -1008,7 +1014,7 @@ for c in cats:
     for x in items:
         ex_items.append(x)
         tn = ", ".join(tools[t["id"]]["name"] for t in x["tools"][:3])
-        lis += f'<li><a href="{u("/use-cases/"+x["slug"]+"/")}"><b>{e(x["title"])}</b></a>. {e(x["what_you_end_up_with"])} <span class="small muted">Tools: {e(tn)}.</span></li>'
+        lis += f'<li><a href="{u("/use-cases/"+x["slug"]+"/")}"><b>{e(x["title"])}</b></a>. {e(x["what_you_end_up_with"])} <span class="small muted">Tools: {e(tn)}.</span>{(' ' + CHAT_BADGE) if x.get('chat_prompt') else ''}</li>'
     ex_groups += f'<section><h2 id="{e(c["slug"])}">{c["icon"]} {e(c["name"])}</h2><ul class="ex-list">{lis}</ul></section>'
 ex_faq = [
     ("What is an example of an AI agent in everyday life?", "A common one is an inbox agent that reads your new email each morning and sends you a short summary of what needs a reply, without sending anything itself. Others watch a web page and ping you when it changes, plan a week of meals and build the grocery list, or make a customer-service phone call for you."),
@@ -1020,11 +1026,12 @@ ex_body = f"""<article class="wrap narrow explainer">{crumbs([("Home", "/"), ("A
 <p class="eyebrow">Examples</p><h1 class="kinetic-sm">{len(ex_items)} AI agent examples for everyday life</h1>
 <p class="lead">Short answer: an AI agent is an assistant that does a job for you, like reading your email, watching a web page or making a phone call, instead of only answering questions. Here are {len(ex_items)} real, everyday examples, grouped by part of life. Each one links to a plain-English guide with a copy-paste prompt.</p>
 <p class="small muted">Updated <time datetime="{MOD_ISO}">{MOD_NICE}</time>. New to agents? Read <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>, or <a href="{u(BUILD_GUIDE)}">build one without coding</a>.</p>
+<p class="small hub-note">This page is the one-page overview of what AI agents can do, grouped by part of life. To set one up, open its step-by-step page, or search and filter all of them in <a href="{u('/use-cases/')}">use cases</a>. Items marked {CHAT_BADGE} are one-off prompts for a chat app, not bots that act for you.</p>
 {ex_groups}
 <section><h2>Questions people ask</h2>{''.join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}{_faq_more(q)}</p></details>' for q, a in ex_faq)}</section>
 <section class="glass explain-card"><h2>Want it on autopilot?</h2><p>Turn any of these into a bot that runs on a schedule with a <a href="{u('/blueprints/')}">build-your-own-bot blueprint</a>. Never built one? Follow <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>.</p></section>
 </article>"""
-page("/ai-agent-examples/", f"{len(ex_items)} AI agent examples for everyday life", mdesc(f"{len(ex_items)} real AI agent examples for everyday life: inbox, phone calls, shopping, travel, family, health and work, each with a plain-English guide and copy-paste prompt."), ex_body,
+page("/ai-agent-examples/", f"{len(ex_items)} AI agent examples for everyday life", mdesc(f"{len(ex_items)} AI agent examples for everyday life on one page, grouped by inbox, calls, shopping, travel, family, health and work. Each links to a how-to."), ex_body,
      [crumbs([("Home", "/"), ("AI agent examples", None)])[1],
       {"@context": "https://schema.org", "@type": "ItemList", "name": "AI agent examples for everyday life", "numberOfItems": len(ex_items),
        "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": absu(u("/use-cases/" + x["slug"] + "/")), "name": x["title"]} for i, x in enumerate(ex_items)]},

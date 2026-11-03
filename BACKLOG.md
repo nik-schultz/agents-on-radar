@@ -139,8 +139,8 @@ Bugs/complaints: none found.
 
 ## Weekly SEO run 2026-10-28 (Wed)
 - [x] Duplicate meal-plan pages: differentiated instead of merged. `weekly-meal-plan-and-grocery-list` (one-off plan + list) and `family-meal-plan-and-grocery-order` (recurring agent that fills the cart) now link to each other with a one-line "which one is for you" note. No canonical or deletion. Proposal only: if they still compete in GSC in a month, canonical the one-off page to the agent page.
-- [ ] PROPOSAL (needs approval): 14 chat-prompt use cases drifting from agentic bots. Either rewrite each as an agent task (schedule, tool access, approval step) or move them under a "one-off prompts" note. No deletions without approval.
-- [ ] PROPOSAL (needs approval): /use-cases/ vs /ai-agent-examples/ overlap. Keep /use-cases/ as the filterable directory and /ai-agent-examples/ as the beginner "examples for everyday life" list (it was the first result in our web-search tool on 2026-10-28 for "everyday AI agent use cases" and "AI agent examples for everyday life", though not in Bing's top 10); add a sentence at the top of each pointing to the other.
+- [x] DONE 2026-11-03 (5 rewritten as agent tasks, 9 labeled "Chat prompt" with a pointer to an agentic page; see ops/CHANGELOG.md): 14 chat-prompt use cases drifting from agentic bots. Either rewrite each as an agent task (schedule, tool access, approval step) or move them under a "one-off prompts" note. No deletions without approval.
+- [x] DONE 2026-11-03 (cross-pointer notes + retitled /use-cases/): /use-cases/ vs /ai-agent-examples/ overlap. Keep /use-cases/ as the filterable directory and /ai-agent-examples/ as the beginner "examples for everyday life" list (it was the first result in our web-search tool on 2026-10-28 for "everyday AI agent use cases" and "AI agent examples for everyday life", though not in Bing's top 10); add a sentence at the top of each pointing to the other.
 - New autocomplete seen 2026-10-28: "sandbox ai agents", "best sandbox for ai agents", "macos sandbox ai agent", "are ai agents safe to use", "is hermes ai agent safe", "chatgpt for insurance claims".
 
 ## Trending watch 2026-10-28 (midday)

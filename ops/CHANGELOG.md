@@ -1,5 +1,29 @@
 # Ops changelog
 
+## 2026-11-03 (Agentic rework of 14 chat-prompt use cases + hub notes, ~9:45 AM CT, asked by Nik in chat)
+The 14 chat-prompt use cases from the Oct 28 backlog proposal (the 12 migrated Oct 19 pages plus the two letter pages added Oct 20-21; every tool was a plain chat app).
+Rewritten as agent tasks (same slugs; new steps, prompt, tool notes, setup, FAQ "Which AI tools can do this?"; every product claim cites an official help page):
+- `understand-a-confusing-letter`: reads the letter from a photo, Google Drive PDF or Gmail; asks first, then puts the deadline on Google Calendar; sends an email reply only after approval. New title "…and let AI handle the next step", seo_title "Understand a confusing letter with AI, then act on it". Notes that Claude's Gmail connector sees attachment names only.
+- `appeal-a-health-insurance-denial`: reads denial/EOB from a Drive folder, adds the appeal deadline (+1 week-before event) after you OK it, writes the appeal and a call log as Google Docs; you send it the way the plan asks. Guide steps 1, 2 and 5 updated to match.
+- `write-a-complaint-that-gets-fixed`: searches Gmail for order and support emails, builds a dated timeline, drafts the complaint and sends it only after approval; adds the deadline to the calendar. See also: let-ai-send-emails-for-you, make-a-customer-service-call.
+- `moving-checklist-and-change-of-address`: Claude finds every company with your address in your email and puts utility dates on the calendar; ChatGPT Work's cloud browser fills in address-change pages, pauses for sign-in and asks before it saves; USPS left to you on usps.com.
+- `organize-a-parents-care-paperwork`: Claude reads a Drive folder of scans and PDFs, builds a care binder Google Doc with sources per fact and a call log, and adds appointments after you OK them. See also: medication-reminders-for-a-parent.
+- Sources added: Claude Help "Use Google Workspace connectors", OpenAI Help "Using cloud browser in ChatGPT", "Managing app permissions in ChatGPT", ChatGPT release notes. Tools now carry notes on who can do which step (Gemini/Grok/ChatGPT free = explain and draft only).
+Labeled "Chat prompt" (an honest agentic version would just duplicate an existing page). New optional field `chat_prompt: {"agentic_alt": slug}`; build.py shows a "Chat prompt" badge on the page header, on cards and in /ai-agent-examples/, plus a note above the steps pointing to the agentic page:
+- `fill-out-a-long-form` → hand-a-clunky-web-form-to-an-agent
+- `review-a-lease-before-signing` → understand-a-confusing-letter
+- `prepare-for-a-doctor-visit` → prescription-ready-and-time-to-leave
+- `homework-help-that-teaches` → school-email-digest
+- `tailor-your-resume-to-a-job` → job-match-digest
+- `sell-your-stuff-online` → sell-on-marketplace-with-rules
+- `test-a-side-hustle-idea` → get-a-researched-report-with-sources
+- `write-a-letter-of-recommendation` → email-ghostwriter-style-guide
+- `write-a-resignation-letter` → let-ai-send-emails-for-you
+/use-cases/ vs /ai-agent-examples/
+- /use-cases/: title "AI agent use cases you can copy and run, step by step"; new description; note under the lead: "Each use case is a step-by-step page you can copy and run… Want a quick overview first? AI agent examples puts everything agents can do on one page, grouped by part of life. Pages marked Chat prompt are one-off prompts…"
+- /ai-agent-examples/: title unchanged; description now "…on one page, grouped by inbox, calls, shopping, travel, family, health and work. Each links to a how-to."; note: "This page is the one-page overview of what AI agents can do, grouped by part of life. To set one up, open its step-by-step page, or search and filter all of them in use cases…"
+- CSS: .chat-badge, .chat-note, .hub-note in static/style.css (appended). BACKLOG.md: both Oct 28 proposals marked done.
+
 ## 2026-11-03 (SEO improvement pass, ~9:30 AM CT, asked by Nik in chat)
 Audit (all 159 built pages: titles, descriptions, H1s, heading order, image alt, canonicals, JSON-LD parse, sitemap, llms.txt, in-content links)
 - Clean: one H1 per page, canonical on every page, every JSON-LD block parses, no image without alt, no heading-level skips, no duplicate titles or descriptions, every indexed page in the sitemap.
@@ -16,6 +40,7 @@ New pages (Google autocomplete pulled Nov 3; neither duplicates an existing page
 - `let-ai-send-emails-for-you` (inbox, Easy), title tag "Can AI send emails for you? ChatGPT, Claude and Gemini". Targets "can chatgpt send emails for me / on my behalf", "can claude send emails for me", "can gemini send emails for me", "can ai agents send emails". Approve-before-send prompt, setup (official connect buttons, permission settings, drafts-only option), watch-outs, 4-question FAQ. Sources: OpenAI release notes + app permissions help, Claude Google Workspace connectors help, Gemini Apps tasks help, TechRadar hands-on (Jun 9, 2026; no attachments), Tatsulok comparison (Oct 14, 2026), Google suggestions. No stats.
 - `set-up-chatgpt-scheduled-tasks` (work, Easy), title tag "ChatGPT scheduled tasks: ideas and how to set one up". Targets "chatgpt scheduled tasks ideas / examples / free / not working", "how to schedule chatgpt tasks". Plan limits (3 Free/Go, 5 Plus, 10 Business/Edu, 15 Pro/Enterprise), notification setup, why tasks pause, shared-link privacy, Pulse retirement, 5-question FAQ. Sources: OpenAI scheduled tasks help + release notes (Jun 17, Aug 25, 2026), Claude Cowork scheduling help, XDA and MakeUseOf hands-ons, 2 r/ChatGPT threads, Google suggestions. No stats.
 - Now 118 use cases; source mix X 73/455 = 16% (both new pages use 0 X links).
+- Deployed with scripts/deploy.sh at ~9:35 AM CT: main 61de7a6, publish a934e61, GitHub Pages run 41665358379 success. Live check: both new pages 200 with new titles, nl-pointer and mid-article signups live, new seo_titles and /about/ description live, both pages in sitemap. (This line is committed with the next deploy.)
 
 ## 2026-11-03 (Weekly SEO + AI-answer run, ~7:45 AM PT)
 Audit (titles, descriptions, H1s, canonicals, JSON-LD, sitemap, robots.txt, llms.txt)

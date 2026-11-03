@@ -4459,7 +4459,10 @@
   "date_added": "2026-10-21",
   "origin": "pipeline",
   "last_checked": "2026-10-21",
-  "setup": []
+  "setup": [],
+  "chat_prompt": {
+   "agentic_alt": "email-ghostwriter-style-guide"
+  }
  },
  {
   "slug": "remove-your-number-from-people-search-sites",
@@ -4777,7 +4780,10 @@
   "date_added": "2026-10-20",
   "origin": "pipeline",
   "last_checked": "2026-10-20",
-  "setup": []
+  "setup": [],
+  "chat_prompt": {
+   "agentic_alt": "let-ai-send-emails-for-you"
+  }
  },
  {
   "slug": "family-meal-plan-and-grocery-order",
@@ -7422,21 +7428,25 @@
   "category": "health",
   "flagship": true,
   "title": "Appeal a health insurance denial with AI",
-  "problem": "Your health insurance said no to a treatment, test or medicine, and the letter is full of codes and jargon.",
-  "outcome": "A clear, polite appeal letter that answers the insurer's exact reason for saying no, a checklist of documents to attach, and your deadlines on a calendar.",
-  "prompt": "You are helping me appeal a health insurance denial. I am not a lawyer or doctor, so explain things simply.\n\nHere is the denial letter (personal details removed):\n[PASTE DENIAL LETTER OR EXPLANATION OF BENEFITS]\n\nMy situation in plain words:\n[WHAT TREATMENT, WHY MY DOCTOR ORDERED IT, WHAT I'VE ALREADY TRIED]\n\nPlease:\n1. Tell me in 3 bullet points why they said no, quoting the exact reason from the letter.\n2. List my deadline to appeal and any other dates mentioned in the letter. If no date is in the letter, say so.\n3. Make a checklist of documents I should gather (for example a letter from my doctor, medical records, the plan's coverage policy).\n4. Write a one-page appeal letter that answers each stated reason, asks for a written decision, and leaves [BLANKS] for anything I need to fill in. Do not invent medical facts, studies or policy wording. If you are unsure, say so.\n5. List 3 questions I should ask my doctor's office to make the appeal stronger.",
+  "problem": "Your health insurance said no to a treatment, test or medicine, and the letter is full of codes and jargon. Your AI reads the denial and your plan papers from Google Drive, puts the deadlines on your calendar and drafts the appeal for you to check.",
+  "outcome": "A clear, polite appeal letter in a Google Doc that answers the insurer's exact reason for saying no, a checklist of documents to attach, a call log, and your deadlines on your calendar.",
+  "prompt": "You are helping me appeal a health insurance denial. I am not a lawyer or doctor, so explain things simply.\n\nThe denial letter or Explanation of Benefits and my plan's appeal instructions are in my Google Drive folder [FOLDER NAME]. (Or: I've uploaded photos with my member ID covered.)\nMy situation in plain words:\n[WHAT TREATMENT, WHY MY DOCTOR ORDERED IT, WHAT I'VE ALREADY TRIED]\n\nPlease:\n1. Tell me in 3 bullet points why they said no, quoting the exact reason from the letter.\n2. List my deadline to appeal and any other dates mentioned in the letter. If no date is in the letter, say so. Ask me first, then add the appeal deadline to my Google Calendar, plus an event one week before.\n3. Make a checklist of documents I should gather (for example a letter from my doctor, medical records, the plan's coverage policy).\n4. Write a one-page appeal letter as a Google Doc in the same folder. Answer each stated reason, ask for a written decision, and leave [BLANKS] for anything I need to fill in. Do not invent medical facts, studies or policy wording. If you are unsure, say so.\n5. Create a call-log Google Doc in the folder with columns for date, who I spoke to, what they said and next step.\n6. List 3 questions I should ask my doctor's office to make the appeal stronger.\nDon't share, send or submit anything.",
   "tools": [
    {
-    "id": "chatgpt"
+    "id": "claude",
+    "note": "Free plan works. Turn on its Gmail, Google Calendar and Google Drive connectors. By default it asks for your OK before each action it takes for you, like adding an event or sending an email. It reads PDFs and images in Google Drive and can create Google Docs."
    },
    {
-    "id": "claude"
+    "id": "chatgpt",
+    "note": "Upload the letter with your member ID covered for the explanation and draft. Add dates to your calendar yourself."
    },
    {
-    "id": "gemini"
+    "id": "gemini",
+    "note": "Upload the letter for the explanation and draft. Add dates to your calendar yourself."
    },
    {
-    "id": "grok"
+    "id": "grok",
+    "note": "Upload the letter for the explanation and draft. Add dates to your calendar yourself."
    }
   ],
   "time_saved": {
@@ -7447,18 +7457,23 @@
   },
   "difficulty": "Medium",
   "steps": [
-   "Find the denial letter or Explanation of Benefits (EOB) and your plan's appeal instructions.",
-   "Remove personal details, then paste the letter and your situation into the prompt below.",
-   "Ask your doctor's office for a letter supporting the treatment and any records the AI's checklist mentions.",
-   "Read the draft line by line. Fix anything that isn't true, then send it the way your plan asks (portal, mail or fax) and keep copies.",
-   "Put the decision deadline on your calendar. If the internal appeal fails, ask for an external review."
+   "Reads the denial letter or Explanation of Benefits (EOB) and your plan's appeal instructions from a Google Drive folder, or from photos you upload.",
+   "Quotes the exact reason they said no and lists every date in the letter.",
+   "Asks you first, then adds the appeal deadline, and an event one week before it, to your Google Calendar.",
+   "Writes a checklist for your doctor's office and a one-page appeal letter as a Google Doc in the same folder, with [BLANKS] for you to fill in.",
+   "Starts a call-log doc in the folder. You send the appeal yourself the way your plan asks and keep copies there."
   ],
   "watch_out": [
    "AI can invent studies, policy quotes or facts. Never send anything you haven't checked against your own papers.",
    "Remove Social Security numbers, account numbers, member IDs and birth dates before you paste or upload anything. In ChatGPT you can use Temporary Chat or turn off “Improve the model for everyone” under Settings › Data controls.",
-   "This is help with paperwork, not medical or legal advice. Your state's Consumer Assistance Program can help for free."
+   "This is help with paperwork, not medical or legal advice. Your state's Consumer Assistance Program can help for free.",
+   "Anthropic says it doesn't train on your Gmail, Drive or Calendar connector data. Text you copy from them into a chat follows your normal chat setting."
   ],
   "faq": [
+   {
+    "q": "Which AI tools can do this?",
+    "a": "Claude with its Google Drive, Google Docs and Google Calendar connectors does every step: it reads the letter from Drive, writes the appeal as a Google Doc and adds the deadlines after you OK them. ChatGPT, Gemini and Grok can explain the letter and draft the appeal from an upload."
+   },
    {
     "q": "How long do I have to appeal?",
     "a": "Under the federal rules described on HealthCare.gov, you must file an internal appeal within 180 days (6 months) of getting the denial notice. Your letter should list your exact deadline."
@@ -7474,6 +7489,10 @@
    {
     "q": "Does this work for Medicare, Medicaid or my employer plan?",
     "a": "Those plans have their own appeal steps. The steps in this guide still help, but follow the instructions and deadlines printed in your own denial letter."
+   },
+   {
+    "q": "Can the AI send the appeal for me?",
+    "a": "Not in this setup. Plans usually want appeals through their portal, by mail or by fax. Send it yourself exactly the way your plan says, and keep a copy in the same Drive folder."
    }
   ],
   "sources": [
@@ -7491,6 +7510,11 @@
     "label": "KFF: Claims Denials and Appeals in ACA Marketplace Plans in 2024 (Mar 2026)",
     "url": "https://www.kff.org/patient-consumer-protections/claims-denials-and-appeals-in-aca-marketplace-plans-in-2024/",
     "kind": "article"
+   },
+   {
+    "label": "Claude Help Center: Use Google Workspace connectors (Gmail search, read and send with approval, attachment names only; Calendar create events; Drive reads PDFs and images; create Google Docs; not used for training)",
+    "url": "https://support.claude.com/en/articles/10166901-use-google-workspace-connectors",
+    "kind": "official"
    },
    {
     "label": "Reddit r/AgingParents: discharge appeal written with ChatGPT help (Feb 2026)",
@@ -7537,7 +7561,9 @@
    "prior authorization",
    "EOB",
    "appeal letter",
-   "external review"
+   "external review",
+   "google drive",
+   "calendar"
   ],
   "guide": {
    "intro": "Getting a “denied” letter from your health insurer feels final. It usually isn't. You have a legal right to appeal, and an AI chatbot is very good at the hardest part: turning a confusing letter into a clear, organized reply. You still make the decisions and check every word.",
@@ -7553,20 +7579,20 @@
      "li": [
       "The denial letter or Explanation of Benefits (EOB).",
       "Your plan's appeal instructions (often on the back of the letter or in your online account).",
-      "Your member ID and claim number (keep these out of the chatbot; add them to the final letter yourself).",
+      "Your member ID and claim number. If you'd rather the AI not see them, cover them in a photo and add them to the final letter yourself.",
       "A rough timeline: when you saw the doctor, what was ordered, what you've already tried."
      ]
     },
     {
-     "h": "Step 1: Have the AI decode the letter",
+     "h": "Step 1: Have the AI read the letter",
      "p": [
-      "Paste the letter with personal details removed and ask: “Explain why this was denied in plain English, and quote the exact reason.” Denials often come down to one of a few reasons: the plan says it isn't medically necessary, it needed prior approval, the provider was out of network, or it's treated as experimental. HealthCare.gov lists these as reasons you can appeal."
+      "Point Claude to the letter in your Drive folder (or upload a photo with personal details covered) and ask: “Explain why this was denied in plain English, and quote the exact reason.” Denials often come down to one of a few reasons: the plan says it isn't medically necessary, it needed prior approval, the provider was out of network, or it's treated as experimental. HealthCare.gov lists these as reasons you can appeal."
      ]
     },
     {
      "h": "Step 2: Get your deadlines straight",
      "p": [
-      "Ask the AI to pull every date out of the letter. Then check them yourself. Under the federal rules HealthCare.gov describes, you have 180 days to file an internal appeal. The insurer then has 30 days to decide if you haven't had the care yet, or 60 days if you have. If your health is at serious risk, you can ask for an expedited (fast) appeal and an external review at the same time."
+      "Ask the AI to pull every date out of the letter and, after you OK it, put the appeal deadline on your Google Calendar. Then check the dates yourself. Under the federal rules HealthCare.gov describes, you have 180 days to file an internal appeal. The insurer then has 30 days to decide if you haven't had the care yet, or 60 days if you have. If your health is at serious risk, you can ask for an expedited (fast) appeal and an external review at the same time."
      ]
     },
     {
@@ -7584,7 +7610,7 @@
     {
      "h": "Step 5: Send it and keep records",
      "p": [
-      "Send the appeal exactly the way your plan says (portal, mail or fax). HealthCare.gov recommends keeping copies of everything and notes from every phone call: the date, time, the person's name and what they said. You can ask the AI to make you a simple call-log template."
+      "Send the appeal exactly the way your plan says (portal, mail or fax). HealthCare.gov recommends keeping copies of everything and notes from every phone call: the date, time, the person's name and what they said. Ask Claude to start a call-log Google Doc in the same folder, and add a line after every call."
      ]
     },
     {
@@ -7601,19 +7627,24 @@
     }
    ]
   },
-  "last_checked": "2026-10-19",
+  "last_checked": "2026-11-03",
   "date_added": "2026-10-19",
   "source_date": null,
-  "summary": "Your health insurance said no to a treatment, test or medicine, and the letter is full of codes and jargon.",
+  "summary": "Your health insurance said no to a treatment, test or medicine, and the letter is full of codes and jargon. Your AI reads the denial and your plan papers from Google Drive, puts the deadlines on your calendar and drafts the appeal for you to check.",
   "what_the_bot_does": [
-   "Find the denial letter or Explanation of Benefits (EOB) and your plan's appeal instructions.",
-   "Remove personal details, then paste the letter and your situation into the prompt below.",
-   "Ask your doctor's office for a letter supporting the treatment and any records the AI's checklist mentions.",
-   "Read the draft line by line. Fix anything that isn't true, then send it the way your plan asks (portal, mail or fax) and keep copies.",
-   "Put the decision deadline on your calendar. If the internal appeal fails, ask for an external review."
+   "Reads the denial letter or Explanation of Benefits (EOB) and your plan's appeal instructions from a Google Drive folder, or from photos you upload.",
+   "Quotes the exact reason they said no and lists every date in the letter.",
+   "Asks you first, then adds the appeal deadline, and an event one week before it, to your Google Calendar.",
+   "Writes a checklist for your doctor's office and a one-page appeal letter as a Google Doc in the same folder, with [BLANKS] for you to fill in.",
+   "Starts a call-log doc in the folder. You send the appeal yourself the way your plan asks and keep copies there."
   ],
-  "what_you_end_up_with": "A clear, polite appeal letter that answers the insurer's exact reason for saying no, a checklist of documents to attach, and your deadlines on a calendar.",
-  "setup": [],
+  "what_you_end_up_with": "A clear, polite appeal letter in a Google Doc that answers the insurer's exact reason for saying no, a checklist of documents to attach, a call log, and your deadlines on your calendar.",
+  "setup": [
+   "Make one Google Drive folder for the appeal. Scan or save the denial letter, the EOB and your plan's appeal instructions into it.",
+   "In Claude, click + under the chat box, hover over Connectors and turn on Google Drive, Google Docs and Google Calendar. Sign in with Google when it asks.",
+   "Claude reads the whole file, numbers included. If you'd rather it not see your member ID, upload a photo with it covered instead.",
+   "Keep the default setting where Claude asks for your OK before each action."
+  ],
   "popularity": null,
   "origin": "migrated-2026-10-19"
  },
@@ -7621,45 +7652,59 @@
   "slug": "understand-a-confusing-letter",
   "category": "inbox",
   "flagship": true,
-  "title": "Understand a confusing letter or notice, and what to do next",
-  "problem": "A letter from a government office, insurer, bank or landlord landed in your mailbox and you can't tell if it's important, a bill, a scam, or nothing.",
-  "outcome": "A plain-English summary, the action you need to take (if any), the deadline, a scam check, and a ready-to-send reply if one is needed.",
-  "prompt": "I got this letter and I don't fully understand it. Personal details are removed.\n\n[PASTE THE LETTER TEXT, OR UPLOAD A PHOTO WITH PERSONAL DETAILS COVERED]\n\nPlease answer in plain English, at about an 8th-grade reading level:\n1. Who is this from and what is it about, in 2 sentences?\n2. Do I need to do anything? If yes, what exactly, and by what date?\n3. What happens if I do nothing?\n4. Are there signs this could be a scam (pressure, threats, odd payment methods, strange links)? Tell me how to check it using the organization's official website, not the contact details in the letter.\n5. If a reply is needed, write a short, polite reply I can send, with [BLANKS] for anything you don't know.\nIf anything is unclear or you are guessing, say so.",
+  "title": "Understand a confusing letter or notice, and let AI handle the next step",
+  "seo_title": "Understand a confusing letter with AI, then act on it",
+  "problem": "A letter from a government office, insurer, bank or landlord landed in your mailbox or inbox and you can't tell if it matters. Your AI explains it, checks it for scam signs, puts the deadline on your calendar and drafts the reply, asking you before each step.",
+  "outcome": "A plain-English summary, a scam check, the deadline on your calendar, and a reply ready to send once you've checked it.",
+  "prompt": "I got a letter and I don't fully understand it.\n[UPLOAD A PHOTO WITH PERSONAL NUMBERS COVERED, OR: It's the PDF called [FILE NAME] in my Google Drive / the email from [SENDER] in my Gmail.]\n\nPlease answer in plain English, at about an 8th-grade reading level:\n1. Who is this from and what is it about, in 2 sentences?\n2. Do I need to do anything? If yes, what exactly, and by what date?\n3. What happens if I do nothing?\n4. Are there signs this could be a scam (pressure, threats, odd payment methods, strange links)? Tell me how to check it using the organization's official website, not the contact details in the letter.\n5. If there's a deadline, ask me first, then add it to my Google Calendar on that date with a one-line note of what I need to do, plus an event one week before.\n6. If a reply is needed, write a short, polite reply with [BLANKS] for anything you don't know. Don't send anything until I say yes.\nIf anything is unclear or you are guessing, say so.",
   "tools": [
    {
-    "id": "chatgpt"
+    "id": "claude",
+    "note": "Free plan works. Turn on its Gmail, Google Calendar and Google Drive connectors. By default it asks for your OK before each action it takes for you, like adding an event or sending an email. It reads PDFs and photos in Google Drive, but sees only the names of Gmail attachments, not what's inside."
    },
    {
-    "id": "claude"
+    "id": "chatgpt",
+    "note": "Upload the letter for the explanation. On Plus, Pro, Business and Enterprise (web), it can send an email reply from a connected Gmail or Outlook after an Allow/Deny card."
    },
    {
-    "id": "gemini"
+    "id": "gemini",
+    "note": "Paste or upload the letter for the explanation and draft. Add dates to your calendar and send replies yourself."
    },
    {
-    "id": "grok"
+    "id": "grok",
+    "note": "Paste or upload the letter for the explanation and draft. Add dates to your calendar and send replies yourself."
    }
   ],
   "difficulty": "Easy",
   "steps": [
-   "Cover or remove personal numbers (Social Security, account, case numbers) before taking a photo or pasting text.",
-   "Paste the letter into the prompt and read the summary.",
-   "Look up the sender's official website or phone number yourself, and confirm the letter is real before you pay or share anything.",
-   "Put any deadline on your calendar right away.",
-   "If a reply is needed, edit the AI's draft so every detail is true, then send it the way the letter asks."
+   "Reads the letter: a photo you upload, a PDF in your Google Drive, or the email it came in (with Claude's Gmail and Drive connectors turned on).",
+   "Explains in plain English who sent it, what it wants, the deadline and what happens if you do nothing.",
+   "Points out scam warning signs and tells you to check with the organization's official website, not the contact details in the letter.",
+   "Asks you first, then adds the deadline to your Google Calendar with a one-line note of what to do.",
+   "Drafts a short reply. If the reply goes by email, it sends it from your Gmail only after you approve it."
   ],
   "watch_out": [
    "Scammers send official-looking letters too. The IRS warns that impersonators demand payment “now or else”, threaten arrest, and use odd links.",
    "Remove Social Security numbers, account numbers, member IDs and birth dates before you paste or upload anything. In ChatGPT you can use Temporary Chat or turn off “Improve the model for everyone” under Settings › Data controls.",
-   "For anything with legal consequences (court papers, eviction, immigration, debt lawsuits), use the AI to understand it, then talk to a legal aid office or a lawyer."
+   "For anything with legal consequences (court papers, eviction, immigration, debt lawsuits), use the AI to understand it, then talk to a legal aid office or a lawyer.",
+   "Anthropic says it doesn't train on your Gmail, Drive or Calendar connector data. Text you copy from them into a chat follows your normal chat setting, so check that if you've allowed training."
   ],
   "faq": [
+   {
+    "q": "Which AI tools can do this?",
+    "a": "Claude with its Gmail, Google Calendar and Google Drive connectors does every step, including the calendar event and an email reply after you approve it. ChatGPT, Gemini and Grok can explain the letter and draft the reply; ChatGPT on paid plans can also send it from a connected Gmail or Outlook."
+   },
    {
     "q": "Can I just upload a photo of the letter?",
     "a": "Yes, most chat AIs read photos. Cover your account numbers, ID numbers and signature first."
    },
    {
+    "q": "Can the AI read the letter straight from my email?",
+    "a": "Claude can search and read your Gmail once its Gmail connector is on, but it sees only the names of attachments, not what's inside them. Save a PDF letter to Google Drive and point Claude to it, or upload a photo."
+   },
+   {
     "q": "Which AI is best for this?",
-    "a": "Any of the big free chat apps (ChatGPT, Claude, Gemini, Grok) can do this well. Use the one you already have."
+    "a": "Any big chat app (ChatGPT, Claude, Gemini, Grok) can explain a letter well. To have it read the letter from your Drive, put the deadline on your calendar and send an email reply after you OK it, use Claude with its Google connectors turned on. The free plan works."
    },
    {
     "q": "How do I know the AI got it right?",
@@ -7686,6 +7731,16 @@
     "label": "Google search suggestions for “use ai to write a letter” (checked 2026-10-19)",
     "url": "https://www.google.com/search?q=use+ai+to+write+a+letter",
     "kind": "article"
+   },
+   {
+    "label": "Claude Help Center: Use Google Workspace connectors (Gmail search, read and send with approval, attachment names only; Calendar create events; Drive reads PDFs and images; create Google Docs; not used for training)",
+    "url": "https://support.claude.com/en/articles/10166901-use-google-workspace-connectors",
+    "kind": "official"
+   },
+   {
+    "label": "OpenAI Help Center: ChatGPT release notes (send email from Gmail or Outlook in a chat; ChatGPT Work on signed-in websites, e.g. utilities for a new apartment, asks before reservations or payments)",
+    "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+    "kind": "official"
    }
   ],
   "real_examples": [],
@@ -7697,7 +7752,9 @@
    "IRS",
    "scam check",
    "explain",
-   "reply"
+   "reply",
+   "gmail",
+   "google calendar"
   ],
   "guide": {
    "intro": "Most of us have a pile of letters we've been meaning to deal with. AI chatbots are excellent translators of official-speak. Quickly, you'll know whether a letter matters, what it wants, and how to reply, without guessing.",
@@ -7726,13 +7783,13 @@
     {
      "h": "Step 4: Make the deadline impossible to miss",
      "p": [
-      "Ask: “Turn the action and deadline into a calendar reminder with a one-line note.” Then add it to your phone's calendar. Many problems with letters come from missing a date, not from the letter itself."
+      "If Claude's Google Calendar connector is on, ask: “Add this deadline to my calendar with a one-line note, and add an event one week before.” By default Claude asks for your OK before it creates each event. With other chat apps, add it to your phone's calendar yourself. Many problems with letters come from missing a date, not from the letter itself."
      ]
     },
     {
      "h": "Step 5: Reply",
      "p": [
-      "If the letter asks for a response, ask the AI for a short, polite reply that includes your reference number (add it yourself after), what you're sending, and a request for written confirmation. Read it and fix anything that isn't exactly true before you send."
+      "If the letter asks for a response, ask the AI for a short, polite reply that includes your reference number (add it yourself after), what you're sending, and a request for written confirmation. Read it and fix anything that isn't exactly true. If the reply goes by email, Claude (with Gmail connected) can send it from your Gmail once you approve it. If it goes by mail or a web portal, send it yourself."
      ]
     },
     {
@@ -7743,21 +7800,32 @@
     }
    ]
   },
-  "last_checked": "2026-10-19",
+  "last_checked": "2026-11-03",
   "date_added": "2026-10-19",
   "source_date": null,
-  "summary": "A letter from a government office, insurer, bank or landlord landed in your mailbox and you can't tell if it's important, a bill, a scam, or nothing.",
+  "summary": "A letter from a government office, insurer, bank or landlord landed in your mailbox or inbox and you can't tell if it matters. Your AI explains it, checks it for scam signs, puts the deadline on your calendar and drafts the reply, asking you before each step.",
   "what_the_bot_does": [
-   "Cover or remove personal numbers (Social Security, account, case numbers) before taking a photo or pasting text.",
-   "Paste the letter into the prompt and read the summary.",
-   "Look up the sender's official website or phone number yourself, and confirm the letter is real before you pay or share anything.",
-   "Put any deadline on your calendar right away.",
-   "If a reply is needed, edit the AI's draft so every detail is true, then send it the way the letter asks."
+   "Reads the letter: a photo you upload, a PDF in your Google Drive, or the email it came in (with Claude's Gmail and Drive connectors turned on).",
+   "Explains in plain English who sent it, what it wants, the deadline and what happens if you do nothing.",
+   "Points out scam warning signs and tells you to check with the organization's official website, not the contact details in the letter.",
+   "Asks you first, then adds the deadline to your Google Calendar with a one-line note of what to do.",
+   "Drafts a short reply. If the reply goes by email, it sends it from your Gmail only after you approve it."
   ],
-  "what_you_end_up_with": "A plain-English summary, the action you need to take (if any), the deadline, a scam check, and a ready-to-send reply if one is needed.",
-  "setup": [],
+  "what_you_end_up_with": "A plain-English summary, a scam check, the deadline on your calendar, and a reply ready to send once you've checked it.",
+  "setup": [
+   "In Claude, click + under the chat box, hover over Connectors and turn on Gmail, Google Calendar and Google Drive. Sign in with Google when it asks.",
+   "If the letter came as an email attachment, save the PDF to Google Drive first. Claude's Gmail connector can see attachment names but not what's in them.",
+   "Keep the default setting where Claude asks for your OK before each calendar event or email.",
+   "For a paper letter, take a photo with Social Security, account and case numbers covered, and upload it."
+  ],
   "popularity": null,
-  "origin": "migrated-2026-10-19"
+  "origin": "migrated-2026-10-19",
+  "see_also": [
+   {
+    "slug": "sort-scanned-paper-mail-with-alerts",
+    "why": "Get a lot of paper mail? Have a bot sort every scan and flag what needs you:"
+   }
+  ]
  },
  {
   "slug": "book-an-appointment-with-an-ai-agent",
@@ -7936,42 +8004,70 @@
   "slug": "write-a-complaint-that-gets-fixed",
   "category": "inbox",
   "title": "Write a complaint that actually gets a problem fixed",
-  "problem": "A company messed up (late delivery, broken product, wrong charge, bad repair) and customer service keeps going in circles.",
-  "outcome": "A short, firm, factual complaint with a clear ask and a deadline, plus where to escalate if they ignore it.",
-  "prompt": "Help me write a complaint to [COMPANY].\n\nWhat happened, with dates: [TIMELINE]\nWhat I already tried: [CALLS, CHATS, TICKET NUMBERS]\nWhat I want: [REFUND / REPLACEMENT / REPAIR / CREDIT]\n\nWrite a calm, factual complaint under 200 words with a clear request and a reasonable deadline. Then tell me: the best channel to send it (email, web form, executive contact), and where I can escalate if they don't respond (for example a regulator or my card issuer), with official links I can check.",
+  "problem": "A company messed up (late delivery, broken product, wrong charge, bad repair) and customer service keeps going in circles. Your AI digs the order and support emails out of your inbox, builds the timeline, writes a firm complaint and sends it only after you OK it.",
+  "outcome": "A short, firm, factual complaint built from your own emails, sent once you approve it, plus the deadline on your calendar and where to escalate if they ignore it.",
+  "prompt": "Help me complain to [COMPANY] about [PROBLEM].\n\n1. Search my Gmail for emails from [COMPANY] since [DATE]: the order confirmation, receipts, shipping notices and support replies. List each one with its date and any order or ticket number.\n2. Build a short, dated timeline from those emails. Mark anything you're unsure of.\n3. What I want: [REFUND / REPLACEMENT / REPAIR / CREDIT]. Write a calm, factual complaint under 200 words with that request and a deadline of [DATE].\n4. Tell me the best channel to send it (email, web form, executive contact), and where I can escalate if they don't respond (for example a regulator or my card issuer), with official links I can check.\n5. If email is the right channel, show me the final email and send it from my Gmail only after I say yes.\n6. Ask me first, then add the deadline to my Google Calendar.",
   "tools": [
    {
-    "id": "chatgpt"
+    "id": "claude",
+    "note": "Free plan works. Turn on its Gmail, Google Calendar and Google Drive connectors. By default it asks for your OK before each action it takes for you, like adding an event or sending an email. It can search and read your Gmail and send from it once you approve."
    },
    {
-    "id": "claude"
+    "id": "chatgpt",
+    "note": "On Plus, Pro, Business and Enterprise (web), it can send the email from a connected Gmail or Outlook after an Allow/Deny card. On any plan, paste your timeline for the draft."
    },
    {
-    "id": "gemini"
+    "id": "gemini",
+    "note": "Paste your timeline for the draft, then send it yourself."
    },
    {
-    "id": "grok"
+    "id": "grok",
+    "note": "Paste your timeline for the draft, then send it yourself."
    }
   ],
   "difficulty": "Easy",
   "steps": [
-   "Write down the timeline: dates, order numbers, who you talked to.",
-   "Fill in the prompt and read the draft.",
-   "Remove anything emotional or untrue; keep it factual.",
-   "Send it through the channel the AI suggests and note the date.",
-   "If the deadline passes, escalate using the official route."
+   "Searches your Gmail for the order confirmation, receipts, shipping notices and every support email about the problem.",
+   "Builds a dated timeline with order and ticket numbers, and tells you which emails it used.",
+   "Writes a calm, factual complaint under 200 words with a clear ask and a deadline.",
+   "Shows you the email and sends it from your Gmail only after you approve it. If the company wants a web form, you paste it in yourself.",
+   "Asks you first, then adds the deadline to your calendar, and points you to official ways to escalate if it passes."
   ],
   "watch_out": [
+   "Read the final email before you approve it. Once it's sent, you can't take it back.",
    "Don't make threats you won't follow through on. Calm and specific works better.",
    "Check any regulator or escalation link the AI gives you; it may be out of date."
   ],
   "faq": [
    {
+    "q": "Which AI tools can do this?",
+    "a": "Claude with its Gmail and Google Calendar connectors can search your email, build the timeline and send the complaint after you approve it. ChatGPT on paid plans can send from a connected Gmail or Outlook after an Allow/Deny card. Gemini and Grok can write the draft from a timeline you paste."
+   },
+   {
     "q": "Can an AI agent contact customer service for me?",
     "a": "Some agents can fill in a web form or chat window for you. EY's 2026 study found 34% of people would prefer an AI that contacts customer service to fix issues. Read what it sends before it sends it."
+   },
+   {
+    "q": "Will it send anything without asking me?",
+    "a": "Not by default. Claude asks for your approval before each email it sends, and ChatGPT shows an Allow/Deny card first. On Claude Team and Enterprise plans, an owner can let some actions run without asking each time."
    }
   ],
   "sources": [
+   {
+    "label": "Claude Help Center: Use Google Workspace connectors (Gmail search, read and send with approval, attachment names only; Calendar create events; Drive reads PDFs and images; create Google Docs; not used for training)",
+    "url": "https://support.claude.com/en/articles/10166901-use-google-workspace-connectors",
+    "kind": "official"
+   },
+   {
+    "label": "OpenAI Help Center: ChatGPT release notes (send email from Gmail or Outlook in a chat; ChatGPT Work on signed-in websites, e.g. utilities for a new apartment, asks before reservations or payments)",
+    "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+    "kind": "official"
+   },
+   {
+    "label": "OpenAI Help Center: Managing app permissions in ChatGPT (Always ask before actions; sending an email may need extra review)",
+    "url": "https://help.openai.com/en/articles/20001495-managing-app-permissions-in-chatgpt",
+    "kind": "official"
+   },
    {
     "label": "EY AI Sentiment Study, wave 4 (2026)",
     "url": "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/insights/ai/documents/ey-gl-ai-sentiment-study-wave-04-2026.pdf",
@@ -7987,25 +8083,41 @@
    "complaint",
    "customer service",
    "broken",
-   "escalate"
+   "escalate",
+   "gmail",
+   "send email"
   ],
   "flagship": false,
   "real_examples": [],
-  "last_checked": "2026-10-21",
+  "last_checked": "2026-11-03",
   "date_added": "2026-10-19",
   "source_date": null,
-  "summary": "A company messed up (late delivery, broken product, wrong charge, bad repair) and customer service keeps going in circles.",
+  "summary": "A company messed up (late delivery, broken product, wrong charge, bad repair) and customer service keeps going in circles. Your AI digs the order and support emails out of your inbox, builds the timeline, writes a firm complaint and sends it only after you OK it.",
   "what_the_bot_does": [
-   "Write down the timeline: dates, order numbers, who you talked to.",
-   "Fill in the prompt and read the draft.",
-   "Remove anything emotional or untrue; keep it factual.",
-   "Send it through the channel the AI suggests and note the date.",
-   "If the deadline passes, escalate using the official route."
+   "Searches your Gmail for the order confirmation, receipts, shipping notices and every support email about the problem.",
+   "Builds a dated timeline with order and ticket numbers, and tells you which emails it used.",
+   "Writes a calm, factual complaint under 200 words with a clear ask and a deadline.",
+   "Shows you the email and sends it from your Gmail only after you approve it. If the company wants a web form, you paste it in yourself.",
+   "Asks you first, then adds the deadline to your calendar, and points you to official ways to escalate if it passes."
   ],
-  "what_you_end_up_with": "A short, firm, factual complaint with a clear ask and a deadline, plus where to escalate if they ignore it.",
-  "setup": [],
+  "what_you_end_up_with": "A short, firm, factual complaint built from your own emails, sent once you approve it, plus the deadline on your calendar and where to escalate if they ignore it.",
+  "setup": [
+   "In Claude, click + under the chat box, hover over Connectors and turn on Gmail and Google Calendar. Sign in with Google when it asks.",
+   "Keep the default setting where Claude asks for your OK before each email it sends.",
+   "Have the company's name and roughly when the problem started ready. Claude searches by sender and date."
+  ],
   "popularity": null,
-  "origin": "migrated-2026-10-19"
+  "origin": "migrated-2026-10-19",
+  "see_also": [
+   {
+    "slug": "let-ai-send-emails-for-you",
+    "why": "Want the full setup for letting AI send email?"
+   },
+   {
+    "slug": "make-a-customer-service-call",
+    "why": "Rather have a bot phone them?"
+   }
+  ]
  },
  {
   "slug": "fill-out-a-long-form",
@@ -8082,7 +8194,10 @@
   "what_you_end_up_with": "A question-by-question explanation, a list of documents to have ready, and draft answers for you to check and enter yourself.",
   "setup": [],
   "popularity": null,
-  "origin": "migrated-2026-10-19"
+  "origin": "migrated-2026-10-19",
+  "chat_prompt": {
+   "agentic_alt": "hand-a-clunky-web-form-to-an-agent"
+  }
  },
  {
   "slug": "review-a-lease-before-signing",
@@ -8159,45 +8274,58 @@
   "what_you_end_up_with": "A plain-English summary, a list of unusual or one-sided clauses, and polite questions to ask before you sign.",
   "setup": [],
   "popularity": null,
-  "origin": "migrated-2026-10-19"
+  "origin": "migrated-2026-10-19",
+  "chat_prompt": {
+   "agentic_alt": "understand-a-confusing-letter"
+  }
  },
  {
   "slug": "moving-checklist-and-change-of-address",
   "category": "inbox",
   "title": "Make a moving checklist and change your address everywhere",
-  "problem": "Moving means telling dozens of companies and offices your new address, and something always gets missed.",
-  "outcome": "A personal moving checklist by week, a list of everyone to notify, and the official USPS change of address done for the official fee.",
-  "prompt": "I'm moving from [CITY/STATE] to [CITY/STATE] on [DATE]. My household: [WHO, PETS, CAR?]\nHere are my recurring bills/accounts (no account numbers): [LIST OR PASTE A STATEMENT]\n\n1. Make a week-by-week moving checklist starting today.\n2. List every organization I should give my new address to, grouped (government, money, utilities, health, subscriptions, work/school).\n3. Tell me which utilities to stop or transfer and when.\n4. Write a short, reusable message I can send to update my address.",
+  "problem": "Moving means telling dozens of companies and offices your new address, and something always gets missed. Your AI finds who to tell from your inbox, then an agent works through the address-change pages with you, asking before anything final.",
+  "outcome": "A personal moving checklist by week, a list of everyone to notify built from your own inbox, address changes done with you approving each one, and the official USPS change of address done for the official fee.",
+  "prompt": "I'm moving from [CITY/STATE] to [CITY/STATE] on [DATE]. My household: [WHO, PETS, CAR?]\nMy new address: [NEW ADDRESS]\n\n1. Search my email from the last 12 months for bills, statements, receipts and subscriptions. List every company that likely has my address, grouped (government, money, utilities, health, subscriptions, work/school). Leave out account numbers.\n2. Make a week-by-week moving checklist starting today, including which utilities to stop or transfer and when. Ask me first, then add the stop and start dates to my Google Calendar.\n3. For each company I pick from the list: open its website, let me sign in myself, and fill in my new address. Stop and ask me before you save or submit anything.\n4. Don't do the USPS change of address. I'll do that myself on usps.com.\n5. Keep a list of what's done and what's still open.",
   "tools": [
    {
-    "id": "chatgpt"
+    "id": "claude",
+    "note": "Steps 1 and 2. Turn on the Gmail and Google Calendar connectors (free plan works). It asks before each calendar event by default."
    },
    {
-    "id": "claude"
+    "id": "chatgpt-work",
+    "note": "Step 3. Its cloud browser fills in forms on websites, pauses for you to sign in through a secure form, and asks before actions that are hard to undo. Signing in to websites is on Plus and Pro."
    },
    {
-    "id": "gemini"
-   },
-   {
-    "id": "grok"
+    "id": "chatgpt",
+    "note": "Any plan: paste a list of your bills (company names only) for the checklist and the list of who to tell."
    }
   ],
   "difficulty": "Easy",
   "steps": [
-   "Fill in the prompt with your move date and accounts.",
-   "Do the USPS change of address on the official USPS site only.",
-   "Work through the AI's list, ticking off each organization.",
-   "Set reminders for utility stop/start dates.",
-   "A month after the move, ask the AI which items are still open."
+   "Searches your email for bills, statements, receipts and subscriptions, and lists every company that likely has your address.",
+   "Makes a week-by-week moving checklist, then asks you before it puts utility stop and start dates on your Google Calendar.",
+   "In ChatGPT Work's cloud browser, opens each company's website, pauses while you sign in yourself, fills in your new address and asks you before it saves or submits.",
+   "Leaves the USPS change of address to you, on the official USPS site, for the official fee.",
+   "Keeps a done and not-done list, so you can see what's still open a month after the move."
   ],
   "watch_out": [
    "USPS warns that some third-party sites charge $40 or more to file a change of address. The official online fee is $1.25 for identity verification.",
-   "Never give an AI your account numbers; just the company names."
+   "Never type passwords, security codes or card numbers into the chat. ChatGPT Work has a secure sign-in form for websites.",
+   "Check each address before you approve it. A typo here sends your mail to the wrong place.",
+   "The cloud browser works only on websites ChatGPT supports. Do the rest yourself from the list."
   ],
   "faq": [
    {
+    "q": "Which AI tools can do this?",
+    "a": "Use Claude with Gmail and Google Calendar connected to find who to tell and set the dates, and ChatGPT Work's cloud browser (paid plans) to fill in the address forms with you approving. Any chat app, ChatGPT's free plan included, can make the checklist from a list you paste."
+   },
+   {
     "q": "When can I file the USPS change of address?",
     "a": "USPS says you can submit it up to 90 days before your move and up to 30 days after."
+   },
+   {
+    "q": "Can an AI agent change my address for me?",
+    "a": "On many websites, yes, with you approving. ChatGPT Work's cloud browser can fill in forms, pauses so you can sign in, and asks before things that are hard to undo. OpenAI's own examples include setting up utilities for a new apartment. Do the USPS change yourself on usps.com."
    }
   ],
   "sources": [
@@ -8215,6 +8343,21 @@
     "label": "X post: using an AI agent for moving-out admin",
     "url": "https://x.com/tomchris/status/2072663153532666045",
     "kind": "x"
+   },
+   {
+    "label": "OpenAI Help Center: Using cloud browser in ChatGPT (fills in forms, pauses for sign-in and confirmation, secure sign-in form, never paste passwords)",
+    "url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+    "kind": "official"
+   },
+   {
+    "label": "OpenAI Help Center: ChatGPT release notes (send email from Gmail or Outlook in a chat; ChatGPT Work on signed-in websites, e.g. utilities for a new apartment, asks before reservations or payments)",
+    "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+    "kind": "official"
+   },
+   {
+    "label": "Claude Help Center: Use Google Workspace connectors (Gmail search, read and send with approval, attachment names only; Calendar create events; Drive reads PDFs and images; create Google Docs; not used for training)",
+    "url": "https://support.claude.com/en/articles/10166901-use-google-workspace-connectors",
+    "kind": "official"
    }
   ],
   "real_examples": [
@@ -8230,22 +8373,30 @@
    "change of address",
    "USPS",
    "utilities",
-   "checklist"
+   "checklist",
+   "gmail",
+   "google calendar",
+   "chatgpt work"
   ],
   "flagship": false,
-  "last_checked": "2026-10-19",
+  "last_checked": "2026-11-03",
   "date_added": "2026-10-19",
   "source_date": "2026-07-02",
-  "summary": "Moving means telling dozens of companies and offices your new address, and something always gets missed.",
+  "summary": "Moving means telling dozens of companies and offices your new address, and something always gets missed. Your AI finds who to tell from your inbox, then an agent works through the address-change pages with you, asking before anything final.",
   "what_the_bot_does": [
-   "Fill in the prompt with your move date and accounts.",
-   "Do the USPS change of address on the official USPS site only.",
-   "Work through the AI's list, ticking off each organization.",
-   "Set reminders for utility stop/start dates.",
-   "A month after the move, ask the AI which items are still open."
+   "Searches your email for bills, statements, receipts and subscriptions, and lists every company that likely has your address.",
+   "Makes a week-by-week moving checklist, then asks you before it puts utility stop and start dates on your Google Calendar.",
+   "In ChatGPT Work's cloud browser, opens each company's website, pauses while you sign in yourself, fills in your new address and asks you before it saves or submits.",
+   "Leaves the USPS change of address to you, on the official USPS site, for the official fee.",
+   "Keeps a done and not-done list, so you can see what's still open a month after the move."
   ],
-  "what_you_end_up_with": "A personal moving checklist by week, a list of everyone to notify, and the official USPS change of address done for the official fee.",
-  "setup": [],
+  "what_you_end_up_with": "A personal moving checklist by week, a list of everyone to notify built from your own inbox, address changes done with you approving each one, and the official USPS change of address done for the official fee.",
+  "setup": [
+   "For steps 1 and 2, use Claude: click + under the chat box, hover over Connectors and turn on Gmail and Google Calendar.",
+   "For step 3, open ChatGPT, start a task in Work, and paste in the list of companies you picked plus your new address.",
+   "When a site needs a login, sign in through ChatGPT's secure sign-in form. Never type a password or card number into the chat.",
+   "Do the USPS change of address yourself at usps.com."
+  ],
   "popularity": {
    "platform": "x",
    "post_id": "2072663153532666045",
@@ -8457,48 +8608,66 @@
   "what_you_end_up_with": "A one-page summary of symptoms, medicines and questions to bring, plus a way to capture what the doctor said afterwards.",
   "setup": [],
   "popularity": null,
-  "origin": "migrated-2026-10-19"
+  "origin": "migrated-2026-10-19",
+  "chat_prompt": {
+   "agentic_alt": "prescription-ready-and-time-to-leave"
+  }
  },
  {
   "slug": "organize-a-parents-care-paperwork",
   "category": "health",
   "title": "Organize an aging parent's care and paperwork",
-  "problem": "You're helping a parent with doctors, insurance, medicines and bills, and the details live in a dozen places.",
-  "outcome": "One organized care binder: contacts, medicines, appointments, insurance details, and a running log of calls and decisions.",
-  "prompt": "I'm helping my [MOM/DAD], age [AGE], with their care. Here's what I know so far (no ID numbers):\n[DOCTORS, MEDICINES, INSURANCE TYPE, UPCOMING APPOINTMENTS, OPEN ISSUES]\n\n1. Organize this into a care binder with sections: contacts, medicines (dose, time, prescriber), appointments, insurance, open issues.\n2. List what's missing that I should collect.\n3. Make a call-log template (date, who, what was said, next step).\n4. Suggest questions to ask at the next appointment or care meeting.",
+  "problem": "You're helping a parent with doctors, insurance, medicines and bills, and the details live in a dozen places. Your AI reads the scans and PDFs in one Google Drive folder, builds a care binder, and adds appointments to your calendar after you OK them.",
+  "outcome": "One organized care binder in Google Docs (contacts, medicines, appointments, insurance and a running call log), plus upcoming appointments on your calendar.",
+  "prompt": "I'm helping my [MOM/DAD], age [AGE], with their care. Their papers are in my Google Drive folder [FOLDER NAME]: photos of pill bottles and insurance cards, visit summaries and letters.\n\n1. Read everything in that folder. Create a Google Doc called \"[NAME] care binder\" with sections: contacts, medicines (name, dose, time, prescriber), appointments, insurance, open issues. Note which file each fact came from.\n2. List what's missing that I should collect, and anything you couldn't read clearly.\n3. For each upcoming appointment you find, ask me first, then add it to my Google Calendar with the address and what to bring.\n4. Add a call-log table to the binder (date, who, what was said, next step).\n5. Suggest questions to ask at the next appointment or care meeting.\nDon't share, move or delete any files.",
   "tools": [
    {
-    "id": "chatgpt"
+    "id": "claude",
+    "note": "Free plan works. Turn on its Gmail, Google Calendar and Google Drive connectors. By default it asks for your OK before each action it takes for you, like adding an event or sending an email. It reads PDFs and images in Google Drive and can create and edit Google Docs."
    },
    {
-    "id": "claude"
+    "id": "chatgpt",
+    "note": "Paste what you know (no ID numbers) to get the binder outline. Add appointments to your calendar yourself."
    },
    {
-    "id": "gemini"
-   },
-   {
-    "id": "grok"
+    "id": "gemini",
+    "note": "Paste what you know (no ID numbers) to get the binder outline. Add appointments to your calendar yourself."
    }
   ],
   "difficulty": "Medium",
   "steps": [
-   "Collect what you have: pill bottles, insurance cards, recent letters.",
-   "Run the prompt without ID numbers.",
-   "Fill in the gaps it lists.",
-   "Keep the binder in a shared doc with siblings or caregivers.",
-   "Log every call; it helps a lot if you ever need to appeal a decision."
+   "Reads the photos, PDFs and documents you save to one Google Drive folder: pill bottle labels, insurance cards, visit summaries, letters.",
+   "Builds a care binder as a Google Doc: contacts, medicines (dose, time, prescriber), appointments, insurance and open issues, with the file each fact came from.",
+   "Lists what's missing and anything it couldn't read clearly, so you can check it against the labels.",
+   "Asks you first, then adds upcoming appointments to your Google Calendar with the address and what to bring.",
+   "Keeps a call log in the binder each time you tell it about a call. It helps a lot if you ever need to appeal a decision."
   ],
   "watch_out": [
    "Double-check medicine names and doses against the labels. Errors here matter.",
-   "Get your parent's permission and any required forms (like a HIPAA authorization) before talking to their providers."
+   "Get your parent's permission and any required forms (like a HIPAA authorization) before talking to their providers.",
+   "Claude reads the text in Google Docs but not pictures pasted inside them. Save photos as their own image files in the folder.",
+   "Anthropic says it doesn't train on your Drive or Calendar connector data. Text you copy from them into a chat follows your normal chat setting."
   ],
   "faq": [
    {
+    "q": "Which AI tools can do this?",
+    "a": "Claude with its Google Drive, Google Docs and Google Calendar connectors does every step. ChatGPT and Gemini can build the binder outline from what you paste, and you add appointments yourself."
+   },
+   {
     "q": "Can AI help if insurance wants to discharge them too early?",
     "a": "It can help you write an appeal. See our guide to appealing a health insurance denial, and ask the facility how to file a discharge appeal."
+   },
+   {
+    "q": "Is it OK to put a parent's medical papers into an AI?",
+    "a": "Ask your parent first. Claude reads Drive files only when you ask, and Anthropic says it doesn't train on Gmail, Drive or Calendar connector data. If you'd rather not share ID numbers, cover them in the photos."
    }
   ],
   "sources": [
+   {
+    "label": "Claude Help Center: Use Google Workspace connectors (Gmail search, read and send with approval, attachment names only; Calendar create events; Drive reads PDFs and images; create Google Docs; not used for training)",
+    "url": "https://support.claude.com/en/articles/10166901-use-google-workspace-connectors",
+    "kind": "official"
+   },
    {
     "label": "Reddit r/AgingParents: ChatGPT helped with an insurance discharge appeal",
     "url": "https://www.reddit.com/r/AgingParents/comments/1r1eimf/",
@@ -8527,24 +8696,37 @@
    "aging parent",
    "eldercare",
    "medicines",
-   "binder"
+   "binder",
+   "google drive",
+   "calendar"
   ],
   "flagship": false,
-  "last_checked": "2026-10-19",
+  "last_checked": "2026-11-03",
   "date_added": "2026-10-19",
   "source_date": null,
-  "summary": "You're helping a parent with doctors, insurance, medicines and bills, and the details live in a dozen places.",
+  "summary": "You're helping a parent with doctors, insurance, medicines and bills, and the details live in a dozen places. Your AI reads the scans and PDFs in one Google Drive folder, builds a care binder, and adds appointments to your calendar after you OK them.",
   "what_the_bot_does": [
-   "Collect what you have: pill bottles, insurance cards, recent letters.",
-   "Run the prompt without ID numbers.",
-   "Fill in the gaps it lists.",
-   "Keep the binder in a shared doc with siblings or caregivers.",
-   "Log every call; it helps a lot if you ever need to appeal a decision."
+   "Reads the photos, PDFs and documents you save to one Google Drive folder: pill bottle labels, insurance cards, visit summaries, letters.",
+   "Builds a care binder as a Google Doc: contacts, medicines (dose, time, prescriber), appointments, insurance and open issues, with the file each fact came from.",
+   "Lists what's missing and anything it couldn't read clearly, so you can check it against the labels.",
+   "Asks you first, then adds upcoming appointments to your Google Calendar with the address and what to bring.",
+   "Keeps a call log in the binder each time you tell it about a call. It helps a lot if you ever need to appeal a decision."
   ],
-  "what_you_end_up_with": "One organized care binder: contacts, medicines, appointments, insurance details, and a running log of calls and decisions.",
-  "setup": [],
+  "what_you_end_up_with": "One organized care binder in Google Docs (contacts, medicines, appointments, insurance and a running call log), plus upcoming appointments on your calendar.",
+  "setup": [
+   "Make one Google Drive folder. Save photos of pill bottles and insurance cards, plus visit summaries and letters, into it as separate files.",
+   "In Claude, click + under the chat box, hover over Connectors and turn on Google Drive, Google Docs and Google Calendar. Sign in with Google when it asks.",
+   "Keep the default setting where Claude asks for your OK before each action.",
+   "Share the finished binder with siblings or caregivers yourself, from Google Drive."
+  ],
   "popularity": null,
-  "origin": "migrated-2026-10-19"
+  "origin": "migrated-2026-10-19",
+  "see_also": [
+   {
+    "slug": "medication-reminders-for-a-parent",
+    "why": "Next step: reminders for their medicines and appointments:"
+   }
+  ]
  },
  {
   "slug": "weekly-meal-plan-and-grocery-list",
@@ -8727,7 +8909,10 @@
   "what_you_end_up_with": "A patient, step-by-step tutor that asks your child questions and explains the idea, without doing the work for them.",
   "setup": [],
   "popularity": null,
-  "origin": "migrated-2026-10-19"
+  "origin": "migrated-2026-10-19",
+  "chat_prompt": {
+   "agentic_alt": "school-email-digest"
+  }
  },
  {
   "slug": "clean-up-your-email-inbox",
@@ -8938,7 +9123,10 @@
   "what_you_end_up_with": "A resume version that matches the job's key words using only your real experience, plus a short cover letter.",
   "setup": [],
   "popularity": null,
-  "origin": "migrated-2026-10-19"
+  "origin": "migrated-2026-10-19",
+  "chat_prompt": {
+   "agentic_alt": "job-match-digest"
+  }
  },
  {
   "slug": "sell-your-stuff-online",
@@ -9029,7 +9217,10 @@
   "what_you_end_up_with": "A clear title, honest description and price range for each item, plus ready replies for common buyer messages.",
   "setup": [],
   "popularity": null,
-  "origin": "migrated-2026-10-19"
+  "origin": "migrated-2026-10-19",
+  "chat_prompt": {
+   "agentic_alt": "sell-on-marketplace-with-rules"
+  }
  },
  {
   "slug": "test-a-side-hustle-idea",
@@ -9117,7 +9308,10 @@
   "what_you_end_up_with": "A one-page reality check: who would pay, what it really costs, a cheap 2-week test, and a list of red flags to avoid.",
   "setup": [],
   "popularity": null,
-  "origin": "migrated-2026-10-19"
+  "origin": "migrated-2026-10-19",
+  "chat_prompt": {
+   "agentic_alt": "get-a-researched-report-with-sources"
+  }
  },
  {
   "slug": "reply-to-customer-reviews",

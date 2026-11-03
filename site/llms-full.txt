@@ -2875,94 +2875,101 @@ URL: https://botsdothat.com/use-cases/appeal-a-health-insurance-denial/
 Category: Health & care | Difficulty: Medium | Added: 2026-10-19
 Popularity: not measured
 
-Your health insurance said no to a treatment, test or medicine, and the letter is full of codes and jargon.
+Your health insurance said no to a treatment, test or medicine, and the letter is full of codes and jargon. Your AI reads the denial and your plan papers from Google Drive, puts the deadlines on your calendar and drafts the appeal for you to check.
 
 What the bot does:
-1. Find the denial letter or Explanation of Benefits (EOB) and your plan's appeal instructions.
-2. Remove personal details, then paste the letter and your situation into the prompt below.
-3. Ask your doctor's office for a letter supporting the treatment and any records the AI's checklist mentions.
-4. Read the draft line by line. Fix anything that isn't true, then send it the way your plan asks (portal, mail or fax) and keep copies.
-5. Put the decision deadline on your calendar. If the internal appeal fails, ask for an external review.
+1. Reads the denial letter or Explanation of Benefits (EOB) and your plan's appeal instructions from a Google Drive folder, or from photos you upload.
+2. Quotes the exact reason they said no and lists every date in the letter.
+3. Asks you first, then adds the appeal deadline, and an event one week before it, to your Google Calendar.
+4. Writes a checklist for your doctor's office and a one-page appeal letter as a Google Doc in the same folder, with [BLANKS] for you to fill in.
+5. Starts a call-log doc in the folder. You send the appeal yourself the way your plan asks and keep copies there.
 
-What you end up with: A clear, polite appeal letter that answers the insurer's exact reason for saying no, a checklist of documents to attach, and your deadlines on a calendar.
+What you end up with: A clear, polite appeal letter in a Google Doc that answers the insurer's exact reason for saying no, a checklist of documents to attach, a call log, and your deadlines on your calendar.
 
-Tools: ChatGPT, Claude, Gemini, Grok
+Tools: Claude, ChatGPT, Gemini, Grok
 
 Prompt:
 You are helping me appeal a health insurance denial. I am not a lawyer or doctor, so explain things simply.
 
-Here is the denial letter (personal details removed):
-[PASTE DENIAL LETTER OR EXPLANATION OF BENEFITS]
-
+The denial letter or Explanation of Benefits and my plan's appeal instructions are in my Google Drive folder [FOLDER NAME]. (Or: I've uploaded photos with my member ID covered.)
 My situation in plain words:
 [WHAT TREATMENT, WHY MY DOCTOR ORDERED IT, WHAT I'VE ALREADY TRIED]
 
 Please:
 1. Tell me in 3 bullet points why they said no, quoting the exact reason from the letter.
-2. List my deadline to appeal and any other dates mentioned in the letter. If no date is in the letter, say so.
+2. List my deadline to appeal and any other dates mentioned in the letter. If no date is in the letter, say so. Ask me first, then add the appeal deadline to my Google Calendar, plus an event one week before.
 3. Make a checklist of documents I should gather (for example a letter from my doctor, medical records, the plan's coverage policy).
-4. Write a one-page appeal letter that answers each stated reason, asks for a written decision, and leaves [BLANKS] for anything I need to fill in. Do not invent medical facts, studies or policy wording. If you are unsure, say so.
-5. List 3 questions I should ask my doctor's office to make the appeal stronger.
+4. Write a one-page appeal letter as a Google Doc in the same folder. Answer each stated reason, ask for a written decision, and leave [BLANKS] for anything I need to fill in. Do not invent medical facts, studies or policy wording. If you are unsure, say so.
+5. Create a call-log Google Doc in the folder with columns for date, who I spoke to, what they said and next step.
+6. List 3 questions I should ask my doctor's office to make the appeal stronger.
+Don't share, send or submit anything.
 
 Watch out:
 - AI can invent studies, policy quotes or facts. Never send anything you haven't checked against your own papers.
 - Remove Social Security numbers, account numbers, member IDs and birth dates before you paste or upload anything. In ChatGPT you can use Temporary Chat or turn off “Improve the model for everyone” under Settings › Data controls.
 - This is help with paperwork, not medical or legal advice. Your state's Consumer Assistance Program can help for free.
+- Anthropic says it doesn't train on your Gmail, Drive or Calendar connector data. Text you copy from them into a chat follows your normal chat setting.
 
 Questions:
+- Which AI tools can do this? Claude with its Google Drive, Google Docs and Google Calendar connectors does every step: it reads the letter from Drive, writes the appeal as a Google Doc and adds the deadlines after you OK them. ChatGPT, Gemini and Grok can explain the letter and draft the appeal from an upload.
 - How long do I have to appeal? Under the federal rules described on HealthCare.gov, you must file an internal appeal within 180 days (6 months) of getting the denial notice. Your letter should list your exact deadline.
 - How fast does the insurer have to answer? HealthCare.gov says an internal appeal must be decided within 30 days for a service you haven't had yet and within 60 days for one you already received. Urgent cases can move much faster.
 - What if they still say no? You can usually ask for an external review by an independent reviewer. HealthCare.gov says to request it in writing within 4 months of the final denial, and the insurer must accept the reviewer's decision.
 - Does this work for Medicare, Medicaid or my employer plan? Those plans have their own appeal steps. The steps in this guide still help, but follow the instructions and deadlines printed in your own denial letter.
+- Can the AI send the appeal for me? Not in this setup. Plans usually want appeals through their portal, by mail or by fax. Send it yourself exactly the way your plan says, and keep a copy in the same Drive folder.
 
 Sources:
 - HealthCare.gov: Internal appeals: https://www.healthcare.gov/appeal-insurance-company-decision/internal-appeals/
 - HealthCare.gov: External review: https://www.healthcare.gov/appeal-insurance-company-decision/external-review/
 - KFF: Claims Denials and Appeals in ACA Marketplace Plans in 2024 (Mar 2026): https://www.kff.org/patient-consumer-protections/claims-denials-and-appeals-in-aca-marketplace-plans-in-2024/
+- Claude Help Center: Use Google Workspace connectors (Gmail search, read and send with approval, attachment names only; Calendar create events; Drive reads PDFs and images; create Google Docs; not used for training): https://support.claude.com/en/articles/10166901-use-google-workspace-connectors
 - Reddit r/AgingParents: discharge appeal written with ChatGPT help (Feb 2026): https://www.reddit.com/r/AgingParents/comments/1r1eimf/
 - Hacker News comment: parent used ChatGPT to work through an external appeal: https://news.ycombinator.com/item?id=45734582
 - Google search suggestions for “using ai to appeal insurance denial” (checked 2026-10-19): https://www.google.com/search?q=using+ai+to+appeal+insurance+denial
 - YouTube: “Health Insurance Denial AI Agent” by Buck Parker, M.D.: https://www.youtube.com/watch?v=6tq6XAFDxgI
 
-## Understand a confusing letter or notice, and what to do next
+## Understand a confusing letter or notice, and let AI handle the next step
 URL: https://botsdothat.com/use-cases/understand-a-confusing-letter/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
-A letter from a government office, insurer, bank or landlord landed in your mailbox and you can't tell if it's important, a bill, a scam, or nothing.
+A letter from a government office, insurer, bank or landlord landed in your mailbox or inbox and you can't tell if it matters. Your AI explains it, checks it for scam signs, puts the deadline on your calendar and drafts the reply, asking you before each step.
 
 What the bot does:
-1. Cover or remove personal numbers (Social Security, account, case numbers) before taking a photo or pasting text.
-2. Paste the letter into the prompt and read the summary.
-3. Look up the sender's official website or phone number yourself, and confirm the letter is real before you pay or share anything.
-4. Put any deadline on your calendar right away.
-5. If a reply is needed, edit the AI's draft so every detail is true, then send it the way the letter asks.
+1. Reads the letter: a photo you upload, a PDF in your Google Drive, or the email it came in (with Claude's Gmail and Drive connectors turned on).
+2. Explains in plain English who sent it, what it wants, the deadline and what happens if you do nothing.
+3. Points out scam warning signs and tells you to check with the organization's official website, not the contact details in the letter.
+4. Asks you first, then adds the deadline to your Google Calendar with a one-line note of what to do.
+5. Drafts a short reply. If the reply goes by email, it sends it from your Gmail only after you approve it.
 
-What you end up with: A plain-English summary, the action you need to take (if any), the deadline, a scam check, and a ready-to-send reply if one is needed.
+What you end up with: A plain-English summary, a scam check, the deadline on your calendar, and a reply ready to send once you've checked it.
 
-Tools: ChatGPT, Claude, Gemini, Grok
+Tools: Claude, ChatGPT, Gemini, Grok
 
 Prompt:
-I got this letter and I don't fully understand it. Personal details are removed.
-
-[PASTE THE LETTER TEXT, OR UPLOAD A PHOTO WITH PERSONAL DETAILS COVERED]
+I got a letter and I don't fully understand it.
+[UPLOAD A PHOTO WITH PERSONAL NUMBERS COVERED, OR: It's the PDF called [FILE NAME] in my Google Drive / the email from [SENDER] in my Gmail.]
 
 Please answer in plain English, at about an 8th-grade reading level:
 1. Who is this from and what is it about, in 2 sentences?
 2. Do I need to do anything? If yes, what exactly, and by what date?
 3. What happens if I do nothing?
 4. Are there signs this could be a scam (pressure, threats, odd payment methods, strange links)? Tell me how to check it using the organization's official website, not the contact details in the letter.
-5. If a reply is needed, write a short, polite reply I can send, with [BLANKS] for anything you don't know.
+5. If there's a deadline, ask me first, then add it to my Google Calendar on that date with a one-line note of what I need to do, plus an event one week before.
+6. If a reply is needed, write a short, polite reply with [BLANKS] for anything you don't know. Don't send anything until I say yes.
 If anything is unclear or you are guessing, say so.
 
 Watch out:
 - Scammers send official-looking letters too. The IRS warns that impersonators demand payment “now or else”, threaten arrest, and use odd links.
 - Remove Social Security numbers, account numbers, member IDs and birth dates before you paste or upload anything. In ChatGPT you can use Temporary Chat or turn off “Improve the model for everyone” under Settings › Data controls.
 - For anything with legal consequences (court papers, eviction, immigration, debt lawsuits), use the AI to understand it, then talk to a legal aid office or a lawyer.
+- Anthropic says it doesn't train on your Gmail, Drive or Calendar connector data. Text you copy from them into a chat follows your normal chat setting, so check that if you've allowed training.
 
 Questions:
+- Which AI tools can do this? Claude with its Gmail, Google Calendar and Google Drive connectors does every step, including the calendar event and an email reply after you approve it. ChatGPT, Gemini and Grok can explain the letter and draft the reply; ChatGPT on paid plans can also send it from a connected Gmail or Outlook.
 - Can I just upload a photo of the letter? Yes, most chat AIs read photos. Cover your account numbers, ID numbers and signature first.
-- Which AI is best for this? Any of the big free chat apps (ChatGPT, Claude, Gemini, Grok) can do this well. Use the one you already have.
+- Can the AI read the letter straight from my email? Claude can search and read your Gmail once its Gmail connector is on, but it sees only the names of attachments, not what's inside them. Save a PDF letter to Google Drive and point Claude to it, or upload a photo.
+- Which AI is best for this? Any big chat app (ChatGPT, Claude, Gemini, Grok) can explain a letter well. To have it read the letter from your Drive, put the deadline on your calendar and send an email reply after you OK it, use Claude with its Google connectors turned on. The free plan works.
 - How do I know the AI got it right? Ask it to quote the exact sentence each answer comes from. Then check those sentences in the letter yourself.
 
 Sources:
@@ -2970,6 +2977,8 @@ Sources:
 - OpenAI Help: Data controls in ChatGPT: https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt
 - Google search suggestions for “ai to read my pdf” (checked 2026-10-19): https://www.google.com/search?q=ai+to+read+my+pdf
 - Google search suggestions for “use ai to write a letter” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+write+a+letter
+- Claude Help Center: Use Google Workspace connectors (Gmail search, read and send with approval, attachment names only; Calendar create events; Drive reads PDFs and images; create Google Docs; not used for training): https://support.claude.com/en/articles/10166901-use-google-workspace-connectors
+- OpenAI Help Center: ChatGPT release notes (send email from Gmail or Outlook in a chat; ChatGPT Work on signed-in websites, e.g. utilities for a new apartment, asks before reservations or payments): https://help.openai.com/en/articles/6825453-chatgpt-release-notes
 
 ## Have an AI agent find and book an appointment for you
 URL: https://botsdothat.com/use-cases/book-an-appointment-with-an-ai-agent/
@@ -3029,36 +3038,43 @@ URL: https://botsdothat.com/use-cases/write-a-complaint-that-gets-fixed/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-19
 Popularity: not measured
 
-A company messed up (late delivery, broken product, wrong charge, bad repair) and customer service keeps going in circles.
+A company messed up (late delivery, broken product, wrong charge, bad repair) and customer service keeps going in circles. Your AI digs the order and support emails out of your inbox, builds the timeline, writes a firm complaint and sends it only after you OK it.
 
 What the bot does:
-1. Write down the timeline: dates, order numbers, who you talked to.
-2. Fill in the prompt and read the draft.
-3. Remove anything emotional or untrue; keep it factual.
-4. Send it through the channel the AI suggests and note the date.
-5. If the deadline passes, escalate using the official route.
+1. Searches your Gmail for the order confirmation, receipts, shipping notices and every support email about the problem.
+2. Builds a dated timeline with order and ticket numbers, and tells you which emails it used.
+3. Writes a calm, factual complaint under 200 words with a clear ask and a deadline.
+4. Shows you the email and sends it from your Gmail only after you approve it. If the company wants a web form, you paste it in yourself.
+5. Asks you first, then adds the deadline to your calendar, and points you to official ways to escalate if it passes.
 
-What you end up with: A short, firm, factual complaint with a clear ask and a deadline, plus where to escalate if they ignore it.
+What you end up with: A short, firm, factual complaint built from your own emails, sent once you approve it, plus the deadline on your calendar and where to escalate if they ignore it.
 
-Tools: ChatGPT, Claude, Gemini, Grok
+Tools: Claude, ChatGPT, Gemini, Grok
 
 Prompt:
-Help me write a complaint to [COMPANY].
+Help me complain to [COMPANY] about [PROBLEM].
 
-What happened, with dates: [TIMELINE]
-What I already tried: [CALLS, CHATS, TICKET NUMBERS]
-What I want: [REFUND / REPLACEMENT / REPAIR / CREDIT]
-
-Write a calm, factual complaint under 200 words with a clear request and a reasonable deadline. Then tell me: the best channel to send it (email, web form, executive contact), and where I can escalate if they don't respond (for example a regulator or my card issuer), with official links I can check.
+1. Search my Gmail for emails from [COMPANY] since [DATE]: the order confirmation, receipts, shipping notices and support replies. List each one with its date and any order or ticket number.
+2. Build a short, dated timeline from those emails. Mark anything you're unsure of.
+3. What I want: [REFUND / REPLACEMENT / REPAIR / CREDIT]. Write a calm, factual complaint under 200 words with that request and a deadline of [DATE].
+4. Tell me the best channel to send it (email, web form, executive contact), and where I can escalate if they don't respond (for example a regulator or my card issuer), with official links I can check.
+5. If email is the right channel, show me the final email and send it from my Gmail only after I say yes.
+6. Ask me first, then add the deadline to my Google Calendar.
 
 Watch out:
+- Read the final email before you approve it. Once it's sent, you can't take it back.
 - Don't make threats you won't follow through on. Calm and specific works better.
 - Check any regulator or escalation link the AI gives you; it may be out of date.
 
 Questions:
+- Which AI tools can do this? Claude with its Gmail and Google Calendar connectors can search your email, build the timeline and send the complaint after you approve it. ChatGPT on paid plans can send from a connected Gmail or Outlook after an Allow/Deny card. Gemini and Grok can write the draft from a timeline you paste.
 - Can an AI agent contact customer service for me? Some agents can fill in a web form or chat window for you. EY's 2026 study found 34% of people would prefer an AI that contacts customer service to fix issues. Read what it sends before it sends it.
+- Will it send anything without asking me? Not by default. Claude asks for your approval before each email it sends, and ChatGPT shows an Allow/Deny card first. On Claude Team and Enterprise plans, an owner can let some actions run without asking each time.
 
 Sources:
+- Claude Help Center: Use Google Workspace connectors (Gmail search, read and send with approval, attachment names only; Calendar create events; Drive reads PDFs and images; create Google Docs; not used for training): https://support.claude.com/en/articles/10166901-use-google-workspace-connectors
+- OpenAI Help Center: ChatGPT release notes (send email from Gmail or Outlook in a chat; ChatGPT Work on signed-in websites, e.g. utilities for a new apartment, asks before reservations or payments): https://help.openai.com/en/articles/6825453-chatgpt-release-notes
+- OpenAI Help Center: Managing app permissions in ChatGPT (Always ask before actions; sending an email may need extra review): https://help.openai.com/en/articles/20001495-managing-app-permissions-in-chatgpt
 - EY AI Sentiment Study, wave 4 (2026): https://www.ey.com/content/dam/ey-unified-site/ey-com/en-gl/insights/ai/documents/ey-gl-ai-sentiment-study-wave-04-2026.pdf
 - Google search suggestions for “use ai to write a letter of complaint” (checked 2026-10-19): https://www.google.com/search?q=use+ai+to+write+a+letter+of+complaint
 
@@ -3146,39 +3162,47 @@ URL: https://botsdothat.com/use-cases/moving-checklist-and-change-of-address/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-19
 Popularity: 7 likes, 1 reposts on X (https://x.com/tomchris/status/2072663153532666045, measured 2026-11-02)
 
-Moving means telling dozens of companies and offices your new address, and something always gets missed.
+Moving means telling dozens of companies and offices your new address, and something always gets missed. Your AI finds who to tell from your inbox, then an agent works through the address-change pages with you, asking before anything final.
 
 What the bot does:
-1. Fill in the prompt with your move date and accounts.
-2. Do the USPS change of address on the official USPS site only.
-3. Work through the AI's list, ticking off each organization.
-4. Set reminders for utility stop/start dates.
-5. A month after the move, ask the AI which items are still open.
+1. Searches your email for bills, statements, receipts and subscriptions, and lists every company that likely has your address.
+2. Makes a week-by-week moving checklist, then asks you before it puts utility stop and start dates on your Google Calendar.
+3. In ChatGPT Work's cloud browser, opens each company's website, pauses while you sign in yourself, fills in your new address and asks you before it saves or submits.
+4. Leaves the USPS change of address to you, on the official USPS site, for the official fee.
+5. Keeps a done and not-done list, so you can see what's still open a month after the move.
 
-What you end up with: A personal moving checklist by week, a list of everyone to notify, and the official USPS change of address done for the official fee.
+What you end up with: A personal moving checklist by week, a list of everyone to notify built from your own inbox, address changes done with you approving each one, and the official USPS change of address done for the official fee.
 
-Tools: ChatGPT, Claude, Gemini, Grok
+Tools: Claude, ChatGPT Work (cloud browser), ChatGPT
 
 Prompt:
 I'm moving from [CITY/STATE] to [CITY/STATE] on [DATE]. My household: [WHO, PETS, CAR?]
-Here are my recurring bills/accounts (no account numbers): [LIST OR PASTE A STATEMENT]
+My new address: [NEW ADDRESS]
 
-1. Make a week-by-week moving checklist starting today.
-2. List every organization I should give my new address to, grouped (government, money, utilities, health, subscriptions, work/school).
-3. Tell me which utilities to stop or transfer and when.
-4. Write a short, reusable message I can send to update my address.
+1. Search my email from the last 12 months for bills, statements, receipts and subscriptions. List every company that likely has my address, grouped (government, money, utilities, health, subscriptions, work/school). Leave out account numbers.
+2. Make a week-by-week moving checklist starting today, including which utilities to stop or transfer and when. Ask me first, then add the stop and start dates to my Google Calendar.
+3. For each company I pick from the list: open its website, let me sign in myself, and fill in my new address. Stop and ask me before you save or submit anything.
+4. Don't do the USPS change of address. I'll do that myself on usps.com.
+5. Keep a list of what's done and what's still open.
 
 Watch out:
 - USPS warns that some third-party sites charge $40 or more to file a change of address. The official online fee is $1.25 for identity verification.
-- Never give an AI your account numbers; just the company names.
+- Never type passwords, security codes or card numbers into the chat. ChatGPT Work has a secure sign-in form for websites.
+- Check each address before you approve it. A typo here sends your mail to the wrong place.
+- The cloud browser works only on websites ChatGPT supports. Do the rest yourself from the list.
 
 Questions:
+- Which AI tools can do this? Use Claude with Gmail and Google Calendar connected to find who to tell and set the dates, and ChatGPT Work's cloud browser (paid plans) to fill in the address forms with you approving. Any chat app, ChatGPT's free plan included, can make the checklist from a list you paste.
 - When can I file the USPS change of address? USPS says you can submit it up to 90 days before your move and up to 30 days after.
+- Can an AI agent change my address for me? On many websites, yes, with you approving. ChatGPT Work's cloud browser can fill in forms, pauses so you can sign in, and asks before things that are hard to undo. OpenAI's own examples include setting up utilities for a new apartment. Do the USPS change yourself on usps.com.
 
 Sources:
 - USPS: Standard Forward Mail & Change of Address: https://www.usps.com/manage/forward.htm
 - USPS FAQ: Change of Address – The Basics: https://faq.usps.com/articles/Knowledge/Change-of-Address-The-Basics
 - X post: using an AI agent for moving-out admin: https://x.com/tomchris/status/2072663153532666045
+- OpenAI Help Center: Using cloud browser in ChatGPT (fills in forms, pauses for sign-in and confirmation, secure sign-in form, never paste passwords): https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt
+- OpenAI Help Center: ChatGPT release notes (send email from Gmail or Outlook in a chat; ChatGPT Work on signed-in websites, e.g. utilities for a new apartment, asks before reservations or payments): https://help.openai.com/en/articles/6825453-chatgpt-release-notes
+- Claude Help Center: Use Google Workspace connectors (Gmail search, read and send with approval, attachment names only; Calendar create events; Drive reads PDFs and images; create Google Docs; not used for training): https://support.claude.com/en/articles/10166901-use-google-workspace-connectors
 
 ## Plan a trip itinerary that fits your pace
 URL: https://botsdothat.com/use-cases/plan-a-trip-itinerary/
@@ -3270,36 +3294,42 @@ URL: https://botsdothat.com/use-cases/organize-a-parents-care-paperwork/
 Category: Health & care | Difficulty: Medium | Added: 2026-10-19
 Popularity: not measured
 
-You're helping a parent with doctors, insurance, medicines and bills, and the details live in a dozen places.
+You're helping a parent with doctors, insurance, medicines and bills, and the details live in a dozen places. Your AI reads the scans and PDFs in one Google Drive folder, builds a care binder, and adds appointments to your calendar after you OK them.
 
 What the bot does:
-1. Collect what you have: pill bottles, insurance cards, recent letters.
-2. Run the prompt without ID numbers.
-3. Fill in the gaps it lists.
-4. Keep the binder in a shared doc with siblings or caregivers.
-5. Log every call; it helps a lot if you ever need to appeal a decision.
+1. Reads the photos, PDFs and documents you save to one Google Drive folder: pill bottle labels, insurance cards, visit summaries, letters.
+2. Builds a care binder as a Google Doc: contacts, medicines (dose, time, prescriber), appointments, insurance and open issues, with the file each fact came from.
+3. Lists what's missing and anything it couldn't read clearly, so you can check it against the labels.
+4. Asks you first, then adds upcoming appointments to your Google Calendar with the address and what to bring.
+5. Keeps a call log in the binder each time you tell it about a call. It helps a lot if you ever need to appeal a decision.
 
-What you end up with: One organized care binder: contacts, medicines, appointments, insurance details, and a running log of calls and decisions.
+What you end up with: One organized care binder in Google Docs (contacts, medicines, appointments, insurance and a running call log), plus upcoming appointments on your calendar.
 
-Tools: ChatGPT, Claude, Gemini, Grok
+Tools: Claude, ChatGPT, Gemini
 
 Prompt:
-I'm helping my [MOM/DAD], age [AGE], with their care. Here's what I know so far (no ID numbers):
-[DOCTORS, MEDICINES, INSURANCE TYPE, UPCOMING APPOINTMENTS, OPEN ISSUES]
+I'm helping my [MOM/DAD], age [AGE], with their care. Their papers are in my Google Drive folder [FOLDER NAME]: photos of pill bottles and insurance cards, visit summaries and letters.
 
-1. Organize this into a care binder with sections: contacts, medicines (dose, time, prescriber), appointments, insurance, open issues.
-2. List what's missing that I should collect.
-3. Make a call-log template (date, who, what was said, next step).
-4. Suggest questions to ask at the next appointment or care meeting.
+1. Read everything in that folder. Create a Google Doc called "[NAME] care binder" with sections: contacts, medicines (name, dose, time, prescriber), appointments, insurance, open issues. Note which file each fact came from.
+2. List what's missing that I should collect, and anything you couldn't read clearly.
+3. For each upcoming appointment you find, ask me first, then add it to my Google Calendar with the address and what to bring.
+4. Add a call-log table to the binder (date, who, what was said, next step).
+5. Suggest questions to ask at the next appointment or care meeting.
+Don't share, move or delete any files.
 
 Watch out:
 - Double-check medicine names and doses against the labels. Errors here matter.
 - Get your parent's permission and any required forms (like a HIPAA authorization) before talking to their providers.
+- Claude reads the text in Google Docs but not pictures pasted inside them. Save photos as their own image files in the folder.
+- Anthropic says it doesn't train on your Drive or Calendar connector data. Text you copy from them into a chat follows your normal chat setting.
 
 Questions:
+- Which AI tools can do this? Claude with its Google Drive, Google Docs and Google Calendar connectors does every step. ChatGPT and Gemini can build the binder outline from what you paste, and you add appointments yourself.
 - Can AI help if insurance wants to discharge them too early? It can help you write an appeal. See our guide to appealing a health insurance denial, and ask the facility how to file a discharge appeal.
+- Is it OK to put a parent's medical papers into an AI? Ask your parent first. Claude reads Drive files only when you ask, and Anthropic says it doesn't train on Gmail, Drive or Calendar connector data. If you'd rather not share ID numbers, cover them in the photos.
 
 Sources:
+- Claude Help Center: Use Google Workspace connectors (Gmail search, read and send with approval, attachment names only; Calendar create events; Drive reads PDFs and images; create Google Docs; not used for training): https://support.claude.com/en/articles/10166901-use-google-workspace-connectors
 - Reddit r/AgingParents: ChatGPT helped with an insurance discharge appeal: https://www.reddit.com/r/AgingParents/comments/1r1eimf/
 - YouTube: “How to Use AI to Help Care for an Aging Parent (Appointments, Meds List & Paperwork)” by Lamdis AI: https://www.youtube.com/watch?v=a2Bt4u3B4pY
 
