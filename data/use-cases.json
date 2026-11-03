@@ -1031,6 +1031,7 @@
  {
   "slug": "let-chatgpt-run-your-icloud-mail-and-calendar",
   "title": "Let ChatGPT catch you up on your iCloud Mail and update your iPhone calendar",
+  "seo_description": "ChatGPT can now read and search @icloud.com mail, draft replies and add events to your iPhone calendar, on every plan including Free. Steps and a prompt.",
   "category": "inbox",
   "source_date": "2026-10-27",
   "summary": "If your email ends in @icloud.com, @me.com or @mac.com, ChatGPT can now read and search it, draft replies and add or move events on the calendar you see on your iPhone. It works on every ChatGPT plan, including Free, and ChatGPT's always-on dots can use it too.",
@@ -1132,7 +1133,7 @@
   "date_added": "2026-10-29",
   "origin": "pipeline",
   "last_checked": "2026-10-29",
-  "seo_title": "ChatGPT with iCloud Mail and your iPhone calendar"
+  "seo_title": "ChatGPT for iCloud Mail and iPhone Calendar: how to set it up"
  },
  {
   "slug": "get-an-ai-coach-that-helps-you-start-overwhelming-tasks",
@@ -2383,6 +2384,40 @@
  {
   "slug": "compare-two-documents",
   "title": "Compare two versions of a document or contract",
+  "compare_table": {
+   "h": "Which tool should you use to compare two contract versions?",
+   "cols": [
+    "Tool",
+    "How",
+    "What you get"
+   ],
+   "rows": [
+    {
+     "tool": "Microsoft Word",
+     "how": "Review, then Compare, then pick the original and the revised file",
+     "get": "A new document that marks every insertion and deletion, so nothing is skipped",
+     "source": "Microsoft Support",
+     "url": "https://support.microsoft.com/en-us/office/compare-and-merge-two-versions-of-a-document-f5059749-a797-4db7-a8fb-b3b27eb8b87e"
+    },
+    {
+     "tool": "Google Docs",
+     "how": "On a computer, Tools, then Compare documents; works with a Google Doc or a Word (.docx) file in your Drive",
+     "get": "A third Google Doc with the differences shown as suggested edits; column layout and table column widths aren't compared",
+     "source": "Google Docs Editors Help",
+     "url": "https://support.google.com/docs/answer/18512262"
+    },
+    {
+     "tool": "ChatGPT, Claude, Gemini or Grok",
+     "how": "Upload both files and paste the prompt on this page",
+     "get": "A plain-words list of what changed and what it means, with both wordings quoted; it can miss small edits, so check it against Word or Google Docs",
+     "source": "",
+     "url": ""
+    }
+   ],
+   "note": "Use Word or Google Docs to catch every change, then AI to explain them. For anything you sign, have a lawyer or the other party confirm what the changes mean."
+  },
+  "seo_title": "What tool can compare two versions of a contract?",
+  "seo_description": "Word's Compare and Google Docs' Compare documents mark every change; ChatGPT, Claude, Gemini or Grok explain them in plain words. Tools table and a prompt.",
   "category": "work",
   "summary": "Someone sent back an edited lease, contract or policy and you need to know what actually changed. AI can list the differences in plain words, while Word's built-in Compare double-checks it didn't miss any.",
   "problem": "You have two versions of the same document and reading both side by side to spot every change takes ages, and it's easy to miss a deleted line or a changed number.",
@@ -2433,6 +2468,11 @@
     "kind": "official"
    },
    {
+    "label": "Google Docs Editors Help: Compare documents in Google Docs",
+    "url": "https://support.google.com/docs/answer/18512262",
+    "kind": "official"
+   },
+   {
     "label": "Contract Nerds: Can you use ChatGPT to compare two contract versions?",
     "url": "https://contractnerds.com/can-you-use-chatgpt-to-compare-two-contract-versions/",
     "kind": "article"
@@ -2455,7 +2495,7 @@
   ],
   "origin": "pipeline",
   "date_added": "2026-10-26",
-  "last_checked": "2026-10-26",
+  "last_checked": "2026-11-03",
   "setup": [],
   "popularity": null,
   "source_date": null
@@ -2563,6 +2603,8 @@
  {
   "slug": "add-events-and-reminders-by-asking-your-bot",
   "title": "Add calendar events and reminders just by asking your bot",
+  "seo_title": "Add calendar events and reminders by asking AI (Grok, Gemini)",
+  "seo_description": "Say “add this” or “remind me” and your phone's AI assistant creates the event or reminder for you. How it works in Grok Bot and Gemini, with a prompt.",
   "category": "family",
   "source_date": "2026-10-22",
   "summary": "Instead of opening your calendar and typing everything in, you tell your phone's AI assistant \"add this\" or \"remind me\", and it puts the event or reminder in the right app. Grok Bot and Gemini can both do this now, once you allow them into those apps.",
@@ -5842,6 +5884,8 @@
  {
   "slug": "hire-a-chief-of-staff-bot",
   "title": "Set up a “chief of staff” bot that plans your other bots",
+  "seo_title": "AI chief of staff: one bot that plans which bots you need",
+  "seo_description": "Start with one AI agent that asks what you do and suggests which helper bots you need, often fewer than you thought. Works in Grok Bot, ChatGPT or Claude.",
   "category": "work",
   "date_added": "2026-10-20",
   "source_date": "2026-09-15",
@@ -7210,7 +7254,8 @@
  {
   "slug": "weekend-family-activities",
   "title": "Get 5 weekend activity ideas that fit your kids and the weather",
-  "seo_title": "AI weekend activity ideas that fit your kids and weather",
+  "seo_description": "Every Friday, an AI bot sends 5 weekend activity ideas that fit your kids' ages, the forecast and your budget, with a rainy-day backup. Prompt inside.",
+  "seo_title": "Weekend ideas for kids, matched to the weather by AI",
   "category": "family",
   "date_added": "2026-10-20",
   "source_date": "2026-10-09",
@@ -9771,6 +9816,8 @@
  {
   "slug": "control-your-smart-home-with-a-private-ai",
   "title": "Control your smart home by talking to a private AI",
+  "seo_title": "Private AI voice control for your smart home (Home Assistant)",
+  "seo_description": "Connect Home Assistant to an AI model on your own computer (Ollama), then say “turn off everything downstairs”. Your voice and home data stay at home.",
   "category": "family",
   "source_date": "2026-09-30",
   "summary": "Connect Home Assistant to an AI model running on your own computer, then ask in plain words: “turn off everything downstairs” or “is the garage door open?”. Your voice and home data stay at home.",
@@ -10038,6 +10085,8 @@
  {
   "slug": "practice-speaking-a-new-language",
   "title": "Practice speaking a new language out loud with AI",
+  "seo_title": "Practice speaking a new language with an AI voice partner",
+  "seo_description": "Use ChatGPT or Gemini voice mode as a patient speaking partner: pick a real situation, talk out loud, get gentle corrections at your level. Prompt inside.",
   "category": "family",
   "source_date": "2026-01-30",
   "summary": "Use an AI voice mode as a patient conversation partner. Pick a situation, like ordering food or checking into a hotel, and talk. It corrects you gently and adapts to your level.",

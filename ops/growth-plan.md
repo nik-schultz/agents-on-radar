@@ -102,7 +102,7 @@ Week 4 (Nov 23-27): consolidate
 
 Free backlink and listing ideas (DRAFTS ONLY; nothing submitted; needs Grok CEO approval):
 - Already drafted in ops/launch_drafts.md: awesome-openclaw PR (A), awesome-hermes-agent issue (B), Ask HN reply (C), Show HN (section 3), Product Hunt (section 4), Reddit posts (section 2).
-- New draft E, free AI-tool/resource directories (submit the site as a free resource, not a tool): There's An AI For That, Futurepedia, Toolify, AlternativeTo. Listing text:
+- New draft E, free AI-tool/resource directories (submit the site as a free resource, not a tool). Updated 2026-11-03: There's An AI For That ($49), Futurepedia (no public form) and Toolify ($99) dropped as paid/closed; free list is ToolDirectory.ai, toolhype.dev, Future Tools, Nukkadly, AlternativeTo (+ SaaSHub pending). Full draft: ops/launch_drafts.md section E. Listing text:
   Name: BotsDoThat
   URL: https://botsdothat.com/
   Short: Real things people hand to AI agents, with sources, copy-paste prompts and build-your-own-bot blueprints. Free.

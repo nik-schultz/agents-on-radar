@@ -12,6 +12,8 @@ NEWS = sorted(J("data", "news.json")["items"], key=lambda n: n["date"], reverse=
 LESS = "/run-your-bots-for-less/"; PRICING = "/ai-pricing/"
 BUILD_GUIDE = "/how-to-build-an-ai-agent-without-coding/"  # beginner how-to (added 2026-10-23)
 COST_GUIDE = "/how-much-does-it-cost-to-run-an-ai-agent/"; CLAW_GUIDE = "/openclaw-vs-hermes-agent/"; SAFE_GUIDE = "/is-it-safe-to-give-an-ai-agent-your-email/"  # beginner guides (added 2026-10-23)
+PHONE_GUIDE = "/can-ai-make-phone-calls-for-you/"  # added 2026-11-03
+PHONE_UCS = {"call-and-book-by-phone", "make-a-customer-service-call", "let-a-bot-answer-and-screen-your-calls", "restaurant-reservations-by-agent"}
 CAT = {c["slug"]: c for c in cats}
 UC = {x["slug"]: x for x in ucs}
 NAME = cfg["site_name"]  # brand name: change it in config.json only
@@ -825,6 +827,10 @@ for x in ucs:
     _alt = _cp.get("agentic_alt") if isinstance(_cp, dict) else None
     chat_note = (f'<p class="chat-note small"><span class="chat-badge">Chat prompt</span> This one is a prompt you paste into a chat app, and you do the steps yourself. Want an agent that does the legwork for you? See <a href="{u("/use-cases/"+_alt+"/")}">{e(UC[_alt]["title"])}</a>.</p>') if _alt in UC else ""
     setup = ("<section><h2>Setup</h2><ol>" + "".join(f"<li>{e(s)}</li>" for s in x["setup"]) + "</ol></section>") if x.get("setup") else ""
+    _ct = x.get("compare_table")  # optional short tools table; every row with a source links it
+    ctable = (f'<section id="tools-compared"><h2>{e(_ct["h"])}</h2><div class="table-wrap glass"><table class="rank-table"><thead><tr>' + "".join(f'<th scope="col">{e(h)}</th>' for h in _ct["cols"]) + "</tr></thead><tbody>" + "".join(
+        f'<tr><td><b>{e(r["tool"])}</b></td><td class="small">{e(r["how"])}</td><td class="small">{e(r["get"])}{(" (<a href=" + chr(34) + e(r["url"]) + chr(34) + " rel=" + chr(34) + "noopener" + chr(34) + ">" + e(r["source"]) + "</a>)") if r.get("url") else ""}</td></tr>' for r in _ct["rows"]) + f'</tbody></table></div><p class="small">{e(_ct.get("note", ""))}</p></section>') if _ct else ""
+    phone_note = (f'<p class="small">The big picture: <a href="{u(PHONE_GUIDE)}">can AI make phone calls for you?</a> Which agents can call today, what it costs per minute and what goes wrong.</p>') if x["slug"] in PHONE_UCS else ""
     _mod = x.get("last_checked") or x["date_added"]  # same value as the HowTo dateModified below
     relx = REL_X.get(x["slug"], [])
     relx_html = ('<section class="related-x"><h2>Related</h2><ul class="ex-list">' + "".join(
@@ -835,7 +841,7 @@ for x in ucs:
 <div class="uc-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span>{CHAT_BADGE if x.get('chat_prompt') else ''}<span class="muted small">Updated <time datetime="{e(_mod)}">{nice_date(_mod)}</time> · By <a href="{u('/about/')}">{e(NAME)}</a> · Added {nice_date(x['date_added'])}</span>{pop_chip(x, long=True)}</div>{seen_on(x, long=True)}</header>
 <div class="uc-grid"><div class="uc-main">
 <section><h2>What the bot does</h2>{chat_note}<ol class="steps">{steps}</ol></section>
-<section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p></section>{see_also_html(x)}{less_callout if x['category'] == 'run-for-less' else ''}{tool_listing(cat=x['category'])}
+<section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p>{phone_note}</section>{ctable}{see_also_html(x)}{less_callout if x['category'] == 'run-for-less' else ''}{tool_listing(cat=x['category'])}
 <section><h2>Copy-paste prompt</h2><p class="muted small">Fill in the [brackets]. Then paste it into any tool below.</p>{copybox(x['prompt'])}
 <p class="small">New to this? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>, then <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, or <a href="{u('/blueprints/#how-to')}">set up a bot in 5 plain steps →</a>{(' Choosing a self-hosted agent? See <a href="' + u(CLAW_GUIDE) + '">OpenClaw vs Hermes Agent for beginners</a>.') if any(t["id"] in ("openclaw", "hermes-agent") for t in x["tools"]) else ''}{(' Connecting email or a calendar? Read <a href="' + u(SAFE_GUIDE) + '">is it safe to give an AI agent your email and calendar?</a>') if (x['category'] == 'inbox' or any(t.lower() in ('gmail', 'outlook', 'calendar', 'google calendar', 'email') for t in x.get('tags', []))) else ''}</p>
 <p class="small nl-pointer">Want one new job like this each week, with a prompt to copy? <a href="{u('/newsletter/')}">Get the free {e(NAME)} Weekly email</a> and {e(NL_PACK)}: 7 ready-to-paste AI agent setups, plus a power-user bonus.</p></section>
@@ -851,7 +857,7 @@ for x in ucs:
                 "step": [{"@type": "HowToStep", "position": i + 1, "text": s} for i, s in enumerate(x["what_the_bot_does"])],
                 "tool": [{"@type": "HowToTool", "name": tools[t["id"]]["name"]} for t in x["tools"]]}]
     ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in faqs]})
-    page(f"/use-cases/{x['slug']}/", x.get("seo_title") or x["title"], mdesc(x["summary"], "You end up with: " + x["what_you_end_up_with"][0].lower() + x["what_you_end_up_with"][1:]), body, ld, lastmod=x.get("last_checked"), kind="uc", og_type="article")
+    page(f"/use-cases/{x['slug']}/", x.get("seo_title") or x["title"], x.get("seo_description") or mdesc(x["summary"], "You end up with: " + x["what_you_end_up_with"][0].lower() + x["what_you_end_up_with"][1:]), body, ld, lastmod=x.get("last_checked"), kind="uc", og_type="article")
 
 # ---------- AI PRICES + COST NOTES -------------------------------------------------------
 PRICE_ROW = {r["model"]: r for r in PR["api"]}
@@ -938,7 +944,7 @@ for b in bps:
     ld = [bld, {"@context": "https://schema.org", "@type": "HowTo", "name": f"Build a {b['title']} bot", "description": b["goal"],
                 "step": [{"@type": "HowToStep", "position": i + 1, "text": s} for i, s in enumerate(b["steps"])],
                 "tool": [{"@type": "HowToTool", "name": tools[t["id"]]["name"]} for t in b["tools"]]}]
-    page(f"/blueprints/{b['slug']}/", f"{b['title']}: a bot blueprint", mdesc(b["goal"], "A free build-your-own-bot blueprint with copy-paste instructions, a schedule and safety rules."), body, ld, kind="bp")
+    page(f"/blueprints/{b['slug']}/", b.get("seo_title") or f"{b['title']}: a bot blueprint", b.get("seo_description") or mdesc(b["goal"], "A free build-your-own-bot blueprint with copy-paste instructions, a schedule and safety rules."), body, ld, kind="bp")
 
 # ---------- EXPLAINER --------------------------------------------------------------
 L = lambda slug: f'<a href="{u("/use-cases/"+slug+"/")}">{e(UC[slug]["title"].lower())}</a>'
@@ -963,12 +969,20 @@ _faq_more = lambda q: _SAFE_MORE if q == "Are AI agents safe to use?" else ""
 explain_faq_html = "".join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}{_faq_more(q)}</p></details>' for q, a in EXPLAIN_FAQ)
 explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 <header class="page-head"><p class="eyebrow">Plain English</p><h1 class="kinetic-sm">What is an AI agent? (in simple terms)</h1>
-<p class="lead">Short answer: an AI agent is an AI assistant that does a job for you, not just answers questions. Agents are good at reading, watching, sorting and drafting. They're getting OK at booking and buying while you watch. They aren't safe to trust with your money, your address or decisions you can't undo.</p>
+<p class="lead">Short answer: an AI agent is an AI assistant that does a job for you, not just answers questions. For personal use, that means things like a morning summary of your inbox, a ping when a web page changes, a weekly meal plan with the grocery list, or a phone call made for you. Agents are good at reading, watching, sorting and drafting. They're getting OK at booking and buying while you watch. They aren't safe to trust with your money, your address or decisions you can't undo.</p>
 <p class="small muted">Updated <time datetime="{MOD_ISO}">{MOD_NICE}</time> · By <a href="{u('/about/')}">{e(NAME)}</a></p></header>
 
 <section class="reveal" id="what-is-an-ai-agent"><h2>What is an AI agent?</h2>
 <p>An <b>AI agent</b> is an AI assistant that can take steps on its own to finish a job you give it. You describe the goal in plain words (“every weekday at 7am, read my new email and tell me what needs a reply”), connect the apps it needs, and it does the reading, clicking and typing for you. Many agents can repeat the job on a schedule, and good ones stop and ask before anything important.</p>
 <p>On this site we call them <b>bots</b>. Everyday examples: a bot that <a href="{u('/use-cases/time-sensitive-inbox-watcher/')}">catches deadlines the moment they land in your inbox</a>, one that <a href="{u('/use-cases/watch-a-web-page-for-changes/')}">watches a web page and pings you when it changes</a>, and one that <a href="{u('/use-cases/make-a-customer-service-call/')}">makes a customer-service call for you</a>. See <a href="{u('/ai-agent-examples/')}">all {len(ucs)} AI agent examples</a>.</p></section>
+
+<section class="reveal" id="personal-use"><h2>What can an AI agent do for you? Personal-use examples</h2><ul class="big-list">
+<li><b>Your inbox:</b> {L('time-sensitive-inbox-watcher')}, {L('flag-only-emails-that-need-a-reply')}.</li>
+<li><b>Your calendar:</b> {L('add-events-and-reminders-by-asking-your-bot')}, {L('sunday-family-calendar-check')}.</li>
+<li><b>Phone calls:</b> {L('call-and-book-by-phone')}, {L('make-a-customer-service-call')}. More: <a href="{u(PHONE_GUIDE)}">can AI make phone calls for you?</a></li>
+<li><b>Home and family:</b> {L('family-meal-plan-and-grocery-order')}, {L('weekend-family-activities')}.</li>
+<li><b>Watching for you:</b> {L('watch-a-web-page-for-changes')}, {L('catch-airline-schedule-changes')}.</li></ul>
+<p>Each one has a plain-English guide and a prompt to copy. See <a href="{u('/ai-agent-examples/')}">all {len(ucs)} AI agent examples for personal use</a>.</p></section>
 
 <section class="glass explain-card reveal" id="ai-agent-vs-chatbot"><h2>AI agent vs. chatbot: what's the difference?</h2>
 <div class="vs"><div><h3>💬 Chatbot</h3><p>You ask, it answers. It can write a letter, explain a confusing form or make a plan, but <b>you</b> do the clicking. ChatGPT, Claude, Gemini and Grok all work like this for free.</p></div>
@@ -1013,7 +1027,7 @@ explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 <section class="glass explain-card"><h2>Ready to try?</h2><p>Follow <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, then start with something read-only, like the <a href="{u('/blueprints/morning-inbox-briefing/')}">Morning Inbox Briefing</a> or the <a href="{u('/blueprints/scam-checker/')}">Scam Checker</a> (it checks your inbox for scams every morning and never clicks links).</p>
 <p><a class="btn" href="{u('/blueprints/')}">See all blueprints</a> <a class="btn btn-ghost" href="{u('/trending/')}">See what's trending</a></p><p class="small">Or browse <a href="{u('/ai-agent-examples/')}">every AI agent example on one page</a>.</p></section>
 </article>"""
-page("/what-can-bots-do/", "What is an AI agent? Simple terms, vs. chatbots", mdesc("What is an AI agent? A plain-English answer, how agents differ from chatbots, what they can and can't do safely yet, with real examples and sources."), explainer,
+page("/what-can-bots-do/", "What is an AI agent, and what can it do for you?", mdesc(f"What is an AI agent? A plain-English answer, {len(ucs)} personal-use examples, how agents differ from chatbots, and what they can't do safely yet. Sourced."), explainer,
      [EXPLAIN_BC[1], {"@context": "https://schema.org", "@type": "Article", "headline": "What is an AI agent? (in simple terms)", "datePublished": "2026-10-20", "dateModified": MOD_ISO,
        "author": {"@type": "Organization", "name": NAME, "url": absu(u("/about/"))}, "publisher": ORG},
       {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in EXPLAIN_FAQ]}])
@@ -1031,21 +1045,22 @@ for c in cats:
         lis += f'<li><a href="{u("/use-cases/"+x["slug"]+"/")}"><b>{e(x["title"])}</b></a>. {e(x["what_you_end_up_with"])} <span class="small muted">Tools: {e(tn)}.</span>{(' ' + CHAT_BADGE) if x.get('chat_prompt') else ''}</li>'
     ex_groups += f'<section><h2 id="{e(c["slug"])}">{c["icon"]} {e(c["name"])}</h2><ul class="ex-list">{lis}</ul></section>'
 ex_faq = [
+    ("What are examples of AI agents for personal use?", "Popular personal uses: a morning inbox summary, a bot that adds calendar events and reminders when you ask, a weekly meal plan with the grocery list, a watcher that pings you when a price or web page changes, and a bot that phones a business to book or cancel something for you. Every example on this page links to a how-to with a prompt to copy."),
     ("What is an example of an AI agent in everyday life?", "A common one is an inbox agent that reads your new email each morning and sends you a short summary of what needs a reply, without sending anything itself. Others watch a web page and ping you when it changes, plan a week of meals and build the grocery list, or make a customer-service phone call for you."),
     ("What's the difference between an AI agent and a chatbot?", "A chatbot answers when you ask, and you do the clicking. An agent can take steps for you, like reading your inbox on a schedule, filling a form or watching a page, and it should ask before it sends, buys or deletes anything."),
     ("What's the best AI agent for everyday use?", "The one that works with apps you already use. If you live in Gmail and Google Calendar, try Gemini Spark. If you want to text your bot, try Meta Muse or Instinct. For routines on a schedule, try Grok Bot, Claude Cowork scheduled tasks or ChatGPT dots. No agent yet? Paste a prompt from this page into ChatGPT, Claude, Gemini or Grok."),
     ("Are AI agents safe to use?", "They're good at reading, watching, sorting and drafting. Don't trust them yet with your money, your address or anything you can't undo. Start with read-only jobs and have the agent ask before it sends or buys."),
 ]
 ex_body = f"""<article class="wrap narrow explainer">{crumbs([("Home", "/"), ("AI agent examples", None)])[0]}
-<p class="eyebrow">Examples</p><h1 class="kinetic-sm">{len(ex_items)} AI agent examples for everyday life</h1>
-<p class="lead">Short answer: an AI agent is an assistant that does a job for you, like reading your email, watching a web page or making a phone call, instead of only answering questions. Here are {len(ex_items)} real, everyday examples, grouped by part of life. Each one links to a plain-English guide with a copy-paste prompt.</p>
+<p class="eyebrow">Examples</p><h1 class="kinetic-sm">{len(ex_items)} AI agent examples for personal use and everyday life</h1>
+<p class="lead">Short answer: the most useful AI agents for personal use today read your email and tell you what needs a reply, watch a web page and ping you when it changes, plan meals and build the grocery list, and make phone calls for you. An AI agent does a job for you instead of only answering questions. Here are {len(ex_items)} real, everyday examples, grouped by part of life. Each one links to a plain-English guide with a copy-paste prompt.</p>
 <p class="small muted">Updated <time datetime="{MOD_ISO}">{MOD_NICE}</time>. New to agents? Read <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>, or <a href="{u(BUILD_GUIDE)}">build one without coding</a>.</p>
 <p class="small hub-note">This page is the one-page overview of what AI agents can do, grouped by part of life. To set one up, open its step-by-step page, or search and filter all of them in <a href="{u('/use-cases/')}">use cases</a>. Items marked {CHAT_BADGE} are one-off prompts for a chat app, not bots that act for you.</p>
 {ex_groups}
 <section><h2>Questions people ask</h2>{''.join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}{_faq_more(q)}</p></details>' for q, a in ex_faq)}</section>
 <section class="glass explain-card"><h2>Want it on autopilot?</h2><p>Turn any of these into a bot that runs on a schedule with a <a href="{u('/blueprints/')}">build-your-own-bot blueprint</a>. Never built one? Follow <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>.</p></section>
 </article>"""
-page("/ai-agent-examples/", f"{len(ex_items)} AI agent examples for everyday life", mdesc(f"{len(ex_items)} AI agent examples for everyday life on one page, grouped by inbox, calls, shopping, travel, family, health and work. Each links to a how-to."), ex_body,
+page("/ai-agent-examples/", f"{len(ex_items)} AI agent examples for personal use and everyday life", mdesc(f"{len(ex_items)} AI agent examples for personal use on one page, grouped by inbox, calls, shopping, travel, family, health and work. Each links to a how-to."), ex_body,
      [crumbs([("Home", "/"), ("AI agent examples", None)])[1],
       {"@context": "https://schema.org", "@type": "ItemList", "name": "AI agent examples for everyday life", "numberOfItems": len(ex_items),
        "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": absu(u("/use-cases/" + x["slug"] + "/")), "name": x["title"]} for i, x in enumerate(ex_items)]},
@@ -1327,6 +1342,16 @@ _voice = "".join(f'<li><b>{e(v["provider"])}</b> {e(v["what"])}: {_pz(v["price_p
 _sched_tip = UC["schedule-bots-without-burning-tokens"]
 _rfl = [x for x in ucs if x["category"] == "run-for-less"]
 _vmo = 300  # example: 300 minutes of calls a month (10 a day)
+# Voice-agent platforms (official pricing pages, data/ai-pricing.json "voice_platforms"); _pmo = a personal phone bot: four 5-minute calls a month
+_VP = PR.get("voice_platforms", []); _pmo = 20; _pcall = 5
+_vp_lo = min(v["price_min"] for v in _VP); _vp_hi = max(v["price_max"] for v in _VP)
+_vp_low = min(_VP, key=lambda v: v["price_min"])
+_vp_note = f'the lowest, {_vp_low["provider"]}\'s {_pz(_vp_low["price_min"])}, is a hosting fee before the AI model and voice' 
+_vp_rate = lambda v, k=1: (money(v["price_min"]*k) if v["price_min"] == v["price_max"] else f'{money(v["price_min"]*k)}–{money(v["price_max"]*k)}')
+_vp_txt = lambda v: _pz(v["price_min"]) if v["price_min"] == v["price_max"] else f'{_pz(v["price_min"])}–{_pz(v["price_max"])}'
+_vp_rows = "".join(f'<tr><td><b>{e(v["provider"])}</b><div class="small muted">{e(v["plan"])}</div></td><td class="num"><b>{_vp_txt(v)}</b></td><td class="num">{_vp_rate(v, _pcall)}</td><td class="num">{_vp_rate(v, _pmo)}</td><td class="num">{_vp_rate(v, _vmo)}</td>'
+                   f'<td class="small">{e(v["includes"])}. Extra: {e(v["extras"])}.</td><td class="small"><a href="{e(v["source_url"])}" rel="noopener">Official pricing</a>, checked {nice_date(v["checked_on"])}</td></tr>' for v in _VP)
+_vp_table = (f'<div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">Platform</th><th scope="col">Per minute</th><th scope="col">One {_pcall}-min call</th><th scope="col">{_pmo} min a month</th><th scope="col">{_vmo} min a month</th><th scope="col">What the price covers</th><th scope="col">Source</th></tr></thead><tbody>{_vp_rows}</tbody></table></div>') if _VP else ""
 def _usd(s):
     import re as _re
     m = _re.search(r"\$([0-9]+(?:\.[0-9]+)?)", s or ""); return float(m.group(1)) if m else None
@@ -1336,8 +1361,11 @@ COST_FAQ = [
  ("How much does it cost to run an AI agent?",
   f"Inside an app plan, a bot runs within your plan's usage limits. On a pay-per-use AI API, our {len(_cost_rows)} blueprint estimates range from {money(_lo_all)} to {money(_hi_all)} a month depending on the bot and the model, at standard API prices checked {nice_date(PR['checked_on'])}. Agents that browse the web or use many tools can use several times more tokens than these estimates.", None),
  ("How much does an AI voice agent cost per month?",
-  "Voice agents are billed per minute of talk. At official per-minute prices checked " + nice_date(PR['checked_on']) + ", " + "; ".join(f"{v['provider']} {v['what']} is {_pz(v['price_per_min'])} a minute, about {money(v['price_per_min']*_vmo)} for {_vmo} minutes a month" for v in PR["voice"]) + ". Phone numbers, call carriers and any extra model or tool use are billed on top.",
-  "Voice agents are billed per minute of talk. At official per-minute prices checked " + nice_date(PR['checked_on']) + ": " + "; ".join(f"{e(v['provider'])} {e(v['what'])} is {_pz(v['price_per_min'])} a minute, about <b>{money(v['price_per_min']*_vmo)}</b> for {_vmo} minutes a month (<a href=\"{e(v['source_url'])}\" rel=\"noopener\">official page</a>)" for v in PR["voice"]) + ". Phone numbers, call carriers and any extra model or tool use are billed on top. Build one: " + _ba('phone-call-bot') + "."),
+  "Voice agents are billed per minute of talk. On the voice-agent platforms we checked (" + nice_date(PR['checked_on']) + "): " + "; ".join(f"{v['provider']} {_vp_txt(v)} a minute, so {_vp_rate(v, _pmo)} for {_pmo} minutes or {_vp_rate(v, _vmo)} for {_vmo} minutes a month" for v in _VP) + ". Using a voice model directly: " + "; ".join(f"{v['provider']} {v['what']} is {_pz(v['price_per_min'])} a minute, about {money(v['price_per_min']*_vmo)} for {_vmo} minutes a month" for v in PR["voice"]) + ". Phone numbers, call carriers and any extra model or tool use can be billed on top.",
+  "Voice agents are billed per minute of talk. On the voice-agent platforms we checked (" + nice_date(PR['checked_on']) + "): " + "; ".join(f"{e(v['provider'])} {_vp_txt(v)} a minute, so <b>{_vp_rate(v, _pmo)}</b> for {_pmo} minutes or <b>{_vp_rate(v, _vmo)}</b> for {_vmo} minutes a month (<a href=\"{e(v['source_url'])}\" rel=\"noopener\">official pricing</a>)" for v in _VP) + ". Using a voice model directly: " + "; ".join(f"{e(v['provider'])} {e(v['what'])} is {_pz(v['price_per_min'])} a minute, about <b>{money(v['price_per_min']*_vmo)}</b> for {_vmo} minutes a month (<a href=\"{e(v['source_url'])}\" rel=\"noopener\">official page</a>)" for v in PR["voice"]) + ". Phone numbers, call carriers and any extra model or tool use can be billed on top. Build one: " + _ba('phone-call-bot') + "."),
+ ("How much does an AI phone call cost per minute?",
+  f"On the voice-agent platforms we checked ({nice_date(PR['checked_on'])}), from {_pz(_vp_lo)} to {_pz(_vp_hi)} a minute: " + "; ".join(f"{v['provider']} {_vp_txt(v)} ({v['includes']})" for v in _VP) + f". So a {_pcall}-minute call costs about {money(_vp_lo*_pcall)} to {money(_vp_hi*_pcall)} before any extras. Check what each price covers: some include the AI model and voice, others add them on top.",
+  f"On the voice-agent platforms we checked ({nice_date(PR['checked_on'])}), from {_pz(_vp_lo)} to {_pz(_vp_hi)} a minute: " + "; ".join(f"{e(v['provider'])} {_vp_txt(v)} ({e(v['includes'])}; <a href=\"{e(v['source_url'])}\" rel=\"noopener\">official pricing</a>)" for v in _VP) + f". So a {_pcall}-minute call costs about {money(_vp_lo*_pcall)} to {money(_vp_hi*_pcall)} before any extras. Check what each price covers: some include the AI model and voice, others add them on top. More: <a href=\"{u(PHONE_GUIDE)}\">can AI make phone calls for you?</a>"),
  ("How much does a personal AI agent cost?",
   "A personal AI agent app usually comes with a monthly plan: " + _plan_span + " a month on the official plan pages we checked (" + nice_date(PR['checked_on']) + "), and agent features such as scheduled tasks or a cloud browser are often only on paid plans. Free, open-source agents like OpenClaw and Hermes Agent cost nothing to install; you pay for the AI model you connect, often a few dollars a month or less for a small bot.", None),
  ("How do I work out what my AI agent will cost?",
@@ -1356,16 +1384,16 @@ COST_FAQ = [
   "Set a spend limit and usage alerts on your AI account before anything runs on autopilot (" + _ua("set-ai-spend-limits-and-alerts") + "), test on a free tier first (" + _ua("test-your-bot-on-a-free-tier") + "), and check the first week's usage."),
 ]
 cbc, cbld = crumbs([("Home", "/"), ("Run your bots for less", LESS), ("What an AI agent costs", None)])
-_cost_desc = mdesc(f"What an AI agent costs per month: {money(_lo_all)} to {money(_hi_all)} for {len(_cost_rows)} everyday bots at official API prices, plus app plans, OpenClaw and Hermes. Math shown.")
+_cost_desc = mdesc(f"What a personal AI agent costs per month: {money(_lo_all)} to {money(_hi_all)} for {len(_cost_rows)} everyday bots at official API prices, voice agents per minute, app plans. Math shown.")
 cost_body = f"""<article class="wrap narrow explainer">{cbc}
 <header class="page-head"><p class="eyebrow">Costs, in plain English</p><h1 class="kinetic-sm">How much does it cost to run an AI agent?</h1>
-<p class="lead">Short answer: inside an app plan you already pay for, your bot runs within that plan's limits. On a pay-per-use AI API, the {len(_cost_rows)} everyday bots in our blueprints come to between <b>{money(_lo_all)}</b> and <b>{money(_hi_all)}</b> a month, depending on the bot and the model. Every number below is worked out from official prices checked {nice_date(PR['checked_on'])}.</p>
+<p class="lead">Short answer for a personal bot (one bot doing one everyday job for you): on a pay-per-use AI API, the {len(_cost_rows)} everyday bots in our blueprints come to between <b>{money(_lo_all)}</b> and <b>{money(_hi_all)}</b> a month, depending on the bot and the model. Inside an app plan you already pay for, it runs within that plan's limits at no extra cost. A bot that talks on the phone is billed per minute instead: <b>{_pz(_vp_lo)} to {_pz(_vp_hi)} a minute</b> on the voice-agent platforms we checked; {_vp_note} (<a href="#voice">details</a>). Every number below is worked out from official prices checked {nice_date(PR['checked_on'])}.</p>
 {_byline()}</header>
 
 <section class="glass explain-card reveal" id="at-a-glance"><h2>AI agent cost at a glance</h2><ul class="big-list">
 <li><b>The agent software:</b> often free. OpenClaw and Hermes Agent are free and open source; agent apps like Claude Cowork, ChatGPT dots, Gemini Spark and Grok Bot run inside a plan (<a href="#plans">plan prices</a>).</li>
 <li><b>The AI model, pay-per-use:</b> {money(_lo_all)} to {money(_hi_all)} a month for each of our {len(_cost_rows)} everyday bots, depending on the bot and the model (<a href="#examples">full table</a>).</li>
-<li><b>Phone and voice bots:</b> billed per minute, not per token (<a href="#voice">examples</a>).</li>
+<li><b>Phone and voice bots:</b> billed per minute, not per token: {_pz(_vp_lo)} to {_pz(_vp_hi)} a minute on the platforms we checked ({_vp_note}), so about {_vp_rate({"price_min": _vp_lo, "price_max": _vp_hi}, _pmo)} for {_pmo} minutes of calls a month before extras (<a href="#voice">voice agent costs</a>).</li>
 <li><b>The biggest lever:</b> model choice. Within one company, the small model can cost up to {LESS_RATIO}× less than the flagship (<a href="#cut">how to pay less</a>).</li></ul>
 <p><a class="btn btn-sm" href="{u(LESS)}#calculator">Work out your own bot's cost</a> <a class="btn btn-sm btn-ghost" href="{u(BUILD_GUIDE)}">Build one without coding</a></p></section>
 
@@ -1396,8 +1424,12 @@ cost_body = f"""<article class="wrap narrow explainer">{cbc}
 <p>The software is free; you pay for the model and the machine. OpenClaw has “no paid tier, hosted service, or token” ({C('oc_readme')}), and its minimum server is 1 vCPU and 1 GB of RAM ({C('oc_host')}). Hermes Agent is free under the MIT license; Nous Research sells optional model and tool credits through Nous Portal, and cloud hosting is optional ({C('hm_site')}). Hermes' docs also show how to run it on your own machine with Ollama at no API cost ({C('hm_ollama')}).</p>
 <p>Self-hosted agents send their own instructions, memory and tool lists with every message, so they can read more tokens per run than our estimates. Hermes' docs call this a fixed per-message cost and show how to check it with <code>/usage</code> and <code>hermes prompt-size</code> ({C('hm_tips')}). Full comparison: <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent: a beginner's guide</a>.</p></section>
 
-<section class="reveal" id="voice"><h2>Phone and voice bots are priced per minute</h2>
-<p>Bots that talk, like the {_ba('phone-call-bot')}, are billed by the minute instead of by the token. Examples from official pages:</p><ul class="big-list">{_voice}</ul></section>
+<section class="reveal" id="voice"><h2>AI voice agent cost per minute and per month</h2>
+<p>Bots that talk, like the {_ba('phone-call-bot')}, are billed by the minute of talk instead of by the token. A personal phone bot that makes four {_pcall}-minute calls a month uses about {_pmo} minutes; a business line taking 10 calls a day can use {_vmo} or more. Prices from each platform's official pricing page:</p>
+{_vp_table}
+<p class="small">Read the “what the price covers” column: Bland's rate includes the AI model and voice, {e(_vp_low["provider"])}'s {_pz(_vp_low["price_min"])} is its hosting fee with the model and voice charged on top, and Retell's range depends on the model and voice you pick. Phone numbers and call carriers can add a little more.</p>
+<h3 id="voice-models">Building your own on a voice model</h3><p>If you connect a voice model directly, these are the official per-minute prices:</p><ul class="big-list">{_voice}</ul>
+<p>Want the whole picture, including which agents can already make calls for you? Read <a href="{u(PHONE_GUIDE)}">can AI make phone calls for you?</a></p></section>
 
 <section class="reveal" id="cut"><h2>How to pay less</h2><ul class="big-list">{''.join(f'<li>{_ua(x["slug"], x["title"])}</li>' for x in _rfl)}</ul>
 <p>Batch APIs take 50% off at {e(', '.join(BATCH_PROVS))} for jobs that can wait. All the tips: <a href="{u(LESS)}">Run your bots for less</a>.</p></section>
@@ -1543,10 +1575,74 @@ safe_body = f"""<article class="wrap narrow explainer">{sbc}
 </article>"""
 page(SAFE_GUIDE, "Is it safe to give an AI agent your email and calendar?", _safe_desc, safe_body,
      [sbld, _art_ld(SAFE_GUIDE, "Is it safe to give an AI agent your email and calendar?", _safe_desc), _faq_ld(SAFE_FAQ)], og_type="article")
+# ----- 5. Can AI make phone calls for you? (2026-11-03) -----
+SRC.update({
+ "x_vet": ("X post by @RetiredArmy_Guy (2026-10-19): his Grok Bot got its own phone number and booked his dog's vet appointment", "https://x.com/RetiredArmy_Guy/status/2112154131028652535"),
+ "x_hulu": ("X post by @skeptrune (2026-10-20): Grok Bot cancels Hulu by phone with a phone-calling add-on", "https://x.com/skeptrune/status/2112563230019289456"),
+ "x_rest": ("X post by @BrianRoemmele (2026-10-18): a Grok Bot calls a restaurant, books the table and reports back", "https://x.com/BrianRoemmele/status/2111812467500458135"),
+ "x_air": ("X post by @mike_nopages (2026-10-17): the airline wouldn't rebook because he wasn't on the line", "https://x.com/mike_nopages/status/2111346928185496016"),
+ "x_hangup": ("X post by @james_fowler_ (2026-10-18): a restaurant owner nearly hung up until the bot said it was an AI", "https://x.com/james_fowler_/status/2111888527826813404"),
+ "manus": ("Manus blog: Introducing Manus 2.0 and Cue", "https://manus.im/blog/introducing-manus-2-0"),
+})
+_vp_list = "".join(f'<li><b>{e(v["provider"])}</b> ({e(v["plan"])}): {_vp_txt(v)} a minute; {e(v["includes"])}. A {_pcall}-minute call: {_vp_rate(v, _pcall)}. (<a href="{e(v["source_url"])}" rel="noopener">official pricing</a>, checked {nice_date(v["checked_on"])})</li>' for v in _VP)
+PHONE_FAQ = [
+ ("Can AI make phone calls for you?",
+  "Yes. Some personal AI agents can now phone a business for you, book a table or an appointment, make a customer-service call and tell you what was said. Grok Bot can do it once you connect a phone-calling add-on that gives it its own number, Meta Muse can call businesses for you, and Cue by Manus gives each agent its own phone number. Make it say it's an AI, and keep anything involving money or your account details for yourself.", None),
+ ("Which AI can make phone calls for me?",
+  "Grok Bot with a phone-calling add-on connected, Meta Muse, Instinct (an invite-only beta, per WIRED in September 2026) and Cue by Manus. Developers can also build a call bot on a voice-agent platform such as Retell AI, Vapi or Bland.", None),
+ ("How much does it cost for AI to make a phone call?",
+  f"On the voice-agent platforms we checked ({nice_date(PR['checked_on'])}), {_pz(_vp_lo)} to {_pz(_vp_hi)} a minute ({_vp_note}), so a {_pcall}-minute call is about {money(_vp_lo*_pcall)} to {money(_vp_hi*_pcall)} before any extras. Agent apps may instead include calls in a plan or charge for the phone number separately.",
+  f"On the voice-agent platforms we checked ({nice_date(PR['checked_on'])}), {_pz(_vp_lo)} to {_pz(_vp_hi)} a minute ({_vp_note}), so a {_pcall}-minute call is about {money(_vp_lo*_pcall)} to {money(_vp_hi*_pcall)} before any extras (<a href=\"#cost\">table with sources</a>). Agent apps may instead include calls in a plan or charge for the phone number separately."),
+ ("Can an AI call customer service and wait on hold for me?",
+  "Yes, with limits. One user shared a real Hulu cancellation call made by Grok Bot with a phone-calling add-on. But some companies only act for the account holder: another user says an airline wouldn't rebook his flight because he wasn't on the line.",
+  f"Yes, with limits. One user shared a real Hulu cancellation call made by Grok Bot with a phone-calling add-on ({C('x_hulu', 'X post')}). But some companies only act for the account holder: another user says an airline wouldn't rebook his flight because he wasn't on the line ({C('x_air', 'X post')})."),
+ ("Will the person on the phone know it's an AI?",
+  "Have it say so at the start. One user says a restaurant owner almost hung up, thinking it was spam, until the bot said it was an AI.",
+  f"Have it say so at the start. One user says a restaurant owner almost hung up, thinking it was spam, until the bot said it was an AI ({C('x_hangup', 'X post')})."),
+ ("Is it safe to let an AI make calls for me?",
+  "For simple bookings and questions, yes, if you set rules: say what it may agree to, never let it share card numbers or one-time codes, and check afterwards that the change really happened. If calls are recorded, check the recording rules where you live; some places need everyone's consent.", None),
+]
+pbc, pbld = crumbs([("Home", "/"), ("What is an AI agent?", "/what-can-bots-do/"), ("Can AI make phone calls for you?", None)])
+_phone_desc = mdesc(f"Yes: Grok Bot, Meta Muse and Cue by Manus can call businesses for you. What works, what goes wrong, and what each minute of a call costs.")
+phone_body = f"""<article class="wrap narrow explainer">{pbc}
+<header class="page-head"><p class="eyebrow">Phone calls, in plain English</p><h1 class="kinetic-sm">Can AI make phone calls for you?</h1>
+<p class="lead">Short answer: yes. Some personal AI agents can now phone a restaurant, a vet or a salon, book the slot, sit through a customer-service call and tell you what was said. You give the job in a message; the bot makes the call from its own number. It works best for simple bookings and questions, and you should keep payments and account changes for yourself.</p>
+{_byline()}</header>
+
+<section class="glass explain-card reveal" id="what-it-can-do"><h2>What an AI can do on the phone for you</h2><ul class="big-list">
+<li><b>Book things:</b> {_ua('call-and-book-by-phone')}, and {_ua('restaurant-reservations-by-agent')}. One user's bot booked his dog's vet appointment by phone ({C('x_vet', 'X post')}); another's books restaurant tables with strict rules ({C('x_rest', 'X post')}).</li>
+<li><b>Customer-service calls:</b> {_ua('make-a-customer-service-call')}, for example cancelling a subscription ({C('x_hulu', 'X post')}).</li>
+<li><b>Answer your calls:</b> {_ua('let-a-bot-answer-and-screen-your-calls')}.</li>
+<li><b>Travel trouble:</b> {_ua('get-roadside-help-abroad')}.</li></ul></section>
+
+<section class="reveal" id="which-ai"><h2>Which AI can make phone calls for you?</h2><ul class="big-list">
+<li><b>Grok Bot:</b> once you connect a phone-calling add-on so the bot has its own number. The calls above were made this way.</li>
+<li><b>Meta Muse:</b> can call businesses for you; see {_ua('restaurant-reservations-by-agent', 'booking tables by agent')} for a test where it booked easily but failed to cancel.</li>
+<li><b>Instinct:</b> messages or calls small businesses; an invite-only beta when WIRED reviewed it ({C('wired')}).</li>
+<li><b>Cue by Manus:</b> each agent gets its own phone number and can make and take calls ({C('manus')}).</li></ul>
+<p>Want to build your own? The {_ba('phone-call-bot')} blueprint has the instructions to paste in, the guardrails and the cost of a call.</p></section>
+
+<section class="reveal" id="cost"><h2>What AI phone calls cost</h2>
+<p>Calls are billed by the minute, not by the token. Prices on the official pricing pages of three voice-agent platforms:</p><ul class="big-list">{_vp_list}</ul>
+<p>A personal phone bot that makes four {_pcall}-minute calls a month uses about {_pmo} minutes. Full table, plus voice-model prices: <a href="{u(COST_GUIDE)}#voice">AI voice agent cost per minute and per month</a>.</p></section>
+
+<section class="reveal warn glass" id="what-goes-wrong"><h2>What goes wrong</h2><ul class="big-list">
+<li><b>Some companies won't deal with a bot.</b> They only act for the account holder; one airline wouldn't rebook a flight for that reason ({C('x_air', 'X post')}).</li>
+<li><b>People hang up on spam.</b> Have the bot say it's an AI right away ({C('x_hangup', 'X post')}).</li>
+<li><b>A call is hard to undo.</b> Tell it exactly what it may agree to, and never let it share card numbers, deposit details or one-time codes.</li>
+<li><b>Check it worked.</b> Look for the confirmation email or make sure the next charge doesn't appear.</li></ul></section>
+
+<section class="reveal" id="faq"><h2>Questions people ask</h2>{_faq_html(PHONE_FAQ)}</section>
+<section class="glass explain-card"><h2>Next step</h2><p>Start with one low-stakes booking using the {_ba('phone-call-bot')}. New to agents? Read <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a> and <a href="{u(SAFE_GUIDE)}">how to keep it safe</a>.</p></section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['x_vet','x_rest','x_hulu','x_air','x_hangup','manus','wired'])}<ul class="small src-list">{"".join(f'<li><a href="{e(v["source_url"])}" rel="noopener">{e(v["provider"])} pricing</a>, checked {nice_date(v["checked_on"])}</li>' for v in _VP)}</ul></section>
+</article>"""
+page(PHONE_GUIDE, "Can AI make phone calls for you? What works and what it costs", _phone_desc, phone_body,
+     [pbld, _art_ld(PHONE_GUIDE, "Can AI make phone calls for you?", _phone_desc, published="2026-11-03"), _faq_ld(PHONE_FAQ)], og_type="article")
 NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner guide: pick one job, write it in four lines, paste instructions into an agent app, test once, schedule it safely."),
               (COST_GUIDE, "How much does it cost to run an AI agent?", f"Monthly estimates for {len(_cost_rows)} everyday bots at official API prices, with the math shown."),
               (CLAW_GUIDE, "OpenClaw vs Hermes Agent: a beginner's guide", "What each open-source agent is, side-by-side comparison, how to pick, cost and safety tips."),
-              (SAFE_GUIDE, "Is it safe to give an AI agent your email and calendar?", "Prompt injection, too much access, sending without review, and 8 rules that keep you in charge.")]
+              (SAFE_GUIDE, "Is it safe to give an AI agent your email and calendar?", "Prompt injection, too much access, sending without review, and 8 rules that keep you in charge."),
+              (PHONE_GUIDE, "Can AI make phone calls for you?", "Which agents can call a business for you, what goes wrong, and what AI phone calls cost per minute, from official pricing pages.")]
 
 # ---------- LATEST IN AI (/news/ + /news/feed.xml) -------------------------------------
 NEWS_CATS = J("data", "news.json")["categories"]
@@ -1569,7 +1665,7 @@ news_ld = [bld, {"@context": "https://schema.org", "@type": "ItemList", "name": 
 news_ld += [{"@context": "https://schema.org", "@type": "NewsArticle", "headline": n["headline"][:110], "description": n["explainer"], "datePublished": n["date"],
              "url": absu(u("/news/#" + n["id"])), "isBasedOn": n["source_url"], "image": absu(u("/assets/og.png")),
              "author": {"@type": "Organization", "name": NAME}, "publisher": {"@type": "Organization", "name": NAME}} for n in NEWS[:20]]
-page("/news/", "Latest in AI: new models and AI agent launches, explained", mdesc(f"AI news in plain English, updated {nice_date(NEWS[0]['date'])}: new models from OpenAI, Anthropic, Google, xAI and more, plus AI agent launches, what they mean for you, sourced."),
+page("/news/", "AI news this week: new models and AI agent launches, explained", mdesc(f"AI news in plain English, updated {nice_date(NEWS[0]['date'])}: new models from OpenAI, Anthropic, Google, xAI and more, plus AI agent launches, what they mean for you, sourced."),
      f"""<div class="wrap page-head news-head">{bc}<p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Latest in AI · updated {nice_date(NEWS[0]['date'])}</p><h1 class="kinetic-sm">Latest in AI</h1>
 <p class="lead">The AI news that matters for you and your bots, in plain words. <b>Top story</b> = most important. <b>Trending</b> = most likes and reposts on X right now. Every story links to its source.</p>
 <p class="small muted">{len(NEWS)} stories · {cat_counts} · {sum(1 for n in NEWS if n.get('x'))} with measured X numbers · <a href="{u('/news/feed.xml')}">RSS feed</a> · Price changes also go into the <a href="{u(PRICING)}">AI price table</a>. <a href="{u('/about/#popularity')}">How we measure</a>.</p>

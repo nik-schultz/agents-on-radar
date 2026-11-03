@@ -160,6 +160,8 @@
  {
   "slug": "phone-call-bot",
   "title": "Phone Call Bot",
+  "seo_title": "Phone call bot: have AI make calls and book for you",
+  "seo_description": "A free blueprint for a bot that phones a restaurant, vet or salon, books the slot and tells you what was said. Steps, guardrails and per-minute call costs.",
   "art": "cat-work",
   "difficulty": "Medium",
   "setup_time": "4-step bot · needs a calling add-on",

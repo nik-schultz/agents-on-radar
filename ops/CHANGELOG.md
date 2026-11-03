@@ -1,5 +1,47 @@
 # Ops changelog
 
+## 2026-11-03 (SEO on-site fixes from the traffic research, ~2:15 PM CT; asked via the SEO agent after Nik's "get more traffic" request)
+From the GSC export Oct 22–Nov 1 (446 impressions, 3 clicks) and ops/drafts/traffic-research-2026-11-03.md, items #1, #2, #3, #7, #10. Item #6 is left for the weekly run.
+- #1 Titles and descriptions for zero-click pages. New optional use-case field `seo_description` (build.py uses it before the generated description). Blueprints now also accept `seo_title` and `seo_description`.
+  - add-events-and-reminders-by-asking-your-bot: "Add calendar events and reminders just by asking your bot" -> "Add calendar events and reminders by asking AI (Grok, Gemini)"
+  - practice-speaking-a-new-language: "Practice speaking a new language out loud with AI" -> "Practice speaking a new language with an AI voice partner"
+  - weekend-family-activities: seo_title "AI weekend activity ideas that fit your kids and weather" -> "Weekend ideas for kids, matched to the weather by AI"
+  - control-your-smart-home-with-a-private-ai: "Control your smart home by talking to a private AI" -> "Private AI voice control for your smart home (Home Assistant)"
+  - hire-a-chief-of-staff-bot: "Set up a “chief of staff” bot that plans your other bots" -> "AI chief of staff: one bot that plans which bots you need"
+  - let-chatgpt-run-your-icloud-mail-and-calendar: seo_title "ChatGPT with iCloud Mail and your iPhone calendar" -> "ChatGPT for iCloud Mail and iPhone Calendar: how to set it up"
+  - /news/: "Latest in AI: new models and AI agent launches, explained" -> "AI news this week: new models and AI agent launches, explained"
+  - Each use case above also got a hand-written seo_description (all 155 characters or fewer).
+- #2 compare-two-documents: "Compare two versions of a document or contract" -> seo_title "What tool can compare two versions of a contract?" plus seo_description. New optional `compare_table` field, rendered as "Which tool should you use to compare two contract versions?". Rows: Word Compare (Microsoft Support), Google Docs Compare documents (Google Docs Editors Help, added to sources) and ChatGPT/Claude/Gemini/Grok. last_checked set to 2026-11-03.
+- #3 New guide /can-ai-make-phone-calls-for-you/ ("Can AI make phone calls for you? What works and what it costs"). Contents:
+  - Answer-first lead, then what AI can do on the phone, which agents can call (Grok Bot with a calling add-on, Meta Muse, Instinct, Cue by Manus), and per-minute costs.
+  - A "What goes wrong" section, 6 FAQs (FAQPage JSON-LD) and a sources list.
+  - Linked from the cost guide, /what-can-bots-do/ and the 4 phone use cases (call-and-book-by-phone, make-a-customer-service-call, let-a-bot-answer-and-screen-your-calls, restaurant-reservations-by-agent). It is also in NEW_GUIDES, so it appears in search and llms.txt.
+  - /blueprints/phone-call-bot/: "Phone Call Bot: a bot blueprint" -> "Phone call bot: have AI make calls and book for you", plus seo_description.
+- Voice prices: new `voice_platforms` list in data/ai-pricing.json, from official pricing pages checked 2026-11-03. validate.py now checks its source_url and checked_on.
+  - Retell AI pay-as-you-go: $0.07–$0.31/min; voice engine $0.055/min; US Twilio calls $0.015/min; number $2/mo. Source: https://www.retellai.com/pricing
+  - Bland Start: $0.14/min with the model, STT and voices included; $0 platform fee; transfer $0.05/min. Source: https://www.bland.ai/pricing
+  - Vapi pay as you go: $0.05/min hosting, with providers billed at cost on top; Vapi's own calculator shows $82–$129 for 1,000 min. Source: https://vapi.ai/pricing
+  - Re-verified the existing `voice` rows on their official pages: xAI grok-voice-3.0 $0.08/min, OpenAI gpt-live-1 $0.05/min, Mistral Voxtral 3 voice agent API $0.04/min.
+- #7 /what-can-bots-do/:
+  - Title "What is an AI agent? Simple terms, vs. chatbots" -> "What is an AI agent, and what can it do for you?".
+  - The lead now gives personal-use examples.
+  - New #personal-use section with 10 linked examples. The meta description has a computed count.
+- #7 /ai-agent-examples/:
+  - Title "{n} AI agent examples for everyday life" -> "{n} AI agent examples for personal use and everyday life". The count is still computed (119 today); the "115" in search results was Google's cached copy.
+  - New answer-first lead.
+  - New FAQ "What are examples of AI agents for personal use?".
+- #10 Cost guide:
+  - Answer-first lead for a personal bot (computed API range plus per-minute voice range, noting the lowest is a hosting fee).
+  - Description now starts "What a personal AI agent costs per month".
+  - #voice renamed "AI voice agent cost per minute and per month", with a platform table (per minute, one 5-min call, 20 min/month, 300 min/month, what the price covers, source and date) and the voice-model list kept under it.
+  - Voice FAQ updated; new FAQ "How much does an AI phone call cost per minute?".
+- Homepage: only the computed "linked sources" count changed (408 -> 409). No layout change. Untouched: /advertise/, sponsor_checkout, X.
+- Drafts only, nothing submitted (gitignored ops files):
+  - ops/launch_drafts.md draft A now targets alvinreal/awesome-openclaw (the old URL redirects there).
+  - New section E there with free directories only (ToolDirectory.ai, toolhype.dev, Future Tools, Nukkadly, AlternativeTo; SaaSHub pending). TAAFT ($49), Futurepedia (no public form) and Toolify ($99) were dropped.
+  - growth-plan.md and content-calendar.md point to it.
+- Checks: validate 0 errors; build 161 pages; check_links 0 broken internal.
+
 ## 2026-11-03 (Starter Pack signup wording, deployed ~1:35 PM CT, approved by Nik via chat)
 Deployed after Kit form 10088120's confirmation email was confirmed to deliver StarterPack.pdf (Download incentive).
 - scripts/build.py: new NL_PACK_* constants. `newsletter_box()` copy for every signup box (homepage, /newsletter/, issue pages, end-of-article, mid-article, hub and sidebar cards):

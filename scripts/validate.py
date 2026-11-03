@@ -86,7 +86,7 @@ def main():
     for r in pr["api"]:
         if not (isinstance(r.get("input"), (int, float)) and isinstance(r.get("output"), (int, float))): errs.append(f"ai-pricing {r.get('model')}: non-numeric price")
         if not str(r.get("source_url", "")).startswith("https://") or not is_date(r.get("checked_on")): errs.append(f"ai-pricing {r.get('model')}: needs source_url + checked_on")
-    for r in pr["consumer"] + pr["discounts"] + pr.get("voice", []):
+    for r in pr["consumer"] + pr["discounts"] + pr.get("voice", []) + pr.get("voice_platforms", []):
         if not str(r.get("source_url", "")).startswith("https://") or not is_date(r.get("checked_on")): errs.append(f"ai-pricing {r.get('provider')}: needs source_url + checked_on")
     names = {r["model"] for r in pr["api"]}
     for m in pr["blueprint_models"]:

@@ -425,5 +425,37 @@
    "source_url": "https://mistral.ai/news/voxtral-3/",
    "checked_on": "2026-11-03"
   }
+ ],
+ "voice_platforms": [
+  {
+   "provider": "Retell AI",
+   "plan": "Pay-as-you-go",
+   "price_min": 0.07,
+   "price_max": 0.31,
+   "includes": "Retell's voice engine ($0.055/min) plus the AI model and voice you pick",
+   "extras": "US calls via Twilio $0.015/min; a Retell phone number $2.00/month",
+   "source_url": "https://www.retellai.com/pricing",
+   "checked_on": "2026-11-03"
+  },
+  {
+   "provider": "Bland",
+   "plan": "Start",
+   "price_min": 0.14,
+   "price_max": 0.14,
+   "includes": "the AI model, speech-to-text and voices, with a $0 platform fee",
+   "extras": "transfer time $0.05/min; phone carrier billed separately at pass-through cost",
+   "source_url": "https://www.bland.ai/pricing",
+   "checked_on": "2026-11-03"
+  },
+  {
+   "provider": "Vapi",
+   "plan": "Pay as you go",
+   "price_min": 0.05,
+   "price_max": 0.05,
+   "includes": "Vapi's hosting fee only; speech-to-text, the AI model and the voice are charged on top at the providers' cost",
+   "extras": "1 Vapi phone number included; $5 free credits to start; Vapi's own calculator shows $82–$129 for 1,000 minutes with Deepgram, OpenAI and ElevenLabs",
+   "source_url": "https://vapi.ai/pricing",
+   "checked_on": "2026-11-03"
+  }
  ]
 }
