@@ -49,6 +49,16 @@ MOD_ISO, MOD_NICE = "@@MODDATE_ISO@@", "@@MODDATE_NICE@@"
 _CD_PATH = os.path.join(ROOT, "data", "content-dates.json")
 CONTENT_DATES = json.load(open(_CD_PATH)) if os.path.exists(_CD_PATH) else {}
 NL_PROMISE = "3 to 5 practical jobs you can hand to AI each week"
+# Free Starter Pack for new subscribers (PDF delivered by Kit's confirmation email; source in ops/drafts/starter-pack/).
+NL_PACK = "the free Starter Pack"
+NL_PACK_HEAD = "Get the free Starter Pack: 7 AI agents you can put on a schedule"
+NL_PACK_LEAD = (f"Join the {NAME} Weekly and we'll send you 7 ready-to-paste setups for ChatGPT, Claude, OpenClaw and Hermes Agent, plus a bonus for power users. "
+                "Each one asks you before it sends, buys or deletes anything.")
+NL_PACK_HEAD_SHORT = "Free Starter Pack for subscribers"
+NL_PACK_LEAD_SHORT = "7 ready-to-paste AI agent setups and a power-user bonus now, then 3 to 5 practical jobs to hand to AI each week."
+NL_PACK_BTN = "Send me the Starter Pack"
+NL_PACK_SETUPS = ["a 7am inbox summary", "a Sunday family week-ahead", "bills coming due", "a package tracker",
+                  "renewals and free trials ending", "a page watcher that tells you when something changes", "a Friday \"what's waiting on me\""]
 
 # Reusable paid-placement labels. Unused until a real sponsor or affiliate link exists.
 def paid_label(kind="sponsored"):
@@ -312,7 +322,7 @@ def newsletter_box(uid="nl", variant="full"):
     act = cfg["newsletter"].get("form_action", "")
     dis = "" if act else " disabled"
     priv = f' <a href="{u(PRIVACY)}">Privacy</a>'
-    note = (f'<p class="small nl-note">We\'ll email you a link to confirm. You\'re not subscribed until you click it. Unsubscribe any time.{priv}</p>' if act
+    note = (f'<p class="small nl-note">We\'ll email you a confirm button. Click it to confirm and get your Starter Pack. Unsubscribe any time.{priv}</p>' if act
             else f'<p class="small" role="note">Signups open soon. This form doesn\'t send anything yet.{priv}</p>')
     tag = "aside" if variant == "card" else "section"
     cls = {"full": "news glass reveal", "card": "news glass nl-card", "inline": "news glass nl-inline"}[variant]
@@ -320,13 +330,17 @@ def newsletter_box(uid="nl", variant="full"):
     sid = ' id="newsletter"' if uid == "nl" else ""
     fwd = f'<p class="small nl-fwd">Know someone who\'d like this? Forward it, or send them to <a href="{e(absu(u("/newsletter/")))}">botsdothat.com/newsletter</a></p>'
     h = "h3" if variant == "card" else "h2"
-    lead = ("Real examples with sources, a prompt to copy, one new guide and one thing that went wrong. Free, one email a week." if variant != "card"
-            else "Real examples with sources and a prompt to copy. Free, one email a week.")
-    return f"""<{tag} class="{cls}"{sid} aria-labelledby="{hid}"><div><p class="eyebrow">{e(NAME)} Weekly</p><{h} id="{hid}">{e(NL_PROMISE[0].upper() + NL_PROMISE[1:])}</{h}>
+    # Starter Pack offer (ops/drafts/starter-pack/signup-copy.md). Short variant for sidebar cards and the mid-article box,
+    # so long guides that show a mid and an end box never repeat the same heading.
+    if variant == "card" or uid == "nl-mid":
+        head, lead = NL_PACK_HEAD_SHORT, NL_PACK_LEAD_SHORT
+    else:
+        head, lead = NL_PACK_HEAD, NL_PACK_LEAD
+    return f"""<{tag} class="{cls}"{sid} aria-labelledby="{hid}"><div><p class="eyebrow">{e(NAME)} Weekly</p><{h} id="{hid}">{e(head)}</{h}>
 <p>{lead}</p></div>
 <form class="nl-form" action="{e(act) or '#'}" method="post"{' data-nl' if act else ''}><label class="sr" for="{uid}-email">Email address</label>
 <input id="{uid}-email" type="email" name="{e(cfg['newsletter'].get('email_field','email_address'))}" placeholder="you@example.com" autocomplete="email" required{dis}>
-<button class="btn" type="submit"{dis}>Subscribe</button></form><p class="nl-status" role="status" aria-live="polite" hidden></p>{note}{fwd}</{tag}>"""
+<button class="btn" type="submit"{dis}>{e(NL_PACK_BTN)}</button></form><p class="nl-status" role="status" aria-live="polite" hidden></p>{note}{fwd}</{tag}>"""
 
 def searchbox(id_="q", placeholder="Try “groceries”, “phone call”, “school emails”…", home=False):
     return f"""<form class="search" role="search" action="{u('/use-cases/')}" method="get"><label class="sr" for="{id_}">Search use cases</label>
@@ -824,7 +838,7 @@ for x in ucs:
 <section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p></section>{see_also_html(x)}{less_callout if x['category'] == 'run-for-less' else ''}{tool_listing(cat=x['category'])}
 <section><h2>Copy-paste prompt</h2><p class="muted small">Fill in the [brackets]. Then paste it into any tool below.</p>{copybox(x['prompt'])}
 <p class="small">New to this? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>, then <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, or <a href="{u('/blueprints/#how-to')}">set up a bot in 5 plain steps →</a>{(' Choosing a self-hosted agent? See <a href="' + u(CLAW_GUIDE) + '">OpenClaw vs Hermes Agent for beginners</a>.') if any(t["id"] in ("openclaw", "hermes-agent") for t in x["tools"]) else ''}{(' Connecting email or a calendar? Read <a href="' + u(SAFE_GUIDE) + '">is it safe to give an AI agent your email and calendar?</a>') if (x['category'] == 'inbox' or any(t.lower() in ('gmail', 'outlook', 'calendar', 'google calendar', 'email') for t in x.get('tags', []))) else ''}</p>
-<p class="small nl-pointer">Want one new job like this each week, with a prompt to copy? <a href="{u('/newsletter/')}">Get the free {e(NAME)} Weekly email</a>.</p></section>
+<p class="small nl-pointer">Want one new job like this each week, with a prompt to copy? <a href="{u('/newsletter/')}">Get the free {e(NAME)} Weekly email</a> and {e(NL_PACK)}: 7 ready-to-paste AI agent setups, plus a power-user bonus.</p></section>
 {setup}
 <section><h2>Tools that can do it today</h2>{tool_grid(x['tools'])}<p class="small muted">Plans and limits change; check each tool's page.</p></section>
 {('<section class="warn glass"><h2>Watch out</h2><ul>'+watch+'</ul></section>') if watch else ''}
@@ -1618,6 +1632,7 @@ _nl_list = "".join(f'<li class="glass nl-arch"><a href="{u(nl_path(i))}"><span c
 NL_FAQ = [
     ("Is the BotsDoThat Weekly free?", "Yes. It's a free email. If an issue ever has a sponsor, the sponsor block is clearly labeled and it doesn't change what we pick.", None),
     ("How often will I get it?", "One email a week, no more.", None),
+    ("What is the Starter Pack, and how do I get it?", "A free PDF for new subscribers with 7 ready-to-paste setups that put an AI on a regular schedule: " + ", ".join(NL_PACK_SETUPS[:-1]) + " and " + NL_PACK_SETUPS[-1] + ". Each one has the exact prompt, setup steps for ChatGPT, Claude, OpenClaw and Hermes Agent (saying plainly where a tool can't do it), and a rule that the AI asks before it sends, buys or deletes anything. A bonus 8th setup for experienced users chains several Hermes Agent jobs into one morning brief that acts only on the items you approve. You get it when you click the confirm button in the email we send after you sign up.", None),
     ("Do I need to know how to code?", "No. Every job comes with a plain-English prompt you can paste into an AI app you already use, and the full guide on the site says what you end up with and what to watch out for.", None),
     ("How do I unsubscribe?", "Every email has an unsubscribe link at the bottom. One click and you're off the list.", None),
     ("What happens to my email address?", "We use it only to send the newsletter. Signups are double opt-in: you get a confirmation email and you aren't subscribed until you click it. We never sell or share it.",
@@ -1625,8 +1640,9 @@ NL_FAQ = [
 ]
 _nlc, _nlld = crumbs([("Home", "/"), ("Newsletter", None)])
 _nl_latest = (f'<p><a class="btn btn-ghost" href="{u(nl_path(NL[0]))}">Read the latest issue: {e(NL[0]["subject"])}</a></p>' if NL else "")
-page("/newsletter/", f"Free AI agents newsletter: the {NAME} Weekly", mdesc(f"The {NAME} Weekly is a free email: {NL_PROMISE}, each with a copy-paste prompt, plus one new guide and one thing to watch out for."),
-     f'<div class="wrap narrow">{_nlc}<p class="eyebrow">Newsletter</p><h1 class="kinetic-sm">The {e(NAME)} Weekly</h1><p class="lead">A free weekly email about AI that does things, not just answers. Every week: {NL_PROMISE.replace(" each week", "")}, each with what you end up with and a prompt to copy, plus one new guide and one thing that went wrong so you don\'t repeat it.</p>{newsletter_box()}'
+page("/newsletter/", f"Free AI agents newsletter: the {NAME} Weekly", mdesc(f"The {NAME} Weekly is a free email: {NL_PROMISE}, each with a copy-paste prompt. Subscribe and get the free Starter Pack: 7 ready-to-paste AI agent setups."),
+     f'<div class="wrap narrow">{_nlc}<p class="eyebrow">Newsletter</p><h1 class="kinetic-sm">The {e(NAME)} Weekly</h1><p class="lead">A free weekly email about AI that does things, not just answers. Sign up and you\'ll get the <b>{e(NAME)} Starter Pack</b> when you confirm: 7 ready-to-paste setups that put ChatGPT, Claude, OpenClaw or Hermes Agent on a regular schedule, plus a bonus for power users. Then every week: {NL_PROMISE.replace(" each week", "")}, each with what you end up with and a prompt to copy, plus one new guide and one thing that went wrong so you don\'t repeat it.</p>{newsletter_box()}'
+     + f'<section class="reveal" id="subscriber-extras"><h2>What subscribers get that the site doesn\'t</h2><p>Everything on {e(NAME)} stays free and open. Subscribers also get:</p><ul class="big-list"><li><b>The {e(NAME)} Starter Pack (PDF).</b> 7 recurring agent setups in one guide: ' + e(", ".join(NL_PACK_SETUPS[:-1]) + " and " + NL_PACK_SETUPS[-1]) + '.</li><li><b>A bonus for power users.</b> A self-improving Hermes Agent "ops desk": read-only scout jobs feed one morning brief, it acts only on the items you approve, and any rule it learns waits for your OK.</li><li><b>Exact prompts and setup steps for 4 tools.</b> ChatGPT, Claude, OpenClaw and Hermes Agent, with a plain note where a tool can\'t do a step, and the official help pages it was checked against.</li><li><b>A safety rule in every prompt.</b> The AI reads and reports, and asks you before it sends, buys or deletes anything.</li><li><b>It arrives when you confirm.</b> Click the button in the confirmation email and the pack is yours.</li></ul></section>'
      + f'<section class="reveal" id="whats-inside"><h2>What\'s in each issue</h2><ul class="big-list"><li><b>{NL_PROMISE[:1].upper() + NL_PROMISE[1:].replace(" each week", "")}</b>, picked from real people\'s posts and articles, each with a source.</li><li><b>A prompt to copy</b> for each one, and a link to the full guide with its watch-outs.</li><li><b>One new guide</b> from the site.</li><li><b>One thing to watch out for</b>, from <a href="{u("/news/")}">the AI news</a>: a setting to check or something that went wrong.</li></ul>{_nl_latest}</section>'
      + f'<section class="reveal" id="nl-faq"><h2>Questions about the newsletter</h2>{_faq_html(NL_FAQ)}</section>'
      + (f'<p class="small muted">Between issues, follow <a href="{e(X_URL)}" rel="me noopener">@{e(X_HANDLE)} on X</a>.</p>' if X_URL else '')
@@ -1767,7 +1783,7 @@ bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "
 open(os.path.join(OUT, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {absu(u('/sitemap.xml'))}\n")
 
 L1 = [f"# {NAME}", "", f"> {TAGLINE} {cfg['description']}", "", f"Data as of {BUILD_DATE}. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.", "",
-      "## Start here", f"- [What is an AI agent? (in simple terms)]({absu(u('/what-can-bots-do/'))}): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely", *[f"- [{t}]({absu(u(pth))}): {d}" for pth, t, d in NEW_GUIDES[1:]], f"- [How to build an AI agent without coding]({absu(u(BUILD_GUIDE))}): step-by-step beginner guide using a real blueprint as the worked example", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", f"- [{NAME} Weekly newsletter]({absu(u('/newsletter/'))}): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; past issues on the web", "", "## Use cases by category"]
+      "## Start here", f"- [What is an AI agent? (in simple terms)]({absu(u('/what-can-bots-do/'))}): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely", *[f"- [{t}]({absu(u(pth))}): {d}" for pth, t, d in NEW_GUIDES[1:]], f"- [How to build an AI agent without coding]({absu(u(BUILD_GUIDE))}): step-by-step beginner guide using a real blueprint as the worked example", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", f"- [{NAME} Weekly newsletter]({absu(u('/newsletter/'))}): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; new subscribers get a free Starter Pack PDF of 7 ready-to-paste agent setups plus a power-user bonus; past issues on the web", "", "## Use cases by category"]
 for c in cats:
     L1 += ["", f"### {c['name']}", f"All {c['name']} use cases: {absu(u('/category/'+c['slug']+'/'))}"] + [f"- [{x['title']}]({absu(u('/use-cases/'+x['slug']+'/'))}): {x['summary']}" for x in ucs if x["category"] == c["slug"]]
 L1 += ["", "## Latest in AI (newest first)"] + [f"- {n['date']} [{n['category']}] {n['headline']}: {n['explainer']} Source: {n['source_url']}" for n in NEWS[:15]]

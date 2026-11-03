@@ -1,5 +1,26 @@
 # Ops changelog
 
+## 2026-11-03 (Starter Pack signup wording, deployed ~1:35 PM CT, approved by Nik via chat)
+Deployed after Kit form 10088120's confirmation email was confirmed to deliver StarterPack.pdf (Download incentive).
+- scripts/build.py: new NL_PACK_* constants. `newsletter_box()` copy for every signup box (homepage, /newsletter/, issue pages, end-of-article, mid-article, hub and sidebar cards):
+  - Full/end variant: "Get the free Starter Pack: 7 AI agents you can put on a schedule", with a line naming ChatGPT, Claude, OpenClaw and Hermes Agent, the power-user bonus, and asks-before-sending/buying/deleting. Button "Send me the Starter Pack".
+  - Mid-article (`nl-mid`) and sidebar card variant: "Free Starter Pack for subscribers", so the 6 long guides never show two identical box headings.
+  - Note under the form: "We'll email you a confirm button. Click it to confirm and get your Starter Pack."
+- Use-case pages: the nl-pointer line now mentions the free Starter Pack (7 setups plus a power-user bonus).
+- /newsletter/:
+  - Hero lead mentions the pack.
+  - New section #subscriber-extras, "What subscribers get that the site doesn't" (the pack's 7 setups, the bonus, prompts and steps for 4 tools, the safety rule, arrives on confirm).
+  - New FAQ "What is the Starter Pack, and how do I get it?" (FAQPage JSON-LD stays valid).
+  - Meta description mentions the pack.
+- llms.txt newsletter line mentions the pack. static/app.js success message: "Almost there: check your inbox and click Confirm to get your Starter Pack."
+- Left out on purpose: the weekly subscriber-only extras and "first word" bullets from signup-copy.md (not built yet, so the site doesn't promise them).
+- Untouched: homepage layout, /advertise/ (only the global app.js cache-bust hash changes), sponsor_checkout, X.
+- Drafts: ops/drafts/starter-pack/starter-pack.md and .pdf gained "8. Bonus for power users: the self-improving ops desk (Hermes Agent)", with sources. The PDF was copied to /workspace/StarterPack.pdf for the Kit upload.
+- Checks: validate 0 errors; build 160 pages; check_links 0 broken internal.
+- Subscriber-only fix (approved): added `ops/drafts/` to .gitignore and ran `git rm -r --cached ops/drafts/`. The files stay on disk, but the next deploy stops publishing them.
+  - Caveat: the 7-setup PDF the midday deploy pushed (25ab406) is still in public git history, so the old version can still be downloaded from that commit.
+  - kit-setup.md size note updated to about 0.32 MB.
+
 ## 2026-11-03 (Agentic rework of 14 chat-prompt use cases + hub notes, ~9:45 AM CT, asked by Nik in chat)
 The 14 chat-prompt use cases from the Oct 28 backlog proposal (the 12 migrated Oct 19 pages plus the two letter pages added Oct 20-21; every tool was a plain chat app).
 Rewritten as agent tasks (same slugs; new steps, prompt, tool notes, setup, FAQ "Which AI tools can do this?"; every product claim cites an official help page):

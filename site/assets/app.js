@@ -175,7 +175,7 @@
       fetch(f.action, { method: 'POST', body: new FormData(f), headers: { Accept: 'application/json' } })
         .then(function (r) { return r.json().catch(function () { return { status: r.ok ? 'success' : 'failed' }; }); })
         .then(function (j) {
-          if (j && j.status === 'success') { f.hidden = true; say('Almost done. Check your email to confirm your subscription.'); }
+          if (j && j.status === 'success') { f.hidden = true; say('Almost there: check your inbox and click Confirm to get your Starter Pack.'); }
           else if (j && j.status === 'quarantined' && /^https:\/\/app\.kit\.com\//.test(j.url || '')) {
             // Kit's bot protection wants a quick security check (reCAPTCHA) before it adds the subscriber and sends the confirmation email
             say('One more step: opening a quick security check from our email provider\u2026'); window.location.assign(j.url);

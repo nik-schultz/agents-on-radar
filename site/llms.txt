@@ -18,7 +18,7 @@ Data as of 2026-11-03. Popularity numbers are real counts (X likes/reposts, Redd
 - [AI agent cost calculator](https://botsdothat.com/run-your-bots-for-less/#calculator): pick a bot or enter runs and message size, compare monthly cost across 21 models from official prices checked 2026-11-03; prefill with ?bot=<blueprint-slug>
 - [AI price table](https://botsdothat.com/ai-pricing/): official API and plan prices for OpenAI, Anthropic, Google, xAI, Groq, Mistral, Meta and DeepSeek, checked 2026-11-03
 - [RSS feed of new use cases](https://botsdothat.com/feed.xml)
-- [BotsDoThat Weekly newsletter](https://botsdothat.com/newsletter/): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; past issues on the web
+- [BotsDoThat Weekly newsletter](https://botsdothat.com/newsletter/): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; new subscribers get a free Starter Pack PDF of 7 ready-to-paste agent setups plus a power-user bonus; past issues on the web
 
 ## Use cases by category
 
