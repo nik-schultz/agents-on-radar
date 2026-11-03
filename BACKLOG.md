@@ -51,7 +51,7 @@ Candidates not added yet:
 - [ ] WhatsApp forward-to-task bot that chases follow-ups each morning (@VikashSparxIT 2026-10-19, 0 likes); needs a stronger source.
 - [ ] Health agent fed by Garmin training data (@Pcoghlan 2026-10-20, 2 likes); needs a stronger source.
 - [ ] Bot that set up Microsoft 365 + business email and built/published a company website (@attack_engineer 2026-10-19, 5 likes); possible small-business entry.
-- [ ] Watch-out idea: an agent "went dark" for 46 hours when its usage budget ran out and every scheduled job silently stopped (@SRKDAN 2026-10-20, 4 likes); add to `set-ai-spend-limits-and-alerts` as "get an alert when the budget runs out, not just when it's close".
+- [x] (2026-11-03 done) Watch-out idea: an agent "went dark" for 46 hours when its usage budget ran out and every scheduled job silently stopped (@SRKDAN 2026-10-20, 4 likes); add to `set-ai-spend-limits-and-alerts` as "get an alert when the budget runs out, not just when it's close".
 Skipped: crypto/trading agent posts and copy-trading spam (out of scope).
 
 ## From the news run, 2026-10-21 3 PM CT

@@ -5,6 +5,8 @@
 - X: re-measured 79 posts, measured_at 2026-11-03; raw research/x_news_measure_2026_11_03_am.json.txt (local), script research/news_x_2026_11_03_am.py. Top story unchanged: Gemini 4 Carbon 34,093 likes / 2,750 reposts / 6.91M views. No MAJOR release.
 - Pricing: no table change (no Gemini 2.5 rows in the table). BACKLOG: Apple Watch recap use-case idea; Gemini 2.5 auto-route note for cost pages.
 - Skipped: Claude message threads (already covered Nov 2), OpenAI Grid Protectors (energy policy), Anthropic amended S-1 (already covered), NYT v. Brave lawsuit, Squarespace/SUSE layoffs, Garry Tan token spend, GPT-Rosalind-6 (trusted access only), Hydrogen-1.0 (developer science model), enterprise agent press releases (Aion, Sequel, Abacum, Tripo, 10x), markets news, a mis-dated "Grok 4 released" aggregator entry.
+- Checks: validate 0 errors; build 156 indexed pages + 404; check_links 11,994 links, 0 broken internal.
+- Deploy: main b78dacf / publish 73b061a; GitHub Actions run 41635612757 succeeded in 23s (7:26 AM ET). This deploy line is committed with the next deploy.
 
 ## 2026-11-02 (News update, PM, ~3:30 PM ET)
 - Added 6 items, all dated 2026-11-02: Claude API message threads beta (Claude Platform release notes; @ClaudeDevs), OpenAI LifeVal everyday-tasks eval (openai.com; @OpenAI), Meituan LongCat-2.5 (LongCat API changelog; @Meituan_LongCat), SemiAnalysis GDPx benchmark (SemiAnalysis; @SemiAnalysis_), ChatGPT Chat+Work tab merge and ChatGPT Classic retiring Jan 30, 2027 (TechCrunch, 9to5Mac; @9to5mac), Claude watermark extended to Mythos 5 / Opus 4.7 / Opus 4.6 / Sonnet 4.6 from Nov 3 (Mashable, Claude Help Center; no X post).
@@ -715,3 +717,7 @@ Improvement for visitors
 - The Kit form "BotsDoThat Weekly signup" (10088120) now redirects after confirmation to https://botsdothat.com/newsletter/2026-10-29/ instead of Kit's default page. Double opt-in is unchanged.
 - data/newsletter.json: issue 2 sent_on set to 2026-10-30. Not deployed yet; it goes out with the next deploy.
 - Kit is on a Creator free trial (7 of 14 days left as of 10/30), so pick a plan before it ends.
+
+## 2026-11-03 (daily QA, 7:00 AM CT)
+- Live site up (/, /news/, /use-cases/, /ai-pricing/ all 200). validate: 115 use cases, 0 errors. check_links: 11,994 links, 0 broken internal. Form inputs and menu button have labels. No bugs found.
+- Improvement: `set-ai-spend-limits-and-alerts` watch-out now warns that scheduled bots stop silently when a spend limit is hit, and to alert on the limit itself and check jobs ran (BACKLOG idea from @SRKDAN marked done).

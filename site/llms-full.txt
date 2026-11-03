@@ -1016,7 +1016,7 @@ Prompt:
 Help me set safe limits. My providers: [list]. My expected monthly use: [estimate]. For each provider, tell me where in its official billing settings to set a spend limit and usage alerts, and suggest a limit about [1.5x] my estimate. Point me to the provider's own help page for each step.
 
 Watch out:
-- Anthropic says that when you reach a spend limit you set, API requests stop until you raise it or the period resets. Make sure your bot tells you when that happens.
+- Anthropic says that when you reach a spend limit you set, API requests stop until you raise it or the period resets. Any scheduled bots on that account stop too, often without telling you, so set an alert for when the limit is hit (not just when it's close) and glance each morning that your scheduled jobs actually ran.
 - On Anthropic you can't set spend limits on the default workspace, so put bots in their own workspace.
 - Consumer plans work differently: you hit usage limits instead of a bill.
 
