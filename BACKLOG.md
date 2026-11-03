@@ -257,3 +257,7 @@ Bugs/complaints: none found.
 - Ideas not added: Toki "find a time for lunch with Alex, Sam and Jo" (overlaps add-an-ai-to-your-friends-group-chat-to-make-plans); Muse umbrella/weather reminders (one source only, Straits Times); Muse Singapore connectors (Grab/Shopee) — regional, mostly price-comparison (deal angle, skip); Claude Duet unpaid-invoice drafting (covered by chase-an-unpaid-invoice; add Duet as tool later); Momentic Launch HN (dev tool, not everyday).
 - Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits, web search only our own pages). No bugs reported.
 - Reddit still not fetched from box; web search fallback used.
+
+## PM news run 2026-11-03
+- Use-case idea: "Give your team a shared data bot that answers numbers questions" (xAI Data Bot, x.ai/news/data-bot; needs a second independent source before adding).
+- Watch: Anthropic FlashProve (provable inference) — if any provider ships proofs to customers, add a "check which model answered you" explainer.

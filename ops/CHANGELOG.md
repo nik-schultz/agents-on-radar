@@ -1,5 +1,10 @@
 # Ops changelog
 
+## 2026-11-03 (PM news run, ~4:45 PM AST)
+- Added 3 news items: OpenAI "engineering for the physical world" (notable), Anthropic FlashProve provable inference (notable), xAI Grok Bot Data Bot (notable, agent launch). No major releases.
+- Refreshed X engagement on 79 existing items (measured 2026-11-03); new items carry official-post X blocks (@OpenAI, @AnthropicAI, @bot).
+- No pricing changes; ai-pricing.json untouched. BACKLOG PM section added.
+
 ## 2026-11-03 (SEO on-site fixes from the traffic research, ~2:15 PM CT; asked via the SEO agent after Nik's "get more traffic" request)
 From the GSC export Oct 22–Nov 1 (446 impressions, 3 clicks) and ops/drafts/traffic-research-2026-11-03.md, items #1, #2, #3, #7, #10. Item #6 is left for the weekly run.
 - #1 Titles and descriptions for zero-click pages. New optional use-case field `seo_description` (build.py uses it before the generated description). Blueprints now also accept `seo_title` and `seo_description`.
