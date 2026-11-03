@@ -1,5 +1,22 @@
 # Ops changelog
 
+## 2026-11-03 (Weekly SEO + AI-answer run, ~7:45 AM PT)
+Audit (titles, descriptions, H1s, canonicals, JSON-LD, sitemap, robots.txt, llms.txt)
+- 157 pages: no duplicate titles or descriptions, one H1 per page, canonical on every indexed page; robots.txt allows search + AI crawlers and points to the sitemap; llms.txt/llms-full.txt and sitemap include the new page. Descriptions already capped at 155 chars by mdesc (the 160+ hits were HTML entities).
+- Fix: 4 use-case titles were 76-87 chars and truncated in Google. New optional `seo_title` field (build.py) used for the shopping-list photo cart, IFTTT plain-words, AI coach and ChatGPT + iCloud Mail guides.
+New / improved pages (Google autocomplete pulled Nov 3: "ai agent to book flights", "can chatgpt book flights", "can ai agents book flights", "ai voice agent cost per month", "personal ai agent cost")
+- New `book-a-flight-with-an-ai-agent` (travel, Medium), title tag "Can an AI agent book flights for you? How to do it safely": short answer up top, 5 steps, copy prompt with stop-before-payment, setup, watch-outs, 3-question FAQ (FAQPage + HowTo JSON-LD). Sources: OpenAI Help (cloud browser), Google blog (AI Mode travel), HN 49904198 (Dots trip review), HN 50174185 (Show HN flight booking in Claude), Travel Distribution News. 0 X. BACKLOG item closed.
+- Cost guide: 2 new FAQ answers (on page, FAQPage JSON-LD and llms-full.txt) for "How much does an AI voice agent cost per month?" (300-minute example from the official per-minute prices) and "How much does a personal AI agent cost?" (plan range computed from the consumer price table).
+- Source mix: 116 use cases, X 73/440 = 17% (ops/source-mix.md).
+AI price refresh (all rows re-checked on official pages Nov 3; checked_on = 2026-11-03)
+- Unchanged: OpenAI (gpt-6-astra, 6.1-sol, 6.1-terra, 6-luna, GPT-Live), Anthropic (Fable 5.1, Opus/Sonnet/Haiku 5.5), Google (4 Argon, 3.8 Flash, 3.1 Flash-Lite), xAI (grok-4.7, 4.3, voice), Groq, Mistral (Large, Large 4, Voxtral 3), Meta Muse Wonder, DeepSeek.
+- Added: gemini-3.5-flash-lite $0.30 / $2.50 (cached $0.03); Gemini 2.5 Flash-Lite calls redirect to it from Dec 1.
+- Plans: Claude Max is now $100 (5x) and a separate Claude Ultra is $200 (10x weekly, no 5-hour limit, $200 API credits); was "Max from $100, 5x or 20x". Google AI Plus $4.99 and AI Pro $19.99 a month are now shown in USD on gemini.google, so added and removed from "not verified". ChatGPT plan prices and SuperGrok still not shown on official pages (stay unverified).
+- Blueprint cost notes and the cost guide are computed from the table at build time, so they follow automatically (blueprint models unchanged in price).
+AI answers / analytics
+- Citation checks: no direct access to ChatGPT, Perplexity, Google AI Overviews or Grok answers from this box; a web-search engine check for "how much does it cost to run an AI agent per month" and "how to build an AI agent without coding" did not cite botsdothat.com. The site is indexed for brand queries.
+- Search Console and Cloudflare analytics: not accessed this run; no numbers reported.
+
 ## 2026-11-03 (News update, AM, ~7:40 AM ET)
 - Added 3 items: `google-dreambeans-india` (Nov 3, minor, feature; Google India blog, TechCrunch, The Hindu; no x block, only low-engagement coverage), `gemini-2-5-auto-route-december` (Nov 2, notable, pricing; Gemini API changelog + deprecations; no x block), `apple-watch-live-rewind-siri-recap-beta` (Nov 2, notable, feature; TechCrunch, Apple Support, Engadget; no x block, top posts under 5 likes).
 - X: re-measured 79 posts, measured_at 2026-11-03; raw research/x_news_measure_2026_11_03_am.json.txt (local), script research/news_x_2026_11_03_am.py. Top story unchanged: Gemini 4 Carbon 34,093 likes / 2,750 reposts / 6.91M views. No MAJOR release.

@@ -1,5 +1,120 @@
 [
  {
+  "slug": "book-a-flight-with-an-ai-agent",
+  "title": "Book a flight with an AI agent (and check it before you pay)",
+  "seo_title": "Can an AI agent book flights for you? How to do it safely",
+  "category": "travel",
+  "source_date": "2026-09-30",
+  "summary": "Yes, some AI agents can now book a flight for you: they search, pick the fare you approve, fill in passenger details and stop for your OK before paying. You still check names, price and fare rules yourself.",
+  "what_the_bot_does": [
+   "Asks for the exact trip: airports, dates, time windows, cabin, bags, stops you'll accept and your budget.",
+   "Searches flights and shows you 3 options in a table with total price including bags, times and fare rules.",
+   "Opens the airline's own site (or the booking site you chose) and fills in passenger names exactly as on the passport.",
+   "Stops at the payment page and shows you a summary to approve: names, flight numbers, times, total price and the change or refund rules.",
+   "After you approve (or pay yourself), sends you the booking code and checks the confirmation email came from the airline."
+  ],
+  "what_you_end_up_with": "A booked flight with a confirmation code from the airline, after you approved the exact fare and passenger names.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "chatgpt-work",
+    "note": "Cloud browser books on websites and asks you to confirm before a booking or payment. Paid plans."
+   },
+   {
+    "id": "gemini",
+    "note": "Searches Google Flights and tracks prices; you book on the airline or travel site."
+   },
+   {
+    "id": "grok-bot"
+   },
+   {
+    "id": "claude",
+    "note": "Can book through travel connectors (MCP) some companies offer."
+   }
+  ],
+  "prompt": "Find me a flight from [city or airport] to [city or airport], leaving [date, time window] and returning [date, time window]. [Number] travelers, [cabin], [number] checked bags, at most [number] stop(s), budget [amount] total. Show me the 3 best options in a table: airline, flight numbers, times, total price including bags, and the change/refund rules. Book on the airline's own website unless I say otherwise. Passenger names exactly as on passports: [names]. Stop before payment and show me a summary of names, flights, total price and fare rules. Do not pay, accept paid extras (seats, insurance) or confirm anything until I reply \"book it\". If a site asks for a sign-in code or CAPTCHA, hand control back to me.",
+  "setup": [
+   "Use an agent that can operate websites, such as ChatGPT Work's cloud browser (paid ChatGPT plans) or Grok Bot. Plain chat assistants like Gemini or AI Mode in Google Search find and compare flights and track prices, then send you to the airline or travel site to buy.",
+   "Sign in to the airline or travel site through the agent's secure sign-in form, never by pasting your password into the chat. OpenAI's help page says the same for ChatGPT Work.",
+   "Keep \"ask before paying or booking\" on. ChatGPT Work asks for confirmation before bookings and payments by default.",
+   "Afterwards, open the booking on the airline's website with your booking code and check every passenger is on it."
+  ],
+  "watch_out": [
+   "Check passenger names letter by letter before you approve. A wrong name can mean a new ticket.",
+   "Ask where it's booking. A third-party booking site can make changes and refunds slower than booking direct with the airline.",
+   "Agents still get stuck on sign-in codes and repeated confirmations: one Hacker News user said ChatGPT's Dots agent booked a trip but kept re-asking to confirm the same booking and wouldn't fetch two-factor codes.",
+   "Prices change while the agent works. Approve the total on the payment page, not the number from the first search.",
+   "Many airline apps inside chat assistants only search and then send you to the airline's site to pay (Travel Distribution News, Oct 2026). That's normal, not a failure."
+  ],
+  "faq": [
+   {
+    "q": "Can ChatGPT book flights for me?",
+    "a": "ChatGPT Work's cloud browser (on paid ChatGPT plans) can work on airline and booking websites and is designed to ask you for confirmation before booking or paying. Some sites block it or need you to finish the last step yourself. Regular ChatGPT chat with travel apps searches and then sends you to the site to book."
+   },
+   {
+    "q": "Can Gemini or Google AI Mode book flights?",
+    "a": "Google says AI Mode in Search shows flight options from more than 300 airlines and travel sites and can track prices, but you buy the tickets on the airline's or booking site's website."
+   },
+   {
+    "q": "Is it safe to let an AI agent book a flight?",
+    "a": "It's reasonably safe if the agent stops for your approval before paying, you sign in through a secure sign-in form instead of the chat, and you check passenger names, total price and fare rules yourself before saying yes."
+   }
+  ],
+  "sources": [
+   {
+    "label": "OpenAI Help Center: Using cloud browser in ChatGPT (asks for confirmation before booking or paying; some sites need you to finish)",
+    "url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+    "kind": "official"
+   },
+   {
+    "label": "Google blog: How to book travel with AI Mode in Google Search (flight options from 300+ airlines and sites, price tracking, buy on the airline's site)",
+    "url": "https://blog.google/products-and-platforms/products/search/book-travel-ai-mode/",
+    "kind": "official"
+   },
+   {
+    "label": "Hacker News comment (Sep 30, 2026): ChatGPT Dots booked a trip but re-asked for confirmation and wouldn't fetch 2FA codes",
+    "url": "https://news.ycombinator.com/item?id=49904198",
+    "kind": "hn"
+   },
+   {
+    "label": "Show HN (Oct 2026): flight booking in Claude via an MCP connector, airline charges your card directly",
+    "url": "https://news.ycombinator.com/item?id=50174185",
+    "kind": "hn"
+   },
+   {
+    "label": "Travel Distribution News: AI agents are coming for airline search before airline sales",
+    "url": "https://traveldistributionnews.com/ai-agents-are-coming-for-airline-search-before-they-come-for-airline-sales/",
+    "kind": "article"
+   }
+  ],
+  "popularity": null,
+  "see_also": [
+   {
+    "slug": "rebook-a-delayed-flight",
+    "why": "Flight already booked and now delayed?"
+   },
+   {
+    "slug": "plan-and-book-a-whole-trip-by-text",
+    "why": "Want the hotel and the rest of the trip too?"
+   },
+   {
+    "slug": "make-your-agent-prove-it-finished-the-job",
+    "why": "Make sure \"booked\" really means booked:"
+   }
+  ],
+  "tags": [
+   "flights",
+   "booking",
+   "airline",
+   "travel",
+   "chatgpt",
+   "ai agent to book flights"
+  ],
+  "date_added": "2026-11-03",
+  "origin": "pipeline",
+  "last_checked": "2026-11-03"
+ },
+ {
   "slug": "turn-a-photo-of-your-shopping-list-into-a-cart",
   "title": "Snap a photo of your handwritten shopping list and let an agent fill the cart",
   "category": "shopping",
@@ -79,7 +194,8 @@
   ],
   "date_added": "2026-11-02",
   "origin": "pipeline",
-  "last_checked": "2026-11-02"
+  "last_checked": "2026-11-02",
+  "seo_title": "Turn a photo of your shopping list into a cart with AI"
  },
  {
   "slug": "make-your-agent-prove-it-finished-the-job",
@@ -563,7 +679,8 @@
   ],
   "date_added": "2026-10-29",
   "origin": "pipeline",
-  "last_checked": "2026-10-29"
+  "last_checked": "2026-10-29",
+  "seo_title": "IFTTT AI: describe an automation in plain words"
  },
  {
   "slug": "let-chatgpt-run-your-icloud-mail-and-calendar",
@@ -668,7 +785,8 @@
   ],
   "date_added": "2026-10-29",
   "origin": "pipeline",
-  "last_checked": "2026-10-29"
+  "last_checked": "2026-10-29",
+  "seo_title": "ChatGPT with iCloud Mail and your iPhone calendar"
  },
  {
   "slug": "get-an-ai-coach-that-helps-you-start-overwhelming-tasks",
@@ -753,7 +871,8 @@
   ],
   "date_added": "2026-10-29",
   "origin": "pipeline",
-  "last_checked": "2026-10-29"
+  "last_checked": "2026-10-29",
+  "seo_title": "AI coach to help you start overwhelming tasks"
  },
  {
   "slug": "let-your-ai-shop-for-you-with-shop-pay",

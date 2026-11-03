@@ -814,7 +814,7 @@ for x in ucs:
                 "step": [{"@type": "HowToStep", "position": i + 1, "text": s} for i, s in enumerate(x["what_the_bot_does"])],
                 "tool": [{"@type": "HowToTool", "name": tools[t["id"]]["name"]} for t in x["tools"]]}]
     ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}} for q in faqs]})
-    page(f"/use-cases/{x['slug']}/", x["title"], mdesc(x["summary"], "You end up with: " + x["what_you_end_up_with"][0].lower() + x["what_you_end_up_with"][1:]), body, ld, lastmod=x.get("last_checked"), kind="uc", og_type="article")
+    page(f"/use-cases/{x['slug']}/", x.get("seo_title") or x["title"], mdesc(x["summary"], "You end up with: " + x["what_you_end_up_with"][0].lower() + x["what_you_end_up_with"][1:]), body, ld, lastmod=x.get("last_checked"), kind="uc", og_type="article")
 
 # ---------- AI PRICES + COST NOTES -------------------------------------------------------
 PRICE_ROW = {r["model"]: r for r in PR["api"]}
@@ -1288,9 +1288,20 @@ _vmin = 10
 _voice = "".join(f'<li><b>{e(v["provider"])}</b> {e(v["what"])}: {_pz(v["price_per_min"])} a minute, so a {_vmin}-minute call is about {money(v["price_per_min"]*_vmin)} (<a href="{e(v["source_url"])}" rel="noopener">official page</a>)</li>' for v in PR["voice"])
 _sched_tip = UC["schedule-bots-without-burning-tokens"]
 _rfl = [x for x in ucs if x["category"] == "run-for-less"]
+_vmo = 300  # example: 300 minutes of calls a month (10 a day)
+def _usd(s):
+    import re as _re
+    m = _re.search(r"\$([0-9]+(?:\.[0-9]+)?)", s or ""); return float(m.group(1)) if m else None
+_paid = sorted(v for v in (_usd(r["price"]) for r in PR["consumer"]) if v)
+_plan_span = f"free, or {money(_paid[0])} to {money(_paid[-1])}" if _paid else "free or paid"
 COST_FAQ = [
  ("How much does it cost to run an AI agent?",
   f"Inside an app plan, a bot runs within your plan's usage limits. On a pay-per-use AI API, our {len(_cost_rows)} blueprint estimates range from {money(_lo_all)} to {money(_hi_all)} a month depending on the bot and the model, at standard API prices checked {nice_date(PR['checked_on'])}. Agents that browse the web or use many tools can use several times more tokens than these estimates.", None),
+ ("How much does an AI voice agent cost per month?",
+  "Voice agents are billed per minute of talk. At official per-minute prices checked " + nice_date(PR['checked_on']) + ", " + "; ".join(f"{v['provider']} {v['what']} is {_pz(v['price_per_min'])} a minute, about {money(v['price_per_min']*_vmo)} for {_vmo} minutes a month" for v in PR["voice"]) + ". Phone numbers, call carriers and any extra model or tool use are billed on top.",
+  "Voice agents are billed per minute of talk. At official per-minute prices checked " + nice_date(PR['checked_on']) + ": " + "; ".join(f"{e(v['provider'])} {e(v['what'])} is {_pz(v['price_per_min'])} a minute, about <b>{money(v['price_per_min']*_vmo)}</b> for {_vmo} minutes a month (<a href=\"{e(v['source_url'])}\" rel=\"noopener\">official page</a>)" for v in PR["voice"]) + ". Phone numbers, call carriers and any extra model or tool use are billed on top. Build one: " + _ba('phone-call-bot') + "."),
+ ("How much does a personal AI agent cost?",
+  "A personal AI agent app usually comes with a monthly plan: " + _plan_span + " a month on the official plan pages we checked (" + nice_date(PR['checked_on']) + "), and agent features such as scheduled tasks or a cloud browser are often only on paid plans. Free, open-source agents like OpenClaw and Hermes Agent cost nothing to install; you pay for the AI model you connect, often a few dollars a month or less for a small bot.", None),
  ("How do I work out what my AI agent will cost?",
   f"Use this formula: monthly cost = runs a month × (input tokens per run × input price + output tokens per run × output price) ÷ 1,000,000, with prices per 1 million tokens. Steps: 1. Count the runs a month (once every weekday is about {_units['weekday']}). 2. Run the bot once, then open your AI account's usage page to see how many tokens that run read and wrote. 3. Look up the model's input and output price in our AI price table. 4. Multiply it out, or use our cost calculator. Example: {_ex_rpm} runs × ({_ex['in']:,} × {_pz(_mx_lo[1]['i'])} + {_ex['out']:,} × {_pz(_mx_lo[1]['o'])}) ÷ 1,000,000 = about {money(_mx_lo[0])} a month on {_mx_lo[1]['p']} {_mx_lo[1]['m']}.",
   f"Use this formula: <b>monthly cost = runs a month × (input tokens per run × input price + output tokens per run × output price) ÷ 1,000,000</b>, with prices per 1 million tokens. Steps: 1. Count the runs a month (once every weekday is about {_units['weekday']}). 2. Run the bot once, then open your AI account's usage page to see how many tokens that run read and wrote. 3. Look up the model's input and output price in our <a href=\"{u(PRICING)}\">AI price table</a>. 4. Multiply it out, or use the <a href=\"{u(LESS)}#calculator\">cost calculator</a>. Example: {_math(_mx_lo[0], _mx_lo[1])} on {e(_mx_lo[1]['p'])} {e(_mx_lo[1]['m'])}."),

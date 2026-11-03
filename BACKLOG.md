@@ -16,7 +16,7 @@ More run-for-less ideas (source from official docs before adding): per-provider 
 - [x] Write a letter of recommendation (autocomplete: "use ai to write a letter of recommendation") → `write-a-letter-of-recommendation`
 - [x] Fill out a job application faster (autocomplete: "can ai fill out job applications for me") → `fill-out-a-job-application-faster`
 - [ ] Get help with your tax forms, safely (autocomplete: "can ai fill out tax forms"; must stress a human/IRS check)
-- [ ] Book flights with an AI agent (autocomplete: "ai agent to book flights"); reframed 2026-10-21: agent does the booking, not bargain-hunting
+- [x] Book flights with an AI agent (autocomplete: "ai agent to book flights") (done 2026-11-03: book-a-flight-with-an-ai-agent); reframed 2026-10-21: agent does the booking, not bargain-hunting
 - [x] Book a restaurant reservation with an AI agent → `restaurant-reservations-by-agent`
 - [~] ~~Find coupon or discount codes~~ DROPPED 2026-10-21 (money-saving, out of scope)
 - [x] Find an apartment that fits your list (autocomplete: "use chatgpt to find apartments") → `find-an-apartment-that-fits-your-list`

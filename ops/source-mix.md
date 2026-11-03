@@ -278,3 +278,27 @@ Top domains: youtube.com (91), x.com (73), news.ycombinator.com (32), reddit.com
 
 
 What changed (2026-11-02 midday trending run): new use cases `turn-a-photo-of-your-shopping-list-into-a-cart` (Walmart newsroom, PPC Land, Winning With Walmart, Market & Tech, Hip2Save) and `make-your-agent-prove-it-finished-the-job` (Eon, Ctech, arXiv, booking-truth, Substack), 10 links, none on X; added Engadget to `daily-ads-and-sales-report` and CAR Confidence to `research-a-used-car-from-a-listing`, so both are no longer X-only (X-only 7 -> 5). All 12 new links are non-X.
+
+## After weekly SEO run (measured 2026-11-03)
+
+- Use cases: **116**; source links: **440**
+- X share of source links: **73/440 = 17%**
+- X share of community links (X, Reddit, Hacker News, YouTube, GitHub, Product Hunt): **73/250 = 29%**
+- X-only use cases (every source is an X post): **5** (4%)
+- Use cases with at least one non-X community source (Reddit, Hacker News, YouTube, GitHub, Product Hunt): **82**
+- x.com URLs anywhere in the file (sources + popularity blocks + examples): 122
+
+| Platform | Source links | Use cases citing it |
+|---|---:|---:|
+| Official docs, news and blogs | 166 | 70 |
+| YouTube | 91 | 62 |
+| X | 73 | 58 |
+| Hacker News | 34 | 27 |
+| Reddit | 33 | 25 |
+| Search demand (Google) | 24 | 20 |
+| GitHub | 15 | 13 |
+| Product Hunt | 4 | 4 |
+
+Top domains: youtube.com (91), x.com (73), news.ycombinator.com (34), reddit.com (29), google.com (24), support.google.com (17), github.com (15), help.openai.com (8), docs.anthropic.com (7), blog.google (5), wired.com (5), support.claude.com (5)
+
+- Added this run: book-a-flight-with-an-ai-agent (5 sources: OpenAI Help, Google blog, 2 Hacker News threads, Travel Distribution News; 0 X).

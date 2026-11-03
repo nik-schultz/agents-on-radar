@@ -15,8 +15,8 @@ Data as of 2026-11-03. Popularity numbers are real counts (X likes/reposts, Redd
 - [Bot blueprints](https://botsdothat.com/blueprints/): build-your-own-bot recipes
 - [Latest in AI](https://botsdothat.com/news/): new models, agent launches and AI price changes in plain words, with sources (RSS: https://botsdothat.com/news/feed.xml)
 - [Run your bots for less](https://botsdothat.com/run-your-bots-for-less/): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)
-- [AI agent cost calculator](https://botsdothat.com/run-your-bots-for-less/#calculator): pick a bot or enter runs and message size, compare monthly cost across 20 models from official prices checked 2026-10-27; prefill with ?bot=<blueprint-slug>
-- [AI price table](https://botsdothat.com/ai-pricing/): official API and plan prices for OpenAI, Anthropic, Google, xAI, Groq, Mistral, Meta and DeepSeek, checked 2026-10-27
+- [AI agent cost calculator](https://botsdothat.com/run-your-bots-for-less/#calculator): pick a bot or enter runs and message size, compare monthly cost across 21 models from official prices checked 2026-11-03; prefill with ?bot=<blueprint-slug>
+- [AI price table](https://botsdothat.com/ai-pricing/): official API and plan prices for OpenAI, Anthropic, Google, xAI, Groq, Mistral, Meta and DeepSeek, checked 2026-11-03
 - [RSS feed of new use cases](https://botsdothat.com/feed.xml)
 
 ## Use cases by category
@@ -66,6 +66,7 @@ Data as of 2026-11-03. Popularity numbers are real counts (X likes/reposts, Redd
 - [Give your agent a single-use card before it buys anything](https://botsdothat.com/use-cases/pay-with-a-single-use-virtual-card/): When an agent books or buys for you, give it a one-time virtual card so it can't be charged again.
 
 ### Bookings & travel
+- [Book a flight with an AI agent (and check it before you pay)](https://botsdothat.com/use-cases/book-a-flight-with-an-ai-agent/): Yes, some AI agents can now book a flight for you: they search, pick the fare you approve, fill in passenger details and stop for your OK before paying. You still check names, price and fare rules yourself.
 - [Add an AI to your friends' group chat to make plans happen](https://botsdothat.com/use-cases/add-an-ai-to-your-friends-group-chat-to-make-plans/): Instead of 60 messages about where and when, you add an AI agent to the iMessage group. It suggests options, gets everyone to agree, and then books the table, tickets or rental car for the group once someone says yes.
 - [Get roadside help abroad when nobody speaks your language](https://botsdothat.com/use-cases/get-roadside-help-abroad/): Broken down in another country and the insurer's phone line is in a language you don't speak? An agent can find the right help form, fill it in with your details and get help moving.
 - [Give your bot a phone number so it can call and book for you](https://botsdothat.com/use-cases/call-and-book-by-phone/): Plenty of places still only take bookings by phone. Once your bot has its own number, it can call a restaurant, a vet or a salon, book the slot and tell you what was said.
