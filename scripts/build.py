@@ -195,6 +195,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
         moddate = prev["date"] if prev and prev.get("hash") == h else BUILD_DATE
         CONTENT_DATES[path] = {"hash": h, "date": moddate}
         lastmod = moddate
+    if path in NL_MID_PATHS: body = _insert_mid(body, f'<div class="nl-mid">{newsletter_box("nl-mid", "inline")}</div>')
     nl_end = f'<div class="wrap nl-end">{newsletter_box("nl-end", "inline")}</div>' if (kind in ("uc", "bp") or path in NL_END_PATHS) else ""
     if kind in ("uc", "bp") or path in SHARE_PATHS:
         nl_end = f'<div class="wrap share-wrap">{share_bar(title, canon)}</div>' + nl_end
@@ -288,6 +289,21 @@ def share_bar(title, url):
 <a class="share-btn" href="{e(mh)}" aria-label="Email this page to a friend">{msvg}<span>Email a friend</span></a>
 </div><p class="share-status small" role="status" aria-live="polite"></p></section>"""
 NL_END_PATHS = {"/trending/", "/news/", BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", PRICING, LESS, "/about/"}
+# Long guides also get a signup after their 3rd top-level section (mid-article), not only at the end.
+NL_MID_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/"}
+def _insert_mid(body, snippet, after=3):
+    """Insert snippet after the `after`-th top-level <section> of the page's first <article>; unchanged if it has fewer than after+2."""
+    a = body.find("<article")
+    if a < 0: return body
+    depth, count, ends = 0, 0, []
+    for m in re.finditer(r"<(/?)(section|article)\b[^>]*>", body[a:]):
+        if m.group(1): depth -= 1
+        else: depth += 1
+        if m.group(1) and m.group(2) == "section" and depth == 1: ends.append(a + m.end())
+        if depth == 0: break
+    if len(ends) < after + 2: return body
+    k = ends[after - 1]
+    return body[:k] + snippet + body[k:]
 def newsletter_box(uid="nl", variant="full"):
     """Kit signup (form 10088120 via config). uid keeps element ids unique when a page has more than one form.
     variant: full (homepage/newsletter), card (sidebar, replaces an unsold sponsor spot), inline (end of content pages)."""
@@ -787,7 +803,7 @@ for x in ucs:
     rbp = bp_by_uc.get(x["slug"], [])
     bpbox = ("<div class='glass side-box'><h2 class='side-h'>Build it as a bot</h2><ul class='side-list'>" + "".join(f'<li><a href="{u("/blueprints/"+b["slug"]+"/")}">⚙ {e(b["title"])}</a></li>' for b in rbp) + "</ul></div>") if rbp else ""
     rel = [y for y in NEWEST if y["category"] == x["category"] and y["slug"] != x["slug"]][:4]
-    relbox = "<div class='glass side-box'><h2 class='side-h'>More in " + e(c["name"]) + "</h2><ul class='side-list'>" + "".join(f'<li><a href="{u("/use-cases/"+y["slug"]+"/")}">{e(y["title"])}</a></li>' for y in rel) + "</ul></div>"
+    relbox = "<div class='glass side-box'><h2 class='side-h'>More in " + e(c["name"]) + "</h2><ul class='side-list'>" + "".join(f'<li><a href="{u("/use-cases/"+y["slug"]+"/")}">{e(y["title"])}</a></li>' for y in rel) + f'<li class="small"><a href="{u("/category/"+c["slug"]+"/")}">All {e(c["name"])} use cases →</a></li><li class="small"><a href="{u("/ai-agent-examples/")}">Every AI agent example on one page →</a></li>' + "</ul></div>"
     setup = ("<section><h2>Setup</h2><ol>" + "".join(f"<li>{e(s)}</li>" for s in x["setup"]) + "</ol></section>") if x.get("setup") else ""
     _mod = x.get("last_checked") or x["date_added"]  # same value as the HowTo dateModified below
     relx = REL_X.get(x["slug"], [])
@@ -801,7 +817,8 @@ for x in ucs:
 <section><h2>What the bot does</h2><ol class="steps">{steps}</ol></section>
 <section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p></section>{see_also_html(x)}{less_callout if x['category'] == 'run-for-less' else ''}{tool_listing(cat=x['category'])}
 <section><h2>Copy-paste prompt</h2><p class="muted small">Fill in the [brackets]. Then paste it into any tool below.</p>{copybox(x['prompt'])}
-<p class="small">New to this? <a href="{u(BUILD_GUIDE)}">How to build an AI agent without coding</a>, or <a href="{u('/blueprints/#how-to')}">set up a bot in 5 plain steps →</a>{(' Connecting email or a calendar? Read <a href="' + u(SAFE_GUIDE) + '">is it safe to give an AI agent your email and calendar?</a>') if (x['category'] == 'inbox' or any(t.lower() in ('gmail', 'outlook', 'calendar', 'google calendar', 'email') for t in x.get('tags', []))) else ''}</p></section>
+<p class="small">New to this? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>, then <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, or <a href="{u('/blueprints/#how-to')}">set up a bot in 5 plain steps →</a>{(' Choosing a self-hosted agent? See <a href="' + u(CLAW_GUIDE) + '">OpenClaw vs Hermes Agent for beginners</a>.') if any(t["id"] in ("openclaw", "hermes-agent") for t in x["tools"]) else ''}{(' Connecting email or a calendar? Read <a href="' + u(SAFE_GUIDE) + '">is it safe to give an AI agent your email and calendar?</a>') if (x['category'] == 'inbox' or any(t.lower() in ('gmail', 'outlook', 'calendar', 'google calendar', 'email') for t in x.get('tags', []))) else ''}</p>
+<p class="small nl-pointer">Want one new job like this each week, with a prompt to copy? <a href="{u('/newsletter/')}">Get the free {e(NAME)} Weekly email</a>.</p></section>
 {setup}
 <section><h2>Tools that can do it today</h2>{tool_grid(x['tools'])}<p class="small muted">Plans and limits change; check each tool's page.</p></section>
 {('<section class="warn glass"><h2>Watch out</h2><ul>'+watch+'</ul></section>') if watch else ''}
@@ -1542,7 +1559,7 @@ page("/news/", "Latest in AI: new models and AI agent launches, explained", mdes
      news_ld, lastmod=NEWS[0]["date"], head_extra=f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)}: Latest in AI" href="{u("/news/feed.xml")}">')
 
 # ---------- ABOUT / NEWSLETTER / SPONSOR / 404 ---------------------------------------
-page("/about/", f"About {NAME} and how we measure", f"How {NAME} finds real AI agent use cases, measures popularity and checks facts.",
+page("/about/", f"About {NAME} and how we measure", f"How {NAME} finds real AI agent use cases on X, Reddit, Hacker News and the web, measures popularity with real counts and links every source.",
      f"""<div class="wrap narrow prose"><p class="eyebrow">About</p><h1 class="kinetic-sm">About {e(NAME)}</h1>
 <p class="lead">{e(cfg['description'])}</p>
 <h2>Where the use cases come from</h2><p>We look for real people describing real jobs they handed to an AI agent, and we look in more than one place: posts on X and Reddit, Hacker News discussions, YouTube walkthroughs, open-source projects on GitHub, plus articles and official product pages. Every use case links to its sources, and a “Seen on” line shows which of those places it turned up in. When a post makes a claim about a result, we say whose claim it is.</p>
@@ -1743,10 +1760,11 @@ bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "
 open(os.path.join(OUT, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {absu(u('/sitemap.xml'))}\n")
 
 L1 = [f"# {NAME}", "", f"> {TAGLINE} {cfg['description']}", "", f"Data as of {BUILD_DATE}. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.", "",
-      "## Start here", f"- [What is an AI agent? (in simple terms)]({absu(u('/what-can-bots-do/'))}): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely", *[f"- [{t}]({absu(u(pth))}): {d}" for pth, t, d in NEW_GUIDES[1:]], f"- [How to build an AI agent without coding]({absu(u(BUILD_GUIDE))}): step-by-step beginner guide using a real blueprint as the worked example", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", "", "## Use cases by category"]
+      "## Start here", f"- [What is an AI agent? (in simple terms)]({absu(u('/what-can-bots-do/'))}): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely", *[f"- [{t}]({absu(u(pth))}): {d}" for pth, t, d in NEW_GUIDES[1:]], f"- [How to build an AI agent without coding]({absu(u(BUILD_GUIDE))}): step-by-step beginner guide using a real blueprint as the worked example", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", f"- [{NAME} Weekly newsletter]({absu(u('/newsletter/'))}): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; past issues on the web", "", "## Use cases by category"]
 for c in cats:
-    L1 += ["", f"### {c['name']}"] + [f"- [{x['title']}]({absu(u('/use-cases/'+x['slug']+'/'))}): {x['summary']}" for x in ucs if x["category"] == c["slug"]]
+    L1 += ["", f"### {c['name']}", f"All {c['name']} use cases: {absu(u('/category/'+c['slug']+'/'))}"] + [f"- [{x['title']}]({absu(u('/use-cases/'+x['slug']+'/'))}): {x['summary']}" for x in ucs if x["category"] == c["slug"]]
 L1 += ["", "## Latest in AI (newest first)"] + [f"- {n['date']} [{n['category']}] {n['headline']}: {n['explainer']} Source: {n['source_url']}" for n in NEWS[:15]]
+L1 += ["", f"## {NAME} Weekly (past issues)"] + [f"- [{iss.get('subject') or iss.get('title') or iss['date']}]({absu(u(nl_path(iss)))}) ({iss['date']})" for iss in NL]
 L1 += ["", "## Blueprints"] + [f"- [{b['title']}]({absu(u('/blueprints/'+b['slug']+'/'))}): {b['goal']}" for b in bps]
 L1 += ["", "## About", f"- [About and how we measure]({absu(u('/about/'))})", f"- [Advertise]({absu(u('/advertise/'))})", f"- [Affiliate and sponsor disclosure]({absu(u(DISCLOSE))})", f"- [Privacy]({absu(u(PRIVACY))})"] + ([f"- X (official account): [@{X_HANDLE}]({X_URL})"] if X_URL else []) + ([f"- Contact: {CONTACT}"] if CONTACT else []) + [""]
 open(os.path.join(OUT, "llms.txt"), "w").write("\n".join(L1))
@@ -1756,7 +1774,7 @@ for x in ucs:
     pop = ("Popularity: " + (f"{p['likes']} likes, {p['reposts']} reposts on X" if p["platform"] == "x" else f"{p['upvotes']} upvotes on Reddit") + f" ({p['url']}, measured {p['measured_at']})") if p else "Popularity: not measured"
     F += [f"## {x['title']}", f"URL: {absu(u('/use-cases/'+x['slug']+'/'))}", f"Category: {CAT[x['category']]['name']} | Difficulty: {x['difficulty']} | Added: {x['date_added']}", pop, "",
           x["summary"], "", "What the bot does:"] + [f"{i+1}. {s}" for i, s in enumerate(x["what_the_bot_does"])] + ["", f"What you end up with: {x['what_you_end_up_with']}", "",
-          "Tools: " + ", ".join(tools[t["id"]]["name"] for t in x["tools"]), "", "Prompt:", x["prompt"], "", "Watch out:"] + [f"- {w}" for w in x.get("watch_out", [])] + ["", "Sources:"] + [f"- {s['label']}: {s['url']}" for s in x["sources"]] + [""]
+          "Tools: " + ", ".join(tools[t["id"]]["name"] for t in x["tools"]), "", "Prompt:", x["prompt"], "", "Watch out:"] + [f"- {w}" for w in x.get("watch_out", [])] + (["", "Questions:"] + [f"- {q['q']} {q['a']}" for q in x["faq"]] if x.get("faq") else []) + ["", "Sources:"] + [f"- {s['label']}: {s['url']}" for s in x["sources"]] + [""]
 for b in bps:
     F += [f"## Blueprint: {b['title']}", f"URL: {absu(u('/blueprints/'+b['slug']+'/'))}", f"Goal: {b['goal']}", f"Runs: {b['trigger']}", f"Watches: {b['watches']}", "Instructions:", b["instructions"], "Safety:"] + [f"- {s}" for s in b["safety"]] + [""]
 F += ["## Latest in AI", f"URL: {absu(u('/news/'))}", f"Top story (importance): {NEWS_TOP['headline']} ({NEWS_TOP['date']}). Trending (X engagement decayed by age): " + "; ".join(n['headline'] for n in NEWS_TREND)] + [f"- {n['date']} [{n['category']}, impact: {n.get('impact','')}] {n['headline']} | {n['explainer']} | Source: {n['source_name']} {n['source_url']}" + (f" | X: {n['x']['likes']:,} likes, {n['x']['reposts']:,} reposts ({n['x']['url']}, measured {n['x']['measured_at']})" if n.get('x') else "") for n in NEWS] + [""]

@@ -1,5 +1,22 @@
 # Ops changelog
 
+## 2026-11-03 (SEO improvement pass, ~9:30 AM CT, asked by Nik in chat)
+Audit (all 159 built pages: titles, descriptions, H1s, heading order, image alt, canonicals, JSON-LD parse, sitemap, llms.txt, in-content links)
+- Clean: one H1 per page, canonical on every page, every JSON-LD block parses, no image without alt, no heading-level skips, no duplicate titles or descriptions, every indexed page in the sitemap.
+- Fixed: 8 use-case titles were 63-65 chars (cut off in Google). Added keyword-first `seo_title` (51-57 chars) to plan-your-day, daily ads/sales report, prescription-ready, weekend activities, team of agents, people-search removal, shared Apple account, scanned paper mail.
+- Fixed: /about/ meta description was 83 chars; now a full sentence about how use cases are found, measured and sourced.
+- llms.txt: added the newsletter, a link to each of the 8 category hubs and the past newsletter issues (were missing). llms-full.txt: each use case now includes its FAQ answers (31 use cases have them).
+Internal links (build.py)
+- Every use-case page: "New to this?" line now links "what an AI agent is, in simple terms" (/what-can-bots-do/ was linked from only 6 pages' content) before the no-code guide; pages that list OpenClaw or Hermes Agent as a tool link the OpenClaw vs Hermes guide.
+- Use-case sidebar "More in <category>" box: added "All <category> use cases →" (category hub) and "Every AI agent example on one page →" (/ai-agent-examples/ was linked from 3 pages' content).
+Newsletter signups
+- Use-case pages: one-line pointer under the copy-paste prompt, "Want one new job like this each week, with a prompt to copy? Get the free BotsDoThat Weekly email" → /newsletter/ (was linked from 3 pages' content; existing sidebar card and end-of-page form unchanged).
+- Long guides (cost, no-code, OpenClaw vs Hermes, email safety, what is an AI agent, AI agent examples): added a mid-article signup (existing newsletter_box, inline variant, after the 3rd section) in addition to the end form. New NL_MID_PATHS + _insert_mid in build.py.
+New pages (Google autocomplete pulled Nov 3; neither duplicates an existing page)
+- `let-ai-send-emails-for-you` (inbox, Easy), title tag "Can AI send emails for you? ChatGPT, Claude and Gemini". Targets "can chatgpt send emails for me / on my behalf", "can claude send emails for me", "can gemini send emails for me", "can ai agents send emails". Approve-before-send prompt, setup (official connect buttons, permission settings, drafts-only option), watch-outs, 4-question FAQ. Sources: OpenAI release notes + app permissions help, Claude Google Workspace connectors help, Gemini Apps tasks help, TechRadar hands-on (Jun 9, 2026; no attachments), Tatsulok comparison (Oct 14, 2026), Google suggestions. No stats.
+- `set-up-chatgpt-scheduled-tasks` (work, Easy), title tag "ChatGPT scheduled tasks: ideas and how to set one up". Targets "chatgpt scheduled tasks ideas / examples / free / not working", "how to schedule chatgpt tasks". Plan limits (3 Free/Go, 5 Plus, 10 Business/Edu, 15 Pro/Enterprise), notification setup, why tasks pause, shared-link privacy, Pulse retirement, 5-question FAQ. Sources: OpenAI scheduled tasks help + release notes (Jun 17, Aug 25, 2026), Claude Cowork scheduling help, XDA and MakeUseOf hands-ons, 2 r/ChatGPT threads, Google suggestions. No stats.
+- Now 118 use cases; source mix X 73/455 = 16% (both new pages use 0 X links).
+
 ## 2026-11-03 (Weekly SEO + AI-answer run, ~7:45 AM PT)
 Audit (titles, descriptions, H1s, canonicals, JSON-LD, sitemap, robots.txt, llms.txt)
 - 157 pages: no duplicate titles or descriptions, one H1 per page, canonical on every indexed page; robots.txt allows search + AI crawlers and points to the sitemap; llms.txt/llms-full.txt and sitemap include the new page. Descriptions already capped at 155 chars by mdesc (the 160+ hits were HTML entities).
@@ -16,6 +33,8 @@ AI price refresh (all rows re-checked on official pages Nov 3; checked_on = 2026
 AI answers / analytics
 - Citation checks: no direct access to ChatGPT, Perplexity, Google AI Overviews or Grok answers from this box; a web-search engine check for "how much does it cost to run an AI agent per month" and "how to build an AI agent without coding" did not cite botsdothat.com. The site is indexed for brand queries.
 - Search Console and Cloudflare analytics: not accessed this run; no numbers reported.
+- Checks: validate 0 errors (116 use cases); build 157 indexed pages + 404; check_links 12,082 links, 0 broken internal.
+- Deploy: main cc21c29 / publish 10c018c; GitHub Actions run 41662208153 succeeded (7:17 AM PT). Live 200: /, new flight guide, cost guide (new FAQs present), /ai-pricing/ (Claude Ultra row present). This deploy line is committed with the next deploy.
 
 ## 2026-11-03 (News update, AM, ~7:40 AM ET)
 - Added 3 items: `google-dreambeans-india` (Nov 3, minor, feature; Google India blog, TechCrunch, The Hindu; no x block, only low-engagement coverage), `gemini-2-5-auto-route-december` (Nov 2, notable, pricing; Gemini API changelog + deprecations; no x block), `apple-watch-live-rewind-siri-recap-beta` (Nov 2, notable, feature; TechCrunch, Apple Support, Engadget; no x block, top posts under 5 likes).

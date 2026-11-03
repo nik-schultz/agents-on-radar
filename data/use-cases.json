@@ -1,5 +1,277 @@
 [
  {
+  "slug": "let-ai-send-emails-for-you",
+  "title": "Let an AI write and send your emails, after you OK each one",
+  "seo_title": "Can AI send emails for you? ChatGPT, Claude and Gemini",
+  "category": "inbox",
+  "source_date": "2026-10-14",
+  "summary": "Yes. ChatGPT and Claude can now send email from your connected Gmail (ChatGPT also Outlook), and Gemini's Tasks can reply and forward. Each one shows you the email and waits for your OK before it goes out, unless you switch that off. Keep it on.",
+  "what_the_bot_does": [
+   "Reads the thread or the notes you give it (who it's to, what you want to say, the tone).",
+   "Writes the email in your voice, with the To, Cc and Subject lines filled in.",
+   "Shows you the full draft and an approval card (Allow or Deny) before anything is sent.",
+   "Sends it from your own account once you approve, or saves it as a draft if you'd rather press Send yourself.",
+   "Tells you what it sent and to whom, so you can check your Sent folder."
+  ],
+  "what_you_end_up_with": "Emails written and sent from your own Gmail or Outlook without opening your inbox, each one checked and approved by you first.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt",
+    "note": "Sends from a connected Gmail or Outlook on the web, on Plus, Pro, Business and Enterprise (not Free or Go). Shows an Allow/Deny card first."
+   },
+   {
+    "id": "claude",
+    "note": "Gmail connector can send, reply and forward; asks for your approval before each one by default."
+   },
+   {
+    "id": "gemini-spark",
+    "note": "Tasks in the Gemini app can reply to and forward Gmail threads and always ask you to confirm before sending. Not in the EEA, UK, Switzerland or Nigeria."
+   },
+   {
+    "id": "grok-bot"
+   }
+  ],
+  "prompt": "Write an email to [name, email address] about [what it's about]. Here's what I want to say: [2-3 bullet points]. Tone: [friendly / formal / short]. Sign it [your name]. Show me the full email with To, Cc and Subject before you do anything. Do not send it until I reply \"send it\". Only send to the addresses I gave you, never add anyone, and don't attach or forward anything. If you're not sure about a fact, leave a [CHECK] note in the draft instead of guessing.",
+  "setup": [
+   "Connect your email with the app's official connect button, never by pasting your password into the chat. In ChatGPT: Settings > Apps, then add Gmail or Outlook. In Claude: Customize > Connectors, then Gmail.",
+   "Check the permission setting before your first send. ChatGPT's options run from \"Always ask\" to \"Allow all actions\"; Claude lets you set each Gmail tool to Always allow, Needs approval or Blocked. Pick the one that asks before sending.",
+   "Want drafts only? In Claude, set the send, reply and forward tools to Blocked, so it can write drafts but never send. In Gmail itself, Gemini's Help me write drafts the email and you press Send.",
+   "Send your first test email to yourself, then check your Sent folder to see exactly what went out."
+  ],
+  "watch_out": [
+   "Don't pick \"Allow all actions\" or \"Always allow\" for sending. A sent email can't be pulled back, and OpenAI labels that setting as elevated risk.",
+   "Read the To and Cc lines, not just the text. A wrong autocomplete on a name sends your email to the wrong person.",
+   "TechRadar's June 2026 test found ChatGPT couldn't attach files when sending, and Claude's Gmail connector sees only that a file is attached, not what's in it. Send attachments yourself.",
+   "Emails from strangers can hide instructions meant for your AI. Don't let it reply to or forward messages from people you don't know without reading them first.",
+   "Sending is often web-only or paid-only. ChatGPT sends only on the web on paid plans; on Free or Go it can write the email but not send it."
+  ],
+  "faq": [
+   {
+    "q": "Can ChatGPT send emails for me?",
+    "a": "Yes, if you connect Gmail or Outlook. Since June 2026, ChatGPT on the web can draft and send email from your account on the Plus, Pro, Business and Enterprise plans. It shows the email and asks you to Allow or Deny before it sends. It doesn't work on Free or Go plans."
+   },
+   {
+    "q": "Can Claude send emails on my behalf?",
+    "a": "Yes. Anthropic's help page says Claude's Gmail connector can send, reply to and forward emails, and asks for your approval before each of these actions by default. On Team and Enterprise plans, owners decide whether members can turn that prompt off."
+   },
+   {
+    "q": "Can Gemini send emails for me?",
+    "a": "Gemini in Gmail writes drafts and you press Send. Tasks in the Gemini app can reply to and forward Gmail threads, and Google says it always asks for your confirmation before sending. Tasks aren't available in the EEA, the UK, Switzerland or Nigeria."
+   },
+   {
+    "q": "Can AI send emails automatically, without me?",
+    "a": "Some can if you turn approvals off, but we don't recommend it. ChatGPT's tasks can react to new Gmail messages on paid plans, and any action that needs approval pauses until you review it. Keep sending on \"ask first\"."
+   }
+  ],
+  "sources": [
+   {
+    "label": "OpenAI Help Center: ChatGPT release notes (send an email directly from a chat with Gmail or Outlook connected; web, Plus, Pro, Business, Enterprise)",
+    "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+    "kind": "official"
+   },
+   {
+    "label": "OpenAI Help Center: Managing app permissions in ChatGPT (Always ask to Allow all actions; sending an email may need extra review)",
+    "url": "https://help.openai.com/en/articles/20001495-managing-app-permissions-in-chatgpt",
+    "kind": "official"
+   },
+   {
+    "label": "Claude Help Center: Use Google Workspace connectors (send, reply and forward from Gmail; asks for approval before each by default; attachment metadata only)",
+    "url": "https://support.claude.com/en/articles/10166901-use-google-workspace-connectors",
+    "kind": "official"
+   },
+   {
+    "label": "Gemini Apps Help: Manage your tasks and workflows (draft, reply and forward Gmail; always asks before sending communications; regions)",
+    "url": "https://support.google.com/gemini/answer/17094507",
+    "kind": "official"
+   },
+   {
+    "label": "TechRadar (Jun 9, 2026): I sent an email without opening Gmail thanks to ChatGPT, then I found the catch (Allow/Deny card, no attachments)",
+    "url": "https://www.techradar.com/ai-platforms-assistants/chatgpt/i-sent-an-email-without-opening-gmail-thanks-to-chatgpts-new-feature-then-i-found-the-catch",
+    "kind": "article"
+   },
+   {
+    "label": "Tatsulok (Oct 14, 2026): ChatGPT, Claude, Gemini or Copilot: who can send from your Gmail?",
+    "url": "https://www.tatsulok.com/en/blog/gmail-assistants-compared",
+    "kind": "article"
+   },
+   {
+    "label": "Google search suggestions (Nov 3, 2026): \"can chatgpt send emails for me\", \"can claude send emails for me\", \"can gemini send emails for me\"",
+    "url": "https://www.google.com/search?q=can+chatgpt+send+emails+for+me",
+    "kind": "article"
+   }
+  ],
+  "popularity": null,
+  "see_also": [
+   {
+    "slug": "email-ghostwriter-style-guide",
+    "why": "Want the emails to sound more like you?"
+   },
+   {
+    "slug": "flag-only-emails-that-need-a-reply",
+    "why": "Not sure which emails need a reply?"
+   },
+   {
+    "slug": "give-your-agent-its-own-email-address",
+    "why": "Rather the bot sends from its own address?"
+   }
+  ],
+  "tags": [
+   "email",
+   "gmail",
+   "outlook",
+   "send email",
+   "chatgpt",
+   "claude",
+   "gemini",
+   "can ai send emails for me"
+  ],
+  "date_added": "2026-11-03",
+  "origin": "pipeline",
+  "last_checked": "2026-11-03"
+ },
+ {
+  "slug": "set-up-chatgpt-scheduled-tasks",
+  "title": "Put ChatGPT on a schedule: daily briefings, reminders and watchers",
+  "seo_title": "ChatGPT scheduled tasks: ideas and how to set one up",
+  "category": "work",
+  "source_date": "2026-10-31",
+  "summary": "ChatGPT's scheduled tasks run a prompt for you at a set time, every day or week, or watch for a change and tell you only when something happens. Free plans get 3 active tasks once a day; paid plans can run hourly at exact times.",
+  "what_the_bot_does": [
+   "Takes one plain request with a time, like \"Every weekday at 7:30, check my calendar and email and tell me what needs me today.\"",
+   "Saves it as a task you can see, pause, edit or delete on the Scheduled page.",
+   "Runs it on schedule in the background, searching the web or your connected apps (like Gmail or Google Calendar) if the task needs them.",
+   "Sends you a push or email notification with the result, or stays quiet when a watch task finds nothing new.",
+   "Pauses and waits for you if the task would send a message or change something that needs your approval."
+  ],
+  "what_you_end_up_with": "A few small jobs that run themselves on a schedule, like a morning briefing, a weekly plan and a watcher that only pings you when something changes.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt",
+    "note": "Scheduled tasks on every plan: 3 active on Free and Go (once a day), 5 on Plus, 10 on Business and Edu, 15 on Pro and Enterprise."
+   },
+   {
+    "id": "claude-cowork",
+    "note": "Scheduled recurring tasks on paid Claude plans: type /schedule or open Scheduled in the sidebar."
+   },
+   {
+    "id": "gemini-spark",
+    "note": "Tasks in the Gemini app can run on a schedule or after an event."
+   },
+   {
+    "id": "grok-bot"
+   }
+  ],
+  "prompt": "Every [weekday / Monday / day] at [time, your time zone], do this: [the job, e.g. check my Google Calendar and Gmail for today and list meetings, deadlines and emails from real people that need a reply]. Keep it under [10] bullet points, most urgent first, and say why each one matters. Skip newsletters and promotions. If there's nothing worth telling me, say \"Nothing today\" in one line. Never send, reply, delete or buy anything as part of this task; only report to me.",
+  "setup": [
+   "Turn on notifications first: Settings > Notifications, then choose Push, Email or both. Without them, results wait silently in the chat.",
+   "Create the task by asking in a normal chat (\"Every Monday at 8 AM...\") or from the Scheduled page in the sidebar. Check the time and time zone ChatGPT shows in its confirmation.",
+   "If the task needs your email or calendar, connect them in Settings > Apps, and keep the permission on asking before it sends or changes anything.",
+   "Use Run now on the Scheduled page to test it once, then trim the prompt until the result is short enough to read in a minute.",
+   "Good first tasks: a weekday morning briefing, a Sunday plan for the week, a monthly home-maintenance reminder, and a watcher (\"tell me only when [page or topic] changes\")."
+  ],
+  "watch_out": [
+   "Free plans run tasks at most once a day in loose windows (morning, afternoon or night). Exact times and hourly runs need a paid plan.",
+   "Each run uses your plan's usage allowance even when it has nothing to report, so pause tasks you no longer read.",
+   "Tasks can pause on their own if they're inactive or need approval, or if you archive or delete their chat. Check the Scheduled page if one goes quiet.",
+   "Anyone with a shared task link can read the full instructions. Keep account numbers, health details and passwords out of task titles and prompts.",
+   "Tasks can't be created in voice chats, GPTs or locked chats, and a task made inside a project can't read that project's files."
+  ],
+  "faq": [
+   {
+    "q": "Are ChatGPT scheduled tasks free?",
+    "a": "Yes, Free and Go users can have up to 3 active scheduled tasks. Each runs once or repeats no more than once a day, in a flexible window like morning or night. Paid plans allow more tasks (5 on Plus, 15 on Pro), hourly runs and exact times."
+   },
+   {
+    "q": "How do I schedule a task in ChatGPT?",
+    "a": "Ask in a chat, for example \"Every weekday at 7 AM, give me a summary of my calendar.\" ChatGPT confirms the task and its time. You can also open Scheduled in the sidebar to create, pause, edit or delete tasks."
+   },
+   {
+    "q": "Why is my ChatGPT scheduled task not working?",
+    "a": "Check the Scheduled page: tasks pause when they're inactive, need your approval, or their chat was archived or deleted. Also check Settings > Notifications, because with notifications off the result only shows up in the chat."
+   },
+   {
+    "q": "Can a scheduled task react to new emails?",
+    "a": "On paid plans (Plus, Pro, Business, Enterprise, Edu), event-triggered tasks in ChatGPT Work can respond to a new Gmail message, a Slack channel message or GitHub pull request activity. They're not available on Free or Go."
+   },
+   {
+    "q": "What happened to ChatGPT Pulse?",
+    "a": "OpenAI retired Pulse in June 2026 and moved proactive updates into scheduled tasks. To get a daily briefing, ask ChatGPT to schedule one based on your interests."
+   }
+  ],
+  "sources": [
+   {
+    "label": "OpenAI Help Center: Scheduled tasks in ChatGPT (limits by plan, notifications, event-triggered tasks, why tasks pause, shared task links)",
+    "url": "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt",
+    "kind": "official"
+   },
+   {
+    "label": "OpenAI Help Center: ChatGPT release notes (Jun 17, 2026 Scheduled page and Pulse retired; Aug 25, 2026 event-triggered and shared tasks, Free tasks)",
+    "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+    "kind": "official"
+   },
+   {
+    "label": "Claude Help Center: Schedule recurring tasks in Claude Cowork",
+    "url": "https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork",
+    "kind": "official"
+   },
+   {
+    "label": "XDA Developers: I started scheduling tasks in ChatGPT (inbox check, Monday meeting prep, Sunday week plan)",
+    "url": "https://www.xda-developers.com/started-scheduling-tasks-in-chatgpt-and-been-productivity-booster/",
+    "kind": "article"
+   },
+   {
+    "label": "MakeUseOf: I set up four ChatGPT Scheduled Tasks (8 AM calendar rundown, evening news report, stay-quiet price watcher)",
+    "url": "https://www.makeuseof.com/chatgpt-scheduled-tasks-everyday-uses/",
+    "kind": "article"
+   },
+   {
+    "label": "r/ChatGPT (Aug 2026): What are good use cases for scheduled tasks? (monthly home upkeep reminders, expense-report nags, watchers)",
+    "url": "https://www.reddit.com/r/ChatGPT/comments/1vvx8ee/what_are_good_use_cases_for_scheduled_tasks/",
+    "kind": "reddit"
+   },
+   {
+    "label": "r/ChatGPT (Sep 2026): What are people actually using ChatGPT scheduled tasks for? (school emails to a shared calendar, morning journal prompt)",
+    "url": "https://www.reddit.com/r/ChatGPT/comments/1wg0edy/what_are_people_actually_using_chatgpt_scheduled/",
+    "kind": "reddit"
+   },
+   {
+    "label": "Google search suggestions (Nov 3, 2026): \"chatgpt scheduled tasks ideas\", \"chatgpt scheduled tasks examples\", \"chatgpt scheduled tasks free\"",
+    "url": "https://www.google.com/search?q=chatgpt+scheduled+tasks+ideas",
+    "kind": "article"
+   }
+  ],
+  "popularity": null,
+  "see_also": [
+   {
+    "slug": "schedule-bots-without-burning-tokens",
+    "why": "Running lots of tasks? Keep the schedule sensible:"
+   },
+   {
+    "slug": "plan-your-day-from-your-calendar-and-to-do-list",
+    "why": "Want a full daily plan, not just a briefing?"
+   },
+   {
+    "slug": "watch-a-web-page-for-changes",
+    "why": "Watching one page for a change?"
+   }
+  ],
+  "tags": [
+   "chatgpt",
+   "scheduled tasks",
+   "schedule",
+   "reminders",
+   "daily",
+   "morning",
+   "routine",
+   "chatgpt tasks examples"
+  ],
+  "date_added": "2026-11-03",
+  "origin": "pipeline",
+  "last_checked": "2026-11-03"
+ },
+ {
   "slug": "book-a-flight-with-an-ai-agent",
   "title": "Book a flight with an AI agent (and check it before you pay)",
   "seo_title": "Can an AI agent book flights for you? How to do it safely",
@@ -472,6 +744,7 @@
  {
   "slug": "plan-your-day-from-your-calendar-and-to-do-list",
   "title": "Have your AI plan your day from your real calendar and to-do list",
+  "seo_title": "AI to plan your day from your calendar and to-do list",
   "category": "family",
   "source_date": "2026-03-24",
   "summary": "Say \"plan my day\" and an assistant connected to your calendar and task list reads what's already booked and what's due, then proposes a time-blocked plan with breaks. You approve or change it, and only then does it add the blocks to your calendar. A Todoist user who set this up with Claude says the key is giving every task a deadline and a rough length.",
@@ -3329,6 +3602,7 @@
  {
   "slug": "give-your-agents-a-shared-apple-account",
   "title": "Give your agents a shared Apple account for notes and reminders",
+  "seo_title": "Give your AI agents a shared Apple account for notes",
   "category": "work",
   "source_date": "2026-10-11",
   "summary": "A Mac signed in to a separate Apple Account can become the shared desk where your agents leave each other reminders, notes, calendar events and messages, while your personal account stays private.",
@@ -3387,6 +3661,7 @@
  {
   "slug": "team-of-agents-with-roles",
   "title": "Put a small team of agents on one project, each with its own job",
+  "seo_title": "Run a team of AI agents on one project, each with a job",
   "category": "business",
   "source_date": "2026-10-08",
   "summary": "Instead of one chatbot doing everything, give separate agents separate roles (one researches, one builds) and let them hand work to each other in a shared conversation you can watch.",
@@ -3859,6 +4134,7 @@
  {
   "slug": "prescription-ready-and-time-to-leave",
   "title": "Get pinged when a prescription is ready, and told when to leave",
+  "seo_title": "Prescription-ready alerts and leave-now pings from a bot",
   "category": "health",
   "source_date": "2026-09-27",
   "summary": "A personal agent can sweep your email every morning for \"ready for pickup\" notices, and check live traffic before your appointments to tell you when to head out.",
@@ -4188,6 +4464,7 @@
  {
   "slug": "remove-your-number-from-people-search-sites",
   "title": "Get your phone number off people-search sites to cut spam calls",
+  "seo_title": "Remove your number from people-search sites with AI",
   "category": "family",
   "source_date": "2026-10-19",
   "summary": "A bot finds where your phone number is listed on people-search and data-broker sites, files the opt-out requests, and checks again later.",
@@ -5710,6 +5987,7 @@
  {
   "slug": "sort-scanned-paper-mail-with-alerts",
   "title": "Have a bot sort your scanned paper mail and flag what needs you",
+  "seo_title": "AI that sorts scanned paper mail and flags what needs you",
   "category": "inbox",
   "date_added": "2026-10-20",
   "source_date": "2026-09-23",
@@ -6853,6 +7131,7 @@
  {
   "slug": "weekend-family-activities",
   "title": "Get 5 weekend activity ideas that fit your kids and the weather",
+  "seo_title": "AI weekend activity ideas that fit your kids and weather",
   "category": "family",
   "date_added": "2026-10-20",
   "source_date": "2026-10-09",
@@ -7060,6 +7339,7 @@
  {
   "slug": "daily-ads-and-sales-report",
   "title": "Get your ads and sales numbers every morning without logging in",
+  "seo_title": "Daily ads and sales report from an AI agent, no logins",
   "category": "business",
   "date_added": "2026-10-20",
   "source_date": "2026-10-08",

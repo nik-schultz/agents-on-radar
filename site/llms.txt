@@ -18,10 +18,13 @@ Data as of 2026-11-03. Popularity numbers are real counts (X likes/reposts, Redd
 - [AI agent cost calculator](https://botsdothat.com/run-your-bots-for-less/#calculator): pick a bot or enter runs and message size, compare monthly cost across 21 models from official prices checked 2026-11-03; prefill with ?bot=<blueprint-slug>
 - [AI price table](https://botsdothat.com/ai-pricing/): official API and plan prices for OpenAI, Anthropic, Google, xAI, Groq, Mistral, Meta and DeepSeek, checked 2026-11-03
 - [RSS feed of new use cases](https://botsdothat.com/feed.xml)
+- [BotsDoThat Weekly newsletter](https://botsdothat.com/newsletter/): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; past issues on the web
 
 ## Use cases by category
 
 ### Inbox, calls & paperwork
+All Inbox, calls & paperwork use cases: https://botsdothat.com/category/inbox/
+- [Let an AI write and send your emails, after you OK each one](https://botsdothat.com/use-cases/let-ai-send-emails-for-you/): Yes. ChatGPT and Claude can now send email from your connected Gmail (ChatGPT also Outlook), and Gemini's Tasks can reply and forward. Each one shows you the email and waits for your OK before it goes out, unless you switch that off. Keep it on.
 - [Have your bot catch calendar clashes hiding in your email](https://botsdothat.com/use-cases/catch-calendar-clashes-hiding-in-your-email/): Plans don't only live in your calendar. A rescheduled event in a confirmation email, or a "call Mom at 2" note you emailed yourself, can quietly clash with what's booked. An always-on agent can compare your email with your calendar every morning and text you before a clash, but in WIRED's test of six agents only two caught one on their own, so ask for this check by name.
 - [Let ChatGPT catch you up on your iCloud Mail and update your iPhone calendar](https://botsdothat.com/use-cases/let-chatgpt-run-your-icloud-mail-and-calendar/): If your email ends in @icloud.com, @me.com or @mac.com, ChatGPT can now read and search it, draft replies and add or move events on the calendar you see on your iPhone. It works on every ChatGPT plan, including Free, and ChatGPT's always-on dots can use it too.
 - [Put together a home or car insurance claim with an AI agent](https://botsdothat.com/use-cases/put-together-an-insurance-claim-with-an-ai-agent/): Drop your photos, receipts and policy into one folder and let an agent build the damage list, a dated timeline and the questions to ask your insurer. You check every line and file the claim yourself.
@@ -46,6 +49,7 @@ Data as of 2026-11-03. Popularity numbers are real counts (X likes/reposts, Redd
 - [Get your email inbox under control](https://botsdothat.com/use-cases/clean-up-your-email-inbox/): Thousands of unread emails, and the important ones get buried under newsletters and promos.
 
 ### Run your bots for less
+All Run your bots for less use cases: https://botsdothat.com/category/run-for-less/
 - [Set spend limits and usage alerts on your AI accounts](https://botsdothat.com/use-cases/set-ai-spend-limits-and-alerts/): Before a bot runs on autopilot, put a hard cap on what it can spend and check usage weekly, so a runaway loop can't run up a big bill.
 - [Keep your bot's prompts, tools and context short](https://botsdothat.com/use-cases/keep-prompts-and-context-short/): You pay for everything the model reads on every run: your instructions, tool definitions, pasted pages and the conversation so far. Trimming those is often the easiest saving.
 - [Stop always-on bots burning tokens: run them less often](https://botsdothat.com/use-cases/schedule-bots-without-burning-tokens/): Every scheduled run costs tokens, even when nothing has changed. Match the schedule to how often the thing really changes, and switch fun-but-idle bots to run only when you ask.
@@ -56,6 +60,7 @@ Data as of 2026-11-03. Popularity numbers are real counts (X likes/reposts, Redd
 - [Use a small AI model for simple jobs, a big one for hard ones](https://botsdothat.com/use-cases/pick-a-smaller-model-for-simple-jobs/): Most bot jobs (sorting email, summarizing, checking a page) don't need the most powerful model. The small models cost a fraction as much, so route easy work to them and only send hard problems up.
 
 ### Shopping & groceries
+All Shopping & groceries use cases: https://botsdothat.com/category/shopping/
 - [Snap a photo of your handwritten shopping list and let an agent fill the cart](https://botsdothat.com/use-cases/turn-a-photo-of-your-shopping-list-into-a-cart/): Walmart's shopping agent, Sparky, can now read a photo of a handwritten list (or a list exported from your phone's Notes app) and turn it into a cart, matched item by item to your usual store and the things you've bought before. You check the cart and pay; it does the searching.
 - [Let your AI find and buy things for you with Shop Pay](https://botsdothat.com/use-cases/let-your-ai-shop-for-you-with-shop-pay/): Connect Shopify's free Shop skill to ChatGPT or Claude (or use Shop Pay inside Muse, Instinct, Claude Duet or Grok Bot) and your AI can search online stores, fill in a checkout and pay with Shop Pay. You approve every purchase, and your card number is never handed to the AI.
 - [Have an agent research a used car from its listing link](https://botsdothat.com/use-cases/research-a-used-car-from-a-listing/): Drop in a used-car listing link and let an agent dig in: what the model is known for, the car's damage history and the questions to ask before you call the seller.
@@ -66,6 +71,7 @@ Data as of 2026-11-03. Popularity numbers are real counts (X likes/reposts, Redd
 - [Give your agent a single-use card before it buys anything](https://botsdothat.com/use-cases/pay-with-a-single-use-virtual-card/): When an agent books or buys for you, give it a one-time virtual card so it can't be charged again.
 
 ### Bookings & travel
+All Bookings & travel use cases: https://botsdothat.com/category/travel/
 - [Book a flight with an AI agent (and check it before you pay)](https://botsdothat.com/use-cases/book-a-flight-with-an-ai-agent/): Yes, some AI agents can now book a flight for you: they search, pick the fare you approve, fill in passenger details and stop for your OK before paying. You still check names, price and fare rules yourself.
 - [Add an AI to your friends' group chat to make plans happen](https://botsdothat.com/use-cases/add-an-ai-to-your-friends-group-chat-to-make-plans/): Instead of 60 messages about where and when, you add an AI agent to the iMessage group. It suggests options, gets everyone to agree, and then books the table, tickets or rental car for the group once someone says yes.
 - [Get roadside help abroad when nobody speaks your language](https://botsdothat.com/use-cases/get-roadside-help-abroad/): Broken down in another country and the insurer's phone line is in a language you don't speak? An agent can find the right help form, fill it in with your details and get help moving.
@@ -79,6 +85,7 @@ Data as of 2026-11-03. Popularity numbers are real counts (X likes/reposts, Redd
 - [Plan a trip itinerary that fits your pace](https://botsdothat.com/use-cases/plan-a-trip-itinerary/): Planning a trip means 30 open tabs, and you still aren't sure the days fit together.
 
 ### Family & home
+All Family & home use cases: https://botsdothat.com/category/family/
 - [Have your AI plan your day from your real calendar and to-do list](https://botsdothat.com/use-cases/plan-your-day-from-your-calendar-and-to-do-list/): Say "plan my day" and an assistant connected to your calendar and task list reads what's already booked and what's due, then proposes a time-blocked plan with breaks. You approve or change it, and only then does it add the blocks to your calendar. A Todoist user who set this up with Claude says the key is giving every task a deadline and a rough length.
 - [Set up an AI coach that helps you (or your teen) start overwhelming tasks and checks in](https://botsdothat.com/use-cases/get-an-ai-coach-that-helps-you-start-overwhelming-tasks/): A parent shared how they set up ChatGPT as a "getting started" coach for their 20-year-old son with ADHD: one chat for schedule and check-ins, a Project for each big job so it remembers progress, and instructions to ask one question at a time and give one five-minute first step. Scheduled check-ins keep it going without anyone nagging.
 - [Organize your photos by just asking](https://botsdothat.com/use-cases/organize-your-photos-by-asking/): Connect Google Photos to Gemini and give it a task in plain words: find the best shots from a trip, skip the near-duplicates, and put them in a new private album, or do it on a schedule every month.
@@ -100,6 +107,7 @@ Data as of 2026-11-03. Popularity numbers are real counts (X likes/reposts, Redd
 - [Read old handwritten letters and family records with AI](https://botsdothat.com/use-cases/read-old-handwritten-letters-and-records/): Grandma's letters, an old diary or a census page in hard-to-read cursive? Upload a photo and ask AI for a transcription, then check it line by line.
 
 ### Health & care
+All Health & care use cases: https://botsdothat.com/category/health/
 - [Get pinged when a prescription is ready, and told when to leave](https://botsdothat.com/use-cases/prescription-ready-and-time-to-leave/): A personal agent can sweep your email every morning for "ready for pickup" notices, and check live traffic before your appointments to tell you when to head out.
 - [Log your meals by talking and get a daily weight check-in](https://botsdothat.com/use-cases/log-meals-and-weight-by-voice/): Tell your bot what you ate, out loud, and it keeps the food log for you. It can also check in on your weight each morning.
 - [Set up medication and appointment reminders for a parent](https://botsdothat.com/use-cases/medication-reminders-for-a-parent/): Family agents can remind an older parent about medication and book routine appointments, with the family kept in the loop.
@@ -108,6 +116,8 @@ Data as of 2026-11-03. Popularity numbers are real counts (X likes/reposts, Redd
 - [Organize an aging parent's care and paperwork](https://botsdothat.com/use-cases/organize-a-parents-care-paperwork/): You're helping a parent with doctors, insurance, medicines and bills, and the details live in a dozen places.
 
 ### Work & career
+All Work & career use cases: https://botsdothat.com/category/work/
+- [Put ChatGPT on a schedule: daily briefings, reminders and watchers](https://botsdothat.com/use-cases/set-up-chatgpt-scheduled-tasks/): ChatGPT's scheduled tasks run a prompt for you at a set time, every day or week, or watch for a change and tell you only when something happens. Free plans get 3 active tasks once a day; paid plans can run hourly at exact times.
 - [Make your agent prove it really booked, sent or saved it](https://botsdothat.com/use-cases/make-your-agent-prove-it-finished-the-job/): Agents sometimes say "all set!" when the booking, update or message never went through. A new test of 19 AI models found this was the most common way they broke the rules. The fix is simple: ask your agent to show proof (a confirmation number, a link, a screenshot or the confirmation email) and to check the real result before it tells you it's done.
 - [Prepare and practice negotiating your salary or a job offer](https://botsdothat.com/use-cases/practice-negotiating-your-salary-or-job-offer/): You got an offer, or you want a raise, and the money talk makes you nervous. AI can help you pick your numbers from real pay data, draft a friendly counteroffer email and play the recruiter or manager so you can rehearse first.
 - [Describe an automation in plain words and let IFTTT's AI build and run it](https://botsdothat.com/use-cases/tell-ifttt-what-to-automate-in-plain-words/): IFTTT ("if this, then that") is now IFTTT.ai. You type what you want, like "when a package is delivered, flash my lights" or "email me when it's going to rain tomorrow", and it builds the automation and runs it around the clock. Its new AI Agent can also watch a web page for new items, or act across your connected apps from a plain-language instruction.
@@ -138,6 +148,7 @@ Data as of 2026-11-03. Popularity numbers are real counts (X likes/reposts, Redd
 - [Turn rambling voice memos into tidy notes and a to-do list](https://botsdothat.com/use-cases/turn-voice-memos-into-notes-and-tasks/): Talk into your phone while walking or driving, then let AI turn the transcript into organized notes, a to-do list and any drafts you mentioned.
 
 ### Small business & side hustles
+All Small business & side hustles use cases: https://botsdothat.com/category/business/
 - [Hand your podcast or video edit to a team of AI agents](https://botsdothat.com/use-cases/turn-a-recording-into-an-episode-clips-and-posts/): Record your episode, then let a small team of agents do everything after: one plans the edit, one cuts short clips, one writes the captions and schedules the posts. Nothing goes live until you say yes.
 - [Let your bot handle your website's contact email](https://botsdothat.com/use-cases/let-your-bot-handle-your-sites-contact-email/): Forward the contact address of your website, club or class to your bot's own email. It reads each message, sums it up for you, and only answers when you say so.
 - [Put a small team of agents on one project, each with its own job](https://botsdothat.com/use-cases/team-of-agents-with-roles/): Instead of one chatbot doing everything, give separate agents separate roles (one researches, one builds) and let them hand work to each other in a shared conversation you can watch.
@@ -169,6 +180,10 @@ Data as of 2026-11-03. Popularity numbers are real counts (X likes/reposts, Redd
 - 2026-10-31 [feature] Text from Grok's API will carry an invisible watermark by default from Nov 7: Apps and bots built on Grok 4.x through the API will produce text that xAI can later recognize as AI-written, which it says is for the EU AI Act; nothing changes in how the text looks. Team admins can opt out per model, and the Grok app itself isn't covered by this change. Source: https://docs.x.ai/developers/advanced-api-usage/watermarking
 - 2026-10-30 [pricing] Claude renames Max 20x to Ultra and drops the five-hour limit for verified Ultra accounts: At the same $200 a month, verified Ultra subscribers can now use their whole week's allowance whenever they like instead of hitting a reset every five hours; the weekly limit itself didn't change. The $100 Max 5x plan is now just called Max, and you don't need to do anything if you subscribe. Source: https://support.claude.com/en/articles/17728952-what-is-the-ultra-plan
 - 2026-10-30 [feature] ChatGPT's phone apps let you stay signed in to two accounts and switch between them: Handy if you have a personal and a work ChatGPT: switch in a tap instead of logging out. Each account keeps its own chats, memory, files and subscription, and it's rolling out gradually on iOS and Android. Source: https://help.openai.com/en/articles/6825453-chatgpt-release-notes
+
+## BotsDoThat Weekly (past issues)
+- [Let AI shop, plan and sort for you (it asks first)](https://botsdothat.com/newsletter/2026-10-29/) (2026-10-29)
+- [4 jobs you can hand to an AI this week](https://botsdothat.com/newsletter/2026-10-22/) (2026-10-22)
 
 ## Blueprints
 - [Morning Inbox Briefing](https://botsdothat.com/blueprints/morning-inbox-briefing/): Wake up to a short summary of what's in your email and what needs you today.
