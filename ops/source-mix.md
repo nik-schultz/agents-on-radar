@@ -302,3 +302,10 @@ What changed (2026-11-02 midday trending run): new use cases `turn-a-photo-of-yo
 Top domains: youtube.com (91), x.com (73), news.ycombinator.com (34), reddit.com (29), google.com (24), support.google.com (17), github.com (15), help.openai.com (8), docs.anthropic.com (7), blog.google (5), wired.com (5), support.claude.com (5)
 
 - Added this run: book-a-flight-with-an-ai-agent (5 sources: OpenAI Help, Google blog, 2 Hacker News threads, Travel Distribution News; 0 X).
+
+## After midday trending run (measured 2026-11-03)
+
+- Use cases: **119**; source links: **468**
+- X share of source links: **70/468 = 15%**
+- X-only use cases: **5**
+- Added this run: keep-a-visa-application-on-track (3 sources: Toki blog, The Straits Times, Hacker News; 0 X). Refreshed 48 X popularity blocks.

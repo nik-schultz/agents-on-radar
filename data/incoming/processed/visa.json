@@ -1,0 +1,37 @@
+{
+  "slug": "keep-a-visa-application-on-track",
+  "title": "Keep a visa application on track with an AI agent",
+  "category": "travel",
+  "source_date": "2026-11-02",
+  "summary": "Tell an agent \"get my visa by the end of November\" and it lists what you need, tracks missing documents and reminds you until it's done. It can also spot an upcoming trip in your calendar and flag visa rules and arrival forms.",
+  "what_the_bot_does": [
+    "Reads your trip dates and destination (from you or your calendar).",
+    "Looks up the visa or entry rules on the official government site and lists the documents and steps.",
+    "Keeps a checklist of what you still need and reminds you before each deadline.",
+    "Flags extra forms such as a digital arrival card and when they open.",
+    "Checks in until the visa is approved or you close the task."
+  ],
+  "what_you_end_up_with": "One running checklist for your visa and entry forms, with reminders, so nothing is missed before you fly.",
+  "difficulty": "Easy",
+  "tools": [{"id": "meta-muse", "note": "spotted a trip in a calendar and flagged visa rules in Straits Times testing"}, {"id": "chatgpt-dots", "note": "keeps working on a task between chats"}, {"id": "grok-bot", "note": "schedule a weekly check-in"}],
+  "prompt": "I'm travelling to [country] on [dates] with a [nationality] passport for [tourism/business]. Look up the entry and visa rules ONLY on official government websites and link them. Make me a checklist of documents, fees, appointments and deadlines, including any digital arrival card. Every [Monday], remind me what's still missing and what's due next. Don't fill out or submit any form or pay anything without asking me first.",
+  "setup": [
+    "Open your agent app (Meta Muse, ChatGPT Dots or Grok Bot) and start a new task.",
+    "Paste the prompt and fill in the [brackets].",
+    "Optional: connect your calendar read-only so it can see trip dates.",
+    "Check its checklist against the official government site once yourself.",
+    "Say \"remind me every Monday\" once the checklist looks right."
+  ],
+  "watch_out": [
+    "Agents can be wrong or out of date: The Straits Times found Muse suggested a restaurant that had already closed. Always confirm visa rules on the official government site.",
+    "Never let an agent pay visa fees or submit applications on unofficial 'visa service' sites.",
+    "Some people worry about how much personal data consumer agents collect (see the Hacker News discussion about Muse); connect only the apps you need."
+  ],
+  "sources": [
+    {"label": "Toki blog (Nov 2, 2026): the new Toki personal agent turns \"Get my visa by the end of November\" into a long-running task that tracks requirements, missing documents and follow-ups", "url": "https://toki.com/blog/meet-the-new-toki", "kind": "official"},
+    {"label": "The Straits Times (Oct 28, 2026): in testing, Meta's Muse spotted an overseas trip in the reporter's calendar and flagged visa requirements and the digital arrival card", "url": "https://www.straitstimes.com/tech/meta-rolls-out-consumer-ai-agent-in-singapore-amid-global-safety-retail-pushback", "kind": "article"},
+    {"label": "Hacker News (Nov 1, 2026): privacy discussion of Meta's Muse agent, 60 points and 6 comments measured Nov 3, 2026", "url": "https://news.ycombinator.com/item?id=50328293", "kind": "hn"}
+  ],
+  "popularity": null,
+  "tags": ["visa", "travel", "passport", "arrival card", "checklist", "reminders", "long-running task"]
+}

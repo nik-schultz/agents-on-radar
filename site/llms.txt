@@ -72,6 +72,7 @@ All Shopping & groceries use cases: https://botsdothat.com/category/shopping/
 
 ### Bookings & travel
 All Bookings & travel use cases: https://botsdothat.com/category/travel/
+- [Keep a visa application on track with an AI agent](https://botsdothat.com/use-cases/keep-a-visa-application-on-track/): Tell an agent "get my visa by the end of November" and it lists what you need, tracks missing documents and reminds you until it's done. It can also spot an upcoming trip in your calendar and flag visa rules and arrival forms.
 - [Book a flight with an AI agent (and check it before you pay)](https://botsdothat.com/use-cases/book-a-flight-with-an-ai-agent/): Yes, some AI agents can now book a flight for you: they search, pick the fare you approve, fill in passenger details and stop for your OK before paying. You still check names, price and fare rules yourself.
 - [Add an AI to your friends' group chat to make plans happen](https://botsdothat.com/use-cases/add-an-ai-to-your-friends-group-chat-to-make-plans/): Instead of 60 messages about where and when, you add an AI agent to the iMessage group. It suggests options, gets everyone to agree, and then books the table, tickets or rental car for the group once someone says yes.
 - [Get roadside help abroad when nobody speaks your language](https://botsdothat.com/use-cases/get-roadside-help-abroad/): Broken down in another country and the insurer's phone line is in a language you don't speak? An agent can find the right help form, fill it in with your details and get help moving.

@@ -252,3 +252,8 @@ Bugs/complaints: none found.
 - [ ] ChatGPT Chat+Work merge and ChatGPT Classic retirement (Jan 30, 2027): update any guide that tells readers to open the "Work" tab or the Classic Mac app once the merged screen ships widely.
 - [ ] Claude API message threads (beta): faster long agent sessions; no guide change needed now.
 - Skipped: OpenAI Abu Dhabi deals and Grid Protectors (industry/policy), Gemini parental time limits (APK teardown, unconfirmed), xAI "Data Bot" blog (case study of already-listed Team Bots), ServiceNow Apriel Voice 27B preview (developer research model), Vercel agent-desktop (dev tool, logged midday).
+
+## Midday trending run 2026-11-03
+- Ideas not added: Toki "find a time for lunch with Alex, Sam and Jo" (overlaps add-an-ai-to-your-friends-group-chat-to-make-plans); Muse umbrella/weather reminders (one source only, Straits Times); Muse Singapore connectors (Grab/Shopee) — regional, mostly price-comparison (deal angle, skip); Claude Duet unpaid-invoice drafting (covered by chase-an-unpaid-invoice; add Duet as tool later); Momentic Launch HN (dev tool, not everyday).
+- Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits, web search only our own pages). No bugs reported.
+- Reddit still not fetched from box; web search fallback used.

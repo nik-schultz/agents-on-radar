@@ -23,6 +23,7 @@ Labeled "Chat prompt" (an honest agentic version would just duplicate an existin
 - /use-cases/: title "AI agent use cases you can copy and run, step by step"; new description; note under the lead: "Each use case is a step-by-step page you can copy and run… Want a quick overview first? AI agent examples puts everything agents can do on one page, grouped by part of life. Pages marked Chat prompt are one-off prompts…"
 - /ai-agent-examples/: title unchanged; description now "…on one page, grouped by inbox, calls, shopping, travel, family, health and work. Each links to a how-to."; note: "This page is the one-page overview of what AI agents can do, grouped by part of life. To set one up, open its step-by-step page, or search and filter all of them in use cases…"
 - CSS: .chat-badge, .chat-note, .hub-note in static/style.css (appended). BACKLOG.md: both Oct 28 proposals marked done.
+- Deployed with scripts/deploy.sh at ~9:43 AM CT: main 29b81d2, publish 4abd7d6, GitHub Pages run 41666837834 success. Live check: /use-cases/, /ai-agent-examples/ and the rewritten and labeled pages return 200 with new titles, notes and badges; CSS live. (This line is committed with the next deploy.)
 
 ## 2026-11-03 (SEO improvement pass, ~9:30 AM CT, asked by Nik in chat)
 Audit (all 159 built pages: titles, descriptions, H1s, heading order, image alt, canonicals, JSON-LD parse, sitemap, llms.txt, in-content links)

@@ -1,5 +1,78 @@
 [
  {
+  "slug": "keep-a-visa-application-on-track",
+  "title": "Keep a visa application on track with an AI agent",
+  "category": "travel",
+  "source_date": "2026-11-02",
+  "summary": "Tell an agent \"get my visa by the end of November\" and it lists what you need, tracks missing documents and reminds you until it's done. It can also spot an upcoming trip in your calendar and flag visa rules and arrival forms.",
+  "what_the_bot_does": [
+   "Reads your trip dates and destination (from you or your calendar).",
+   "Looks up the visa or entry rules on the official government site and lists the documents and steps.",
+   "Keeps a checklist of what you still need and reminds you before each deadline.",
+   "Flags extra forms such as a digital arrival card and when they open.",
+   "Checks in until the visa is approved or you close the task."
+  ],
+  "what_you_end_up_with": "One running checklist for your visa and entry forms, with reminders, so nothing is missed before you fly.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "meta-muse",
+    "note": "spotted a trip in a calendar and flagged visa rules in Straits Times testing"
+   },
+   {
+    "id": "chatgpt-dots",
+    "note": "keeps working on a task between chats"
+   },
+   {
+    "id": "grok-bot",
+    "note": "schedule a weekly check-in"
+   }
+  ],
+  "prompt": "I'm travelling to [country] on [dates] with a [nationality] passport for [tourism/business]. Look up the entry and visa rules ONLY on official government websites and link them. Make me a checklist of documents, fees, appointments and deadlines, including any digital arrival card. Every [Monday], remind me what's still missing and what's due next. Don't fill out or submit any form or pay anything without asking me first.",
+  "setup": [
+   "Open your agent app (Meta Muse, ChatGPT Dots or Grok Bot) and start a new task.",
+   "Paste the prompt and fill in the [brackets].",
+   "Optional: connect your calendar read-only so it can see trip dates.",
+   "Check its checklist against the official government site once yourself.",
+   "Say \"remind me every Monday\" once the checklist looks right."
+  ],
+  "watch_out": [
+   "Agents can be wrong or out of date: The Straits Times found Muse suggested a restaurant that had already closed. Always confirm visa rules on the official government site.",
+   "Never let an agent pay visa fees or submit applications on unofficial 'visa service' sites.",
+   "Some people worry about how much personal data consumer agents collect (see the Hacker News discussion about Muse); connect only the apps you need."
+  ],
+  "sources": [
+   {
+    "label": "Toki blog (Nov 2, 2026): the new Toki personal agent turns \"Get my visa by the end of November\" into a long-running task that tracks requirements, missing documents and follow-ups",
+    "url": "https://toki.com/blog/meet-the-new-toki",
+    "kind": "official"
+   },
+   {
+    "label": "The Straits Times (Oct 28, 2026): in testing, Meta's Muse spotted an overseas trip in the reporter's calendar and flagged visa requirements and the digital arrival card",
+    "url": "https://www.straitstimes.com/tech/meta-rolls-out-consumer-ai-agent-in-singapore-amid-global-safety-retail-pushback",
+    "kind": "article"
+   },
+   {
+    "label": "Hacker News (Nov 1, 2026): privacy discussion of Meta's Muse agent, 60 points and 6 comments measured Nov 3, 2026",
+    "url": "https://news.ycombinator.com/item?id=50328293",
+    "kind": "hn"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "visa",
+   "travel",
+   "passport",
+   "arrival card",
+   "checklist",
+   "reminders",
+   "long-running task"
+  ],
+  "date_added": "2026-11-03",
+  "origin": "pipeline",
+  "last_checked": "2026-11-03"
+ },
+ {
   "slug": "let-ai-send-emails-for-you",
   "title": "Let an AI write and send your emails, after you OK each one",
   "seo_title": "Can AI send emails for you? ChatGPT, Claude and Gemini",
@@ -935,8 +1008,8 @@
    "reposts": 5,
    "replies": 21,
    "bookmarks": 1,
-   "views": 4372,
-   "measured_at": "2026-11-02"
+   "views": 4398,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "IFTTT",
@@ -1037,12 +1110,12 @@
    "author": "@ChatGPT",
    "url": "https://x.com/ChatGPT/status/2115139248458191070",
    "posted_at": "2026-10-27",
-   "likes": 5818,
+   "likes": 5824,
    "reposts": 391,
    "replies": 402,
-   "bookmarks": 1068,
-   "views": 2070393,
-   "measured_at": "2026-11-02"
+   "bookmarks": 1071,
+   "views": 2083564,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "iCloud",
@@ -1230,8 +1303,8 @@
    "reposts": 7,
    "replies": 25,
    "bookmarks": 66,
-   "views": 39039,
-   "measured_at": "2026-11-02"
+   "views": 39092,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "online shopping",
@@ -1313,12 +1386,12 @@
    "author": "@noahrshinn",
    "url": "https://x.com/noahrshinn/status/2115143830924341534",
    "posted_at": "2026-10-27",
-   "likes": 1113,
+   "likes": 1117,
    "reposts": 37,
-   "replies": 96,
-   "bookmarks": 312,
-   "views": 337459,
-   "measured_at": "2026-11-02"
+   "replies": 98,
+   "bookmarks": 313,
+   "views": 340387,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "group chat",
@@ -1844,12 +1917,12 @@
    "author": "@NadavKeyson",
    "url": "https://x.com/NadavKeyson/status/2114759149770723804",
    "posted_at": "2026-10-26",
-   "likes": 659,
-   "reposts": 502,
-   "replies": 174,
-   "bookmarks": 811,
-   "views": 1036011,
-   "measured_at": "2026-11-02"
+   "likes": 661,
+   "reposts": 93,
+   "replies": 175,
+   "bookmarks": 810,
+   "views": 1041509,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "podcast",
@@ -2291,7 +2364,7 @@
    "replies": 0,
    "bookmarks": 1,
    "views": 163,
-   "measured_at": "2026-11-02"
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "phone calls",
@@ -2467,12 +2540,12 @@
    "author": "@mrfundman",
    "url": "https://x.com/mrfundman/status/2113621259279872107",
    "posted_at": "2026-10-23",
-   "likes": 46,
+   "likes": 47,
    "reposts": 5,
    "replies": 13,
    "bookmarks": 27,
-   "views": 5892,
-   "measured_at": "2026-11-02"
+   "views": 5893,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "proactive",
@@ -2662,7 +2735,7 @@
    "replies": 12,
    "bookmarks": 0,
    "views": 1105,
-   "measured_at": "2026-11-02"
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "fact check",
@@ -2768,9 +2841,9 @@
    "likes": 411,
    "reposts": 15,
    "replies": 33,
-   "bookmarks": 272,
-   "views": 178754,
-   "measured_at": "2026-11-02"
+   "bookmarks": 269,
+   "views": 178799,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "second brain",
@@ -2977,8 +3050,8 @@
    "reposts": 6,
    "replies": 20,
    "bookmarks": 30,
-   "views": 5438,
-   "measured_at": "2026-11-02"
+   "views": 5441,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "read later",
@@ -3063,8 +3136,8 @@
    "reposts": 2,
    "replies": 4,
    "bookmarks": 6,
-   "views": 1778,
-   "measured_at": "2026-11-02"
+   "views": 1779,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "contact form",
@@ -3262,7 +3335,7 @@
    "replies": 3,
    "bookmarks": 6,
    "views": 585,
-   "measured_at": "2026-11-02"
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "schedule",
@@ -3642,8 +3715,8 @@
    "reposts": 15,
    "replies": 26,
    "bookmarks": 505,
-   "views": 25469,
-   "measured_at": "2026-11-02"
+   "views": 25485,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "multi-agent",
@@ -3736,8 +3809,8 @@
    "reposts": 34,
    "replies": 38,
    "bookmarks": 76,
-   "views": 46423,
-   "measured_at": "2026-11-02"
+   "views": 46426,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "multi-agent",
@@ -3810,7 +3883,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-11-02"
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "voice",
@@ -3879,7 +3952,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 45,
-   "measured_at": "2026-11-02"
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "roadside assistance",
@@ -3976,7 +4049,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 396,
-   "measured_at": "2026-11-02"
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "computer use",
@@ -4047,8 +4120,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 0,
-   "views": 910,
-   "measured_at": "2026-11-02"
+   "views": 911,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "contractors",
@@ -4117,8 +4190,8 @@
    "reposts": 0,
    "replies": 5,
    "bookmarks": 0,
-   "views": 127,
-   "measured_at": "2026-11-02"
+   "views": 128,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "used car",
@@ -4177,12 +4250,12 @@
    "author": "@WaitWhat",
    "url": "https://x.com/WaitWhat/status/2104354985224069224",
    "posted_at": "2026-09-27",
-   "likes": 46,
+   "likes": 47,
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7506,
-   "measured_at": "2026-11-02"
+   "views": 7507,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "pharmacy",
@@ -4265,8 +4338,8 @@
    "reposts": 24,
    "replies": 29,
    "bookmarks": 235,
-   "views": 326202,
-   "measured_at": "2026-11-02"
+   "views": 326314,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "newsletters",
@@ -4355,12 +4428,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
    "posted_at": "2026-10-18",
-   "likes": 860,
-   "reposts": 94,
+   "likes": 861,
+   "reposts": 93,
    "replies": 193,
-   "bookmarks": 1002,
-   "views": 1223193,
-   "measured_at": "2026-11-02"
+   "bookmarks": 1001,
+   "views": 1223847,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "phone call",
@@ -4526,8 +4599,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 556,
-   "measured_at": "2026-11-02"
+   "views": 559,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "spam calls",
@@ -4600,8 +4673,8 @@
    "reposts": 3,
    "replies": 8,
    "bookmarks": 37,
-   "views": 5445,
-   "measured_at": "2026-11-02"
+   "views": 5450,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "food log",
@@ -4682,8 +4755,8 @@
    "reposts": 3,
    "replies": 12,
    "bookmarks": 13,
-   "views": 3096,
-   "measured_at": "2026-11-02"
+   "views": 3105,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "phone call",
@@ -4867,12 +4940,12 @@
    "author": "@lyndallschreinr",
    "url": "https://x.com/lyndallschreinr/status/2107888353630908437",
    "posted_at": "2026-10-07",
-   "likes": 1014,
+   "likes": 1013,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2891,
-   "views": 311613,
-   "measured_at": "2026-11-02"
+   "bookmarks": 2890,
+   "views": 311700,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "meal plan",
@@ -4948,8 +5021,8 @@
    "reposts": 34,
    "replies": 36,
    "bookmarks": 1148,
-   "views": 66860,
-   "measured_at": "2026-11-02"
+   "views": 66880,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "calendar",
@@ -5038,12 +5111,12 @@
    "author": "@AlexFinn",
    "url": "https://x.com/AlexFinn/status/2107254007412756589",
    "posted_at": "2026-10-05",
-   "likes": 677,
+   "likes": 678,
    "reposts": 35,
    "replies": 157,
    "bookmarks": 720,
-   "views": 83046,
-   "measured_at": "2026-11-02"
+   "views": 83095,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "personal agent",
@@ -5123,8 +5196,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41416,
-   "measured_at": "2026-11-02"
+   "views": 41428,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "scams",
@@ -5203,12 +5276,12 @@
    "author": "@saviomartin",
    "url": "https://x.com/saviomartin/status/2109330165381910817",
    "posted_at": "2026-10-11",
-   "likes": 164,
+   "likes": 163,
    "reposts": 13,
    "replies": 29,
-   "bookmarks": 118,
-   "views": 25239,
-   "measured_at": "2026-11-02"
+   "bookmarks": 117,
+   "views": 25253,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "family chat",
@@ -5297,8 +5370,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4088,
-   "measured_at": "2026-11-02"
+   "views": 4089,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "groceries",
@@ -5377,8 +5450,8 @@
    "reposts": 12,
    "replies": 12,
    "bookmarks": 11,
-   "views": 9666,
-   "measured_at": "2026-11-02"
+   "views": 9668,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "travel",
@@ -5447,7 +5520,7 @@
    "replies": 6,
    "bookmarks": 0,
    "views": 2008,
-   "measured_at": "2026-11-02"
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "flights",
@@ -5595,8 +5668,8 @@
    "reposts": 23,
    "replies": 63,
    "bookmarks": 240,
-   "views": 93727,
-   "measured_at": "2026-11-02"
+   "views": 93735,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "restaurant",
@@ -5659,8 +5732,8 @@
    "reposts": 4,
    "replies": 9,
    "bookmarks": 27,
-   "views": 4060,
-   "measured_at": "2026-11-02"
+   "views": 4063,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "appointment",
@@ -5750,12 +5823,12 @@
    "author": "@siyabuilt",
    "url": "https://x.com/siyabuilt/status/2094755088841457892",
    "posted_at": "2026-09-01",
-   "likes": 67,
+   "likes": 68,
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9201,
-   "measured_at": "2026-11-02"
+   "views": 9202,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "receipts",
@@ -5844,8 +5917,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 269,
-   "views": 9803,
-   "measured_at": "2026-11-02"
+   "views": 9808,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "chief of staff",
@@ -5904,8 +5977,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1877,
-   "measured_at": "2026-11-02"
+   "views": 1879,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "multiple brands",
@@ -5978,8 +6051,8 @@
    "reposts": 1,
    "replies": 12,
    "bookmarks": 27,
-   "views": 3246,
-   "measured_at": "2026-11-02"
+   "views": 3247,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "real estate",
@@ -6079,8 +6152,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 0,
-   "views": 79,
-   "measured_at": "2026-11-02"
+   "views": 80,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "paper mail",
@@ -6169,7 +6242,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 75,
-   "measured_at": "2026-11-02"
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "monitoring",
@@ -6239,8 +6312,8 @@
    "reposts": 2,
    "replies": 7,
    "bookmarks": 0,
-   "views": 1412,
-   "measured_at": "2026-11-02"
+   "views": 1433,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "follow up",
@@ -6314,7 +6387,7 @@
    "replies": 7,
    "bookmarks": 55,
    "views": 4929,
-   "measured_at": "2026-11-02"
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "leads",
@@ -6409,8 +6482,8 @@
    "reposts": 1,
    "replies": 2,
    "bookmarks": 19,
-   "views": 2154,
-   "measured_at": "2026-11-02"
+   "views": 2156,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "email",
@@ -7063,8 +7136,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 801,
-   "measured_at": "2026-11-02"
+   "views": 805,
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "marketplace",
@@ -7331,7 +7404,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1505,
-   "measured_at": "2026-11-02"
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "payments",
@@ -7406,7 +7479,7 @@
    "replies": 4,
    "bookmarks": 3,
    "views": 908,
-   "measured_at": "2026-11-02"
+   "measured_at": "2026-11-03"
   },
   "tags": [
    "ads",
@@ -8408,7 +8481,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-11-02"
+   "measured_at": "2026-11-03"
   },
   "origin": "migrated-2026-10-19"
  },
