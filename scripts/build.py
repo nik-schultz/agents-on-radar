@@ -13,6 +13,7 @@ LESS = "/run-your-bots-for-less/"; PRICING = "/ai-pricing/"
 BUILD_GUIDE = "/how-to-build-an-ai-agent-without-coding/"  # beginner how-to (added 2026-10-23)
 COST_GUIDE = "/how-much-does-it-cost-to-run-an-ai-agent/"; CLAW_GUIDE = "/openclaw-vs-hermes-agent/"; SAFE_GUIDE = "/is-it-safe-to-give-an-ai-agent-your-email/"  # beginner guides (added 2026-10-23)
 PHONE_GUIDE = "/can-ai-make-phone-calls-for-you/"  # added 2026-11-03
+OCSAFE_GUIDE = "/is-openclaw-safe/"; AGENTMODE_GUIDE = "/chatgpt-agent-mode-is-gone/"; CHEAPMODEL_GUIDE = "/switch-openclaw-or-hermes-to-a-cheaper-model/"  # added 2026-11-04
 PHONE_UCS = {"call-and-book-by-phone", "make-a-customer-service-call", "let-a-bot-answer-and-screen-your-calls", "restaurant-reservations-by-agent"}
 CAT = {c["slug"]: c for c in cats}
 UC = {x["slug"]: x for x in ucs}
@@ -287,7 +288,7 @@ def featured_slot(slot, cat=None):
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
     return newsletter_box(f"nl-{slot}", "card")  # no sponsor booked: show a newsletter signup instead of an empty ad box
 
-SHARE_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS}
+SHARE_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS}
 def share_bar(title, url):
     """Share on X / Copy link / Email a friend. Plain links + one button; no third-party scripts."""
     q = urllib.parse.quote
@@ -302,7 +303,7 @@ def share_bar(title, url):
 <label class="share-nojs"><span class="sr">Link to this page</span><input type="text" readonly value="{e(url)}" size="34"></label>
 <a class="share-btn" href="{e(mh)}" aria-label="Email this page to a friend">{msvg}<span>Email a friend</span></a>
 </div><p class="share-status small" role="status" aria-live="polite"></p></section>"""
-NL_END_PATHS = {"/trending/", "/news/", BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", PRICING, LESS, "/about/"}
+NL_END_PATHS = {"/trending/", "/news/", OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", PRICING, LESS, "/about/"}
 # Long guides also get a signup after their 3rd top-level section (mid-article), not only at the end.
 NL_MID_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/"}
 def _insert_mid(body, snippet, after=3):
@@ -1010,7 +1011,7 @@ explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 <li><b>Get in everywhere.</b> Some sites block agents. One user says Amazon blocked his ({S('X post', 'https://x.com/NickADobos/status/2110749518518235276')}).</li>
 <li><b>Replace a professional.</b> Use bots to organize and draft. Medical, legal and money decisions stay with you and a qualified person. Be wary of anyone promising AI miracles; the U.S. FTC has acted against deceptive AI claims ({S('FTC Operation AI Comply', 'https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes')}).</li></ul></section>
 
-<p class="small">Go deeper: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a></p>
+<p class="small">Go deeper: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a> · <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> · <a href="{u(AGENTMODE_GUIDE)}">ChatGPT agent mode is gone</a></p>
 <section class="reveal"><h2>7 rules that keep you safe</h2><ol class="rules">
 <li>Start <b>read-only</b>. Let it look before it does anything.</li>
 <li>Make it <b>ask before</b> it sends, buys, books, cancels or deletes.</li>
@@ -1107,7 +1108,7 @@ page(LESS, "How to reduce AI API costs: AI agent cost calculator", mdesc(f"Free 
 <section class="block"><h2>Cheapest model we list at each provider</h2><p class="muted">Standard API price per 1 million tokens, from official pricing pages, checked {nice_date(PR['checked_on'])}. Cheapest isn't always good enough: test it on your job first.</p>
 <div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">Provider</th><th scope="col">Model</th><th scope="col">Input</th><th scope="col">Output</th></tr></thead><tbody>{snap}</tbody></table></div>
 <p><a class="btn" href="{u(PRICING)}">See the full AI price table</a> <a class="btn btn-ghost" href="{u('/blueprints/')}">See what each blueprint costs to run</a></p></section>
-<section class="block narrow" id="faq"><h2>Questions about AI costs</h2>{less_faq_html}<p class="small">Worked examples for every blueprint: <a href="{u(COST_GUIDE)}">how much does it cost to run an AI agent?</a> Running OpenClaw or Hermes Agent? See <a href="{u(CLAW_GUIDE)}">what they cost to run</a>.</p></section></div>""",
+<section class="block narrow" id="faq"><h2>Questions about AI costs</h2>{less_faq_html}<p class="small">Worked examples for every blueprint: <a href="{u(COST_GUIDE)}">how much does it cost to run an AI agent?</a> Running OpenClaw or Hermes Agent? See <a href="{u(CLAW_GUIDE)}">what they cost to run</a>. Already running one? <a href="{u(CHEAPMODEL_GUIDE)}">Switch OpenClaw or Hermes to a cheaper model</a>.</p></section></div>""",
      [bld, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in LESS_FAQ]},
       {"@context": "https://schema.org", "@type": "WebApplication", "name": "AI agent cost calculator", "url": absu(u(LESS)) + "#calculator", "applicationCategory": "BusinessApplication", "operatingSystem": "Any (web browser)",
        "description": "Estimate what an AI bot or agent costs per month on each provider's API, from runs per day and message size, using official prices.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "dateModified": PR["checked_on"]}],
@@ -1422,7 +1423,7 @@ cost_body = f"""<article class="wrap narrow explainer">{cbc}
 
 <section class="reveal" id="self-hosted"><h2>Open-source agents: OpenClaw and Hermes Agent</h2>
 <p>The software is free; you pay for the model and the machine. OpenClaw has “no paid tier, hosted service, or token” ({C('oc_readme')}), and its minimum server is 1 vCPU and 1 GB of RAM ({C('oc_host')}). Hermes Agent is free under the MIT license; Nous Research sells optional model and tool credits through Nous Portal, and cloud hosting is optional ({C('hm_site')}). Hermes' docs also show how to run it on your own machine with Ollama at no API cost ({C('hm_ollama')}).</p>
-<p>Self-hosted agents send their own instructions, memory and tool lists with every message, so they can read more tokens per run than our estimates. Hermes' docs call this a fixed per-message cost and show how to check it with <code>/usage</code> and <code>hermes prompt-size</code> ({C('hm_tips')}). Full comparison: <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent: a beginner's guide</a>.</p></section>
+<p>Self-hosted agents send their own instructions, memory and tool lists with every message, so they can read more tokens per run than our estimates. Hermes' docs call this a fixed per-message cost and show how to check it with <code>/usage</code> and <code>hermes prompt-size</code> ({C('hm_tips')}). Full comparison: <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent: a beginner's guide</a>. To cut the bill: <a href="{u(CHEAPMODEL_GUIDE)}">switch OpenClaw or Hermes to a cheaper model</a>.</p></section>
 
 <section class="reveal" id="voice"><h2>AI voice agent cost per minute and per month</h2>
 <p>Bots that talk, like the {_ba('phone-call-bot')}, are billed by the minute of talk instead of by the token. A personal phone bot that makes four {_pcall}-minute calls a month uses about {_pmo} minutes; a business line taking 10 calls a day can use {_vmo} or more. Prices from each platform's official pricing page:</p>
@@ -1567,7 +1568,7 @@ safe_body = f"""<article class="wrap narrow explainer">{sbc}
 <p>Letting an agent work on files too? Read how to {_ua('keep-an-ai-agent-from-deleting-your-files')} (one working folder of copies, a backup it can't reach, sandbox and approvals on).</p></section>
 
 <section class="reveal" id="self-hosted"><h2>Using OpenClaw or Hermes Agent?</h2>
-<p>Self-hosted agents give you more control and more responsibility. OpenClaw suggests routing untrusted mail to a read-only reader agent and warns that sandboxing is off by default ({C('oc_pi', 'prompt injection')}, {C('oc_sandbox', 'sandboxing')}). Hermes asks before dangerous commands by default, and its email channel ignores unknown senders unless you change that ({C('hm_sec', 'Hermes security')}). Side-by-side: <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a>.</p></section>
+<p>Self-hosted agents give you more control and more responsibility. OpenClaw suggests routing untrusted mail to a read-only reader agent and warns that sandboxing is off by default ({C('oc_pi', 'prompt injection')}, {C('oc_sandbox', 'sandboxing')}). Hermes asks before dangerous commands by default, and its email channel ignores unknown senders unless you change that ({C('hm_sec', 'Hermes security')}). Side-by-side: <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a>. More on OpenClaw: <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a></p></section>
 
 <section class="reveal" id="faq"><h2>Questions people ask</h2>{_faq_html(SAFE_FAQ)}</section>
 <section class="glass explain-card"><h2>Next step</h2><p>Set up one read-only bot with <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, and check <a href="{u(COST_GUIDE)}">what it will cost</a>. More on what agents can and can't do safely: <a href="{u('/what-can-bots-do/')}">what is an AI agent?</a></p></section>
@@ -1638,11 +1639,144 @@ phone_body = f"""<article class="wrap narrow explainer">{pbc}
 </article>"""
 page(PHONE_GUIDE, "Can AI make phone calls for you? What works and what it costs", _phone_desc, phone_body,
      [pbld, _art_ld(PHONE_GUIDE, "Can AI make phone calls for you?", _phone_desc, published="2026-11-03"), _faq_ld(PHONE_FAQ)], og_type="article")
+# ----- 6-8. Is OpenClaw safe? / ChatGPT agent mode is gone / Switch to a cheaper model (2026-11-04) -----
+SRC.update({
+ "ms_oc": ("Microsoft Security Blog (Feb 19, 2026): Running OpenClaw safely", "https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/"),
+ "sl_oc": ("Kaspersky Securelist: Security risks for OpenClaw users", "https://securelist.com/openclaw-security/120484/"),
+ "df_cve": ("depthfirst: 1-click RCE in OpenClaw (CVE-2026-25253)", "https://depthfirst.com/research/1-click-rce-to-steal-your-moltbot-data-and-keys"),
+ "oai_agent_gone": ("OpenAI Help: ChatGPT agent", "https://help.openai.com/en/articles/11752874-chatgpt-agent"),
+ "oai_rn": ("OpenAI: ChatGPT release notes (July 9, 2026: Introducing ChatGPT Work)", "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"),
+ "oai_work": ("OpenAI Help: ChatGPT Work and Codex", "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex"),
+ "oc_models": ("OpenClaw docs: Models", "https://docs.openclaw.ai/concepts/models"),
+ "hm_models": ("Hermes docs: Configuring models", "https://hermes-agent.nousresearch.com/docs/user-guide/configuring-models"),
+ "hm_prov": ("Hermes docs: LLM and model providers", "https://hermes-agent.nousresearch.com/docs/integrations/providers"),
+})
+_g_ld = lambda path, h, d, F, cr: [cr, _art_ld(path, h, d, published="2026-11-04"), _faq_ld(F)]
+
+OCSAFE_RULES = [
+ ("Run it on a spare machine", "Microsoft's security team says not to run OpenClaw on a normal work or personal computer, and to use a dedicated virtual machine or separate device instead."),
+ ("Give it its own accounts", "Use accounts and keys made just for the agent, not your main email or bank logins, and rotate them."),
+ ("Keep the gateway private", "OpenClaw's own baseline: gateway bound to loopback (your machine only) or behind authenticated private access, DMs in pairing or allowlist mode."),
+ ("Treat skills as code", "Install only skills from authors you trust, read them first, pin versions. OpenClaw says ClawHub scans are not a complete security boundary."),
+ ("Lock down risky tools", "Deny or sandbox exec, browser and cron for any agent that reads web pages or email from strangers. Use a read-only reader agent for untrusted content."),
+ ("Keep it updated, then audit", "Update OpenClaw and run openclaw security audit --deep after config changes."),
+]
+OCSAFE_FAQ = [
+ ("Is OpenClaw safe to use?",
+  "It can be, but not out of the box. OpenClaw is open-source software that runs tools and code with the logins you give it. Microsoft's security team says to treat it as untrusted code execution with persistent credentials and run it only in an isolated machine with its own accounts. Keep the gateway private, install only trusted skills, and keep risky tools sandboxed.", None),
+ ("Has OpenClaw had security problems?",
+  "Yes. CVE-2026-25253 let a malicious web page steal gateway credentials and control the agent; it affected versions up to v2026.1.24-1 and was fixed. Kaspersky reports finding more than 600 malicious skills from 24 accounts on the skill hub in April 2026, and says skills had no security check at all before February 7, 2026.",
+  f"Yes. CVE-2026-25253 let a malicious web page steal gateway credentials and control the agent; it affected versions up to v2026.1.24-1 and was fixed ({C('df_cve', 'depthfirst')}). Kaspersky reports finding more than 600 malicious skills from 24 accounts on the skill hub in April 2026, and says skills had no security check at all before February 7, 2026 ({C('sl_oc', 'Securelist')})."),
+ ("Are ClawHub skills safe?",
+  "Not automatically. OpenClaw's own FAQ says to treat third-party skills and plugins as code you are choosing to trust: scans are shown before install but are not a complete security boundary. Prefer trusted authors, pin versions and read a skill before enabling it.", None),
+ ("Is Hermes Agent safer than OpenClaw?",
+  "They make different default choices rather than one being safe and one not. Hermes asks before dangerous commands by default and its email channel ignores unknown senders unless you change that. Either one is only as safe as the access you give it.",
+  f"They make different default choices rather than one being safe and one not. Hermes asks before dangerous commands by default and its email channel ignores unknown senders unless you change that ({C('hm_sec', 'Hermes docs')}). Either one is only as safe as the access you give it. Compare them: <a href=\"{u(CLAW_GUIDE)}\">OpenClaw vs Hermes Agent</a>."),
+ ("Should I run OpenClaw on my main computer?",
+  "Security teams say no. Microsoft recommends a dedicated virtual machine or separate device that holds no sensitive data, treated as disposable, with a plan to rebuild it.", None),
+]
+ocb, ocld = crumbs([("Home", "/"), ("What is an AI agent?", "/what-can-bots-do/"), ("Is OpenClaw safe?", None)])
+_ocs_desc = mdesc("Is OpenClaw safe? Not by default. The real security problems so far, what Microsoft and OpenClaw's own docs advise, and 6 rules for running it safely.")
+ocsafe_body = f"""<article class="wrap narrow explainer">{ocb}
+<header class="page-head"><p class="eyebrow">Open-source agents, in plain English</p><h1 class="kinetic-sm">Is OpenClaw safe?</h1>
+<p class="lead">Short answer: not out of the box, but it can be run safely enough for everyday jobs if you set it up carefully. OpenClaw runs tools, code and add-on "skills" using whatever logins you hand it, so a bad web page, email or skill can try to take it over. Security teams advise running it on a spare machine with its own accounts, keeping it private and installing only skills you trust.</p>
+{_byline()}</header>
+<section class="reveal warn glass" id="what-went-wrong"><h2>What has actually gone wrong</h2><ul class="big-list">
+<li><b>A one-click takeover bug.</b> CVE-2026-25253 let a malicious web page steal the gateway's credentials and act as you. Versions up to v2026.1.24-1 were affected; it's fixed, so update ({C('df_cve', 'depthfirst write-up')}).</li>
+<li><b>Malicious skills.</b> Kaspersky found more than 600 malicious skills from 24 accounts on the skill hub in April 2026. Skills had no security check before February 7, 2026; scanning has been added since, but attacks continue ({C('sl_oc', 'Securelist')}).</li>
+<li><b>Prompt injection.</b> Any web page, email or file the agent reads can carry hidden instructions. OpenClaw's FAQ says this matters even if you're the only person who messages the bot ({C('oc_secfaq', 'OpenClaw FAQ')}).</li></ul></section>
+<section class="glass explain-card reveal" id="rules"><h2>6 rules for running OpenClaw safely</h2><ol class="big-list">{"".join(f"<li><b>{e(t)}.</b> {e(d)}</li>" for t, d in OCSAFE_RULES)}</ol>
+<p class="small">Sources: {C('ms_oc', 'Microsoft Security Blog')}, {C('oc_secfaq', 'OpenClaw security FAQ')}, {C('oc_sec', 'OpenClaw security docs')}, {C('oc_sandbox', 'sandboxing')}.</p></section>
+<section class="reveal" id="who"><h2>Who should (and shouldn't) use it</h2>
+<p>If you're comfortable with a spare computer or a small server, separate accounts and reading config files, OpenClaw is a powerful free agent. If you'd rather not manage any of that, a hosted agent app with built-in approvals is the simpler choice: see <a href="{u('/what-can-bots-do/')}">what an AI agent is</a> and <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> Also useful: {_ua('keep-an-ai-agent-from-deleting-your-files')} and {_ua('set-ai-spend-limits-and-alerts')}.</p></section>
+<section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(OCSAFE_FAQ)}</section>
+<section class="glass explain-card"><h2>Next step</h2><p>Choosing between the two big open-source agents? Read <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a>. Worried about the bill? <a href="{u(CHEAPMODEL_GUIDE)}">Switch OpenClaw or Hermes to a cheaper model</a>.</p></section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['ms_oc','sl_oc','df_cve','oc_secfaq','oc_sec','oc_pi','oc_sandbox','hm_sec'])}</section>
+</article>"""
+page(OCSAFE_GUIDE, "Is OpenClaw safe? Real risks and 6 rules to run it safely", _ocs_desc, ocsafe_body, _g_ld(OCSAFE_GUIDE, "Is OpenClaw safe?", _ocs_desc, OCSAFE_FAQ, ocld), og_type="article")
+
+AGENTMODE_FAQ = [
+ ("Is ChatGPT agent mode gone?",
+  "Yes. OpenAI's help page now says: \"ChatGPT agent is no longer available. Use ChatGPT Work for longer, multi-step tasks and finished deliverables.\" Browser tasks moved to the cloud browser in ChatGPT.", None),
+ ("What replaced ChatGPT agent mode?",
+  "ChatGPT Work, introduced in OpenAI's release notes on July 9, 2026. It is an agent for longer tasks: it researches, works across connected apps and files, makes documents, spreadsheets and reports, and asks you to approve important actions. It can also run Scheduled Tasks.", None),
+ ("Why does /agent not work in ChatGPT anymore?",
+  "Because agent mode was retired. Pick Work instead of Chat at the top of the composer (on paid plans) and describe the job.", None),
+ ("Is ChatGPT Work free?",
+  "OpenAI's release notes say Work rolled out on web and mobile to paid plans except Free and Go.", None),
+ ("When did agent mode stop working?",
+  "OpenAI hasn't published an exact retirement date. Its release notes introduced ChatGPT Work on July 9, 2026, and the agent help page now says agent is no longer available.", None),
+]
+amb, amld = crumbs([("Home", "/"), ("What is an AI agent?", "/what-can-bots-do/"), ("ChatGPT agent mode is gone", None)])
+_am_desc = mdesc("ChatGPT agent mode is no longer available. OpenAI replaced it with ChatGPT Work. What changed, who gets it, and how to move your agent tasks over.")
+agentmode_body = f"""<article class="wrap narrow explainer">{amb}
+<header class="page-head"><p class="eyebrow">ChatGPT, in plain English</p><h1 class="kinetic-sm">ChatGPT agent mode is gone. Here's what replaced it</h1>
+<p class="lead">If you typed /agent in ChatGPT and nothing happened, it's not you. OpenAI's help page now says "ChatGPT agent is no longer available" and points to <b>ChatGPT Work</b> for longer, multi-step jobs, plus the cloud browser for web tasks ({C('oai_agent_gone', 'OpenAI Help')}).</p>
+{_byline()}</header>
+<section class="glass explain-card reveal" id="what-is-work"><h2>What ChatGPT Work is</h2><ul class="big-list">
+<li><b>An agent for longer tasks.</b> It researches, works across your connected apps and files, and makes documents, spreadsheets, presentations and reports. You can follow along, change direction and approve important actions ({C('oai_rn', 'release notes, July 9, 2026')}).</li>
+<li><b>Chat vs Work.</b> ChatGPT now has two modes: Chat for quick questions, Work for multi-step jobs. Codex stays for coding ({C('oai_work', 'OpenAI Help')}).</li>
+<li><b>Scheduled Tasks.</b> Work can run a task once, on a schedule, on a trigger, or watch for changes. How-to: {_ua('set-up-chatgpt-scheduled-tasks')}.</li>
+<li><b>Paid plans.</b> Work rolled out on web and mobile to paid plans except Free and Go ({C('oai_rn', 'release notes')}).</li></ul></section>
+<section class="reveal" id="move"><h2>How to move your old agent tasks</h2><ol class="big-list">
+<li>Open ChatGPT, switch from Chat to Work, and paste the same instructions you gave agent mode.</li>
+<li>Re-create anything that ran on a schedule as a Scheduled Task, and check the first run yourself.</li>
+<li>For jobs on websites (forms, bookings, shopping), use the cloud browser and sign in through its own sign-in screen, never by pasting a password into the chat ({C('oai_agent', 'OpenAI Help: cloud browser')}).</li>
+<li>Keep "ask before sending, buying or deleting" on. See <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a></li></ol>
+<p>Other agents that can do these jobs: <a href="{u('/ai-agent-examples/')}">AI agent examples</a>. Prefer something you run yourself? <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a>.</p></section>
+<section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(AGENTMODE_FAQ)}</section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['oai_agent_gone','oai_rn','oai_work','oai_agent'])}</section>
+</article>"""
+page(AGENTMODE_GUIDE, "ChatGPT agent mode is gone: what replaced it (ChatGPT Work)", _am_desc, agentmode_body, _g_ld(AGENTMODE_GUIDE, "ChatGPT agent mode is gone. Here's what replaced it", _am_desc, AGENTMODE_FAQ, amld), og_type="article")
+
+CHEAP_FAQ = [
+ ("How do I change the model in OpenClaw?",
+  "In chat, type /model followed by provider/model (for example /model openai/gpt-5.4); add -a to make it that agent's default or -g for the global default. From the terminal, openclaw models set provider/model sets the default, and openclaw models list shows what's available.", None),
+ ("How do I change the model in Hermes Agent?",
+  "Run hermes model in your terminal (outside a chat) to add a provider and pick a default; it's saved to ~/.hermes/config.yaml and applies to new sessions. Inside a chat, /model switches between providers you've already set up; --global also saves it, --once uses it for one turn only.", None),
+ ("Why is OpenClaw so expensive?",
+  "Agents send their instructions, tools and the conversation so far with every message, so long chats get more expensive each turn. Start a new session for each unrelated task, and use a smaller model for routine jobs.", None),
+ ("Will a cheaper model be less safe?",
+  "It can be. OpenClaw's docs advise against older or weaker models for tool-enabled agents or untrusted inputs, and say smaller local models raise prompt-injection risk. Keep a strong model for anything that reads email or the web and acts on it.", None),
+ ("Does switching models mid-chat cost more?",
+  "Sometimes. Both projects warn that switching inside a long session can break the prompt cache, so the next turn pays full price for the whole conversation. For a planned change, start a new session.", None),
+]
+cmb, cmld = crumbs([("Home", "/"), ("Run your bots for less", LESS), ("Switch OpenClaw or Hermes to a cheaper model", None)])
+_cm_desc = mdesc("Step-by-step: switch OpenClaw or Hermes Agent to a cheaper AI model with /model, openclaw models set or hermes model, plus fallbacks and when not to downgrade.")
+cheap_body = f"""<article class="wrap narrow explainer">{cmb}
+<header class="page-head"><p class="eyebrow">Cut your agent bill</p><h1 class="kinetic-sm">How to switch OpenClaw or Hermes to a cheaper model</h1>
+<p class="lead">OpenClaw and Hermes Agent are free; the AI model behind them is what you pay for. Small models can cost up to {LESS_RATIO}× less than the flagship from the same company (<a href="{u(PRICING)}">our price table</a>), and most everyday jobs don't need the biggest one. Here's how to switch, in each app, and when not to.</p>
+{_byline()}</header>
+<section class="glass explain-card reveal" id="openclaw"><h2>OpenClaw: switch the model</h2><ol class="big-list">
+<li><b>See what you have:</b> <code>openclaw models list</code> and <code>openclaw models status</code>.</li>
+<li><b>Set a new default:</b> <code>openclaw models set provider/model</code>.</li>
+<li><b>Or switch in chat:</b> <code>/model provider/model</code> changes only this session; add <code>-a</code> for this agent's default or <code>-g</code> for the global default. <code>/model default</code> goes back.</li>
+<li><b>Add a fallback</b> so replies keep coming when one provider is rate-limited: <code>openclaw models fallbacks add provider/model</code>.</li>
+<li><b>Cheaper helper model:</b> <code>agents.defaults.utilityModel</code> sends short internal jobs (titles, summaries) to a lower-cost model.</li></ol>
+<p class="small">Source: {C('oc_models')}. Existing chats stay pinned to their old model; start a new session to pick up the change.</p></section>
+<section class="glass explain-card reveal" id="hermes"><h2>Hermes Agent: switch the model</h2><ol class="big-list">
+<li><b>Change the default:</b> quit any chat and run <code>hermes model</code>. Pick a provider, sign in or paste the key, choose a model. It's saved to <code>~/.hermes/config.yaml</code> and applies to new sessions.</li>
+<li><b>Switch inside a chat:</b> <code>/model model-name --provider name</code> for this session, add <code>--global</code> to save it, or <code>--once</code> for a single turn.</li>
+<li><b>New provider?</b> <code>/model</code> only switches between providers you've already set up; add new ones with <code>hermes model</code>.</li>
+<li><b>Gateway users</b> (Telegram, Discord, Slack): new sessions get the new model; run <code>hermes gateway restart</code> to move everyone over.</li></ol>
+<p class="small">Sources: {C('hm_models')}, {C('hm_prov')}.</p></section>
+<section class="reveal warn glass" id="careful"><h2>When not to go cheap</h2><ul class="big-list">
+<li><b>Agents that read email or the web and act on it.</b> OpenClaw's docs say to avoid older or weaker models for tool-enabled agents or untrusted inputs ({C('oc_models', 'OpenClaw docs')}); smaller local models raise prompt-injection risk ({C('oc_host', 'OpenClaw FAQ')}).</li>
+<li><b>Mid-conversation switches.</b> Switching inside a long chat can break the prompt cache, so the next turn re-pays for the whole conversation ({C('hm_models', 'Hermes docs')}). Start a new session instead.</li>
+<li><b>Test first.</b> Run one real job on the new model and check the result before scheduling it.</li></ul></section>
+<section class="reveal" id="more"><h2>Other ways to spend less</h2><p>Start a new session for each unrelated task, keep standing instructions short, and set a spend alert: {_ua('set-ai-spend-limits-and-alerts')}. More: <a href="{u(LESS)}">run your bots for less</a>, <a href="{u(COST_GUIDE)}">how much does it cost to run an AI agent?</a> and <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a></p></section>
+<section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(CHEAP_FAQ)}</section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['oc_models','oc_host','hm_models','hm_prov','hm_tips'])}</section>
+</article>"""
+page(CHEAPMODEL_GUIDE, "Switch OpenClaw or Hermes Agent to a cheaper model", _cm_desc, cheap_body, _g_ld(CHEAPMODEL_GUIDE, "How to switch OpenClaw or Hermes to a cheaper model", _cm_desc, CHEAP_FAQ, cmld), og_type="article")
 NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner guide: pick one job, write it in four lines, paste instructions into an agent app, test once, schedule it safely."),
               (COST_GUIDE, "How much does it cost to run an AI agent?", f"Monthly estimates for {len(_cost_rows)} everyday bots at official API prices, with the math shown."),
               (CLAW_GUIDE, "OpenClaw vs Hermes Agent: a beginner's guide", "What each open-source agent is, side-by-side comparison, how to pick, cost and safety tips."),
               (SAFE_GUIDE, "Is it safe to give an AI agent your email and calendar?", "Prompt injection, too much access, sending without review, and 8 rules that keep you in charge."),
-              (PHONE_GUIDE, "Can AI make phone calls for you?", "Which agents can call a business for you, what goes wrong, and what AI phone calls cost per minute, from official pricing pages.")]
+              (PHONE_GUIDE, "Can AI make phone calls for you?", "Which agents can call a business for you, what goes wrong, and what AI phone calls cost per minute, from official pricing pages."),
+              (OCSAFE_GUIDE, "Is OpenClaw safe?", "The real security problems so far, what Microsoft and OpenClaw's docs advise, and 6 rules for running it safely."),
+              (AGENTMODE_GUIDE, "ChatGPT agent mode is gone: what replaced it", "OpenAI retired ChatGPT agent; ChatGPT Work replaced it. What changed and how to move your tasks."),
+              (CHEAPMODEL_GUIDE, "Switch OpenClaw or Hermes to a cheaper model", "Commands to change the model in OpenClaw and Hermes Agent, add fallbacks, and when not to downgrade.")]
 
 # ---------- LATEST IN AI (/news/ + /news/feed.xml) -------------------------------------
 NEWS_CATS = J("data", "news.json")["categories"]
@@ -1901,6 +2035,9 @@ F += ["## How to build an AI agent without coding", f"URL: {absu(u(BUILD_GUIDE))
 F += ["## How much does it cost to run an AI agent?", f"URL: {absu(u(COST_GUIDE))}", f"Prices checked {PR['checked_on']}, standard API tier. Token counts are editor estimates."] + [f"- {p['title']}: {rpm} runs/month, {p['in']} tokens in / {p['out']} out per run; cheapest {lo[1]['p']} {lo[1]['m']} {money(lo[0])}/month, priciest {hi[1]['p']} {hi[1]['m']} {money(hi[0])}/month" for p, rpm, lo, hi in _cost_rows] + [f"Q: {q} A: {a}" for q, a, _ in COST_FAQ] + [""]
 F += ["## OpenClaw vs Hermes Agent: a beginner's guide", f"URL: {absu(u(CLAW_GUIDE))}"] + [f"- {k}: OpenClaw: {re.sub('<[^>]+>', '', a)} | Hermes Agent: {re.sub('<[^>]+>', '', b)}" for k, a, b in CLAW_ROWS] + [f"Q: {q} A: {a}" for q, a, _ in CLAW_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in SRC if k.startswith(('oc_', 'hm_'))] + [""]
 F += ["## Is it safe to give an AI agent your email and calendar?", f"URL: {absu(u(SAFE_GUIDE))}", "Risks: prompt injection (hidden instructions in emails, pages, files), too much access (excessive agency), sending or accepting without review.", "Rules:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(SAFE_RULES)] + [f"Q: {q} A: {a}" for q, a, _ in SAFE_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('owasp01', 'owasp06', 'oai_pi', 'oai_agent', 'g_linked', 'oc_pi', 'hm_sec')] + [""]
+F += ["## Is OpenClaw safe?", f"URL: {absu(u(OCSAFE_GUIDE))}", "Rules:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(OCSAFE_RULES)] + [f"Q: {q} A: {a}" for q, a, _ in OCSAFE_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('ms_oc', 'sl_oc', 'df_cve', 'oc_secfaq', 'oc_sec')] + [""]
+F += ["## ChatGPT agent mode is gone: what replaced it", f"URL: {absu(u(AGENTMODE_GUIDE))}"] + [f"Q: {q} A: {a}" for q, a, _ in AGENTMODE_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('oai_agent_gone', 'oai_rn', 'oai_work')] + [""]
+F += ["## How to switch OpenClaw or Hermes to a cheaper model", f"URL: {absu(u(CHEAPMODEL_GUIDE))}"] + [f"Q: {q} A: {a}" for q, a, _ in CHEAP_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('oc_models', 'hm_models', 'hm_prov')] + [""]
 F += ["## What is an AI agent? (in simple terms)", f"URL: {absu(u('/what-can-bots-do/'))}"] + [f"- {q} {a}" for q, a in EXPLAIN_FAQ] + [""]
 F += ["## AI agent cost calculator", f"URL: {absu(u(LESS))}#calculator", "Monthly cost = runs per month x (input tokens x input price + output tokens x output price) / 1,000,000. Months use 30 days, 22 weekdays or 4 weeks. Batch halves the price at " + ", ".join(BATCH_PROVS) + ". Not included: caching, tool fees, voice, taxes, free tiers. Worked examples (cheapest vs priciest fitting model):"] + [f"- {c['title']}: {c['n']} run(s) per {c['unit']}, about {c['in']:,} tokens in and {c['out']:,} out per run; " + (lambda r: f"{r[0][1]['p']} {r[0][1]['m']} {money(r[0][0])}/month vs {r[-1][1]['p']} {r[-1][1]['m']} {money(r[-1][0])}/month")(calc_rows(c['n']*dict((k, m) for k, _, m in CALC_UNITS)[c['unit']], c['in'], c['out'], 'small', False)) for c in CALC_PRESETS] + [""]
 F += ["## AI price table", f"URL: {absu(u(PRICING))}", f"Checked: {PR['checked_on']}. USD per 1M tokens, standard tier. Official sources only.", "Cheapest AI API by job: " + CHEAP_TXT] + [f"Q: {q} A: {a}" for q, a, _ in PRICING_FAQ] + [f"- {r['provider']} {r['model']}: input {r['input']}, output {r['output']}" + (f", cached input {r['cached_input']}" if r['cached_input'] is not None else "") + (f". {r['note']}" if r['note'] else "") + f" Source: {r['source_url']}" for r in PR["api"]] + ["Plans:"] + [f"- {r['provider']} {r['plan']}: {r['price']} {r['period']}".rstrip() + f" Source: {r['source_url']}" for r in PR["consumer"]] + [""]

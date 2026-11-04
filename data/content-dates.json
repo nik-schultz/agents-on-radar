@@ -7,28 +7,40 @@
   "hash": "1a58b6fcdee5460d2da12ff0bf39117d00bc7438",
   "date": "2026-11-03"
  },
+ "/chatgpt-agent-mode-is-gone/": {
+  "hash": "cae58eb8ef8fe33cd2aa2486e29e921f3f29b3d3",
+  "date": "2026-11-04"
+ },
  "/disclosure/": {
   "hash": "0b6fc5d8646bb94c6544e8534e3d3a3430a104d1",
   "date": "2026-10-23"
  },
  "/how-much-does-it-cost-to-run-an-ai-agent/": {
-  "hash": "57984427f3ea6b645d02f5d77b50559e31cabd75",
-  "date": "2026-11-03"
+  "hash": "da3195191f337ab9d2f30150963804b745f527d6",
+  "date": "2026-11-04"
  },
  "/how-to-build-an-ai-agent-without-coding/": {
   "hash": "741b6ff64910699ccc5e0a4c0dab1c97026be939",
   "date": "2026-11-04"
  },
  "/is-it-safe-to-give-an-ai-agent-your-email/": {
-  "hash": "8a0b29ce95127b461c302c8bc360ecd90e9eda6f",
-  "date": "2026-10-28"
+  "hash": "e61e6ace26ac5fda43d5650f3c2aa7feb127b361",
+  "date": "2026-11-04"
+ },
+ "/is-openclaw-safe/": {
+  "hash": "8b886a0715189b02ee42cb1adbfae7652d6957b0",
+  "date": "2026-11-04"
  },
  "/openclaw-vs-hermes-agent/": {
   "hash": "eacd17690159f761fe9e0fdc6759fdda42bd3510",
   "date": "2026-10-28"
  },
+ "/switch-openclaw-or-hermes-to-a-cheaper-model/": {
+  "hash": "538416ceab4a5025708629943f0aa340d74fc1db",
+  "date": "2026-11-04"
+ },
  "/what-can-bots-do/": {
-  "hash": "74164682ea518f8ea51c10a0a59672c3d209184f",
+  "hash": "559e6a2964aeb9c7ed1ad1e0631d278ebcc81bb6",
   "date": "2026-11-04"
  }
 }

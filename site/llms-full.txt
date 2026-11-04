@@ -4519,6 +4519,9 @@ Sources:
 - Hermes docs: Tips and best practices: https://hermes-agent.nousresearch.com/docs/guides/tips/
 - Hermes docs: Scheduled tasks: https://hermes-agent.nousresearch.com/docs/user-guide/features/cron/
 - Hermes docs: Give your agent its own email address: https://hermes-agent.nousresearch.com/docs/guides/agent-email-address/
+- OpenClaw docs: Models: https://docs.openclaw.ai/concepts/models
+- Hermes docs: Configuring models: https://hermes-agent.nousresearch.com/docs/user-guide/configuring-models
+- Hermes docs: LLM and model providers: https://hermes-agent.nousresearch.com/docs/integrations/providers
 
 ## Is it safe to give an AI agent your email and calendar?
 URL: https://botsdothat.com/is-it-safe-to-give-an-ai-agent-your-email/
@@ -4546,6 +4549,51 @@ Sources:
 - Google Account Help: linked apps: https://support.google.com/accounts/answer/13533235
 - OpenClaw docs: Prompt injection: https://docs.openclaw.ai/gateway/security/prompt-injection
 - Hermes docs: Security: https://hermes-agent.nousresearch.com/docs/user-guide/security/
+
+## Is OpenClaw safe?
+URL: https://botsdothat.com/is-openclaw-safe/
+Rules:
+1. Run it on a spare machine: Microsoft's security team says not to run OpenClaw on a normal work or personal computer, and to use a dedicated virtual machine or separate device instead.
+2. Give it its own accounts: Use accounts and keys made just for the agent, not your main email or bank logins, and rotate them.
+3. Keep the gateway private: OpenClaw's own baseline: gateway bound to loopback (your machine only) or behind authenticated private access, DMs in pairing or allowlist mode.
+4. Treat skills as code: Install only skills from authors you trust, read them first, pin versions. OpenClaw says ClawHub scans are not a complete security boundary.
+5. Lock down risky tools: Deny or sandbox exec, browser and cron for any agent that reads web pages or email from strangers. Use a read-only reader agent for untrusted content.
+6. Keep it updated, then audit: Update OpenClaw and run openclaw security audit --deep after config changes.
+Q: Is OpenClaw safe to use? A: It can be, but not out of the box. OpenClaw is open-source software that runs tools and code with the logins you give it. Microsoft's security team says to treat it as untrusted code execution with persistent credentials and run it only in an isolated machine with its own accounts. Keep the gateway private, install only trusted skills, and keep risky tools sandboxed.
+Q: Has OpenClaw had security problems? A: Yes. CVE-2026-25253 let a malicious web page steal gateway credentials and control the agent; it affected versions up to v2026.1.24-1 and was fixed. Kaspersky reports finding more than 600 malicious skills from 24 accounts on the skill hub in April 2026, and says skills had no security check at all before February 7, 2026.
+Q: Are ClawHub skills safe? A: Not automatically. OpenClaw's own FAQ says to treat third-party skills and plugins as code you are choosing to trust: scans are shown before install but are not a complete security boundary. Prefer trusted authors, pin versions and read a skill before enabling it.
+Q: Is Hermes Agent safer than OpenClaw? A: They make different default choices rather than one being safe and one not. Hermes asks before dangerous commands by default and its email channel ignores unknown senders unless you change that. Either one is only as safe as the access you give it.
+Q: Should I run OpenClaw on my main computer? A: Security teams say no. Microsoft recommends a dedicated virtual machine or separate device that holds no sensitive data, treated as disposable, with a plan to rebuild it.
+Sources:
+- Microsoft Security Blog (Feb 19, 2026): Running OpenClaw safely: https://www.microsoft.com/en-us/security/blog/2026/02/19/running-openclaw-safely-identity-isolation-runtime-risk/
+- Kaspersky Securelist: Security risks for OpenClaw users: https://securelist.com/openclaw-security/120484/
+- depthfirst: 1-click RCE in OpenClaw (CVE-2026-25253): https://depthfirst.com/research/1-click-rce-to-steal-your-moltbot-data-and-keys
+- OpenClaw FAQ: Security and access control: https://docs.openclaw.ai/help/faq/security-and-access-control
+- OpenClaw docs: Security: https://docs.openclaw.ai/gateway/security
+
+## ChatGPT agent mode is gone: what replaced it
+URL: https://botsdothat.com/chatgpt-agent-mode-is-gone/
+Q: Is ChatGPT agent mode gone? A: Yes. OpenAI's help page now says: "ChatGPT agent is no longer available. Use ChatGPT Work for longer, multi-step tasks and finished deliverables." Browser tasks moved to the cloud browser in ChatGPT.
+Q: What replaced ChatGPT agent mode? A: ChatGPT Work, introduced in OpenAI's release notes on July 9, 2026. It is an agent for longer tasks: it researches, works across connected apps and files, makes documents, spreadsheets and reports, and asks you to approve important actions. It can also run Scheduled Tasks.
+Q: Why does /agent not work in ChatGPT anymore? A: Because agent mode was retired. Pick Work instead of Chat at the top of the composer (on paid plans) and describe the job.
+Q: Is ChatGPT Work free? A: OpenAI's release notes say Work rolled out on web and mobile to paid plans except Free and Go.
+Q: When did agent mode stop working? A: OpenAI hasn't published an exact retirement date. Its release notes introduced ChatGPT Work on July 9, 2026, and the agent help page now says agent is no longer available.
+Sources:
+- OpenAI Help: ChatGPT agent: https://help.openai.com/en/articles/11752874-chatgpt-agent
+- OpenAI: ChatGPT release notes (July 9, 2026: Introducing ChatGPT Work): https://help.openai.com/en/articles/6825453-chatgpt-release-notes
+- OpenAI Help: ChatGPT Work and Codex: https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex
+
+## How to switch OpenClaw or Hermes to a cheaper model
+URL: https://botsdothat.com/switch-openclaw-or-hermes-to-a-cheaper-model/
+Q: How do I change the model in OpenClaw? A: In chat, type /model followed by provider/model (for example /model openai/gpt-5.4); add -a to make it that agent's default or -g for the global default. From the terminal, openclaw models set provider/model sets the default, and openclaw models list shows what's available.
+Q: How do I change the model in Hermes Agent? A: Run hermes model in your terminal (outside a chat) to add a provider and pick a default; it's saved to ~/.hermes/config.yaml and applies to new sessions. Inside a chat, /model switches between providers you've already set up; --global also saves it, --once uses it for one turn only.
+Q: Why is OpenClaw so expensive? A: Agents send their instructions, tools and the conversation so far with every message, so long chats get more expensive each turn. Start a new session for each unrelated task, and use a smaller model for routine jobs.
+Q: Will a cheaper model be less safe? A: It can be. OpenClaw's docs advise against older or weaker models for tool-enabled agents or untrusted inputs, and say smaller local models raise prompt-injection risk. Keep a strong model for anything that reads email or the web and acts on it.
+Q: Does switching models mid-chat cost more? A: Sometimes. Both projects warn that switching inside a long session can break the prompt cache, so the next turn pays full price for the whole conversation. For a planned change, start a new session.
+Sources:
+- OpenClaw docs: Models: https://docs.openclaw.ai/concepts/models
+- Hermes docs: Configuring models: https://hermes-agent.nousresearch.com/docs/user-guide/configuring-models
+- Hermes docs: LLM and model providers: https://hermes-agent.nousresearch.com/docs/integrations/providers
 
 ## What is an AI agent? (in simple terms)
 URL: https://botsdothat.com/what-can-bots-do/

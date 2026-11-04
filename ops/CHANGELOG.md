@@ -867,3 +867,12 @@ Improvement for visitors
 ## 2026-11-03 (daily QA, 7:00 AM CT)
 - Live site up (/, /news/, /use-cases/, /ai-pricing/ all 200). validate: 115 use cases, 0 errors. check_links: 11,994 links, 0 broken internal. Form inputs and menu button have labels. No bugs found.
 - Improvement: `set-ai-spend-limits-and-alerts` watch-out now warns that scheduled bots stop silently when a spend limit is hit, and to alert on the limit itself and check jobs ran (BACKLOG idea from @SRKDAN marked done).
+
+## 2026-11-04 (weekly SEO run, SEO agent)
+- New guides (all facts from official docs or named security research; no invented stats or time-saved claims):
+  - /is-openclaw-safe/ — CVE-2026-25253 (depthfirst), Kaspersky Securelist malicious-skills findings, Microsoft Security Blog isolation advice, OpenClaw security FAQ; 6 rules; FAQPage + Article JSON-LD.
+  - /chatgpt-agent-mode-is-gone/ — verified first: OpenAI Help "ChatGPT agent is no longer available. Use ChatGPT Work…"; ChatGPT Work introduced in release notes July 9, 2026 (paid plans except Free/Go). No retirement date claimed (OpenAI hasn't published one).
+  - /switch-openclaw-or-hermes-to-a-cheaper-model/ — commands from OpenClaw docs (/model, openclaw models set, fallbacks, utilityModel) and Hermes docs (hermes model, /model --global/--once); warnings on weaker models + prompt-cache cost. Uses existing LESS_RATIO from our price table.
+- Internal links: cost guide, email-safety guide, run-for-less FAQ, /what-can-bots-do/ "Go deeper" line now link the new guides; new guides link to CLAW/SAFE/COST/LESS/pricing and 3 use cases. Added to NEW_GUIDES (llms.txt, search index), llms-full.txt sections, sitemap, share bar and end-of-page newsletter.
+- Research notes: r/openclaw beginners repeatedly ask about token cost / model choice (threads 1spm5ux, 1sbgj89, 1r6fc2w) — basis for the cheaper-model guide.
+- Checks: validate 120 use cases, 0 errors; check_links 13,224 links, 0 broken internal.
