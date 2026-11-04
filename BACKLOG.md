@@ -261,3 +261,5 @@ Bugs/complaints: none found.
 ## PM news run 2026-11-03
 - Use-case idea: "Give your team a shared data bot that answers numbers questions" (xAI Data Bot, x.ai/news/data-bot; needs a second independent source before adding).
 - Watch: Anthropic FlashProve (provable inference) — if any provider ships proofs to customers, add a "check which model answered you" explainer.
+
+- (2026-11-04 news) Idea: "Let AI pick tonight's movie or show by mood" guide (Netflix AI Discover, Nov 3 TechCrunch); needs a second independent source.

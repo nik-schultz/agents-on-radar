@@ -1,5 +1,11 @@
 # Ops changelog
 
+## 2026-11-04 (AM news run, ~8:45 AM AST)
+- Added 3 news items: Tencent Hy4 open-weight model with vision (Nov 4, notable, @TencentHunyuan official post), Netflix AI Discover mood-based tab (Nov 3, notable, @YahooFinance coverage), Google Guided Learning in Classroom/Search plus Gemini off by default for K-12 student accounts (Nov 3, notable, @Marie_Haynes coverage). Tencent and Netflix added to `NEWS_CO`. No major releases.
+- Refreshed X engagement on 82 existing items (measured 2026-11-04); Gemini 4 Carbon (34,092 likes / 6.93M views) still top story.
+- Skipped: Claude Enterprise "smart reports / group budgets" (single unofficial source), monday.com-in-Gemini connector (partner blog only), XPENG GroundingPI (research). Checked OpenAI changelog, Anthropic, Google, xAI, Meta, Mistral, DeepSeek: nothing else new. No pricing table changes (Hy4 not in table).
+- BACKLOG: logged a "pick a movie by mood" idea.
+
 ## 2026-11-03 (PM news run, ~4:45 PM AST)
 - Added 3 news items: OpenAI "engineering for the physical world" (notable), Anthropic FlashProve provable inference (notable), xAI Grok Bot Data Bot (notable, agent launch). No major releases.
 - Refreshed X engagement on 79 existing items (measured 2026-11-03); new items carry official-post X blocks (@OpenAI, @AnthropicAI, @bot).
