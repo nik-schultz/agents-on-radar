@@ -309,3 +309,11 @@ Top domains: youtube.com (91), x.com (73), news.ycombinator.com (34), reddit.com
 - X share of source links: **70/468 = 15%**
 - X-only use cases: **5**
 - Added this run: keep-a-visa-application-on-track (3 sources: Toki blog, The Straits Times, Hacker News; 0 X). Refreshed 48 X popularity blocks.
+
+## After midday trending run (measured 2026-11-04)
+
+- Use cases: **121**; source links: **478**
+- X share of source links: **73/478 = 15%** (community links: 73/255 = 29%)
+- X-only use cases: **5**
+- Added this run: stop-your-ai-chats-being-used-for-training (4 sources: 2 Hacker News threads, OpenAI Help, Google Gemini Privacy Hub; 0 X). Refreshed 48 X popularity blocks.
+- Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits, X search only unrelated "bots do that" replies, web search only our own pages).

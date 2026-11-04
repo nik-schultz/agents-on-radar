@@ -263,3 +263,8 @@ Bugs/complaints: none found.
 - Watch: Anthropic FlashProve (provable inference) — if any provider ships proofs to customers, add a "check which model answered you" explainer.
 
 - (2026-11-04 news) Idea: "Let AI pick tonight's movie or show by mood" guide (Netflix AI Discover, Nov 3 TechCrunch); needs a second independent source.
+
+## Midday trending 2026-11-04
+- Idea: "Silent voice input for your agent" (Subvocal smart glasses, Show HN 50340088, 826 points). Hardware and not shipping to consumers yet; revisit when it's available.
+- Idea: "One agent per trigger: 'do X if Y happens'" from Ask HN 50366117 (agentic setups, 57 points). Single anecdote; needs a second source.
+- Watch: Codex 'Improve the model' toggle reportedly re-enabling itself (HN 50352757). If OpenAI confirms or fixes it, update stop-your-ai-chats-being-used-for-training.

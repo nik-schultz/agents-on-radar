@@ -1,0 +1,43 @@
+{
+ "slug": "stop-your-ai-chats-being-used-for-training",
+ "title": "Stop your AI chats from being used for training (and check it stays off)",
+ "category": "inbox",
+ "summary": "Paying for ChatGPT or Gemini doesn't automatically keep your chats out of model training. This week Hacker News users found Gemini keeps training on saved chats unless you turn off Keep Activity, and some ChatGPT users said the Codex training switch had turned itself back on. Here's how to switch it off and re-check it.",
+ "problem": "You tell your AI assistant and agents about work, health and money, and you assumed a paid plan kept that private. It may not.",
+ "outcome": "Training switched off in each AI app you use, a monthly reminder to re-check, and a habit of using temporary chats for sensitive things.",
+ "what_the_bot_does": [
+  "ChatGPT (web): open your account menu, then Settings, then Data controls, and turn off 'Improve the model for everyone'. On the phone app: sidebar, your profile icon, Data controls. Your chat history stays.",
+  "Codex: open Codex settings and check 'Include environments' separately. OpenAI says changing the ChatGPT setting does not change this one.",
+  "Gemini: in Gemini's activity settings turn off 'Keep Activity'. Google says that's what stops your chats being used to improve its models, but chats are then only kept for 72 hours.",
+  "For anything sensitive, start a Temporary chat. OpenAI says temporary chats aren't used for training and don't update memories (kept up to 30 days for safety).",
+  "Set a monthly calendar reminder (or ask your bot to remind you) to re-open these settings and confirm they're still off."
+ ],
+ "what_you_end_up_with": "Training switched off in each AI app you use, a monthly reminder to re-check, and a habit of using temporary chats for sensitive things.",
+ "difficulty": "Easy",
+ "tools": [{"id": "chatgpt"}, {"id": "gemini"}],
+ "prompt": "Every month on the 1st, remind me: 'Privacy check: ChatGPT > Settings > Data controls > Improve the model for everyone is OFF; Codex settings > Include environments is OFF; Gemini Keep Activity is how I want it.' List the apps I use: [ChatGPT, Gemini, other].",
+ "setup": [
+  "Do the ChatGPT, Codex and Gemini steps above once on each account you use (personal and work).",
+  "Create a recurring reminder for the 1st of every month using the prompt.",
+  "Never paste passwords, ID numbers or account numbers into any chat, even with training off."
+ ],
+ "watch_out": [
+  "Thumbs up/down feedback can send the whole conversation for training even after you opt out, according to OpenAI.",
+  "Google says chats picked for human review are kept for up to three years, even if you delete your activity.",
+  "Settings and labels change often. If a step doesn't match what you see, search the vendor's help page for 'data controls' or 'Keep Activity'.",
+  "Work accounts (ChatGPT Business/Enterprise, Google Workspace) follow your employer's rules; ask IT."
+ ],
+ "faq": [
+  {"q": "Does a paid plan stop training?", "a": "Not by itself. OpenAI says data sharing is on by default for Free, Plus and Pro personal accounts, and Google says Gemini uses saved activity for training while Keep Activity is on."},
+  {"q": "Does turning training off delete my chats?", "a": "No. In ChatGPT your history stays. In Gemini, turning off Keep Activity means new chats are only kept for 72 hours."}
+ ],
+ "sources": [
+  {"label": "Hacker News: Gemini trains on chat history, even for subscribers (464 points, 124 comments, measured 2026-11-04)", "url": "https://news.ycombinator.com/item?id=50363461", "kind": "article"},
+  {"label": "Hacker News: OpenAI seems to be silently re-enabling model training on Codex chats (510 points, 151 comments, measured 2026-11-04)", "url": "https://news.ycombinator.com/item?id=50352757", "kind": "article"},
+  {"label": "OpenAI Help: Data controls in ChatGPT", "url": "https://help.openai.com/en/articles/7730893-data-controls-faq", "kind": "official"},
+  {"label": "Google Gemini Apps Privacy Hub", "url": "https://support.google.com/gemini/answer/13594961?hl=en", "kind": "official"}
+ ],
+ "tags": ["privacy", "training", "ChatGPT", "Gemini", "Codex", "settings", "memory"],
+ "popularity": null,
+ "source_date": "2026-11-04"
+}

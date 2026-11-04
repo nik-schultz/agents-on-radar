@@ -1,5 +1,88 @@
 [
  {
+  "slug": "stop-your-ai-chats-being-used-for-training",
+  "title": "Stop your AI chats from being used for training (and check it stays off)",
+  "category": "inbox",
+  "summary": "Paying for ChatGPT or Gemini doesn't automatically keep your chats out of model training. This week Hacker News users found Gemini keeps training on saved chats unless you turn off Keep Activity, and some ChatGPT users said the Codex training switch had turned itself back on. Here's how to switch it off and re-check it.",
+  "problem": "You tell your AI assistant and agents about work, health and money, and you assumed a paid plan kept that private. It may not.",
+  "outcome": "Training switched off in each AI app you use, a monthly reminder to re-check, and a habit of using temporary chats for sensitive things.",
+  "what_the_bot_does": [
+   "ChatGPT (web): open your account menu, then Settings, then Data controls, and turn off 'Improve the model for everyone'. On the phone app: sidebar, your profile icon, Data controls. Your chat history stays.",
+   "Codex: open Codex settings and check 'Include environments' separately. OpenAI says changing the ChatGPT setting does not change this one.",
+   "Gemini: in Gemini's activity settings turn off 'Keep Activity'. Google says that's what stops your chats being used to improve its models, but chats are then only kept for 72 hours.",
+   "For anything sensitive, start a Temporary chat. OpenAI says temporary chats aren't used for training and don't update memories (kept up to 30 days for safety).",
+   "Set a monthly calendar reminder (or ask your bot to remind you) to re-open these settings and confirm they're still off."
+  ],
+  "what_you_end_up_with": "Training switched off in each AI app you use, a monthly reminder to re-check, and a habit of using temporary chats for sensitive things.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt"
+   },
+   {
+    "id": "gemini"
+   }
+  ],
+  "prompt": "Every month on the 1st, remind me: 'Privacy check: ChatGPT > Settings > Data controls > Improve the model for everyone is OFF; Codex settings > Include environments is OFF; Gemini Keep Activity is how I want it.' List the apps I use: [ChatGPT, Gemini, other].",
+  "setup": [
+   "Do the ChatGPT, Codex and Gemini steps above once on each account you use (personal and work).",
+   "Create a recurring reminder for the 1st of every month using the prompt.",
+   "Never paste passwords, ID numbers or account numbers into any chat, even with training off."
+  ],
+  "watch_out": [
+   "Thumbs up/down feedback can send the whole conversation for training even after you opt out, according to OpenAI.",
+   "Google says chats picked for human review are kept for up to three years, even if you delete your activity.",
+   "Settings and labels change often. If a step doesn't match what you see, search the vendor's help page for 'data controls' or 'Keep Activity'.",
+   "Work accounts (ChatGPT Business/Enterprise, Google Workspace) follow your employer's rules; ask IT."
+  ],
+  "faq": [
+   {
+    "q": "Does a paid plan stop training?",
+    "a": "Not by itself. OpenAI says data sharing is on by default for Free, Plus and Pro personal accounts, and Google says Gemini uses saved activity for training while Keep Activity is on."
+   },
+   {
+    "q": "Does turning training off delete my chats?",
+    "a": "No. In ChatGPT your history stays. In Gemini, turning off Keep Activity means new chats are only kept for 72 hours."
+   }
+  ],
+  "sources": [
+   {
+    "label": "Hacker News: Gemini trains on chat history, even for subscribers (464 points, 124 comments, measured 2026-11-04)",
+    "url": "https://news.ycombinator.com/item?id=50363461",
+    "kind": "hn"
+   },
+   {
+    "label": "Hacker News: OpenAI seems to be silently re-enabling model training on Codex chats (510 points, 151 comments, measured 2026-11-04)",
+    "url": "https://news.ycombinator.com/item?id=50352757",
+    "kind": "hn"
+   },
+   {
+    "label": "OpenAI Help: Data controls in ChatGPT",
+    "url": "https://help.openai.com/en/articles/7730893-data-controls-faq",
+    "kind": "official"
+   },
+   {
+    "label": "Google Gemini Apps Privacy Hub",
+    "url": "https://support.google.com/gemini/answer/13594961?hl=en",
+    "kind": "official"
+   }
+  ],
+  "tags": [
+   "privacy",
+   "training",
+   "ChatGPT",
+   "Gemini",
+   "Codex",
+   "settings",
+   "memory"
+  ],
+  "popularity": null,
+  "source_date": "2026-11-04",
+  "date_added": "2026-11-04",
+  "origin": "pipeline",
+  "last_checked": "2026-11-04"
+ },
+ {
   "slug": "understand-your-tax-forms-with-ai-safely",
   "title": "Understand your tax forms with AI, safely",
   "category": "inbox",
@@ -1097,9 +1180,9 @@
    "likes": 34,
    "reposts": 5,
    "replies": 21,
-   "bookmarks": 1,
-   "views": 4398,
-   "measured_at": "2026-11-03"
+   "bookmarks": 2,
+   "views": 4422,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "IFTTT",
@@ -1201,12 +1284,12 @@
    "author": "@ChatGPT",
    "url": "https://x.com/ChatGPT/status/2115139248458191070",
    "posted_at": "2026-10-27",
-   "likes": 5824,
-   "reposts": 391,
+   "likes": 5829,
+   "reposts": 393,
    "replies": 402,
-   "bookmarks": 1071,
-   "views": 2083564,
-   "measured_at": "2026-11-03"
+   "bookmarks": 1065,
+   "views": 2094907,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "iCloud",
@@ -1394,8 +1477,8 @@
    "reposts": 7,
    "replies": 25,
    "bookmarks": 66,
-   "views": 39092,
-   "measured_at": "2026-11-03"
+   "views": 39156,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "online shopping",
@@ -1477,12 +1560,12 @@
    "author": "@noahrshinn",
    "url": "https://x.com/noahrshinn/status/2115143830924341534",
    "posted_at": "2026-10-27",
-   "likes": 1117,
+   "likes": 1099,
    "reposts": 37,
    "replies": 98,
-   "bookmarks": 313,
-   "views": 340387,
-   "measured_at": "2026-11-03"
+   "bookmarks": 311,
+   "views": 341216,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "group chat",
@@ -2009,11 +2092,11 @@
    "url": "https://x.com/NadavKeyson/status/2114759149770723804",
    "posted_at": "2026-10-26",
    "likes": 661,
-   "reposts": 93,
+   "reposts": 86,
    "replies": 175,
    "bookmarks": 810,
-   "views": 1041509,
-   "measured_at": "2026-11-03"
+   "views": 1042175,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "podcast",
@@ -2455,7 +2538,7 @@
    "replies": 0,
    "bookmarks": 1,
    "views": 163,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "phone calls",
@@ -2674,8 +2757,8 @@
    "reposts": 5,
    "replies": 13,
    "bookmarks": 27,
-   "views": 5893,
-   "measured_at": "2026-11-03"
+   "views": 5894,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "proactive",
@@ -2866,8 +2949,8 @@
    "reposts": 0,
    "replies": 12,
    "bookmarks": 0,
-   "views": 1105,
-   "measured_at": "2026-11-03"
+   "views": 1106,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "fact check",
@@ -2970,12 +3053,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 411,
+   "likes": 376,
    "reposts": 15,
    "replies": 33,
-   "bookmarks": 269,
-   "views": 178799,
-   "measured_at": "2026-11-03"
+   "bookmarks": 268,
+   "views": 178835,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "second brain",
@@ -3183,7 +3266,7 @@
    "replies": 20,
    "bookmarks": 30,
    "views": 5441,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "read later",
@@ -3264,12 +3347,12 @@
    "author": "@Texas_Twins_Dad",
    "url": "https://x.com/Texas_Twins_Dad/status/2112926907549323538",
    "posted_at": "2026-10-21",
-   "likes": 38,
+   "likes": 37,
    "reposts": 2,
    "replies": 4,
    "bookmarks": 6,
    "views": 1779,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "contact form",
@@ -3467,7 +3550,7 @@
    "replies": 3,
    "bookmarks": 6,
    "views": 585,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "schedule",
@@ -3847,8 +3930,8 @@
    "reposts": 15,
    "replies": 26,
    "bookmarks": 505,
-   "views": 25485,
-   "measured_at": "2026-11-03"
+   "views": 25491,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "multi-agent",
@@ -3937,12 +4020,12 @@
    "author": "@Parul_Gautam7",
    "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
    "posted_at": "2026-10-08",
-   "likes": 192,
-   "reposts": 34,
+   "likes": 188,
+   "reposts": 33,
    "replies": 38,
-   "bookmarks": 76,
-   "views": 46426,
-   "measured_at": "2026-11-03"
+   "bookmarks": 75,
+   "views": 46427,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "multi-agent",
@@ -4015,7 +4098,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "voice",
@@ -4084,7 +4167,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 45,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "roadside assistance",
@@ -4180,8 +4263,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 396,
-   "measured_at": "2026-11-03"
+   "views": 397,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "computer use",
@@ -4253,7 +4336,7 @@
    "replies": 2,
    "bookmarks": 0,
    "views": 911,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "contractors",
@@ -4322,8 +4405,8 @@
    "reposts": 0,
    "replies": 5,
    "bookmarks": 0,
-   "views": 128,
-   "measured_at": "2026-11-03"
+   "views": 129,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "used car",
@@ -4386,8 +4469,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7507,
-   "measured_at": "2026-11-03"
+   "views": 7509,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "pharmacy",
@@ -4470,8 +4553,8 @@
    "reposts": 24,
    "replies": 29,
    "bookmarks": 235,
-   "views": 326314,
-   "measured_at": "2026-11-03"
+   "views": 326436,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "newsletters",
@@ -4560,12 +4643,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
    "posted_at": "2026-10-18",
-   "likes": 861,
+   "likes": 857,
    "reposts": 93,
    "replies": 193,
    "bookmarks": 1001,
-   "views": 1223847,
-   "measured_at": "2026-11-03"
+   "views": 1224495,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "phone call",
@@ -4731,8 +4814,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 559,
-   "measured_at": "2026-11-03"
+   "views": 560,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "spam calls",
@@ -4805,8 +4888,8 @@
    "reposts": 3,
    "replies": 8,
    "bookmarks": 37,
-   "views": 5450,
-   "measured_at": "2026-11-03"
+   "views": 5452,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "food log",
@@ -4887,8 +4970,8 @@
    "reposts": 3,
    "replies": 12,
    "bookmarks": 13,
-   "views": 3105,
-   "measured_at": "2026-11-03"
+   "views": 3111,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "phone call",
@@ -5075,9 +5158,9 @@
    "likes": 1013,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2890,
-   "views": 311700,
-   "measured_at": "2026-11-03"
+   "bookmarks": 2891,
+   "views": 311762,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "meal plan",
@@ -5152,9 +5235,9 @@
    "likes": 506,
    "reposts": 34,
    "replies": 36,
-   "bookmarks": 1148,
-   "views": 66880,
-   "measured_at": "2026-11-03"
+   "bookmarks": 1147,
+   "views": 66906,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "calendar",
@@ -5246,9 +5329,9 @@
    "likes": 678,
    "reposts": 35,
    "replies": 157,
-   "bookmarks": 720,
-   "views": 83095,
-   "measured_at": "2026-11-03"
+   "bookmarks": 719,
+   "views": 83152,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "personal agent",
@@ -5328,8 +5411,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41428,
-   "measured_at": "2026-11-03"
+   "views": 41436,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "scams",
@@ -5408,12 +5491,12 @@
    "author": "@saviomartin",
    "url": "https://x.com/saviomartin/status/2109330165381910817",
    "posted_at": "2026-10-11",
-   "likes": 163,
+   "likes": 164,
    "reposts": 13,
    "replies": 29,
-   "bookmarks": 117,
-   "views": 25253,
-   "measured_at": "2026-11-03"
+   "bookmarks": 118,
+   "views": 25264,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "family chat",
@@ -5502,8 +5585,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4089,
-   "measured_at": "2026-11-03"
+   "views": 4092,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "groceries",
@@ -5582,8 +5665,8 @@
    "reposts": 12,
    "replies": 12,
    "bookmarks": 11,
-   "views": 9668,
-   "measured_at": "2026-11-03"
+   "views": 9669,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "travel",
@@ -5651,8 +5734,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 2008,
-   "measured_at": "2026-11-03"
+   "views": 2010,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "flights",
@@ -5796,12 +5879,12 @@
    "author": "@MilksandMatcha",
    "url": "https://x.com/MilksandMatcha/status/2105372125288976402",
    "posted_at": "2026-09-30",
-   "likes": 533,
+   "likes": 534,
    "reposts": 23,
    "replies": 63,
-   "bookmarks": 240,
-   "views": 93735,
-   "measured_at": "2026-11-03"
+   "bookmarks": 239,
+   "views": 93738,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "restaurant",
@@ -5865,7 +5948,7 @@
    "replies": 9,
    "bookmarks": 27,
    "views": 4063,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "appointment",
@@ -5959,8 +6042,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9202,
-   "measured_at": "2026-11-03"
+   "views": 9203,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "receipts",
@@ -6051,8 +6134,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 269,
-   "views": 9808,
-   "measured_at": "2026-11-03"
+   "views": 9820,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "chief of staff",
@@ -6111,8 +6194,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1879,
-   "measured_at": "2026-11-03"
+   "views": 1880,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "multiple brands",
@@ -6186,7 +6269,7 @@
    "replies": 12,
    "bookmarks": 27,
    "views": 3247,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "real estate",
@@ -6287,7 +6370,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 80,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "paper mail",
@@ -6375,8 +6458,8 @@
    "reposts": 1,
    "replies": 1,
    "bookmarks": 0,
-   "views": 75,
-   "measured_at": "2026-11-03"
+   "views": 76,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "monitoring",
@@ -6446,8 +6529,8 @@
    "reposts": 2,
    "replies": 7,
    "bookmarks": 0,
-   "views": 1433,
-   "measured_at": "2026-11-03"
+   "views": 1435,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "follow up",
@@ -6520,8 +6603,8 @@
    "reposts": 4,
    "replies": 7,
    "bookmarks": 55,
-   "views": 4929,
-   "measured_at": "2026-11-03"
+   "views": 4931,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "leads",
@@ -6617,7 +6700,7 @@
    "replies": 2,
    "bookmarks": 19,
    "views": 2156,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "email",
@@ -7270,8 +7353,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 805,
-   "measured_at": "2026-11-03"
+   "views": 806,
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "marketplace",
@@ -7539,7 +7622,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1505,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "payments",
@@ -7614,7 +7697,7 @@
    "replies": 4,
    "bookmarks": 3,
    "views": 908,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "tags": [
    "ads",
@@ -8616,7 +8699,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-11-03"
+   "measured_at": "2026-11-04"
   },
   "origin": "migrated-2026-10-19"
  },
