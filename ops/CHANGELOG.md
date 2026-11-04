@@ -876,3 +876,8 @@ Improvement for visitors
 - Internal links: cost guide, email-safety guide, run-for-less FAQ, /what-can-bots-do/ "Go deeper" line now link the new guides; new guides link to CLAW/SAFE/COST/LESS/pricing and 3 use cases. Added to NEW_GUIDES (llms.txt, search index), llms-full.txt sections, sitemap, share bar and end-of-page newsletter.
 - Research notes: r/openclaw beginners repeatedly ask about token cost / model choice (threads 1spm5ux, 1sbgj89, 1r6fc2w) — basis for the cheaper-model guide.
 - Checks: validate 120 use cases, 0 errors; check_links 13,224 links, 0 broken internal.
+
+## 2026-11-04 PM news run
+- Added 3 notable items: grok-bot-phone-calls (TeslaNorth, Teslarati; @bot 2118043939592942052), ricursive-ripple-65b-preview (ricursive.com, Together AI; @RicursiveAI), anthropic-claude-vault-particles (Anthropic research, Science; @AnthropicAI). New NEWS_CO entry "Ricursive".
+- Refreshed X numbers on 70 existing items (raw: research/x_news_measure_2026_11_04_pm.json.txt, local only). Top story still google-gemini-4-carbon (34,094 likes / 2,746 reposts / 6.94M views).
+- No pricing change; nothing major. Skipped rumors (OpenAI "Astra/Sol" Friday report, "ChatBLT" tease) and Kimi K3.1 Pro weights (already listed).

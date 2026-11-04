@@ -9,6 +9,87 @@
   ],
   "items": [
     {
+      "id": "grok-bot-phone-calls",
+      "date": "2026-11-04",
+      "category": "feature",
+      "company": "xAI",
+      "impact": "notable",
+      "headline": "Grok Bot can now phone businesses for you, like cancelling a plan or booking an appointment",
+      "explainer": "Tell Grok Bot who to call and why, approve the call, and it waits on hold, works the phone menu and talks to the agent while you watch a live transcript and can take over at any time, then it sends you a summary. It only calls U.S. numbers for now (not Washington or Illinois), says up front that it's a virtual assistant, and some reps may refuse to deal with an AI.",
+      "source_url": "https://teslanorth.com/2026/11/04/grok-bot-phone-calls-live/",
+      "source_name": "TeslaNorth",
+      "more_sources": [
+        {
+          "label": "Teslarati",
+          "url": "https://www.teslarati.com/elon-musks-grok-bot-is-picking-up-the-phone-now-and-the-first-calls-are-wild/"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/bot/status/2118043939592942052",
+        "author": "@bot",
+        "kind": "official",
+        "likes": 5434,
+        "reposts": 278,
+        "views": 291126,
+        "posted_at": "2026-11-04",
+        "measured_at": "2026-11-04"
+      }
+    },
+    {
+      "id": "ricursive-ripple-65b-preview",
+      "date": "2026-11-04",
+      "category": "model release",
+      "company": "Ricursive",
+      "impact": "notable",
+      "headline": "Ricursive releases Ripple-65B Preview, a free open coding model small enough to run on a high-end laptop",
+      "explainer": "Ripple-65B is a downloadable model (Apache 2.0 license) that its maker says is the best U.S. open model at agent-style coding, and it can run on a MacBook Pro or NVIDIA DGX Spark. Hosted versions start around $0.20 in / $0.60 out per million tokens on OpenRouter; the benchmark scores are Ricursive's own.",
+      "source_url": "https://www.ricursive.com/ripple",
+      "source_name": "Ricursive Intelligence",
+      "more_sources": [
+        {
+          "label": "Together AI",
+          "url": "https://www.together.ai/models/ripple-65b-preview"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/RicursiveAI/status/2118046765857546733",
+        "author": "@RicursiveAI",
+        "kind": "official",
+        "likes": 1263,
+        "reposts": 152,
+        "views": 115009,
+        "posted_at": "2026-11-04",
+        "measured_at": "2026-11-04"
+      }
+    },
+    {
+      "id": "anthropic-claude-vault-particles",
+      "date": "2026-11-04",
+      "category": "industry",
+      "company": "Anthropic",
+      "impact": "notable",
+      "headline": "Anthropic's lab used Claude to map a mystery protein 'vault' from bacteria-infecting viruses",
+      "explainer": "Claude searched billions of proteins, designed the DNA and processed the microscope data, so a step that normally takes three days took about 90 minutes and a first 3D model was ready in 34 hours. It's an example of AI speeding up real lab science; the scientists still chose what to test, and the paper isn't peer-reviewed yet.",
+      "source_url": "https://www.anthropic.com/research/investigating-vault-particles-with-claude",
+      "source_name": "Anthropic",
+      "more_sources": [
+        {
+          "label": "Science",
+          "url": "https://www.science.org/content/article/ai-company-s-research-deepens-mystery-vaults-cells-strangest-particles"
+        }
+      ],
+      "x": {
+        "url": "https://x.com/AnthropicAI/status/2118073665296228863",
+        "author": "@AnthropicAI",
+        "kind": "official",
+        "likes": 643,
+        "reposts": 68,
+        "views": 37528,
+        "posted_at": "2026-11-04",
+        "measured_at": "2026-11-04"
+      }
+    },
+    {
       "id": "tencent-hy4-open-model",
       "date": "2026-11-04",
       "category": "model release",
@@ -28,9 +109,9 @@
         "url": "https://x.com/TencentHunyuan/status/2117870250838630539",
         "author": "@TencentHunyuan",
         "kind": "official",
-        "likes": 1923,
-        "reposts": 229,
-        "views": 219643,
+        "likes": 2557,
+        "reposts": 292,
+        "views": 380347,
         "posted_at": "2026-11-04",
         "measured_at": "2026-11-04"
       }
@@ -49,9 +130,9 @@
         "url": "https://x.com/YahooFinance/status/2117776361318195613",
         "author": "@YahooFinance",
         "kind": "coverage",
-        "likes": 10,
+        "likes": 14,
         "reposts": 3,
-        "views": 11660,
+        "views": 12621,
         "posted_at": "2026-11-04",
         "measured_at": "2026-11-04"
       }
@@ -80,9 +161,9 @@
         "url": "https://x.com/Marie_Haynes/status/2117645444717158420",
         "author": "@Marie_Haynes",
         "kind": "coverage",
-        "likes": 25,
+        "likes": 27,
         "reposts": 2,
-        "views": 4780,
+        "views": 5272,
         "posted_at": "2026-11-03",
         "measured_at": "2026-11-04"
       }
@@ -101,9 +182,9 @@
         "url": "https://x.com/OpenAI/status/2117692475775258785",
         "author": "@OpenAI",
         "kind": "official",
-        "likes": 6715,
-        "reposts": 568,
-        "views": 928056,
+        "likes": 7589,
+        "reposts": 658,
+        "views": 1156476,
         "posted_at": "2026-11-03",
         "measured_at": "2026-11-04"
       }
@@ -130,7 +211,7 @@
         "kind": "official",
         "likes": 487,
         "reposts": 32,
-        "views": 63524,
+        "views": 65783,
         "posted_at": "2026-11-03",
         "measured_at": "2026-11-04"
       }
@@ -170,9 +251,9 @@
         "url": "https://x.com/bot/status/2117349540168876334",
         "author": "@bot",
         "kind": "official",
-        "likes": 4215,
-        "reposts": 292,
-        "views": 687697,
+        "likes": 4253,
+        "reposts": 291,
+        "views": 701387,
         "posted_at": "2026-11-02",
         "measured_at": "2026-11-04"
       }
@@ -239,9 +320,9 @@
         "url": "https://x.com/ClaudeDevs/status/2117332449382510884",
         "author": "@ClaudeDevs",
         "kind": "official",
-        "likes": 8303,
-        "reposts": 318,
-        "views": 813823,
+        "likes": 8364,
+        "reposts": 320,
+        "views": 824087,
         "posted_at": "2026-11-02T19:06:08Z",
         "measured_at": "2026-11-04"
       }
@@ -260,9 +341,9 @@
         "url": "https://x.com/OpenAI/status/2117307611338997846",
         "author": "@OpenAI",
         "kind": "official",
-        "likes": 6542,
-        "reposts": 467,
-        "views": 774312,
+        "likes": 6580,
+        "reposts": 469,
+        "views": 785041,
         "posted_at": "2026-11-02T17:27:26Z",
         "measured_at": "2026-11-04"
       }
@@ -291,9 +372,9 @@
         "url": "https://x.com/Meituan_LongCat/status/2117264311714537633",
         "author": "@Meituan_LongCat",
         "kind": "official",
-        "likes": 2069,
-        "reposts": 176,
-        "views": 161116,
+        "likes": 2076,
+        "reposts": 178,
+        "views": 223367,
         "posted_at": "2026-11-02T14:35:23Z",
         "measured_at": "2026-11-04"
       }
@@ -322,9 +403,9 @@
         "url": "https://x.com/SemiAnalysis_/status/2117075900575477855",
         "author": "@SemiAnalysis_",
         "kind": "official",
-        "likes": 3337,
-        "reposts": 317,
-        "views": 1888794,
+        "likes": 3341,
+        "reposts": 318,
+        "views": 1899935,
         "posted_at": "2026-11-02T02:06:42Z",
         "measured_at": "2026-11-04"
       }
@@ -355,7 +436,7 @@
         "kind": "coverage",
         "likes": 353,
         "reposts": 7,
-        "views": 42123,
+        "views": 42265,
         "posted_at": "2026-11-02T20:07:22Z",
         "measured_at": "2026-11-04"
       }
@@ -407,7 +488,7 @@
         "kind": "coverage",
         "likes": 674,
         "reposts": 57,
-        "views": 85654,
+        "views": 86048,
         "posted_at": "2026-10-31T20:05:15Z",
         "measured_at": "2026-11-04"
       }
@@ -489,9 +570,9 @@
         "url": "https://x.com/claudeai/status/2116220869479428500",
         "author": "@claudeai",
         "kind": "official",
-        "likes": 32058,
-        "reposts": 1941,
-        "views": 7174971,
+        "likes": 32070,
+        "reposts": 1940,
+        "views": 7197613,
         "posted_at": "2026-10-30T17:29:07Z",
         "measured_at": "2026-11-04"
       }
@@ -510,9 +591,9 @@
         "url": "https://x.com/thsottiaux/status/2116405414921384099",
         "author": "@thsottiaux",
         "kind": "official",
-        "likes": 14488,
+        "likes": 14490,
         "reposts": 651,
-        "views": 3350584,
+        "views": 3363545,
         "posted_at": "2026-10-31T05:42:26Z",
         "measured_at": "2026-11-04"
       }
@@ -567,7 +648,7 @@
         "kind": "coverage",
         "likes": 47,
         "reposts": 8,
-        "views": 28758,
+        "views": 28807,
         "posted_at": "2026-10-30T13:59:05Z",
         "measured_at": "2026-11-04"
       }
@@ -642,9 +723,9 @@
         "url": "https://x.com/pika_labs/status/2115860471215788262",
         "author": "@pika_labs",
         "kind": "official",
-        "likes": 3076,
-        "reposts": 361,
-        "views": 1405701,
+        "likes": 3120,
+        "reposts": 354,
+        "views": 1417440,
         "posted_at": "2026-10-29T17:37:01Z",
         "measured_at": "2026-11-04"
       }
@@ -664,8 +745,8 @@
         "author": "@ElevenLabs",
         "kind": "official",
         "likes": 522,
-        "reposts": 121,
-        "views": 1036861,
+        "reposts": 122,
+        "views": 1038172,
         "posted_at": "2026-10-29T18:03:17Z",
         "measured_at": "2026-11-04"
       }
@@ -694,9 +775,9 @@
         "url": "https://x.com/thsottiaux/status/2115850175868727621",
         "author": "@thsottiaux",
         "kind": "official",
-        "likes": 39052,
-        "reposts": 2703,
-        "views": 7241951,
+        "likes": 39130,
+        "reposts": 2704,
+        "views": 7335324,
         "posted_at": "2026-10-29T16:56:07Z",
         "measured_at": "2026-11-04"
       }
@@ -723,7 +804,7 @@
         "kind": "official",
         "likes": 1306,
         "reposts": 78,
-        "views": 212424,
+        "views": 212710,
         "posted_at": "2026-10-29T19:09:24Z",
         "measured_at": "2026-11-04"
       }
@@ -744,7 +825,7 @@
         "kind": "coverage",
         "likes": 103,
         "reposts": 9,
-        "views": 20267,
+        "views": 20300,
         "posted_at": "2026-10-28T02:03:34Z",
         "measured_at": "2026-11-04"
       }
@@ -773,9 +854,9 @@
         "url": "https://x.com/MistralAI/status/2115811242556137820",
         "author": "@MistralAI",
         "kind": "official",
-        "likes": 6342,
-        "reposts": 813,
-        "views": 825846,
+        "likes": 6346,
+        "reposts": 814,
+        "views": 828561,
         "posted_at": "2026-10-29T14:21:24Z",
         "measured_at": "2026-11-04"
       }
@@ -800,9 +881,9 @@
         "url": "https://x.com/claudeai/status/2115859377488072879",
         "author": "@claudeai",
         "kind": "official",
-        "likes": 9822,
+        "likes": 9830,
         "reposts": 396,
-        "views": 901162,
+        "views": 907152,
         "posted_at": "2026-10-29T17:32:41Z",
         "measured_at": "2026-11-04"
       }
@@ -831,9 +912,9 @@
         "url": "https://x.com/GeminiApp/status/2115845164824711247",
         "author": "@GeminiApp",
         "kind": "official",
-        "likes": 7562,
+        "likes": 7559,
         "reposts": 767,
-        "views": 2162735,
+        "views": 2226037,
         "posted_at": "2026-10-29T16:36:12Z",
         "measured_at": "2026-11-04"
       }
@@ -860,7 +941,7 @@
         "kind": "official",
         "likes": 18,
         "reposts": 3,
-        "views": 3769,
+        "views": 3788,
         "posted_at": "2026-10-29T15:34:59Z",
         "measured_at": "2026-11-04"
       }
@@ -900,9 +981,9 @@
         "url": "https://x.com/meetgranola/status/2115837013975081208",
         "author": "@meetgranola",
         "kind": "official",
-        "likes": 7429,
-        "reposts": 292,
-        "views": 1845167,
+        "likes": 7432,
+        "reposts": 291,
+        "views": 1847654,
         "posted_at": "2026-10-29T16:03:49Z",
         "measured_at": "2026-11-04"
       }
@@ -927,9 +1008,9 @@
         "url": "https://x.com/GeminiApp/status/2115885244805251519",
         "author": "@GeminiApp",
         "kind": "official",
-        "likes": 958,
+        "likes": 965,
         "reposts": 111,
-        "views": 980977,
+        "views": 1264943,
         "posted_at": "2026-10-29T19:15:28Z",
         "measured_at": "2026-11-04"
       }
@@ -960,7 +1041,7 @@
         "kind": "official",
         "likes": 884,
         "reposts": 115,
-        "views": 143369,
+        "views": 143606,
         "posted_at": "2026-10-28T16:10:03Z",
         "measured_at": "2026-11-04"
       }
@@ -989,9 +1070,9 @@
         "url": "https://x.com/OpenAIDevs/status/2115583698074755078",
         "author": "@OpenAIDevs",
         "kind": "official",
-        "likes": 9187,
-        "reposts": 807,
-        "views": 2095760,
+        "likes": 9188,
+        "reposts": 806,
+        "views": 2098631,
         "posted_at": "2026-10-28T23:17:13Z",
         "measured_at": "2026-11-04"
       }
@@ -1010,9 +1091,9 @@
         "url": "https://x.com/grok/status/2115584612122718296",
         "author": "@grok",
         "kind": "official",
-        "likes": 538,
-        "reposts": 77,
-        "views": 3677613,
+        "likes": 551,
+        "reposts": 79,
+        "views": 3835840,
         "posted_at": "2026-10-28T23:20:51Z",
         "measured_at": "2026-11-04"
       }
@@ -1041,9 +1122,9 @@
         "url": "https://x.com/sundarpichai/status/2115489219804352921",
         "author": "@sundarpichai",
         "kind": "official",
-        "likes": 34092,
-        "reposts": 2748,
-        "views": 6930133,
+        "likes": 34094,
+        "reposts": 2746,
+        "views": 6936119,
         "posted_at": "2026-10-28T17:01:48Z",
         "measured_at": "2026-11-04"
       }
@@ -1072,9 +1153,9 @@
         "url": "https://x.com/ChatGPT/status/2115496387613786374",
         "author": "@ChatGPT",
         "kind": "official",
-        "likes": 8202,
-        "reposts": 428,
-        "views": 3499198,
+        "likes": 8205,
+        "reposts": 429,
+        "views": 3506156,
         "posted_at": "2026-10-28T17:30:17Z",
         "measured_at": "2026-11-04"
       }
@@ -1103,9 +1184,9 @@
         "url": "https://x.com/claudeai/status/2115467192276025500",
         "author": "@claudeai",
         "kind": "official",
-        "likes": 31688,
-        "reposts": 2202,
-        "views": 7973360,
+        "likes": 31704,
+        "reposts": 2204,
+        "views": 7979873,
         "posted_at": "2026-10-28T15:34:16Z",
         "measured_at": "2026-11-04"
       }
@@ -1132,7 +1213,7 @@
         "kind": "coverage",
         "likes": 537,
         "reposts": 55,
-        "views": 45221,
+        "views": 45251,
         "posted_at": "2026-10-28T18:13:40Z",
         "measured_at": "2026-11-04"
       }
@@ -1163,7 +1244,7 @@
         "kind": "official",
         "likes": 1591,
         "reposts": 202,
-        "views": 241127,
+        "views": 241879,
         "posted_at": "2026-10-28T17:08:18Z",
         "measured_at": "2026-11-04"
       }
@@ -1188,9 +1269,9 @@
         "url": "https://x.com/NVIDIAAI/status/2115462300241141882",
         "author": "@NVIDIAAI",
         "kind": "official",
-        "likes": 8533,
+        "likes": 8541,
         "reposts": 705,
-        "views": 918260,
+        "views": 923471,
         "posted_at": "2026-10-28T15:14:50Z",
         "measured_at": "2026-11-04"
       }
@@ -1211,7 +1292,7 @@
         "kind": "official",
         "likes": 230,
         "reposts": 19,
-        "views": 67093,
+        "views": 67177,
         "posted_at": "2026-10-28T15:52:41Z",
         "measured_at": "2026-11-04"
       }
@@ -1230,9 +1311,9 @@
         "url": "https://x.com/GeminiApp/status/2115507092660289631",
         "author": "@GeminiApp",
         "kind": "official",
-        "likes": 1406,
+        "likes": 1409,
         "reposts": 128,
-        "views": 229881,
+        "views": 282428,
         "posted_at": "2026-10-28T18:12:49Z",
         "measured_at": "2026-11-04"
       }
@@ -1253,7 +1334,7 @@
         "kind": "coverage",
         "likes": 44,
         "reposts": 3,
-        "views": 12370,
+        "views": 12378,
         "posted_at": "2026-10-27T22:33:50Z",
         "measured_at": "2026-11-04"
       }
@@ -1280,7 +1361,7 @@
         "kind": "official",
         "likes": 1224,
         "reposts": 39,
-        "views": 145650,
+        "views": 145794,
         "posted_at": "2026-10-28T23:27:36Z",
         "measured_at": "2026-11-04"
       }
@@ -1305,9 +1386,9 @@
         "url": "https://x.com/GoogleDeepMind/status/2115114028338962672",
         "author": "@GoogleDeepMind",
         "kind": "official",
-        "likes": 23858,
-        "reposts": 2636,
-        "views": 3496009,
+        "likes": 23863,
+        "reposts": 2638,
+        "views": 3499010,
         "posted_at": "2026-10-27T16:10:55Z",
         "measured_at": "2026-11-04"
       }
@@ -1326,9 +1407,9 @@
         "url": "https://x.com/liquidai/status/2115128329003303107",
         "author": "@liquidai",
         "kind": "official",
-        "likes": 8956,
+        "likes": 8966,
         "reposts": 1237,
-        "views": 2341345,
+        "views": 2345353,
         "posted_at": "2026-10-27T17:07:45Z",
         "measured_at": "2026-11-04"
       }
@@ -1349,7 +1430,7 @@
         "kind": "official",
         "likes": 325,
         "reposts": 33,
-        "views": 30717,
+        "views": 30778,
         "posted_at": "2026-10-27T15:26:57Z",
         "measured_at": "2026-11-04"
       }
@@ -1374,9 +1455,9 @@
         "url": "https://x.com/twid/status/2115131652259434648",
         "author": "@twid",
         "kind": "coverage",
-        "likes": 968,
+        "likes": 966,
         "reposts": 59,
-        "views": 63795,
+        "views": 63810,
         "posted_at": "2026-10-27T17:20:57Z",
         "measured_at": "2026-11-04"
       }
@@ -1401,9 +1482,9 @@
         "url": "https://x.com/alexandr_wang/status/2115252079593967826",
         "author": "@alexandr_wang",
         "kind": "official",
-        "likes": 2223,
+        "likes": 2222,
         "reposts": 107,
-        "views": 190152,
+        "views": 190409,
         "posted_at": "2026-10-28T01:19:29Z",
         "measured_at": "2026-11-04"
       }
@@ -1482,9 +1563,9 @@
         "author": "@OpenAI",
         "kind": "official",
         "posted_at": "2026-10-26",
-        "likes": 28413,
-        "reposts": 2536,
-        "views": 7383039,
+        "likes": 28439,
+        "reposts": 2537,
+        "views": 7489777,
         "measured_at": "2026-11-04"
       }
     },
@@ -1505,7 +1586,7 @@
         "posted_at": "2026-10-26",
         "likes": 18283,
         "reposts": 2379,
-        "views": 9576060,
+        "views": 9580737,
         "measured_at": "2026-11-04"
       }
     },
@@ -1524,9 +1605,9 @@
         "author": "@claudeai",
         "kind": "official",
         "posted_at": "2026-10-26",
-        "likes": 7195,
+        "likes": 7194,
         "reposts": 331,
-        "views": 868644,
+        "views": 870098,
         "measured_at": "2026-11-04"
       }
     },
@@ -1583,9 +1664,9 @@
         "author": "@Kimi_Moonshot",
         "kind": "official",
         "posted_at": "2026-10-23",
-        "likes": 30260,
-        "reposts": 3233,
-        "views": 4165133,
+        "likes": 30272,
+        "reposts": 3235,
+        "views": 4174981,
         "measured_at": "2026-11-04"
       }
     },
@@ -1610,9 +1691,9 @@
         "author": "@cursor_ai",
         "kind": "official",
         "posted_at": "2026-10-23",
-        "likes": 6427,
+        "likes": 6424,
         "reposts": 469,
-        "views": 421225,
+        "views": 421393,
         "measured_at": "2026-11-04"
       }
     },
@@ -1639,7 +1720,7 @@
         "posted_at": "2026-10-23",
         "likes": 2091,
         "reposts": 261,
-        "views": 293045,
+        "views": 293209,
         "measured_at": "2026-11-04"
       }
     },
@@ -1664,9 +1745,9 @@
         "author": "@jack",
         "kind": "official",
         "posted_at": "2026-10-23",
-        "likes": 69120,
-        "reposts": 7145,
-        "views": 13670994,
+        "likes": 69128,
+        "reposts": 7147,
+        "views": 13676545,
         "measured_at": "2026-11-04"
       }
     },
@@ -1687,7 +1768,7 @@
         "posted_at": "2026-10-23",
         "likes": 13709,
         "reposts": 1243,
-        "views": 7817608,
+        "views": 7820827,
         "measured_at": "2026-11-04"
       }
     },
@@ -1775,7 +1856,7 @@
         "posted_at": "2026-10-22",
         "likes": 1378,
         "reposts": 100,
-        "views": 173605,
+        "views": 173675,
         "measured_at": "2026-11-04"
       }
     },
@@ -1794,9 +1875,9 @@
         "author": "@canva",
         "kind": "official",
         "posted_at": "2026-10-22",
-        "likes": 2960,
-        "reposts": 414,
-        "views": 1945341,
+        "likes": 2961,
+        "reposts": 415,
+        "views": 1946433,
         "measured_at": "2026-11-04"
       }
     },
@@ -1816,8 +1897,8 @@
         "kind": "official",
         "posted_at": "2026-10-22",
         "likes": 21035,
-        "reposts": 847,
-        "views": 2843683,
+        "reposts": 846,
+        "views": 2844752,
         "measured_at": "2026-11-04"
       }
     },
@@ -1842,9 +1923,9 @@
         "author": "@bot",
         "kind": "official",
         "posted_at": "2026-10-22",
-        "likes": 14507,
-        "reposts": 1130,
-        "views": 3545964,
+        "likes": 14511,
+        "reposts": 1131,
+        "views": 3548513,
         "measured_at": "2026-11-04"
       }
     },
@@ -1869,9 +1950,9 @@
         "author": "@bot",
         "kind": "official",
         "posted_at": "2026-10-22",
-        "likes": 10021,
-        "reposts": 703,
-        "views": 1625297,
+        "likes": 10028,
+        "reposts": 702,
+        "views": 1626600,
         "measured_at": "2026-11-04"
       }
     },
@@ -1890,9 +1971,9 @@
         "author": "@GeminiApp",
         "kind": "official",
         "posted_at": "2026-10-22",
-        "likes": 1359,
+        "likes": 1370,
         "reposts": 119,
-        "views": 1510193,
+        "views": 2195659,
         "measured_at": "2026-11-04"
       }
     },
@@ -1920,9 +2001,9 @@
         "url": "https://x.com/claudeai/status/2112984664256241837",
         "author": "@claudeai",
         "kind": "official",
-        "likes": 55529,
-        "reposts": 4264,
-        "views": 11475570,
+        "likes": 55528,
+        "reposts": 4265,
+        "views": 11499227,
         "posted_at": "2026-10-21",
         "measured_at": "2026-11-04"
       }
@@ -1952,8 +2033,8 @@
         "author": "@OpenAI",
         "kind": "official",
         "likes": 14454,
-        "reposts": 2867,
-        "views": 5974856,
+        "reposts": 2866,
+        "views": 5976523,
         "posted_at": "2026-10-21",
         "measured_at": "2026-11-04"
       }
@@ -1972,9 +2053,9 @@
         "url": "https://x.com/claudeai/status/2112962248218148878",
         "author": "@claudeai",
         "kind": "official",
-        "likes": 11064,
+        "likes": 11063,
         "reposts": 569,
-        "views": 860969,
+        "views": 861548,
         "posted_at": "2026-10-21",
         "measured_at": "2026-11-04"
       }
@@ -2000,8 +2081,8 @@
         "author": "@OpenAI",
         "kind": "official",
         "likes": 5278,
-        "reposts": 412,
-        "views": 557591,
+        "reposts": 411,
+        "views": 558310,
         "posted_at": "2026-10-21",
         "measured_at": "2026-11-04"
       }
@@ -2029,7 +2110,7 @@
         "posted_at": "2026-10-21",
         "likes": 8282,
         "reposts": 896,
-        "views": 3469284,
+        "views": 3470295,
         "measured_at": "2026-11-04"
       }
     },
@@ -2070,7 +2151,7 @@
         "kind": "official",
         "likes": 3286,
         "reposts": 375,
-        "views": 282102,
+        "views": 282232,
         "posted_at": "2026-10-20",
         "measured_at": "2026-11-04"
       }
@@ -2089,9 +2170,9 @@
         "url": "https://x.com/OpenAIDevs/status/2112603916076781778",
         "author": "@OpenAIDevs",
         "kind": "official",
-        "likes": 3605,
+        "likes": 3607,
         "reposts": 188,
-        "views": 2009368,
+        "views": 2009994,
         "posted_at": "2026-10-20",
         "measured_at": "2026-11-04"
       }
@@ -2116,9 +2197,9 @@
         "url": "https://x.com/deepseek_ai/status/2112476496283775135",
         "author": "@deepseek_ai",
         "kind": "official",
-        "likes": 43626,
-        "reposts": 4921,
-        "views": 6963601,
+        "likes": 43637,
+        "reposts": 4920,
+        "views": 6969220,
         "posted_at": "2026-10-20",
         "measured_at": "2026-11-04"
       }
@@ -2155,9 +2236,9 @@
         "author": "@Google",
         "kind": "official",
         "posted_at": "2026-10-20",
-        "likes": 2112,
-        "reposts": 188,
-        "views": 277373,
+        "likes": 2110,
+        "reposts": 187,
+        "views": 277436,
         "measured_at": "2026-11-04"
       }
     },
@@ -2209,9 +2290,9 @@
         "url": "https://x.com/deepseek_ai/status/2111375640717033777",
         "author": "@deepseek_ai",
         "kind": "official",
-        "likes": 37228,
+        "likes": 37220,
         "reposts": 4130,
-        "views": 8341922,
+        "views": 8346265,
         "posted_at": "2026-10-17",
         "measured_at": "2026-11-04"
       }
@@ -2232,7 +2313,7 @@
         "kind": "official",
         "likes": 3492,
         "reposts": 250,
-        "views": 993141,
+        "views": 993339,
         "posted_at": "2026-10-17",
         "measured_at": "2026-11-04"
       }
@@ -2261,9 +2342,9 @@
         "url": "https://x.com/AIatMeta/status/2110779754274292212",
         "author": "@AIatMeta",
         "kind": "official",
-        "likes": 11583,
+        "likes": 11586,
         "reposts": 1222,
-        "views": 1273215,
+        "views": 1273886,
         "posted_at": "2026-10-15",
         "measured_at": "2026-11-04"
       }

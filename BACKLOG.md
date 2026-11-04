@@ -268,3 +268,4 @@ Bugs/complaints: none found.
 - Idea: "Silent voice input for your agent" (Subvocal smart glasses, Show HN 50340088, 826 points). Hardware and not shipping to consumers yet; revisit when it's available.
 - Idea: "One agent per trigger: 'do X if Y happens'" from Ask HN 50366117 (agentic setups, 57 points). Single anecdote; needs a second source.
 - Watch: Codex 'Improve the model' toggle reportedly re-enabling itself (HN 50352757). If OpenAI confirms or fixes it, update stop-your-ai-chats-being-used-for-training.
+- Idea (Nov 4 PM news): "Have your bot make the annoying phone call" (cancel a plan, negotiate a bill, book an appointment) using Grok Bot calls; sources TeslaNorth + Teslarati, US-only. Good candidate for a use case.
