@@ -4,6 +4,54 @@ There's a bot for that. Here's how.
 
 A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
 
+## Understand your tax forms with AI, safely
+URL: https://botsdothat.com/use-cases/understand-your-tax-forms-with-ai-safely/
+Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-11-04
+Popularity: not measured
+
+Tax forms are full of jargon. AI is good at explaining what a box or a letter means in plain English and building you a checklist of questions, but tests show it gets the math and personal rules wrong, so it should never fill in or file your return for you.
+
+What the bot does:
+1. Paste or describe a form with your personal details removed: no Social Security number, account numbers, address or employer ID. Rounded or made-up example amounts are fine.
+2. Ask it to explain each box or line in plain English and what it usually connects to on a return.
+3. Have it build a checklist of documents and receipts you'll probably need, based on your situation in general terms.
+4. Ask it to list the questions you should confirm with IRS.gov, your tax software or a tax pro, especially anything about deductions, credits or which state to file in.
+5. Do the actual return in tax software or with a preparer, and check anything the AI said against IRS.gov before you rely on it.
+
+What you end up with: A plain-English explanation of your forms, a list of documents to gather, and a short list of questions to check with IRS.gov, your tax software or a real tax professional.
+
+Tools: ChatGPT, Claude, Gemini, Grok
+
+Prompt:
+Help me understand my taxes. Don't calculate my tax or tell me what to file; just explain and help me get organized.
+
+Tax year and country/state: [e.g. 2026, US, Ohio]
+My situation in general terms: [e.g. one job plus some freelance work, renting, one child]
+Form or letter I'm confused about: [PASTE THE TEXT WITH SSN, ACCOUNT NUMBERS, NAMES AND ADDRESSES REMOVED]
+
+1. Explain what this form or letter is and what each part means, in plain English.
+2. Give me a checklist of documents I'll probably need to gather.
+3. List the questions I should confirm on IRS.gov, in my tax software or with a tax professional.
+
+If a rule changed recently or you aren't sure it's current, say so clearly instead of guessing.
+
+Watch out:
+- Don't let a chatbot prepare or file your return. In a New York Times test, four popular chatbots miscalculated the refund or amount owed by more than $2,000 on average.
+- Never paste your Social Security number, bank or account numbers, or full forms with your name and address into a chatbot.
+- AI can sound sure while using old or wrong rules. You're responsible for what's on your return, so check every rule on IRS.gov or with a professional.
+- If you pay someone to prepare your return, the IRS says to use a preparer with a PTIN who signs the return, and never sign a blank form.
+
+Questions:
+- Can ChatGPT do my taxes? Not reliably. Tests by The New York Times and NerdWallet found chatbots got calculations and some rules wrong. Use AI to understand forms and get organized, then file with tax software or a tax professional.
+- Is it safe to upload my tax documents to AI? Remove your Social Security number, account numbers, name and address first. The IRS Taxpayer Advocate Service says not to rely solely on AI tax answers, and experts warn chatbot conversations aren't a private place for sensitive data.
+
+Sources:
+- The New York Times: Don't trust A.I. to file your taxes (Mar 5, 2026): https://www.nytimes.com/2026/03/05/technology/artificial-intelligence-taxes-tax-refund.html
+- NerdWallet: What AI gets right (and very wrong) about taxes: https://www.nerdwallet.com/taxes/studies/doing-taxes-with-ai
+- CBS News: Should you use AI to file your taxes?: https://www.cbsnews.com/news/can-you-use-ai-for-taxes-chatgpt-claude-irs/
+- Taxpayer Advocate Service (IRS): Is AI generated tax advice making the grade?: https://www.taxpayeradvocate.irs.gov/news/tax-tips/is-ai-generated-tax-advice-making-the-grade/2024/06/
+- IRS Topic no. 254: How to choose a tax return preparer: https://www.irs.gov/taxtopics/tc254
+
 ## Keep a visa application on track with an AI agent
 URL: https://botsdothat.com/use-cases/keep-a-visa-application-on-track/
 Category: Bookings & travel | Difficulty: Easy | Added: 2026-11-03

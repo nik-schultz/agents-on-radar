@@ -1,5 +1,15 @@
 # Ops changelog
 
+## 2026-11-04 (daily QA, ~9:10 AM AST)
+Checks
+- Live site up (homepage 200 in 0.24s). validate 0 errors; build 161 indexed pages + 404; check_links 12,960 links, 0 broken internal.
+- Outbound links (743 unique hrefs, GET with a browser user agent): no real breakages. 70 non-2xx are the usual bot blocks/rate limits (403/405/429, FTC, X); only U.S. News and two Business Wire pages timed out, as in earlier runs.
+- Headless Chrome on the live site, all 163 pages at 320px: no horizontal scroll, no JS exceptions, no failed requests, no broken images. All-guides search `?q=resignation` shows "1 of 119 use cases"; copy-prompt button shows "Copied ✓".
+- No bugs found, so no fixes needed.
+
+Improvement for visitors
+- New guide `understand-your-tax-forms-with-ai-safely` (inbox, Easy), from the BACKLOG autocomplete item "can ai fill out tax forms": use AI to explain forms and build a checklist and question list, with personal details stripped, and file with tax software or a pro. Sources: NYT (Mar 5, 2026, chatbots off by over $2,000 on average), NerdWallet, CBS News, IRS Taxpayer Advocate Service, IRS Topic 254. Now 120 use cases. BACKLOG item marked done.
+
 ## 2026-11-04 (AM news run, ~8:45 AM AST)
 - Added 3 news items: Tencent Hy4 open-weight model with vision (Nov 4, notable, @TencentHunyuan official post), Netflix AI Discover mood-based tab (Nov 3, notable, @YahooFinance coverage), Google Guided Learning in Classroom/Search plus Gemini off by default for K-12 student accounts (Nov 3, notable, @Marie_Haynes coverage). Tencent and Netflix added to `NEWS_CO`. No major releases.
 - Refreshed X engagement on 82 existing items (measured 2026-11-04); Gemini 4 Carbon (34,092 likes / 6.93M views) still top story.

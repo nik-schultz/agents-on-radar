@@ -1,5 +1,95 @@
 [
  {
+  "slug": "understand-your-tax-forms-with-ai-safely",
+  "title": "Understand your tax forms with AI, safely",
+  "category": "inbox",
+  "summary": "Tax forms are full of jargon. AI is good at explaining what a box or a letter means in plain English and building you a checklist of questions, but tests show it gets the math and personal rules wrong, so it should never fill in or file your return for you.",
+  "problem": "You're staring at a W-2, a 1099 or a tax letter and can't tell what it means, what you need to gather, or what to ask your tax software or preparer.",
+  "outcome": "A plain-English explanation of your forms, a list of documents to gather, and a short list of questions to check with IRS.gov, your tax software or a real tax professional.",
+  "what_the_bot_does": [
+   "Paste or describe a form with your personal details removed: no Social Security number, account numbers, address or employer ID. Rounded or made-up example amounts are fine.",
+   "Ask it to explain each box or line in plain English and what it usually connects to on a return.",
+   "Have it build a checklist of documents and receipts you'll probably need, based on your situation in general terms.",
+   "Ask it to list the questions you should confirm with IRS.gov, your tax software or a tax pro, especially anything about deductions, credits or which state to file in.",
+   "Do the actual return in tax software or with a preparer, and check anything the AI said against IRS.gov before you rely on it."
+  ],
+  "what_you_end_up_with": "A plain-English explanation of your forms, a list of documents to gather, and a short list of questions to check with IRS.gov, your tax software or a real tax professional.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "chatgpt"
+   },
+   {
+    "id": "claude"
+   },
+   {
+    "id": "gemini"
+   },
+   {
+    "id": "grok"
+   }
+  ],
+  "prompt": "Help me understand my taxes. Don't calculate my tax or tell me what to file; just explain and help me get organized.\n\nTax year and country/state: [e.g. 2026, US, Ohio]\nMy situation in general terms: [e.g. one job plus some freelance work, renting, one child]\nForm or letter I'm confused about: [PASTE THE TEXT WITH SSN, ACCOUNT NUMBERS, NAMES AND ADDRESSES REMOVED]\n\n1. Explain what this form or letter is and what each part means, in plain English.\n2. Give me a checklist of documents I'll probably need to gather.\n3. List the questions I should confirm on IRS.gov, in my tax software or with a tax professional.\n\nIf a rule changed recently or you aren't sure it's current, say so clearly instead of guessing.",
+  "watch_out": [
+   "Don't let a chatbot prepare or file your return. In a New York Times test, four popular chatbots miscalculated the refund or amount owed by more than $2,000 on average.",
+   "Never paste your Social Security number, bank or account numbers, or full forms with your name and address into a chatbot.",
+   "AI can sound sure while using old or wrong rules. You're responsible for what's on your return, so check every rule on IRS.gov or with a professional.",
+   "If you pay someone to prepare your return, the IRS says to use a preparer with a PTIN who signs the return, and never sign a blank form."
+  ],
+  "faq": [
+   {
+    "q": "Can ChatGPT do my taxes?",
+    "a": "Not reliably. Tests by The New York Times and NerdWallet found chatbots got calculations and some rules wrong. Use AI to understand forms and get organized, then file with tax software or a tax professional."
+   },
+   {
+    "q": "Is it safe to upload my tax documents to AI?",
+    "a": "Remove your Social Security number, account numbers, name and address first. The IRS Taxpayer Advocate Service says not to rely solely on AI tax answers, and experts warn chatbot conversations aren't a private place for sensitive data."
+   }
+  ],
+  "sources": [
+   {
+    "label": "The New York Times: Don't trust A.I. to file your taxes (Mar 5, 2026)",
+    "url": "https://www.nytimes.com/2026/03/05/technology/artificial-intelligence-taxes-tax-refund.html",
+    "kind": "article"
+   },
+   {
+    "label": "NerdWallet: What AI gets right (and very wrong) about taxes",
+    "url": "https://www.nerdwallet.com/taxes/studies/doing-taxes-with-ai",
+    "kind": "article"
+   },
+   {
+    "label": "CBS News: Should you use AI to file your taxes?",
+    "url": "https://www.cbsnews.com/news/can-you-use-ai-for-taxes-chatgpt-claude-irs/",
+    "kind": "article"
+   },
+   {
+    "label": "Taxpayer Advocate Service (IRS): Is AI generated tax advice making the grade?",
+    "url": "https://www.taxpayeradvocate.irs.gov/news/tax-tips/is-ai-generated-tax-advice-making-the-grade/2024/06/",
+    "kind": "article"
+   },
+   {
+    "label": "IRS Topic no. 254: How to choose a tax return preparer",
+    "url": "https://www.irs.gov/taxtopics/tc254",
+    "kind": "article"
+   }
+  ],
+  "tags": [
+   "taxes",
+   "tax forms",
+   "W-2",
+   "1099",
+   "IRS",
+   "money",
+   "privacy"
+  ],
+  "popularity": null,
+  "source_date": "2026-03-05",
+  "date_added": "2026-11-04",
+  "origin": "pipeline",
+  "last_checked": "2026-11-04",
+  "setup": []
+ },
+ {
   "slug": "keep-a-visa-application-on-track",
   "title": "Keep a visa application on track with an AI agent",
   "category": "travel",
