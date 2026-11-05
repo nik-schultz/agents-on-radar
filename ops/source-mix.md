@@ -317,3 +317,10 @@ Top domains: youtube.com (91), x.com (73), news.ycombinator.com (34), reddit.com
 - X-only use cases: **5**
 - Added this run: stop-your-ai-chats-being-used-for-training (4 sources: 2 Hacker News threads, OpenAI Help, Google Gemini Privacy Hub; 0 X). Refreshed 48 X popularity blocks.
 - Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits, X search only unrelated "bots do that" replies, web search only our own pages).
+
+## After midday trending run (measured 2026-11-05)
+
+- Use cases: **122**; source links: **484**
+- X share of source links: **74/484 = 15%** (community links: 74/256 = 29%)
+- Added this run: research-your-family-history-with-an-ai-agent (5 sources: MyHeritage blog, MyHeritage Help, Business Wire, Genealogy's Star blog, 1 X post by @MyHeritage). Refreshed 48 X popularity blocks.
+- Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits; X search only our own @botsdothat posts).

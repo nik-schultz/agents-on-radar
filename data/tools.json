@@ -166,5 +166,11 @@
   "url": "https://corporate.walmart.com/news/2026/10/sparky-shopping-assistant-expansion",
   "cost": "Free in the Walmart app and on walmart.com (U.S.); you pay for the groceries",
   "kind": "agent"
+ },
+ "myheritage-gaia": {
+  "name": "MyHeritage GAIA",
+  "url": "https://www.myheritage.com/research",
+  "cost": "Free trial allowance for MyHeritage subscribers; more with OmniAI plans",
+  "kind": "agent"
  }
 }

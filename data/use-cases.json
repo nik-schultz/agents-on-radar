@@ -1,5 +1,105 @@
 [
  {
+  "slug": "research-your-family-history-with-an-ai-agent",
+  "title": "Have an AI agent research your family history for you",
+  "category": "family",
+  "source_date": "2026-11-04",
+  "summary": "MyHeritage just launched GAIA, an AI research agent that takes a question like 'who were my great-grandfather's parents?', searches old records and your family tree on its own, and shows you what it found with a confidence rating. Nothing goes into your tree until you approve it.",
+  "problem": "Family history research means hours of digging through census, marriage and immigration records, and it's easy to get stuck on one 'brick wall' ancestor or copy a wrong guess from someone else's tree.",
+  "outcome": "A research session on one ancestor with the records found, how sure the agent is about each one, and suggested next places to look, which you then check and choose to save.",
+  "what_the_bot_does": [
+   "You type who you want to find out about in plain words, with any names, dates and places you already know.",
+   "It plans the research and searches MyHeritage's historical records plus public sources on the web, using what's already in your family tree as a starting point.",
+   "It compares what it finds, flags conflicting dates or names, and treats other people's family trees as clues to check rather than facts.",
+   "It ranks each finding by how confident it is and leaves out people it can't place with confidence.",
+   "It suggests next steps, such as a county archive or record set that isn't online, and asks you questions along the way.",
+   "You review the findings and pick which ones to save to your tree. The source record is saved with it."
+  ],
+  "what_you_end_up_with": "A research session on one ancestor with the records found, how sure the agent is about each one, and suggested next places to look, which you then check and choose to save.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "myheritage-gaia",
+    "note": "Works in a web browser on a computer, phone or tablet, not in the MyHeritage app. English only for now."
+   }
+  ],
+  "prompt": "Research [full name], born around [year] in [place]. I already know: [spouse, children, parents, any dates]. I'm stuck on [what you want to find, e.g. his parents or where he emigrated from]. Show me the records you find, how confident you are in each, and what conflicts with my tree. Don't add anything to my tree without asking me.",
+  "setup": [
+   "Log in to MyHeritage in a web browser (computer, or the browser on your phone or tablet) and open the Research page at myheritage.com/research.",
+   "Click the 'Research Agent' tab and tick the box to agree to AI processing (you have to agree before you can use it).",
+   "Paste the prompt with your relative's details and send it. You can also open a person in your tree and click 'Research this person'.",
+   "Read the findings and open the source records before you save anything to your tree."
+  ],
+  "watch_out": [
+   "MyHeritage says AI answers can contain errors. Open the actual records and check them before you add anything to your tree.",
+   "You need a MyHeritage subscription to try it, and the free allowance is limited. More use needs a separate OmniAI or OmniAI+ plan.",
+   "It doesn't always find an answer. Ruling out a wrong match or finding where to look next still counts as progress.",
+   "Before you use it you agree that outside AI services process what you type. MyHeritage says it isn't used to train AI models, but leave out details about living relatives you wouldn't want shared."
+  ],
+  "faq": [
+   {
+    "q": "Will it change my family tree on its own?",
+    "a": "No. MyHeritage says GAIA only adds findings you choose to save, and saves the source record along with them."
+   },
+   {
+    "q": "Can I use ChatGPT or Claude for this instead?",
+    "a": "You can ask a general chatbot for research ideas, but it can't search MyHeritage's record collections or your tree. GAIA does both."
+   }
+  ],
+  "sources": [
+   {
+    "label": "MyHeritage blog: Introducing GAIA, MyHeritage's genealogy AI agent (2026-11-04)",
+    "url": "https://blog.myheritage.com/2026/11/introducing-gaia-myheritages-groundbreaking-genealogy-ai-agent/",
+    "kind": "official"
+   },
+   {
+    "label": "MyHeritage Help: What is GAIA, and how do I use it?",
+    "url": "https://www.myheritage.com/help/en/articles/17769769-what-is-gaia-and-how-do-i-use-it",
+    "kind": "official"
+   },
+   {
+    "label": "Business Wire: MyHeritage introduces GAIA, an AI agent for genealogical research (2026-11-03)",
+    "url": "https://www.businesswire.com/news/home/20261103411143/en/MyHeritage-Introduces-GAIA-a-Groundbreaking-AI-Agent-for-Genealogical-Research",
+    "kind": "article"
+   },
+   {
+    "label": "Genealogy's Star blog (James Tanner, 2026-11-04): hands-on test of GAIA on a long-stuck 1755 ancestor",
+    "url": "https://genealogysstar.blogspot.com/2026/11/using-new-ai-assistant-gaia-on.html",
+    "kind": "article"
+   },
+   {
+    "label": "X post by @MyHeritage (2026-11-04): GAIA launch (6 likes, 5 reposts, 445 views, measured 2026-11-05)",
+    "url": "https://x.com/MyHeritage/status/2117929712404328556",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2117929712404328556",
+   "author": "@MyHeritage",
+   "url": "https://x.com/MyHeritage/status/2117929712404328556",
+   "posted_at": "2026-11-04",
+   "likes": 6,
+   "reposts": 5,
+   "replies": 2,
+   "bookmarks": 1,
+   "views": 445,
+   "measured_at": "2026-11-05"
+  },
+  "tags": [
+   "family history",
+   "genealogy",
+   "ancestors",
+   "MyHeritage",
+   "GAIA",
+   "research agent",
+   "records"
+  ],
+  "date_added": "2026-11-05",
+  "origin": "pipeline",
+  "last_checked": "2026-11-05"
+ },
+ {
   "slug": "stop-your-ai-chats-being-used-for-training",
   "title": "Stop your AI chats from being used for training (and check it stays off)",
   "category": "inbox",
@@ -1183,12 +1283,12 @@
    "author": "@ltibbets",
    "url": "https://x.com/ltibbets/status/2115481237808726130",
    "posted_at": "2026-10-28",
-   "likes": 34,
+   "likes": 35,
    "reposts": 5,
    "replies": 21,
    "bookmarks": 2,
-   "views": 4422,
-   "measured_at": "2026-11-04"
+   "views": 4436,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "IFTTT",
@@ -1290,12 +1390,12 @@
    "author": "@ChatGPT",
    "url": "https://x.com/ChatGPT/status/2115139248458191070",
    "posted_at": "2026-10-27",
-   "likes": 5829,
+   "likes": 5824,
    "reposts": 393,
    "replies": 402,
    "bookmarks": 1065,
-   "views": 2094907,
-   "measured_at": "2026-11-04"
+   "views": 2102373,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "iCloud",
@@ -1483,8 +1583,8 @@
    "reposts": 7,
    "replies": 25,
    "bookmarks": 66,
-   "views": 39156,
-   "measured_at": "2026-11-04"
+   "views": 39202,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "online shopping",
@@ -1566,12 +1666,12 @@
    "author": "@noahrshinn",
    "url": "https://x.com/noahrshinn/status/2115143830924341534",
    "posted_at": "2026-10-27",
-   "likes": 1099,
-   "reposts": 37,
+   "likes": 1095,
+   "reposts": 36,
    "replies": 98,
    "bookmarks": 311,
-   "views": 341216,
-   "measured_at": "2026-11-04"
+   "views": 345164,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "group chat",
@@ -2100,9 +2200,9 @@
    "likes": 661,
    "reposts": 86,
    "replies": 175,
-   "bookmarks": 810,
-   "views": 1042175,
-   "measured_at": "2026-11-04"
+   "bookmarks": 812,
+   "views": 1042873,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "podcast",
@@ -2544,7 +2644,7 @@
    "replies": 0,
    "bookmarks": 1,
    "views": 163,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "phone calls",
@@ -2764,7 +2864,7 @@
    "replies": 13,
    "bookmarks": 27,
    "views": 5894,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "proactive",
@@ -2956,7 +3056,7 @@
    "replies": 12,
    "bookmarks": 0,
    "views": 1106,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "fact check",
@@ -3059,12 +3159,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 376,
+   "likes": 365,
    "reposts": 15,
-   "replies": 33,
-   "bookmarks": 268,
-   "views": 178835,
-   "measured_at": "2026-11-04"
+   "replies": 34,
+   "bookmarks": 214,
+   "views": 178871,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "second brain",
@@ -3271,8 +3371,8 @@
    "reposts": 6,
    "replies": 20,
    "bookmarks": 30,
-   "views": 5441,
-   "measured_at": "2026-11-04"
+   "views": 5443,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "read later",
@@ -3357,8 +3457,8 @@
    "reposts": 2,
    "replies": 4,
    "bookmarks": 6,
-   "views": 1779,
-   "measured_at": "2026-11-04"
+   "views": 1780,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "contact form",
@@ -3556,7 +3656,7 @@
    "replies": 3,
    "bookmarks": 6,
    "views": 585,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "schedule",
@@ -3936,8 +4036,8 @@
    "reposts": 15,
    "replies": 26,
    "bookmarks": 505,
-   "views": 25491,
-   "measured_at": "2026-11-04"
+   "views": 25504,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "multi-agent",
@@ -4026,12 +4126,12 @@
    "author": "@Parul_Gautam7",
    "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
    "posted_at": "2026-10-08",
-   "likes": 188,
+   "likes": 186,
    "reposts": 33,
    "replies": 38,
-   "bookmarks": 75,
-   "views": 46427,
-   "measured_at": "2026-11-04"
+   "bookmarks": 74,
+   "views": 46434,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "multi-agent",
@@ -4104,7 +4204,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "voice",
@@ -4172,8 +4272,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 0,
-   "views": 45,
-   "measured_at": "2026-11-04"
+   "views": 46,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "roadside assistance",
@@ -4269,8 +4369,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 397,
-   "measured_at": "2026-11-04"
+   "views": 399,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "computer use",
@@ -4342,7 +4442,7 @@
    "replies": 2,
    "bookmarks": 0,
    "views": 911,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "contractors",
@@ -4412,7 +4512,7 @@
    "replies": 5,
    "bookmarks": 0,
    "views": 129,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "used car",
@@ -4475,8 +4575,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7509,
-   "measured_at": "2026-11-04"
+   "views": 7512,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "pharmacy",
@@ -4559,8 +4659,8 @@
    "reposts": 24,
    "replies": 29,
    "bookmarks": 235,
-   "views": 326436,
-   "measured_at": "2026-11-04"
+   "views": 326513,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "newsletters",
@@ -4649,12 +4749,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
    "posted_at": "2026-10-18",
-   "likes": 857,
+   "likes": 854,
    "reposts": 93,
    "replies": 193,
-   "bookmarks": 1001,
-   "views": 1224495,
-   "measured_at": "2026-11-04"
+   "bookmarks": 999,
+   "views": 1225158,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "phone call",
@@ -4820,8 +4920,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 560,
-   "measured_at": "2026-11-04"
+   "views": 562,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "spam calls",
@@ -4895,7 +4995,7 @@
    "replies": 8,
    "bookmarks": 37,
    "views": 5452,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "food log",
@@ -4976,8 +5076,8 @@
    "reposts": 3,
    "replies": 12,
    "bookmarks": 13,
-   "views": 3111,
-   "measured_at": "2026-11-04"
+   "views": 3113,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "phone call",
@@ -5161,12 +5261,12 @@
    "author": "@lyndallschreinr",
    "url": "https://x.com/lyndallschreinr/status/2107888353630908437",
    "posted_at": "2026-10-07",
-   "likes": 1013,
+   "likes": 1011,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2891,
-   "views": 311762,
-   "measured_at": "2026-11-04"
+   "bookmarks": 2888,
+   "views": 311834,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "meal plan",
@@ -5241,9 +5341,9 @@
    "likes": 506,
    "reposts": 34,
    "replies": 36,
-   "bookmarks": 1147,
-   "views": 66906,
-   "measured_at": "2026-11-04"
+   "bookmarks": 1146,
+   "views": 66936,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "calendar",
@@ -5336,8 +5436,8 @@
    "reposts": 35,
    "replies": 157,
    "bookmarks": 719,
-   "views": 83152,
-   "measured_at": "2026-11-04"
+   "views": 83207,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "personal agent",
@@ -5417,8 +5517,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41436,
-   "measured_at": "2026-11-04"
+   "views": 41457,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "scams",
@@ -5501,8 +5601,8 @@
    "reposts": 13,
    "replies": 29,
    "bookmarks": 118,
-   "views": 25264,
-   "measured_at": "2026-11-04"
+   "views": 25277,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "family chat",
@@ -5591,8 +5691,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4092,
-   "measured_at": "2026-11-04"
+   "views": 4094,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "groceries",
@@ -5672,7 +5772,7 @@
    "replies": 12,
    "bookmarks": 11,
    "views": 9669,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "travel",
@@ -5740,8 +5840,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 2010,
-   "measured_at": "2026-11-04"
+   "views": 2027,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "flights",
@@ -5888,9 +5988,9 @@
    "likes": 534,
    "reposts": 23,
    "replies": 63,
-   "bookmarks": 239,
-   "views": 93738,
-   "measured_at": "2026-11-04"
+   "bookmarks": 240,
+   "views": 93743,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "restaurant",
@@ -5953,8 +6053,8 @@
    "reposts": 4,
    "replies": 9,
    "bookmarks": 27,
-   "views": 4063,
-   "measured_at": "2026-11-04"
+   "views": 4064,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "appointment",
@@ -6048,8 +6148,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9203,
-   "measured_at": "2026-11-04"
+   "views": 9205,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "receipts",
@@ -6140,8 +6240,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 269,
-   "views": 9820,
-   "measured_at": "2026-11-04"
+   "views": 9828,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "chief of staff",
@@ -6200,8 +6300,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1880,
-   "measured_at": "2026-11-04"
+   "views": 1886,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "multiple brands",
@@ -6274,8 +6374,8 @@
    "reposts": 1,
    "replies": 12,
    "bookmarks": 27,
-   "views": 3247,
-   "measured_at": "2026-11-04"
+   "views": 3249,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "real estate",
@@ -6375,8 +6475,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 0,
-   "views": 80,
-   "measured_at": "2026-11-04"
+   "views": 82,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "paper mail",
@@ -6464,8 +6564,8 @@
    "reposts": 1,
    "replies": 1,
    "bookmarks": 0,
-   "views": 76,
-   "measured_at": "2026-11-04"
+   "views": 79,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "monitoring",
@@ -6536,7 +6636,7 @@
    "replies": 7,
    "bookmarks": 0,
    "views": 1435,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "follow up",
@@ -6609,8 +6709,8 @@
    "reposts": 4,
    "replies": 7,
    "bookmarks": 55,
-   "views": 4931,
-   "measured_at": "2026-11-04"
+   "views": 4932,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "leads",
@@ -6705,8 +6805,8 @@
    "reposts": 1,
    "replies": 2,
    "bookmarks": 19,
-   "views": 2156,
-   "measured_at": "2026-11-04"
+   "views": 2158,
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "email",
@@ -7360,7 +7460,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 806,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "marketplace",
@@ -7628,7 +7728,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1505,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "payments",
@@ -7703,7 +7803,7 @@
    "replies": 4,
    "bookmarks": 3,
    "views": 908,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "tags": [
    "ads",
@@ -8705,7 +8805,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-11-04"
+   "measured_at": "2026-11-05"
   },
   "origin": "migrated-2026-10-19"
  },

@@ -269,3 +269,12 @@ Bugs/complaints: none found.
 - Idea: "One agent per trigger: 'do X if Y happens'" from Ask HN 50366117 (agentic setups, 57 points). Single anecdote; needs a second source.
 - Watch: Codex 'Improve the model' toggle reportedly re-enabling itself (HN 50352757). If OpenAI confirms or fixes it, update stop-your-ai-chats-being-used-for-training.
 - Idea (Nov 4 PM news): "Have your bot make the annoying phone call" (cancel a plan, negotiate a bill, book an appointment) using Grok Bot calls; sources TeslaNorth + Teslarati, US-only. Good candidate for a use case.
+
+## Midday trending 2026-11-05
+- Added research-your-family-history-with-an-ai-agent (MyHeritage GAIA, launched Nov 3-4).
+- Idea: "Check your scheduled bot fires in YOUR time zone" (X @BuildNotBoughtV Nov 5: reminder ran at 9 AM UTC). Pairs with the dead-man's-switch idea above; low engagement, needs a second source.
+- Idea: "Have your bot phone two airlines overnight and report back" (X @FSciberras Nov 5, 3 likes / 200 views, Grok Bot calls about flying with infants). Could be a real example on make-a-customer-service-call.
+- Watch: Ask HN "What's your current AI agentic setup?" (HN 50366117, 483 points / 585 comments, measured Nov 5). Mostly developer setups; top non-dev thread is sandboxing agents and giving each its own restricted API key. Possible line for keep-an-ai-agent-from-deleting-your-files.
+- Watch: Google UCP direct checkout expanded to Canada in Gemini/AI Mode (Google blog Nov 4); NativeMind Nico personal Mac agent (Agent Log Nov 4, single source); Wabi/Tommo from a16z consumer agents event (StartupHub recap).
+- Skipped: crypto wallet-copying bots and "automated my dating life" posts (not beginner-safe / money angle), Garry Tan token-spend story (HN 50366971, not a use case).
+- Mentions/feedback: none. Bugs/complaints: none.
