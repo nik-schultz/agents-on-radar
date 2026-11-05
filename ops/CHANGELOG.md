@@ -5,7 +5,7 @@
 - Refreshed X on 93 posts (measured 2026-11-05T20:35Z). Hottest major in feed remains Google Gemini 4 Carbon (~34k likes / ~6.95M views); new GPT-6 Cyber official post ~10.2k likes / ~0.90M views.
 - Pricing: no `ai-pricing.json` change (Omni is video $/sec, not in text API table; GPT-6 Cyber is restricted Daybreak pricing).
 - BACKLOG: logged Omni video guide idea + skipped candidates.
-- Deploy: see commit SHAs / Actions after this entry is finalized.
+- Deployed: local main `f1222c2`, publish `5c89751`, Actions run 42104182841 succeeded; live /news/ spot-check OK.
 
 ## 2026-11-04 (daily QA, ~9:10 AM AST)
 Checks
