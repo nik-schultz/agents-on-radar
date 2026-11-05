@@ -5,7 +5,7 @@
 - Refreshed X on 93 posts (measured 2026-11-05T20:35Z). Top story is now gpt-6-cyber (~10.2k likes / ~0.90M views) as hottest major ≤14 days; Carbon still higher absolute engagement (~34.1k likes / ~6.95M views) but outside that window ranking.
 - Pricing: no `ai-pricing.json` change (Omni is video $/sec, not in text API table; GPT-6 Cyber is restricted Daybreak pricing).
 - BACKLOG: logged Omni video guide idea + skipped candidates.
-- Deployed: local main `b56e1fc` (news `f1222c2` + changelog), publish `dec13ae`, Actions runs 42104182841 + 42104333902 succeeded; live /news/ 200, GPT-6 Cyber is Top story.
+- Deployed: local main `b56e1fc` (news `f1222c2` + changelog), publish `dec13ae`, Actions runs 42104182841 / 42104333902 / 42104526932 succeeded; live /news/ 200, GPT-6 Cyber is Top story.
 
 ## 2026-11-04 (daily QA, ~9:10 AM AST)
 Checks
