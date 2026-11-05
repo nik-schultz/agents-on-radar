@@ -891,3 +891,11 @@ Improvement for visitors
 ## 2026-11-05 (daily QA, 7:00 AM CT)
 - Live site up (/, /news/, /use-cases/, /ai-pricing/ all 200). validate: 121 use cases, 0 errors. check_links: 13,313 links, 0 broken internal. Spot check at 320px (home, news, use cases, pricing, is-openclaw-safe): no overflow, no broken images, no JS errors. No bugs found.
 - Improvement: `stop-your-ai-chats-being-used-for-training` gets a watch-out that share links stay visible to anyone with the link even with training off, so strip personal details first (The Verge on Meta Muse added as a source; BACKLOG item marked done).
+
+## 2026-11-05 (weekly newsletter routine, 9:00 AM CT) — BotsDoThat Weekly #3
+- Web issue: https://botsdothat.com/newsletter/2026-11-05/ (also on /newsletter/ and /newsletter/feed.xml). Subject: "Hand AI your shopping list, your raise talk and your day plan". sent_on null.
+- Items: `turn-a-photo-of-your-shopping-list-into-a-cart`, `practice-negotiating-your-salary-or-job-offer`, `plan-your-day-from-your-calendar-and-to-do-list`, `understand-your-tax-forms-with-ai-safely`. Improved page: `stop-your-ai-chats-being-used-for-training` (new share-link watch-out). No watch-out news item. No stats or time-saved claims.
+- Sponsor check (Stripe live, 10 AM ET): 20 most recent checkout sessions all expired/unpaid with empty custom fields (4 new ones on Nov 1, same pattern as our tests). No paid newsletter or bundle booking, so house ad to /advertise/ with FIRST2.
+- Email files: ops/newsletter/issue-3-email.html, issue-3-email-body.html, issue-3-meta.txt (scripts/newsletter_email.py 3). Nothing emailed. Kit draft broadcast still to be built (draft only, from hello@botsdothat.com).
+- newsletter issue ready, send approval needed
+- The Monday report must ask Grok CEO to approve sending. Send only after both Grok CEO and Nik approve.

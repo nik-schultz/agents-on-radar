@@ -8,12 +8,27 @@
    "subject": "4 jobs you can hand to an AI this week",
    "intro": "Welcome to the first BotsDoThat Weekly. Each week we pick a few real, practical jobs people are handing to AI, tell you what you end up with, and give you a prompt you can copy. No hype, no made-up numbers.",
    "items": [
-    {"slug": "research-a-used-car-from-a-listing", "why": "Shopping for a car? Paste the listing link before you book a viewing, and walk in with the right questions."},
-    {"slug": "line-up-contractors-for-a-home-project", "why": "If a fall fix-up is on your list, let an agent draft the messages to local trades and collect their replies in one table. You approve every message first."},
-    {"slug": "send-a-long-video-or-thread-to-your-bot", "why": "For the long videos and threads you keep meaning to get to: one reply saves a short summary for later."},
-    {"slug": "set-ai-spend-limits-and-alerts", "why": "If any of your bots run on autopilot, put a hard cap on what they can spend."}
+    {
+     "slug": "research-a-used-car-from-a-listing",
+     "why": "Shopping for a car? Paste the listing link before you book a viewing, and walk in with the right questions."
+    },
+    {
+     "slug": "line-up-contractors-for-a-home-project",
+     "why": "If a fall fix-up is on your list, let an agent draft the messages to local trades and collect their replies in one table. You approve every message first."
+    },
+    {
+     "slug": "send-a-long-video-or-thread-to-your-bot",
+     "why": "For the long videos and threads you keep meaning to get to: one reply saves a short summary for later."
+    },
+    {
+     "slug": "set-ai-spend-limits-and-alerts",
+     "why": "If any of your bots run on autopilot, put a hard cap on what they can spend."
+    }
    ],
-   "new_page": {"slug": "fill-out-a-job-application-faster", "note": "Write a fact sheet once, let a browser agent type it into the employer's careers page, sign in yourself, and stop before Submit. It also covers what to keep out of the chat and the job-scam signs the FTC warns about."},
+   "new_page": {
+    "slug": "fill-out-a-job-application-faster",
+    "note": "Write a fact sheet once, let a browser agent type it into the employer's careers page, sign in yourself, and stop before Submit. It also covers what to keep out of the chat and the job-scam signs the FTC warns about."
+   },
    "watch_out": "meta-muse-sharing-paused",
    "sponsor": null,
    "sent_on": null
@@ -26,16 +41,64 @@
    "preview": "Four jobs to hand to AI this week, each with a prompt to copy, plus how to keep an agent away from files you care about.",
    "intro": "This week's picks are about AI that does things, not just answers: buying, booking, sorting and nudging. Each prompt below tells the AI to stop and ask you before any money moves or anything gets shared or deleted. Copy one, fill in the brackets, and try it.",
    "items": [
-    {"slug": "let-your-ai-shop-for-you-with-shop-pay", "why": "Holiday lists are starting. Shopify's free Shop connection lets ChatGPT or Claude search stores and check out with Shop Pay, and you approve every purchase. Your card number never goes to the AI."},
-    {"slug": "add-an-ai-to-your-friends-group-chat-to-make-plans", "why": "Friendsgiving or a weekend away stuck in a 60-message thread? Instinct's group-chat agent opened to all iMessage users on Oct 27. It collects dates and budgets, suggests options and books only when someone says so."},
-    {"slug": "organize-your-photos-by-asking", "why": "After Halloween and fall trips, ask Gemini to pull the best shots into a private album. The prompt tells it to leave your originals alone. It's rolling out gradually, so you may not have it yet."},
-    {"slug": "get-a-text-before-something-needs-doing", "why": "If your calendar runs your week, have an assistant watch it and text you only when something needs a decision, with one fix ready and quiet hours you choose."}
+    {
+     "slug": "let-your-ai-shop-for-you-with-shop-pay",
+     "why": "Holiday lists are starting. Shopify's free Shop connection lets ChatGPT or Claude search stores and check out with Shop Pay, and you approve every purchase. Your card number never goes to the AI."
+    },
+    {
+     "slug": "add-an-ai-to-your-friends-group-chat-to-make-plans",
+     "why": "Friendsgiving or a weekend away stuck in a 60-message thread? Instinct's group-chat agent opened to all iMessage users on Oct 27. It collects dates and budgets, suggests options and books only when someone says so."
+    },
+    {
+     "slug": "organize-your-photos-by-asking",
+     "why": "After Halloween and fall trips, ask Gemini to pull the best shots into a private album. The prompt tells it to leave your originals alone. It's rolling out gradually, so you may not have it yet."
+    },
+    {
+     "slug": "get-a-text-before-something-needs-doing",
+     "why": "If your calendar runs your week, have an assistant watch it and text you only when something needs a decision, with one fix ready and quiet hours you choose."
+    }
    ],
-   "new_page": {"slug": "keep-an-ai-agent-from-deleting-your-files", "note": "Before an agent works on your computer, give it one folder of copies, keep a backup it can't reach, and turn on its sandbox or ask-first setting. The guide has setup notes for Claude Cowork, Codex, OpenClaw and Hermes, plus the real cases where agents wiped files."},
+   "new_page": {
+    "slug": "keep-an-ai-agent-from-deleting-your-files",
+    "note": "Before an agent works on your computer, give it one folder of copies, keep a backup it can't reach, and turn on its sandbox or ask-first setting. The guide has setup notes for Claude Cowork, Codex, OpenClaw and Hermes, plus the real cases where agents wiped files."
+   },
    "watch_out": "gemini-api-store-by-default",
    "watch_out_label": "One setting to check",
    "sponsor": null,
    "sent_on": "2026-10-30"
+  },
+  {
+   "number": 3,
+   "slug": "2026-11-05",
+   "date": "2026-11-05",
+   "subject": "Hand AI your shopping list, your raise talk and your day plan",
+   "preview": "Four everyday jobs to hand to AI this week, each with a prompt to copy, plus how to keep your chats out of AI training.",
+   "intro": "This week's picks are small, everyday jobs: filling a grocery cart, rehearsing a pay conversation, planning your day and decoding a tax letter. Each prompt keeps you in charge, so the AI suggests and you decide. Copy one, fill in the brackets, and try it.",
+   "items": [
+    {
+     "slug": "turn-a-photo-of-your-shopping-list-into-a-cart",
+     "why": "Snap your handwritten grocery list and Walmart's Sparky agent matches each item to your usual store and past buys. You check the cart and pay. It's for U.S. shoppers in the Walmart app and on walmart.com."
+    },
+    {
+     "slug": "practice-negotiating-your-salary-or-job-offer",
+     "why": "Review season is coming for a lot of people. Let AI help you pick a number from real pay data, draft a friendly counteroffer, then play your manager so you can rehearse first."
+    },
+    {
+     "slug": "plan-your-day-from-your-calendar-and-to-do-list",
+     "why": "Say \"plan my day\" and an assistant connected to your calendar and task list proposes a time-blocked plan with breaks. Nothing goes on your calendar until you approve it."
+    },
+    {
+     "slug": "understand-your-tax-forms-with-ai-safely",
+     "why": "Got a confusing tax letter or form? AI is good at explaining what a box means and listing questions for your preparer. Tests show it gets the math wrong, so don't let it fill in or file anything."
+    }
+   ],
+   "new_page": {
+    "slug": "stop-your-ai-chats-being-used-for-training",
+    "note": "Paying for ChatGPT or Gemini doesn't automatically keep your chats out of model training. The guide shows where to switch it off in each app, how to re-check it later, and a new note: share links stay visible to anyone who has the link even with training off, so strip personal details before you share."
+   },
+   "watch_out": null,
+   "sponsor": null,
+   "sent_on": null
   }
  ]
 }

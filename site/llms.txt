@@ -189,6 +189,7 @@ All Small business & side hustles use cases: https://botsdothat.com/category/bus
 - 2026-11-02 [industry] OpenAI releases LifeVal, a test of how well AI handles everyday life chores like childcare, groceries and government forms: It's a sign of where ChatGPT is headed: OpenAI built the test from time-use surveys and a survey of 3,995 people about the tasks they most want help with, such as budgeting, ordering groceries or finding a home, and frames it as a step toward ChatGPT acting as a personal assistant. Its own showcase tasks score 90 to 100%, but it's OpenAI grading its own homework, so treat it as a direction, not proof. Source: https://openai.com/index/lifeval/
 
 ## BotsDoThat Weekly (past issues)
+- [Hand AI your shopping list, your raise talk and your day plan](https://botsdothat.com/newsletter/2026-11-05/) (2026-11-05)
 - [Let AI shop, plan and sort for you (it asks first)](https://botsdothat.com/newsletter/2026-10-29/) (2026-10-29)
 - [4 jobs you can hand to an AI this week](https://botsdothat.com/newsletter/2026-10-22/) (2026-10-22)
 
