@@ -881,3 +881,9 @@ Improvement for visitors
 - Added 3 notable items: grok-bot-phone-calls (TeslaNorth, Teslarati; @bot 2118043939592942052), ricursive-ripple-65b-preview (ricursive.com, Together AI; @RicursiveAI), anthropic-claude-vault-particles (Anthropic research, Science; @AnthropicAI). New NEWS_CO entry "Ricursive".
 - Refreshed X numbers on 70 existing items (raw: research/x_news_measure_2026_11_04_pm.json.txt, local only). Top story still google-gemini-4-carbon (34,094 likes / 2,746 reposts / 6.94M views).
 - No pricing change; nothing major. Skipped rumors (OpenAI "Astra/Sol" Friday report, "ChatBLT" tease) and Kimi K3.1 Pro weights (already listed).
+
+## 2026-11-05 AM news run
+- Added 1 notable item: chatgpt-images-2-6-gifs (OpenAI Help Center, heise, OpenAI system card; @OpenAI 2118124944928432327).
+- Updated kimi-k3-1-pro: weights are now on Hugging Face (Kimi K3.1 Pro License); added the model card as a source.
+- Refreshed X numbers on 82 items (raw: research/x_news_measure_2026_11_05_am.json.txt, local only).
+- No pricing table change; nothing major. Skipped items already listed (Tencent Hy4, Claude Duet, Mistral Large 4) and non-consumer news (OpenAI infrastructure compact, Linux exploit research, funding/acquisitions).
