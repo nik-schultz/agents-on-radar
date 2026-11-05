@@ -28,6 +28,7 @@ Every month on the 1st, remind me: 'Privacy check: ChatGPT > Settings > Data con
 Watch out:
 - Thumbs up/down feedback can send the whole conversation for training even after you opt out, according to OpenAI.
 - Google says chats picked for human review are kept for up to three years, even if you delete your activity.
+- Turning off training doesn't make a shared chat private. Share links can be seen by anyone who has them, so remove personal details before you share a chat, as Meta Muse users found out in October.
 - Settings and labels change often. If a step doesn't match what you see, search the vendor's help page for 'data controls' or 'Keep Activity'.
 - Work accounts (ChatGPT Business/Enterprise, Google Workspace) follow your employer's rules; ask IT.
 
@@ -40,6 +41,7 @@ Sources:
 - Hacker News: OpenAI seems to be silently re-enabling model training on Codex chats (510 points, 151 comments, measured 2026-11-04): https://news.ycombinator.com/item?id=50352757
 - OpenAI Help: Data controls in ChatGPT: https://help.openai.com/en/articles/7730893-data-controls-faq
 - Google Gemini Apps Privacy Hub: https://support.google.com/gemini/answer/13594961?hl=en
+- The Verge: Meta Muse AI chat sharing: https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats
 
 ## Understand your tax forms with AI, safely
 URL: https://botsdothat.com/use-cases/understand-your-tax-forms-with-ai-safely/

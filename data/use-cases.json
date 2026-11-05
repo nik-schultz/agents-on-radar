@@ -32,6 +32,7 @@
   "watch_out": [
    "Thumbs up/down feedback can send the whole conversation for training even after you opt out, according to OpenAI.",
    "Google says chats picked for human review are kept for up to three years, even if you delete your activity.",
+   "Turning off training doesn't make a shared chat private. Share links can be seen by anyone who has them, so remove personal details before you share a chat, as Meta Muse users found out in October.",
    "Settings and labels change often. If a step doesn't match what you see, search the vendor's help page for 'data controls' or 'Keep Activity'.",
    "Work accounts (ChatGPT Business/Enterprise, Google Workspace) follow your employer's rules; ask IT."
   ],
@@ -65,6 +66,11 @@
     "label": "Google Gemini Apps Privacy Hub",
     "url": "https://support.google.com/gemini/answer/13594961?hl=en",
     "kind": "official"
+   },
+   {
+    "label": "The Verge: Meta Muse AI chat sharing",
+    "url": "https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats",
+    "kind": "article"
    }
   ],
   "tags": [

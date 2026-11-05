@@ -887,3 +887,7 @@ Improvement for visitors
 - Updated kimi-k3-1-pro: weights are now on Hugging Face (Kimi K3.1 Pro License); added the model card as a source.
 - Refreshed X numbers on 82 items (raw: research/x_news_measure_2026_11_05_am.json.txt, local only).
 - No pricing table change; nothing major. Skipped items already listed (Tencent Hy4, Claude Duet, Mistral Large 4) and non-consumer news (OpenAI infrastructure compact, Linux exploit research, funding/acquisitions).
+
+## 2026-11-05 (daily QA, 7:00 AM CT)
+- Live site up (/, /news/, /use-cases/, /ai-pricing/ all 200). validate: 121 use cases, 0 errors. check_links: 13,313 links, 0 broken internal. Spot check at 320px (home, news, use cases, pricing, is-openclaw-safe): no overflow, no broken images, no JS errors. No bugs found.
+- Improvement: `stop-your-ai-chats-being-used-for-training` gets a watch-out that share links stay visible to anyone with the link even with training off, so strip personal details first (The Verge on Meta Muse added as a source; BACKLOG item marked done).

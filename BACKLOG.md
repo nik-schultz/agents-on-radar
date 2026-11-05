@@ -60,7 +60,7 @@ Skipped: crypto/trading agent posts and copy-trading spam (out of scope).
 
 ## From the news run, 2026-10-22 7 AM CT
 - Recursive Flint (Oct 21): free Apache-2.0 coding model that runs on a laptop. Candidate guide "Run a private, free coding helper on your own laptop" (offline, no per-use fees; keep tasks small). Source: https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/
-- Meta Muse share-link exposure (Oct 20): candidate watch-out line for guides that suggest sharing AI chats: "share links can be public; strip private details first." Source: https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats
+- [x] (2026-11-05 done, added to stop-your-ai-chats-being-used-for-training) Meta Muse share-link exposure (Oct 20): candidate watch-out line for guides that suggest sharing AI chats: "share links can be public; strip private details first." Source: https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats
 
 ## Trending watch 2026-10-22 (midday X scan)
 No mentions of BotsDoThat or botsdothat.com on X (searched "botsdothat", "bots do that", "agents on radar"; only unrelated uses of the phrase). Reddit reads still blocked from this box.
