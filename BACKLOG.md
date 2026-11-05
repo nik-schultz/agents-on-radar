@@ -278,3 +278,9 @@ Bugs/complaints: none found.
 - Watch: Google UCP direct checkout expanded to Canada in Gemini/AI Mode (Google blog Nov 4); NativeMind Nico personal Mac agent (Agent Log Nov 4, single source); Wabi/Tommo from a16z consumer agents event (StartupHub recap).
 - Skipped: crypto wallet-copying bots and "automated my dating life" posts (not beginner-safe / money angle), Garry Tan token-spend story (HN 50366971, not a use case).
 - Mentions/feedback: none. Bugs/complaints: none.
+
+## PM news run 2026-11-05
+- Major: GPT-6 Cyber (Daybreak Red only) — not an everyday visitor use case; skip guide.
+- Omni 1.2 Flash 15s video: possible "make a short product or social video with Gemini" idea later; needs beginner-safe steps and a second source beyond the Google blog.
+- Conductor Cloud shutoff Nov 20: too niche for a hub guide; no action.
+- Skipped as news: Claude Code background-subagent 99% cost cut (changelog/X only, no Anthropic newsroom post), Cat Wu / Austin Lau hiring (personnel), Oumi FAiE / VINCO Catan (single-source startups), Apple AI budget cuts (rumor/reporting without product launch).

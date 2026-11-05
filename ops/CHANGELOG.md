@@ -1,5 +1,12 @@
 # Ops changelog
 
+## 2026-11-05 (PM news run, ~3:30 PM ET / ~2:30 PM CT)
+- Added 5 items: **gpt-6-cyber** (major, OpenAI Daybreak Red security model), gemini-omni-1-2-flash (notable, 15s video + 30% cheaper), openai-linux-lpe-pipeline (notable, 948 Linux LPE exploits + patches), meta-acquires-conductor (notable), openai-acquire-pierre (notable, no X block — no strong official post).
+- Refreshed X on 93 posts (measured 2026-11-05T20:35Z). Hottest major in feed remains Google Gemini 4 Carbon (~34k likes / ~6.95M views); new GPT-6 Cyber official post ~10.2k likes / ~0.90M views.
+- Pricing: no `ai-pricing.json` change (Omni is video $/sec, not in text API table; GPT-6 Cyber is restricted Daybreak pricing).
+- BACKLOG: logged Omni video guide idea + skipped candidates.
+- Deploy: see commit SHAs / Actions after this entry is finalized.
+
 ## 2026-11-04 (daily QA, ~9:10 AM AST)
 Checks
 - Live site up (homepage 200 in 0.24s). validate 0 errors; build 161 indexed pages + 404; check_links 12,960 links, 0 broken internal.
