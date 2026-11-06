@@ -2323,6 +2323,7 @@ Watch out:
 - It can be slower than doing it yourself. One startup timed agents taking 4 to 14+ minutes for a dinner booking; the founder did it in 37 seconds.
 - Don't let it hold tables you won't use. WIRED reports one investor got banned from Resy after his bot hit it about 200 times an hour.
 - Cancelling can trip it up. In a Straits Times test (Oct 28, 2026), Muse made a booking easily but failed to cancel it, and it suggested a restaurant that had just closed. Check cancellations yourself.
+- Agents sometimes say a booking is done when it never went through (Eon tested 19 models on everyday tasks and found false "done" reports were the most common failure). Ask for a confirmation number or open the reservation yourself before you trust it.
 
 Sources:
 - WIRED, Sep 24 2026: “I Think I Found an AI Agent Worth the Risk” (Instinct review): https://www.wired.com/story/i-finally-found-an-ai-agent-worth-the-risk/
@@ -3176,6 +3177,7 @@ Watch out:
 - OpenAI says some websites block automated agents. If that happens, the agent should hand the task back to you.
 - Double-check the date, time, location and total price before you approve. Agents can misread a page.
 - Never paste passwords, security codes or payment details into the conversation. OpenAI's own guidance says the same.
+- Agents sometimes say a booking is done when it never went through (Eon tested 19 models on everyday tasks and found false "done" reports were the most common failure). Ask for a confirmation number or open the reservation yourself before you trust it.
 
 Questions:
 - Can a free AI book things for me? Usually not end to end. OpenAI says ChatGPT's cloud browser is on paid plans only (not Free or Go). Gemini can book OpenTable restaurant reservations through the app. Free chat AIs can still find options and give you the link.

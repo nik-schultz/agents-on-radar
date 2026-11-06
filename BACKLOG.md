@@ -234,7 +234,7 @@ Mentions/feedback: none. X search (botsdothat OR "botsdothat.com" OR "bots do th
 
 Candidates not added yet:
 - [ ] Rescue your data from a dead or abandoned app with Claude Code (X @mika_systems Oct 29, 61 likes / 4 reposts / 4,096 views; @cabbitar Nov 1, 26 likes, old budgeting app). Needs a non-X source and a beginner-safe path.
-- [ ] Add a "did it really happen?" line to `restaurant-reservations-by-agent` and `book-an-appointment-with-an-ai-agent` linking the new proof guide (Eon/arXiv false-success findings).
+- [x] (done 2026-11-06 daily QA) Add a "did it really happen?" line to `restaurant-reservations-by-agent` and `book-an-appointment-with-an-ai-agent` linking the new proof guide (Eon/arXiv false-success findings).
 - [ ] Muse watch-out: HN 50328293 (Nov 1, 56 points / 6 comments), paulfwalsh.substack.com post on Muse and surveillance/privacy. Read in full before adding a line to Muse guides.
 - [ ] Dead-man's switch for scheduled bots: get a message when a morning routine silently fails to run (r/AI_Agents "One agent runs my mornings", u/Antony_Richards, Jul 19, 24 comments). Pairs with the proof guide.
 - [ ] Sparky voice ordering (Walmart says chainwide by end of 2026); revisit when live. Holiday timing: list-to-cart / party-supply searches peak in Nov-Dec.

@@ -1,5 +1,19 @@
 # Ops changelog
 
+## 2026-11-06 (daily QA, ~7:00 AM CT)
+Checks
+- Live site up: `/` `/news/` `/use-cases/` `/ai-pricing/` `/trending/` and sample use-case pages all HTTP 200. validate: 122 use cases, 12 blueprints, 0 errors. build: 168 indexed pages + 404. check_links: 13,493 links scanned, 0 broken internal (960 unique external; not run with `--external` this run).
+- Headless Chrome at 320px on home, news, use-cases, ai-pricing, trending, and 2 guides: no horizontal overflow, no JS pageerrors, images load after lazy scroll (0 broken). Homepage instant search loads `/assets/search-index.json` (200) and finds the resignation guide; `/use-cases/?q=resignation` shows "1 of 122 use cases"; copy-prompt button flips to "Copied ✓". Viewport meta present. All 68 `<img>` tags have `alt` (decorative ones empty). No bugs found in `static/app.js`.
+
+Bugs fixed
+- None.
+
+Improvement for visitors
+- `restaurant-reservations-by-agent` and `book-an-appointment-with-an-ai-agent`: added a watch-out that agents can report a booking as done when it never went through (Eon 19-model false-"done" finding), plus a See also link to `make-your-agent-prove-it-finished-the-job`. BACKLOG "did it really happen?" item marked done. last_checked set to 2026-11-06.
+
+Deploy
+- (filled after deploy)
+
 ## 2026-11-06 (AM news run, ~7:30 AM ET / CT)
 - Added 6 notable items (all dated 2026-11-05, missed by the Nov 5 PM window): **claude-personal-finance** (Anthropic US beta via Plaid; @claudeai), **meta-muse-voice-avatars** (Meta Muse voice + expressive avatars; @alexandr_wang), **perplexity-teammates** (always-on Max work agents; @perplexity_ai), **cursor-build-live-apps** (cloud agent builds/deploys shareable apps; @cursor_ai), **mistral-studio-managed-agents** (Studio managed agents/apps; @MistralAI), **thinking-machines-inkling-2-small** (594B MoE / 17B active on Tinker; @thinkymachines). Added `Thinking Machines` to `NEWS_CO` in build.py. No new major (flagship) item.
 - Refreshed X on 46 recent posts (measured 2026-11-06T12:31:45Z; raw: research/x_news_measure_2026_11_06_am_batch{1,2}.json.txt, local only). Top story still **gpt-6-cyber** (~18.1k likes / ~2.89M views) as hottest major ≤14 days; hottest overall engagement is claude-personal-finance (~34.8k likes / ~6.33M views) → Trending #1.
