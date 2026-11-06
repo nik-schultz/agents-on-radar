@@ -6,7 +6,7 @@
 - Updated `make-a-customer-service-call` and `call-and-book-by-phone` for native Grok Bot US phone calls (TeslaNorth, Teslarati); kept bill-negotiation demos out of framing.
 - Refreshed popularity on 49 tracked X posts. Mentions/feedback of BotsDoThat: none. Bugs: none.
 - Source mix after run: 123 use cases, 497 source links, X 74/497 = 15% (community 29%).
-- Deployed: local main `cfd5e38`, publish `160cfe8`; first Actions run 42268633847 hit a transient Pages "Deployment failed, try again later" (build succeeded). Retried below.
+- Deployed: local main `9a59b57`, publish `d99c37c`. Push Actions 42268633847 / 42269798102 hit transient Pages failures (build OK); workflow_dispatch 42270368813 succeeded. Live: /use-cases/ask-claude-about-your-own-spending/ 200.
 
 
 ## 2026-11-06 (daily QA, ~7:00 AM CT)
