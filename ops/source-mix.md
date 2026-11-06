@@ -324,3 +324,27 @@ Top domains: youtube.com (91), x.com (73), news.ycombinator.com (34), reddit.com
 - X share of source links: **74/484 = 15%** (community links: 74/256 = 29%)
 - Added this run: research-your-family-history-with-an-ai-agent (5 sources: MyHeritage blog, MyHeritage Help, Business Wire, Genealogy's Star blog, 1 X post by @MyHeritage). Refreshed 48 X popularity blocks.
 - Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits; X search only our own @botsdothat posts).
+## After midday trending run (measured 2026-11-06)
+
+- Use cases: **123**; source links: **497**
+- X share of source links: **74/497 = 15%**
+- X share of community links (X, Reddit, Hacker News, YouTube, GitHub, Product Hunt): **74/257 = 29%**
+- X-only use cases (every source is an X post): **5** (4%)
+- Use cases with at least one non-X community source (Reddit, Hacker News, YouTube, GitHub, Product Hunt): **86**
+- x.com URLs anywhere in the file (sources + popularity blocks + examples): 124
+
+| Platform | Source links | Use cases citing it |
+|---|---:|---:|
+| Official docs, news and blogs | 214 | 80 |
+| YouTube | 91 | 62 |
+| X | 74 | 59 |
+| Hacker News | 38 | 30 |
+| Reddit | 35 | 26 |
+| Search demand (Google) | 26 | 22 |
+| GitHub | 15 | 13 |
+| Product Hunt | 4 | 4 |
+
+Top domains: youtube.com (91), x.com (74), news.ycombinator.com (38), reddit.com (31), google.com (26), support.google.com (20), help.openai.com (18), github.com (15), support.claude.com (13), docs.anthropic.com (7), blog.google (5), wired.com (5)
+
+- Added this run: ask-claude-about-your-own-spending (6 sources: Claude article, Claude Help, Verge, Plaid, Engadget, HN 50382192; 0 X). Extended practice-a-job-interview-out-loud with Muse voice (Meta newsroom, Verge, TNW). Added TeslaNorth + Teslarati native-call sources to make-a-customer-service-call and call-and-book-by-phone. Refreshed 49 X popularity blocks.
+- Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits; X search only our own @botsdothat posts and unrelated "bots do that" phrases; web search only our own pages).

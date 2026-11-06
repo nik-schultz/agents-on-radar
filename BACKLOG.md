@@ -286,6 +286,32 @@ Bugs/complaints: none found.
 - Skipped as news: Claude Code background-subagent 99% cost cut (changelog/X only, no Anthropic newsroom post), Cat Wu / Austin Lau hiring (personnel), Oumi FAiE / VINCO Catan (single-source startups), Apple AI budget cuts (rumor/reporting without product launch).
 
 ## AM news run 2026-11-06
-- Idea: "Ask Claude about your own spending and bills" (Claude Personal Finance US beta via Plaid; read-only). Needs watch-outs on bank linking, US-only, Pro/Max/Ultra, and not investment advice. Sources: Claude article, Help Center, Verge, Plaid.
-- Idea: "Rehearse an interview out loud with Muse voice" (Meta Muse voice + expressive avatars, US). Second sources: Verge, TechCrunch; beginner path is tap phone icon in Muse.
+- [x] (done midday 2026-11-06 as ask-claude-about-your-own-spending) Ask Claude about your own spending (Claude Personal Finance US beta via Plaid; read-only).
+- [x] (done midday 2026-11-06: extended practice-a-job-interview-out-loud with Muse voice + Meta/Verge/TNW sources) Rehearse an interview out loud with Muse voice.
 - Omni short-video guide still pending from Nov 5 PM; Cursor live apps and Perplexity Teammates are paid/dev-leaning — revisit if a non-coder path appears.
+
+## Midday trending 2026-11-06
+
+Added: `ask-claude-about-your-own-spending` (Claude Personal Finance US beta via Plaid; read-only). Sources: Claude article, Help Center, Verge, Plaid blog, Engadget, HN 50382192 (11 pts / 10 comments). Category inbox (same bucket as tax-forms). Framed as understanding your own numbers — not deal/bill-cutting.
+
+Extended (not new pages):
+- `practice-a-job-interview-out-loud`: added Meta Muse voice + full-screen avatar as a tool; Meta newsroom (2026-11-05), Verge, The Next Web. Avoided a duplicate Muse-only interview page.
+- `make-a-customer-service-call` and `call-and-book-by-phone`: native Grok Bot US phone calls (Phone call card, live transcript, take-over); TeslaNorth + Teslarati. Kept bill-negotiation demos out of the framing.
+
+Refreshed popularity on 49 tracked X posts.
+
+Mentions/feedback: none. HN Algolia "botsdothat" = 0 stories/comments. X since Nov 4: only @botsdothat own posts + unrelated "bots do that" phrases. Web search only our own pages.
+
+Candidates not added / still open:
+- [ ] Dead-man's switch for scheduled bots (r/AI_Agents); still needs a reachable second source.
+- [ ] Time-zone check for scheduled bots (@BuildNotBoughtV); low engagement, needs a second source.
+- [ ] LifeVal chores gaps from OpenAI survey — still need non-OpenAI sources + beginner path per chore.
+- [ ] SpeakON Agent (Product Hunt) — keep as a possible tool note for voice hand-off, not a whole page.
+- [ ] Omni short-video guide (Gemini Omni 1.2 Flash) still pending beginner-safe steps + second source.
+- [ ] "Which always-on agent first?" comparison page (WIRED six-agent test) still a good SEO candidate.
+- Product Hunt Nov 2026 leaders (Beacon, Wanaka, Scalekit, Teamily AI, UnleashX, Glasshand) are mostly developer/team tools — skip for beginners for now.
+- GitHub trending agent repos (dsh-superagent, agent-desktop, etc.) — developer-leaning; no beginner use case this run.
+
+Skipped: Grok Bot bill-cutting / retention-offer demos as standalone use cases (money-saving / deal angle, out of scope); crypto #ProofOfAgent spam; DoorDash/Minecraft agent HN threads (not everyday beginner guides).
+
+Bugs/complaints: none found on the site or in feedback scans.

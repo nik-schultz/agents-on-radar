@@ -1,5 +1,106 @@
 [
  {
+  "slug": "ask-claude-about-your-own-spending",
+  "title": "Ask Claude about your own spending across your banks",
+  "category": "inbox",
+  "source_date": "2026-11-05",
+  "summary": "Claude's Personal Finance beta lets you link US bank and card accounts through Plaid, then ask plain questions like \"where did my money go last month?\" It can only read your accounts — it can't move, manage or invest your money.",
+  "what_the_bot_does": [
+   "Opens a Personal Finance page where you link bank, card, loan or investment accounts through Plaid (you sign in at your bank; Claude never sees your bank password).",
+   "Shows balances, spending, cash flow, subscriptions and upcoming bills from the accounts you chose, on one page you can rearrange.",
+   "Answers questions in everyday language from up to 24 months of transactions, and can explain terms like APR using your own numbers.",
+   "Stays read-only: it can't move money, place trades, or change anything at your bank."
+  ],
+  "what_you_end_up_with": "A single place to see spending across the accounts you linked, plus answers to questions about your own money that you can check against your bank app.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "claude",
+    "note": "Personal Finance beta on Pro, Max and Ultra plans in the US only; not on Free, Team or Enterprise"
+   }
+  ],
+  "prompt": "Using only the accounts I linked, show me where my money went last month by category. Flag anything that looks unusual (double charges, fees, or a bill that jumped). Then tell me what payments are still due before my next payday on [date], and roughly how much I'll have left. Don't suggest investments or products. Don't move or change anything. Point me to the transactions behind each number so I can check them in my bank app.",
+  "setup": [
+   "You need a Claude Pro, Max or Ultra plan and a US account. Personal Finance is rolling out gradually, so you may not see it yet.",
+   "In Claude (web, Desktop, iOS or Android), open Personal Finance in the side menu (under More if needed) and choose Get started.",
+   "Select Link accounts with Plaid, review what Claude can read, then sign in to your bank in Plaid and pick the accounts to share. You can link up to 16 banks.",
+   "Wait for accounts to sync (a few minutes), then ask one plain question such as \"Where did my money go last month?\" Check important figures in your bank's own app."
+  ],
+  "watch_out": [
+   "US only, and only on paid Pro/Max/Ultra plans. Free, Team and Enterprise don't get it, and it isn't in Claude Duet or scheduled tasks.",
+   "Access is read-only through Plaid, but you are sharing balances and up to two years of transactions. Unlink a bank anytime in Claude, or disconnect at my.plaid.com.",
+   "Claude can make mistakes, and balances can be a day or two old. Ask which transactions sit behind a number, and check important figures with your bank. Anthropic says it isn't designed to give investment advice.",
+   "Chats in the Personal Finance hub aren't used to train models. Shared chat links and artifacts can show figures from your accounts — don't share those links if they include private numbers.",
+   "This is not about cutting deals or haggling bills. Use it to understand your own numbers; keep any bank changes (cancels, transfers, investments) for you to do yourself."
+  ],
+  "faq": [
+   {
+    "q": "Can Claude move money or pay a bill for me?",
+    "a": "No. Anthropic and Plaid both say access is read-only. It can't move, manage or invest your money."
+   },
+   {
+    "q": "Will Claude see my bank password?",
+    "a": "No. You sign in through Plaid. Claude doesn't ask for or see your bank password, and it only gets the last few digits of account numbers."
+   },
+   {
+    "q": "Is this the same as ChatGPT's bank linking?",
+    "a": "Similar idea (Plaid + read-only accounts), but this guide is for Claude's Personal Finance beta. Check your own plan and country."
+   }
+  ],
+  "sources": [
+   {
+    "label": "Claude by Anthropic: Introducing Personal Finance in Claude (2026-11-05)",
+    "url": "https://claude.com/resources/articles/introducing-personal-finance-in-claude",
+    "kind": "official"
+   },
+   {
+    "label": "Claude Help Center: Use Personal Finance in Claude (setup, what it can read, US Pro/Max/Ultra beta)",
+    "url": "https://support.claude.com/en/articles/18185620-use-personal-finance-in-claude",
+    "kind": "official"
+   },
+   {
+    "label": "The Verge: Claude AI can plug directly into your bank account (Plaid, read-only)",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1027652/anthropic-claude-plaid-personal-finance",
+    "kind": "article"
+   },
+   {
+    "label": "Plaid blog (2026-11-05): Plaid powers financial insights in Claude",
+    "url": "https://plaid.com/blog/plaid-anthropic-financial-insights-in-claude/",
+    "kind": "official"
+   },
+   {
+    "label": "Engadget: Now Claude can help with your finances too (US Pro/Max/Ultra beta via Plaid)",
+    "url": "https://www.engadget.com/2307936/now-claude-can-help-with-your-finances-too/",
+    "kind": "article"
+   },
+   {
+    "label": "Hacker News: Personal Finance in Claude (11 points / 10 comments, measured 2026-11-06)",
+    "url": "https://news.ycombinator.com/item?id=50382192",
+    "kind": "hn",
+    "stats": {
+     "points": 11,
+     "comments": 10
+    },
+    "posted_at": "2026-11-05",
+    "measured_at": "2026-11-06"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "Claude",
+   "Personal Finance",
+   "Plaid",
+   "spending",
+   "bank accounts",
+   "budget",
+   "read-only",
+   "US"
+  ],
+  "date_added": "2026-11-06",
+  "origin": "pipeline",
+  "last_checked": "2026-11-06"
+ },
+ {
   "slug": "research-your-family-history-with-an-ai-agent",
   "title": "Have an AI agent research your family history for you",
   "category": "family",
@@ -83,8 +184,8 @@
    "reposts": 5,
    "replies": 2,
    "bookmarks": 1,
-   "views": 445,
-   "measured_at": "2026-11-05"
+   "views": 469,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "family history",
@@ -1287,8 +1388,8 @@
    "reposts": 5,
    "replies": 21,
    "bookmarks": 2,
-   "views": 4436,
-   "measured_at": "2026-11-05"
+   "views": 4455,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "IFTTT",
@@ -1390,12 +1491,12 @@
    "author": "@ChatGPT",
    "url": "https://x.com/ChatGPT/status/2115139248458191070",
    "posted_at": "2026-10-27",
-   "likes": 5824,
-   "reposts": 393,
-   "replies": 402,
-   "bookmarks": 1065,
-   "views": 2102373,
-   "measured_at": "2026-11-05"
+   "likes": 5826,
+   "reposts": 392,
+   "replies": 403,
+   "bookmarks": 1061,
+   "views": 2107160,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "iCloud",
@@ -1583,8 +1684,8 @@
    "reposts": 7,
    "replies": 25,
    "bookmarks": 66,
-   "views": 39202,
-   "measured_at": "2026-11-05"
+   "views": 39256,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "online shopping",
@@ -1666,12 +1767,12 @@
    "author": "@noahrshinn",
    "url": "https://x.com/noahrshinn/status/2115143830924341534",
    "posted_at": "2026-10-27",
-   "likes": 1095,
+   "likes": 1094,
    "reposts": 36,
    "replies": 98,
-   "bookmarks": 311,
-   "views": 345164,
-   "measured_at": "2026-11-05"
+   "bookmarks": 313,
+   "views": 369185,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "group chat",
@@ -2197,12 +2298,12 @@
    "author": "@NadavKeyson",
    "url": "https://x.com/NadavKeyson/status/2114759149770723804",
    "posted_at": "2026-10-26",
-   "likes": 661,
-   "reposts": 86,
+   "likes": 663,
+   "reposts": 88,
    "replies": 175,
-   "bookmarks": 812,
-   "views": 1042873,
-   "measured_at": "2026-11-05"
+   "bookmarks": 813,
+   "views": 1043373,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "podcast",
@@ -2644,7 +2745,7 @@
    "replies": 0,
    "bookmarks": 1,
    "views": 163,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "phone calls",
@@ -2862,9 +2963,9 @@
    "likes": 47,
    "reposts": 5,
    "replies": 13,
-   "bookmarks": 27,
+   "bookmarks": 26,
    "views": 5894,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "proactive",
@@ -3056,7 +3157,7 @@
    "replies": 12,
    "bookmarks": 0,
    "views": 1106,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "fact check",
@@ -3159,12 +3260,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 365,
+   "likes": 356,
    "reposts": 15,
    "replies": 34,
-   "bookmarks": 214,
-   "views": 178871,
-   "measured_at": "2026-11-05"
+   "bookmarks": 212,
+   "views": 178894,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "second brain",
@@ -3372,7 +3473,7 @@
    "replies": 20,
    "bookmarks": 30,
    "views": 5443,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "read later",
@@ -3458,7 +3559,7 @@
    "replies": 4,
    "bookmarks": 6,
    "views": 1780,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "contact form",
@@ -3656,7 +3757,7 @@
    "replies": 3,
    "bookmarks": 6,
    "views": 585,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "schedule",
@@ -4036,8 +4137,8 @@
    "reposts": 15,
    "replies": 26,
    "bookmarks": 505,
-   "views": 25504,
-   "measured_at": "2026-11-05"
+   "views": 25511,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "multi-agent",
@@ -4126,12 +4227,12 @@
    "author": "@Parul_Gautam7",
    "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
    "posted_at": "2026-10-08",
-   "likes": 186,
-   "reposts": 33,
-   "replies": 38,
+   "likes": 185,
+   "reposts": 29,
+   "replies": 37,
    "bookmarks": 74,
-   "views": 46434,
-   "measured_at": "2026-11-05"
+   "views": 46437,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "multi-agent",
@@ -4204,7 +4305,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "voice",
@@ -4272,8 +4373,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 0,
-   "views": 46,
-   "measured_at": "2026-11-05"
+   "views": 47,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "roadside assistance",
@@ -4370,7 +4471,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 399,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "computer use",
@@ -4442,7 +4543,7 @@
    "replies": 2,
    "bookmarks": 0,
    "views": 911,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "contractors",
@@ -4511,8 +4612,8 @@
    "reposts": 0,
    "replies": 5,
    "bookmarks": 0,
-   "views": 129,
-   "measured_at": "2026-11-05"
+   "views": 130,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "used car",
@@ -4575,8 +4676,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7512,
-   "measured_at": "2026-11-05"
+   "views": 7515,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "pharmacy",
@@ -4659,8 +4760,8 @@
    "reposts": 24,
    "replies": 29,
    "bookmarks": 235,
-   "views": 326513,
-   "measured_at": "2026-11-05"
+   "views": 326604,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "newsletters",
@@ -4692,7 +4793,7 @@
   "tools": [
    {
     "id": "grok-bot",
-    "note": "Needs a phone-calling add-on so it has its own number; the shared example used one with a free starter tier"
+    "note": "Native phone calls to US businesses rolling out; older examples used a phone-calling add-on for the bot's own number"
    },
    {
     "id": "meta-muse",
@@ -4705,6 +4806,7 @@
   ],
   "prompt": "Call [restaurant / vet / salon] and book [what] for [number of people / pet's name] on [day] around [time]. I'm flexible between [earliest] and [latest]. Book under [name], callback number [number]. Before you dial, read the plan back to me and wait for my OK. Say you're an AI assistant calling for me. Don't give any card or deposit details and don't leave a voicemail. Afterwards, tell me exactly what they said and add it to my calendar.",
   "watch_out": [
+   "Native Grok Bot calling is rolling out for US businesses; if you don't see it yet, a phone-calling add-on can still give the bot its own number. Check that service's limits and terms.",
    "The bot needs its own phone number first, through a calling add-on you connect. Check that service's limits and terms.",
    "A phone call is harder to undo than an email. One user who had his bot book a vet appointment says exactly that.",
    "Have it say it's an AI right away. The author of the restaurant bot built in rules: no card details, no voicemails unless asked, one call at a time, never calling on its own."
@@ -4741,6 +4843,16 @@
     },
     "posted_at": "2026-09-24",
     "measured_at": "2026-10-27"
+   },
+   {
+    "label": "TeslaNorth (2026-11-04): Grok Bot phone calls go live — Phone call card, live transcript, take-over, summary after",
+    "url": "https://teslanorth.com/2026/11/04/grok-bot-phone-calls-live/",
+    "kind": "article"
+   },
+   {
+    "label": "Teslarati: Grok Bot can call US businesses — live transcript, approval before accepting terms, US-only; some reps refuse AI callers",
+    "url": "https://www.teslarati.com/elon-musks-grok-bot-is-picking-up-the-phone-now-and-the-first-calls-are-wild/",
+    "kind": "article"
    }
   ],
   "popularity": {
@@ -4753,8 +4865,8 @@
    "reposts": 93,
    "replies": 193,
    "bookmarks": 999,
-   "views": 1225158,
-   "measured_at": "2026-11-05"
+   "views": 1225651,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "phone call",
@@ -4765,7 +4877,7 @@
    "booking"
   ],
   "date_added": "2026-10-21",
-  "last_checked": "2026-10-21",
+  "last_checked": "2026-11-06",
   "origin": "refocus-2026-10-21",
   "setup": []
  },
@@ -4920,8 +5032,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 562,
-   "measured_at": "2026-11-05"
+   "views": 563,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "spam calls",
@@ -4995,7 +5107,7 @@
    "replies": 8,
    "bookmarks": 37,
    "views": 5452,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "food log",
@@ -5015,12 +5127,12 @@
   "title": "Have your bot make a customer-service phone call for you",
   "category": "inbox",
   "source_date": "2026-10-20",
-  "summary": "Some jobs still need a phone call, like cancelling a service or sorting out an account. With a phone-calling add-on, your bot can make the call, sit on hold and report back.",
+  "summary": "Some jobs still need a phone call, like cancelling a service, booking a same-day appointment or sorting out an account. Grok Bot can now place the call itself for US businesses (live transcript, take-over button, summary after), or you can still connect a phone-calling add-on.",
   "what_the_bot_does": [
-   "Gets a phone number of its own through a calling add-on you connect.",
+   "Shows a Phone call card with who it plans to call; you tap Call (or Cancel) before it dials.",
    "Looks up the company's customer-service line and the account details it will need.",
-   "Calls, says up front that it's an AI assistant calling for you, and asks for exactly what you said (in the shared example, cancelling a streaming service).",
-   "Sticks to your rules: it turns down offers and agrees to nothing you didn't approve.",
+   "Calls, identifies itself as a virtual assistant calling for you, and asks for exactly what you said.",
+   "Sticks to your rules: it turns down offers and agrees to nothing you didn't approve. You can take over or end the call from the live transcript.",
    "Tells you what was said and saves any confirmation number."
   ],
   "what_you_end_up_with": "The call handled (for example, a service cancelled), a plain summary of what was said and any confirmation number, without you sitting on hold.",
@@ -5028,7 +5140,7 @@
   "tools": [
    {
     "id": "grok-bot",
-    "note": "Needs a phone-calling add-on connected; the shared example used one"
+    "note": "Native phone calls to US businesses (rolling out); live transcript and take-over. Older setups used a phone-calling add-on."
    }
   ],
   "prompt": "Call [company] at their customer service line and cancel my [subscription name]. My account details: [name on account, email, last 4 of card if needed]. Start the call by saying you're an AI assistant calling on my behalf. Turn down any offers unless it's [what you'd accept], and don't agree to anything else. Afterwards, tell me what they said and give me the confirmation number.",
@@ -5036,7 +5148,9 @@
    "Some companies won't act for anyone but the account holder. One user says an airline refused to rebook his flight for exactly that reason.",
    "Have the bot announce it's an AI. One user says a restaurant owner almost hung up on his bot, thinking it was spam, until it identified itself.",
    "A phone call is harder to undo than an email, so be specific about what the bot may agree to.",
-   "Check afterwards that the change really happened (for example, the next charge doesn't appear)."
+   "Check afterwards that the change really happened (for example, the next charge doesn't appear).",
+   "Grok Bot calling is currently aimed at US numbers. Availability, plan limits and how calls count against usage are still being clarified by xAI.",
+   "Grok Bot terms require the call to identify itself as a virtual assistant on your behalf; some companies still refuse to act once they know it's an AI."
   ],
   "sources": [
    {
@@ -5064,6 +5178,16 @@
     },
     "posted_at": "2025-07-28",
     "measured_at": "2026-10-27"
+   },
+   {
+    "label": "TeslaNorth (2026-11-04): Grok Bot phone calls go live — Phone call card, live transcript, take-over, summary after",
+    "url": "https://teslanorth.com/2026/11/04/grok-bot-phone-calls-live/",
+    "kind": "article"
+   },
+   {
+    "label": "Teslarati: Grok Bot can call US businesses — live transcript, approval before accepting terms, US-only; some reps refuse AI callers",
+    "url": "https://www.teslarati.com/elon-musks-grok-bot-is-picking-up-the-phone-now-and-the-first-calls-are-wild/",
+    "kind": "article"
    }
   ],
   "popularity": {
@@ -5076,8 +5200,8 @@
    "reposts": 3,
    "replies": 12,
    "bookmarks": 13,
-   "views": 3113,
-   "measured_at": "2026-11-05"
+   "views": 3119,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "phone call",
@@ -5088,8 +5212,12 @@
   ],
   "date_added": "2026-10-20",
   "origin": "pipeline",
-  "last_checked": "2026-10-21",
-  "setup": []
+  "last_checked": "2026-11-06",
+  "setup": [
+   "On Grok Bot (US numbers), ask it to call [company] about [one clear request], and spell out what it may and may not agree to.",
+   "Review the Phone call card, then tap Call. Watch the live transcript; take over if the other side asks for a code only you know.",
+   "When it finishes, check the summary and confirm the change actually happened (email, app, or next statement)."
+  ]
  },
  {
   "slug": "write-a-resignation-letter",
@@ -5261,12 +5389,12 @@
    "author": "@lyndallschreinr",
    "url": "https://x.com/lyndallschreinr/status/2107888353630908437",
    "posted_at": "2026-10-07",
-   "likes": 1011,
+   "likes": 1010,
    "reposts": 29,
    "replies": 81,
    "bookmarks": 2888,
-   "views": 311834,
-   "measured_at": "2026-11-05"
+   "views": 311878,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "meal plan",
@@ -5338,12 +5466,12 @@
    "author": "@Michael_Fenech_",
    "url": "https://x.com/Michael_Fenech_/status/2108579992456327489",
    "posted_at": "2026-10-09",
-   "likes": 506,
+   "likes": 507,
    "reposts": 34,
    "replies": 36,
    "bookmarks": 1146,
-   "views": 66936,
-   "measured_at": "2026-11-05"
+   "views": 66971,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "calendar",
@@ -5435,9 +5563,9 @@
    "likes": 678,
    "reposts": 35,
    "replies": 157,
-   "bookmarks": 719,
-   "views": 83207,
-   "measured_at": "2026-11-05"
+   "bookmarks": 720,
+   "views": 83261,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "personal agent",
@@ -5517,8 +5645,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41457,
-   "measured_at": "2026-11-05"
+   "views": 41465,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "scams",
@@ -5601,8 +5729,8 @@
    "reposts": 13,
    "replies": 29,
    "bookmarks": 118,
-   "views": 25277,
-   "measured_at": "2026-11-05"
+   "views": 25302,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "family chat",
@@ -5691,8 +5819,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4094,
-   "measured_at": "2026-11-05"
+   "views": 4097,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "groceries",
@@ -5767,12 +5895,12 @@
    "author": "@Teslaconomics",
    "url": "https://x.com/Teslaconomics/status/2110721195817509068",
    "posted_at": "2026-10-15",
-   "likes": 62,
+   "likes": 61,
    "reposts": 12,
    "replies": 12,
    "bookmarks": 11,
-   "views": 9669,
-   "measured_at": "2026-11-05"
+   "views": 9673,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "travel",
@@ -5841,7 +5969,7 @@
    "replies": 6,
    "bookmarks": 0,
    "views": 2027,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "flights",
@@ -5986,12 +6114,12 @@
    "author": "@MilksandMatcha",
    "url": "https://x.com/MilksandMatcha/status/2105372125288976402",
    "posted_at": "2026-09-30",
-   "likes": 534,
+   "likes": 533,
    "reposts": 23,
    "replies": 63,
    "bookmarks": 240,
-   "views": 93743,
-   "measured_at": "2026-11-05"
+   "views": 93752,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "restaurant",
@@ -6061,7 +6189,7 @@
    "replies": 9,
    "bookmarks": 27,
    "views": 4064,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "appointment",
@@ -6155,8 +6283,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9205,
-   "measured_at": "2026-11-05"
+   "views": 9206,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "receipts",
@@ -6246,9 +6374,9 @@
    "likes": 104,
    "reposts": 6,
    "replies": 12,
-   "bookmarks": 269,
-   "views": 9828,
-   "measured_at": "2026-11-05"
+   "bookmarks": 270,
+   "views": 9838,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "chief of staff",
@@ -6307,8 +6435,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1886,
-   "measured_at": "2026-11-05"
+   "views": 1888,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "multiple brands",
@@ -6381,8 +6509,8 @@
    "reposts": 1,
    "replies": 12,
    "bookmarks": 27,
-   "views": 3249,
-   "measured_at": "2026-11-05"
+   "views": 3250,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "real estate",
@@ -6483,7 +6611,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 82,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "paper mail",
@@ -6572,7 +6700,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 79,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "monitoring",
@@ -6642,8 +6770,8 @@
    "reposts": 2,
    "replies": 7,
    "bookmarks": 0,
-   "views": 1435,
-   "measured_at": "2026-11-05"
+   "views": 1438,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "follow up",
@@ -6716,8 +6844,8 @@
    "reposts": 4,
    "replies": 7,
    "bookmarks": 55,
-   "views": 4932,
-   "measured_at": "2026-11-05"
+   "views": 4933,
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "leads",
@@ -6813,7 +6941,7 @@
    "replies": 2,
    "bookmarks": 19,
    "views": 2158,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "email",
@@ -7467,7 +7595,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 806,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "marketplace",
@@ -7735,7 +7863,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1505,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "payments",
@@ -7810,7 +7938,7 @@
    "replies": 4,
    "bookmarks": 3,
    "views": 908,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "tags": [
    "ads",
@@ -8819,7 +8947,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-11-05"
+   "measured_at": "2026-11-06"
   },
   "origin": "migrated-2026-10-19"
  },
@@ -10507,19 +10635,24 @@
    },
    {
     "id": "claude"
+   },
+   {
+    "id": "meta-muse",
+    "note": "Voice + expressive avatar (US); tap the phone icon, use full-screen for face-to-face practice"
    }
   ],
   "prompt": "Be my interviewer for this role: [paste the job posting]. My resume: [paste, with your address and phone removed]. Ask me 6 questions, one at a time, mixing behavioural and role-specific ones. Wait for my full answer, ask one follow-up, then move on. At the end, rate each answer 1 to 5 with one specific tip, and point out any answer where I didn't give a concrete example.",
   "setup": [
    "Copy the job posting and your resume (remove your address, phone number and email).",
-   "Open ChatGPT voice mode or Gemini Live on your phone, or type in Claude if you'd rather write your answers.",
-   "Paste the prompt and answer each question out loud as if it were real.",
+   "Pick a voice tool: ChatGPT voice mode, Gemini Live, Muse (tap the phone icon; full-screen avatar feels closest to a real interview), or type in Claude if you'd rather write your answers.",
+   "Paste the prompt and answer each question out loud as if it were real. On Muse you can interrupt and keep going, just like a real conversation.",
    "Ask for the feedback summary, rewrite your two weakest answers, and run it again."
   ],
   "watch_out": [
    "The AI doesn't know what this employer actually asks. Also look at the company's own careers page and recent interview tips from people in the field.",
    "Practice in your own words. Interviewers can tell when an answer is memorised from an AI script.",
-   "Don't paste confidential details from a current employer into the chat."
+   "Don't paste confidential details from a current employer into the chat.",
+   "Muse voice and avatars are rolling out in the US first. Outside the US you may only see ChatGPT voice or Gemini Live for now."
   ],
   "sources": [
    {
@@ -10564,6 +10697,21 @@
     "label": "Gemini Apps Help: Talk naturally with Gemini Live (“Practice aloud: rehearse for important moments”; checked 2026-10-24)",
     "url": "https://support.google.com/gemini/answer/15274899",
     "kind": "official"
+   },
+   {
+    "label": "Meta newsroom (2026-11-05): Give Your Muse a Voice — voice + expressive avatars; interview rehearsal called out",
+    "url": "https://about.fb.com/news/2026/11/introducing-muse-ai-voice-expressive-avatars/",
+    "kind": "official"
+   },
+   {
+    "label": "The Verge: Muse has a voice mode now (real-time voice + animated avatar)",
+    "url": "https://www.theverge.com/tech/1028015/meta-muse-ai-voice-mode-expressive-avatar",
+    "kind": "article"
+   },
+   {
+    "label": "The Next Web: Meta adds real-time voice chat and animated avatars to Muse (US; phone icon to start)",
+    "url": "https://thenextweb.com/news/meta-muse-ai-voice-chat-animated-avatars",
+    "kind": "article"
    }
   ],
   "tags": [
@@ -10574,7 +10722,7 @@
    "feedback"
   ],
   "date_added": "2026-10-24",
-  "last_checked": "2026-10-24",
+  "last_checked": "2026-11-06",
   "origin": "community-backfill-2026-10-24",
   "popularity": null
  },

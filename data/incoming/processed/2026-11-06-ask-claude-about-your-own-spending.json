@@ -1,0 +1,86 @@
+{
+  "slug": "ask-claude-about-your-own-spending",
+  "title": "Ask Claude about your own spending across your banks",
+  "category": "inbox",
+  "source_date": "2026-11-05",
+  "summary": "Claude's Personal Finance beta lets you link US bank and card accounts through Plaid, then ask plain questions like \"where did my money go last month?\" It can only read your accounts — it can't move, manage or invest your money.",
+  "what_the_bot_does": [
+    "Opens a Personal Finance page where you link bank, card, loan or investment accounts through Plaid (you sign in at your bank; Claude never sees your bank password).",
+    "Shows balances, spending, cash flow, subscriptions and upcoming bills from the accounts you chose, on one page you can rearrange.",
+    "Answers questions in everyday language from up to 24 months of transactions, and can explain terms like APR using your own numbers.",
+    "Stays read-only: it can't move money, place trades, or change anything at your bank."
+  ],
+  "what_you_end_up_with": "A single place to see spending across the accounts you linked, plus answers to questions about your own money that you can check against your bank app.",
+  "difficulty": "Easy",
+  "tools": [
+    {
+      "id": "claude",
+      "note": "Personal Finance beta on Pro, Max and Ultra plans in the US only; not on Free, Team or Enterprise"
+    }
+  ],
+  "prompt": "Using only the accounts I linked, show me where my money went last month by category. Flag anything that looks unusual (double charges, fees, or a bill that jumped). Then tell me what payments are still due before my next payday on [date], and roughly how much I'll have left. Don't suggest investments or products. Don't move or change anything. Point me to the transactions behind each number so I can check them in my bank app.",
+  "setup": [
+    "You need a Claude Pro, Max or Ultra plan and a US account. Personal Finance is rolling out gradually, so you may not see it yet.",
+    "In Claude (web, Desktop, iOS or Android), open Personal Finance in the side menu (under More if needed) and choose Get started.",
+    "Select Link accounts with Plaid, review what Claude can read, then sign in to your bank in Plaid and pick the accounts to share. You can link up to 16 banks.",
+    "Wait for accounts to sync (a few minutes), then ask one plain question such as \"Where did my money go last month?\" Check important figures in your bank's own app."
+  ],
+  "watch_out": [
+    "US only, and only on paid Pro/Max/Ultra plans. Free, Team and Enterprise don't get it, and it isn't in Claude Duet or scheduled tasks.",
+    "Access is read-only through Plaid, but you are sharing balances and up to two years of transactions. Unlink a bank anytime in Claude, or disconnect at my.plaid.com.",
+    "Claude can make mistakes, and balances can be a day or two old. Ask which transactions sit behind a number, and check important figures with your bank. Anthropic says it isn't designed to give investment advice.",
+    "Chats in the Personal Finance hub aren't used to train models. Shared chat links and artifacts can show figures from your accounts — don't share those links if they include private numbers.",
+    "This is not about cutting deals or haggling bills. Use it to understand your own numbers; keep any bank changes (cancels, transfers, investments) for you to do yourself."
+  ],
+  "faq": [
+    {
+      "q": "Can Claude move money or pay a bill for me?",
+      "a": "No. Anthropic and Plaid both say access is read-only. It can't move, manage or invest your money."
+    },
+    {
+      "q": "Will Claude see my bank password?",
+      "a": "No. You sign in through Plaid. Claude doesn't ask for or see your bank password, and it only gets the last few digits of account numbers."
+    },
+    {
+      "q": "Is this the same as ChatGPT's bank linking?",
+      "a": "Similar idea (Plaid + read-only accounts), but this guide is for Claude's Personal Finance beta. Check your own plan and country."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Claude by Anthropic: Introducing Personal Finance in Claude (2026-11-05)",
+      "url": "https://claude.com/resources/articles/introducing-personal-finance-in-claude",
+      "kind": "official"
+    },
+    {
+      "label": "Claude Help Center: Use Personal Finance in Claude (setup, what it can read, US Pro/Max/Ultra beta)",
+      "url": "https://support.claude.com/en/articles/18185620-use-personal-finance-in-claude",
+      "kind": "official"
+    },
+    {
+      "label": "The Verge: Claude AI can plug directly into your bank account (Plaid, read-only)",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1027652/anthropic-claude-plaid-personal-finance",
+      "kind": "article"
+    },
+    {
+      "label": "Plaid blog (2026-11-05): Plaid powers financial insights in Claude",
+      "url": "https://plaid.com/blog/plaid-anthropic-financial-insights-in-claude/",
+      "kind": "official"
+    },
+    {
+      "label": "Engadget: Now Claude can help with your finances too (US Pro/Max/Ultra beta via Plaid)",
+      "url": "https://www.engadget.com/2307936/now-claude-can-help-with-your-finances-too/",
+      "kind": "article"
+    },
+    {
+      "label": "Hacker News: Personal Finance in Claude (11 points / 10 comments, measured 2026-11-06)",
+      "url": "https://news.ycombinator.com/item?id=50382192",
+      "kind": "hn",
+      "stats": {"points": 11, "comments": 10},
+      "posted_at": "2026-11-05",
+      "measured_at": "2026-11-06"
+    }
+  ],
+  "popularity": null,
+  "tags": ["Claude", "Personal Finance", "Plaid", "spending", "bank accounts", "budget", "read-only", "US"]
+}
