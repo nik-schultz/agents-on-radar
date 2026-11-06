@@ -216,6 +216,12 @@ Candidates not added yet:
 
 Bugs/complaints: none found.
 
+## News watch 2026-11-06 (PM)
+- [ ] Alexa for Shopping over text (About Amazon Nov 6): invite-only U.S. SMS shopping agent. Candidate line on shopping guides (`let-your-ai-shop-for-you-with-shop-pay` / reorder groceries) — confirm cart and payment before approve; waitlist for non-invites.
+- [ ] Visa Agentic Commerce Benchmark (Nov 5): 57.2% pass; ~54% of failures still purchased. Strengthen human-confirm watch-out on shopping guides (pairs with existing DoorDash/Jassy note).
+- [ ] Google Antigravity remote agents + voice mode (docs + 9to5Google Nov 6): possible note on coding/remote-agent guides once we have a beginner path; voice ≠ remote sessions.
+- Skipped for news: Muse Spaces (no official Meta page), GPT-6.2 Astra rumors.
+
 ## News watch 2026-10-30 (PM)
 
 - [ ] Zest text-message restaurant concierge (TechCrunch Oct 30): text (212) 470-6067, it suggests places and books via OpenTable/Resy/SevenRooms, runs a vote in group chats, optional card linking (via Plaid) to learn your taste. Candidate extra tool for `restaurant-reservations-by-agent` and the group-chat dinner-plans angle; needs a second independent source (Reddit/HN/review) before adding, plus a privacy watch-out on card linking.

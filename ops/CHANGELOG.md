@@ -1,3 +1,11 @@
+## 2026-11-06 (PM news run, ~3:30 PM ET / ~2:30 PM CT)
+- Added 5 items: **meta-muse-specialized-models** (notable, Active Memory/Focus via Muse Wonder training; @AIatMeta), **amazon-alexa-text-shopping** (notable, Alexa for Shopping over SMS invite rollout; @amazonnews), **google-antigravity-remote-agents** (notable, cloud remote agents + voice mode rollout; @antigravity — clearer Nov 6 public push after AM skipped the Nov 3 changelog start), **visa-agentic-commerce-benchmark** (notable industry, 57.2% pass / ~43% fail shopping runs; coverage @cuysheffield), **openai-hacktron-partnership** (minor, Daybreak Red security partnership; no X block). Added `Visa` to `NEWS_CO` in build.py. No new major (flagship) item.
+- Refreshed X on 23 recent/major posts + 4 new announcing posts (27 measured; measured_at 2026-11-06T20:34:06Z; raw: research/x_news_measure_2026_11_06_pm_batch1.json.txt, local only). Top story still **gpt-6-cyber** (~20.1k likes / ~3.57M views) as hottest major ≤14 days; hottest overall engagement remains claude-personal-finance (~41.8k likes / ~9.19M views).
+- Pricing: no `ai-pricing.json` change.
+- BACKLOG: Alexa text-shopping confirmation watch-out; Visa benchmark reinforces shopping human-confirm guidance; Antigravity remote/voice as possible coding-agent note.
+- Skipped: GPT-6.2 Astra/Sol leaks (rumor); Meta Muse "Spaces" (TechCrunch only, no clear Meta product page — may overlap specialized-models demos); METR Anthropic pace report / Oumi FAiE / Quest / Ant Ling 3.2-flash (secondary or already covered angles); OpenAI ChatGPT analytics rumor.
+- Deployed: local main `PENDING`, publish `PENDING`, Actions runs PENDING; live /news/ PENDING.
+
 # Ops changelog
 
 ## 2026-11-06 (midday trending, ~1:10 PM ET / noon CT)
