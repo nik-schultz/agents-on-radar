@@ -1,5 +1,14 @@
 # Ops changelog
 
+## 2026-11-06 (AM news run, ~7:30 AM ET / CT)
+- Added 6 notable items (all dated 2026-11-05, missed by the Nov 5 PM window): **claude-personal-finance** (Anthropic US beta via Plaid; @claudeai), **meta-muse-voice-avatars** (Meta Muse voice + expressive avatars; @alexandr_wang), **perplexity-teammates** (always-on Max work agents; @perplexity_ai), **cursor-build-live-apps** (cloud agent builds/deploys shareable apps; @cursor_ai), **mistral-studio-managed-agents** (Studio managed agents/apps; @MistralAI), **thinking-machines-inkling-2-small** (594B MoE / 17B active on Tinker; @thinkymachines). Added `Thinking Machines` to `NEWS_CO` in build.py. No new major (flagship) item.
+- Refreshed X on 46 recent posts (measured 2026-11-06T12:31:45Z; raw: research/x_news_measure_2026_11_06_am_batch{1,2}.json.txt, local only). Top story still **gpt-6-cyber** (~18.1k likes / ~2.89M views) as hottest major ≤14 days; hottest overall engagement is claude-personal-finance (~34.8k likes / ~6.33M views) → Trending #1.
+- Pricing: no `ai-pricing.json` change (no listed text-API price changes; Inkling Tinker pricing and Omni video $/sec stay outside the table).
+- BACKLOG: Claude Personal Finance spending Q&A idea; Muse voice interview-rehearsal idea; Cursor/Perplexity noted as paid/dev-leaning.
+- Skipped: GPT-6 Cyber / Omni 1.2 Flash / Conductor / Pierre (already listed); Anthropic Claude Enterprise security center (enterprise admin); Google Antigravity Remote Agents (changelog start Nov 3, not a clear Nov 6 launch); Baidu ERNIE 5.5 Flash Base, Planet satellite AI, Glasshand, Rerun (niche/single-digest); Genie 4 already listed.
+- Deployed: local main `PENDING`, publish `PENDING`, Actions run PENDING; live /news/ PENDING.
+
+
 ## 2026-11-05 (PM news run, ~3:30 PM ET / ~2:30 PM CT)
 - Added 5 items: **gpt-6-cyber** (major, OpenAI Daybreak Red security model), gemini-omni-1-2-flash (notable, 15s video + 30% cheaper), openai-linux-lpe-pipeline (notable, 948 Linux LPE exploits + patches), meta-acquires-conductor (notable), openai-acquire-pierre (notable, no X block — no strong official post).
 - Refreshed X on 93 posts (measured 2026-11-05T20:35Z). Top story is now gpt-6-cyber (~10.2k likes / ~0.90M views) as hottest major ≤14 days; Carbon still higher absolute engagement (~34.1k likes / ~6.95M views) but outside that window ranking.

@@ -284,3 +284,8 @@ Bugs/complaints: none found.
 - Omni 1.2 Flash 15s video: possible "make a short product or social video with Gemini" idea later; needs beginner-safe steps and a second source beyond the Google blog.
 - Conductor Cloud shutoff Nov 20: too niche for a hub guide; no action.
 - Skipped as news: Claude Code background-subagent 99% cost cut (changelog/X only, no Anthropic newsroom post), Cat Wu / Austin Lau hiring (personnel), Oumi FAiE / VINCO Catan (single-source startups), Apple AI budget cuts (rumor/reporting without product launch).
+
+## AM news run 2026-11-06
+- Idea: "Ask Claude about your own spending and bills" (Claude Personal Finance US beta via Plaid; read-only). Needs watch-outs on bank linking, US-only, Pro/Max/Ultra, and not investment advice. Sources: Claude article, Help Center, Verge, Plaid.
+- Idea: "Rehearse an interview out loud with Muse voice" (Meta Muse voice + expressive avatars, US). Second sources: Verge, TechCrunch; beginner path is tap phone icon in Muse.
+- Omni short-video guide still pending from Nov 5 PM; Cursor live apps and Perplexity Teammates are paid/dev-leaning — revisit if a non-coder path appears.

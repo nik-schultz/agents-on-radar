@@ -430,7 +430,7 @@ NEWS_CO = {"OpenAI": ("OA", "#5ef2d6"), "Anthropic": ("An", "#ffb38a"), "Google"
            "Riverside": ("Rv", "#ff9ad5"), "Ant Group": ("AG", "#7fe0c3"), "Apple": ("Ap", "#e8e8ee"),
            "Liquid AI": ("Lq", "#8be9fd"), "Microsoft": ("Ms", "#7fd0ff"), "Perplexity": ("Px", "#20c4cb"), "Shopify": ("Sh", "#95bf47"),
            "Amazon": ("Az", "#ff9900"), "Granola": ("Gr", "#b6e36b"),
-           "Zest": ("Ze", "#ff7a59"), "DoorDash": ("DD", "#ff5a3c"), "ElevenLabs": ("11", "#d9d9e3"), "Pika": ("Pk", "#ff6ec7"), "Meituan": ("Mt", "#ffd100"), "SemiAnalysis": ("SA", "#a0e7ff"), "Tencent": ("Tc", "#4fa3ff"), "Netflix": ("Nf", "#e50914")}
+           "Zest": ("Ze", "#ff7a59"), "DoorDash": ("DD", "#ff5a3c"), "ElevenLabs": ("11", "#d9d9e3"), "Pika": ("Pk", "#ff6ec7"), "Meituan": ("Mt", "#ffd100"), "SemiAnalysis": ("SA", "#a0e7ff"), "Tencent": ("Tc", "#4fa3ff"), "Netflix": ("Nf", "#e50914"), "Thinking Machines": ("TM", "#c4b5fd")}
 NEWS_ART = {"model release": "hero-radar", "agent launch": "cat-work", "pricing": "cat-money", "feature": "cat-inbox", "industry": "cat-business"}
 def news_heat(n):
     x = n.get("x")
