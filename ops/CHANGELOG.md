@@ -4,7 +4,7 @@
 - Pricing: no `ai-pricing.json` change.
 - BACKLOG: Alexa text-shopping confirmation watch-out; Visa benchmark reinforces shopping human-confirm guidance; Antigravity remote/voice as possible coding-agent note.
 - Skipped: GPT-6.2 Astra/Sol leaks (rumor); Meta Muse "Spaces" (TechCrunch only, no clear Meta product page — may overlap specialized-models demos); METR Anthropic pace report / Oumi FAiE / Quest / Ant Ling 3.2-flash (secondary or already covered angles); OpenAI ChatGPT analytics rumor.
-- Deployed: local main `PENDING`, publish `PENDING`, Actions runs PENDING; live /news/ PENDING.
+- Deployed: local main `52b652d`, publish `3412d88`, Actions run 42289603338 succeeded; live /news/ 200.
 
 # Ops changelog
 
