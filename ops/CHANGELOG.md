@@ -6,7 +6,7 @@
 - Pricing: no `ai-pricing.json` change (no listed text-API price changes; Inkling Tinker pricing and Omni video $/sec stay outside the table).
 - BACKLOG: Claude Personal Finance spending Q&A idea; Muse voice interview-rehearsal idea; Cursor/Perplexity noted as paid/dev-leaning.
 - Skipped: GPT-6 Cyber / Omni 1.2 Flash / Conductor / Pierre (already listed); Anthropic Claude Enterprise security center (enterprise admin); Google Antigravity Remote Agents (changelog start Nov 3, not a clear Nov 6 launch); Baidu ERNIE 5.5 Flash Base, Planet satellite AI, Glasshand, Rerun (niche/single-digest); Genie 4 already listed.
-- Deployed: local main `PENDING`, publish `PENDING`, Actions run PENDING; live /news/ PENDING.
+- Deployed: local main `c55674a`, publish `0f78833`, Actions run 42218612508 succeeded; live /news/ 200. Top story still gpt-6-cyber; Trending #1 claude-personal-finance.
 
 
 ## 2026-11-05 (PM news run, ~3:30 PM ET / ~2:30 PM CT)
