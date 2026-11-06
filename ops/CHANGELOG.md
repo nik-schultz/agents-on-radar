@@ -12,7 +12,7 @@ Improvement for visitors
 - `restaurant-reservations-by-agent` and `book-an-appointment-with-an-ai-agent`: added a watch-out that agents can report a booking as done when it never went through (Eon 19-model false-"done" finding), plus a See also link to `make-your-agent-prove-it-finished-the-job`. BACKLOG "did it really happen?" item marked done. last_checked set to 2026-11-06.
 
 Deploy
-- local main `fb7e0ad`, publish `354bcd1`, Actions run 42223871811 succeeded (build 8s / deploy 3m47s).
+- local main `d338009` (QA `fb7e0ad` + changelog), publish `6ec644a` (QA `354bcd1`), Actions runs 42223871811 / 42224496710 succeeded; live restaurant guide shows the new Eon watch-out.
 
 ## 2026-11-06 (AM news run, ~7:30 AM ET / CT)
 - Added 6 notable items (all dated 2026-11-05, missed by the Nov 5 PM window): **claude-personal-finance** (Anthropic US beta via Plaid; @claudeai), **meta-muse-voice-avatars** (Meta Muse voice + expressive avatars; @alexandr_wang), **perplexity-teammates** (always-on Max work agents; @perplexity_ai), **cursor-build-live-apps** (cloud agent builds/deploys shareable apps; @cursor_ai), **mistral-studio-managed-agents** (Studio managed agents/apps; @MistralAI), **thinking-machines-inkling-2-small** (594B MoE / 17B active on Tinker; @thinkymachines). Added `Thinking Machines` to `NEWS_CO` in build.py. No new major (flagship) item.
