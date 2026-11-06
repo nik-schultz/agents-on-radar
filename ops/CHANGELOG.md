@@ -1,5 +1,14 @@
 # Ops changelog
 
+## 2026-11-06 (midday trending, ~1:10 PM ET / noon CT)
+- Added `ask-claude-about-your-own-spending` (Claude Personal Finance US beta via Plaid; read-only; inbox). Sources: Claude article, Help, Verge, Plaid, Engadget, HN 50382192 (11/10). Not framed as deal/bill-cutting.
+- Extended `practice-a-job-interview-out-loud` with Meta Muse voice + full-screen avatar (Meta newsroom 2026-11-05, Verge, TNW).
+- Updated `make-a-customer-service-call` and `call-and-book-by-phone` for native Grok Bot US phone calls (TeslaNorth, Teslarati); kept bill-negotiation demos out of framing.
+- Refreshed popularity on 49 tracked X posts. Mentions/feedback of BotsDoThat: none. Bugs: none.
+- Source mix after run: 123 use cases, 497 source links, X 74/497 = 15% (community 29%).
+- Deployed: local main `cfd5e38`, publish `160cfe8`; first Actions run 42268633847 hit a transient Pages "Deployment failed, try again later" (build succeeded). Retried below.
+
+
 ## 2026-11-06 (daily QA, ~7:00 AM CT)
 Checks
 - Live site up: `/` `/news/` `/use-cases/` `/ai-pricing/` `/trending/` and sample use-case pages all HTTP 200. validate: 122 use cases, 12 blueprints, 0 errors. build: 168 indexed pages + 404. check_links: 13,493 links scanned, 0 broken internal (960 unique external; not run with `--external` this run).
