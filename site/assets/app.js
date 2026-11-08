@@ -21,11 +21,27 @@
     rev.forEach(function (el) { io.observe(el); });
   } else { rev.forEach(function (el) { el.classList.add('in'); }); }
 
-  // ---- pointer glow on cards
-  if (!reduce) d.addEventListener('pointermove', function (ev) {
-    var c = ev.target.closest && ev.target.closest('.card'); if (!c) return;
-    var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (ev.clientX - r.left) + 'px'); c.style.setProperty('--my', (ev.clientY - r.top) + 'px');
-  });
+  // ---- pointer glow on cards, and a tilt on the hero radar
+  if (!reduce && window.matchMedia && matchMedia('(pointer:fine)').matches) {
+    d.addEventListener('pointermove', function (ev) {
+      var c = ev.target.closest && ev.target.closest('.card'); if (!c) return;
+      var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (ev.clientX - r.left) + 'px'); c.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+    });
+    var stage = d.querySelector('.radar-stage');
+    if (stage) {
+      stage.addEventListener('pointermove', function (ev) {
+        var r = stage.getBoundingClientRect();
+        var x = (ev.clientX - r.left) / r.width - 0.5;
+        var y = (ev.clientY - r.top) / r.height - 0.5;
+        stage.style.setProperty('--tilt-x', (28 - y * 16).toFixed(2) + 'deg');
+        stage.style.setProperty('--tilt-z', (-12 + x * 16).toFixed(2) + 'deg');
+      });
+      stage.addEventListener('pointerleave', function () {
+        stage.style.removeProperty('--tilt-x');
+        stage.style.removeProperty('--tilt-z');
+      });
+    }
+  }
 
   // ---- copy buttons
   d.querySelectorAll('[data-copy]').forEach(function (b) {

@@ -405,7 +405,7 @@ def radar(items):
                   '<div class="radar-ping" aria-hidden="true"></div>')
     else:
         layers = '<div class="radar-rings" aria-hidden="true"></div><div class="radar-sweep" aria-hidden="true"></div>'
-    return f"""<div class="radar{' radar--art' if has_art else ''}" role="group" aria-label="Radar of trending use cases">{layers}{''.join(blips)}</div>"""
+    return f"""<div class="radar-stage"><div class="radar{' radar--art' if has_art else ''}" role="group" aria-label="Radar of trending use cases">{layers}{''.join(blips)}</div></div>"""
 
 # Hero headline: "What AI agents [are doing] for real people." (+ lead "And build your own.") The gradient line rotates through plain verbs;
 # the first one ("are doing") is what screen readers, reduced-motion users and the first glance get.
