@@ -237,7 +237,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <a class="logo" href="{u('/')}"><span class="logo-dot" aria-hidden="true"></span>{wordmark()}</a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-ico" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-lbl">Menu</span></button>
 <nav aria-label="Main" class="menu" id="site-menu">{navh}</nav>
-<a class="btn btn-sm nav-cta" href="{u('/newsletter/')}"><span class="cta-full">Get the weekly email</span><span class="cta-short">Weekly email</span></a>
+<div class="nav-actions">{'<a class="nav-mine" href="%s">My bots</a>' % u("/bot-instructions/#bb-account") if (cfg.get("saved_setups") or {}).get("sign_in") else ""}<a class="btn btn-sm nav-build" href="{u('/bot-instructions/')}"{' aria-current="page"' if path=="/bot-instructions/" else ""}>Build your bot</a><a class="btn btn-sm btn-ghost nav-news" href="{u('/newsletter/')}">Weekly email</a></div>
 </div></header>
 <main id="main">{body}{nl_end}</main>
 <footer class="foot"><div class="wrap foot-grid">
@@ -405,7 +405,7 @@ def radar(items):
                   '<div class="radar-ping" aria-hidden="true"></div>')
     else:
         layers = '<div class="radar-rings" aria-hidden="true"></div><div class="radar-sweep" aria-hidden="true"></div>'
-    return f"""<div class="radar{' radar--art' if has_art else ''}" role="group" aria-label="Radar of trending use cases">{layers}{''.join(blips)}</div>"""
+    return f"""<div class="radar-stage"><div class="radar{' radar--art' if has_art else ''}" role="group" aria-label="Radar of trending use cases">{layers}{''.join(blips)}</div></div>"""
 
 # Hero headline: "What AI agents [are doing] for real people." (+ lead "And build your own.") The gradient line rotates through plain verbs;
 # the first one ("are doing") is what screen readers, reduced-motion users and the first glance get.
@@ -625,13 +625,14 @@ home = f"""
 <div class="hl-stack">{hero_heads}</div>
 <div class="hl-stack">{hero_leads}</div>
 {searchbox(home=True)}
-<div class="hero-ctas"><a class="btn" href="{u('/bot-instructions/')}">Customize a setup</a><a class="btn btn-ghost" href="#trending">See what's trending</a></div>
-<p class="small">Write instructions for your own chat app, then improve them when a test fails. Saving a setup to come back is not on sale yet. The guides below stay free. A saved setup is text you paste yourself. This site does not run the bot.</p>
+<div class="hero-ctas"><a class="btn" href="{u('/bot-instructions/')}">Build your bot</a><a class="btn btn-ghost" href="{u('/bot-instructions/#weekly-sample')}">Try a weekly-planning example</a></div>
+<p class="small">Instructions, not a hosted bot. Nothing runs or books automatically. Build instructions for the AI app you already use. Check what it gets wrong, then make one small improvement for next week. The guides below stay free.</p>
 </div>
 {radar(TRENDING)}
 </div>
 <div class="ticker" aria-label="Most-liked recent posts"><ul class="ticker-track">{ticker}{ticker.replace('<li>', '<li aria-hidden="true">').replace('<a href=', '<a tabindex="-1" href=')}</ul></div>
 </section>
+<div class="wrap nl-hero" id="subscribe">{newsletter_box("nl-hero", "inline")}</div>
 
 <section class="wrap stats reveal" aria-label="What's in the feed"><div><b>{len(ucs)}</b><span>use cases</span></div><div><b>{len(TRENDING)}</b><span>with measured popularity</span></div><div><b>{len(bps)}</b><span>bot blueprints</span></div><div><b>{n_sources}</b><span>linked sources</span></div></section>
 
@@ -644,7 +645,6 @@ home = f"""
 <p class="muted">Ranked by real likes, reposts, upvotes and points from X, Reddit and Hacker News, weighted toward newer posts (last {cfg.get('trending_window_days',60)} days). <a href="{u('/about/#popularity')}">How we measure</a>.</p></div>
 <a class="btn btn-ghost btn-sm" href="{u('/trending/')}">Full trending list →</a></div>
 <ol class="bento">{trend_cards}</ol></section>
-<div class="wrap nl-mid" id="subscribe">{newsletter_box("nl-mid", "inline")}</div>
 
 {less_band}
 
@@ -837,9 +837,15 @@ for x in ucs:
     relx = REL_X.get(x["slug"], [])
     relx_html = ('<section class="related-x"><h2>Related</h2><ul class="ex-list">' + "".join(
         f'<li><a href="{u("/use-cases/"+sl+"/")}"><b>{e(UC[sl]["title"])}</b></a> <span class="small muted">{CAT[UC[sl]["category"]]["icon"]} {e(CAT[UC[sl]["category"]]["name"])}</span></li>' for sl in relx) + "</ul></section>") if relx else ""
+    _wx = x.get("worked_example") if isinstance(x.get("worked_example"), dict) else None
+    worked = (f'<section class="glass" id="worked-example"><p class="eyebrow">{e(_wx.get("badge", ""))}</p><h2>{e(_wx.get("h", ""))}</h2>'
+               f'<p>{e(_wx.get("inputs", ""))}</p><p><b>{e(_wx.get("result", ""))}</b></p><p>{e(_wx.get("note", ""))}</p>'
+               f'<p>{e(_wx.get("handoff", ""))}</p><p>{e(_wx.get("limits", ""))}</p>'
+               f'<p><a class="btn" href="{u("/bot-instructions/#weekly-sample")}">Try this example in the builder</a></p></section>') if _wx else ""
     body = f"""<article class="wrap uc">{bc}
 <header class="uc-head"><p class="eyebrow"><a class="cat-tag cat-{e(x['category'])}" href="{u('/category/'+c['slug']+'/')}">{c['icon']} {e(c['name'])}</a></p>
 <h1 class="kinetic-sm">{e(x['title'])}</h1><p class="lead">{e(x['summary'])}</p>
+{worked}
 <div class="uc-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span>{CHAT_BADGE if x.get('chat_prompt') else ''}<span class="muted small">Updated <time datetime="{e(_mod)}">{nice_date(_mod)}</time> · By <a href="{u('/about/')}">{e(NAME)}</a> · Added {nice_date(x['date_added'])}</span>{pop_chip(x, long=True)}</div>{seen_on(x, long=True)}</header>
 <div class="uc-grid"><div class="uc-main">
 <section><h2>What the bot does</h2>{chat_note}<ol class="steps">{steps}</ol></section>

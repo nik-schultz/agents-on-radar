@@ -10,7 +10,7 @@
 <meta name="saashub-verification" content="0dnznot6vtkl" /><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d0d6969f29884efbbd4472a1cfba2cc8"}'></script>
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="BotsDoThat: new use cases" href="/feed.xml">
-<link rel="stylesheet" href="/assets/style.css?v=c004e8791f"><script src="/assets/bot-builder.js?v=4780c1bcca" defer></script><script src="/assets/accounts.js?v=c3971c95b0" defer></script>
+<link rel="stylesheet" href="/assets/style.css?v=064ca4111f"><script src="/assets/bot-builder.js?v=0be31ca179" defer></script><script src="/assets/accounts.js?v=c3971c95b0" defer></script>
 <script>(function(){try{var d=document.documentElement;d.classList.add('js');if(d.dataset.page==='home'&&!sessionStorage.getItem('introSeen')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('intro-on');sessionStorage.setItem('introSeen','1')}}catch(e){}})();</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://botsdothat.com/"}, {"@type": "ListItem", "position": 2, "name": "Write instructions"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does this page send what I type anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. With accounts turned off, answers stay in this browser tab. Clear answers or closing the tab drops them. This build has no account and does not store a setup."}}, {"@type": "Question", "name": "Is this page a live AI checking my bot?", "acceptedAnswer": {"@type": "Answer", "text": "No. Choosing a task fills a fixed template. Troubleshooting matches the boxes you tick, and phrases in your description, to four written patterns. Neither step calls a model or a person."}}, {"@type": "Question", "name": "Will the email draft get sent?", "acceptedAnswer": {"@type": "Answer", "text": "No. The email task writes a draft you can copy. It does not connect to an inbox, and the instructions tell the chat not to send anything. You send it yourself, if you still want to, from your own mail app."}}, {"@type": "Question", "name": "Can I pay to save setups today?", "acceptedAnswer": {"@type": "Answer", "text": "No. The proposed prices are $9 a month to save 3 setups and $14 a month to save 5. Checkout is not turned on. The free builder still works in this tab and does not remember you."}}, {"@type": "Question", "name": "If I tick that a test matched, did BotsDoThat verify it?", "acceptedAnswer": {"@type": "Answer", "text": "No. That tick is your report, stored only in this tab. BotsDoThat has not seen the chat and has not checked the reply."}}]}</script>
 </head><body>
@@ -19,10 +19,11 @@
 <a class="logo" href="/"><span class="logo-dot" aria-hidden="true"></span><span class="wm">Bots<span class="wm-mid">Do</span>That</span></a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-ico" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-lbl">Menu</span></button>
 <nav aria-label="Main" class="menu" id="site-menu"><a href="/what-can-bots-do/">What's an AI agent?</a><a href="/trending/">Trending</a><a href="/use-cases/">Use cases</a><a href="/blueprints/">Build a bot</a><a href="/bot-instructions/" aria-current=page>Instructions</a><a href="/news/">AI news</a><a href="/run-your-bots-for-less/" class=nav-less><span class=nav-less-dot aria-hidden=true></span>Run for less</a></nav>
-<a class="btn btn-sm nav-cta" href="/newsletter/"><span class="cta-full">Get the weekly email</span><span class="cta-short">Weekly email</span></a>
+<div class="nav-actions"><a class="btn btn-sm nav-build" href="/bot-instructions/" aria-current="page">Build your bot</a><a class="btn btn-sm btn-ghost nav-news" href="/newsletter/">Weekly email</a></div>
 </div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Write instructions</li></ol></nav></div><div class="wrap narrow page-head"><p class="eyebrow">Free builder</p><h1 class="kinetic-sm">Write instructions for a text-only bot</h1>
-<p class="lead">Customize instructions for a job you paste into your own chat app, then improve them when a test fails. Saving a setup so you can come back is not turned on. The guides on the rest of the site stay free.</p>
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Write instructions</li></ol></nav></div><div class="wrap narrow page-head"><p class="eyebrow">Free builder</p><h1 class="kinetic-sm">Make your AI weekly planner fit your real week.</h1>
+<p class="lead">Build instructions for the AI app you already use. Check what it gets wrong, then make one small improvement for next week.</p>
+<p>Instructions, not a hosted bot. Nothing runs or books automatically. Email drafts and quote comparisons are still on this page. Saving a setup so you can come back is not turned on. The guides on the rest of the site stay free.</p>
 <div class="glass bb-honest"><p><b>This page is a form and a template, not a live AI.</b> It does not call a model, does not review the chat's reply, and does not claim a test passed until you run one and say so yourself. That report stays in this tab. BotsDoThat has not checked it.</p>
 <p>What you type stays in this browser tab&#x27;s memory. It is not sent to BotsDoThat, not stored in an account, and not written to a database. Copy puts the instructions on your clipboard only after you press Copy. Download saves a .txt file on your device only after you press Download. Clear answers wipes the tab. Closing the tab drops it too. Do not type passwords, payment numbers, identity numbers, health details, employer secrets, or someone else&#x27;s private schedule.</p>
 <p class="small">Works with the text box in ChatGPT, Claude, Gemini, Copilot, Grok, and similar apps. No connected inbox, calendar, browser, or payment tool is part of this.</p></div></div>
@@ -35,6 +36,37 @@
 <li>Do not paste passwords, card numbers, identity numbers, health details, employer secrets, or someone else's private schedule.</li></ul>
 <p>Tasks in this version:</p><ul><li>Plan one realistic week from notes you type</li><li>Draft a professional email you will send yourself</li><li>Compare quotes you paste in</li></ul>
 <p class="small">Scheduled bots that connect to tools live in the <a href="/blueprints/">blueprints</a>. This page is the chat-only path. <a href="/is-it-safe-to-give-an-ai-agent-your-email/">Email and calendar safety</a> is a separate guide for tools that do connect.</p></section>
+<section class="wrap narrow glass bb-cap" id="weekly-sample" aria-labelledby="weekly-sample-h">
+<p class="eyebrow">Fictional example — not a customer result.</p>
+<h2 id="weekly-sample-h">A week that does not fit</h2>
+<p id="bb-cap-static"><b>8 hours available · 10 hours of tasks · 2 hours need to move.</b></p>
+<p>Tuesday afternoon is unavailable. That is an instruction the chat must keep. This total does not check a calendar.</p>
+<p>This checks totals, not calendar conflicts or whether your estimates are realistic.</p>
+<p class="small">Dropping the 1 hour of optional reading still leaves 1 hour over. The numbers in the boxes are the same fictional week. Changing them needs the script on this page. This is not a calendar check.</p>
+<div id="bb-capacity">
+<div class="bb-field"><label for="bb-cap-available">Hours free after fixed commitments and buffers</label>
+<input id="bb-cap-available" name="available" type="text" inputmode="decimal" value="8" autocomplete="off"></div>
+<fieldset class="bb-set"><legend>Task hours</legend>
+<div class="bb-field"><label for="bb-cap-report">Write the status report (hours)</label><input id="bb-cap-report" type="text" inputmode="decimal" value="4" autocomplete="off"></div>
+<div class="bb-field"><label for="bb-cap-slides">Make the slides (hours)</label><input id="bb-cap-slides" type="text" inputmode="decimal" value="3" autocomplete="off"></div>
+<div class="bb-field"><label for="bb-cap-admin">Clear the admin list (hours)</label><input id="bb-cap-admin" type="text" inputmode="decimal" value="2" autocomplete="off"></div>
+<div class="bb-field"><label for="bb-cap-reading">Optional reading (hours)</label><input id="bb-cap-reading" type="text" inputmode="decimal" value="1" autocomplete="off"></div>
+</fieldset>
+<fieldset class="bb-set"><legend>What should move? You choose. This page does not pick.</legend>
+<label class="bb-check"><input type="checkbox" name="bb-defer" value="report"> Defer the status report</label>
+<label class="bb-check"><input type="checkbox" name="bb-defer" value="slides"> Defer the slides</label>
+<label class="bb-check"><input type="checkbox" name="bb-defer" value="admin"> Defer the admin list</label>
+<label class="bb-check"><input type="checkbox" name="bb-defer" value="reading"> Defer optional reading</label>
+</fieldset>
+<p id="bb-cap-summary" class="bb-status" role="status" aria-live="polite">8 hours available · 10 hours of tasks · 2 hours need to move. This checks totals, not calendar conflicts or whether your estimates are realistic. Fixed commitments and buffers were not subtracted again.</p>
+<div class="bb-actions"><button class="btn" type="button" id="bb-make-mine">Make it mine</button></div>
+<div id="bb-replace" class="bb-replace" hidden role="alertdialog" aria-labelledby="bb-replace-h">
+<h3 id="bb-replace-h">Replace the answers in the form?</h3>
+<p>The form already has answers. Replace replaces them with the numbers on this card. Cancel keeps every answer as it is now.</p>
+<div class="bb-actions"><button class="btn" type="button" id="bb-replace-yes">Replace</button><button class="btn btn-ghost" type="button" id="bb-replace-no">Cancel</button></div>
+</div>
+</div>
+</section>
 <section class="wrap narrow bb-app" id="bb-app" aria-labelledby="bb-form-h">
 <h2 id="bb-form-h">Build the instructions</h2>
 <p class="small">Required questions are marked. The result quotes your answers as data, so a sentence like "ignore the rules" does not become a rule.</p>
@@ -48,14 +80,114 @@
 </div>
 <p id="bb-form-status" class="bb-status" role="status" aria-live="polite"></p>
 <div id="bb-result" hidden>
-<h3 id="bb-out-h" tabindex="-1">Instructions to paste</h3>
-<p class="small">Not run yet. Paste the box into a chat, then run the tests that are inside it. Copy and Download use the words in the box. Neither sends them anywhere.</p>
+<h3 id="bb-out-h" tabindex="-1">Your instructions are ready. Your plan hasn’t been created here.</h3>
+<p>Use a normal chat first. You don’t need to create a custom bot to try this. Paste the instructions into that chat, then check the reply yourself.</p>
+<p class="small">Copy means the words were copied. It does not mean they were installed or run. Download is there if copy is refused.</p>
 <div class="term glass"><div class="term-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="term-title">Instructions</span>
 <button class="btn btn-sm" type="button" id="bb-copy">Copy instructions</button>
 <button class="btn btn-sm btn-ghost" type="button" id="bb-download">Download .txt</button>
 <span id="bb-copy-status" class="bb-inline-status" role="status" aria-live="polite"></span></div>
-<pre class="term-body" id="bb-out" tabindex="0"></pre></div>
-<p id="bb-stale" class="small bb-warn" hidden>Answers changed after this text was written. Write instructions again before you rely on it.</p>
+<pre class="term-body bb-out-compact" id="bb-out" tabindex="0"></pre></div>
+<p id="bb-stale" class="small bb-warn" hidden>Answers changed after this text was written. Write instructions again before you rely on it. Needs recheck.</p>
+<p class="small"><a href="#bb-checkin">Weekly check-in</a> is next to these instructions. It is a template, not a live review.</p>
+<section id="bb-checkin" hidden aria-labelledby="bb-checkin-h">
+<h3 id="bb-checkin-h">Weekly check-in</h3>
+<p><b>Keep what worked. Change one thing.</b> Suggested from your answers — not an AI diagnosis. This is a template, not a live AI. It does not invent a date, a clock time, or a timezone, and it does not see a calendar.</p>
+<p>This tool prepares instructions in your browser. If you choose to remember a setup, it is stored in this browser on this device, not a private online account. Clearing browser data or using a different browser can lose it. People using this browser may be able to read it. Download a copy if you want a backup.</p>
+<p>What you paste into another AI app is handled under that app’s settings and policies. Leave out private work, client and personal information.</p>
+<p id="bb-save-status" class="bb-status" role="status" aria-live="polite">Nothing is saved in this browser yet.</p>
+<p id="bb-tab-warn" class="bb-warn" hidden>Another tab has a newer copy. Load it, or keep what is on this tab. This tab will not overwrite the newer copy.</p>
+<div class="bb-actions"><button class="btn btn-ghost" type="button" id="bb-load-other" hidden>Load the other tab's copy</button>
+<button class="btn btn-ghost" type="button" id="bb-next-week">Keep this rule. Review this week's dates and commitments.</button></div>
+<div id="bb-clear-ask" hidden>
+<p>Clear the weekly setup saved in this browser? This does not change other pages on the site.</p>
+<div class="bb-actions"><button class="btn" type="button" id="bb-clear-yes">Clear saved setup</button><button class="btn btn-ghost" type="button" id="bb-clear-no">Keep it</button></div>
+</div>
+<fieldset class="bb-set"><legend>Did you use this setup?</legend>
+<label class="bb-check"><input type="radio" name="bb-used" value="yes"> Yes</label>
+<label class="bb-check"><input type="radio" name="bb-used" value="no"> No</label>
+<label class="bb-check"><input type="radio" name="bb-used" value="not_sure"> Not sure</label>
+</fieldset>
+<fieldset class="bb-set"><legend>What got in the way?</legend>
+<label class="bb-check"><input type="radio" name="bb-blocker" value="overfilled"> Overfilled week</label>
+<label class="bb-check"><input type="radio" name="bb-blocker" value="estimate_off"> Estimate off</label>
+<label class="bb-check"><input type="radio" name="bb-blocker" value="fixed_ignored"> Fixed time ignored</label>
+<label class="bb-check"><input type="radio" name="bb-blocker" value="something_else"> Something else</label>
+<label class="bb-check"><input type="radio" name="bb-blocker" value="nothing_to_change"> Nothing to change</label>
+</fieldset>
+<div id="bb-outcome" hidden>
+<p id="bb-outcome-q">Last time you chose a rule. Did it help?</p>
+<fieldset class="bb-set"><legend>Did the accepted change help later?</legend>
+<label class="bb-check"><input type="radio" name="bb-outcome" value="helped"> Helped</label>
+<label class="bb-check"><input type="radio" name="bb-outcome" value="didnt_help"> Didn't help</label>
+<label class="bb-check"><input type="radio" name="bb-outcome" value="not_tried"> Not tried</label>
+<label class="bb-check"><input type="radio" name="bb-outcome" value="not_sure"> Not sure</label>
+</fieldset>
+<p id="bb-outcome-status" class="bb-status" role="status" aria-live="polite"></p>
+</div>
+<p id="bb-kept-rules" class="small"></p>
+<div class="bb-field"><label for="bb-ci-done">What got done?</label><textarea id="bb-ci-done" rows="2" maxlength="500" placeholder="Finished the logo draft."></textarea></div>
+<div class="bb-field"><label for="bb-ci-slipped">What slipped?</label><textarea id="bb-ci-slipped" rows="2" maxlength="500" placeholder="The outline slipped again."></textarea></div>
+<div class="bb-field"><label for="bb-ci-longer">What took longer than planned?</label><textarea id="bb-ci-longer" rows="2" maxlength="500" placeholder="The guide took longer than planned."></textarea></div>
+<div class="bb-field"><label for="bb-ci-new">Any new commitment? Optional.</label><textarea id="bb-ci-new" rows="2" maxlength="500" placeholder="A sample invoice follow-up. Do not include a private schedule."></textarea></div>
+<fieldset class="bb-set"><legend>What pattern fits?</legend>
+<label class="bb-check"><input type="checkbox" name="bb-checkin" value="slipped_again"> A task slipped more than once</label>
+<label class="bb-check"><input type="checkbox" name="bb-checkin" value="underestimated"> Something took longer than planned</label>
+<label class="bb-check"><input type="checkbox" name="bb-checkin" value="missing_buffer"> There was no gap between things</label>
+<label class="bb-check"><input type="checkbox" name="bb-checkin" value="overplanned"> A day had more than I could finish</label>
+</fieldset>
+<button class="btn" type="button" id="bb-checkin-suggest">Suggest one change</button>
+<p id="bb-checkin-status" class="bb-status" role="status" aria-live="polite"></p>
+<div id="bb-checkin-diff" hidden>
+<h4>Before <span id="bb-checkin-before-v">v1</span></h4>
+<pre class="term-body glass" id="bb-checkin-before" tabindex="0"></pre>
+<h4>After <span id="bb-checkin-after-v">v2</span></h4>
+<pre class="term-body glass" id="bb-checkin-after" tabindex="0"></pre>
+<div class="bb-actions">
+<button class="btn" type="button" id="bb-checkin-apply">Apply change</button>
+<button class="btn btn-ghost" type="button" id="bb-checkin-undo">Undo</button>
+</div>
+<p id="bb-version-status" class="bb-status" role="status" aria-live="polite"></p>
+</div>
+</section>
+<section id="bb-handoff" aria-labelledby="bb-handoff-h">
+<h3 id="bb-handoff-h">After you try it, check these three things.</h3>
+<p>These are your checks, not an independent guarantee. AI replies can still be wrong. Nothing here is marked passed until you choose Pass yourself.</p>
+<button class="btn btn-ghost" type="button" id="bb-mark-tried">I pasted this into a chat</button>
+<fieldset class="bb-set"><legend>Did it keep the time you marked unavailable free?</legend>
+<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="unchecked" checked> Not checked</label>
+<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="pass"> Pass</label>
+<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="fail"> Fail</label>
+<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="not_sure"> Not sure</label>
+</fieldset>
+<fieldset class="bb-set"><legend>Did it flag work exceeding available hours or missing estimates?</legend>
+<label class="bb-check"><input type="radio" name="bb-check-overload" value="unchecked" checked> Not checked</label>
+<label class="bb-check"><input type="radio" name="bb-check-overload" value="pass"> Pass</label>
+<label class="bb-check"><input type="radio" name="bb-check-overload" value="fail"> Fail</label>
+<label class="bb-check"><input type="radio" name="bb-check-overload" value="not_sure"> Not sure</label>
+</fieldset>
+<fieldset class="bb-set"><legend>Did it list deferred work instead of quietly dropping it?</legend>
+<label class="bb-check"><input type="radio" name="bb-check-deferred" value="unchecked" checked> Not checked</label>
+<label class="bb-check"><input type="radio" name="bb-check-deferred" value="pass"> Pass</label>
+<label class="bb-check"><input type="radio" name="bb-check-deferred" value="fail"> Fail</label>
+<label class="bb-check"><input type="radio" name="bb-check-deferred" value="not_sure"> Not sure</label>
+</fieldset>
+<fieldset class="bb-set"><legend>Follow-up you can ask in the same chat</legend>
+<p>Can you fit in one more two-hour task without changing anything else? If the week still has room, a yes can be a real answer. This page does not grade it.</p>
+<label class="bb-check"><input type="radio" name="bb-check-followup" value="unchecked" checked> Not checked</label>
+<label class="bb-check"><input type="radio" name="bb-check-followup" value="pass"> Pass</label>
+<label class="bb-check"><input type="radio" name="bb-check-followup" value="fail"> Fail</label>
+<label class="bb-check"><input type="radio" name="bb-check-followup" value="not_sure"> Not sure</label>
+</fieldset>
+<p id="bb-handoff-status" class="bb-status" role="status" aria-live="polite"></p>
+<p class="small">Something failed? Choose what happened in Troubleshooting. A suggested instruction change is not a fix until you run it again and say so. That report is yours, not an observed result.</p>
+</section>
+<section id="bb-portable" hidden aria-labelledby="bb-portable-h">
+<h3 id="bb-portable-h">Use it in your chat app</h3>
+<p>Your setup works in whichever AI app you use, and gets better each week. These are the same instructions with a heading for each app. Nothing connects to ChatGPT, Claude, Gemini, Grok Bot, Dots, or Muse.</p>
+<div class="bb-actions" id="bb-portable-actions"></div>
+<pre class="term-body glass" id="bb-portable-out" tabindex="0"></pre>
+</section>
 </div>
 <section id="bb-trouble" aria-labelledby="bb-trouble-h"><h3 id="bb-trouble-h">Troubleshooting</h3>
 <p>Describe the result you wanted and what the chat did. Tick any pattern that fits the task you chose. A weekly-plan revision adds scheduling rules. It does not mean this page solved the week. It is not a fix until you run a test and the reply matches.</p>
@@ -336,6 +468,6 @@ Pass if: You compare the reply to DEFINITION OF SUCCESS. You decide. This templa
 <p class="small">General information, not legal, medical or financial advice. Popularity numbers are real counts we measured, with the date. Unknown = not shown. Paid placements are labeled “Sponsored”; affiliate links are labeled “Affiliate link” (<a href="/disclosure/">disclosure</a>).</p></div>
 <div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="/trending/">Trending now</a></li><li><a href="/use-cases/">Use cases</a></li><li><a href="/blueprints/">Build a bot</a></li><li><a href="/bot-instructions/">Write bot instructions</a></li><li><a href="/how-to-build-an-ai-agent-without-coding/">Build an AI agent without coding</a></li><li><a href="/how-much-does-it-cost-to-run-an-ai-agent/">What an AI agent costs</a></li><li><a href="/is-it-safe-to-give-an-ai-agent-your-email/">Email and calendar safety</a></li><li><a href="/openclaw-vs-hermes-agent/">OpenClaw vs Hermes Agent</a></li><li><a href="/what-can-bots-do/">What's an AI agent?</a></li><li><a href="/ai-agent-examples/">AI agent examples</a></li><li><a href="/news/">Latest in AI</a></li><li><a href="/run-your-bots-for-less/">Run your bots for less</a></li><li><a href="/ai-pricing/">AI price table</a></li></ul></div>
 <div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="/about/">About & how we measure</a></li><li><a href="/advertise/">Advertise</a></li><li><a href="/disclosure/">Affiliate & sponsor disclosure</a></li><li><a href="/newsletter/">Newsletter</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/sponsor-terms/">Sponsor terms</a></li><li><a href="/feed.xml">RSS feed</a></li><li><a href="https://x.com/botsdothat" rel="me noopener">Follow on X (@botsdothat)</a></li><li><a href="mailto:hello@botsdothat.com">Contact: hello@botsdothat.com</a></li></ul></div>
-</div><div class="wrap small foot-note">Data as of Nov 6, 2026 · 123 use cases · 12 blueprints</div></footer>
-<script src="/assets/app.js?v=9356da11d7" defer></script>
+</div><div class="wrap small foot-note">Data as of Nov 8, 2026 · 123 use cases · 12 blueprints</div></footer>
+<script src="/assets/app.js?v=042a687208" defer></script>
 </body></html>

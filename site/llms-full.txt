@@ -479,12 +479,12 @@ Sources:
 - Fieldwork: "Calendar health check" automation, a weekday 7:30 AM check for double bookings, missing meeting links and no travel time that never edits your calendar: https://fieldwork.ai/automations/calendar-health
 - X post by @ryanelliott (Oct 30, 2026): the most useful thing his AI agents did that week was catch two meetings booked on top of each other and a customer email he'd skimmed past: https://x.com/ryanelliott/status/2116214236233826609
 
-## Have your AI plan your day from your real calendar and to-do list
+## AI weekly planning: a realistic-week example
 URL: https://botsdothat.com/use-cases/plan-your-day-from-your-calendar-and-to-do-list/
 Category: Family & home | Difficulty: Easy | Added: 2026-10-30
 Popularity: not measured
 
-Say "plan my day" and an assistant connected to your calendar and task list reads what's already booked and what's due, then proposes a time-blocked plan with breaks. You approve or change it, and only then does it add the blocks to your calendar. A Todoist user who set this up with Claude says the key is giving every task a deadline and a rough length.
+Try a weekly-planning example, build instructions for your AI app, and check for overload before you use the plan. The steps further down are about assistants that can read a calendar. This site does not read one, and the example is fictional.
 
 What the bot does:
 1. It reads today's events from your calendar and your open tasks (for example Google Tasks or Todoist), so it plans around what's actually booked.
@@ -501,6 +501,7 @@ Prompt:
 Plan my day for [today, date]. Look at my calendar and my open tasks. My working hours are [9am-5pm]; I have the most energy in the [morning]. Rules: don't move any existing events; keep [lunch 12-1] free; add 10-minute breaks between blocks; if a task has no deadline or time estimate, ask me before scheduling it; if everything doesn't fit, tell me what to push to tomorrow and why. Show me the plan as a list first. Don't add anything to my calendar until I say yes.
 
 Watch out:
+- The hour totals in the example above are arithmetic on numbers you can read. They do not verify a calendar, and they are not a customer's result.
 - Don't let it move or delete existing appointments. Say so in the prompt, and review before you approve any calendar change.
 - It can repeat tasks you already finished if you only told it in chat. Mark tasks done in your task app so it reads the real status.
 - Gemini can get details wrong; Google's help pages say to check the sources it shows (Gemini Apps Help).
@@ -4444,7 +4445,7 @@ Safety:
 
 ## Latest in AI
 URL: https://botsdothat.com/news/
-Top story (importance): OpenAI launches GPT-6 Cyber, a security model that finds and helps fix software bugs (2026-11-05). Trending (X engagement decayed by age): Claude can now read your bank and card accounts and answer money questions (US beta); ChatGPT Images 2.6 can make animated GIFs and remember a saved reference photo; Block shows Dessa, a voice AI that talks with human-like pauses and emotion
+Top story (importance): OpenAI launches GPT-6 Cyber, a security model that finds and helps fix software bugs (2026-11-05). Trending (X engagement decayed by age): Claude can now read your bank and card accounts and answer money questions (US beta); Block shows Dessa, a voice AI that talks with human-like pauses and emotion; ChatGPT Images 2.6 can make animated GIFs and remember a saved reference photo
 - 2026-11-06 [feature, impact: notable] Meta brings Muse Wonder-style memory and focus to Muse and Meta AI | Muse and Meta AI get specialized models trained with Muse Wonder so they remember what still matters across chats (Active Memory) and keep pushing when a task hits a snag (Active Focus). Meta says Muse forgets critical goal details 2.4x less often and finishes everyday tasks with surprises 67% more often; Meta AI should ask sharper follow-ups and handle mid-chat course changes better. | Source: Meta AI Research https://research.meta.ai/blog/specialized-models-for-muse-and-metaai | X: 350 likes, 38 reposts (https://x.com/AIatMeta/status/2118768974779634084, measured 2026-11-06T20:34:06Z)
 - 2026-11-06 [agent launch, impact: notable] Amazon's Alexa for Shopping can now take shopping requests over text message | Invited U.S. customers can text Alexa Shopping to search, compare, build a cart, buy, track prices, and check orders—the same agent that already lives in the Amazon app and site. It's invite-only at first with a waitlist for others; confirm what it buys and what payment method it uses before you approve. | Source: About Amazon https://www.aboutamazon.com/news/retail/alexa-for-shopping-text-to-shop | X: 66 likes, 9 reposts (https://x.com/amazonnews/status/2118724710875721998, measured 2026-11-06T20:34:06Z)
 - 2026-11-06 [feature, impact: notable] Google Antigravity remote agents keep coding in the cloud when you close your laptop | On Google AI Pro and Ultra (personal accounts), Antigravity can run a coding session in a Google-managed cloud VM so work continues while you step away, and you can unblock permissions from your phone. Voice mode (Gemini Live) also rolls out for talking to the agent out loud, but voice does not work inside remote/cloud sessions yet. | Source: Google Antigravity Docs https://antigravity.google/docs/changelog/ | X: 2,930 likes, 230 reposts (https://x.com/antigravity/status/2118530564428833010, measured 2026-11-06T20:34:06Z)
