@@ -82,7 +82,7 @@ IMG_DIR = os.path.join(ROOT, "static", "img")
 import hashlib
 def _asset_v(name):  # content hash so browsers fetch fresh CSS/JS after every change
     with open(os.path.join(ROOT, "static", name), "rb") as fh: return hashlib.sha1(fh.read()).hexdigest()[:10]
-ASSET_V = {n: _asset_v(n) for n in ("style.css", "app.js", "bot-builder.js")}
+ASSET_V = {n: _asset_v(n) for n in ("style.css", "app.js", "bot-builder.js", "accounts.js")}
 
 def nice_date(d):
     if not d: return ""
@@ -625,8 +625,8 @@ home = f"""
 <div class="hl-stack">{hero_heads}</div>
 <div class="hl-stack">{hero_leads}</div>
 {searchbox(home=True)}
-<div class="hero-ctas"><a class="btn" href="#trending">See what's trending</a><a class="btn btn-ghost" href="{u('/blueprints/')}">Build your first bot →</a></div>
-<p class="small"><a href="{u('/bot-instructions/')}">Write chat instructions for a text-only task</a>. Free, no account access. A paid setup pilot is listed there and is not for sale yet.</p>
+<div class="hero-ctas"><a class="btn" href="{u('/bot-instructions/')}">Customize a setup</a><a class="btn btn-ghost" href="#trending">See what's trending</a></div>
+<p class="small">Write instructions for your own chat app, then improve them when a test fails. Saving a setup to come back is not on sale yet. The guides below stay free. A saved setup is text you paste yourself. This site does not run the bot.</p>
 </div>
 {radar(TRENDING)}
 </div>
@@ -657,7 +657,7 @@ home = f"""
 <ul class="cats-bento">{cat_tiles}</ul></section>
 
 <section class="wrap block" aria-labelledby="bp-h"><div class="block-head"><div><p class="eyebrow">Build a bot</p><h2 id="bp-h">Copy a blueprint. Paste. Done.</h2>
-<p class="muted">Each blueprint says what the bot watches, when it runs, which tool to use, and the exact words to paste.</p></div><a class="btn btn-ghost btn-sm" href="{u('/blueprints/')}">All {len(bps)} blueprints →</a></div>
+<p class="muted">Each blueprint says what the bot watches, when it runs, which tool to use, and the exact words to paste. These guides stay free. To customize one job, use the <a href="{u('/bot-instructions/')}">instruction builder</a>.</p></div><a class="btn btn-ghost btn-sm" href="{u('/blueprints/')}">All {len(bps)} blueprints →</a></div>
 <ul class="bp-grid">{bp_cards}</ul></section>
 
 <section class="wrap block explain-teaser reveal" aria-labelledby="ex-h"><div class="block-head"><div><p class="eyebrow">New to this?</p><h2 id="ex-h">What can bots actually do?</h2></div></div>
@@ -933,11 +933,11 @@ if _bb_errs:
 _bb_bc, _bb_ld = crumbs([("Home", "/"), ("Write instructions", None)])
 _bb_faq = [{"@type": "Question", "name": item["q"], "acceptedAnswer": {"@type": "Answer", "text": item["a"]}} for item in _bb["faq"]]
 page("/bot-instructions/", "Write bot instructions",
-     "Free instructions for a week plan, an email draft, or a quote comparison. Text only. No account access. The $29 pilot is not for sale yet.",
+     "Customize instructions for your own chat app. Weekly planning, email drafts, and quote comparisons are free in the tab. Saving setups is not on sale yet.",
      f'<div class="wrap">{_bb_bc}</div>' + bot_builder.render_page_inner(u),
      [_bb_ld, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": _bb_faq}],
      lastmod="2026-11-08",
-     head_extra=f'<script src="{u("/assets/bot-builder.js")}?v={ASSET_V["bot-builder.js"]}" defer></script>')
+     head_extra=f'<script src="{u("/assets/bot-builder.js")}?v={ASSET_V["bot-builder.js"]}" defer></script><script src="{u("/assets/accounts.js")}?v={ASSET_V["accounts.js"]}" defer></script>')
 
 for b in bps:
     bc, bld = crumbs([("Home", "/"), ("Build a bot", "/blueprints/"), (b["title"], None)])
@@ -1975,7 +1975,7 @@ page(PRIVACY, "Privacy policy", f"What {NAME} collects (only your email, if you 
 <li>We use <a href="https://www.cloudflare.com/web-analytics/" rel="noopener">Cloudflare Web Analytics</a> to count page views and see which pages are popular.</li>
 <li>It doesn't use cookies, doesn't track you across other websites, and doesn't give us your name, email or any other personal details. That's why there's no cookie banner.</li></ul>
 <h2>Sponsors who pay us</h2><p>If you buy a sponsor spot, Stripe handles the payment. We never see your full card number. We receive your name, email, billing details Stripe asks for, and what you type at checkout (your website, ad text and start month), and we use them only to run your spot and send receipts. Stripe's <a href="https://stripe.com/privacy" rel="noopener">privacy policy</a> covers how it handles payment data.</p>
-<h2>Instruction builder</h2><p>The <a href="{u('/bot-instructions/')}">instruction builder</a> runs in your browser. What you type stays in that tab's memory. We don't receive it, store it, or send it to a model. Copy places the instructions on your clipboard only after you press Copy. Clear answers, or closing the tab, drops it. Don't type passwords, payment numbers, identity numbers, health details, or someone else's private mail.</p>
+<h2>Instruction builder</h2><p>The <a href="{u('/bot-instructions/')}">instruction builder</a> runs in your browser. On this site, what you type stays in that tab. We don't receive it. Copy places the instructions on your clipboard only after you press Copy. Download saves a text file on your device only after you press Download. Clear answers, or closing the tab, drops it. Sign-in and saved setups are not turned on, so there is no account to reopen. Don't type passwords, payment numbers, identity numbers, health details, employer secrets, or someone else's private schedule.</p>
 <h2>What we never do</h2><ul><li>We never sell, rent or share your email address or data.</li><li>We don't run ad-tracking pixels.</li><li>We don't collect what you type into the instruction builder.</li>
 <li>Sponsors never get reader emails. If a sponsor's link is on a page, clicking it takes you to their site, and their privacy policy applies there.</li></ul>
 <h2>Links to other sites</h2><p>Our guides link to tools, posts and articles on other sites. Those sites have their own privacy policies.</p>
@@ -2003,7 +2003,7 @@ page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wr
 idx = [{"t": x["title"], "u": u("/use-cases/" + x["slug"] + "/"), "c": CAT[x["category"]]["name"], "i": CAT[x["category"]]["icon"], "d": x["difficulty"], "h": x["_heat"], "s": search_text(x)} for x in ucs]
 idx += [{"t": "Blueprint: " + b["title"], "u": u("/blueprints/" + b["slug"] + "/"), "c": "Blueprint", "i": "⚙", "d": b["difficulty"], "h": 0, "s": norm(b["title"] + " " + b["goal"] + " " + b["watches"])} for b in bps]
 idx += [{"t": t, "u": u(pth), "c": "Guide", "i": "📘", "d": "Easy", "h": 0, "s": norm(t + " " + d + (" openclaw hermes agent nous research self-hosted open source" if pth == CLAW_GUIDE else ""))} for pth, t, d in NEW_GUIDES]
-idx.append({"t": "Write bot instructions", "u": u("/bot-instructions/"), "c": "Guide", "i": "✎", "d": "Easy", "h": 0, "s": norm("write bot instructions text only chat weekly plan email draft compare quotes troubleshooting template")})
+idx.append({"t": "Write bot instructions", "u": u("/bot-instructions/"), "c": "Guide", "i": "✎", "d": "Easy", "h": 0, "s": norm("write bot instructions text only chat weekly planning email draft compare quotes troubleshooting template pilot")})
 json.dump(idx, open(os.path.join(OUT, "assets", "search-index.json"), "w"), ensure_ascii=False, separators=(",", ":"))
 
 def rfc822(d): return datetime.datetime.combine(datetime.date.fromisoformat(d), datetime.time(12)).strftime("%a, %d %b %Y %H:%M:%S +0000")
@@ -2032,7 +2032,7 @@ bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "
 open(os.path.join(OUT, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {absu(u('/sitemap.xml'))}\n")
 
 L1 = [f"# {NAME}", "", f"> {TAGLINE} {cfg['description']}", "", f"Data as of {BUILD_DATE}. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.", "",
-      "## Start here", f"- [What is an AI agent? (in simple terms)]({absu(u('/what-can-bots-do/'))}): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely", *[f"- [{t}]({absu(u(pth))}): {d}" for pth, t, d in NEW_GUIDES[1:]], f"- [How to build an AI agent without coding]({absu(u(BUILD_GUIDE))}): step-by-step beginner guide using a real blueprint as the worked example", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Write bot instructions]({absu(u('/bot-instructions/'))}): free text-only templates for a week plan, an email draft, or a quote comparison. The $29 pilot is not for sale; checkout is closed", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", f"- [{NAME} Weekly newsletter]({absu(u('/newsletter/'))}): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; new subscribers get a free Starter Pack PDF of 7 ready-to-paste agent setups plus a power-user bonus; past issues on the web", "", "## Use cases by category"]
+      "## Start here", f"- [What is an AI agent? (in simple terms)]({absu(u('/what-can-bots-do/'))}): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely", *[f"- [{t}]({absu(u(pth))}): {d}" for pth, t, d in NEW_GUIDES[1:]], f"- [How to build an AI agent without coding]({absu(u(BUILD_GUIDE))}): step-by-step beginner guide using a real blueprint as the worked example", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Write bot instructions]({absu(u('/bot-instructions/'))}): free in-tab templates for a weekly plan, an email draft, or a quote comparison. Saved setups are not on sale; sign-in and checkout are off", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", f"- [{NAME} Weekly newsletter]({absu(u('/newsletter/'))}): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; new subscribers get a free Starter Pack PDF of 7 ready-to-paste agent setups plus a power-user bonus; past issues on the web", "", "## Use cases by category"]
 for c in cats:
     L1 += ["", f"### {c['name']}", f"All {c['name']} use cases: {absu(u('/category/'+c['slug']+'/'))}"] + [f"- [{x['title']}]({absu(u('/use-cases/'+x['slug']+'/'))}): {x['summary']}" for x in ucs if x["category"] == c["slug"]]
 L1 += ["", "## Latest in AI (newest first)"] + [f"- {n['date']} [{n['category']}] {n['headline']}: {n['explainer']} Source: {n['source_url']}" for n in NEWS[:15]]

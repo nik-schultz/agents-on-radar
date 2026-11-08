@@ -11,7 +11,6 @@
   var DROP = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u200b-\u200f\u202a-\u202e\u2066-\u2069\ufeff]/g;
   var SECRET = /(?:\bpassword\b|\bpasscode\b|\bapi[ _-]?key\b|\bsecret[ _-]?key\b|\baccess[ _-]?token\b|\bprivate[ _-]?key\b|\b\d{3}-\d{2}-\d{4}\b|\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]+\b|\b\d{13,19}\b)/i;
   var BLOCKED = /\b(?:diagnos(?:is|e)|prescription|lawsuit|attorney|tax return|investment advice|mortgage|loan application|insurance claim|medical advice|legal advice|financial advice)\b/i;
-  var FAILURE_IDS = ["missing-inputs", "invented-facts", "wrong-format", "skipped-steps"];
 
   function loadCatalog() {
     if (CATALOG) return CATALOG;
@@ -169,13 +168,15 @@
       errors.push(err("failures", catalog.messages.unknown_failure));
       failureIds = [];
     }
-    var unknown = failureIds.filter(function (fid) { return FAILURE_IDS.indexOf(fid) === -1; });
+    var patterns = (task.failures && task.failures.length) ? task.failures : catalog.failures;
+    var ids = patterns.map(function (f) { return f.id; });
+    var unknown = failureIds.filter(function (fid) { return ids.indexOf(fid) === -1; });
     if (unknown.length) errors.push(err("failures", catalog.messages.unknown_failure));
     if (errors.length) return {ok: false, errors: errors};
-    var selected = FAILURE_IDS.filter(function (fid) { return failureIds.indexOf(fid) !== -1; });
+    var selected = ids.filter(function (fid) { return failureIds.indexOf(fid) !== -1; });
     var blob = exp + "\n" + act;
     var noticed = [], matched = [];
-    catalog.failures.forEach(function (failure) {
+    patterns.forEach(function (failure) {
       var kw = keywordHit(failure, blob);
       var picked = selected.indexOf(failure.id) !== -1;
       if (selected.length && picked) {
@@ -267,25 +268,37 @@
         if (!input.checked) return;
         currentId = task.id;
         renderQuestions(task);
+        renderFailures(task);
         clearOutput("Task changed. The previous instructions were cleared from this tab.");
       });
     });
 
     var failList = doc.getElementById("bb-failure-list");
-    catalog.failures.forEach(function (failure) {
-      var label = doc.createElement("label");
-      label.className = "bb-check";
-      var input = doc.createElement("input");
-      input.type = "checkbox";
-      input.name = "bb-failure";
-      input.value = failure.id;
-      input.id = "bb-fail-" + failure.id;
-      label.appendChild(input);
-      var span = doc.createElement("span");
-      span.textContent = failure.label;
-      label.appendChild(span);
-      failList.appendChild(label);
-    });
+    function renderFailures(task) {
+      failList.textContent = "";
+      var list = task ? ((task.failures && task.failures.length) ? task.failures : catalog.failures) : null;
+      if (!list) {
+        var note = doc.createElement("p");
+        note.className = "small";
+        note.textContent = "Choose a task to see its troubleshooting patterns.";
+        failList.appendChild(note);
+        return;
+      }
+      list.forEach(function (failure) {
+        var label = doc.createElement("label");
+        label.className = "bb-check";
+        var input = doc.createElement("input");
+        input.type = "checkbox";
+        input.name = "bb-failure";
+        input.value = failure.id;
+        input.id = "bb-fail-" + failure.id;
+        label.appendChild(input);
+        var span = doc.createElement("span");
+        span.textContent = failure.label;
+        label.appendChild(span);
+        failList.appendChild(label);
+      });
+    }
 
     function currentTask() { return taskById(catalog, currentId); }
     function renderQuestions(task) {
@@ -597,6 +610,7 @@
           doc.getElementById("bb-q-" + q.id).value = q.sample || "";
         }
       });
+      renderFailures(task);
       writeInstructions();
       formStatus.textContent = "Filled with a made-up example and wrote instructions in this tab. Nothing was sent. Replace the quoted facts with your own non-sensitive notes if you want.";
     }
@@ -612,6 +626,7 @@
       note.textContent = "Choose a task to see its questions.";
       questions.appendChild(note);
       clearFieldErrors();
+      renderFailures(null);
       clearOutput("Cleared from this tab. Nothing was saved on the site.");
       var first = doc.getElementById("bb-task-" + catalog.tasks[0].id);
       if (first) first.focus();
@@ -621,13 +636,37 @@
     doc.getElementById("bb-sample").addEventListener("click", fillSample);
     doc.getElementById("bb-clear").addEventListener("click", clearAll);
     reviseBtn.addEventListener("click", revise);
+    function downloadText(text, filename, status) {
+      if (!text) { status.textContent = "Nothing to download yet."; return; }
+      try {
+        var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+        var link = doc.createElement("a");
+        var url = URL.createObjectURL(blob);
+        link.href = url;
+        link.download = filename;
+        doc.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+        status.textContent = "Downloaded a text file on this device. It was not sent to BotsDoThat.";
+      } catch (e) {
+        status.textContent = "Download did not work. Use Copy instead. Nothing was sent.";
+      }
+    }
+    function fileName(suffix) {
+      var task = currentTask();
+      return (task ? task.id : "instructions") + suffix + ".txt";
+    }
     doc.getElementById("bb-copy").addEventListener("click", function () { copyFrom(out, doc.getElementById("bb-copy"), doc.getElementById("bb-copy-status")); });
+    doc.getElementById("bb-download").addEventListener("click", function () { downloadText(out.textContent, fileName("-instructions"), doc.getElementById("bb-copy-status")); });
     doc.getElementById("bb-copy-rev").addEventListener("click", function () { copyFrom(rev, doc.getElementById("bb-copy-rev"), doc.getElementById("bb-copy-rev-status")); });
+    doc.getElementById("bb-download-rev").addEventListener("click", function () { downloadText(rev.textContent, fileName("-revised"), doc.getElementById("bb-copy-rev-status")); });
     report.addEventListener("change", function () {
       reportStatus.textContent = report.checked
         ? "Recorded only in this tab: you say a test matched. BotsDoThat has not seen the chat and has not verified it."
         : "Not reported. BotsDoThat has not seen a chat reply.";
     });
+    renderFailures(null);
     questions.textContent = "";
     var start = doc.createElement("p");
     start.className = "small";

@@ -18,7 +18,13 @@ _BLOCKED = re.compile(
     r"(?i)\b(diagnos(?:is|e)|prescription|lawsuit|attorney|tax return|investment advice|"
     r"mortgage|loan application|insurance claim|medical advice|legal advice|financial advice)\b"
 )
-_FAILURE_IDS = ("missing-inputs", "invented-facts", "wrong-format", "skipped-steps")
+_DEFAULT_FAILURES = ("missing-inputs", "invented-facts", "wrong-format", "skipped-steps")
+_WEEKLY_FAILURES = ("unrealistic-workload", "over-fixed", "invented-commitments", "missing-duration", "wrong-format")
+
+
+def _failures(catalog, task):
+    custom = (task or {}).get("failures")
+    return custom or catalog["failures"]
 
 
 def load_catalog(path=None):
@@ -35,22 +41,23 @@ def validate_catalog(catalog=None):
     c = catalog if catalog is not None else load_catalog()
     errs = []
     offer = c.get("offer") or {}
-    if offer.get("status") != "closed":
-        errs.append("bot-builder offer.status must stay closed until private intake, delivery, case tracking, and refund terms exist")
+    if offer.get("status") != "closed" or offer.get("payments_live") is not False:
+        errs.append("bot-builder payments must stay off until auth, storage, and billing are configured and verified")
     if offer.get("checkout_url"):
         errs.append("bot-builder must not set a checkout_url")
-    if offer.get("price_usd") != 29 or offer.get("days") != 7 or offer.get("tasks_included") != 1:
-        errs.append("bot-builder offer must stay $29, seven days, one task, until the published terms change")
-    if offer.get("cadence") != "one-time":
-        errs.append("bot-builder offer cadence must be one-time")
+    plans = offer.get("plans") or []
+    if [(p.get("code"), p.get("setups"), p.get("price_usd"), p.get("interval")) for p in plans] != [("three", 3, 9, "month"), ("five", 5, 14, "month")]:
+        errs.append("bot-builder plans must stay $9/month for 3 setups and $14/month for 5")
+    if "29" in json.dumps(offer):
+        errs.append("bot-builder offer must not advertise the deferred $29 service")
     msgs = c.get("messages") or {}
     for key in ("task", "required", "choose", "check", "too_long", "secret", "blocked", "expected", "actual", "unknown_failure", "bad_task"):
         if not msgs.get(key):
             errs.append(f"bot-builder messages.{key} missing")
     fails = c.get("failures") or []
     ids = [f.get("id") for f in fails]
-    if ids != list(_FAILURE_IDS):
-        errs.append(f"bot-builder failures must be {list(_FAILURE_IDS)} in that order")
+    if ids != list(_DEFAULT_FAILURES):
+        errs.append(f"bot-builder failures must be {list(_DEFAULT_FAILURES)} in that order")
     for f in fails:
         if not f.get("title") or not f.get("label") or not f.get("keywords") or not f.get("constraints"):
             errs.append(f"bot-builder failure {f.get('id')}: needs title, label, keywords, constraints")
@@ -87,6 +94,11 @@ def validate_catalog(catalog=None):
                             errs.append(f"bot-builder {tid}: format missing for {cid}")
         if fq not in qids:
             errs.append(f"bot-builder {tid}: format_question missing")
+        for f in task.get("failures") or []:
+            if not f.get("id") or not f.get("title") or not f.get("label") or not f.get("keywords") or not f.get("constraints"):
+                errs.append(f"bot-builder {tid}: bad failure {f.get('id')}")
+        if tid == "weekly-plan" and [f.get("id") for f in task.get("failures") or []] != list(_WEEKLY_FAILURES):
+            errs.append(f"bot-builder weekly-plan failures must be {list(_WEEKLY_FAILURES)}")
         if task.get("steps_from"):
             if task["steps_from"] not in qids:
                 errs.append(f"bot-builder {tid}: steps_from missing")
@@ -110,6 +122,10 @@ def validate_catalog(catalog=None):
                     errs.append(f"bot-builder {tid}: sample dropped a boundary")
             if "FACTS YOU TYPED" not in text or "DEFINITION OF SUCCESS" not in text or "TESTS" not in text:
                 errs.append(f"bot-builder {tid}: sample missing a required section")
+            if tid == "weekly-plan":
+                for phrase in ("Do not choose today's date", "duration not provided", "not enough open time", "Overlaps", "Do not invent a duration"):
+                    if phrase not in text:
+                        errs.append(f"bot-builder weekly-plan sample missing {phrase!r}")
             if _SECRET.search(text):
                 errs.append(f"bot-builder {tid}: sample looks like a secret")
     return errs
@@ -324,16 +340,18 @@ def diagnose(task_id, answers, expected, actual, failure_ids, catalog=None):
     if not isinstance(failure_ids, (list, tuple)):
         errors.append(_err("failures", catalog["messages"]["unknown_failure"]))
         failure_ids = []
-    unknown = [fid for fid in failure_ids if fid not in _FAILURE_IDS]
+    patterns = _failures(catalog, task)
+    known = [f["id"] for f in patterns]
+    unknown = [fid for fid in failure_ids if fid not in known]
     if unknown:
         errors.append(_err("failures", catalog["messages"]["unknown_failure"]))
     if errors:
         return {"ok": False, "errors": errors}
-    selected = [fid for fid in _FAILURE_IDS if fid in failure_ids]
+    selected = [fid for fid in known if fid in failure_ids]
     blob = exp + "\n" + act
     noticed = []
     matched = []
-    for failure in catalog["failures"]:
+    for failure in patterns:
         kw = _keyword_hit(failure, blob)
         picked = failure["id"] in selected
         if selected and picked:
@@ -386,9 +404,10 @@ def _e(s):
     return html.escape(str(s), quote=True)
 
 
-def render_page_inner(url=None):
-    url = url or (lambda p: p)
+def render_page_inner(url=None, saved_config=None):
     """Body HTML for /bot-instructions/. Samples are the no-JS path. The form is off until JS runs."""
+    url = url or (lambda p: p)
+    saved_config = saved_config or {"sign_in": False, "billing": False, "live_launch": False}
     catalog = load_catalog()
     offer = catalog["offer"]
     samples = []
@@ -408,24 +427,36 @@ def render_page_inner(url=None):
             f'<span class="term-title">Sample instructions</span></div>'
             f'<pre class="term-body" tabindex="0">{_e(text)}</pre></div></details>'
         )
-    fail_static = []
-    for failure in catalog["failures"]:
-        cons = "".join(f"<li>{_e(c)}</li>" for c in failure["constraints"])
-        fail_static.append(f'<li><b>{_e(failure["title"])}.</b> {_e(failure["label"])}. A revision for this pattern adds:<ul>{cons}</ul></li>')
+    def fail_items(failures):
+        rows = []
+        for failure in failures:
+            cons = "".join(f"<li>{_e(c)}</li>" for c in failure["constraints"])
+            rows.append(f'<li><b>{_e(failure["title"])}.</b> {_e(failure["label"])}. A revision for this pattern adds:<ul>{cons}</ul></li>')
+        return "".join(rows)
+    weekly = _task(catalog, "weekly-plan")
+    fail_weekly = fail_items(weekly["failures"])
+    fail_other = fail_items(catalog["failures"])
     faqs = "".join(f'<details class="glass"><summary>{_e(item["q"])}</summary><p>{_e(item["a"])}</p></details>' for item in catalog["faq"])
     blockers = "".join(f"<li>{_e(b)}</li>" for b in offer["public_blockers"])
+    plan_cards = "".join(
+        f'<div class="tier glass"><h3>{p["setups"]} saved setups</h3><p class="price">{_e(p["display"])}</p>'
+        f'<p>Proposed. Not charged on this site. The count is saved instruction setups, not connected apps.</p></div>'
+        for p in offer["plans"]
+    )
     task_list = "".join(f"<li>{_e(t['title'])}</li>" for t in catalog["tasks"])
+    saved_json = embed_json(saved_config)
     return f"""<div class="wrap narrow page-head"><p class="eyebrow">Free builder</p><h1 class="kinetic-sm">Write instructions for a text-only bot</h1>
-<p class="lead">Pick one everyday task, answer a few short questions, and copy instructions into a chat app you already use. The chat only writes a reply. It does not get your accounts.</p>
+<p class="lead">Customize instructions for a job you paste into your own chat app, then improve them when a test fails. Saving a setup so you can come back is not turned on. The guides on the rest of the site stay free.</p>
 <div class="glass bb-honest"><p><b>This page is a form and a template, not a live AI.</b> It does not call a model, does not review the chat's reply, and does not claim a test passed until you run one and say so yourself. That report stays in this tab. BotsDoThat has not checked it.</p>
 <p>{_e(catalog["storage_note"])}</p>
 <p class="small">Works with the text box in ChatGPT, Claude, Gemini, Copilot, Grok, and similar apps. No connected inbox, calendar, browser, or payment tool is part of this.</p></div></div>
 <section class="wrap narrow block" aria-labelledby="bb-limits-h"><h2 id="bb-limits-h">What these tasks will not do</h2>
-<ul class="bb-limits"><li>They will not open accounts, send email, book, pay, or buy.</li>
+<ul class="bb-limits"><li>The week plan does not open a calendar, create events, set reminders, or move anything. If a duration or a free hour is missing, the instructions tell the chat to ask instead of inventing one.</li>
+<li>They will not open accounts, send email, book, pay, or buy.</li>
 <li>An email task writes a draft. You send it yourself, from your own mail app, if you still want to.</li>
 <li>They will not take medical, legal, or financial decisions, and they will not read sensitive documents.</li>
 <li>Quote comparison uses only the words you paste. It does not shop and does not pick a winner.</li>
-<li>Do not paste passwords, card numbers, identity numbers, health details, or someone else's private mail.</li></ul>
+<li>Do not paste passwords, card numbers, identity numbers, health details, employer secrets, or someone else's private schedule.</li></ul>
 <p>Tasks in this version:</p><ul>{task_list}</ul>
 <p class="small">Scheduled bots that connect to tools live in the <a href="{url('/blueprints/')}">blueprints</a>. This page is the chat-only path. <a href="{url('/is-it-safe-to-give-an-ai-agent-your-email/')}">Email and calendar safety</a> is a separate guide for tools that do connect.</p></section>
 <section class="wrap narrow bb-app" id="bb-app" aria-labelledby="bb-form-h">
@@ -442,15 +473,16 @@ def render_page_inner(url=None):
 <p id="bb-form-status" class="bb-status" role="status" aria-live="polite"></p>
 <div id="bb-result" hidden>
 <h3 id="bb-out-h" tabindex="-1">Instructions to paste</h3>
-<p class="small">Not run yet. Paste the box into a chat, then run the tests that are inside it. Copy puts this text on your clipboard and nowhere else.</p>
+<p class="small">Not run yet. Paste the box into a chat, then run the tests that are inside it. Copy and Download use the words in the box. Neither sends them anywhere.</p>
 <div class="term glass"><div class="term-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="term-title">Instructions</span>
 <button class="btn btn-sm" type="button" id="bb-copy">Copy instructions</button>
+<button class="btn btn-sm btn-ghost" type="button" id="bb-download">Download .txt</button>
 <span id="bb-copy-status" class="bb-inline-status" role="status" aria-live="polite"></span></div>
 <pre class="term-body" id="bb-out" tabindex="0"></pre></div>
 <p id="bb-stale" class="small bb-warn" hidden>Answers changed after this text was written. Write instructions again before you rely on it.</p>
 </div>
 <section id="bb-trouble" aria-labelledby="bb-trouble-h"><h3 id="bb-trouble-h">Troubleshooting</h3>
-<p>Describe the result you wanted and what the chat did. Tick any pattern that fits. The revision is the same template plus the written constraints for the patterns that match. It is not a judgment from a model, and it is not a fix until you run a test and the reply matches.</p>
+<p>Describe the result you wanted and what the chat did. Tick any pattern that fits the task you chose. A weekly-plan revision adds scheduling rules. It does not mean this page solved the week. It is not a fix until you run a test and the reply matches.</p>
 <div id="bb-trouble-fields">
 <div class="bb-field"><label for="bb-expected">What result did you want?</label>
 <textarea id="bb-expected" maxlength="500" rows="3" placeholder="A seven-day plan with Morning and Afternoon lines, and no extra events."></textarea>
@@ -469,6 +501,7 @@ def render_page_inner(url=None):
 <p class="small">Still not checked. Run the tests in the box. A match you report below is your report only.</p>
 <div class="term glass"><div class="term-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="term-title">Revised instructions</span>
 <button class="btn btn-sm" type="button" id="bb-copy-rev">Copy revised instructions</button>
+<button class="btn btn-sm btn-ghost" type="button" id="bb-download-rev">Download .txt</button>
 <span id="bb-copy-rev-status" class="bb-inline-status" role="status" aria-live="polite"></span></div>
 <pre class="term-body" id="bb-rev" tabindex="0"></pre></div>
 <div class="bb-report glass"><label class="bb-check"><input type="checkbox" id="bb-self-report"> I ran a test in my chat app and the reply matched the pass line.</label>
@@ -479,25 +512,26 @@ def render_page_inner(url=None):
 <section class="wrap narrow block" aria-labelledby="bb-sample-h"><h2 id="bb-sample-h">Copy a made-up example</h2>
 <p>JavaScript fills the form above from your answers. Without JavaScript, these samples are the builder: each one is a full instruction set with fictional details. Nothing you edit here is uploaded.</p>
 {''.join(sample_html)}
-<details class="glass bb-sample"><summary>Four common failures, and what a revision adds</summary>
-<p>The form applies these only after you describe the expected result and the actual reply. The lists below are the same constraints, so you can read them with JavaScript off.</p>
-<ul>{''.join(fail_static)}</ul>
+<details class="glass bb-sample"><summary>Weekly planning failures, and what a revision adds</summary>
+<p>These apply only to the week-plan task, and only after you describe the expected result and the actual reply. Reading them here does not check a week.</p>
+<ul>{fail_weekly}</ul></details>
+<details class="glass bb-sample"><summary>Email and quote failures, and what a revision adds</summary>
+<p>These apply to the free email and quote templates.</p>
+<ul>{fail_other}</ul>
 <p class="small">A revision is not a tested fix. Run the tests and compare the reply yourself.</p></details>
 </section>
-<section class="wrap narrow block" aria-labelledby="bb-pilot-h"><h2 id="bb-pilot-h">Proposed pilot: { _e(offer["price_display"]) } once, not for sale</h2>
-<div class="glass bb-pilot"><p class="bb-price"><b>{_e(offer["price_display"])}</b> <span>{_e(offer["cadence"])}</span></p>
-<p>Introductory proposed price for one supported task, a tailored setup, a walkthrough, and troubleshooting for {offer["days"]} days. The instructions on this page stay free. The paid part would be a person helping with one task for those seven days.</p>
-<ul>
-<li>One task from the list on this page</li>
-<li>Seven days, counted from delivery, not lifetime and not unlimited</li>
-<li>No recurring charge</li>
-<li>No guaranteed business result, ranking, or income</li>
-</ul>
-<p><b>Checkout is closed.</b> This page is not accepting payments. There is no payment link, no invoice, and no way to start the seven days.</p>
-<p><button class="btn btn-ghost" type="button" id="bb-checkout" disabled aria-disabled="true" aria-describedby="bb-closed-note">Checkout closed</button></p>
-<p id="bb-closed-note" class="small">No payment is collected. Do not send card numbers, and do not email secrets about a task. The free builder above is the part that works today.</p>
-<h3>Why payment stays off</h3>
+<section class="wrap narrow block" id="bb-plans" aria-labelledby="bb-plans-h"><h2 id="bb-plans-h">Save a setup and come back</h2>
+<div class="glass bb-pilot"><p>{_e(offer["distinction"])}</p>
+<p>The builder above is free and works in this tab without an account. A later subscription would let you keep a few of those instruction setups and edit them when you return. It would not run the bot, and it would not include a chat-model subscription.</p>
+<div class="tiers">{plan_cards}</div>
+<p>Weekly planning is the starter to customize. You can also keep an email draft or a quote comparison. Three or five is how many setups you store, including more than one week plan. It is not three or five connected products.</p>
+<p><button class="btn" type="button" id="bb-signin" disabled aria-disabled="true">Sign-in is not turned on</button>
+<button class="btn btn-ghost" type="button" id="bb-checkout-plan" disabled aria-disabled="true" aria-describedby="bb-closed-note">Checkout is not turned on</button></p>
+<p id="bb-closed-note" class="small">No payment is collected. Do not enter a card. Sponsor spots on <a href="{url('/advertise/')}">Advertise</a> are a different product.</p>
+<div id="bb-account-status" class="bb-status" role="status" aria-live="polite">Nothing you type is stored on this build.</div>
+<h3>Why saving and payment stay off</h3>
 <ul>{blockers}</ul>
-<p class="small">Sponsor spots on <a href="{url('/advertise/')}">Advertise</a> are a different product. They are not this pilot.</p></div></section>
+<div id="bb-account"></div></div></section>
+<script type="application/json" id="bb-saved-config">{saved_json}</script>
 <section class="wrap narrow faq" aria-labelledby="bb-faq-h"><h2 id="bb-faq-h">Questions</h2>{faqs}</section>
 <script type="application/json" id="bb-catalog">{embed_json(catalog)}</script>"""

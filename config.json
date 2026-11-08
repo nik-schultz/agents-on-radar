@@ -50,5 +50,14 @@
     },
     "_help": "Stripe Payment Links for /advertise/ 'Book & pay' buttons. Put LIVE-mode links (https://buy.stripe.com/..., never /test_) in links, then set live=true. While live is false or any link is empty, /advertise/ keeps the 'Email us' buttons. sandbox_links are the test-mode copies (BotsDoThat sandbox acct_1UToXNBHg6I95Fjd) for trying checkout with card 4242 4242 4242 4242; they are never shown on the site. promo_code = Founding sponsor code (featured listing, first month free, first 3 sponsors). newsletter_promo_code = code for the first 2 newsletter issues sold free (max 2 uses, newsletter product only). Run for less and Bundle links each stop after 1 completed sale (both include the single Run for less tile); when one sells, deactivate the other in Stripe until that month ends. No secret keys here, ever.",
     "newsletter_promo_code": "FIRST2"
+  },
+  "saved_setups": {
+    "sign_in": false,
+    "billing": false,
+    "live_launch": false,
+    "supabase_url": "",
+    "supabase_publishable_key": "",
+    "accounts_api_url": "",
+    "_help": "Keep all three flags false in this file. Sign-in and billing turn on only after a Supabase project for this product and a billing server exist. Never put a service-role key or a Stripe secret here."
   }
 }
