@@ -462,7 +462,7 @@ process.stdin.on("end", () => {
         self.assertIn("Weekly check-in", html)
         self.assertIn("Apply change", html)
         self.assertIn(">Undo<", html)
-        self.assertIn("saved on this device only", html)
+        self.assertIn("stored in this browser on this device", html)
         self.assertIn("This is a template, not a live AI.", html)
         self.assertIn("whichever AI app you use, and gets better each week", html)
         self.assertIn("ChatGPT", html)
@@ -480,7 +480,7 @@ process.stdin.on("end", () => {
             source = fh.read()
         self.assertIn("Build your bot", source)
         self.assertIn('saved_setups") or {}).get("sign_in")', source)
-        self.assertIn("See an example", source)
+        self.assertIn("Try a weekly-planning example", source)
         index = os.path.join(ROOT, "site", "index.html")
         if os.path.exists(index):
             with open(index, encoding="utf-8") as fh:
@@ -490,6 +490,160 @@ process.stdin.on("end", () => {
             self.assertNotIn(">My bots</a>", page)
             self.assertIn('href="/bot-instructions/#weekly-sample"', page)
             self.assertLess(page.find('id="subscribe"'), page.find("What's in the feed"))
+
+
+class WeeklyLoopTests(unittest.TestCase):
+    def test_fixture_is_two_hours_over_and_not_a_calendar_check(self):
+        result = bb.capacity_check(bb.fictional_week())
+        self.assertEqual(result["summary"], "8 hours available · 10 hours of tasks · 2 hours need to move.")
+        self.assertEqual(result["shortfall_minutes"], 120)
+        self.assertFalse(result["calendar_verified"])
+        self.assertFalse(result["all_clear"])
+        self.assertFalse(result["subtracted_again"])
+        self.assertIn("not calendar conflicts", result["math_note"])
+        self.assertIn("not subtracted again", result["math_note"])
+        partial = bb.capacity_check(bb.fictional_week(), ["reading"])
+        self.assertEqual(partial["shortfall_minutes"], 60)
+        self.assertEqual(partial["summary"], "8 hours available · 9 hours of tasks · 1 hour need to move.")
+        self.assertFalse(partial["auto_selected"])
+
+    def test_unknown_estimates_never_clear_the_week(self):
+        facts = bb.fictional_week()
+        facts["tasks"][3]["minutes"] = None
+        result = bb.capacity_check(facts)
+        self.assertEqual(result["status"], "unknown")
+        deferred = bb.capacity_check(facts, ["reading"])
+        self.assertEqual(deferred["status"], "unknown")
+        self.assertFalse(deferred["all_clear"])
+        self.assertFalse(result["all_clear"])
+        self.assertIn("no estimate", result["summary"])
+        self.assertNotIn("within the hours entered", result["summary"])
+
+    def test_bad_numbers_do_not_become_nan_or_a_fit(self):
+        for value in (1.5, True, False, "nan", "1.1 minutes", -5, "999 hours", "Infinity"):
+            parsed = bb.parse_minutes(value)
+            self.assertFalse(parsed["ok"], value)
+            self.assertNotIn("nan", parsed["error"].lower())
+        self.assertEqual(bb.parse_minutes("8.5 hours")["minutes"], 510)
+        self.assertEqual(bb.parse_minutes("")["minutes"], None)
+        huge = bb.capacity_check({"available_minutes": "999 hours", "tasks": []})
+        self.assertEqual(huge["status"], "invalid")
+        self.assertFalse(huge.get("all_clear", False))
+
+    def test_replace_cancel_keeps_the_exact_answers(self):
+        current = {"tasks": "Call the printer, 20 minutes.", "fixed": "Thu 09:00 standup."}
+        incoming = bb.example_answers()
+        kept = bb.confirm_replace(current, incoming, False)
+        self.assertFalse(kept["replaced"])
+        self.assertEqual(kept["answers"], current)
+        replaced = bb.confirm_replace(current, incoming, True)
+        self.assertTrue(replaced["replaced"])
+        self.assertEqual(replaced["answers"], incoming)
+
+    def test_copy_does_not_mark_a_check_passed(self):
+        state = bb.note_copied(bb.fresh_handoff())
+        self.assertTrue(state["copied"])
+        self.assertFalse(state["tried"])
+        self.assertTrue(all(value == "unchecked" for value in state["checks"].values()))
+        self.assertEqual(state["followup"], "unchecked")
+        self.assertFalse(state["verified"])
+        tried = bb.note_tried(state)
+        marked = bb.set_check(tried, "overload", "fail")
+        self.assertTrue(marked["ok"])
+        self.assertEqual(marked["state"]["stage"], "checked")
+        self.assertFalse(marked["state"]["verified"])
+        stale = bb.invalidate_handoff(marked["state"], "The weekly facts changed.")
+        self.assertTrue(stale["needs_recheck"])
+        self.assertEqual(stale["checks"]["overload"], "fail")
+        self.assertFalse(bb.review_wants_change({"used": "no"}))
+        self.assertFalse(bb.review_wants_change({"blocker": "nothing_to_change"}))
+
+    def test_apply_undo_and_outcome_do_not_invent_success(self):
+        base = "INSTRUCTIONS\nPlan only the typed facts.\n"
+        history = bb.InstructionHistory(base)
+        edited = bb.check_in(base, {"slipped": "The outline slipped again."})
+        history.apply(edited["after"])
+        self.assertEqual(history.label(), "v2")
+        receipt = bb.accept_rule(bb.blank_receipt(), edited["matched"]["id"], edited["change"], history.label())
+        self.assertEqual(receipt["outcome"], "not_tried")
+        self.assertFalse(receipt["claimed_success"])
+        later = bb.record_outcome(receipt, "helped")
+        self.assertFalse(later["receipt"]["claimed_success"])
+        self.assertEqual(later["receipt"]["rule"], receipt["rule"])
+        history.undo()
+        self.assertEqual(history.text(), base)
+        receipt["decision"] = "undone"
+        self.assertEqual(bb.kept_rules([receipt]), [])
+        kept = bb.with_enduring_rules("FACTS\n", [edited["change"]])
+        self.assertIn("ENDURING RULES", kept)
+        self.assertIsNone(_CLOCK.search(kept.split("ENDURING RULES", 1)[1]))
+        self.assertNotIn(edited["change"], bb.with_enduring_rules("FACTS\n", []))
+
+    def test_storage_failures_conflicts_and_legacy_copies(self):
+        legacy = json.dumps({"versions": ["v1 text"], "index": 0, "note": "Saved on this device only."})
+        loaded = bb.read_store(legacy)
+        self.assertEqual(loaded["status"], "legacy")
+        self.assertEqual(loaded["record"]["versions"], ["v1 text"])
+        self.assertEqual(bb.read_store("{")["status"], "invalid")
+        self.assertIsNone(bb.read_store("[]")["record"])
+        self.assertEqual(bb.read_store(None)["status"], "empty")
+        first = bb.prepare_save({"versions": ["a"], "index": 0, "receipts": [], "base_revision": 0}, None)
+        self.assertTrue(first["saved"])
+        self.assertEqual(first["record"]["revision"], 1)
+        second = bb.prepare_save({"versions": ["a"], "index": 0, "receipts": [], "base_revision": 0}, first["record"])
+        self.assertFalse(second["saved"])
+        self.assertTrue(second["conflict"])
+        self.assertIn("Not saved", second["status"])
+        other = {"newsletter": "kept"}
+        self.assertEqual(other["newsletter"], "kept")
+
+    def test_js_loop_matches_python_and_makes_no_input_request(self):
+        with open(os.path.join(ROOT, "static", "bot-builder.js"), encoding="utf-8") as fh:
+            source = fh.read()
+        for needle in ("fetch(", "XMLHttpRequest", "sendBeacon", "WebSocket", "location.search", "pushState"):
+            self.assertNotIn(needle, source)
+        raw = subprocess.check_output(["node", "-e", r"""
+const b = require("./static/bot-builder.js");
+const week = b.fictionalWeek();
+const over = b.capacityCheck(week);
+const partial = b.capacityCheck(week, ["reading"]);
+const unknown = b.capacityCheck(Object.assign({}, week, {tasks: week.tasks.map((task, i) => i === 3 ? Object.assign({}, task, {minutes: null}) : task)}));
+let handoff = b.noteCopied(b.freshHandoff());
+const copied = {copied: handoff.copied, tried: handoff.tried, checks: handoff.checks, verified: handoff.verified};
+handoff = b.noteTried(handoff);
+handoff = b.setCheck(handoff, "overload", "fail").state;
+const stale = b.invalidateHandoff(handoff, "The weekly facts changed.");
+const legacy = b.readStore(JSON.stringify({versions: ["v1 text"], index: 0}));
+const invalid = b.readStore("{");
+const conflict = b.prepareSave({versions: ["a"], index: 0, receipts: [], base_revision: 0}, {revision: 2, versions: ["a"], index: 0});
+process.stdout.write(JSON.stringify({over, partial, unknown, copied, stale, legacy: legacy.status, invalid: invalid.status, conflict}));
+"""], cwd=ROOT)
+        got = json.loads(raw)
+        py = bb.capacity_check(bb.fictional_week())
+        self.assertEqual(got["over"]["summary"], py["summary"])
+        self.assertEqual(got["over"]["shortfall_minutes"], py["shortfall_minutes"])
+        self.assertEqual(got["partial"]["shortfall_minutes"], 60)
+        self.assertEqual(got["unknown"]["status"], "unknown")
+        self.assertFalse(got["copied"]["tried"])
+        self.assertFalse(got["copied"]["verified"])
+        self.assertTrue(got["stale"]["needs_recheck"])
+        self.assertEqual(got["legacy"], "legacy")
+        self.assertEqual(got["invalid"], "invalid")
+        self.assertFalse(got["conflict"]["saved"])
+
+    def test_rendered_builder_states_the_boundaries(self):
+        html = bb.render_page_inner()
+        self.assertEqual(html.count("<h1"), 1)
+        self.assertIn("Make your AI weekly planner fit your real week.", html)
+        self.assertIn("Your plan hasn’t been created here.", html)
+        self.assertIn('id="weekly-sample"', html)
+        self.assertIn("8 hours available · 10 hours of tasks · 2 hours need to move.", html)
+        self.assertIn("Fictional example — not a customer result.", html)
+        self.assertIn('value="unchecked" checked', html)
+        self.assertIn("stored in this browser on this device", html)
+        self.assertIn("not an AI diagnosis", html)
+        self.assertNotIn("calendar verified", html.lower())
+        self.assertNotIn("fetch(", html)
 
 
 if __name__ == "__main__":

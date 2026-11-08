@@ -5,6 +5,7 @@ This module does not call a model. generate() and diagnose() are deterministic
 functions of the catalog plus the answers. User text is quoted as data.
 """
 import html, json, os, re
+from decimal import Decimal, InvalidOperation
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CATALOG_PATH = os.path.join(ROOT, "data", "bot-builder.json")
@@ -537,6 +538,375 @@ class InstructionHistory:
         return self.text()
 
 
+MAX_WEEK_MINUTES = 7 * 24 * 60
+MATH_NOTE = "This checks totals, not calendar conflicts or whether your estimates are realistic."
+COPY_OK = "Copied. It was not installed or run, and it was not sent to BotsDoThat."
+COPY_FAIL = "Copy did not work. Select the instructions and copy them yourself. Download still works."
+HANDOFF_CHECKS = (
+    ("unavailable", "Did it keep the time you marked unavailable free?"),
+    ("overload", "Did it flag work exceeding available hours or missing estimates?"),
+    ("deferred", "Did it list deferred work instead of quietly dropping it?"),
+)
+FOLLOWUP_PROMPT = "Can you fit in one more two-hour task without changing anything else?"
+CHECK_VALUES = ("unchecked", "pass", "fail", "not_sure")
+OUTCOMES = ("helped", "didnt_help", "not_tried", "not_sure")
+STORE_KEY = "botsdothat.weeklyCheckin.v1"
+
+
+def fictional_week():
+    """Editable sample. 8 open hours are already after fixed time and the buffer."""
+    return {
+        "badge": "Fictional example — not a customer result.",
+        "available_minutes": 8 * 60,
+        "tasks": [
+            {"id": "report", "name": "Write the status report", "minutes": 4 * 60},
+            {"id": "slides", "name": "Make the slides", "minutes": 3 * 60},
+            {"id": "admin", "name": "Clear the admin list", "minutes": 2 * 60},
+            {"id": "reading", "name": "Optional reading", "minutes": 60},
+        ],
+        "constraint": "Tuesday afternoon is unavailable. That is an instruction the chat must keep. This total does not check a calendar.",
+        "fixed_minutes": 120,
+        "buffer_minutes": 30,
+    }
+
+
+def _bound_minutes(n):
+    if n < 0:
+        return {"ok": False, "error": "A duration cannot be negative."}
+    if n > MAX_WEEK_MINUTES:
+        return {"ok": False, "error": "That is longer than one week of minutes. Enter a smaller number."}
+    return {"ok": True, "minutes": n}
+
+
+def parse_minutes(value, unit="minutes"):
+    """Whole minutes only. Unknown stays unknown. No float() coercion and no NaN."""
+    if value is None:
+        return {"ok": True, "minutes": None}
+    if isinstance(value, bool) or isinstance(value, float):
+        return {"ok": False, "error": "Enter a whole number of minutes."}
+    if isinstance(value, int):
+        minutes = value * 60 if unit == "hours" else value
+        return _bound_minutes(minutes)
+    if not isinstance(value, str):
+        return {"ok": False, "error": "Enter a whole number of minutes."}
+    text = value.strip()
+    if text == "" or text.casefold() in ("unknown", "not known", "none"):
+        return {"ok": True, "minutes": None}
+    if text.casefold() in ("nan", "inf", "infinity", "+inf", "-inf"):
+        return {"ok": False, "error": "That estimate is not a number of minutes."}
+    matched = re.fullmatch(r"(-?\d+)\s*(minutes|minute|min|hours|hour|h)?", text, re.I)
+    if matched:
+        number = int(matched.group(1))
+        word = (matched.group(2) or "").lower()
+        if word.startswith("h"):
+            minutes = number * 60
+        elif word:
+            minutes = number
+        else:
+            minutes = number * 60 if unit == "hours" else number
+        return _bound_minutes(minutes)
+    matched = re.fullmatch(r"(-?\d+\.\d+)\s*(hours|hour|h|minutes|minute|min)", text, re.I)
+    if matched:
+        try:
+            dec = Decimal(matched.group(1))
+        except InvalidOperation:
+            return {"ok": False, "error": "That estimate is not a number of minutes."}
+        word = matched.group(2).lower()
+        total = dec * (60 if word.startswith("h") else 1)
+        if total != total.to_integral_value():
+            return {"ok": False, "error": "Use a whole number of minutes."}
+        return _bound_minutes(int(total))
+    return {"ok": False, "error": "Enter minutes as a whole number, such as 90 or 2 hours."}
+
+
+def format_hours(minutes):
+    hours, mins = divmod(abs(int(minutes)), 60)
+    sign = "-" if minutes < 0 else ""
+    if mins == 0:
+        unit = "hour" if hours == 1 else "hours"
+        return "%s%d %s" % (sign, hours, unit)
+    if hours == 0:
+        unit = "minute" if mins == 1 else "minutes"
+        return "%s%d %s" % (sign, mins, unit)
+    return "%s%d hours %d minutes" % (sign, hours, mins)
+
+
+def capacity_check(facts, defer=None):
+    """Compare open minutes with task totals. Open minutes already exclude fixed time and buffers."""
+    defer = list(defer or [])
+    if not isinstance(facts, dict):
+        return {"ok": False, "status": "invalid", "error": "Enter the hours and the tasks.", "calendar_verified": False}
+    available = parse_minutes(facts.get("available_minutes"), "minutes")
+    if "available_minutes" in facts and isinstance(facts.get("available_minutes"), str):
+        available = parse_minutes(facts.get("available_minutes"), facts.get("available_unit") or "hours")
+    if not available["ok"]:
+        return {"ok": False, "status": "invalid", "error": available["error"], "calendar_verified": False, "subtracted_again": False}
+    tasks_in = facts.get("tasks")
+    if not isinstance(tasks_in, list):
+        return {"ok": False, "status": "invalid", "error": "Enter the tasks.", "calendar_verified": False}
+    known_ids = []
+    tasks = []
+    for task in tasks_in:
+        if not isinstance(task, dict) or not task.get("id"):
+            return {"ok": False, "status": "invalid", "error": "Each task needs a name.", "calendar_verified": False}
+        parsed = parse_minutes(task.get("minutes"), task.get("unit") or "minutes")
+        if not parsed["ok"]:
+            return {"ok": False, "status": "invalid", "error": parsed["error"], "calendar_verified": False, "subtracted_again": False}
+        known_ids.append(task["id"])
+        tasks.append({"id": task["id"], "name": task.get("name") or task["id"], "minutes": parsed["minutes"]})
+    unknown_defer = [item for item in defer if item not in known_ids]
+    if unknown_defer:
+        return {"ok": False, "status": "invalid", "error": "Choose a task that is on the list.", "calendar_verified": False}
+    unknown = [task for task in tasks if task["minutes"] is None]
+    counted = [task for task in tasks if task["minutes"] is not None and task["id"] not in defer]
+    task_minutes = sum(task["minutes"] for task in counted)
+    open_minutes = available["minutes"]
+    note = MATH_NOTE
+    if facts.get("fixed_minutes") or facts.get("buffer_minutes"):
+        note = MATH_NOTE + " Fixed commitments and buffers were not subtracted again."
+    base = {
+        "ok": True,
+        "calendar_verified": False,
+        "subtracted_again": False,
+        "auto_selected": False,
+        "math_note": note,
+        "constraint": facts.get("constraint") or "",
+        "deferred": [task["name"] for task in tasks if task["id"] in defer],
+        "task_minutes": task_minutes,
+        "available_minutes": open_minutes,
+        "unknown_count": len(unknown),
+    }
+    if open_minutes is None or unknown:
+        count = len(unknown) + (1 if open_minutes is None else 0)
+        if len(unknown) == 1 and open_minutes is not None:
+            summary = "One task has no estimate. We can't tell whether this week fits yet."
+        elif open_minutes is None and not unknown:
+            summary = "Available time has no estimate. We can't tell whether this week fits yet."
+        else:
+            summary = "Some estimates are missing. We can't tell whether this week fits yet."
+        base.update({"status": "unknown", "summary": summary, "shortfall_minutes": None, "surplus_minutes": None, "all_clear": False})
+        return base
+    shortfall = task_minutes - open_minutes
+    if shortfall > 0:
+        summary = "%s available · %s of tasks · %s need to move." % (format_hours(open_minutes), format_hours(task_minutes), format_hours(shortfall))
+        base.update({"status": "over", "summary": summary, "shortfall_minutes": shortfall, "surplus_minutes": 0, "all_clear": False})
+        return base
+    summary = "%s available · %s of tasks · within the hours entered." % (format_hours(open_minutes), format_hours(task_minutes))
+    base.update({"status": "fits", "summary": summary, "shortfall_minutes": 0, "surplus_minutes": -shortfall, "all_clear": False})
+    return base
+
+
+def example_answers(facts=None):
+    facts = facts or fictional_week()
+    lines = []
+    for task in facts["tasks"]:
+        if task.get("minutes") is None:
+            lines.append("%s, duration not known" % task["name"])
+        else:
+            lines.append("%s, %s" % (task["name"], format_hours(task["minutes"])))
+    available = format_hours(facts["available_minutes"]) if isinstance(facts.get("available_minutes"), int) else "unknown"
+    return {
+        "week_start": "Monday 9 November 2026",
+        "timezone": "America/Puerto_Rico",
+        "fixed": "Tuesday afternoon is unavailable.",
+        "tasks": ". ".join(lines) + ".",
+        "availability": "%s free after fixed commitments and buffers. Do not subtract those again." % available,
+        "buffers": "Already removed from the available hours. Do not subtract a buffer again.",
+        "assumptions": "Totals are not a calendar check. Do not treat a fitting total as a feasible week.",
+        "shape": "blocks",
+    }
+
+
+def answers_filled(answers):
+    if not isinstance(answers, dict):
+        return False
+    for key in ("week_start", "timezone", "fixed", "tasks", "availability", "buffers", "assumptions"):
+        if str(answers.get(key) or "").strip():
+            return True
+    return False
+
+
+def confirm_replace(current, incoming, replace):
+    """Cancel returns the current answers unchanged."""
+    if answers_filled(current) and current != incoming and not replace:
+        return {"replaced": False, "answers": current}
+    return {"replaced": True, "answers": incoming}
+
+
+def fresh_handoff():
+    return {
+        "stage": "prepared",
+        "copied": False,
+        "tried": False,
+        "checks": {item[0]: "unchecked" for item in HANDOFF_CHECKS},
+        "followup": "unchecked",
+        "needs_recheck": False,
+        "copy_stale": False,
+        "verified": False,
+    }
+
+
+def note_copied(state):
+    nxt = json.loads(json.dumps(state))
+    nxt["copied"] = True
+    nxt["copy_stale"] = False
+    if nxt["stage"] == "prepared":
+        nxt["stage"] = "copied"
+    nxt["verified"] = False
+    return nxt
+
+
+def note_tried(state):
+    nxt = json.loads(json.dumps(state))
+    nxt["tried"] = True
+    if nxt["stage"] in ("prepared", "copied"):
+        nxt["stage"] = "tried"
+    nxt["verified"] = False
+    return nxt
+
+
+def set_check(state, check_id, value):
+    if check_id != "followup" and check_id not in state["checks"]:
+        return {"ok": False, "error": "That check is not on the list."}
+    if value not in CHECK_VALUES:
+        return {"ok": False, "error": "Choose Pass, Fail, Not sure, or Not checked."}
+    nxt = json.loads(json.dumps(state))
+    if check_id == "followup":
+        nxt["followup"] = value
+    else:
+        nxt["checks"][check_id] = value
+    nxt["needs_recheck"] = False
+    nxt["verified"] = False
+    recorded = any(item != "unchecked" for item in nxt["checks"].values()) or nxt["followup"] != "unchecked"
+    if recorded and nxt["tried"]:
+        nxt["stage"] = "checked"
+    return {"ok": True, "state": nxt}
+
+
+def invalidate_handoff(state, reason):
+    nxt = json.loads(json.dumps(state))
+    recorded = any(item != "unchecked" for item in nxt["checks"].values()) or nxt["followup"] != "unchecked" or nxt["tried"]
+    if recorded:
+        nxt["needs_recheck"] = True
+        nxt["recheck_reason"] = reason
+    if nxt["copied"]:
+        nxt["copy_stale"] = True
+    nxt["verified"] = False
+    return nxt
+
+
+def review_wants_change(report):
+    if not isinstance(report, dict):
+        return False
+    if report.get("used") == "no":
+        return False
+    if report.get("blocker") == "nothing_to_change":
+        return False
+    return True
+
+
+def with_enduring_rules(text, rules):
+    kept = [rule for rule in (rules or []) if rule]
+    if not kept:
+        return text
+    lines = ["ENDURING RULES KEPT ON THIS BROWSER", "These lines were accepted in an earlier check-in. The weekly facts above are this week's notes."]
+    for rule in kept:
+        lines.append("- " + rule)
+    lines.append("Do not treat these rules as a calendar check.")
+    return text.rstrip() + "\n\n" + "\n".join(lines) + "\n"
+
+
+def blank_receipt():
+    return {
+        "revision": "v1",
+        "week_start": "",
+        "tried": False,
+        "blocker": "",
+        "rule_id": "",
+        "rule": "",
+        "decision": "none",
+        "outcome": "not_tried",
+        "claimed_success": False,
+    }
+
+
+def record_outcome(receipt, outcome):
+    if outcome not in OUTCOMES:
+        return {"ok": False, "error": "Choose Helped, Didn't help, Not tried, or Not sure."}
+    nxt = dict(receipt)
+    nxt["outcome"] = outcome
+    nxt["claimed_success"] = False
+    return {"ok": True, "receipt": nxt}
+
+
+def accept_rule(receipt, rule_id, rule_text, revision):
+    nxt = dict(receipt)
+    nxt["rule_id"] = rule_id
+    nxt["rule"] = rule_text
+    nxt["decision"] = "accepted"
+    nxt["revision"] = revision
+    nxt["outcome"] = "not_tried"
+    nxt["claimed_success"] = False
+    return nxt
+
+
+def kept_rules(receipts):
+    """Only accepted rules that were not undone. Weekly facts are not included."""
+    kept = []
+    for item in receipts or []:
+        if item.get("decision") == "accepted" and item.get("rule"):
+            kept.append(item["rule"])
+    return kept
+
+
+def read_store(raw):
+    if raw is None or raw == "":
+        return {"status": "empty", "record": None, "message": "Nothing is saved in this browser yet."}
+    if not isinstance(raw, str):
+        return {"status": "invalid", "record": None, "message": "Could not read the saved copy. Starting fresh. The unreadable text was not applied."}
+    try:
+        data = json.loads(raw)
+    except ValueError:
+        return {"status": "invalid", "record": None, "message": "Could not read the saved copy. Starting fresh. The unreadable text was not applied."}
+    if not isinstance(data, dict) or not isinstance(data.get("versions"), list) or not data["versions"]:
+        return {"status": "invalid", "record": None, "message": "Could not read the saved copy. Starting fresh. The unreadable text was not applied."}
+    if any(not isinstance(item, str) for item in data["versions"]):
+        return {"status": "invalid", "record": None, "message": "Could not read the saved copy. Starting fresh. The unreadable text was not applied."}
+    index = data.get("index")
+    if not isinstance(index, int) or isinstance(index, bool) or index < 0 or index >= len(data["versions"]):
+        return {"status": "invalid", "record": None, "message": "Could not read the saved copy. Starting fresh. The unreadable text was not applied."}
+    legacy = "schema" not in data
+    record = {
+        "schema": 2,
+        "versions": data["versions"],
+        "index": index,
+        "revision": data["revision"] if isinstance(data.get("revision"), int) and not isinstance(data.get("revision"), bool) else 1,
+        "receipts": data["receipts"] if isinstance(data.get("receipts"), list) else [],
+        "legacy": legacy,
+    }
+    message = "Loaded a saved copy from this browser." if not legacy else "Loaded an older saved copy from this browser."
+    return {"status": "legacy" if legacy else "loaded", "record": record, "message": message}
+
+
+def prepare_save(local, stored):
+    """Refuse to overwrite a newer tab. A failed write is the caller's signal to say Not saved."""
+    stored_revision = 0
+    if isinstance(stored, dict) and isinstance(stored.get("revision"), int) and not isinstance(stored.get("revision"), bool):
+        stored_revision = stored["revision"]
+    base = local.get("base_revision")
+    if isinstance(base, int) and not isinstance(base, bool) and stored_revision > base:
+        return {"ok": False, "saved": False, "status": "Not saved. Another tab has a newer copy.", "conflict": True}
+    revision = stored_revision + 1
+    record = {
+        "schema": 2,
+        "versions": local.get("versions") or [],
+        "index": local.get("index") or 0,
+        "revision": revision,
+        "receipts": local.get("receipts") or [],
+    }
+    return {"ok": True, "saved": True, "conflict": False, "record": record, "status": "Saved on this device only. Not an account."}
+
+
 def _e(s):
     return html.escape(str(s), quote=True)
 
@@ -555,7 +925,7 @@ def render_page_inner(url=None, saved_config=None):
         samples.append((task, result["text"]))
     sample_html = []
     for task, text in samples:
-        sample_id = ' id="weekly-sample"' if task["id"] == "weekly-plan" else ""
+        sample_id = ""
         sample_html.append(
             f'<details class="glass bb-sample"{sample_id}><summary>{_e(task["title"])}: made-up example</summary>'
             f'<p>{_e(task["plain"])}</p>'
@@ -583,8 +953,10 @@ def render_page_inner(url=None, saved_config=None):
     )
     task_list = "".join(f"<li>{_e(t['title'])}</li>" for t in catalog["tasks"])
     saved_json = embed_json(saved_config)
-    return f"""<div class="wrap narrow page-head"><p class="eyebrow">Free builder</p><h1 class="kinetic-sm">Write instructions for a text-only bot</h1>
-<p class="lead">Customize instructions for a job you paste into your own chat app, then improve them when a test fails. Saving a setup so you can come back is not turned on. The guides on the rest of the site stay free.</p>
+    demo = capacity_check(fictional_week())
+    return f"""<div class="wrap narrow page-head"><p class="eyebrow">Free builder</p><h1 class="kinetic-sm">Make your AI weekly planner fit your real week.</h1>
+<p class="lead">Build instructions for the AI app you already use. Check what it gets wrong, then make one small improvement for next week.</p>
+<p>Instructions, not a hosted bot. Nothing runs or books automatically. Email drafts and quote comparisons are still on this page. Saving a setup so you can come back is not turned on. The guides on the rest of the site stay free.</p>
 <div class="glass bb-honest"><p><b>This page is a form and a template, not a live AI.</b> It does not call a model, does not review the chat's reply, and does not claim a test passed until you run one and say so yourself. That report stays in this tab. BotsDoThat has not checked it.</p>
 <p>{_e(catalog["storage_note"])}</p>
 <p class="small">Works with the text box in ChatGPT, Claude, Gemini, Copilot, Grok, and similar apps. No connected inbox, calendar, browser, or payment tool is part of this.</p></div></div>
@@ -597,6 +969,37 @@ def render_page_inner(url=None, saved_config=None):
 <li>Do not paste passwords, card numbers, identity numbers, health details, employer secrets, or someone else's private schedule.</li></ul>
 <p>Tasks in this version:</p><ul>{task_list}</ul>
 <p class="small">Scheduled bots that connect to tools live in the <a href="{url('/blueprints/')}">blueprints</a>. This page is the chat-only path. <a href="{url('/is-it-safe-to-give-an-ai-agent-your-email/')}">Email and calendar safety</a> is a separate guide for tools that do connect.</p></section>
+<section class="wrap narrow glass bb-cap" id="weekly-sample" aria-labelledby="weekly-sample-h">
+<p class="eyebrow">Fictional example — not a customer result.</p>
+<h2 id="weekly-sample-h">A week that does not fit</h2>
+<p id="bb-cap-static"><b>{_e(demo["summary"])}</b></p>
+<p>{_e(fictional_week()["constraint"])}</p>
+<p>{_e(MATH_NOTE)}</p>
+<p class="small">Dropping the 1 hour of optional reading still leaves 1 hour over. The numbers in the boxes are the same fictional week. Changing them needs the script on this page. This is not a calendar check.</p>
+<div id="bb-capacity">
+<div class="bb-field"><label for="bb-cap-available">Hours free after fixed commitments and buffers</label>
+<input id="bb-cap-available" name="available" type="text" inputmode="decimal" value="8" autocomplete="off"></div>
+<fieldset class="bb-set"><legend>Task hours</legend>
+<div class="bb-field"><label for="bb-cap-report">Write the status report (hours)</label><input id="bb-cap-report" type="text" inputmode="decimal" value="4" autocomplete="off"></div>
+<div class="bb-field"><label for="bb-cap-slides">Make the slides (hours)</label><input id="bb-cap-slides" type="text" inputmode="decimal" value="3" autocomplete="off"></div>
+<div class="bb-field"><label for="bb-cap-admin">Clear the admin list (hours)</label><input id="bb-cap-admin" type="text" inputmode="decimal" value="2" autocomplete="off"></div>
+<div class="bb-field"><label for="bb-cap-reading">Optional reading (hours)</label><input id="bb-cap-reading" type="text" inputmode="decimal" value="1" autocomplete="off"></div>
+</fieldset>
+<fieldset class="bb-set"><legend>What should move? You choose. This page does not pick.</legend>
+<label class="bb-check"><input type="checkbox" name="bb-defer" value="report"> Defer the status report</label>
+<label class="bb-check"><input type="checkbox" name="bb-defer" value="slides"> Defer the slides</label>
+<label class="bb-check"><input type="checkbox" name="bb-defer" value="admin"> Defer the admin list</label>
+<label class="bb-check"><input type="checkbox" name="bb-defer" value="reading"> Defer optional reading</label>
+</fieldset>
+<p id="bb-cap-summary" class="bb-status" role="status" aria-live="polite">{_e(demo["summary"])} {_e(demo["math_note"])}</p>
+<div class="bb-actions"><button class="btn" type="button" id="bb-make-mine">Make it mine</button></div>
+<div id="bb-replace" class="bb-replace" hidden role="alertdialog" aria-labelledby="bb-replace-h">
+<h3 id="bb-replace-h">Replace the answers in the form?</h3>
+<p>The form already has answers. Replace replaces them with the numbers on this card. Cancel keeps every answer as it is now.</p>
+<div class="bb-actions"><button class="btn" type="button" id="bb-replace-yes">Replace</button><button class="btn btn-ghost" type="button" id="bb-replace-no">Cancel</button></div>
+</div>
+</div>
+</section>
 <section class="wrap narrow bb-app" id="bb-app" aria-labelledby="bb-form-h">
 <h2 id="bb-form-h">Build the instructions</h2>
 <p class="small">Required questions are marked. The result quotes your answers as data, so a sentence like "ignore the rules" does not become a rule.</p>
@@ -610,14 +1013,47 @@ def render_page_inner(url=None, saved_config=None):
 </div>
 <p id="bb-form-status" class="bb-status" role="status" aria-live="polite"></p>
 <div id="bb-result" hidden>
-<h3 id="bb-out-h" tabindex="-1">Instructions to paste</h3>
-<p class="small">Not run yet. Paste the box into a chat, then run the tests that are inside it. Copy and Download use the words in the box. Neither sends them anywhere.</p>
+<h3 id="bb-out-h" tabindex="-1">Your instructions are ready. Your plan hasn’t been created here.</h3>
+<p>Use a normal chat first. You don’t need to create a custom bot to try this. Paste the instructions into that chat, then check the reply yourself.</p>
+<p class="small">Copy means the words were copied. It does not mean they were installed or run. Download is there if copy is refused.</p>
 <div class="term glass"><div class="term-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="term-title">Instructions</span>
 <button class="btn btn-sm" type="button" id="bb-copy">Copy instructions</button>
 <button class="btn btn-sm btn-ghost" type="button" id="bb-download">Download .txt</button>
 <span id="bb-copy-status" class="bb-inline-status" role="status" aria-live="polite"></span></div>
 <pre class="term-body" id="bb-out" tabindex="0"></pre></div>
-<p id="bb-stale" class="small bb-warn" hidden>Answers changed after this text was written. Write instructions again before you rely on it.</p>
+<p id="bb-stale" class="small bb-warn" hidden>Answers changed after this text was written. Write instructions again before you rely on it. Needs recheck.</p>
+<section id="bb-handoff" aria-labelledby="bb-handoff-h">
+<h3 id="bb-handoff-h">After you try it, check these three things.</h3>
+<p>These are your checks, not an independent guarantee. AI replies can still be wrong. Nothing here is marked passed until you choose Pass yourself.</p>
+<button class="btn btn-ghost" type="button" id="bb-mark-tried">I pasted this into a chat</button>
+<fieldset class="bb-set"><legend>Did it keep the time you marked unavailable free?</legend>
+<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="unchecked" checked> Not checked</label>
+<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="pass"> Pass</label>
+<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="fail"> Fail</label>
+<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="not_sure"> Not sure</label>
+</fieldset>
+<fieldset class="bb-set"><legend>Did it flag work exceeding available hours or missing estimates?</legend>
+<label class="bb-check"><input type="radio" name="bb-check-overload" value="unchecked" checked> Not checked</label>
+<label class="bb-check"><input type="radio" name="bb-check-overload" value="pass"> Pass</label>
+<label class="bb-check"><input type="radio" name="bb-check-overload" value="fail"> Fail</label>
+<label class="bb-check"><input type="radio" name="bb-check-overload" value="not_sure"> Not sure</label>
+</fieldset>
+<fieldset class="bb-set"><legend>Did it list deferred work instead of quietly dropping it?</legend>
+<label class="bb-check"><input type="radio" name="bb-check-deferred" value="unchecked" checked> Not checked</label>
+<label class="bb-check"><input type="radio" name="bb-check-deferred" value="pass"> Pass</label>
+<label class="bb-check"><input type="radio" name="bb-check-deferred" value="fail"> Fail</label>
+<label class="bb-check"><input type="radio" name="bb-check-deferred" value="not_sure"> Not sure</label>
+</fieldset>
+<fieldset class="bb-set"><legend>Follow-up you can ask in the same chat</legend>
+<p>Can you fit in one more two-hour task without changing anything else? If the week still has room, a yes can be a real answer. This page does not grade it.</p>
+<label class="bb-check"><input type="radio" name="bb-check-followup" value="unchecked" checked> Not checked</label>
+<label class="bb-check"><input type="radio" name="bb-check-followup" value="pass"> Pass</label>
+<label class="bb-check"><input type="radio" name="bb-check-followup" value="fail"> Fail</label>
+<label class="bb-check"><input type="radio" name="bb-check-followup" value="not_sure"> Not sure</label>
+</fieldset>
+<p id="bb-handoff-status" class="bb-status" role="status" aria-live="polite"></p>
+<p class="small">Something failed? Choose what happened in Troubleshooting. A suggested instruction change is not a fix until you run it again and say so. That report is yours, not an observed result.</p>
+</section>
 <section id="bb-portable" hidden aria-labelledby="bb-portable-h">
 <h3 id="bb-portable-h">Use it in your chat app</h3>
 <p>Your setup works in whichever AI app you use, and gets better each week. These are the same instructions with a heading for each app. Nothing connects to ChatGPT, Claude, Gemini, Grok Bot, Dots, or Muse.</p>
@@ -626,8 +1062,40 @@ def render_page_inner(url=None, saved_config=None):
 </section>
 <section id="bb-checkin" hidden aria-labelledby="bb-checkin-h">
 <h3 id="bb-checkin-h">Weekly check-in</h3>
-<p><b>This is a template, not a live AI.</b> It matches what you tick or type to four written patterns. It does not invent a date, a clock time, or a timezone, and it does not see a calendar.</p>
-<p class="small">Version history is saved on this device only, in this browser. It is not sent to BotsDoThat and it is not an account. Clearing this browser's site data deletes it.</p>
+<p><b>Keep what worked. Change one thing.</b> Suggested from your answers — not an AI diagnosis. This is a template, not a live AI. It does not invent a date, a clock time, or a timezone, and it does not see a calendar.</p>
+<p>This tool prepares instructions in your browser. If you choose to remember a setup, it is stored in this browser on this device, not a private online account. Clearing browser data or using a different browser can lose it. People using this browser may be able to read it. Download a copy if you want a backup.</p>
+<p>What you paste into another AI app is handled under that app’s settings and policies. Leave out private work, client and personal information.</p>
+<p id="bb-save-status" class="bb-status" role="status" aria-live="polite">Nothing is saved in this browser yet.</p>
+<p id="bb-tab-warn" class="bb-warn" hidden>Another tab has a newer copy. Load it, or keep what is on this tab. This tab will not overwrite the newer copy.</p>
+<div class="bb-actions"><button class="btn btn-ghost" type="button" id="bb-load-other" hidden>Load the other tab's copy</button>
+<button class="btn btn-ghost" type="button" id="bb-next-week">Keep this rule. Review this week's dates and commitments.</button></div>
+<div id="bb-clear-ask" hidden>
+<p>Clear the weekly setup saved in this browser? This does not change other pages on the site.</p>
+<div class="bb-actions"><button class="btn" type="button" id="bb-clear-yes">Clear saved setup</button><button class="btn btn-ghost" type="button" id="bb-clear-no">Keep it</button></div>
+</div>
+<fieldset class="bb-set"><legend>Did you use this setup?</legend>
+<label class="bb-check"><input type="radio" name="bb-used" value="yes"> Yes</label>
+<label class="bb-check"><input type="radio" name="bb-used" value="no"> No</label>
+<label class="bb-check"><input type="radio" name="bb-used" value="not_sure"> Not sure</label>
+</fieldset>
+<fieldset class="bb-set"><legend>What got in the way?</legend>
+<label class="bb-check"><input type="radio" name="bb-blocker" value="overfilled"> Overfilled week</label>
+<label class="bb-check"><input type="radio" name="bb-blocker" value="estimate_off"> Estimate off</label>
+<label class="bb-check"><input type="radio" name="bb-blocker" value="fixed_ignored"> Fixed time ignored</label>
+<label class="bb-check"><input type="radio" name="bb-blocker" value="something_else"> Something else</label>
+<label class="bb-check"><input type="radio" name="bb-blocker" value="nothing_to_change"> Nothing to change</label>
+</fieldset>
+<div id="bb-outcome" hidden>
+<p id="bb-outcome-q">Last time you chose a rule. Did it help?</p>
+<fieldset class="bb-set"><legend>Did the accepted change help later?</legend>
+<label class="bb-check"><input type="radio" name="bb-outcome" value="helped"> Helped</label>
+<label class="bb-check"><input type="radio" name="bb-outcome" value="didnt_help"> Didn't help</label>
+<label class="bb-check"><input type="radio" name="bb-outcome" value="not_tried"> Not tried</label>
+<label class="bb-check"><input type="radio" name="bb-outcome" value="not_sure"> Not sure</label>
+</fieldset>
+<p id="bb-outcome-status" class="bb-status" role="status" aria-live="polite"></p>
+</div>
+<p id="bb-kept-rules" class="small"></p>
 <div class="bb-field"><label for="bb-ci-done">What got done?</label><textarea id="bb-ci-done" rows="2" maxlength="500" placeholder="Finished the logo draft."></textarea></div>
 <div class="bb-field"><label for="bb-ci-slipped">What slipped?</label><textarea id="bb-ci-slipped" rows="2" maxlength="500" placeholder="The outline slipped again."></textarea></div>
 <div class="bb-field"><label for="bb-ci-longer">What took longer than planned?</label><textarea id="bb-ci-longer" rows="2" maxlength="500" placeholder="The guide took longer than planned."></textarea></div>

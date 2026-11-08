@@ -1196,11 +1196,11 @@
  },
  {
   "slug": "plan-your-day-from-your-calendar-and-to-do-list",
-  "title": "Have your AI plan your day from your real calendar and to-do list",
-  "seo_title": "AI to plan your day from your calendar and to-do list",
+  "title": "AI weekly planning: a realistic-week example",
+  "seo_title": "AI weekly planning: a realistic-week example",
   "category": "family",
   "source_date": "2026-03-24",
-  "summary": "Say \"plan my day\" and an assistant connected to your calendar and task list reads what's already booked and what's due, then proposes a time-blocked plan with breaks. You approve or change it, and only then does it add the blocks to your calendar. A Todoist user who set this up with Claude says the key is giving every task a deadline and a rough length.",
+  "summary": "Try a weekly-planning example, build instructions for your AI app, and check for overload before you use the plan. The steps further down are about assistants that can read a calendar. This site does not read one, and the example is fictional.",
   "what_the_bot_does": [
    "It reads today's events from your calendar and your open tasks (for example Google Tasks or Todoist), so it plans around what's actually booked.",
    "It flags tasks with no deadline or no time estimate and asks you to fill them in before it schedules anything.",
@@ -1233,6 +1233,7 @@
    "At the end of the day, ask \"What did I not finish? Move it to tomorrow and tell me if tomorrow is now too full.\""
   ],
   "watch_out": [
+   "The hour totals in the example above are arithmetic on numbers you can read. They do not verify a calendar, and they are not a customer's result.",
    "Don't let it move or delete existing appointments. Say so in the prompt, and review before you approve any calendar change.",
    "It can repeat tasks you already finished if you only told it in chat. Mark tasks done in your task app so it reads the real status.",
    "Gemini can get details wrong; Google's help pages say to check the sources it shows (Gemini Apps Help).",
@@ -1294,7 +1295,17 @@
   ],
   "date_added": "2026-10-30",
   "origin": "pipeline",
-  "last_checked": "2026-10-30"
+  "last_checked": "2026-11-08",
+  "seo_description": "Try a weekly-planning example, build instructions for your AI app, and check for overload before you use the plan.",
+  "worked_example": {
+   "h": "A fictional week, checked before you paste anything",
+   "badge": "Fictional example — not a customer result.",
+   "inputs": "8 hours free after fixed commitments and a buffer. Tasks: status report 4 hours, slides 3 hours, admin 2 hours, optional reading 1 hour. Tuesday afternoon is unavailable.",
+   "result": "8 hours available · 10 hours of tasks · 2 hours need to move. Dropping the 1 hour of optional reading still leaves 1 hour over.",
+   "note": "This checks totals, not calendar conflicts or whether the estimates are realistic. It does not read a calendar.",
+   "handoff": "The instructions are prepared on BotsDoThat. The plan is not created here. Paste them into a normal chat, then check the reply yourself.",
+   "limits": "Nothing on this page runs the plan, books time, or sees your calendar. A fitting total would still not prove the week is feasible."
+  }
  },
  {
   "slug": "tell-ifttt-what-to-automate-in-plain-words",

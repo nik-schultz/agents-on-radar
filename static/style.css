@@ -464,6 +464,11 @@ div.bp-art.art-slot{border-radius:50%}
 @media(max-width:480px){.cta-full{display:none}.cta-short{display:inline}.menu-btn{padding:.5em .65em}}
 @media(max-width:360px){.logo{font-size:.95rem;gap:.4em}.nav-build,.nav-news{font-size:.78rem;padding-inline:.55em}.menu-btn{margin-left:4px}.menu-lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.menu-btn{min-width:44px;justify-content:center}}
 .nl-hero{margin-top:18px;margin-bottom:8px}
+.bb-cap,.bb-handoff{display:grid;gap:12px}
+.bb-cap input,.bb-handoff input{max-width:100%}
+.bb-field input[type="text"]{width:100%;max-width:18rem;min-height:44px}
+.bb-replace{margin-top:8px;padding:12px;border:1px solid var(--line);border-radius:12px}
+.bb-check{min-height:44px}
 @media (prefers-reduced-motion:reduce){.menu-ico i{transition:none}}
 .nl-end,.nl-mid,.nl-bottom{margin-top:36px;margin-bottom:36px}
 .nl-inline h2,.nl-card h3{margin:.1em 0 .3em}

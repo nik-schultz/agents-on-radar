@@ -625,8 +625,8 @@ home = f"""
 <div class="hl-stack">{hero_heads}</div>
 <div class="hl-stack">{hero_leads}</div>
 {searchbox(home=True)}
-<div class="hero-ctas"><a class="btn" href="{u('/bot-instructions/')}">Build your bot</a><a class="btn btn-ghost" href="{u('/bot-instructions/#weekly-sample')}">See an example</a></div>
-<p class="small">Write instructions for your own chat app, then improve them each week. Saving a setup to come back is not on sale yet. The guides below stay free. A saved setup is text you paste yourself. This site does not run the bot.</p>
+<div class="hero-ctas"><a class="btn" href="{u('/bot-instructions/')}">Build your bot</a><a class="btn btn-ghost" href="{u('/bot-instructions/#weekly-sample')}">Try a weekly-planning example</a></div>
+<p class="small">Instructions, not a hosted bot. Nothing runs or books automatically. Build instructions for the AI app you already use. Check what it gets wrong, then make one small improvement for next week. The guides below stay free.</p>
 </div>
 {radar(TRENDING)}
 </div>
@@ -837,9 +837,15 @@ for x in ucs:
     relx = REL_X.get(x["slug"], [])
     relx_html = ('<section class="related-x"><h2>Related</h2><ul class="ex-list">' + "".join(
         f'<li><a href="{u("/use-cases/"+sl+"/")}"><b>{e(UC[sl]["title"])}</b></a> <span class="small muted">{CAT[UC[sl]["category"]]["icon"]} {e(CAT[UC[sl]["category"]]["name"])}</span></li>' for sl in relx) + "</ul></section>") if relx else ""
+    _wx = x.get("worked_example") if isinstance(x.get("worked_example"), dict) else None
+    worked = (f'<section class="glass" id="worked-example"><p class="eyebrow">{e(_wx.get("badge", ""))}</p><h2>{e(_wx.get("h", ""))}</h2>'
+               f'<p>{e(_wx.get("inputs", ""))}</p><p><b>{e(_wx.get("result", ""))}</b></p><p>{e(_wx.get("note", ""))}</p>'
+               f'<p>{e(_wx.get("handoff", ""))}</p><p>{e(_wx.get("limits", ""))}</p>'
+               f'<p><a class="btn" href="{u("/bot-instructions/#weekly-sample")}">Try this example in the builder</a></p></section>') if _wx else ""
     body = f"""<article class="wrap uc">{bc}
 <header class="uc-head"><p class="eyebrow"><a class="cat-tag cat-{e(x['category'])}" href="{u('/category/'+c['slug']+'/')}">{c['icon']} {e(c['name'])}</a></p>
 <h1 class="kinetic-sm">{e(x['title'])}</h1><p class="lead">{e(x['summary'])}</p>
+{worked}
 <div class="uc-meta"><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span>{CHAT_BADGE if x.get('chat_prompt') else ''}<span class="muted small">Updated <time datetime="{e(_mod)}">{nice_date(_mod)}</time> · By <a href="{u('/about/')}">{e(NAME)}</a> · Added {nice_date(x['date_added'])}</span>{pop_chip(x, long=True)}</div>{seen_on(x, long=True)}</header>
 <div class="uc-grid"><div class="uc-main">
 <section><h2>What the bot does</h2>{chat_note}<ol class="steps">{steps}</ol></section>
