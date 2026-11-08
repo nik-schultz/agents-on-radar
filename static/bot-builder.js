@@ -222,6 +222,95 @@
     };
   }
 
+  var CHECKIN_RULES = [
+    {id: "slipped_again", label: "A task slipped more than once", keywords: ["again", "second time", "keeps slipping", "slipped twice"], change: "Move one recurring task: schedule a task that slipped more than once only once this week, on a day that already has open time in the facts. Do not add a date or a clock time."},
+    {id: "underestimated", label: "Something took longer than planned", keywords: ["took longer", "longer than", "underestimated", "ran over"], change: "Cap each deep-work block at 90 minutes. If a task took longer than planned, leave the extra under Unscheduled with the reason not enough open time. Do not invent a clock time or a date."},
+    {id: "missing_buffer", label: "There was no gap between things", keywords: ["no gap", "no buffer", "back to back", "back-to-back", "no break"], change: "Keep a 30 minute buffer after each fixed commitment. Do not turn that buffer into a clock time or a new event."},
+    {id: "overplanned", label: "A day had more than I could finish", keywords: ["overplanned", "too much", "couldn't finish", "could not finish", "overloaded"], change: "Cap each deep-work block at 90 minutes and leave the overflow under Unscheduled with the reason not enough open time. Do not add hours, a date, or a clock time."}
+  ];
+  var CHECKIN_NOTE = "This check-in is a template. It did not call a model and it did not see a calendar.";
+  var PORTABLE = {
+    chatgpt: "ChatGPT custom instructions\nHow would you like ChatGPT to respond?\n\n",
+    claude: "Claude project instructions\n\n",
+    gemini: "Gemini Gem instructions\n\n",
+    generic: "Instructions for any chat app\n\n"
+  };
+
+  function checkinKeyword(rule, blob) {
+    var low = blob.toLowerCase(), i;
+    for (i = 0; i < rule.keywords.length; i++) if (low.indexOf(rule.keywords[i].toLowerCase()) !== -1) return rule.keywords[i];
+    return null;
+  }
+
+  function checkIn(baseText, report, catalog) {
+    catalog = catalog || loadCatalog();
+    if (typeof baseText !== "string" || !baseText.trim()) return {ok: false, errors: [err("instructions", "Write weekly instructions first.")]};
+    if (!report || typeof report !== "object" || Array.isArray(report)) return {ok: false, errors: [err("checkin", "Describe what happened this week.")]};
+    var fields = {}, keys = ["done", "slipped", "longer", "new_commitments"], i, cleaned, hit;
+    for (i = 0; i < keys.length; i++) {
+      cleaned = cleanUserText(report[keys[i]] == null ? "" : report[keys[i]], 500);
+      if (!cleaned.ok) return {ok: false, errors: [err(keys[i], cleaned.code === "too_long" ? catalog.messages.too_long.replace("{max}", "500") : "Enter plain text.")]};
+      if (cleaned.text) {
+        hit = screen(catalog, keys[i], cleaned.text);
+        if (hit) return {ok: false, errors: [hit]};
+      }
+      fields[keys[i]] = cleaned.text;
+    }
+    var selected = report.selected || [];
+    if (!Array.isArray(selected)) return {ok: false, errors: [err("checkin", "Choose a pattern.")]};
+    var known = CHECKIN_RULES.map(function (rule) { return rule.id; });
+    if (selected.some(function (item) { return known.indexOf(item) === -1; })) return {ok: false, errors: [err("checkin", "That pattern is not in the check-in.")]};
+    var blob = ["done", "slipped", "longer", "new_commitments"].map(function (k) { return fields[k]; }).join("\n");
+    var noticed = [], chosen = null;
+    CHECKIN_RULES.forEach(function (rule) {
+      var kw = checkinKeyword(rule, blob);
+      var picked = selected.indexOf(rule.id) !== -1;
+      if (selected.length && picked && !chosen) chosen = {rule: rule, kw: kw};
+      else if (selected.length && kw && !picked) noticed.push('"' + kw + '" would match ' + rule.label + ", which was not selected.");
+      else if (!selected.length && kw && !chosen) chosen = {rule: rule, kw: kw};
+    });
+    if (!chosen) return {ok: true, matched: null, noticed: noticed, change: "", before: baseText, after: baseText};
+    var lines = ["WEEKLY CHECK-IN", chosen.rule.change, CHECKIN_NOTE];
+    if (fields.new_commitments) {
+      lines.push("New commitment note: " + quoteUser(fields.new_commitments));
+      lines.push("Keep that note as text. Do not place it on a clock time.");
+    }
+    var because = selected.indexOf(chosen.rule.id) !== -1 ? "Selected by you." : "";
+    if (chosen.kw) because = (because ? because + " " : "") + 'The wording contains "' + chosen.kw + '".';
+    return {
+      ok: true,
+      matched: {id: chosen.rule.id, title: chosen.rule.label, change: chosen.rule.change, because: because.trim()},
+      noticed: noticed,
+      change: chosen.rule.change,
+      before: baseText,
+      after: rstrip(baseText) + "\n\n" + rstrip(lines.join("\n")) + "\n"
+    };
+  }
+
+  function portableText(text, kind) {
+    if (!PORTABLE[kind]) throw new Error("unknown app");
+    return PORTABLE[kind] + text;
+  }
+
+  function History(text) {
+    this.versions = [text];
+    this.index = 0;
+  }
+  History.prototype.text = function () { return this.versions[this.index]; };
+  History.prototype.version = function () { return this.index + 1; };
+  History.prototype.label = function () { return "v" + this.version(); };
+  History.prototype.apply = function (next) {
+    if (next === this.text()) return this.text();
+    this.versions = this.versions.slice(0, this.index + 1);
+    this.versions.push(next);
+    this.index += 1;
+    return this.text();
+  };
+  History.prototype.undo = function () {
+    if (this.index > 0) this.index -= 1;
+    return this.text();
+  };
+
   function mount(doc) {
     var app = doc.getElementById("bb-app");
     var blob = doc.getElementById("bb-catalog");
@@ -506,6 +595,11 @@
       reviseStatus.textContent = "";
       report.checked = false;
       reportStatus.textContent = "Not reported. BotsDoThat has not seen a chat reply.";
+      if (checkin) checkin.hidden = true;
+      if (portable) portable.hidden = true;
+      history = null;
+      pendingAfter = "";
+      try { localStorage.removeItem(STORE); } catch (e) {}
       if (message) formStatus.textContent = message;
     }
     function selectedFailures() {
@@ -541,6 +635,7 @@
       reviseBtn.disabled = false;
       reviseHint.textContent = "A revision edits the instructions above. It does not check the chat's reply.";
       formStatus.textContent = "Instructions are ready in this tab. They have not been tested. Nothing was sent to BotsDoThat.";
+      showWeeklyTools(task.id === "weekly-plan", res.text);
       doc.getElementById("bb-out-h").focus();
     }
     function revise() {
@@ -632,7 +727,117 @@
       if (first) first.focus();
     }
 
+    var history = null;
+    var pendingAfter = "";
+    var STORE = "botsdothat.weeklyCheckin.v1";
+    var checkin = doc.getElementById("bb-checkin");
+    var portable = doc.getElementById("bb-portable");
+    var portableOut = doc.getElementById("bb-portable-out");
+    var portableActions = doc.getElementById("bb-portable-actions");
+    function saveDevice() {
+      if (!history) return;
+      try {
+        localStorage.setItem(STORE, JSON.stringify({versions: history.versions, index: history.index, note: "Saved on this device only."}));
+      } catch (e) {}
+    }
+    function versionNote() {
+      var eln = doc.getElementById("bb-version-status");
+      if (!history || !eln) return;
+      eln.textContent = "Version " + history.label() + ". Saved on this device only. Not sent to BotsDoThat.";
+    }
+    function showWeeklyTools(on, text) {
+      if (!checkin || !portable) return;
+      checkin.hidden = !on;
+      portable.hidden = !on;
+      if (!on) return;
+      history = new History(text);
+      saveDevice();
+      versionNote();
+      pendingAfter = "";
+      doc.getElementById("bb-checkin-diff").hidden = true;
+      paintPortable("generic");
+    }
+    function loadDevice() {
+      if (!checkin || !portable) return;
+      try {
+        var raw = localStorage.getItem(STORE);
+        if (!raw) return;
+        var data = JSON.parse(raw);
+        if (!data || !Array.isArray(data.versions) || typeof data.index !== "number") return;
+        if (!data.versions.length || data.index < 0 || data.index >= data.versions.length) return;
+        if (!data.versions.every(function (item) { return typeof item === "string" && item.length < 40000; })) return;
+        history = new History(data.versions[0]);
+        history.versions = data.versions.slice();
+        history.index = data.index;
+        out.textContent = history.text();
+        result.hidden = false;
+        checkin.hidden = false;
+        portable.hidden = false;
+        versionNote();
+        paintPortable("generic");
+        doc.getElementById("bb-checkin-status").textContent = "Loaded " + history.label() + ". Saved on this device only. This is not an account.";
+      } catch (e) {}
+    }
+    function paintPortable(kind) {
+      if (!portableOut || !history) return;
+      portableOut.textContent = portableText(history.text(), kind);
+    }
+    if (portableActions) {
+      [["chatgpt", "ChatGPT"], ["claude", "Claude"], ["gemini", "Gemini"], ["generic", "Any app"]].forEach(function (pair) {
+        var b = doc.createElement("button");
+        b.type = "button";
+        b.className = "btn btn-sm btn-ghost";
+        b.textContent = pair[1];
+        b.addEventListener("click", function () { paintPortable(pair[0]); });
+        portableActions.appendChild(b);
+      });
+    }
+    var suggest = doc.getElementById("bb-checkin-suggest");
+    if (suggest) suggest.addEventListener("click", function () {
+      if (!history) return;
+      var report = {
+        done: doc.getElementById("bb-ci-done").value,
+        slipped: doc.getElementById("bb-ci-slipped").value,
+        longer: doc.getElementById("bb-ci-longer").value,
+        new_commitments: doc.getElementById("bb-ci-new").value,
+        selected: Array.prototype.map.call(doc.querySelectorAll('input[name="bb-checkin"]:checked'), function (n) { return n.value; })
+      };
+      var res = checkIn(history.text(), report, catalog);
+      var st = doc.getElementById("bb-checkin-status");
+      if (!res.ok) { st.textContent = res.errors[0].message; return; }
+      if (!res.matched) { st.textContent = "No check-in pattern matched. No change was added. This is a template, not a live review."; doc.getElementById("bb-checkin-diff").hidden = true; return; }
+      pendingAfter = res.after;
+      doc.getElementById("bb-checkin-before").textContent = res.before;
+      doc.getElementById("bb-checkin-after").textContent = res.after;
+      doc.getElementById("bb-checkin-before-v").textContent = history.label();
+      doc.getElementById("bb-checkin-after-v").textContent = "v" + (history.version() + 1);
+      doc.getElementById("bb-checkin-diff").hidden = false;
+      st.textContent = "Suggested one change: " + res.matched.title + ". This is a template, not a live review. Nothing was sent.";
+    });
+    var applyBtn = doc.getElementById("bb-checkin-apply");
+    if (applyBtn) applyBtn.addEventListener("click", function () {
+      if (!history || !pendingAfter) return;
+      history.apply(pendingAfter);
+      out.textContent = history.text();
+      saveDevice();
+      versionNote();
+      paintPortable("generic");
+      doc.getElementById("bb-checkin-status").textContent = "Applied " + history.label() + ". Saved on this device only. Not sent to BotsDoThat.";
+    });
+    var undoBtn = doc.getElementById("bb-checkin-undo");
+    if (undoBtn) undoBtn.addEventListener("click", function () {
+      if (!history) return;
+      history.undo();
+      out.textContent = history.text();
+      pendingAfter = "";
+      doc.getElementById("bb-checkin-diff").hidden = true;
+      saveDevice();
+      versionNote();
+      paintPortable("generic");
+      doc.getElementById("bb-checkin-status").textContent = "Undid to " + history.label() + ". The previous instructions are restored exactly. Saved on this device only.";
+    });
     doc.getElementById("bb-write").addEventListener("click", writeInstructions);
+    loadDevice();
     doc.getElementById("bb-sample").addEventListener("click", fillSample);
     doc.getElementById("bb-clear").addEventListener("click", clearAll);
     reviseBtn.addEventListener("click", revise);
@@ -675,5 +880,5 @@
     questions.appendChild(start);
   }
 
-  return {generate: generate, diagnose: diagnose, quoteUser: quoteUser, cleanUserText: cleanUserText, mount: mount, setCatalog: setCatalog};
+  return {generate: generate, diagnose: diagnose, checkIn: checkIn, portableText: portableText, History: History, quoteUser: quoteUser, cleanUserText: cleanUserText, mount: mount, setCatalog: setCatalog};
 });

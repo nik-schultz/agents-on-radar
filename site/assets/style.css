@@ -34,7 +34,10 @@ p{margin:0 0 1em}.small{font-size:.88rem}.muted{color:var(--muted)}.center{text-
 @keyframes spin{to{transform:rotate(360deg)}}
 .menu{display:flex;gap:4px;overflow-x:auto;order:3;width:100%;padding-bottom:8px;scrollbar-width:none}.menu::-webkit-scrollbar{display:none}
 .menu a{color:var(--muted);text-decoration:none;padding:.35em .75em;border-radius:999px;white-space:nowrap;font-size:.94rem}.menu a:hover,.menu a[aria-current]{color:#fff;background:var(--glass2)}
-.nav-cta{margin-left:auto}
+.nav-actions{display:flex;align-items:center;gap:8px;margin-left:auto}
+.nav-build,.nav-news{white-space:nowrap;min-height:44px}
+.nav-news{font-weight:600}
+.nav-mine{color:var(--ink);font-weight:700;text-decoration:none;padding:.35em .6em}
 @media(min-width:900px){.menu{order:0;width:auto;padding:0;margin-left:16px}}
 /* hero */
 .hero{padding:34px 0 0}
@@ -448,7 +451,7 @@ div.bp-art.art-slot{border-radius:50%}
 .menu-btn[aria-expanded="true"] .menu-ico i:nth-child(1){transform:translateY(5px) rotate(45deg)}
 .menu-btn[aria-expanded="true"] .menu-ico i:nth-child(2){opacity:0}
 .menu-btn[aria-expanded="true"] .menu-ico i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
-.nav-cta{order:1}
+.nav-actions{order:1;flex-wrap:wrap;justify-content:flex-end}
 .js .menu{display:none}
 .js .menu.open{display:flex;flex-direction:column;gap:2px;overflow:visible;padding:4px 0 14px}
 .js .menu.open a{font-size:1.02rem;padding:.7em .9em;border-radius:12px;white-space:normal}
@@ -457,9 +460,10 @@ div.bp-art.art-slot{border-radius:50%}
 .cat-hero-art{width:72px;height:72px;border-radius:18px}
 }
 .cta-short{display:none}
-@media(max-width:640px){.nav{gap:8px}.nav-cta{padding-inline:.8em}}
+@media(max-width:640px){.nav{gap:8px}.nav-build,.nav-news{padding-inline:.7em}}
 @media(max-width:480px){.cta-full{display:none}.cta-short{display:inline}.menu-btn{padding:.5em .65em}}
-@media(max-width:360px){.logo{font-size:.95rem;gap:.4em}.nav-cta{font-size:.8rem;padding-inline:.65em}.menu-btn{margin-left:4px}.menu-lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.menu-btn{min-width:44px;justify-content:center}}
+@media(max-width:360px){.logo{font-size:.95rem;gap:.4em}.nav-build,.nav-news{font-size:.78rem;padding-inline:.55em}.menu-btn{margin-left:4px}.menu-lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.menu-btn{min-width:44px;justify-content:center}}
+.nl-hero{margin-top:18px;margin-bottom:8px}
 @media (prefers-reduced-motion:reduce){.menu-ico i{transition:none}}
 .nl-end,.nl-mid,.nl-bottom{margin-top:36px;margin-bottom:36px}
 .nl-inline h2,.nl-card h3{margin:.1em 0 .3em}

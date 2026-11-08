@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Tests for the fixed-template bot instruction builder and its JS twin."""
-import datetime, json, os, subprocess, sys, unittest
+import datetime, json, os, re, subprocess, sys, unittest
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
@@ -300,6 +300,196 @@ process.stdin.on("end", () => {
             self.assertEqual(got["noticed"], py.get("noticed"), case)
             if py.get("ok") and case["op"] == "diagnose":
                 self.assertFalse(got["verified"])
+
+
+_CLOCK = re.compile(r"\b\d{1,2}:\d{2}\b")
+_DATE = re.compile(
+    r"\b20\d{2}-\d{2}-\d{2}\b|\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b|"
+    r"\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\b"
+)
+_BASE = "INSTRUCTIONS FOR A WEEKLY PLAN\nUse only the facts already in this text.\n"
+
+
+def _suffix(before, after):
+    stem = before.rstrip()
+    assert after.startswith(stem)
+    return after[len(stem):]
+
+
+class CheckInTests(unittest.TestCase):
+    def test_each_pattern_suggests_one_reversible_change(self):
+        reports = {
+            "slipped_again": {"slipped": "The outline slipped again."},
+            "underestimated": {"longer": "The guide took longer than planned."},
+            "missing_buffer": {"done": "The calls had no buffer between them."},
+            "overplanned": {"slipped": "Tuesday was overplanned."},
+        }
+        for rule_id, report in reports.items():
+            rule = next(item for item in bb.CHECKIN_RULES if item["id"] == rule_id)
+            res = bb.check_in(_BASE, report)
+            self.assertTrue(res["ok"], res)
+            self.assertEqual(res["matched"]["id"], rule_id)
+            self.assertEqual(res["change"], rule["change"])
+            self.assertEqual(res["before"], _BASE)
+            self.assertNotEqual(res["after"], _BASE)
+            added = _suffix(_BASE, res["after"])
+            self.assertIn("WEEKLY CHECK-IN", added)
+            self.assertIn("This check-in is a template", added)
+            self.assertIsNone(_CLOCK.search(added), added)
+            self.assertIsNone(_DATE.search(added), added)
+            self.assertNotIn("America/", added)
+            for other in bb.CHECKIN_RULES:
+                if other["id"] != rule_id:
+                    self.assertNotIn(other["change"], added)
+
+    def test_first_pattern_wins_and_a_ticked_box_beats_a_keyword(self):
+        both = bb.check_in(_BASE, {"slipped": "It slipped again and took longer than planned."})
+        self.assertEqual(both["matched"]["id"], "slipped_again")
+        picked = bb.check_in(_BASE, {"slipped": "It slipped again.", "selected": ["underestimated"]})
+        self.assertEqual(picked["matched"]["id"], "underestimated")
+        self.assertTrue(any("again" in n for n in picked["noticed"]))
+
+    def test_change_lines_never_invent_a_date_or_clock_time(self):
+        for rule in bb.CHECKIN_RULES:
+            self.assertIsNone(_CLOCK.search(rule["change"]), rule["id"])
+            self.assertIsNone(_DATE.search(rule["change"]), rule["id"])
+        res = bb.check_in(_BASE, {"longer": "The guide took longer than planned.", "new_commitments": "call the printer"})
+        added = _suffix(_BASE, res["after"])
+        self.assertIn("call the printer", added)
+        self.assertIn("Do not place it on a clock time", added)
+        self.assertIsNone(_CLOCK.search(added))
+        self.assertIsNone(_DATE.search(added))
+
+    def test_apply_and_undo_restore_the_exact_text_and_bump_the_version(self):
+        history = bb.InstructionHistory(_BASE)
+        self.assertEqual(history.label(), "v1")
+        self.assertEqual(history.text(), _BASE)
+        first = bb.check_in(_BASE, {"slipped": "The outline slipped again."})
+        history.apply(first["after"])
+        self.assertEqual(history.label(), "v2")
+        self.assertEqual(history.text(), first["after"])
+        second = bb.check_in(history.text(), {"done": "The day was overplanned."})
+        history.apply(second["after"])
+        self.assertEqual(history.label(), "v3")
+        history.undo()
+        self.assertEqual(history.label(), "v2")
+        self.assertEqual(history.text(), first["after"])
+        history.undo()
+        self.assertEqual(history.label(), "v1")
+        self.assertEqual(history.text(), _BASE)
+        history.undo()
+        self.assertEqual(history.text(), _BASE)
+        self.assertEqual(history.label(), "v1")
+
+    def test_portable_formats_wrap_the_same_instructions(self):
+        text = bb.check_in(_BASE, {"longer": "It took longer than planned."})["after"]
+        seen = set()
+        for kind, _prefix in bb.PORTABLE:
+            wrapped = bb.portable_text(text, kind)
+            self.assertTrue(wrapped.endswith(text))
+            self.assertNotEqual(wrapped, text)
+            seen.add(wrapped.split("\n", 1)[0])
+        self.assertEqual(seen, {
+            "ChatGPT custom instructions",
+            "Claude project instructions",
+            "Gemini Gem instructions",
+            "Instructions for any chat app",
+        })
+
+    def test_no_match_and_secrets_do_not_edit_the_instructions(self):
+        none = bb.check_in(_BASE, {"done": "Finished the logo draft."})
+        self.assertTrue(none["ok"])
+        self.assertIsNone(none["matched"])
+        self.assertEqual(none["after"], _BASE)
+        secret = bb.check_in(_BASE, {"done": "password hunter2"})
+        self.assertFalse(secret["ok"])
+        blank = bb.check_in("  ", {"slipped": "slipped again"})
+        self.assertFalse(blank["ok"])
+
+    def test_js_check_in_matches_python(self):
+        reports = [
+            {"slipped": "The outline slipped again."},
+            {"longer": "The guide took longer than planned."},
+            {"done": "The calls had no buffer between them."},
+            {"slipped": "Tuesday was overplanned."},
+            {"slipped": "It slipped again.", "selected": ["underestimated"]},
+            {"done": "Finished the logo draft."},
+            {"longer": "It took longer than planned.", "new_commitments": "call the printer"},
+        ]
+        raw = subprocess.check_output(
+            ["node", "-e", r"""
+const b = require("./static/bot-builder.js");
+let raw = "";
+process.stdin.on("data", d => raw += d);
+process.stdin.on("end", () => {
+  const body = JSON.parse(raw);
+  const checks = body.reports.map(report => b.checkIn(body.base, report));
+  const history = new b.History(body.base);
+  const v1 = history.text();
+  history.apply(checks[0].after);
+  const v2 = {label: history.label(), text: history.text()};
+  history.undo();
+  const back = {label: history.label(), text: history.text()};
+  const portable = {};
+  ["chatgpt", "claude", "gemini", "generic"].forEach(kind => { portable[kind] = b.portableText(checks[0].after, kind); });
+  process.stdout.write(JSON.stringify({checks, v1, v2, back, portable}));
+});
+"""],
+            input=json.dumps({"base": _BASE, "reports": reports}).encode(),
+            cwd=ROOT,
+        )
+        got = json.loads(raw)
+        for report, js in zip(reports, got["checks"]):
+            py = bb.check_in(_BASE, report)
+            self.assertEqual(js["ok"], py["ok"])
+            self.assertEqual(js["before"], py["before"])
+            self.assertEqual(js["after"], py["after"])
+            self.assertEqual(js["change"], py["change"])
+            self.assertEqual(js["matched"], py["matched"])
+            self.assertEqual(js["noticed"], py["noticed"])
+        self.assertEqual(got["v1"], _BASE)
+        self.assertEqual(got["v2"]["label"], "v2")
+        self.assertEqual(got["v2"]["text"], bb.check_in(_BASE, reports[0])["after"])
+        self.assertEqual(got["back"]["text"], _BASE)
+        self.assertEqual(got["back"]["label"], "v1")
+        after = bb.check_in(_BASE, reports[0])["after"]
+        for kind, _prefix in bb.PORTABLE:
+            self.assertEqual(got["portable"][kind], bb.portable_text(after, kind))
+
+    def test_builder_page_offers_the_check_in_and_the_sample_anchor(self):
+        html = bb.render_page_inner()
+        self.assertIn('id="weekly-sample"', html)
+        self.assertIn("Weekly check-in", html)
+        self.assertIn("Apply change", html)
+        self.assertIn(">Undo<", html)
+        self.assertIn("saved on this device only", html)
+        self.assertIn("This is a template, not a live AI.", html)
+        self.assertIn("whichever AI app you use, and gets better each week", html)
+        self.assertIn("ChatGPT", html)
+        self.assertIn("Claude", html)
+        self.assertIn("Gemini", html)
+        self.assertIn("Grok Bot", html)
+
+    def test_header_leads_with_the_builder_and_hides_my_bots(self):
+        with open(os.path.join(ROOT, "config.json"), encoding="utf-8") as fh:
+            cfg = json.load(fh)
+        self.assertFalse(cfg["saved_setups"]["sign_in"])
+        self.assertFalse(cfg["saved_setups"]["billing"])
+        self.assertFalse(cfg["saved_setups"]["live_launch"])
+        with open(os.path.join(ROOT, "scripts", "build.py"), encoding="utf-8") as fh:
+            source = fh.read()
+        self.assertIn("Build your bot", source)
+        self.assertIn('saved_setups") or {}).get("sign_in")', source)
+        self.assertIn("See an example", source)
+        index = os.path.join(ROOT, "site", "index.html")
+        if os.path.exists(index):
+            with open(index, encoding="utf-8") as fh:
+                page = fh.read()
+            self.assertIn(">Build your bot</a>", page)
+            self.assertIn(">Weekly email</a>", page)
+            self.assertNotIn(">My bots</a>", page)
+            self.assertIn('href="/bot-instructions/#weekly-sample"', page)
+            self.assertLess(page.find('id="subscribe"'), page.find("What's in the feed"))
 
 
 if __name__ == "__main__":

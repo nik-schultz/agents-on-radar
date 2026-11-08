@@ -400,6 +400,143 @@ def diagnose(task_id, answers, expected, actual, failure_ids, catalog=None):
     }
 
 
+CHECKIN_RULES = [
+    {
+        "id": "slipped_again",
+        "label": "A task slipped more than once",
+        "keywords": ["again", "second time", "keeps slipping", "slipped twice"],
+        "change": "Move one recurring task: schedule a task that slipped more than once only once this week, on a day that already has open time in the facts. Do not add a date or a clock time.",
+    },
+    {
+        "id": "underestimated",
+        "label": "Something took longer than planned",
+        "keywords": ["took longer", "longer than", "underestimated", "ran over"],
+        "change": "Cap each deep-work block at 90 minutes. If a task took longer than planned, leave the extra under Unscheduled with the reason not enough open time. Do not invent a clock time or a date.",
+    },
+    {
+        "id": "missing_buffer",
+        "label": "There was no gap between things",
+        "keywords": ["no gap", "no buffer", "back to back", "back-to-back", "no break"],
+        "change": "Keep a 30 minute buffer after each fixed commitment. Do not turn that buffer into a clock time or a new event.",
+    },
+    {
+        "id": "overplanned",
+        "label": "A day had more than I could finish",
+        "keywords": ["overplanned", "too much", "couldn't finish", "could not finish", "overloaded"],
+        "change": "Cap each deep-work block at 90 minutes and leave the overflow under Unscheduled with the reason not enough open time. Do not add hours, a date, or a clock time.",
+    },
+]
+PORTABLE = (
+    ("chatgpt", "ChatGPT custom instructions\nHow would you like ChatGPT to respond?\n\n"),
+    ("claude", "Claude project instructions\n\n"),
+    ("gemini", "Gemini Gem instructions\n\n"),
+    ("generic", "Instructions for any chat app\n\n"),
+)
+_CHECKIN_NOTE = "This check-in is a template. It did not call a model and it did not see a calendar."
+
+
+def _checkin_keyword(rule, blob):
+    low = blob.casefold()
+    for kw in rule["keywords"]:
+        if kw.casefold() in low:
+            return kw
+    return None
+
+
+def check_in(base_text, report, catalog=None):
+    """One reversible edit to weekly instructions. Does not invent a date or a clock time."""
+    catalog = catalog or load_catalog()
+    if not isinstance(base_text, str) or not base_text.strip():
+        return {"ok": False, "errors": [_err("instructions", "Write weekly instructions first.")]}
+    if not isinstance(report, dict):
+        return {"ok": False, "errors": [_err("checkin", "Describe what happened this week.")]}
+    fields = {}
+    for key in ("done", "slipped", "longer", "new_commitments"):
+        raw = report.get(key) or ""
+        cleaned = clean_user_text("" if raw is None else raw, 500)
+        if not cleaned["ok"]:
+            return {"ok": False, "errors": [_err(key, catalog["messages"]["too_long"].replace("{max}", "500") if cleaned["code"] == "too_long" else "Enter plain text.")]}
+        if cleaned["text"]:
+            hit = _screen(catalog, key, cleaned["text"])
+            if hit:
+                return {"ok": False, "errors": [hit]}
+        fields[key] = cleaned["text"]
+    selected = report.get("selected") or []
+    if not isinstance(selected, (list, tuple)):
+        return {"ok": False, "errors": [_err("checkin", "Choose a pattern.")]}
+    known = [rule["id"] for rule in CHECKIN_RULES]
+    if any(item not in known for item in selected):
+        return {"ok": False, "errors": [_err("checkin", "That pattern is not in the check-in.")]}
+    blob = "\n".join(fields.values())
+    noticed = []
+    chosen = None
+    for rule in CHECKIN_RULES:
+        kw = _checkin_keyword(rule, blob)
+        picked = rule["id"] in selected
+        if selected and picked and chosen is None:
+            chosen = (rule, kw)
+        elif selected and kw and not picked:
+            noticed.append('"%s" would match %s, which was not selected.' % (kw, rule["label"]))
+        elif not selected and kw and chosen is None:
+            chosen = (rule, kw)
+    if chosen is None:
+        return {"ok": True, "matched": None, "noticed": noticed, "change": "", "before": base_text, "after": base_text}
+    rule, kw = chosen
+    lines = ["WEEKLY CHECK-IN", rule["change"], _CHECKIN_NOTE]
+    if fields["new_commitments"]:
+        lines.append("New commitment note: " + quote_user(fields["new_commitments"]))
+        lines.append("Keep that note as text. Do not place it on a clock time.")
+    after = base_text.rstrip() + "\n\n" + "\n".join(lines).rstrip() + "\n"
+    because = "Selected by you." if rule["id"] in selected else ""
+    if kw:
+        because = (because + " " if because else "") + 'The wording contains "%s".' % kw
+    return {
+        "ok": True,
+        "matched": {"id": rule["id"], "title": rule["label"], "change": rule["change"], "because": because.strip()},
+        "noticed": noticed,
+        "change": rule["change"],
+        "before": base_text,
+        "after": after,
+    }
+
+
+def portable_text(text, kind):
+    labels = dict(PORTABLE)
+    if kind not in labels:
+        raise ValueError("unknown app")
+    return labels[kind] + text
+
+
+class InstructionHistory:
+    """Version list for one instruction string. Apply pushes. Undo restores the previous text exactly."""
+
+    def __init__(self, text):
+        self.versions = [text]
+        self.index = 0
+
+    def text(self):
+        return self.versions[self.index]
+
+    def version(self):
+        return self.index + 1
+
+    def label(self):
+        return "v%d" % self.version()
+
+    def apply(self, new_text):
+        if new_text == self.text():
+            return self.text()
+        self.versions = self.versions[:self.index + 1]
+        self.versions.append(new_text)
+        self.index += 1
+        return self.text()
+
+    def undo(self):
+        if self.index > 0:
+            self.index -= 1
+        return self.text()
+
+
 def _e(s):
     return html.escape(str(s), quote=True)
 
@@ -418,8 +555,9 @@ def render_page_inner(url=None, saved_config=None):
         samples.append((task, result["text"]))
     sample_html = []
     for task, text in samples:
+        sample_id = ' id="weekly-sample"' if task["id"] == "weekly-plan" else ""
         sample_html.append(
-            f'<details class="glass bb-sample"><summary>{_e(task["title"])}: made-up example</summary>'
+            f'<details class="glass bb-sample"{sample_id}><summary>{_e(task["title"])}: made-up example</summary>'
             f'<p>{_e(task["plain"])}</p>'
             f'<p class="small">The names, times, and prices in this box are fictional. Edit the quoted FACTS YOU TYPED lines if you are not using the form. '
             f'The box is the whole instruction. Copy it into one chat.</p>'
@@ -480,6 +618,40 @@ def render_page_inner(url=None, saved_config=None):
 <span id="bb-copy-status" class="bb-inline-status" role="status" aria-live="polite"></span></div>
 <pre class="term-body" id="bb-out" tabindex="0"></pre></div>
 <p id="bb-stale" class="small bb-warn" hidden>Answers changed after this text was written. Write instructions again before you rely on it.</p>
+<section id="bb-portable" hidden aria-labelledby="bb-portable-h">
+<h3 id="bb-portable-h">Use it in your chat app</h3>
+<p>Your setup works in whichever AI app you use, and gets better each week. These are the same instructions with a heading for each app. Nothing connects to ChatGPT, Claude, Gemini, Grok Bot, Dots, or Muse.</p>
+<div class="bb-actions" id="bb-portable-actions"></div>
+<pre class="term-body glass" id="bb-portable-out" tabindex="0"></pre>
+</section>
+<section id="bb-checkin" hidden aria-labelledby="bb-checkin-h">
+<h3 id="bb-checkin-h">Weekly check-in</h3>
+<p><b>This is a template, not a live AI.</b> It matches what you tick or type to four written patterns. It does not invent a date, a clock time, or a timezone, and it does not see a calendar.</p>
+<p class="small">Version history is saved on this device only, in this browser. It is not sent to BotsDoThat and it is not an account. Clearing this browser's site data deletes it.</p>
+<div class="bb-field"><label for="bb-ci-done">What got done?</label><textarea id="bb-ci-done" rows="2" maxlength="500" placeholder="Finished the logo draft."></textarea></div>
+<div class="bb-field"><label for="bb-ci-slipped">What slipped?</label><textarea id="bb-ci-slipped" rows="2" maxlength="500" placeholder="The outline slipped again."></textarea></div>
+<div class="bb-field"><label for="bb-ci-longer">What took longer than planned?</label><textarea id="bb-ci-longer" rows="2" maxlength="500" placeholder="The guide took longer than planned."></textarea></div>
+<div class="bb-field"><label for="bb-ci-new">Any new commitment? Optional.</label><textarea id="bb-ci-new" rows="2" maxlength="500" placeholder="A sample invoice follow-up. Do not include a private schedule."></textarea></div>
+<fieldset class="bb-set"><legend>What pattern fits?</legend>
+<label class="bb-check"><input type="checkbox" name="bb-checkin" value="slipped_again"> A task slipped more than once</label>
+<label class="bb-check"><input type="checkbox" name="bb-checkin" value="underestimated"> Something took longer than planned</label>
+<label class="bb-check"><input type="checkbox" name="bb-checkin" value="missing_buffer"> There was no gap between things</label>
+<label class="bb-check"><input type="checkbox" name="bb-checkin" value="overplanned"> A day had more than I could finish</label>
+</fieldset>
+<button class="btn" type="button" id="bb-checkin-suggest">Suggest one change</button>
+<p id="bb-checkin-status" class="bb-status" role="status" aria-live="polite"></p>
+<div id="bb-checkin-diff" hidden>
+<h4>Before <span id="bb-checkin-before-v">v1</span></h4>
+<pre class="term-body glass" id="bb-checkin-before" tabindex="0"></pre>
+<h4>After <span id="bb-checkin-after-v">v2</span></h4>
+<pre class="term-body glass" id="bb-checkin-after" tabindex="0"></pre>
+<div class="bb-actions">
+<button class="btn" type="button" id="bb-checkin-apply">Apply change</button>
+<button class="btn btn-ghost" type="button" id="bb-checkin-undo">Undo</button>
+</div>
+<p id="bb-version-status" class="bb-status" role="status" aria-live="polite"></p>
+</div>
+</section>
 </div>
 <section id="bb-trouble" aria-labelledby="bb-trouble-h"><h3 id="bb-trouble-h">Troubleshooting</h3>
 <p>Describe the result you wanted and what the chat did. Tick any pattern that fits the task you chose. A weekly-plan revision adds scheduling rules. It does not mean this page solved the week. It is not a fix until you run a test and the reply matches.</p>

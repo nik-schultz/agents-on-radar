@@ -237,7 +237,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <a class="logo" href="{u('/')}"><span class="logo-dot" aria-hidden="true"></span>{wordmark()}</a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-ico" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-lbl">Menu</span></button>
 <nav aria-label="Main" class="menu" id="site-menu">{navh}</nav>
-<a class="btn btn-sm nav-cta" href="{u('/newsletter/')}"><span class="cta-full">Get the weekly email</span><span class="cta-short">Weekly email</span></a>
+<div class="nav-actions">{'<a class="nav-mine" href="%s">My bots</a>' % u("/bot-instructions/#bb-account") if (cfg.get("saved_setups") or {}).get("sign_in") else ""}<a class="btn btn-sm nav-build" href="{u('/bot-instructions/')}"{' aria-current="page"' if path=="/bot-instructions/" else ""}>Build your bot</a><a class="btn btn-sm btn-ghost nav-news" href="{u('/newsletter/')}">Weekly email</a></div>
 </div></header>
 <main id="main">{body}{nl_end}</main>
 <footer class="foot"><div class="wrap foot-grid">
@@ -625,13 +625,14 @@ home = f"""
 <div class="hl-stack">{hero_heads}</div>
 <div class="hl-stack">{hero_leads}</div>
 {searchbox(home=True)}
-<div class="hero-ctas"><a class="btn" href="{u('/bot-instructions/')}">Customize a setup</a><a class="btn btn-ghost" href="#trending">See what's trending</a></div>
-<p class="small">Write instructions for your own chat app, then improve them when a test fails. Saving a setup to come back is not on sale yet. The guides below stay free. A saved setup is text you paste yourself. This site does not run the bot.</p>
+<div class="hero-ctas"><a class="btn" href="{u('/bot-instructions/')}">Build your bot</a><a class="btn btn-ghost" href="{u('/bot-instructions/#weekly-sample')}">See an example</a></div>
+<p class="small">Write instructions for your own chat app, then improve them each week. Saving a setup to come back is not on sale yet. The guides below stay free. A saved setup is text you paste yourself. This site does not run the bot.</p>
 </div>
 {radar(TRENDING)}
 </div>
 <div class="ticker" aria-label="Most-liked recent posts"><ul class="ticker-track">{ticker}{ticker.replace('<li>', '<li aria-hidden="true">').replace('<a href=', '<a tabindex="-1" href=')}</ul></div>
 </section>
+<div class="wrap nl-hero" id="subscribe">{newsletter_box("nl-hero", "inline")}</div>
 
 <section class="wrap stats reveal" aria-label="What's in the feed"><div><b>{len(ucs)}</b><span>use cases</span></div><div><b>{len(TRENDING)}</b><span>with measured popularity</span></div><div><b>{len(bps)}</b><span>bot blueprints</span></div><div><b>{n_sources}</b><span>linked sources</span></div></section>
 
@@ -644,7 +645,6 @@ home = f"""
 <p class="muted">Ranked by real likes, reposts, upvotes and points from X, Reddit and Hacker News, weighted toward newer posts (last {cfg.get('trending_window_days',60)} days). <a href="{u('/about/#popularity')}">How we measure</a>.</p></div>
 <a class="btn btn-ghost btn-sm" href="{u('/trending/')}">Full trending list →</a></div>
 <ol class="bento">{trend_cards}</ol></section>
-<div class="wrap nl-mid" id="subscribe">{newsletter_box("nl-mid", "inline")}</div>
 
 {less_band}
 
