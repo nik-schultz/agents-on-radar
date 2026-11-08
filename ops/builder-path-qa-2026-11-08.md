@@ -65,6 +65,8 @@ Not tested: a real clipboard permission prompt, Safari or Firefox, two operating
 
 ## Defect
 
+Fixed after this check, on the same branch. The version line now uses the save result, and the check-in sits under a shortened instruction preview. The original finding is kept below.
+
 Major, trust, not a blocker to copying instructions.
 
 The version line says the text was saved when the browser refused to store it.

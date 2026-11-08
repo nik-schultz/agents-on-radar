@@ -1020,46 +1020,9 @@ def render_page_inner(url=None, saved_config=None):
 <button class="btn btn-sm" type="button" id="bb-copy">Copy instructions</button>
 <button class="btn btn-sm btn-ghost" type="button" id="bb-download">Download .txt</button>
 <span id="bb-copy-status" class="bb-inline-status" role="status" aria-live="polite"></span></div>
-<pre class="term-body" id="bb-out" tabindex="0"></pre></div>
+<pre class="term-body bb-out-compact" id="bb-out" tabindex="0"></pre></div>
 <p id="bb-stale" class="small bb-warn" hidden>Answers changed after this text was written. Write instructions again before you rely on it. Needs recheck.</p>
-<section id="bb-handoff" aria-labelledby="bb-handoff-h">
-<h3 id="bb-handoff-h">After you try it, check these three things.</h3>
-<p>These are your checks, not an independent guarantee. AI replies can still be wrong. Nothing here is marked passed until you choose Pass yourself.</p>
-<button class="btn btn-ghost" type="button" id="bb-mark-tried">I pasted this into a chat</button>
-<fieldset class="bb-set"><legend>Did it keep the time you marked unavailable free?</legend>
-<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="unchecked" checked> Not checked</label>
-<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="pass"> Pass</label>
-<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="fail"> Fail</label>
-<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="not_sure"> Not sure</label>
-</fieldset>
-<fieldset class="bb-set"><legend>Did it flag work exceeding available hours or missing estimates?</legend>
-<label class="bb-check"><input type="radio" name="bb-check-overload" value="unchecked" checked> Not checked</label>
-<label class="bb-check"><input type="radio" name="bb-check-overload" value="pass"> Pass</label>
-<label class="bb-check"><input type="radio" name="bb-check-overload" value="fail"> Fail</label>
-<label class="bb-check"><input type="radio" name="bb-check-overload" value="not_sure"> Not sure</label>
-</fieldset>
-<fieldset class="bb-set"><legend>Did it list deferred work instead of quietly dropping it?</legend>
-<label class="bb-check"><input type="radio" name="bb-check-deferred" value="unchecked" checked> Not checked</label>
-<label class="bb-check"><input type="radio" name="bb-check-deferred" value="pass"> Pass</label>
-<label class="bb-check"><input type="radio" name="bb-check-deferred" value="fail"> Fail</label>
-<label class="bb-check"><input type="radio" name="bb-check-deferred" value="not_sure"> Not sure</label>
-</fieldset>
-<fieldset class="bb-set"><legend>Follow-up you can ask in the same chat</legend>
-<p>Can you fit in one more two-hour task without changing anything else? If the week still has room, a yes can be a real answer. This page does not grade it.</p>
-<label class="bb-check"><input type="radio" name="bb-check-followup" value="unchecked" checked> Not checked</label>
-<label class="bb-check"><input type="radio" name="bb-check-followup" value="pass"> Pass</label>
-<label class="bb-check"><input type="radio" name="bb-check-followup" value="fail"> Fail</label>
-<label class="bb-check"><input type="radio" name="bb-check-followup" value="not_sure"> Not sure</label>
-</fieldset>
-<p id="bb-handoff-status" class="bb-status" role="status" aria-live="polite"></p>
-<p class="small">Something failed? Choose what happened in Troubleshooting. A suggested instruction change is not a fix until you run it again and say so. That report is yours, not an observed result.</p>
-</section>
-<section id="bb-portable" hidden aria-labelledby="bb-portable-h">
-<h3 id="bb-portable-h">Use it in your chat app</h3>
-<p>Your setup works in whichever AI app you use, and gets better each week. These are the same instructions with a heading for each app. Nothing connects to ChatGPT, Claude, Gemini, Grok Bot, Dots, or Muse.</p>
-<div class="bb-actions" id="bb-portable-actions"></div>
-<pre class="term-body glass" id="bb-portable-out" tabindex="0"></pre>
-</section>
+<p class="small"><a href="#bb-checkin">Weekly check-in</a> is next to these instructions. It is a template, not a live review.</p>
 <section id="bb-checkin" hidden aria-labelledby="bb-checkin-h">
 <h3 id="bb-checkin-h">Weekly check-in</h3>
 <p><b>Keep what worked. Change one thing.</b> Suggested from your answers — not an AI diagnosis. This is a template, not a live AI. It does not invent a date, a clock time, or a timezone, and it does not see a calendar.</p>
@@ -1119,6 +1082,44 @@ def render_page_inner(url=None, saved_config=None):
 </div>
 <p id="bb-version-status" class="bb-status" role="status" aria-live="polite"></p>
 </div>
+</section>
+<section id="bb-handoff" aria-labelledby="bb-handoff-h">
+<h3 id="bb-handoff-h">After you try it, check these three things.</h3>
+<p>These are your checks, not an independent guarantee. AI replies can still be wrong. Nothing here is marked passed until you choose Pass yourself.</p>
+<button class="btn btn-ghost" type="button" id="bb-mark-tried">I pasted this into a chat</button>
+<fieldset class="bb-set"><legend>Did it keep the time you marked unavailable free?</legend>
+<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="unchecked" checked> Not checked</label>
+<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="pass"> Pass</label>
+<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="fail"> Fail</label>
+<label class="bb-check"><input type="radio" name="bb-check-unavailable" value="not_sure"> Not sure</label>
+</fieldset>
+<fieldset class="bb-set"><legend>Did it flag work exceeding available hours or missing estimates?</legend>
+<label class="bb-check"><input type="radio" name="bb-check-overload" value="unchecked" checked> Not checked</label>
+<label class="bb-check"><input type="radio" name="bb-check-overload" value="pass"> Pass</label>
+<label class="bb-check"><input type="radio" name="bb-check-overload" value="fail"> Fail</label>
+<label class="bb-check"><input type="radio" name="bb-check-overload" value="not_sure"> Not sure</label>
+</fieldset>
+<fieldset class="bb-set"><legend>Did it list deferred work instead of quietly dropping it?</legend>
+<label class="bb-check"><input type="radio" name="bb-check-deferred" value="unchecked" checked> Not checked</label>
+<label class="bb-check"><input type="radio" name="bb-check-deferred" value="pass"> Pass</label>
+<label class="bb-check"><input type="radio" name="bb-check-deferred" value="fail"> Fail</label>
+<label class="bb-check"><input type="radio" name="bb-check-deferred" value="not_sure"> Not sure</label>
+</fieldset>
+<fieldset class="bb-set"><legend>Follow-up you can ask in the same chat</legend>
+<p>Can you fit in one more two-hour task without changing anything else? If the week still has room, a yes can be a real answer. This page does not grade it.</p>
+<label class="bb-check"><input type="radio" name="bb-check-followup" value="unchecked" checked> Not checked</label>
+<label class="bb-check"><input type="radio" name="bb-check-followup" value="pass"> Pass</label>
+<label class="bb-check"><input type="radio" name="bb-check-followup" value="fail"> Fail</label>
+<label class="bb-check"><input type="radio" name="bb-check-followup" value="not_sure"> Not sure</label>
+</fieldset>
+<p id="bb-handoff-status" class="bb-status" role="status" aria-live="polite"></p>
+<p class="small">Something failed? Choose what happened in Troubleshooting. A suggested instruction change is not a fix until you run it again and say so. That report is yours, not an observed result.</p>
+</section>
+<section id="bb-portable" hidden aria-labelledby="bb-portable-h">
+<h3 id="bb-portable-h">Use it in your chat app</h3>
+<p>Your setup works in whichever AI app you use, and gets better each week. These are the same instructions with a heading for each app. Nothing connects to ChatGPT, Claude, Gemini, Grok Bot, Dots, or Muse.</p>
+<div class="bb-actions" id="bb-portable-actions"></div>
+<pre class="term-body glass" id="bb-portable-out" tabindex="0"></pre>
 </section>
 </div>
 <section id="bb-trouble" aria-labelledby="bb-trouble-h"><h3 id="bb-trouble-h">Troubleshooting</h3>

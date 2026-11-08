@@ -630,6 +630,11 @@ process.stdout.write(JSON.stringify({over, partial, unknown, copied, stale, lega
         self.assertEqual(got["legacy"], "legacy")
         self.assertEqual(got["invalid"], "invalid")
         self.assertFalse(got["conflict"]["saved"])
+        line = subprocess.check_output(["node", "-e", "const b=require('./static/bot-builder.js'); process.stdout.write(b.versionLine('v1', false, 'Not saved. This browser refused to store it. You can still copy or download.'))"], cwd=ROOT, text=True)
+        self.assertNotIn("Saved on this device only", line)
+        self.assertIn("Not saved", line)
+        saved = subprocess.check_output(["node", "-e", "const b=require('./static/bot-builder.js'); process.stdout.write(b.versionLine('v2', true, ''))"], cwd=ROOT, text=True)
+        self.assertIn("Saved on this device only", saved)
 
     def test_rendered_builder_states_the_boundaries(self):
         html = bb.render_page_inner()
@@ -642,6 +647,9 @@ process.stdout.write(JSON.stringify({over, partial, unknown, copied, stale, lega
         self.assertIn('value="unchecked" checked', html)
         self.assertIn("stored in this browser on this device", html)
         self.assertIn("not an AI diagnosis", html)
+        self.assertLess(html.find('id="bb-out"'), html.find('id="bb-checkin"'))
+        self.assertLess(html.find('id="bb-checkin"'), html.find('id="bb-handoff"'))
+        self.assertIn("bb-out-compact", html)
         self.assertNotIn("calendar verified", html.lower())
         self.assertNotIn("fetch(", html)
 

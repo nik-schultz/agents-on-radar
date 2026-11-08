@@ -512,6 +512,12 @@
     }
     return {ok: true, saved: true, conflict: false, status: "Saved on this device only. Not an account.", record: {schema: 2, versions: local.versions || [], index: local.index || 0, revision: storedRevision + 1, receipts: local.receipts || []}};
   }
+  function versionLine(label, saved, status) {
+    if (saved) return "Version " + label + ". Saved on this device only. Not sent to BotsDoThat.";
+    var tail = status || "Not saved. You can still copy or download.";
+    if (/\bSaved\b/.test(tail)) tail = "Not saved. You can still copy or download.";
+    return "Version " + label + ". " + tail;
+  }
   function keptRules(receipts) {
     return (receipts || []).filter(function (item) { return item && item.decision === "accepted" && item.rule; }).map(function (item) { return item.rule; });
   }
@@ -956,30 +962,30 @@
     }
     function saveDevice() {
       var statusEl = doc.getElementById("bb-save-status");
-      if (!history) return;
-      var store = browserStore();
-      if (!store) {
-        if (statusEl) statusEl.textContent = "Not saved. This browser refused to store it. You can still copy or download.";
-        return;
+      var refused = "Not saved. This browser refused to store it. You can still copy or download.";
+      function finish(saved, status) {
+        if (statusEl) statusEl.textContent = status;
+        versionNote(saved, status);
+        return {saved: !!saved, status: status};
       }
+      if (!history) return finish(false, "Not saved yet.");
+      var store = browserStore();
+      if (!store) return finish(false, refused);
       var existing = readStore(function () { try { return store.getItem(STORE); } catch (e) { return null; } }());
       var prepared = prepareSave({versions: history.versions, index: history.index, receipts: receipts, base_revision: baseRevision}, existing.record);
-      if (!prepared.ok) {
-        if (statusEl) statusEl.textContent = prepared.status;
-        return;
-      }
+      if (!prepared.ok) return finish(false, prepared.status);
       try {
         store.setItem(STORE, JSON.stringify(prepared.record));
         baseRevision = prepared.record.revision;
-        if (statusEl) statusEl.textContent = prepared.status;
+        return finish(true, prepared.status);
       } catch (e) {
-        if (statusEl) statusEl.textContent = "Not saved. This browser refused to store it. You can still copy or download.";
+        return finish(false, refused);
       }
     }
-    function versionNote() {
+    function versionNote(saved, status) {
       var eln = doc.getElementById("bb-version-status");
       if (!history || !eln) return;
-      eln.textContent = "Version " + history.label() + ". Saved on this device only. Not sent to BotsDoThat.";
+      eln.textContent = versionLine(history.label(), saved, status);
     }
     function showWeeklyTools(on, text) {
       if (!checkin || !portable) return;
@@ -994,7 +1000,6 @@
       });
       paintHandoff();
       saveDevice();
-      versionNote();
       pendingAfter = "";
       doc.getElementById("bb-checkin-diff").hidden = true;
       paintPortable("generic");
@@ -1009,7 +1014,7 @@
       result.hidden = false;
       checkin.hidden = false;
       portable.hidden = false;
-      versionNote();
+      versionNote(false, "Loaded on this device only. Not sent to BotsDoThat.");
       paintPortable("generic");
       paintKept();
       var statusEl = doc.getElementById("bb-save-status");
@@ -1089,13 +1094,12 @@
       history.apply(pendingAfter);
       out.textContent = history.text();
       receipts.push({revision: history.label(), week_start: "", tried: !!handoff.tried, blocker: (doc.querySelector('input[name="bb-blocker"]:checked') || {}).value || "", rule_id: pendingRule.id, rule: pendingRule.rule, decision: "accepted", outcome: "not_tried", claimed_success: false});
-      saveDevice();
-      versionNote();
+      var savedApply = saveDevice();
       paintPortable("generic");
       paintKept();
       handoff = invalidateHandoff(handoff, "A rule was applied.");
       paintHandoff();
-      doc.getElementById("bb-checkin-status").textContent = "Applied " + history.label() + ". Saved for your next setup on this browser. Try it before deciding whether it helped.";
+      doc.getElementById("bb-checkin-status").textContent = "Applied " + history.label() + ". " + (savedApply.saved ? "Saved for your next setup on this browser. Try it before deciding whether it helped." : savedApply.status);
     });
     var undoBtn = doc.getElementById("bb-checkin-undo");
     if (undoBtn) undoBtn.addEventListener("click", function () {
@@ -1108,10 +1112,9 @@
       paintKept();
       handoff = invalidateHandoff(handoff, "The last change was undone.");
       paintHandoff();
-      saveDevice();
-      versionNote();
+      var savedUndo = saveDevice();
       paintPortable("generic");
-      doc.getElementById("bb-checkin-status").textContent = "Undid to " + history.label() + ". The previous instructions are restored exactly. Saved on this device only.";
+      doc.getElementById("bb-checkin-status").textContent = "Undid to " + history.label() + ". The previous instructions are restored exactly. " + (savedUndo.saved ? "Saved on this device only." : savedUndo.status);
     });
     doc.getElementById("bb-write").addEventListener("click", writeInstructions);
     loadDevice();
@@ -1363,5 +1366,5 @@
     questions.appendChild(start);
   }
 
-  return {generate: generate, diagnose: diagnose, checkIn: checkIn, portableText: portableText, History: History, quoteUser: quoteUser, cleanUserText: cleanUserText, mount: mount, setCatalog: setCatalog, parseMinutes: parseMinutes, capacityCheck: capacityCheck, fictionalWeek: fictionalWeek, exampleAnswers: exampleAnswers, freshHandoff: freshHandoff, noteCopied: noteCopied, noteTried: noteTried, setCheck: setCheck, invalidateHandoff: invalidateHandoff, reviewWantsChange: reviewWantsChange, withEnduringRules: withEnduringRules, readStore: readStore, prepareSave: prepareSave, keptRules: keptRules, formatHours: formatHours};
+  return {generate: generate, diagnose: diagnose, checkIn: checkIn, portableText: portableText, History: History, quoteUser: quoteUser, cleanUserText: cleanUserText, mount: mount, setCatalog: setCatalog, parseMinutes: parseMinutes, capacityCheck: capacityCheck, fictionalWeek: fictionalWeek, exampleAnswers: exampleAnswers, freshHandoff: freshHandoff, noteCopied: noteCopied, noteTried: noteTried, setCheck: setCheck, invalidateHandoff: invalidateHandoff, reviewWantsChange: reviewWantsChange, withEnduringRules: withEnduringRules, readStore: readStore, prepareSave: prepareSave, keptRules: keptRules, formatHours: formatHours, versionLine: versionLine};
 });
