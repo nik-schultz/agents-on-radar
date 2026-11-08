@@ -15,6 +15,7 @@ follow. The site URL comes from `base_url` (now `https://botsdothat.com/`, with 
 ## Quick start
 ```bash
 python3 scripts/build.py                 # writes site/
+python3 scripts/test_bot_builder.py      # instruction builder: templates, diagnosis, JS parity
 python3 scripts/check_links.py           # internal link check (add --external to HEAD-check outside links)
 python3 -m http.server 8090 -d site      # preview at http://localhost:8090/
 ```
@@ -30,6 +31,8 @@ data/sponsors.json        sponsor slots: featured_home, featured_category, use_c
 data/incoming/            drop new use cases here for the daily routine (see _template.json.example)
 data/popularity-history.jsonl   append-only log of every measured number
 scripts/build.py          generator (pages, search index, RSS, sitemap, robots, llms.txt, og.png)
+scripts/bot_builder.py    text-only instruction builder (fixed templates; no model call)
+scripts/test_bot_builder.py  generation, diagnosis, and JS parity tests
 scripts/validate.py       schema + honesty checks (popularity must be measured integers with url + date)
 scripts/add_use_cases.py  appends data/incoming/*.json → data/use-cases.json
 scripts/refresh_popularity.py   merges real X / Reddit numbers into popularity
@@ -110,6 +113,9 @@ Status 2026-10-20: all 10 slots are live (about 190 KB of WebP in total). The ho
 schema.org JSON-LD (WebSite+SearchAction, ItemList, HowTo, FAQPage, BreadcrumbList, Article), `sitemap.xml` with lastmod,
 `robots.txt` allowing GPTBot / OAI-SearchBot / ChatGPT-User / ClaudeBot / Claude-User / PerplexityBot / Google-Extended /
 Applebot-Extended / CCBot, `llms.txt`, `llms-full.txt`, `feed.xml` (RSS of newest 40), `.nojekyll`, `CNAME` when `config.cname` is set.
+
+## Instruction builder (`/bot-instructions/`)
+Free, browser-only templates for three text-only tasks: a week plan, an email draft, and a comparison of quotes the reader pastes. `scripts/bot_builder.py` fills a fixed template. It does not call a model. Answers stay in the tab. The page states a proposed $29 one-time pilot (one task, seven days of troubleshooting). Checkout stays closed: `data/bot-builder.json` `offer.status` must remain `closed`, and `validate.py` rejects a checkout URL. Fulfillment blockers are in `ops/bot-builder-launch.md`. Do not add a payment link, a form that posts the answers, or a claim that a test was verified.
 
 ## Newsletter and sponsors
 Weekly issues: add an issue to `data/newsletter.json` (3-5 use-case slugs with a one-line `why`, `new_page`, optional `watch_out` news id, `sponsor` or null for a house ad). It builds `/newsletter/<slug>/`, the archive on `/newsletter/` and `/newsletter/feed.xml`. Set `sent_on` once it has been emailed.

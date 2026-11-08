@@ -128,6 +128,9 @@ def main():
     if _sc.get("live") and not all((_sc.get("links") or {}).get(k) for k in ("featured", "runforless", "bundle", "newsletter")):
         errs.append("config sponsor_checkout: live=true needs all 4 links (featured, runforless, bundle, newsletter)")
     if re.search(r"sk_(live|test)_|rk_(live|test)_", json.dumps(_cfg)): errs.append("config.json contains a Stripe secret key. Remove it")
+    sys.path.insert(0, os.path.join(ROOT, "scripts"))
+    import bot_builder
+    errs += bot_builder.validate_catalog()
     sp = J("data", "sponsors.json")
     for slot, items in sp.items():
         if not isinstance(items, list): continue

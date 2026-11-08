@@ -82,7 +82,7 @@ IMG_DIR = os.path.join(ROOT, "static", "img")
 import hashlib
 def _asset_v(name):  # content hash so browsers fetch fresh CSS/JS after every change
     with open(os.path.join(ROOT, "static", name), "rb") as fh: return hashlib.sha1(fh.read()).hexdigest()[:10]
-ASSET_V = {n: _asset_v(n) for n in ("style.css", "app.js")}
+ASSET_V = {n: _asset_v(n) for n in ("style.css", "app.js", "bot-builder.js")}
 
 def nice_date(d):
     if not d: return ""
@@ -215,7 +215,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
     # Keep <title> within ~62 chars (Google truncates longer ones); drop the brand suffix when it won't fit.
     full_title = title if (NAME in title or len(title) + len(NAME) + 3 > 62) else f"{title} · {NAME}"
     og = absu(u(_og_for(path)))
-    nav = [("/what-can-bots-do/", "What's an AI agent?"), ("/trending/", "Trending"), ("/use-cases/", "Use cases"), ("/blueprints/", "Build a bot"), ("/news/", "AI news"), (LESS, "Run for less")]
+    nav = [("/what-can-bots-do/", "What's an AI agent?"), ("/trending/", "Trending"), ("/use-cases/", "Use cases"), ("/blueprints/", "Build a bot"), ("/bot-instructions/", "Instructions"), ("/news/", "AI news"), (LESS, "Run for less")]
     navh = "".join(f'<a href="{u(p)}"{" class=nav-less" if p == LESS else ""}{" aria-current=page" if path==p else ""}>{"<span class=nav-less-dot aria-hidden=true></span>" if p == LESS else ""}{t}</a>' for p, t in nav)
     doc = f"""<!doctype html><html lang="en" data-page="{kind}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -243,7 +243,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <footer class="foot"><div class="wrap foot-grid">
 <div><p class="logo"><span class="logo-dot" aria-hidden="true"></span>{wordmark()}</p><p class="foot-tag">{e(TAGLINE)}</p><p class="small">{e(cfg.get('subtagline', ''))}</p>
 <p class="small">General information, not legal, medical or financial advice. Popularity numbers are real counts we measured, with the date. Unknown = not shown. Paid placements are labeled “Sponsored”; affiliate links are labeled “Affiliate link” (<a href="{u(DISCLOSE)}">disclosure</a>).</p></div>
-<div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">Use cases</a></li><li><a href="{u('/blueprints/')}">Build a bot</a></li><li><a href="{u(BUILD_GUIDE)}">Build an AI agent without coding</a></li><li><a href="{u(COST_GUIDE)}">What an AI agent costs</a></li><li><a href="{u(SAFE_GUIDE)}">Email and calendar safety</a></li><li><a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a></li><li><a href="{u('/what-can-bots-do/')}">What's an AI agent?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
+<div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">Use cases</a></li><li><a href="{u('/blueprints/')}">Build a bot</a></li><li><a href="{u('/bot-instructions/')}">Write bot instructions</a></li><li><a href="{u(BUILD_GUIDE)}">Build an AI agent without coding</a></li><li><a href="{u(COST_GUIDE)}">What an AI agent costs</a></li><li><a href="{u(SAFE_GUIDE)}">Email and calendar safety</a></li><li><a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a></li><li><a href="{u('/what-can-bots-do/')}">What's an AI agent?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
 <div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/advertise/')}">Advertise</a></li><li><a href="{u(DISCLOSE)}">Affiliate & sponsor disclosure</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u(PRIVACY)}">Privacy</a></li><li><a href="{u(SPONSOR_TERMS)}">Sponsor terms</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li>{('<li><a href="' + e(X_URL) + '" rel="me noopener">Follow on X (@' + e(X_HANDLE) + ')</a></li>') if X_URL else ""}<li><a href="{e(CONTACT_HREF)}">Contact{(": " + e(CONTACT)) if CONTACT else ""}</a></li></ul></div>
 </div><div class="wrap small foot-note">Data as of {nice_date(BUILD_DATE)} · {len(ucs)} use cases · {len(bps)} blueprints</div></footer>
 <script src="{u('/assets/app.js')}?v={ASSET_V['app.js']}" defer></script>
@@ -288,7 +288,7 @@ def featured_slot(slot, cat=None):
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
     return newsletter_box(f"nl-{slot}", "card")  # no sponsor booked: show a newsletter signup instead of an empty ad box
 
-SHARE_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS}
+SHARE_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/"}
 def share_bar(title, url):
     """Share on X / Copy link / Email a friend. Plain links + one button; no third-party scripts."""
     q = urllib.parse.quote
@@ -303,7 +303,7 @@ def share_bar(title, url):
 <label class="share-nojs"><span class="sr">Link to this page</span><input type="text" readonly value="{e(url)}" size="34"></label>
 <a class="share-btn" href="{e(mh)}" aria-label="Email this page to a friend">{msvg}<span>Email a friend</span></a>
 </div><p class="share-status small" role="status" aria-live="polite"></p></section>"""
-NL_END_PATHS = {"/trending/", "/news/", OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", PRICING, LESS, "/about/"}
+NL_END_PATHS = {"/trending/", "/news/", OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", "/bot-instructions/", PRICING, LESS, "/about/"}
 # Long guides also get a signup after their 3rd top-level section (mid-article), not only at the end.
 NL_MID_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/"}
 def _insert_mid(body, snippet, after=3):
@@ -626,6 +626,7 @@ home = f"""
 <div class="hl-stack">{hero_leads}</div>
 {searchbox(home=True)}
 <div class="hero-ctas"><a class="btn" href="#trending">See what's trending</a><a class="btn btn-ghost" href="{u('/blueprints/')}">Build your first bot →</a></div>
+<p class="small"><a href="{u('/bot-instructions/')}">Write chat instructions for a text-only task</a>. Free, no account access. A paid setup pilot is listed there and is not for sale yet.</p>
 </div>
 {radar(TRENDING)}
 </div>
@@ -673,7 +674,7 @@ ld_home = [{"@context": "https://schema.org", "@type": "WebSite", "name": NAME, 
             "potentialAction": {"@type": "SearchAction", "target": absu(u("/use-cases/")) + "?q={search_term_string}", "query-input": "required name=search_term_string"}},
            {"@context": "https://schema.org", "@type": "ItemList", "name": "Trending AI agent use cases", "itemListElement": [
                {"@type": "ListItem", "position": i + 1, "url": absu(u("/use-cases/" + x["slug"] + "/")), "name": x["title"]} for i, x in enumerate(TRENDING[:10])]}]
-page("/", f"{NAME}: {TAGLINE}", mdesc(cfg.get("meta_description") or cfg["description"]), home, ld_home, kind="home")
+page("/", f"{NAME}: {TAGLINE}", mdesc(cfg.get("meta_description") or cfg["description"]), home, ld_home, kind="home", lastmod="2026-11-08")
 
 # ---------- TRENDING + INDEX + CATEGORIES ------------------------------------------
 trows = "".join(f"""<tr><td class="num">{i+1}</td><td><a href="{u('/use-cases/'+x['slug']+'/')}">{e(x['title'])}</a><div class="small muted">{CAT[x['category']]['icon']} {e(CAT[x['category']]['name'])}</div></td>
@@ -916,11 +917,27 @@ bp_all = "".join(f"""<li class="bp-card has-real glass reveal"><a href="{u('/blu
 page("/blueprints/", "Build a bot: blueprints for beginners", f"{len(bps)} copy-paste bot blueprints for everyday life: what each bot watches, when it runs, which tool to use, the exact instructions and safety rules.",
      f"""<div class="wrap page-head"><p class="eyebrow">Bot blueprints</p><h1 class="kinetic-sm">Build a bot</h1>
 <p class="lead">Each blueprint is a ready-made bot: what it watches, when it runs, which tool to use, the exact words to paste, and how to keep it safe. No coding.</p>
-<p class="small">First time? Read <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, a step-by-step walkthrough that uses the Morning Inbox Briefing as the example.</p></div>
+<p class="small">First time? Read <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, a step-by-step walkthrough that uses the Morning Inbox Briefing as the example. For a chat-only draft with no connected accounts, use the <a href="{u('/bot-instructions/')}">instruction builder</a>.</p></div>
 <section class="wrap block" id="how-to" aria-labelledby="howto-h"><h2 id="howto-h">How to set up any bot, in 5 plain steps</h2><ol class="howto">{howto_html}</ol>
 <details class="glass gloss-box"><summary>Words you'll see (glossary)</summary><dl class="gloss">{gloss}</dl></details></section>
 <section class="wrap block" aria-labelledby="bpl-h"><h2 id="bpl-h">All blueprints</h2><ul class="bp-grid">{bp_all}</ul></section>""",
-     [{"@context": "https://schema.org", "@type": "HowTo", "name": "How to set up an AI agent (bot) for an everyday job", "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(HOWTO_STEPS)]}, itemlist("Bot blueprints for beginners", bps, "/blueprints/")])
+     [{"@context": "https://schema.org", "@type": "HowTo", "name": "How to set up an AI agent (bot) for an everyday job", "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(HOWTO_STEPS)]}, itemlist("Bot blueprints for beginners", bps, "/blueprints/")], lastmod="2026-11-08")
+
+import sys
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
+import bot_builder
+_bb = bot_builder.load_catalog()
+_bb_errs = bot_builder.validate_catalog(_bb)
+if _bb_errs:
+    raise SystemExit("bot-builder catalog: " + "; ".join(_bb_errs))
+_bb_bc, _bb_ld = crumbs([("Home", "/"), ("Write instructions", None)])
+_bb_faq = [{"@type": "Question", "name": item["q"], "acceptedAnswer": {"@type": "Answer", "text": item["a"]}} for item in _bb["faq"]]
+page("/bot-instructions/", "Write bot instructions",
+     "Free instructions for a week plan, an email draft, or a quote comparison. Text only. No account access. The $29 pilot is not for sale yet.",
+     f'<div class="wrap">{_bb_bc}</div>' + bot_builder.render_page_inner(u),
+     [_bb_ld, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": _bb_faq}],
+     lastmod="2026-11-08",
+     head_extra=f'<script src="{u("/assets/bot-builder.js")}?v={ASSET_V["bot-builder.js"]}" defer></script>')
 
 for b in bps:
     bc, bld = crumbs([("Home", "/"), ("Build a bot", "/blueprints/"), (b["title"], None)])
@@ -1942,9 +1959,9 @@ page(SPONSOR_TERMS, "Sponsor terms", f"Plain-English terms for sponsoring {NAME}
 <h2>Payments</h2><p>Payments are processed by Stripe.</p>
 <h2>Contact</h2><p>Questions about sponsoring? Email {_tmail}. See all spots and prices on <a href="{u('/advertise/')}">Advertise</a>.</p></div>""", lastmod=SPONSOR_TERMS_UPDATED)
 
-PRIVACY_UPDATED = "2026-10-23"
+PRIVACY_UPDATED = "2026-11-08"
 _mail = f'<a href="mailto:{e(CONTACT)}">{e(CONTACT)}</a>' if CONTACT else f'<a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>'
-page(PRIVACY, "Privacy policy", f"What {NAME} collects (only your email, if you subscribe), how our newsletter and cookie-free Cloudflare analytics work, and how to unsubscribe.",
+page(PRIVACY, "Privacy policy", f"What {NAME} collects (only your email, if you subscribe), how the instruction builder keeps what you type in your browser, how our newsletter and cookie-free Cloudflare analytics work, and how to unsubscribe.",
      f"""<div class="wrap narrow prose"><p class="eyebrow">Privacy</p><h1 class="kinetic-sm">Privacy policy</h1>
 <p class="lead">The short version: we only collect your email address if you sign up for the newsletter, we count visits without cookies, and we never sell or share your data.</p>
 <div class="glass adv-honest"><p class="small muted">Last updated {nice_date(PRIVACY_UPDATED)}.</p></div>
@@ -1958,7 +1975,8 @@ page(PRIVACY, "Privacy policy", f"What {NAME} collects (only your email, if you 
 <li>We use <a href="https://www.cloudflare.com/web-analytics/" rel="noopener">Cloudflare Web Analytics</a> to count page views and see which pages are popular.</li>
 <li>It doesn't use cookies, doesn't track you across other websites, and doesn't give us your name, email or any other personal details. That's why there's no cookie banner.</li></ul>
 <h2>Sponsors who pay us</h2><p>If you buy a sponsor spot, Stripe handles the payment. We never see your full card number. We receive your name, email, billing details Stripe asks for, and what you type at checkout (your website, ad text and start month), and we use them only to run your spot and send receipts. Stripe's <a href="https://stripe.com/privacy" rel="noopener">privacy policy</a> covers how it handles payment data.</p>
-<h2>What we never do</h2><ul><li>We never sell, rent or share your email address or data.</li><li>We don't run ad-tracking pixels.</li>
+<h2>Instruction builder</h2><p>The <a href="{u('/bot-instructions/')}">instruction builder</a> runs in your browser. What you type stays in that tab's memory. We don't receive it, store it, or send it to a model. Copy places the instructions on your clipboard only after you press Copy. Clear answers, or closing the tab, drops it. Don't type passwords, payment numbers, identity numbers, health details, or someone else's private mail.</p>
+<h2>What we never do</h2><ul><li>We never sell, rent or share your email address or data.</li><li>We don't run ad-tracking pixels.</li><li>We don't collect what you type into the instruction builder.</li>
 <li>Sponsors never get reader emails. If a sponsor's link is on a page, clicking it takes you to their site, and their privacy policy applies there.</li></ul>
 <h2>Links to other sites</h2><p>Our guides link to tools, posts and articles on other sites. Those sites have their own privacy policies.</p>
 <h2>Your choices</h2><p>To unsubscribe, use the link in any email. To have your email address deleted, or to ask what we hold, email {_mail} and we'll take care of it.</p>
@@ -1985,6 +2003,7 @@ page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wr
 idx = [{"t": x["title"], "u": u("/use-cases/" + x["slug"] + "/"), "c": CAT[x["category"]]["name"], "i": CAT[x["category"]]["icon"], "d": x["difficulty"], "h": x["_heat"], "s": search_text(x)} for x in ucs]
 idx += [{"t": "Blueprint: " + b["title"], "u": u("/blueprints/" + b["slug"] + "/"), "c": "Blueprint", "i": "⚙", "d": b["difficulty"], "h": 0, "s": norm(b["title"] + " " + b["goal"] + " " + b["watches"])} for b in bps]
 idx += [{"t": t, "u": u(pth), "c": "Guide", "i": "📘", "d": "Easy", "h": 0, "s": norm(t + " " + d + (" openclaw hermes agent nous research self-hosted open source" if pth == CLAW_GUIDE else ""))} for pth, t, d in NEW_GUIDES]
+idx.append({"t": "Write bot instructions", "u": u("/bot-instructions/"), "c": "Guide", "i": "✎", "d": "Easy", "h": 0, "s": norm("write bot instructions text only chat weekly plan email draft compare quotes troubleshooting template")})
 json.dump(idx, open(os.path.join(OUT, "assets", "search-index.json"), "w"), ensure_ascii=False, separators=(",", ":"))
 
 def rfc822(d): return datetime.datetime.combine(datetime.date.fromisoformat(d), datetime.time(12)).strftime("%a, %d %b %Y %H:%M:%S +0000")
@@ -2013,7 +2032,7 @@ bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "
 open(os.path.join(OUT, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {absu(u('/sitemap.xml'))}\n")
 
 L1 = [f"# {NAME}", "", f"> {TAGLINE} {cfg['description']}", "", f"Data as of {BUILD_DATE}. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.", "",
-      "## Start here", f"- [What is an AI agent? (in simple terms)]({absu(u('/what-can-bots-do/'))}): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely", *[f"- [{t}]({absu(u(pth))}): {d}" for pth, t, d in NEW_GUIDES[1:]], f"- [How to build an AI agent without coding]({absu(u(BUILD_GUIDE))}): step-by-step beginner guide using a real blueprint as the worked example", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", f"- [{NAME} Weekly newsletter]({absu(u('/newsletter/'))}): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; new subscribers get a free Starter Pack PDF of 7 ready-to-paste agent setups plus a power-user bonus; past issues on the web", "", "## Use cases by category"]
+      "## Start here", f"- [What is an AI agent? (in simple terms)]({absu(u('/what-can-bots-do/'))}): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely", *[f"- [{t}]({absu(u(pth))}): {d}" for pth, t, d in NEW_GUIDES[1:]], f"- [How to build an AI agent without coding]({absu(u(BUILD_GUIDE))}): step-by-step beginner guide using a real blueprint as the worked example", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Write bot instructions]({absu(u('/bot-instructions/'))}): free text-only templates for a week plan, an email draft, or a quote comparison. The $29 pilot is not for sale; checkout is closed", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", f"- [{NAME} Weekly newsletter]({absu(u('/newsletter/'))}): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; new subscribers get a free Starter Pack PDF of 7 ready-to-paste agent setups plus a power-user bonus; past issues on the web", "", "## Use cases by category"]
 for c in cats:
     L1 += ["", f"### {c['name']}", f"All {c['name']} use cases: {absu(u('/category/'+c['slug']+'/'))}"] + [f"- [{x['title']}]({absu(u('/use-cases/'+x['slug']+'/'))}): {x['summary']}" for x in ucs if x["category"] == c["slug"]]
 L1 += ["", "## Latest in AI (newest first)"] + [f"- {n['date']} [{n['category']}] {n['headline']}: {n['explainer']} Source: {n['source_url']}" for n in NEWS[:15]]
