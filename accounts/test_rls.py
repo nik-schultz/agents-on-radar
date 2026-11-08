@@ -4,7 +4,7 @@
 This is a local database named bots_setups_test. It is not a Supabase project
 and it is not production. auth.uid() is a test stub, not Supabase Auth.
 """
-import os, subprocess, unittest, uuid
+import os, threading, unittest, uuid
 
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
@@ -176,6 +176,52 @@ class RlsTests(unittest.TestCase):
             cur.execute("select count(*) from public.stripe_events")
             self.conn.commit()
         self.conn.rollback()
+
+    def test_two_connections_cannot_both_pass_a_one_setup_cap(self):
+        uid = str(uuid.uuid4())
+        cur = self.conn.cursor()
+        cur.execute("reset role")
+        cur.execute("insert into auth.users (id) values (%s)", (uid,))
+        cur.execute(
+            "insert into public.entitlements (user_id, plan_code, setup_limit, status) values (%s, 'three', 3, 'active')",
+            (uid,),
+        )
+        self.conn.commit()
+        cur.execute("select set_config('request.jwt.claim.sub', %s, false)", (uid,))
+        cur.execute("set role authenticated")
+        for n in range(2):
+            cur.execute(
+                "select public.create_setup('weekly-plan', %s, '{}'::jsonb, 'seed text')",
+                ("Seed %d" % n,),
+            )
+        self.conn.commit()
+        cur.execute("reset role")
+        results = []
+
+        def worker():
+            conn = connect()
+            c = conn.cursor()
+            try:
+                c.execute("select set_config('request.jwt.claim.sub', %s, false)", (uid,))
+                c.execute("set role authenticated")
+                c.execute("select public.create_setup('weekly-plan', 'Race', '{}'::jsonb, 'race text that is long enough')")
+                conn.commit()
+                results.append("ok")
+            except Exception:
+                conn.rollback()
+                results.append("no")
+            finally:
+                conn.close()
+
+        threads = [threading.Thread(target=worker) for _ in range(2)]
+        for thread in threads:
+            thread.start()
+        for thread in threads:
+            thread.join()
+        self.assertEqual(sorted(results), ["no", "ok"])
+        cur.execute("reset role")
+        cur.execute("select count(*) from public.setups where user_id = %s and deleted_at is null", (uid,))
+        self.assertEqual(cur.fetchone()[0], 3)
 
     def test_malicious_text_is_stored_as_text_for_the_owner_only(self):
         cur = self.as_user(self.ada)
