@@ -236,6 +236,7 @@ class PageTests(unittest.TestCase):
         self.assertIn("$9/month", html)
         self.assertIn("$14/month", html)
         self.assertIn("Sign-in is not turned on", html)
+        self.assertIn("Customer sign-in email is not available", html)
         self.assertIn("Checkout is not turned on", html)
         self.assertIn("does not host or run the bot", html)
         self.assertIn("Monday 9 November 2026", html)
@@ -476,6 +477,7 @@ process.stdin.on("end", () => {
         self.assertFalse(cfg["saved_setups"]["sign_in"])
         self.assertFalse(cfg["saved_setups"]["billing"])
         self.assertFalse(cfg["saved_setups"]["live_launch"])
+        self.assertFalse(cfg["saved_setups"]["auth_email_ready"])
         with open(os.path.join(ROOT, "scripts", "build.py"), encoding="utf-8") as fh:
             source = fh.read()
         self.assertIn("Build your bot", source)
