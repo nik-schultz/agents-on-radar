@@ -17,6 +17,7 @@ Data as of 2026-11-06. Popularity numbers are real counts (X likes/reposts, Redd
 - [AI agent examples for everyday life](https://botsdothat.com/ai-agent-examples/): every example on one page, grouped by part of life
 - [Trending now](https://botsdothat.com/trending/)
 - [Bot blueprints](https://botsdothat.com/blueprints/): build-your-own-bot recipes
+- [Write bot instructions](https://botsdothat.com/bot-instructions/): free in-tab templates for a weekly plan, an email draft, or a quote comparison. Saved setups are not on sale; sign-in and checkout are off
 - [Latest in AI](https://botsdothat.com/news/): new models, agent launches and AI price changes in plain words, with sources (RSS: https://botsdothat.com/news/feed.xml)
 - [Run your bots for less](https://botsdothat.com/run-your-bots-for-less/): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)
 - [AI agent cost calculator](https://botsdothat.com/run-your-bots-for-less/#calculator): pick a bot or enter runs and message size, compare monthly cost across 21 models from official prices checked 2026-11-03; prefill with ?bot=<blueprint-slug>

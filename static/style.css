@@ -506,3 +506,51 @@ html:not(.js) .share-copy{display:none}
 .side-comm li a{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:.8rem}
 .chat-badge{align-self:flex-start;font-size:.75rem;font-weight:700;border-radius:6px;padding:.15em .5em;border:1px dashed currentColor;color:var(--muted,#9aa3b2);white-space:nowrap}.chat-note{padding:.6em .8em;border-radius:10px;border:1px dashed rgba(154,163,178,.45)}.chat-note .chat-badge{margin-right:.4em}
 .hub-note{max-width:62ch}
+
+/* ---- Bot instruction builder (2026-11-08). Chat-only templates. Checkout stays closed. ---- */
+.bb-honest,.bb-pilot,.bb-report{padding:16px 18px;margin:16px 0}
+.bb-honest p:last-child,.bb-pilot p:last-child{margin-bottom:0}
+.bb-limits{padding-left:1.2em}.bb-limits li{margin:.35em 0}
+.bb-app{display:none;padding-top:8px}
+html.js .bb-app{display:block}
+.bb-set{border:0;margin:0 0 16px;padding:0;min-width:0}
+.bb-set legend{font-weight:750;padding:0;margin-bottom:8px}
+.bb-task-list,.bb-choices{display:grid;gap:8px}
+.bb-choice{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--glass2);cursor:pointer;min-height:44px}
+.bb-choice:has(input:checked){border-color:rgba(94,242,214,.7);background:rgba(94,242,214,.08)}
+.bb-choice input{width:1.15rem;height:1.15rem;margin-top:.2em;flex:none;accent-color:var(--c1)}
+.bb-choice span{display:grid;gap:2px;min-width:0}
+.bb-choice small{color:var(--muted);font-size:.88rem;line-height:1.4}
+.bb-field{margin:0 0 14px}
+.bb-field label,.bb-check{font-weight:650}
+.bb-field input[type="text"],.bb-field textarea,#bb-trouble textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:rgba(5,7,15,.55);border:1px solid var(--line);border-radius:12px;padding:.7em .85em}
+.bb-field textarea,#bb-trouble textarea{min-height:6.5em;resize:vertical}
+.bb-field input:focus,.bb-field textarea:focus,#bb-trouble textarea:focus{outline:3px solid var(--c1);outline-offset:2px;border-color:var(--c1)}
+.bb-field [aria-invalid="true"],.bb-set[aria-invalid="true"]{outline:2px solid var(--bad);outline-offset:3px}
+.bb-help{margin:.35em 0 0}
+.bb-field-error{color:#ffb4c0;font-weight:650;margin:.35em 0 0}
+.bb-actions{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.bb-actions .btn,.bb-choice,.bb-check{min-height:44px}
+.bb-check{display:flex;gap:10px;align-items:flex-start;font-weight:550;margin:.4em 0}
+.bb-check input{width:1.15rem;height:1.15rem;margin-top:.25em;flex:none;accent-color:var(--c1)}
+.bb-status{min-height:1.4em;font-weight:650}
+.bb-status:empty{display:none}
+.bb-inline-status{margin-left:auto;font-size:.82rem;font-weight:700;color:var(--good)}
+.bb-inline-status:empty{display:none}
+.term-bar{flex-wrap:wrap}
+#bb-copy.done,#bb-copy-rev.done{background:var(--good);color:#04121a}
+.bb-alert{padding:12px 14px;border:1px solid rgba(255,122,144,.55);border-radius:14px;background:rgba(255,122,144,.08);margin:0 0 14px}
+.bb-alert ul{margin:.4em 0 0;padding-left:1.2em}
+.bb-warn{color:var(--warn)}
+.bb-sample{padding:12px 16px;margin:10px 0}
+.bb-sample summary,.bb-pilot h3{font-weight:750}
+.bb-price{font-size:1.4rem;margin-bottom:.3em}
+.bb-price span{font-size:.95rem;color:var(--muted);font-weight:550}
+.bb-report{border-style:dashed}
+#bb-checkout:disabled{cursor:not-allowed}
+@media (max-width:640px){
+.bb-actions .btn{flex:1 1 auto;justify-content:center}
+.bb-choice{padding:12px}
+}
+@media (prefers-reduced-motion:reduce){.bb-choice,.bb-actions .btn{transition:none}}
+@media (forced-colors:active){.bb-choice:has(input:checked){border-color:Highlight}}
