@@ -1,5 +1,91 @@
 [
  {
+  "slug": "teach-your-bot-to-remember-what-works",
+  "title": "Teach your bot to remember what works, so it stops repeating mistakes",
+  "category": "work",
+  "source_date": "2026-11-06",
+  "summary": "A bot that forgets everything between chats makes the same mistake twice. Give it a notes file it reads at the start and updates at the end, and it gets better every week. Anthropic published how it does this for Claude.",
+  "what_the_bot_does": [
+   "Starts each job by reading a short notes file of rules and facts it has already checked.",
+   "Does the job, and when you correct it, writes the fix down as a one-line rule.",
+   "Now and then tidies the notes: merges duplicates and marks what is verified and what is still a guess.",
+   "Shows you the notes so you can edit or delete anything."
+  ],
+  "what_you_end_up_with": "A bot (or Claude project) that carries lessons from one session to the next. You can open the notes any time and see what it believes.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "claude",
+    "note": "Memory and past-chat search are in Settings; paid plans can search past chats"
+   },
+   {
+    "id": "grok-bot"
+   }
+  ],
+  "prompt": "At the start of every job, read my notes file called [bot-notes] if it exists. When I correct you or a result turns out wrong, add one short line to the notes: what went wrong and the rule to follow next time. Mark each line 'checked' or 'guess'. At the end of each job, show me any new lines you added and ask before saving anything that includes personal or private details.",
+  "setup": [
+   "Pick where the notes live: a Project in Claude with a notes document, or a note/file your bot can read and edit.",
+   "In Claude, open Settings and check that memory and 'Search and reference chats' are on (or off, if you prefer privacy). Use an incognito chat for anything you do not want remembered.",
+   "Paste the prompt above as the bot's standing instructions.",
+   "After a week, open the notes and delete anything wrong or too personal."
+  ],
+  "watch_out": [
+   "A bad note is remembered as confidently as a good one. Anthropic's post says memory is a prediction about what will matter again, so review the notes now and then.",
+   "Do not let the bot save passwords, account numbers or other people's private details into notes.",
+   "Memory features differ by plan and app; check the Claude Help Center article for what your plan includes."
+  ],
+  "sources": [
+   {
+    "label": "Anthropic Engineering (2026-11-06): The components of agent memory, how Claude keeps notes between sessions and 'dreams' to tidy them",
+    "url": "https://www.anthropic.com/research/components-of-agent-memory",
+    "kind": "official"
+   },
+   {
+    "label": "Hacker News: The Components of Agent Memory (184 points / 103 comments, measured 2026-11-09)",
+    "url": "https://news.ycombinator.com/item?id=50402212",
+    "kind": "hn",
+    "stats": {
+     "points": 184,
+     "comments": 103
+    },
+    "posted_at": "2026-11-07",
+    "measured_at": "2026-11-09"
+   },
+   {
+    "label": "Hacker News: Agent memory needs its OpenTelemetry moment (186 points / 108 comments, measured 2026-11-09)",
+    "url": "https://news.ycombinator.com/item?id=50411467",
+    "kind": "hn",
+    "stats": {
+     "points": 186,
+     "comments": 108
+    },
+    "posted_at": "2026-11-08",
+    "measured_at": "2026-11-09"
+   },
+   {
+    "label": "LoreKit blog (2026-11-07): every agent tool keeps memory in its own format",
+    "url": "https://www.lorekit.io/blog/open-agent-memory-format",
+    "kind": "article"
+   },
+   {
+    "label": "Claude Help Center: Use Claude's chat search and memory to build on previous context",
+    "url": "https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context",
+    "kind": "official"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "memory",
+   "agents",
+   "notes",
+   "learning",
+   "claude"
+  ],
+  "date_added": "2026-11-09",
+  "origin": "pipeline",
+  "last_checked": "2026-11-09"
+ },
+ {
   "slug": "ask-claude-about-your-own-spending",
   "title": "Ask Claude about your own spending across your banks",
   "category": "inbox",
@@ -184,8 +270,8 @@
    "reposts": 5,
    "replies": 2,
    "bookmarks": 1,
-   "views": 469,
-   "measured_at": "2026-11-06"
+   "views": 497,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "family history",
@@ -1399,8 +1485,8 @@
    "reposts": 5,
    "replies": 21,
    "bookmarks": 2,
-   "views": 4455,
-   "measured_at": "2026-11-06"
+   "views": 4477,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "IFTTT",
@@ -1505,9 +1591,9 @@
    "likes": 5826,
    "reposts": 392,
    "replies": 403,
-   "bookmarks": 1061,
-   "views": 2107160,
-   "measured_at": "2026-11-06"
+   "bookmarks": 1059,
+   "views": 2116507,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "iCloud",
@@ -1695,8 +1781,8 @@
    "reposts": 7,
    "replies": 25,
    "bookmarks": 66,
-   "views": 39256,
-   "measured_at": "2026-11-06"
+   "views": 39337,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "online shopping",
@@ -1778,12 +1864,12 @@
    "author": "@noahrshinn",
    "url": "https://x.com/noahrshinn/status/2115143830924341534",
    "posted_at": "2026-10-27",
-   "likes": 1094,
+   "likes": 1091,
    "reposts": 36,
    "replies": 98,
-   "bookmarks": 313,
-   "views": 369185,
-   "measured_at": "2026-11-06"
+   "bookmarks": 312,
+   "views": 371096,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "group chat",
@@ -2309,12 +2395,12 @@
    "author": "@NadavKeyson",
    "url": "https://x.com/NadavKeyson/status/2114759149770723804",
    "posted_at": "2026-10-26",
-   "likes": 663,
+   "likes": 666,
    "reposts": 88,
    "replies": 175,
-   "bookmarks": 813,
-   "views": 1043373,
-   "measured_at": "2026-11-06"
+   "bookmarks": 814,
+   "views": 1044587,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "podcast",
@@ -2756,7 +2842,7 @@
    "replies": 0,
    "bookmarks": 1,
    "views": 163,
-   "measured_at": "2026-11-06"
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "phone calls",
@@ -2975,8 +3061,8 @@
    "reposts": 5,
    "replies": 13,
    "bookmarks": 26,
-   "views": 5894,
-   "measured_at": "2026-11-06"
+   "views": 5895,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "proactive",
@@ -3167,8 +3253,8 @@
    "reposts": 0,
    "replies": 12,
    "bookmarks": 0,
-   "views": 1106,
-   "measured_at": "2026-11-06"
+   "views": 1107,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "fact check",
@@ -3271,12 +3357,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 356,
+   "likes": 335,
    "reposts": 15,
    "replies": 34,
-   "bookmarks": 212,
-   "views": 178894,
-   "measured_at": "2026-11-06"
+   "bookmarks": 192,
+   "views": 178928,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "second brain",
@@ -3483,8 +3569,8 @@
    "reposts": 6,
    "replies": 20,
    "bookmarks": 30,
-   "views": 5443,
-   "measured_at": "2026-11-06"
+   "views": 5445,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "read later",
@@ -3570,7 +3656,7 @@
    "replies": 4,
    "bookmarks": 6,
    "views": 1780,
-   "measured_at": "2026-11-06"
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "contact form",
@@ -3767,8 +3853,8 @@
    "reposts": 1,
    "replies": 3,
    "bookmarks": 6,
-   "views": 585,
-   "measured_at": "2026-11-06"
+   "views": 586,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "schedule",
@@ -4148,8 +4234,8 @@
    "reposts": 15,
    "replies": 26,
    "bookmarks": 505,
-   "views": 25511,
-   "measured_at": "2026-11-06"
+   "views": 25524,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "multi-agent",
@@ -4242,8 +4328,8 @@
    "reposts": 29,
    "replies": 37,
    "bookmarks": 74,
-   "views": 46437,
-   "measured_at": "2026-11-06"
+   "views": 46440,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "multi-agent",
@@ -4316,7 +4402,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-11-06"
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "voice",
@@ -4385,7 +4471,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 47,
-   "measured_at": "2026-11-06"
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "roadside assistance",
@@ -4482,7 +4568,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 399,
-   "measured_at": "2026-11-06"
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "computer use",
@@ -4553,8 +4639,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 0,
-   "views": 911,
-   "measured_at": "2026-11-06"
+   "views": 913,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "contractors",
@@ -4623,8 +4709,8 @@
    "reposts": 0,
    "replies": 5,
    "bookmarks": 0,
-   "views": 130,
-   "measured_at": "2026-11-06"
+   "views": 131,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "used car",
@@ -4687,8 +4773,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7515,
-   "measured_at": "2026-11-06"
+   "views": 7517,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "pharmacy",
@@ -4770,9 +4856,9 @@
    "likes": 212,
    "reposts": 24,
    "replies": 29,
-   "bookmarks": 235,
-   "views": 326604,
-   "measured_at": "2026-11-06"
+   "bookmarks": 233,
+   "views": 326777,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "newsletters",
@@ -4872,12 +4958,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
    "posted_at": "2026-10-18",
-   "likes": 854,
-   "reposts": 93,
+   "likes": 853,
+   "reposts": 92,
    "replies": 193,
-   "bookmarks": 999,
-   "views": 1225651,
-   "measured_at": "2026-11-06"
+   "bookmarks": 998,
+   "views": 1226765,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "phone call",
@@ -5044,7 +5130,7 @@
    "replies": 2,
    "bookmarks": 4,
    "views": 563,
-   "measured_at": "2026-11-06"
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "spam calls",
@@ -5117,8 +5203,8 @@
    "reposts": 3,
    "replies": 8,
    "bookmarks": 37,
-   "views": 5452,
-   "measured_at": "2026-11-06"
+   "views": 5459,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "food log",
@@ -5211,8 +5297,8 @@
    "reposts": 3,
    "replies": 12,
    "bookmarks": 13,
-   "views": 3119,
-   "measured_at": "2026-11-06"
+   "views": 3128,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "phone call",
@@ -5403,9 +5489,9 @@
    "likes": 1010,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2888,
-   "views": 311878,
-   "measured_at": "2026-11-06"
+   "bookmarks": 2887,
+   "views": 311976,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "meal plan",
@@ -5477,12 +5563,12 @@
    "author": "@Michael_Fenech_",
    "url": "https://x.com/Michael_Fenech_/status/2108579992456327489",
    "posted_at": "2026-10-09",
-   "likes": 507,
+   "likes": 511,
    "reposts": 34,
-   "replies": 36,
-   "bookmarks": 1146,
-   "views": 66971,
-   "measured_at": "2026-11-06"
+   "replies": 37,
+   "bookmarks": 1161,
+   "views": 67421,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "calendar",
@@ -5573,10 +5659,10 @@
    "posted_at": "2026-10-05",
    "likes": 678,
    "reposts": 35,
-   "replies": 157,
-   "bookmarks": 720,
-   "views": 83261,
-   "measured_at": "2026-11-06"
+   "replies": 156,
+   "bookmarks": 719,
+   "views": 83357,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "personal agent",
@@ -5656,8 +5742,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41465,
-   "measured_at": "2026-11-06"
+   "views": 41480,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "scams",
@@ -5737,11 +5823,11 @@
    "url": "https://x.com/saviomartin/status/2109330165381910817",
    "posted_at": "2026-10-11",
    "likes": 164,
-   "reposts": 13,
+   "reposts": 14,
    "replies": 29,
    "bookmarks": 118,
-   "views": 25302,
-   "measured_at": "2026-11-06"
+   "views": 25455,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "family chat",
@@ -5830,8 +5916,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4097,
-   "measured_at": "2026-11-06"
+   "views": 4098,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "groceries",
@@ -5910,8 +5996,8 @@
    "reposts": 12,
    "replies": 12,
    "bookmarks": 11,
-   "views": 9673,
-   "measured_at": "2026-11-06"
+   "views": 9680,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "travel",
@@ -5979,8 +6065,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 2027,
-   "measured_at": "2026-11-06"
+   "views": 2314,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "flights",
@@ -6125,12 +6211,12 @@
    "author": "@MilksandMatcha",
    "url": "https://x.com/MilksandMatcha/status/2105372125288976402",
    "posted_at": "2026-09-30",
-   "likes": 533,
+   "likes": 534,
    "reposts": 23,
    "replies": 63,
    "bookmarks": 240,
-   "views": 93752,
-   "measured_at": "2026-11-06"
+   "views": 93763,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "restaurant",
@@ -6200,7 +6286,7 @@
    "replies": 9,
    "bookmarks": 27,
    "views": 4064,
-   "measured_at": "2026-11-06"
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "appointment",
@@ -6294,8 +6380,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9206,
-   "measured_at": "2026-11-06"
+   "views": 9211,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "receipts",
@@ -6385,9 +6471,9 @@
    "likes": 104,
    "reposts": 6,
    "replies": 12,
-   "bookmarks": 270,
-   "views": 9838,
-   "measured_at": "2026-11-06"
+   "bookmarks": 271,
+   "views": 9867,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "chief of staff",
@@ -6446,8 +6532,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1888,
-   "measured_at": "2026-11-06"
+   "views": 1889,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "multiple brands",
@@ -6521,7 +6607,7 @@
    "replies": 12,
    "bookmarks": 27,
    "views": 3250,
-   "measured_at": "2026-11-06"
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "real estate",
@@ -6621,8 +6707,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 0,
-   "views": 82,
-   "measured_at": "2026-11-06"
+   "views": 83,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "paper mail",
@@ -6711,7 +6797,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 79,
-   "measured_at": "2026-11-06"
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "monitoring",
@@ -6779,10 +6865,10 @@
    "posted_at": "2026-09-23",
    "likes": 5,
    "reposts": 2,
-   "replies": 7,
-   "bookmarks": 0,
-   "views": 1438,
-   "measured_at": "2026-11-06"
+   "replies": 6,
+   "bookmarks": 1,
+   "views": 1448,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "follow up",
@@ -6855,8 +6941,8 @@
    "reposts": 4,
    "replies": 7,
    "bookmarks": 55,
-   "views": 4933,
-   "measured_at": "2026-11-06"
+   "views": 4935,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "leads",
@@ -6952,7 +7038,7 @@
    "replies": 2,
    "bookmarks": 19,
    "views": 2158,
-   "measured_at": "2026-11-06"
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "email",
@@ -7605,8 +7691,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 806,
-   "measured_at": "2026-11-06"
+   "views": 808,
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "marketplace",
@@ -7874,7 +7960,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1505,
-   "measured_at": "2026-11-06"
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "payments",
@@ -7949,7 +8035,7 @@
    "replies": 4,
    "bookmarks": 3,
    "views": 908,
-   "measured_at": "2026-11-06"
+   "measured_at": "2026-11-09"
   },
   "tags": [
    "ads",
@@ -8958,7 +9044,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-11-06"
+   "measured_at": "2026-11-09"
   },
   "origin": "migrated-2026-10-19"
  },

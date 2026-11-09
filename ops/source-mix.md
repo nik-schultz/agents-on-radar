@@ -348,3 +348,10 @@ Top domains: youtube.com (91), x.com (74), news.ycombinator.com (38), reddit.com
 
 - Added this run: ask-claude-about-your-own-spending (6 sources: Claude article, Claude Help, Verge, Plaid, Engadget, HN 50382192; 0 X). Extended practice-a-job-interview-out-loud with Muse voice (Meta newsroom, Verge, TNW). Added TeslaNorth + Teslarati native-call sources to make-a-customer-service-call and call-and-book-by-phone. Refreshed 49 X popularity blocks.
 - Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits; X search only our own @botsdothat posts and unrelated "bots do that" phrases; web search only our own pages).
+
+## After PM trending run (measured 2026-11-09)
+
+- Use cases: **124**; source links: **502**
+- X share of source links: **74/502 = 15%** (community links: 74/259 = 29%); X-only use cases: **5**
+- Added this run: teach-your-bot-to-remember-what-works (5 sources: Anthropic Engineering, 2 Hacker News threads 184/103 and 186/108, LoreKit blog, Claude Help Center; 0 X). Refreshed 49 X popularity blocks.
+- Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits; X search_posts_all 0 results; Reddit blocked from this box).
