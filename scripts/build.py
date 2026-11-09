@@ -2003,7 +2003,7 @@ page("/sponsor/", "Sponsor: moved to Advertise", "This page moved to Advertise."
      f'<div class="wrap narrow center"><p class="eyebrow">Moved</p><h1 class="kinetic-sm">This page moved</h1><p class="lead"><a class="btn" href="{u("/advertise/")}">Go to Advertise →</a></p></div>',
      noindex=True, head_extra=f'<meta http-equiv="refresh" content="0; url={u("/advertise/")}">')
 
-page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wrap narrow center"><p class="eyebrow">404</p><h1 class="kinetic-sm">Lost signal.</h1><p class="lead">That page isn\'t on our radar.</p>{searchbox(id_="q404")}<p><a class="btn" href="{u("/")}">Back to the live feed</a></p></div>', noindex=True)
+page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wrap narrow center"><p class="eyebrow">404</p><h1 class="kinetic-sm">Lost signal.</h1><p class="lead">That page isn\'t on our radar.</p>{searchbox(id_="q404")}<p><a class="btn" href="{u("/bot-instructions/")}">Build your bot</a> <a class="btn btn-ghost" href="{u("/use-cases/")}">Browse use cases</a> <a class="btn btn-ghost" href="{u("/")}">Back to the home page</a></p></div>', noindex=True)
 
 # ---------- MACHINE FILES ------------------------------------------------------------
 idx = [{"t": x["title"], "u": u("/use-cases/" + x["slug"] + "/"), "c": CAT[x["category"]]["name"], "i": CAT[x["category"]]["icon"], "d": x["difficulty"], "h": x["_heat"], "s": search_text(x)} for x in ucs]

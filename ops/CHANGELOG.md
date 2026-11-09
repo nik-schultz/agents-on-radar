@@ -956,3 +956,9 @@ Improvement for visitors
 - Email files: ops/newsletter/issue-3-email.html, issue-3-email-body.html, issue-3-meta.txt (scripts/newsletter_email.py 3). Nothing emailed. Kit draft broadcast still to be built (draft only, from hello@botsdothat.com).
 - newsletter issue ready, send approval needed
 - The Monday report must ask Grok CEO to approve sending. Send only after both Grok CEO and Nik approve.
+
+## 2026-11-09 (standing site QA, ~9:10 AM AST)
+- Live: /, /bot-instructions/, /advertise/, /sponsor-terms/, /sitemap.xml all 200 (~0.1-0.2s). /builder/ is 404 by design (builder lives at /bot-instructions/). Local main tree matches origin/main (includes 9b7ada1 builder).
+- check_links: 14,192 links, 0 broken internal. 150 outbound links spot-checked: no hard failures. Homepage and builder assets all 200; viewport meta present; images have alt/dimensions; builder inputs labelled, status regions aria-live. 38 builder tests pass. Console/mobile not testable from this box (static checks only).
+- Bugs: none found.
+- Improvement: 404 page now offers "Build your bot" and "Browse use cases" next to the home link, instead of only "Back to the live feed".
