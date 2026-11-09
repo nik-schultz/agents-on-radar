@@ -5,6 +5,7 @@
 - Pricing: no official price change found; ai-pricing.json (checked_on 2026-11-03) due weekly refresh.
 - BACKLOG: Muse Spaces self-updating tracker idea; OpenCode Browse / dot sign-in codes "agent in your logged-in browser" idea.
 - Sync: first push was rejected because origin/main had the Nov 8 builder commits (3e36928 PR #1, 9b7ada1 publish) that local main lacked. Applied diff 19c370e..9b7ada1 onto local main (non-site files merged cleanly; site/ rebuilt), reset local publish to origin/main, then redeployed so the live builder is kept. test_bot_builder.py 38 OK.
+- Deployed: local main `03bf3c7`, publish `7d62f08` (parent 9b7ada1), Actions run 42618345698 succeeded; live /news/ shows the new items, /bot-instructions/ 200.
 - Skipped: OpenAI Devs "Tomorrow." teaser (ModRetro Chromatic merch drop, not AI); Elon Grok Bot "fixes underway" posts (no shipped change); GitHub Copilot Projects (Oct 28, old); Gemini file editing, Mistral Large 4 weights, Grok API watermark, Gemini Android Auto (already in file); Anthropic $3.4B generator deal / DeepSeek agent DAU / Apple Siri plans (reports, not launches); Baidu ERNIE Evolve, NVIDIA Lyra 2.0 (research).
 
 ## 2026-11-06 (PM news run, ~3:30 PM ET / ~2:30 PM CT)
