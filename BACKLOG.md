@@ -321,3 +321,8 @@ Candidates not added / still open:
 Skipped: Grok Bot bill-cutting / retention-offer demos as standalone use cases (money-saving / deal angle, out of scope); crypto #ProofOfAgent spam; DoorDash/Minecraft agent HN threads (not everyday beginner guides).
 
 Bugs/complaints: none found on the site or in feedback scans.
+
+## AM news run 2026-11-09
+- [ ] Build a self-updating tracker or planner with your agent (Meta Muse Spaces, Nov 6: gift tracker, school-events dashboard, trip planner that refresh from connected apps). Sources so far: Meta Newsroom, TechCrunch, The Verge, Digital Trends. Could extend an existing planner/tracker page instead of a new one.
+- [ ] Let an agent work in your own logged-in browser safely (OpenCode Browse, Nov 6: hand-back for login/2FA/payment, per-session site allowlist). Needs a beginner-safe framing + a non-X second source beyond opencode.ai/Chrome Web Store; pairs with the dot sign-in-code update (Nov 7) as a "what to let your agent log into" watch-out.
+- Pricing: no official model price changes found Nov 6 PM - Nov 9 AM; ai-pricing.json checked_on 2026-11-03 is due its weekly refresh.
