@@ -328,3 +328,6 @@ Bugs/complaints: none found on the site or in feedback scans.
 - Pricing: no official model price changes found Nov 6 PM - Nov 9 AM; ai-pricing.json checked_on 2026-11-03 is due its weekly refresh.
 
 - 2026-11-09 PM trending: HN "Goodbye Claude, hello Pi" (796 pts/481 comments, caleb.software) and "Goldman Sachs pulling Claude Code from bankers" (864/467) are hot but developer/enterprise, not beginner use cases. HN "Claude Code sends your email address to websites" (1609/533) and apiiro "Don't Ask Again exposes passwords in 1,122 GitHub files" (620/416): possible watch-out additions to keep-an-ai-agent-from-deleting-your-files. Reddit unreadable from this box (blocked), so r/ subs not scanned.
+
+- (2026-11-09 PM news) Muse Ember ($0.10/$0.50 per 1M tokens, Meta) makes "cheap helper bot" setups realistic: consider a use case on splitting a bot into a smart planner model plus a cheap worker model for repetitive steps (sorting email, extracting receipts) to cut running cost. Needs 2+ non-Meta sources before publishing.
+- (2026-11-09 PM news) ChatGPT dots can now use several of your computers: candidate update to dots-related use cases on picking a spare/home machine for long tasks, with the safety note to revoke access per machine.

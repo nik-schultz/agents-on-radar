@@ -50,14 +50,14 @@
   },
   {
    "provider": "Anthropic",
-   "model": "Claude Fable 5.1",
+   "model": "Claude Fable 5.2",
    "tier": "flagship",
-   "input": 10.0,
-   "output": 50.0,
-   "cached_input": 0.25,
-   "note": "",
+   "input": 8.0,
+   "output": 40.0,
+   "cached_input": 0.2,
+   "note": "New Nov 9, 2026 (was $10 / $50 on Fable 5.1). Optional fast mode $16 / $80.",
    "source_url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
-   "checked_on": "2026-11-03"
+   "checked_on": "2026-11-09"
   },
   {
    "provider": "Anthropic",
@@ -214,6 +214,17 @@
    "checked_on": "2026-11-03"
   },
   {
+   "provider": "Meta",
+   "model": "Muse Ember",
+   "tier": "small",
+   "input": 0.1,
+   "output": 0.5,
+   "cached_input": 0.004,
+   "note": "New Nov 9, 2026 (muse-ember-1.0). Meta Model API; price from Meta's launch post.",
+   "source_url": "https://research.meta.ai/blog/muse-ember",
+   "checked_on": "2026-11-09"
+  },
+  {
    "provider": "DeepSeek",
    "model": "deepseek-flash (V4.1-Flash-1017)",
    "tier": "small",
@@ -251,9 +262,9 @@
   },
   {
    "provider": "Anthropic",
-   "what": "Batch API: 50% off input and output. Prompt cache reads cost 0.1x the input price (0.05x on Opus/Sonnet 5.5, 0.025x on Fable 5.1); 5-minute cache writes cost 1.25x.",
+   "what": "Batch API: 50% off input and output. Prompt cache reads cost 0.1x the input price (0.05x on Opus/Sonnet 5.5, 0.025x on Fable 5.2 and 5.1); 5-minute cache writes cost 1.25x.",
    "source_url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
-   "checked_on": "2026-11-03"
+   "checked_on": "2026-11-09"
   },
   {
    "provider": "Google",

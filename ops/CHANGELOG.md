@@ -962,3 +962,10 @@ Improvement for visitors
 - check_links: 14,192 links, 0 broken internal. 150 outbound links spot-checked: no hard failures. Homepage and builder assets all 200; viewport meta present; images have alt/dimensions; builder inputs labelled, status regions aria-live. 38 builder tests pass. Console/mobile not testable from this box (static checks only).
 - Bugs: none found.
 - Improvement: 404 page now offers "Build your bot" and "Browse use cases" next to the home link, instead of only "Back to the live feed".
+
+## 2026-11-09 PM news run
+- Added 1 major item: claude-fable-5-2 (Anthropic launch post, pricing page, CNBC, The Verge; @claudeai 2119867114450268322). Fable 5.2 generally available; Mythos 5.2 limited to vetted orgs.
+- Added 3 notable items: meta-muse-ember (Meta AI blog; @AIatMeta 2119853591703998787), chatgpt-dots-multiple-computers (ChatGPT Learn; @OpenAIDevs 2119883176726409645), bytedance-seedream-5-5 (ByteDance Seed; @ByteDanceSeed_ 2119720475068920181). New NEWS_CO entry "ByteDance".
+- Pricing table: Claude Fable 5.1 row replaced by Claude Fable 5.2 ($8 / $40, cached $0.20, from Anthropic pricing page); added Meta Muse Ember ($0.10 / $0.50, cached $0.004, from Meta's launch post); Anthropic cache note covers Fable 5.2.
+- Refreshed X numbers on 92 existing items (raw: research/x_news_measure_2026_11_09_pm.json.txt, local only; apply script research/news_x_2026_11_09_pm.py).
+- Skipped: OpenAIDevs "Tomorrow." teaser (no announcement yet), Grok Bot weekly-limit reset (one-off), Automattic Spacefast and Qwen Office 2.0 (not verified from primary sources this run). 2 BACKLOG notes.
