@@ -342,3 +342,7 @@ Bugs/complaints: none found on the site or in feedback scans.
 - HN "ChatGPT Desktop forwards your SSH agent to remote machines" (213/75) — developer-only, skipped.
 - Skipped: #ProofOfAgent / crypto mint-hunting spam on X; Grok Bot/Muse bill re-shopping items (money-saving, out of scope).
 - Bugs/complaints: none found. Reddit still blocked from this box; YouTube/Product Hunt/GitHub not scanned this run.
+
+## PM news 2026-11-10
+- [ ] n8n Nod (free, open-source, runs on your own computer, asks before it sends/pays, checks in past $5): candidate use case "cancel a subscription and ask for a refund with an agent" or a tool entry for existing errand use cases (supplier-portal invoices, price watch). Needs 2+ independent non-n8n sources before publishing.
+- [ ] Claude Sheets (beta, paid plans): candidate update to budget/tracker use cases ("ask Claude for a household budget sheet you can edit together, export to Excel/CSV"); also eBay now blocking agents like Muse: add a watch-out to shopping/deal-digest use cases that some stores (eBay, Amazon) block outside agents.

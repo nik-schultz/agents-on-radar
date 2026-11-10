@@ -94,6 +94,17 @@
   },
   {
    "provider": "Google",
+   "model": "gemini-4-carbon",
+   "tier": "flagship",
+   "input": 2.0,
+   "output": 10.0,
+   "cached_input": 0.1,
+   "note": "Google's strongest model, generally available Nov 10, 2026; uses more thinking tokens than Argon. Price through Nov 30, 2026; $4.00 / $20.00 from Dec 1, 2026. Not on the free tier.",
+   "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
+   "checked_on": "2026-11-10"
+  },
+  {
+   "provider": "Google",
    "model": "gemini-4-argon",
    "tier": "flagship",
    "input": 2.0,
