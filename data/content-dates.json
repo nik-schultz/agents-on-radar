@@ -1,7 +1,7 @@
 {
  "/ai-agent-examples/": {
-  "hash": "75c06d8072e7437a83ad36e335142b8819247333",
-  "date": "2026-11-09"
+  "hash": "3cd6d39a146c4986a82ebfe8c58257e7d43c4d0d",
+  "date": "2026-11-10"
  },
  "/can-ai-make-phone-calls-for-you/": {
   "hash": "0531004f20c5ccda8f40b2310a2b54232822d71a",
@@ -20,7 +20,7 @@
   "date": "2026-11-10"
  },
  "/how-to-build-an-ai-agent-without-coding/": {
-  "hash": "abd89c361a4208a78a6d3d003a570574daa75299",
+  "hash": "66f44b3afd62a385fe0113df0f87188c37500ef9",
   "date": "2026-11-10"
  },
  "/how-to-write-instructions-for-an-ai-agent/": {
@@ -44,7 +44,7 @@
   "date": "2026-11-04"
  },
  "/what-can-bots-do/": {
-  "hash": "22a6056759183ff2cdbac1d50d8b072e131bce4e",
+  "hash": "533aae822f2b8e67b6ee806edd4dceb05143a486",
   "date": "2026-11-10"
  }
 }

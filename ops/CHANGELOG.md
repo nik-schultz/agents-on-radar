@@ -990,3 +990,4 @@ Improvement for visitors
 - Search Console: no API access on box (manual CSV in /workspace/gsc only).
 - AI-answer check (WebSearch tool's engine only): /ai-agent-examples/ #1 and cited for "AI agent examples for everyday life"; cost guide #1 and cited for monthly cost query; #4 for "AI agent use cases for everyday people"; not top 5 for "how to build an AI agent for beginners 2026" or "openclaw vs hermes agent". Google/Perplexity/ChatGPT/Grok not verified (Bing/DDG scraping from box returns generic/no results).
 - Open: newsletter #3 title 73 chars (left); /sponsor/ noindex by design.
+- Deployed: local main `9ca8229`, publish `457c56c`, Actions run 42843784478 succeeded; live /, new guide, /openclaw-vs-hermes-agent/, /bot-instructions/, /ai-pricing/, /blueprints/, sitemap, llms.txt, robots all 200.

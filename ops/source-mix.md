@@ -355,3 +355,10 @@ Top domains: youtube.com (91), x.com (74), news.ycombinator.com (38), reddit.com
 - X share of source links: **74/502 = 15%** (community links: 74/259 = 29%); X-only use cases: **5**
 - Added this run: teach-your-bot-to-remember-what-works (5 sources: Anthropic Engineering, 2 Hacker News threads 184/103 and 186/108, LoreKit blog, Claude Help Center; 0 X). Refreshed 49 X popularity blocks.
 - Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits; X search_posts_all 0 results; Reddit blocked from this box).
+
+## After PM trending run (measured 2026-11-10)
+
+- Use cases: **125**; source links: **510**
+- X share of source links: **75/510 = 15%** (community links: 75/261 = 29%); X-only use cases: **5**
+- Added this run: hand-your-agent-an-errand-from-your-watch (5 sources: TechCrunch, Gadgets & Wearables, PCMag, Times of India Gadgets Now, @Muse X post 4,609 likes / 393k views; 1 of 5 X). Extended keep-an-ai-agent-from-deleting-your-files with the Claude Code "Don't ask again" password watch-out (The Hacker News, HN 50407882 624 pts / 425 comments, LATENT; 0 X). Refreshed 49 X popularity blocks.
+- Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits; X search since Nov 9 only unrelated "bots do that" phrases; Reddit blocked from this box).

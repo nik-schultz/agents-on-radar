@@ -1,0 +1,43 @@
+{
+  "slug": "hand-your-agent-an-errand-from-your-watch",
+  "title": "Hand your agent a quick errand from your smartwatch",
+  "category": "travel",
+  "source_date": "2026-11-09",
+  "summary": "Meta's Muse agent now has an Apple Watch and Wear OS app. Say or type a quick errand on your wrist, like finding movie tickets or fixing a calendar clash, and approve the result without pulling out your phone.",
+  "what_the_bot_does": [
+    "Takes your request from the watch by voice call, dictation or a typed message.",
+    "Does the work in the cloud with the apps and sites you connected (calendar, email, booking sites), even after you close the app.",
+    "Comes back with a suggestion, for example 'your dentist appointment clashes with a meeting, move it to 4pm?'.",
+    "Waits for you to tap approve before it books, sends or buys anything."
+  ],
+  "what_you_end_up_with": "Small errands started from your wrist and finished in the background, with you approving the final step.",
+  "difficulty": "Easy",
+  "tools": [
+    {"id": "meta-muse", "note": "Free app; Apple Watch needs watchOS 9+ and the iPhone app; Wear OS also supported"},
+    {"id": "gemini", "note": "Built into many Wear OS watches for reminders and quick questions"}
+  ],
+  "prompt": "[Say this to your agent from the watch] Find two tickets for [movie] near [area] this [day] after [time]. Check my calendar for clashes first. Show me the best two options and wait for me to approve before booking or paying.",
+  "setup": [
+    "Set up the agent on your phone first and connect only the accounts you want it to use (for example calendar and email).",
+    "Install the watch app: on Apple Watch it comes with the Muse iPhone app (watchOS 9 or later); on Wear OS get it from Google Play.",
+    "Add the watch-face shortcut (Apple Watch complication) so it's one tap away.",
+    "Keep approvals on for anything that sends, shares or buys, and check the activity log on your phone the first few times."
+  ],
+  "watch_out": [
+    "The watch is only a remote: the agent works in the cloud with whatever accounts you connected, so connect as few as you need (Gadgets & Wearables).",
+    "Meta's own Google Play listing warns Muse may give inaccurate information or take unexpected actions, so read the summary before you approve.",
+    "A small screen makes it easy to tap 'approve' without reading. Save bigger bookings or payments for your phone.",
+    "Meta hasn't published a full list of compatible Wear OS watches, so check your model first (Times of India Gadgets Now)."
+  ],
+  "sources": [
+    {"label": "TechCrunch (2026-11-10): Meta's AI agent Muse lands on Apple Watch and Android Wear OS", "url": "https://techcrunch.com/2026/11/10/metas-ai-agent-muse-lands-on-apple-watch-and-wear-os/", "kind": "article"},
+    {"label": "Gadgets & Wearables (2026-11-10): the watch is a remote for the agent; approve actions from your wrist", "url": "https://gadgetsandwearables.com/2026/11/10/meta-muse-ai-agent-apple-watch-wear-os/", "kind": "article"},
+    {"label": "PCMag (2026-11-10): Muse is now available on Apple Watch and Wear OS smartwatches", "url": "https://au.pcmag.com/ai/120835/forget-metas-tamagotchi-like-charm-your-smartwatch-does-the-same-thing", "kind": "article"},
+    {"label": "Times of India Gadgets Now (2026-11-10): what Muse can do from a smartwatch, and compatibility", "url": "https://gadgetsnow.indiatimes.com/tech-news/meta-muse-ai-agent-is-now-available-on-apple-watch-wear-os-what-is-new-availability-in-india-more/articleshow/135700341.cms", "kind": "article"},
+    {"label": "X post by @Muse (2026-11-09): \"Works around the clock, and now on your wrist\"", "url": "https://x.com/Muse/status/2119919277692383330", "kind": "x"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2119919277692383330", "author": "@Muse", "url": "https://x.com/Muse/status/2119919277692383330", "posted_at": "2026-11-09",
+    "likes": 4609, "reposts": 643, "replies": 223, "bookmarks": 563, "views": 393022, "measured_at": "2026-11-10"},
+  "tags": ["smartwatch", "apple watch", "wear os", "meta muse", "voice", "errands", "calendar"],
+  "seo_title": "Use an AI agent from your Apple Watch or Wear OS watch"
+}

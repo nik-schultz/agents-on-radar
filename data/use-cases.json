@@ -1,5 +1,96 @@
 [
  {
+  "slug": "hand-your-agent-an-errand-from-your-watch",
+  "title": "Hand your agent a quick errand from your smartwatch",
+  "category": "travel",
+  "source_date": "2026-11-09",
+  "summary": "Meta's Muse agent now has an Apple Watch and Wear OS app. Say or type a quick errand on your wrist, like finding movie tickets or fixing a calendar clash, and approve the result without pulling out your phone.",
+  "what_the_bot_does": [
+   "Takes your request from the watch by voice call, dictation or a typed message.",
+   "Does the work in the cloud with the apps and sites you connected (calendar, email, booking sites), even after you close the app.",
+   "Comes back with a suggestion, for example 'your dentist appointment clashes with a meeting, move it to 4pm?'.",
+   "Waits for you to tap approve before it books, sends or buys anything."
+  ],
+  "what_you_end_up_with": "Small errands started from your wrist and finished in the background, with you approving the final step.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "meta-muse",
+    "note": "Free app; Apple Watch needs watchOS 9+ and the iPhone app; Wear OS also supported"
+   },
+   {
+    "id": "gemini",
+    "note": "Built into many Wear OS watches for reminders and quick questions"
+   }
+  ],
+  "prompt": "[Say this to your agent from the watch] Find two tickets for [movie] near [area] this [day] after [time]. Check my calendar for clashes first. Show me the best two options and wait for me to approve before booking or paying.",
+  "setup": [
+   "Set up the agent on your phone first and connect only the accounts you want it to use (for example calendar and email).",
+   "Install the watch app: on Apple Watch it comes with the Muse iPhone app (watchOS 9 or later); on Wear OS get it from Google Play.",
+   "Add the watch-face shortcut (Apple Watch complication) so it's one tap away.",
+   "Keep approvals on for anything that sends, shares or buys, and check the activity log on your phone the first few times."
+  ],
+  "watch_out": [
+   "The watch is only a remote: the agent works in the cloud with whatever accounts you connected, so connect as few as you need (Gadgets & Wearables).",
+   "Meta's own Google Play listing warns Muse may give inaccurate information or take unexpected actions, so read the summary before you approve.",
+   "A small screen makes it easy to tap 'approve' without reading. Save bigger bookings or payments for your phone.",
+   "Meta hasn't published a full list of compatible Wear OS watches, so check your model first (Times of India Gadgets Now)."
+  ],
+  "sources": [
+   {
+    "label": "TechCrunch (2026-11-10): Meta's AI agent Muse lands on Apple Watch and Android Wear OS",
+    "url": "https://techcrunch.com/2026/11/10/metas-ai-agent-muse-lands-on-apple-watch-and-wear-os/",
+    "kind": "article"
+   },
+   {
+    "label": "Gadgets & Wearables (2026-11-10): the watch is a remote for the agent; approve actions from your wrist",
+    "url": "https://gadgetsandwearables.com/2026/11/10/meta-muse-ai-agent-apple-watch-wear-os/",
+    "kind": "article"
+   },
+   {
+    "label": "PCMag (2026-11-10): Muse is now available on Apple Watch and Wear OS smartwatches",
+    "url": "https://au.pcmag.com/ai/120835/forget-metas-tamagotchi-like-charm-your-smartwatch-does-the-same-thing",
+    "kind": "article"
+   },
+   {
+    "label": "Times of India Gadgets Now (2026-11-10): what Muse can do from a smartwatch, and compatibility",
+    "url": "https://gadgetsnow.indiatimes.com/tech-news/meta-muse-ai-agent-is-now-available-on-apple-watch-wear-os-what-is-new-availability-in-india-more/articleshow/135700341.cms",
+    "kind": "article"
+   },
+   {
+    "label": "X post by @Muse (2026-11-09): \"Works around the clock, and now on your wrist\"",
+    "url": "https://x.com/Muse/status/2119919277692383330",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2119919277692383330",
+   "author": "@Muse",
+   "url": "https://x.com/Muse/status/2119919277692383330",
+   "posted_at": "2026-11-09",
+   "likes": 4609,
+   "reposts": 643,
+   "replies": 223,
+   "bookmarks": 563,
+   "views": 393022,
+   "measured_at": "2026-11-10"
+  },
+  "tags": [
+   "smartwatch",
+   "apple watch",
+   "wear os",
+   "meta muse",
+   "voice",
+   "errands",
+   "calendar"
+  ],
+  "seo_title": "Use an AI agent from your Apple Watch or Wear OS watch",
+  "date_added": "2026-11-10",
+  "origin": "pipeline",
+  "last_checked": "2026-11-10"
+ },
+ {
   "slug": "teach-your-bot-to-remember-what-works",
   "title": "Teach your bot to remember what works, so it stops repeating mistakes",
   "category": "work",
@@ -271,8 +362,8 @@
    "reposts": 5,
    "replies": 2,
    "bookmarks": 1,
-   "views": 497,
-   "measured_at": "2026-11-09"
+   "views": 503,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "family history",
@@ -1487,8 +1578,8 @@
    "reposts": 5,
    "replies": 21,
    "bookmarks": 2,
-   "views": 4477,
-   "measured_at": "2026-11-09"
+   "views": 4482,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "IFTTT",
@@ -1590,12 +1681,12 @@
    "author": "@ChatGPT",
    "url": "https://x.com/ChatGPT/status/2115139248458191070",
    "posted_at": "2026-10-27",
-   "likes": 5826,
+   "likes": 5827,
    "reposts": 392,
    "replies": 403,
-   "bookmarks": 1059,
-   "views": 2116507,
-   "measured_at": "2026-11-09"
+   "bookmarks": 1057,
+   "views": 2119375,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "iCloud",
@@ -1783,8 +1874,8 @@
    "reposts": 7,
    "replies": 25,
    "bookmarks": 66,
-   "views": 39337,
-   "measured_at": "2026-11-09"
+   "views": 39359,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "online shopping",
@@ -1866,12 +1957,12 @@
    "author": "@noahrshinn",
    "url": "https://x.com/noahrshinn/status/2115143830924341534",
    "posted_at": "2026-10-27",
-   "likes": 1091,
-   "reposts": 36,
+   "likes": 1086,
+   "reposts": 35,
    "replies": 98,
    "bookmarks": 312,
-   "views": 371096,
-   "measured_at": "2026-11-09"
+   "views": 371457,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "group chat",
@@ -1935,7 +2026,8 @@
    "A sandbox only protects what's outside it. Inside the folder you allowed, the agent can still overwrite or wipe things, as a Hacker News commenter pointed out about git commands inside a project folder. Work on copies and keep a backup.",
    "Clicking Allow out of habit defeats the point. Anthropic's Cowork course puts it plainly: Claude won't delete without asking, but the cost of clicking through the wrong confirmation is the cost of the file.",
    "Safety checks can fail. A Claude Code bug report on GitHub describes a sub-agent that ran a delete outside the working folder and wiped a whole Windows user profile, so a backup the agent can't reach is your real safety net.",
-   "Hermes skips its dangerous-command check inside a Docker container, because the container is the boundary. Don't mount your real home folder into it."
+   "Hermes skips its dangerous-command check inside a Docker container, because the container is the boundary. Don't mount your real home folder into it.",
+   "'Don't ask again' can save your password too. Security firm Apiiro found 1,122 public GitHub copies of Claude Code's .claude/settings.local.json holding passwords or keys, because approving an exact command with 'Yes, and don't ask again' saves it word for word. Never type a password into a command you approve, approve patterns instead, and if one slipped in, change that password first (The Hacker News, Nov 2026)."
   ],
   "faq": [
    {
@@ -2001,6 +2093,27 @@
     "label": "GitHub (anthropics/claude-code #86872): sub-agent ran a delete outside the working folder",
     "url": "https://github.com/anthropics/claude-code/issues/86872",
     "kind": "github"
+   },
+   {
+    "label": "The Hacker News (Nov 2026): Claude Code's 'Don't Ask Again' file exposes passwords and keys in 1,122 public GitHub copies",
+    "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+    "kind": "article"
+   },
+   {
+    "label": "Hacker News: Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files (624 points / 425 comments, measured 2026-11-10)",
+    "url": "https://news.ycombinator.com/item?id=50407882",
+    "kind": "hn",
+    "stats": {
+     "points": 624,
+     "comments": 425
+    },
+    "posted_at": "2026-11-07",
+    "measured_at": "2026-11-10"
+   },
+   {
+    "label": "LATENT (2026-11-08): inside the 1,122 files, and steps to check your own folders",
+    "url": "https://latent.tokyo/en/articles/2026-11-08-claude-code-dont-ask-again-secrets",
+    "kind": "article"
    }
   ],
   "tags": [
@@ -2020,7 +2133,7 @@
   ],
   "date_added": "2026-10-28",
   "origin": "weekly-seo-2026-10-28",
-  "last_checked": "2026-10-28",
+  "last_checked": "2026-11-10",
   "popularity": null,
   "see_also": [
    {
@@ -2397,12 +2510,12 @@
    "author": "@NadavKeyson",
    "url": "https://x.com/NadavKeyson/status/2114759149770723804",
    "posted_at": "2026-10-26",
-   "likes": 666,
+   "likes": 665,
    "reposts": 88,
    "replies": 175,
    "bookmarks": 814,
-   "views": 1044587,
-   "measured_at": "2026-11-09"
+   "views": 1044931,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "podcast",
@@ -2844,7 +2957,7 @@
    "replies": 0,
    "bookmarks": 1,
    "views": 163,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "phone calls",
@@ -3064,7 +3177,7 @@
    "replies": 13,
    "bookmarks": 26,
    "views": 5895,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "proactive",
@@ -3256,7 +3369,7 @@
    "replies": 12,
    "bookmarks": 0,
    "views": 1107,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "fact check",
@@ -3359,12 +3472,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 335,
+   "likes": 333,
    "reposts": 15,
    "replies": 34,
-   "bookmarks": 192,
-   "views": 178928,
-   "measured_at": "2026-11-09"
+   "bookmarks": 190,
+   "views": 178941,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "second brain",
@@ -3571,8 +3684,8 @@
    "reposts": 6,
    "replies": 20,
    "bookmarks": 30,
-   "views": 5445,
-   "measured_at": "2026-11-09"
+   "views": 5448,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "read later",
@@ -3657,8 +3770,8 @@
    "reposts": 2,
    "replies": 4,
    "bookmarks": 6,
-   "views": 1780,
-   "measured_at": "2026-11-09"
+   "views": 1781,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "contact form",
@@ -3856,7 +3969,7 @@
    "replies": 3,
    "bookmarks": 6,
    "views": 586,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "schedule",
@@ -4236,8 +4349,8 @@
    "reposts": 15,
    "replies": 26,
    "bookmarks": 505,
-   "views": 25524,
-   "measured_at": "2026-11-09"
+   "views": 25529,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "multi-agent",
@@ -4326,12 +4439,12 @@
    "author": "@Parul_Gautam7",
    "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
    "posted_at": "2026-10-08",
-   "likes": 185,
+   "likes": 183,
    "reposts": 29,
    "replies": 37,
-   "bookmarks": 74,
-   "views": 46440,
-   "measured_at": "2026-11-09"
+   "bookmarks": 73,
+   "views": 46442,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "multi-agent",
@@ -4404,7 +4517,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "voice",
@@ -4473,7 +4586,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 47,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "roadside assistance",
@@ -4570,7 +4683,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 399,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "computer use",
@@ -4637,12 +4750,12 @@
    "author": "@NaughtyNomad",
    "url": "https://x.com/NaughtyNomad/status/2094720744030642252",
    "posted_at": "2026-09-01",
-   "likes": 9,
+   "likes": 8,
    "reposts": 0,
    "replies": 2,
    "bookmarks": 0,
    "views": 913,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "contractors",
@@ -4712,7 +4825,7 @@
    "replies": 5,
    "bookmarks": 0,
    "views": 131,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "used car",
@@ -4775,8 +4888,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7517,
-   "measured_at": "2026-11-09"
+   "views": 7522,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "pharmacy",
@@ -4855,12 +4968,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2110433542182457609",
    "posted_at": "2026-10-14",
-   "likes": 212,
+   "likes": 213,
    "reposts": 24,
    "replies": 29,
-   "bookmarks": 233,
-   "views": 326777,
-   "measured_at": "2026-11-09"
+   "bookmarks": 232,
+   "views": 326835,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "newsletters",
@@ -4960,12 +5073,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
    "posted_at": "2026-10-18",
-   "likes": 853,
+   "likes": 852,
    "reposts": 92,
-   "replies": 193,
+   "replies": 192,
    "bookmarks": 998,
-   "views": 1226765,
-   "measured_at": "2026-11-09"
+   "views": 1227109,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "phone call",
@@ -5132,7 +5245,7 @@
    "replies": 2,
    "bookmarks": 4,
    "views": 563,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "spam calls",
@@ -5206,7 +5319,7 @@
    "replies": 8,
    "bookmarks": 37,
    "views": 5459,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "food log",
@@ -5299,8 +5412,8 @@
    "reposts": 3,
    "replies": 12,
    "bookmarks": 13,
-   "views": 3128,
-   "measured_at": "2026-11-09"
+   "views": 3130,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "phone call",
@@ -5491,9 +5604,9 @@
    "likes": 1010,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2887,
-   "views": 311976,
-   "measured_at": "2026-11-09"
+   "bookmarks": 2886,
+   "views": 312018,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "meal plan",
@@ -5569,8 +5682,8 @@
    "reposts": 34,
    "replies": 37,
    "bookmarks": 1161,
-   "views": 67421,
-   "measured_at": "2026-11-09"
+   "views": 67444,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "calendar",
@@ -5662,9 +5775,9 @@
    "likes": 678,
    "reposts": 35,
    "replies": 156,
-   "bookmarks": 719,
-   "views": 83357,
-   "measured_at": "2026-11-09"
+   "bookmarks": 718,
+   "views": 83390,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "personal agent",
@@ -5740,12 +5853,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2110008406807568813",
    "posted_at": "2026-10-13",
-   "likes": 204,
+   "likes": 203,
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41480,
-   "measured_at": "2026-11-09"
+   "views": 41484,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "scams",
@@ -5828,8 +5941,8 @@
    "reposts": 14,
    "replies": 29,
    "bookmarks": 118,
-   "views": 25455,
-   "measured_at": "2026-11-09"
+   "views": 25467,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "family chat",
@@ -5918,8 +6031,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4098,
-   "measured_at": "2026-11-09"
+   "views": 4099,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "groceries",
@@ -5998,8 +6111,8 @@
    "reposts": 12,
    "replies": 12,
    "bookmarks": 11,
-   "views": 9680,
-   "measured_at": "2026-11-09"
+   "views": 9681,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "travel",
@@ -6067,8 +6180,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 2314,
-   "measured_at": "2026-11-09"
+   "views": 2320,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "flights",
@@ -6216,9 +6329,9 @@
    "likes": 534,
    "reposts": 23,
    "replies": 63,
-   "bookmarks": 240,
-   "views": 93763,
-   "measured_at": "2026-11-09"
+   "bookmarks": 241,
+   "views": 93770,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "restaurant",
@@ -6287,8 +6400,8 @@
    "reposts": 4,
    "replies": 9,
    "bookmarks": 27,
-   "views": 4064,
-   "measured_at": "2026-11-09"
+   "views": 4066,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "appointment",
@@ -6382,8 +6495,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9211,
-   "measured_at": "2026-11-09"
+   "views": 9215,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "receipts",
@@ -6473,9 +6586,9 @@
    "likes": 104,
    "reposts": 6,
    "replies": 12,
-   "bookmarks": 271,
-   "views": 9867,
-   "measured_at": "2026-11-09"
+   "bookmarks": 272,
+   "views": 9881,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "chief of staff",
@@ -6534,8 +6647,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1889,
-   "measured_at": "2026-11-09"
+   "views": 1891,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "multiple brands",
@@ -6608,8 +6721,8 @@
    "reposts": 1,
    "replies": 12,
    "bookmarks": 27,
-   "views": 3250,
-   "measured_at": "2026-11-09"
+   "views": 3252,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "real estate",
@@ -6710,7 +6823,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 83,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "paper mail",
@@ -6799,7 +6912,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 79,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "monitoring",
@@ -6869,8 +6982,8 @@
    "reposts": 2,
    "replies": 6,
    "bookmarks": 1,
-   "views": 1448,
-   "measured_at": "2026-11-09"
+   "views": 1450,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "follow up",
@@ -6942,9 +7055,9 @@
    "likes": 70,
    "reposts": 4,
    "replies": 7,
-   "bookmarks": 55,
-   "views": 4935,
-   "measured_at": "2026-11-09"
+   "bookmarks": 54,
+   "views": 4945,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "leads",
@@ -7040,7 +7153,7 @@
    "replies": 2,
    "bookmarks": 19,
    "views": 2158,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "email",
@@ -7694,7 +7807,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 808,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "marketplace",
@@ -7961,8 +8074,8 @@
    "reposts": 0,
    "replies": 3,
    "bookmarks": 3,
-   "views": 1505,
-   "measured_at": "2026-11-09"
+   "views": 1506,
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "payments",
@@ -8037,7 +8150,7 @@
    "replies": 4,
    "bookmarks": 3,
    "views": 908,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "tags": [
    "ads",
@@ -9046,7 +9159,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-11-09"
+   "measured_at": "2026-11-10"
   },
   "origin": "migrated-2026-10-19"
  },

@@ -81,6 +81,7 @@ All Shopping & groceries use cases: https://botsdothat.com/category/shopping/
 
 ### Bookings & travel
 All Bookings & travel use cases: https://botsdothat.com/category/travel/
+- [Hand your agent a quick errand from your smartwatch](https://botsdothat.com/use-cases/hand-your-agent-an-errand-from-your-watch/): Meta's Muse agent now has an Apple Watch and Wear OS app. Say or type a quick errand on your wrist, like finding movie tickets or fixing a calendar clash, and approve the result without pulling out your phone.
 - [Keep a visa application on track with an AI agent](https://botsdothat.com/use-cases/keep-a-visa-application-on-track/): Tell an agent "get my visa by the end of November" and it lists what you need, tracks missing documents and reminds you until it's done. It can also spot an upcoming trip in your calendar and flag visa rules and arrival forms.
 - [Book a flight with an AI agent (and check it before you pay)](https://botsdothat.com/use-cases/book-a-flight-with-an-ai-agent/): Yes, some AI agents can now book a flight for you: they search, pick the fare you approve, fill in passenger details and stop for your OK before paying. You still check names, price and fare rules yourself.
 - [Add an AI to your friends' group chat to make plans happen](https://botsdothat.com/use-cases/add-an-ai-to-your-friends-group-chat-to-make-plans/): Instead of 60 messages about where and when, you add an AI agent to the iMessage group. It suggests options, gets everyone to agree, and then books the table, tickets or rental car for the group once someone says yes.

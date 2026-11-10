@@ -333,3 +333,12 @@ Bugs/complaints: none found on the site or in feedback scans.
 - (2026-11-09 PM news) ChatGPT dots can now use several of your computers: candidate update to dots-related use cases on picking a spare/home machine for long tasks, with the safety note to revoke access per machine.
 - (2026-11-10 AM news) Muse now runs on Apple Watch and Wear OS (call, text or dictate): candidate use case "hand your agent a quick errand from your watch" (bookings, calendar clashes), with the watch-out to limit which accounts it can reach. Needs 2+ non-Meta sources before publishing.
 - (2026-11-10 AM news) Google Antigravity's Knowledge Work layout makes a desktop agent usable for research and writing without developer tools: candidate mention in beginner research/writing use cases once we confirm it's free on personal accounts.
+
+## PM trending 2026-11-10
+- Added `hand-your-agent-an-errand-from-your-watch` (Muse on Apple Watch / Wear OS; closes the 11-10 AM note). Extended `keep-an-ai-agent-from-deleting-your-files` with the Claude Code "Don't ask again" saved-password watch-out (closes the 11-09 PM note on apiiro).
+- [ ] Fill in a foreign-language sign-up form with an agent without it seeing your passwords (kaperkunde.com "A Morning with Claude and PCP": utility sign-ups in Dutch). Needs a second independent source; could extend hand-a-clunky-web-form-to-an-agent instead of a new page.
+- [ ] "Review mode" for an inbox bot: draft-only for a few weeks, then every Friday compare its drafts to what you actually sent (Dan Martell 47-bots guide). Candidate extension to email-ghostwriter-style-guide; needs a second source.
+- [ ] "Watch a few things and only tap me when something changes" (Medium @lrlnet168) — supports watch-a-web-page-for-changes; could be added as a source.
+- HN "ChatGPT Desktop forwards your SSH agent to remote machines" (213/75) — developer-only, skipped.
+- Skipped: #ProofOfAgent / crypto mint-hunting spam on X; Grok Bot/Muse bill re-shopping items (money-saving, out of scope).
+- Bugs/complaints: none found. Reddit still blocked from this box; YouTube/Product Hunt/GitHub not scanned this run.
