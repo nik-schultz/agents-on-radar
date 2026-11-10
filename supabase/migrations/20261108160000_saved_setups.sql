@@ -1,7 +1,7 @@
 -- Saved instruction setups. Apply only to a Supabase project created for this product.
 -- Do not run this against an unrelated project.
 -- `private` must stay out of the Data API exposed schemas.
--- Webhook writes use the service role (BYPASSRLS). Browser writes go through the functions below.
+-- Webhook writes go through public.apply_billing_event as role billing_writer. Browser writes go through the functions below.
 
 create schema if not exists private;
 revoke all on schema private from public, anon, authenticated;

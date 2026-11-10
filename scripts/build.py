@@ -938,9 +938,18 @@ if _bb_errs:
     raise SystemExit("bot-builder catalog: " + "; ".join(_bb_errs))
 _bb_bc, _bb_ld = crumbs([("Home", "/"), ("Write instructions", None)])
 _bb_faq = [{"@type": "Question", "name": item["q"], "acceptedAnswer": {"@type": "Answer", "text": item["a"]}} for item in _bb["faq"]]
+_saved = cfg.get("saved_setups") or {}
+_saved_public = {
+    "sign_in": bool(_saved.get("sign_in")),
+    "billing": bool(_saved.get("billing")),
+    "live_launch": bool(_saved.get("live_launch")),
+    "auth_email_ready": bool(_saved.get("auth_email_ready")),
+    "supabase_url": _saved.get("supabase_url") or "",
+    "supabase_publishable_key": _saved.get("supabase_publishable_key") or "",
+}
 page("/bot-instructions/", "Write bot instructions",
      "Customize instructions for your own chat app. Weekly planning, email drafts, and quote comparisons are free in the tab. Saving setups is not on sale yet.",
-     f'<div class="wrap">{_bb_bc}</div>' + bot_builder.render_page_inner(u),
+     f'<div class="wrap">{_bb_bc}</div>' + bot_builder.render_page_inner(u, _saved_public),
      [_bb_ld, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": _bb_faq}],
      lastmod="2026-11-08",
      head_extra=f'<script src="{u("/assets/bot-builder.js")}?v={ASSET_V["bot-builder.js"]}" defer></script><script src="{u("/assets/accounts.js")}?v={ASSET_V["accounts.js"]}" defer></script>')

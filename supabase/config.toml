@@ -1,0 +1,11 @@
+# Function settings only. This file is not linked to a Supabase project.
+# Do not add project_id. Do not point it at an existing organization or an unrelated project.
+# Checkout stays closed until BILLING_OPEN is set in the function secret store, which this file does not do.
+
+# Stripe does not send a user JWT. The function verifies the Stripe signature itself.
+[functions.stripe-webhook]
+verify_jwt = false
+
+# Called from the browser with the signed-in user's JWT. The platform rejects a missing user JWT.
+[functions.billing]
+verify_jwt = true

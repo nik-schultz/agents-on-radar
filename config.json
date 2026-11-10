@@ -55,9 +55,10 @@
     "sign_in": false,
     "billing": false,
     "live_launch": false,
+    "auth_email_ready": false,
     "supabase_url": "",
     "supabase_publishable_key": "",
     "accounts_api_url": "",
-    "_help": "Keep all three flags false in this file. Sign-in and billing turn on only after a Supabase project for this product and a billing server exist. Never put a service-role key or a Stripe secret here."
+    "_help": "Keep sign_in, billing, live_launch, and auth_email_ready false in this file. No Supabase project is connected. Never put a service-role key, a database URL, or a Stripe secret here. accounts_api_url is unused; the browser calls the Supabase function with the user JWT only."
   }
 }

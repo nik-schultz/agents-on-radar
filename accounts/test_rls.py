@@ -4,13 +4,17 @@
 This is a local database named bots_setups_test. It is not a Supabase project
 and it is not production. auth.uid() is a test stub, not Supabase Auth.
 """
-import os, threading, unittest, uuid
+import json, os, threading, unittest, uuid
 
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MIGRATION = os.path.join(ROOT, "supabase", "migrations", "20261108160000_saved_setups.sql")
+MIGRATIONS = [
+    os.path.join(ROOT, "supabase", "migrations", "20261108160000_saved_setups.sql"),
+    os.path.join(ROOT, "supabase", "migrations", "20261108183000_billing_event.sql"),
+]
+PRICES = json.dumps({"three": "price_three_test", "five": "price_five_test"})
 DB = "bots_setups_test"
 
 STUB = """
@@ -51,8 +55,9 @@ class RlsTests(unittest.TestCase):
         cur.execute("grant authenticated to postgres")
         cur.execute("grant usage on schema auth to authenticated")
         cur.execute("grant execute on function auth.uid() to authenticated")
-        sql = open(MIGRATION, encoding="utf-8").read()
-        cur.execute(sql)
+        for path in MIGRATIONS:
+            cur.execute(open(path, encoding="utf-8").read())
+        cur.execute("grant billing_writer to postgres")
         conn.commit()
         cls.conn = conn
         cls.ada = str(uuid.uuid4())
@@ -86,11 +91,33 @@ class RlsTests(unittest.TestCase):
         return cur
 
     def test_migration_text_rejects_user_metadata(self):
-        sql = open(MIGRATION, encoding="utf-8").read().lower()
+        sql = "\n".join(open(path, encoding="utf-8").read() for path in MIGRATIONS).lower()
         self.assertNotIn("user_metadata", sql)
         self.assertNotIn("raw_user_meta_data", sql)
         self.assertIn("enable row level security", sql)
         self.assertIn("force row level security", sql)
+        cur = self.reset_role()
+        cur.execute("""
+            select p.proname from pg_proc p
+            join pg_namespace n on n.oid = p.pronamespace
+            where n.nspname = 'public' and p.prosecdef
+        """)
+        self.assertEqual(cur.fetchall(), [])
+
+    def as_writer(self):
+        cur = self.conn.cursor()
+        cur.execute("reset role")
+        cur.execute("set role billing_writer")
+        return cur
+
+    def apply_event(self, event):
+        cur = self.as_writer()
+        cur.execute("select public.apply_billing_event(%s::jsonb, %s::jsonb)", (json.dumps(event), PRICES))
+        result = cur.fetchone()[0]
+        self.conn.commit()
+        if isinstance(result, str):
+            result = json.loads(result)
+        return result
 
     def test_two_users_cannot_read_or_change_each_other(self):
         cur = self.as_user(self.ada)
@@ -236,6 +263,89 @@ class RlsTests(unittest.TestCase):
         cur = self.as_user(self.bea)
         cur.execute("select count(*) from public.setups where instructions like %s", ('%<script>%',))
         self.assertEqual(cur.fetchone()[0], 0)
+
+
+    def test_signed_in_user_cannot_apply_billing_or_read_as_writer(self):
+        cur = self.as_user(self.ada)
+        with self.assertRaises(psycopg2.Error):
+            cur.execute("select public.apply_billing_event('{}'::jsonb, '{}'::jsonb)")
+            self.conn.commit()
+        self.conn.rollback()
+        cur = self.as_writer()
+        with self.assertRaises(psycopg2.Error):
+            cur.execute("select count(*) from public.setups")
+            self.conn.commit()
+        self.conn.rollback()
+
+    def test_webhook_duplicate_stale_cancel_and_failed_payment_keep_setups(self):
+        cam = str(uuid.uuid4())
+        cur = self.reset_role()
+        cur.execute("insert into auth.users (id) values (%s)", (cam,))
+        self.conn.commit()
+        unpaid = {
+            "id": "evt_unpaid", "created": 10, "type": "checkout.session.completed",
+            "data": {"object": {"mode": "subscription", "payment_status": "unpaid", "customer": "cus_cam", "subscription": "sub_cam", "metadata": {"user_id": cam, "plan_code": "five", "price_id": "price_five_test"}}},
+        }
+        self.assertEqual(self.apply_event(unpaid)["action"], "ignored")
+        paid = {
+            "id": "evt_paid", "created": 20, "type": "checkout.session.completed",
+            "data": {"object": {"mode": "subscription", "payment_status": "paid", "customer": "cus_cam", "subscription": "sub_cam", "metadata": {"user_id": cam, "plan_code": "five", "price_id": "price_five_test"}}},
+        }
+        applied = self.apply_event(paid)
+        self.assertEqual(applied["action"], "applied")
+        self.assertEqual(applied["setup_limit"], 5)
+        self.assertEqual(applied["status"], "active")
+        self.assertEqual(self.apply_event(paid)["action"], "duplicate")
+        cur = self.as_user(cam)
+        cur.execute("select public.create_setup('weekly-plan', 'Cam week', '{}'::jsonb, 'cam instructions')")
+        setup_id = cur.fetchone()[0]
+        self.conn.commit()
+        stale = {
+            "id": "evt_old", "created": 15, "type": "customer.subscription.updated",
+            "data": {"object": {"id": "sub_cam", "customer": "cus_cam", "status": "active", "items": {"data": [{"price": {"id": "price_three_test"}}]}}},
+        }
+        self.assertEqual(self.apply_event(stale)["action"], "stale")
+        cur = self.reset_role()
+        cur.execute("select setup_limit, status from public.entitlements where user_id = %s", (cam,))
+        self.assertEqual(cur.fetchone(), (5, "active"))
+        downgrade = {
+            "id": "evt_down", "created": 30, "type": "customer.subscription.updated",
+            "data": {"object": {"id": "sub_cam", "customer": "cus_cam", "status": "active", "cancel_at_period_end": True, "current_period_end": 1800000000, "items": {"data": [{"price": {"id": "price_three_test"}}]}}},
+        }
+        changed = self.apply_event(downgrade)
+        self.assertEqual(changed["setup_limit"], 3)
+        self.assertEqual(changed["status"], "active")
+        self.assertTrue(changed["cancel_at_period_end"])
+        failed = {
+            "id": "evt_fail", "created": 40, "type": "invoice.payment_failed",
+            "data": {"object": {"customer": "cus_cam", "subscription": "sub_cam"}},
+        }
+        self.assertEqual(self.apply_event(failed)["status"], "past_due")
+        cur = self.as_user(cam)
+        cur.execute("select count(*) from public.setups where deleted_at is null")
+        self.assertEqual(cur.fetchone()[0], 1)
+        with self.assertRaises(psycopg2.Error):
+            cur.execute("select public.save_setup(%s, 'Nope', '{}'::jsonb, 'nope')", (setup_id,))
+            self.conn.commit()
+        self.conn.rollback()
+        unknown = {
+            "id": "evt_price", "created": 50, "type": "customer.subscription.updated",
+            "data": {"object": {"id": "sub_cam", "customer": "cus_cam", "status": "active", "items": {"data": [{"price": {"id": "price_not_ours"}}]}}},
+        }
+        blocked = self.apply_event(unknown)
+        self.assertEqual(blocked["setup_limit"], 0)
+        self.assertEqual(blocked["plan_code"], "none")
+        deleted = {
+            "id": "evt_cancel", "created": 60, "type": "customer.subscription.deleted",
+            "data": {"object": {"id": "sub_cam", "customer": "cus_cam", "status": "canceled"}},
+        }
+        self.assertEqual(self.apply_event(deleted)["status"], "canceled")
+        cur = self.as_user(cam)
+        cur.execute("select instructions from public.setups where id = %s", (setup_id,))
+        self.assertEqual(cur.fetchone()[0], "cam instructions")
+        cur = self.reset_role()
+        cur.execute("select count(*) from public.setups where user_id = %s", (cam,))
+        self.assertEqual(cur.fetchone()[0], 1)
 
 
 if __name__ == "__main__":

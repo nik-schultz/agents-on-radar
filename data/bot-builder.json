@@ -22,7 +22,8 @@
     "distinction": "A saved setup is instruction text you paste into your own chat app. This site does not host or run the bot.",
     "public_blockers": [
       "Sign-in is not turned on. There is no account on this build.",
-      "Checkout is not turned on. There is no subscription and no payment link for these plans.",
+      "Customer sign-in email is not available. Built-in project mail only reaches organization team members, at about 2 messages an hour, so it cannot sign up or recover a customer.",
+      "Checkout is not turned on. There is no subscription price and no payment link for these plans.",
       "Nothing you type is stored. Closing the tab drops it.",
       "There is no support channel for setup help, and no one is on call to revise a week for you."
     ]

@@ -129,8 +129,13 @@ def main():
         errs.append("config sponsor_checkout: live=true needs all 4 links (featured, runforless, bundle, newsletter)")
     if re.search(r"sk_(live|test)_|rk_(live|test)_", json.dumps(_cfg)): errs.append("config.json contains a Stripe secret key. Remove it")
     saved = _cfg.get("saved_setups") or {}
-    if saved.get("sign_in") or saved.get("billing") or saved.get("live_launch"):
-        errs.append("config saved_setups.sign_in, billing, and live_launch must stay false until a dedicated project is configured outside this file")
+    if saved.get("sign_in") or saved.get("billing") or saved.get("live_launch") or saved.get("auth_email_ready"):
+        errs.append("config saved_setups.sign_in, billing, live_launch, and auth_email_ready must stay false until a dedicated project is configured outside this file")
+    publishable = saved.get("supabase_publishable_key") or ""
+    if publishable and not str(publishable).startswith("sb_publishable_"):
+        errs.append("config saved_setups.supabase_publishable_key must be empty or an sb_publishable_ key")
+    if saved.get("supabase_url") and not str(saved.get("supabase_url")).startswith("https://"):
+        errs.append("config saved_setups.supabase_url must be empty or https")
     if "service_role" in json.dumps(saved) or "sb_secret" in json.dumps(saved):
         errs.append("config saved_setups must not contain a Supabase secret key")
     sys.path.insert(0, os.path.join(ROOT, "scripts"))
