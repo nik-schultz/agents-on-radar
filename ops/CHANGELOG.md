@@ -969,3 +969,9 @@ Improvement for visitors
 - Pricing table: Claude Fable 5.1 row replaced by Claude Fable 5.2 ($8 / $40, cached $0.20, from Anthropic pricing page); added Meta Muse Ember ($0.10 / $0.50, cached $0.004, from Meta's launch post); Anthropic cache note covers Fable 5.2.
 - Refreshed X numbers on 92 existing items (raw: research/x_news_measure_2026_11_09_pm.json.txt, local only; apply script research/news_x_2026_11_09_pm.py).
 - Skipped: OpenAIDevs "Tomorrow." teaser (no announcement yet), Grok Bot weekly-limit reset (one-off), Automattic Spacefast and Qwen Office 2.0 (not verified from primary sources this run). 2 BACKLOG notes.
+
+## 2026-11-10 AM news run
+- Added 3 notable items: meta-muse-smartwatch (MacRumors, The Verge; @Muse 2119919277692383330), google-antigravity-knowledge-work (Antigravity blog + changelog, 9to5Google; @antigravity 2119913586109579283), anthropic-ipo-roadshow (Anthropic; $70-$78/share, ~825M shares, Nasdaq ANT; @AnthropicAI 2120117722230968385).
+- Added 1 minor item: openai-control-room (OpenAI; @OpenAI 2119913172039868579).
+- Refreshed X numbers on 73 items from the last two weeks (raw: research/x_news_measure_2026_11_10_am.json.txt, local only; apply script research/news_x_2026_11_10_am.py).
+- No major release, no pricing table change. Skipped: Claude model-choice guide (guidance, not news), Muse Ember on Google Cloud (already covered), Google Maps Platform in AI Studio (developer-only), MiniMax H3 Image early access, Spacefast and other startup launches (not verified from primary sources). 2 BACKLOG notes.

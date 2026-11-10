@@ -331,3 +331,5 @@ Bugs/complaints: none found on the site or in feedback scans.
 
 - (2026-11-09 PM news) Muse Ember ($0.10/$0.50 per 1M tokens, Meta) makes "cheap helper bot" setups realistic: consider a use case on splitting a bot into a smart planner model plus a cheap worker model for repetitive steps (sorting email, extracting receipts) to cut running cost. Needs 2+ non-Meta sources before publishing.
 - (2026-11-09 PM news) ChatGPT dots can now use several of your computers: candidate update to dots-related use cases on picking a spare/home machine for long tasks, with the safety note to revoke access per machine.
+- (2026-11-10 AM news) Muse now runs on Apple Watch and Wear OS (call, text or dictate): candidate use case "hand your agent a quick errand from your watch" (bookings, calendar clashes), with the watch-out to limit which accounts it can reach. Needs 2+ non-Meta sources before publishing.
+- (2026-11-10 AM news) Google Antigravity's Knowledge Work layout makes a desktop agent usable for research and writing without developer tools: candidate mention in beginner research/writing use cases once we confirm it's free on personal accounts.
