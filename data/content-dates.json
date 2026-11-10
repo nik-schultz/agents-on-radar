@@ -4,8 +4,8 @@
   "date": "2026-11-09"
  },
  "/can-ai-make-phone-calls-for-you/": {
-  "hash": "1a58b6fcdee5460d2da12ff0bf39117d00bc7438",
-  "date": "2026-11-03"
+  "hash": "0531004f20c5ccda8f40b2310a2b54232822d71a",
+  "date": "2026-11-10"
  },
  "/chatgpt-agent-mode-is-gone/": {
   "hash": "cae58eb8ef8fe33cd2aa2486e29e921f3f29b3d3",
@@ -16,12 +16,16 @@
   "date": "2026-10-23"
  },
  "/how-much-does-it-cost-to-run-an-ai-agent/": {
-  "hash": "66a5a43655a3b8afca778050d7105baac3f3c322",
-  "date": "2026-11-09"
+  "hash": "7750aae21609d904c188217cee704ae9ff081187",
+  "date": "2026-11-10"
  },
  "/how-to-build-an-ai-agent-without-coding/": {
-  "hash": "682feb85e7d6e589ad695f1825361cf73d330275",
-  "date": "2026-11-09"
+  "hash": "abd89c361a4208a78a6d3d003a570574daa75299",
+  "date": "2026-11-10"
+ },
+ "/how-to-write-instructions-for-an-ai-agent/": {
+  "hash": "1576fbcbc44861b43958e754326d571201582267",
+  "date": "2026-11-10"
  },
  "/is-it-safe-to-give-an-ai-agent-your-email/": {
   "hash": "e61e6ace26ac5fda43d5650f3c2aa7feb127b361",
@@ -32,15 +36,15 @@
   "date": "2026-11-04"
  },
  "/openclaw-vs-hermes-agent/": {
-  "hash": "eacd17690159f761fe9e0fdc6759fdda42bd3510",
-  "date": "2026-10-28"
+  "hash": "98c2d221253cfd6e95383a7053d9fe72ac5ae8b7",
+  "date": "2026-11-10"
  },
  "/switch-openclaw-or-hermes-to-a-cheaper-model/": {
   "hash": "538416ceab4a5025708629943f0aa340d74fc1db",
   "date": "2026-11-04"
  },
  "/what-can-bots-do/": {
-  "hash": "5b35e30180998e920826f75c21de9beb73f01084",
-  "date": "2026-11-09"
+  "hash": "22a6056759183ff2cdbac1d50d8b072e131bce4e",
+  "date": "2026-11-10"
  }
 }

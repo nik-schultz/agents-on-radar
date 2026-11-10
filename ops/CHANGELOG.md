@@ -975,3 +975,18 @@ Improvement for visitors
 - Added 1 minor item: openai-control-room (OpenAI; @OpenAI 2119913172039868579).
 - Refreshed X numbers on 73 items from the last two weeks (raw: research/x_news_measure_2026_11_10_am.json.txt, local only; apply script research/news_x_2026_11_10_am.py).
 - No major release, no pricing table change. Skipped: Claude model-choice guide (guidance, not news), Muse Ember on Google Cloud (already covered), Google Maps Platform in AI Studio (developer-only), MiniMax H3 Image early access, Spacefast and other startup launches (not verified from primary sources). 2 BACKLOG notes.
+
+## 2026-11-10 (standing site QA, ~9:10 AM AST)
+- Live: /, /news/, /use-cases/, /ai-pricing/, /bot-instructions/, /sitemap.xml all 200 (0.1-0.4s). validate: 124 use cases, 0 errors. check_links: 14,298 links, 0 broken internal. Console/mobile not testable from this box. No bugs found.
+- Improvement: none deployed this run; the BACKLOG candidates (MRI/lab report, land research, bus tickets) need 2+ verified independent sources and the news runs already deployed today. Left for the next trending run.
+
+## 2026-11-10 (weekly SEO + AI-answer pass, ~9:30 AM AST)
+- New guide **/how-to-write-instructions-for-an-ai-agent/** (6-part template, 3 copyable examples, where to paste in ChatGPT/Claude/Gemini, "instructions are not a lock", 3-minute test, mistakes; Article+FAQPage+HowTo JSON-LD; sources: OpenAI prompting guide + custom instructions help, Claude projects help, Gemini Gems help). Gap: current results for the query are enterprise/dev docs. Linked from /what-can-bots-do/, build guide "Next step", /blueprints/ lead; in llms.txt, llms-full.txt, search index, sitemap.
+- **/openclaw-vs-hermes-agent/** (#2 page by visits) freshened from official docs: OpenClaw Skill Workshop now learns skills by default (undoable, propose mode); Hermes Cloud hosted option; new FAQ "Does OpenClaw learn new skills on its own like Hermes Agent?"; sources oc_workshop + hm_vs.
+- **/bot-instructions/**: title "Free AI bot instructions builder: copy-paste templates", sharper description, WebApplication JSON-LD (free, no model call, no storage). Privacy description rewritten.
+- seo_title added: stop-your-ai-chats-being-used-for-training, teach-your-bot-to-remember-what-works.
+- Pricing: ai-pricing.json re-verified from official pages, all checked_on 2026-11-10. No price changed, none dropped vs Nov 9. Fable 5.2 $8/$40 and Muse Ember $0.10/$0.50 (<=200K) confirmed. Fixed Gemini note: it is gemini-2.5-flash (not 2.5 Flash-Lite) that routes to 3.5 Flash-Lite from Dec 1, 2026. Fixed stale Fable 5.1 $10/$50 in pick-a-smaller-model-for-simple-jobs watch_out. Blueprint models unchanged.
+- Cloudflare RUM (real browsers, ChromeHeadless excluded), Nov 3 11:00 to Nov 10 11:00 AST: 121 visits / 133 page views. Top: / 32, /openclaw-vs-hermes-agent/ 16, keep-an-ai-agent-from-deleting-your-files 9, /news/ 8, /trending/ 6, /ai-agent-examples/ 6. Referrers: direct 109, bing 5, google 5, github 1, t.co 1. ChromeHeadless (our QA) 389 visits excluded.
+- Search Console: no API access on box (manual CSV in /workspace/gsc only).
+- AI-answer check (WebSearch tool's engine only): /ai-agent-examples/ #1 and cited for "AI agent examples for everyday life"; cost guide #1 and cited for monthly cost query; #4 for "AI agent use cases for everyday people"; not top 5 for "how to build an AI agent for beginners 2026" or "openclaw vs hermes agent". Google/Perplexity/ChatGPT/Grok not verified (Bing/DDG scraping from box returns generic/no results).
+- Open: newsletter #3 title 73 chars (left); /sponsor/ noindex by design.

@@ -14,6 +14,7 @@ BUILD_GUIDE = "/how-to-build-an-ai-agent-without-coding/"  # beginner how-to (ad
 COST_GUIDE = "/how-much-does-it-cost-to-run-an-ai-agent/"; CLAW_GUIDE = "/openclaw-vs-hermes-agent/"; SAFE_GUIDE = "/is-it-safe-to-give-an-ai-agent-your-email/"  # beginner guides (added 2026-10-23)
 PHONE_GUIDE = "/can-ai-make-phone-calls-for-you/"  # added 2026-11-03
 OCSAFE_GUIDE = "/is-openclaw-safe/"; AGENTMODE_GUIDE = "/chatgpt-agent-mode-is-gone/"; CHEAPMODEL_GUIDE = "/switch-openclaw-or-hermes-to-a-cheaper-model/"  # added 2026-11-04
+INSTR_GUIDE = "/how-to-write-instructions-for-an-ai-agent/"  # added 2026-11-10
 PHONE_UCS = {"call-and-book-by-phone", "make-a-customer-service-call", "let-a-bot-answer-and-screen-your-calls", "restaurant-reservations-by-agent"}
 CAT = {c["slug"]: c for c in cats}
 UC = {x["slug"]: x for x in ucs}
@@ -288,7 +289,7 @@ def featured_slot(slot, cat=None):
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
     return newsletter_box(f"nl-{slot}", "card")  # no sponsor booked: show a newsletter signup instead of an empty ad box
 
-SHARE_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/"}
+SHARE_PATHS = {INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/"}
 def share_bar(title, url):
     """Share on X / Copy link / Email a friend. Plain links + one button; no third-party scripts."""
     q = urllib.parse.quote
@@ -303,7 +304,7 @@ def share_bar(title, url):
 <label class="share-nojs"><span class="sr">Link to this page</span><input type="text" readonly value="{e(url)}" size="34"></label>
 <a class="share-btn" href="{e(mh)}" aria-label="Email this page to a friend">{msvg}<span>Email a friend</span></a>
 </div><p class="share-status small" role="status" aria-live="polite"></p></section>"""
-NL_END_PATHS = {"/trending/", "/news/", OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", "/bot-instructions/", PRICING, LESS, "/about/"}
+NL_END_PATHS = {"/trending/", "/news/", INSTR_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", "/bot-instructions/", PRICING, LESS, "/about/"}
 # Long guides also get a signup after their 3rd top-level section (mid-article), not only at the end.
 NL_MID_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/"}
 def _insert_mid(body, snippet, after=3):
@@ -923,7 +924,7 @@ bp_all = "".join(f"""<li class="bp-card has-real glass reveal"><a href="{u('/blu
 page("/blueprints/", "Build a bot: blueprints for beginners", f"{len(bps)} copy-paste bot blueprints for everyday life: what each bot watches, when it runs, which tool to use, the exact instructions and safety rules.",
      f"""<div class="wrap page-head"><p class="eyebrow">Bot blueprints</p><h1 class="kinetic-sm">Build a bot</h1>
 <p class="lead">Each blueprint is a ready-made bot: what it watches, when it runs, which tool to use, the exact words to paste, and how to keep it safe. No coding.</p>
-<p class="small">First time? Read <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, a step-by-step walkthrough that uses the Morning Inbox Briefing as the example. For a chat-only draft with no connected accounts, use the <a href="{u('/bot-instructions/')}">instruction builder</a>.</p></div>
+<p class="small">First time? Read <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, a step-by-step walkthrough that uses the Morning Inbox Briefing as the example. For a chat-only draft with no connected accounts, use the <a href="{u('/bot-instructions/')}">instruction builder</a>. Writing your own from scratch? Copy the <a href="{u(INSTR_GUIDE)}">6-part AI agent instructions template</a>.</p></div>
 <section class="wrap block" id="how-to" aria-labelledby="howto-h"><h2 id="howto-h">How to set up any bot, in 5 plain steps</h2><ol class="howto">{howto_html}</ol>
 <details class="glass gloss-box"><summary>Words you'll see (glossary)</summary><dl class="gloss">{gloss}</dl></details></section>
 <section class="wrap block" aria-labelledby="bpl-h"><h2 id="bpl-h">All blueprints</h2><ul class="bp-grid">{bp_all}</ul></section>""",
@@ -938,10 +939,13 @@ if _bb_errs:
     raise SystemExit("bot-builder catalog: " + "; ".join(_bb_errs))
 _bb_bc, _bb_ld = crumbs([("Home", "/"), ("Write instructions", None)])
 _bb_faq = [{"@type": "Question", "name": item["q"], "acceptedAnswer": {"@type": "Answer", "text": item["a"]}} for item in _bb["faq"]]
-page("/bot-instructions/", "Write bot instructions",
-     "Customize instructions for your own chat app. Weekly planning, email drafts, and quote comparisons are free in the tab. Saving setups is not on sale yet.",
+page("/bot-instructions/", "Free AI bot instructions builder: copy-paste templates",
+     "Free builder for AI bot instructions you paste into ChatGPT, Claude, Gemini or Grok: a weekly plan, an email draft or a quote comparison. No sign-up.",
      f'<div class="wrap">{_bb_bc}</div>' + bot_builder.render_page_inner(u),
-     [_bb_ld, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": _bb_faq}],
+     [_bb_ld, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": _bb_faq},
+      {"@context": "https://schema.org", "@type": "WebApplication", "name": "BotsDoThat bot instructions builder", "url": absu(u("/bot-instructions/")), "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (runs in your web browser)", "isAccessibleForFree": True,
+       "description": "Fills a fixed template with the facts you type and gives you instructions to paste into your own AI chat app. It does not call an AI model and does not store what you type.",
+       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}],
      lastmod="2026-11-08",
      head_extra=f'<script src="{u("/assets/bot-builder.js")}?v={ASSET_V["bot-builder.js"]}" defer></script><script src="{u("/assets/accounts.js")}?v={ASSET_V["accounts.js"]}" defer></script>')
 
@@ -1034,7 +1038,7 @@ explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 <li><b>Get in everywhere.</b> Some sites block agents. One user says Amazon blocked his ({S('X post', 'https://x.com/NickADobos/status/2110749518518235276')}).</li>
 <li><b>Replace a professional.</b> Use bots to organize and draft. Medical, legal and money decisions stay with you and a qualified person. Be wary of anyone promising AI miracles; the U.S. FTC has acted against deceptive AI claims ({S('FTC Operation AI Comply', 'https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes')}).</li></ul></section>
 
-<p class="small">Go deeper: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a> · <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> · <a href="{u(AGENTMODE_GUIDE)}">ChatGPT agent mode is gone</a></p>
+<p class="small">Go deeper: <a href="{u(INSTR_GUIDE)}">how to write instructions for an AI agent</a> · <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a> · <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> · <a href="{u(AGENTMODE_GUIDE)}">ChatGPT agent mode is gone</a></p>
 <section class="reveal"><h2>7 rules that keep you safe</h2><ol class="rules">
 <li>Start <b>read-only</b>. Let it look before it does anything.</li>
 <li>Make it <b>ask before</b> it sends, buys, books, cancels or deletes.</li>
@@ -1289,7 +1293,7 @@ guide_body = f"""<article class="wrap narrow explainer">{gbc}
 
 <section class="reveal" id="faq"><h2>Questions people ask</h2>{_g_faq_html}</section>
 
-<section class="glass explain-card"><h2>Next step</h2><p>Pick a blueprint, copy its four lines and instructions, and do one test run today.</p>
+<section class="glass explain-card"><h2>Next step</h2><p>Pick a blueprint, copy its four lines and instructions, and do one test run today. Writing your own instead? Use the <a href="{u(INSTR_GUIDE)}">6-part instructions template</a> or the free <a href="{u('/bot-instructions/')}">instruction builder</a>.</p>
 <p><a class="btn" href="{u('/blueprints/')}">See all {len(bps)} blueprints</a> <a class="btn btn-ghost" href="{u('/ai-agent-examples/')}">Browse {len(ucs)} AI agent examples</a></p></section>
 </article>"""
 page(BUILD_GUIDE, f"How to build an AI agent without coding in {len(GUIDE_STEPS)} steps", mdesc(f"Build an AI agent without coding in {len(GUIDE_STEPS)} plain-English steps: pick one job, paste instructions into an agent app, test once, then schedule it safely. Worked example."), guide_body,
@@ -1337,6 +1341,8 @@ SRC = {
  "hm_tips": ("Hermes docs: Tips and best practices", "https://hermes-agent.nousresearch.com/docs/guides/tips/"),
  "hm_cron": ("Hermes docs: Scheduled tasks", "https://hermes-agent.nousresearch.com/docs/user-guide/features/cron/"),
  "hm_mail": ("Hermes docs: Give your agent its own email address", "https://hermes-agent.nousresearch.com/docs/guides/agent-email-address/"),
+ "oc_workshop": ("OpenClaw docs: Skill Workshop (learned skills)", "https://docs.openclaw.ai/tools/skill-workshop"),
+ "hm_vs": ("Hermes Agent: Hermes Agent vs OpenClaw (checked Nov 9, 2026)", "https://hermes-agent.nousresearch.com/compare/openclaw"),
  "owasp01": ("OWASP LLM01:2025 Prompt Injection", "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"),
  "owasp06": ("OWASP LLM06:2025 Excessive Agency", "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"),
  "oai_pi": ("OpenAI: Understanding prompt injections", "https://openai.com/safety/prompt-injections/"),
@@ -1470,11 +1476,11 @@ CLAW_ROWS = [
  ("Who makes it", f"The OpenClaw Foundation, an independent 501(c)(3); built by Peter Steinberger and the community ({C('oc_readme', 'README')})", f"Nous Research ({C('hm_readme', 'README')})"),
  ("Price of the software", f"Free and open source (MIT). “No paid tier, hosted service, or token” ({C('oc_readme', 'README')})", f"Free and open source (MIT). Optional paid Nous Portal subscription for models and tools; cloud hosting optional ({C('hm_site', 'site')})"),
  ("Setup", f"One-line installer for macOS, Linux and Windows, or desktop apps; needs Node 24.16+. Guided onboarding, then a web dashboard ({C('oc_install', 'Install')}, {C('oc_start', 'Getting started')})", f"One-line installer for macOS, Linux and WSL2, a native Windows installer, or the Hermes desktop app for macOS, Windows and Linux ({C('hm_readme', 'README')}, {C('hm_site', 'site')})"),
- ("Where it runs", f"Your own computer or a server (Mac, Linux, VPS). Minimum server: 1 vCPU, 1 GB RAM ({C('oc_what', 'FAQ')}, {C('oc_host', 'hosting FAQ')})", f"Your computer or a server; tools can run locally or in Docker, SSH, Modal, Daytona or Vercel Sandbox ({C('hm_readme', 'README')})"),
+ ("Where it runs", f"Your own computer or a server (Mac, Linux, VPS). Minimum server: 1 vCPU, 1 GB RAM ({C('oc_what', 'FAQ')}, {C('oc_host', 'hosting FAQ')})", f"Your computer or a server; tools can run locally or in Docker, SSH, Modal, Daytona or Vercel Sandbox ({C('hm_readme', 'README')}). Or Hermes Cloud, an always-on hosted agent included with paid Nous Portal plans ({C('hm_vs', 'Hermes')})"),
  ("Chat apps", f"Discord, iMessage, Slack, Teams, Telegram, WhatsApp and 20+ more ({C('oc_readme', 'README')})", f"Telegram, Discord, Slack, WhatsApp, Signal, email, CLI and more ({C('hm_site', 'site')})"),
  ("AI models", f"Hosted providers such as Anthropic, MiniMax, OpenAI and OpenRouter, or local models; can reuse a Claude Code or Codex login ({C('oc_what', 'FAQ')}, {C('oc_start', 'Getting started')})", f"Nous Portal, OpenRouter, OpenAI, your own endpoint and others; switch with <code>hermes model</code>; local models via Ollama ({C('hm_readme', 'README')}, {C('hm_ollama', 'Ollama guide')})"),
  ("Schedules", f"Automations: scheduled jobs, webhooks and Gmail triggers ({C('oc_auto', 'Automations')})", f"Built-in scheduler you set up in plain language ({C('hm_cron', 'Scheduled tasks')})"),
- ("Memory", f"State, memory and credentials stay on your hardware ({C('oc_readme', 'README')})", f"Persistent memory; creates and improves its own skills from experience ({C('hm_readme', 'README')})"),
+ ("Memory and learning", f"State, memory and credentials stay on your hardware ({C('oc_readme', 'README')}). Learns its own skills by default (Skill Workshop): it saves a procedure after hard multi-step work, every change can be undone, and “propose” mode turns them into drafts you approve first ({C('oc_workshop', 'Skill Workshop')})", f"Persistent memory; creates and improves its own skills from experience ({C('hm_readme', 'README')}). Writes skills and memory freely by default; an optional approval gate holds every write until you OK it ({C('hm_vs', 'Hermes')})"),
  ("Safety controls", f"Gateway listens only on your own machine by default; unknown senders must pair first; <code>openclaw security audit</code>; sandboxing is off by default and opt-in ({C('oc_sec', 'Security')}, {C('oc_sandbox', 'Sandboxing')})", f"Asks before dangerous commands (default “smart” mode); unknown users denied unless allowlisted or paired; scheduled jobs deny dangerous commands by default; optional container isolation ({C('hm_sec', 'Security')})"),
  ("Switching", f"Can import a Hermes setup: <code>openclaw migrate hermes</code> ({C('oc_mig', 'docs')})", f"Can import an OpenClaw setup: <code>hermes import-agent openclaw</code> ({C('hm_mig', 'docs')})"),
 ]
@@ -1483,7 +1489,9 @@ CLAW_FAQ = [
   f"OpenClaw is a free, open-source AI assistant that runs on your own computer or server and answers you in chat apps you already use, like WhatsApp, Telegram, Slack, Discord and iMessage. It's run by the OpenClaw Foundation, a non-profit ({C('oc_readme')})."),
  ("What is Hermes Agent?", "Hermes Agent is a free, open-source AI agent from Nous Research. It remembers what it learns, writes its own reusable skills, runs scheduled jobs, and talks to you from Telegram, Discord, Slack, WhatsApp, Signal, email or the terminal.",
   f"Hermes Agent is a free, open-source AI agent from Nous Research. It remembers what it learns, writes its own reusable skills, runs scheduled jobs, and talks to you from Telegram, Discord, Slack, WhatsApp, Signal, email or the terminal ({C('hm_readme')})."),
- ("OpenClaw vs Hermes: which is better for beginners?", "Neither is as easy as an agent app with a connect button: both need an install and an AI model or API key. Both now offer desktop apps. Pick OpenClaw if you want chat apps like iMessage and Teams (25+ in all) and a project run by a non-profit with no paid tier. Pick Hermes if you want an agent that builds its own skills, or one login (Nous Portal) for models and tools. You can switch later: each can import the other's setup.", None),
+ ("OpenClaw vs Hermes: which is better for beginners?", "Neither is as easy as an agent app with a connect button: both need an install and an AI model or API key. Both now offer desktop apps. Pick OpenClaw if you want chat apps like iMessage and Teams (25+ in all) and a project run by a non-profit with no paid tier. Pick Hermes if you want an optional hosted, always-on version (Hermes Cloud) or one login (Nous Portal) for models and tools. Both now learn reusable skills on their own by default. You can switch later: each can import the other's setup.", None),
+ ("Does OpenClaw learn new skills on its own like Hermes Agent?", "Yes, now it does. OpenClaw's Skill Workshop is on by default: after hard multi-step work the agent saves the procedure as a learned skill, fixes a skill that misled it, and archives skills nobody used for 30 days. Every change can be undone, and propose mode makes it save drafts for you to approve. Hermes writes skills freely by default and has an optional approval gate.",
+  f"Yes, now it does. OpenClaw's Skill Workshop is on by default: after hard multi-step work the agent saves the procedure as a learned skill, fixes a skill that misled it, and archives skills nobody used for 30 days. Every change can be undone, and propose mode makes it save drafts for you to approve ({C('oc_workshop')}). Hermes writes skills freely by default and has an optional approval gate ({C('hm_vs')})."),
  ("Is OpenClaw free?", "Yes. The software is free and open source, with no paid tier or hosted service. You pay for the AI model you connect and for the machine it runs on.", None),
  ("Is Hermes Agent free?", "Yes. Hermes Agent is free and open source under the MIT license. Model providers and optional hosted services, including Nous Portal, have their own pricing.", None),
  ("What's the cheapest way to run Hermes Agent?", f"On a computer you already own with a local model through Ollama, which Hermes' docs call “Zero API Cost” (minimum 8 GB of RAM for small 3B models). Smaller models are easier to trick with prompt injection, so keep approvals on. Next cheapest: a small pay-per-use model; the cheapest in our price table is {_cheapest['provider']} {_cheapest['model']}.",
@@ -1497,7 +1505,7 @@ _claw_desc = mdesc("OpenClaw vs Hermes Agent for beginners: what each open-sourc
 wbc, wbld = crumbs([("Home", "/"), ("What is an AI agent?", "/what-can-bots-do/"), ("OpenClaw vs Hermes Agent", None)])
 claw_body = f"""<article class="wrap narrow explainer">{wbc}
 <header class="page-head"><p class="eyebrow">Beginner guide · Open-source agents</p><h1 class="kinetic-sm">OpenClaw vs Hermes Agent: a beginner's guide</h1>
-<p class="lead">Short answer: OpenClaw and Hermes Agent are both free, open-source AI agents you install on your own computer or server and chat with from apps like Telegram or WhatsApp. OpenClaw is run by a non-profit foundation and works with 25+ chat apps, including iMessage and Teams. Hermes Agent, from Nous Research, learns as it goes and writes its own skills. Both are more hands-on than an agent app, and both need careful safety settings.</p>
+<p class="lead">Short answer: OpenClaw and Hermes Agent are both free, open-source AI agents you install on your own computer or server and chat with from apps like Telegram or WhatsApp. OpenClaw is run by a non-profit foundation and works with 25+ chat apps, including iMessage and Teams. Hermes Agent, from Nous Research, adds an optional hosted version (Hermes Cloud) and one login for models and tools. Both now learn reusable skills as they work. Both are more hands-on than an agent app, and both need careful safety settings.</p>
 {_byline()}<p class="small muted">Every fact here comes from each project's official docs or GitHub README, linked inline. Software changes fast, so check the linked page before you rely on a detail.</p></header>
 
 <section class="reveal" id="openclaw"><h2>What is OpenClaw?</h2>
@@ -1514,7 +1522,8 @@ claw_body = f"""<article class="wrap narrow explainer">{wbc}
 <section class="reveal" id="pick"><h2>How to pick one</h2><ul class="big-list">
 <li><b>Never used a terminal?</b> Start with an agent app instead; our <a href="{u(BUILD_GUIDE)}">no-code guide</a> walks you through one. Come back when you want to self-host.</li>
 <li><b>Want iMessage, Teams or one of OpenClaw's 25+ chat apps, and a non-profit project with no paid tier?</b> OpenClaw.</li>
-<li><b>Want an agent that writes and improves its own skills, cloud sandboxes, or one login for models and tools (Nous Portal)?</b> Hermes Agent.</li>
+<li><b>Want it hosted and always on without your own server (Hermes Cloud), cloud sandboxes, or one login for models and tools (Nous Portal)?</b> Hermes Agent.</li>
+<li><b>Want new skills to wait for your OK?</b> Either can do it: OpenClaw's “propose” mode ({C('oc_workshop', 'Skill Workshop')}) or Hermes' write-approval gate ({C('hm_vs', 'Hermes')}). Both learn on their own by default.</li>
 <li><b>Not sure?</b> Try one. Each can import the other's setup later ({C('hm_mig', 'Hermes importer')}, {C('oc_mig', 'OpenClaw importer')}).</li></ul></section>
 
 <section class="reveal" id="cost"><h2>What they cost to run</h2>
@@ -1533,7 +1542,7 @@ claw_body = f"""<article class="wrap narrow explainer">{wbc}
 <section class="reveal"><h2>Jobs people use them for</h2><p>Any of our {len(bps)} <a href="{u('/blueprints/')}">blueprints</a> works as instructions for either agent. Good first ones: {_ba('morning-inbox-briefing')}, {_ba('web-page-watcher')} and {_ba('scam-checker')}. Related: {_ua('team-of-agents-with-roles')}, {_ua('give-your-agent-its-own-email-address')}, {_ua('run-open-models-on-your-own-computer')}.</p></section>
 
 <section class="reveal" id="faq"><h2>Questions people ask</h2>{_faq_html(CLAW_FAQ)}</section>
-<section class="reveal"><h2>Sources</h2>{_src_list(['oc_readme','oc_install','oc_what','oc_host','oc_qs','oc_sec','oc_secfaq','oc_pi','oc_sandbox','oc_auto','oc_mig','hm_readme','hm_site','hm_sec','hm_ollama','hm_cron','hm_mig','hm_mail','hm_tips'])}</section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['oc_readme','oc_install','oc_what','oc_host','oc_qs','oc_sec','oc_secfaq','oc_pi','oc_sandbox','oc_auto','oc_mig','oc_workshop','hm_readme','hm_site','hm_sec','hm_ollama','hm_cron','hm_mig','hm_mail','hm_tips','hm_vs'])}</section>
 </article>"""
 page(CLAW_GUIDE, "OpenClaw vs Hermes Agent: a beginner's guide", _claw_desc, claw_body,
      [wbld, _art_ld(CLAW_GUIDE, "OpenClaw vs Hermes Agent: a beginner's guide", _claw_desc), _faq_ld(CLAW_FAQ)], og_type="article")
@@ -1792,6 +1801,134 @@ cheap_body = f"""<article class="wrap narrow explainer">{cmb}
 <section class="reveal"><h2>Sources</h2>{_src_list(['oc_models','oc_host','hm_models','hm_prov','hm_tips'])}</section>
 </article>"""
 page(CHEAPMODEL_GUIDE, "Switch OpenClaw or Hermes Agent to a cheaper model", _cm_desc, cheap_body, _g_ld(CHEAPMODEL_GUIDE, "How to switch OpenClaw or Hermes to a cheaper model", _cm_desc, CHEAP_FAQ, cmld), og_type="article")
+
+# ----- 9. How to write instructions for an AI agent (2026-11-10) -----
+SRC.update({
+ "oai_guide": ("OpenAI: A practical guide to building AI agents", "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/"),
+ "oai_ci": ("OpenAI Academy: Personalizing ChatGPT (custom instructions)", "https://openai.com/academy/personalization/"),
+ "cl_proj": ("Claude Help: How can I create and manage projects?", "https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects"),
+ "g_gems": ("Gemini Apps Help: Tips for creating custom Gems", "https://support.google.com/gemini/answer/15235603?hl=en"),
+ "udemy_agent": ("Udemy blog: How to build an AI agent, a beginner's guide", "https://blog.udemy.com/how-to-build-an-ai-agent/"),
+})
+INSTR_PARTS = [
+ ("Job", "One job in one sentence, with when it runs. “Every Sunday evening, plan my week from the notes I paste.”"),
+ ("Use only", "What it may read. “Only the notes in this chat” or “only my work calendar”. Less is safer."),
+ ("Steps", "Three to six numbered steps in the order you'd do them yourself."),
+ ("Result", "What the answer looks like: a table, a short list, a draft, a word limit."),
+ ("Ask first", "What it must never do alone. “Never send, buy, book, delete or share anything. Ask me first.”"),
+ ("If unsure, and when done", "“If something is missing, tell me what's missing instead of guessing. Stop after the plan.”"),
+]
+INSTR_TEMPLATE = """JOB: Every [when], [the one job, in one sentence].
+USE ONLY: [what it may read, e.g. the notes I paste in this chat].
+STEPS:
+1. [first thing to do]
+2. [next thing]
+3. [last thing]
+RESULT: [the format, e.g. a table with Day / Task / Time, under 150 words].
+ASK FIRST: Never send, buy, book, delete or share anything. Ask me before [anything else that matters].
+IF UNSURE: If something is missing or unclear, say what's missing instead of guessing.
+DONE: Stop when [the result] is written. Don't say anything was done that you didn't do."""
+INSTR_EXAMPLES = [
+ ("Weekly planner", """JOB: Every Sunday, plan my week from the notes I paste.
+USE ONLY: The notes in this chat. You can't see my calendar.
+STEPS:
+1. List my fixed commitments first and never move them.
+2. Fit my top 3 priorities into the free time I gave you.
+3. Leave a 30-minute gap after anything over 2 hours.
+RESULT: A table: Day / What / Start / End. Then one line: what didn't fit.
+ASK FIRST: Don't create events or send invites. I copy the plan myself.
+IF UNSURE: If a task has no length, ask me instead of guessing.
+DONE: Stop after the table and the one line."""),
+ ("Email reply drafter", """JOB: When I paste an email, draft a reply in my voice.
+USE ONLY: The email I paste and the facts I add.
+STEPS:
+1. Say in one line what the sender wants.
+2. Draft a reply under 120 words: friendly, direct, no exclamation marks.
+3. List any fact you'd need from me (dates, prices, yes or no).
+RESULT: The one-line summary, the draft, then the list.
+ASK FIRST: Never send anything. I send it myself.
+IF UNSURE: If the email asks for money, a password or a code, say so and don't draft a reply.
+DONE: Stop after the list."""),
+ ("Quote comparer", """JOB: Compare the quotes I paste for the same job.
+USE ONLY: The quotes in this chat.
+STEPS:
+1. Put each quote in one row: company, total price, what's included, what's extra, start date.
+2. Flag anything that's missing from one quote but in another.
+3. Write the 3 questions I should ask before I pick one.
+RESULT: The table, the flags, then the 3 questions.
+ASK FIRST: Don't contact anyone or accept a quote.
+IF UNSURE: If a price is unclear, write “unclear” instead of guessing.
+DONE: Stop after the questions."""),
+]
+INSTR_FAQ = [
+ ("What should instructions for an AI agent include?",
+  "Six things: the one job and when it runs, what it may read, the steps in order, what the result should look like, what it must ask you before doing, and what to do when it's unsure or done. OpenAI's guide to building agents says the same in its own words: break the task into clear steps, make every step a specific action, and plan for missing information.",
+  f"Six things: the one job and when it runs, what it may read, the steps in order, what the result should look like, what it must ask you before doing, and what to do when it's unsure or done. OpenAI's guide to building agents says the same in its own words: break the task into clear steps, make every step a specific action, and plan for missing information ({C('oai_guide', 'OpenAI')})."),
+ ("Where do I put standing instructions in ChatGPT, Claude or Gemini?",
+  "ChatGPT: Custom instructions in your Personalization settings apply to new chats. Claude: open a project and click Set project instructions; they apply to every chat in that project, and free accounts can make up to five projects. Gemini: on gemini.google.com, open Explore Gems, then New Gem, and write the instructions there. In any other app, paste them as the first message of a new chat.",
+  f"ChatGPT: Custom instructions in your Personalization settings apply to new chats ({C('oai_ci', 'OpenAI')}). Claude: open a project and click Set project instructions; they apply to every chat in that project, and free accounts can make up to five projects ({C('cl_proj', 'Claude Help')}). Gemini: on gemini.google.com, open Explore Gems, then New Gem, and write the instructions there ({C('g_gems', 'Gemini Help')}). In any other app, paste them as the first message of a new chat."),
+ ("What's the difference between custom instructions and a prompt?",
+  "Custom instructions are your standing rules: who you are, the format you like, what to always ask first. A prompt is the job for this one chat. OpenAI suggests using custom instructions for stable preferences and the chat itself for the task at hand.",
+  f"Custom instructions are your standing rules: who you are, the format you like, what to always ask first. A prompt is the job for this one chat. OpenAI suggests using custom instructions for stable preferences and the chat itself for the task at hand ({C('oai_ci', 'OpenAI Academy')})."),
+ ("Can instructions stop my AI agent from doing something risky?",
+  "Not on their own. Instructions are guidance the model usually follows, not a lock. The real limits are the app's settings: connect only the accounts the job needs and keep its approval prompts on for sending, buying and deleting. Write the rule in the instructions too, but don't rely on it alone.",
+  f"Not on their own. Instructions are guidance the model usually follows, not a lock. Permissions and approvals should be enforced by the app or platform, not just described in the instructions ({C('udemy_agent', 'Udemy')}). Connect only the accounts the job needs and keep approval prompts on for sending, buying and deleting. See <a href=\"{u(SAFE_GUIDE)}\">is it safe to give an AI agent your email?</a>"),
+ ("How long should AI agent instructions be?",
+  "Short enough to read in a minute: usually 8 to 15 lines. One job per set of instructions. If you find yourself writing a second job, make a second bot. Long, mixed instructions are harder for the model to follow and harder for you to fix.", None),
+ ("How do I know my instructions work?",
+  "Test them in a fresh chat with one real example and one messy one (missing information, an odd request). Check the reply against your Result line. If something is off, change one line and test again, so you know which change fixed it.", None),
+]
+_ins_steps = [("Pick one job", "Write the job in one sentence, with when it runs."),
+              ("Fill in the 6 parts", "Job, Use only, Steps, Result, Ask first, If unsure and done."),
+              ("Paste it where your app keeps instructions", "ChatGPT custom instructions, a Claude project, a Gemini Gem, or the first message of a new chat."),
+              ("Test with two examples", "One real example and one messy one. Compare the reply with your Result line."),
+              ("Fix one line at a time", "Change the line that caused the problem, then test again.")]
+inb, inld = crumbs([("Home", "/"), ("Build a bot", "/blueprints/"), ("How to write instructions for an AI agent", None)])
+_in_desc = mdesc("How to write instructions for an AI agent: a 6-part template you can copy, 3 filled-in examples, where to paste them in ChatGPT, Claude and Gemini, and how to test them.")
+_in_parts = "".join(f"<li><b>{e(t)}.</b> {e(d)}</li>" for t, d in INSTR_PARTS)
+_in_ex = "".join(f'<h3>{e(t)}</h3>' + copybox(x, f"{t} instructions", f"ins-ex-{k}") for k, (t, x) in enumerate(INSTR_EXAMPLES))
+instr_body = f"""<article class="wrap narrow explainer">{inb}
+<header class="page-head"><p class="eyebrow">Build a bot · Beginner guide</p><h1 class="kinetic-sm">How to write instructions for an AI agent</h1>
+<p class="lead">Short answer: good AI agent instructions say six things in plain sentences: the one job, what it may read, the steps, what the result looks like, what it must ask you before doing, and what to do when it's unsure or done. Paste them where your app keeps standing instructions (or as the first message of a new chat), test with one real example, and fix one line at a time.</p>
+{_byline()}</header>
+<section class="glass explain-card reveal" id="six-parts"><h2>The 6 parts of good agent instructions</h2><ol class="big-list">{_in_parts}</ol>
+<p class="small">This matches OpenAI's advice for agent instructions: smaller, clearer steps, a specific action for every step, and a plan for missing information ({C('oai_guide', 'OpenAI guide')}). Google's tips for Gems use four of the same ideas: persona, task, context and format ({C('g_gems', 'Gemini Help')}).</p></section>
+<section class="reveal" id="template"><h2>Copy this template</h2><p>Replace everything in [brackets]. Keep it to one job.</p>
+{copybox(INSTR_TEMPLATE, "AI agent instructions template", "ins-template")}
+<p>Prefer filling in a form? The free <a href="{u('/bot-instructions/')}">instruction builder</a> writes the same kind of instructions for a weekly plan, an email draft or a quote comparison, in your browser, with no sign-up.</p></section>
+<section class="reveal" id="examples"><h2>3 filled-in examples</h2><p>Made-up details; swap in your own.</p>{_in_ex}</section>
+<section class="reveal" id="where"><h2>Where to paste them</h2>
+<div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">App</th><th scope="col">Where standing instructions go</th><th scope="col">Source</th></tr></thead><tbody>
+<tr><th scope="row">ChatGPT</th><td class="small">Settings → Personalization → Custom instructions. They apply to new chats until you change them.</td><td class="small">{C('oai_ci', 'OpenAI Academy')}</td></tr>
+<tr><th scope="row">Claude</th><td class="small">Projects → New project → Set project instructions. Used in every chat in that project. Free accounts get up to 5 projects.</td><td class="small">{C('cl_proj', 'Claude Help')}</td></tr>
+<tr><th scope="row">Gemini</th><td class="small">gemini.google.com → Explore Gems → New Gem → write the instructions → Save. Gems are created in the web app.</td><td class="small">{C('g_gems', 'Gemini Help')}</td></tr>
+<tr><th scope="row">Any other app (Grok, Meta Muse, OpenClaw, Hermes…)</th><td class="small">Paste the instructions as the first message of a new chat, or into the app's own instructions setting if it has one.</td><td class="small">—</td></tr>
+</tbody></table></div>
+<p>Want it to run on a schedule? See {_ua('set-up-chatgpt-scheduled-tasks')}. ChatGPT's old agent mode is gone, so use <a href="{u(AGENTMODE_GUIDE)}">ChatGPT Work</a> for longer jobs.</p></section>
+<section class="reveal warn glass" id="not-a-lock"><h2>Instructions are not a lock</h2><ul class="big-list">
+<li><b>They guide, they don't enforce.</b> Permissions and approval steps should be enforced by the app, not just written in the instructions ({C('udemy_agent', 'Udemy')}). Keep the app's “ask before sending or buying” prompts on.</li>
+<li><b>Connect only what the job needs.</b> A planner that reads notes you paste can't leak your inbox. More: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a></li>
+<li><b>Never put passwords, codes or card numbers in instructions.</b> Anything you paste can show up in chat history and shared links.</li></ul></section>
+<section class="reveal" id="test"><h2>Test it in 3 minutes</h2><ol class="big-list">
+<li>Open a fresh chat (or the project or Gem) so old messages don't help it.</li>
+<li>Give it one real example. Check the reply against your Result line.</li>
+<li>Give it one messy example: missing times, a vague request. It should ask or say what's missing, not guess.</li>
+<li>Change one line, then test again. When the reply matches twice, you're done.</li></ol>
+<p>Keeps making the same mistake? {_ua('teach-your-bot-to-remember-what-works')}.</p></section>
+<section class="reveal" id="mistakes"><h2>Common mistakes</h2><ul class="big-list">
+<li><b>Too vague:</b> “handle my inbox” invites the agent to decide for you. Say exactly what to read and what to produce.</li>
+<li><b>Two jobs in one:</b> make a second bot instead.</li>
+<li><b>No “if unsure” line:</b> without it, models tend to fill gaps with guesses.</li>
+<li><b>No result format:</b> you get a different shape every time, which is hard to check.</li></ul></section>
+<section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(INSTR_FAQ)}</section>
+<section class="glass explain-card"><h2>Next step</h2><p>Fill in the template for one job today, or let the <a href="{u('/bot-instructions/')}">free instruction builder</a> do it. Want a ready-made bot? Pick a <a href="{u('/blueprints/')}">blueprint</a>, or follow <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>.</p>
+<p><a class="btn" href="{u('/bot-instructions/')}">Build your instructions</a> <a class="btn btn-ghost" href="{u('/ai-agent-examples/')}">Browse AI agent examples</a></p></section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['oai_guide','oai_ci','cl_proj','g_gems','udemy_agent'])}</section>
+</article>"""
+page(INSTR_GUIDE, "How to write instructions for an AI agent (template)", _in_desc, instr_body,
+     [inld, _art_ld(INSTR_GUIDE, "How to write instructions for an AI agent", _in_desc, published="2026-11-10"), _faq_ld(INSTR_FAQ),
+      {"@context": "https://schema.org", "@type": "HowTo", "name": "How to write instructions for an AI agent", "description": _in_desc,
+       "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(_ins_steps)]}], og_type="article")
 NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner guide: pick one job, write it in four lines, paste instructions into an agent app, test once, schedule it safely."),
               (COST_GUIDE, "How much does it cost to run an AI agent?", f"Monthly estimates for {len(_cost_rows)} everyday bots at official API prices, with the math shown."),
               (CLAW_GUIDE, "OpenClaw vs Hermes Agent: a beginner's guide", "What each open-source agent is, side-by-side comparison, how to pick, cost and safety tips."),
@@ -1799,7 +1936,8 @@ NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner
               (PHONE_GUIDE, "Can AI make phone calls for you?", "Which agents can call a business for you, what goes wrong, and what AI phone calls cost per minute, from official pricing pages."),
               (OCSAFE_GUIDE, "Is OpenClaw safe?", "The real security problems so far, what Microsoft and OpenClaw's docs advise, and 6 rules for running it safely."),
               (AGENTMODE_GUIDE, "ChatGPT agent mode is gone: what replaced it", "OpenAI retired ChatGPT agent; ChatGPT Work replaced it. What changed and how to move your tasks."),
-              (CHEAPMODEL_GUIDE, "Switch OpenClaw or Hermes to a cheaper model", "Commands to change the model in OpenClaw and Hermes Agent, add fallbacks, and when not to downgrade.")]
+              (CHEAPMODEL_GUIDE, "Switch OpenClaw or Hermes to a cheaper model", "Commands to change the model in OpenClaw and Hermes Agent, add fallbacks, and when not to downgrade."),
+              (INSTR_GUIDE, "How to write instructions for an AI agent", "A 6-part template to copy (job, use only, steps, result, ask first, if unsure), 3 filled-in examples, where to paste them in ChatGPT, Claude and Gemini, and how to test them.")]
 
 # ---------- LATEST IN AI (/news/ + /news/feed.xml) -------------------------------------
 NEWS_CATS = J("data", "news.json")["categories"]
@@ -1967,7 +2105,7 @@ page(SPONSOR_TERMS, "Sponsor terms", f"Plain-English terms for sponsoring {NAME}
 
 PRIVACY_UPDATED = "2026-11-08"
 _mail = f'<a href="mailto:{e(CONTACT)}">{e(CONTACT)}</a>' if CONTACT else f'<a href="{e(CONTACT_HREF)}">{e(CONTACT_TXT)}</a>'
-page(PRIVACY, "Privacy policy", f"What {NAME} collects (only your email, if you subscribe), how the instruction builder keeps what you type in your browser, how our newsletter and cookie-free Cloudflare analytics work, and how to unsubscribe.",
+page(PRIVACY, "Privacy policy", f"What {NAME} collects (only your email, if you subscribe), why the instruction builder keeps your typing in your browser, and our cookie-free analytics.",
      f"""<div class="wrap narrow prose"><p class="eyebrow">Privacy</p><h1 class="kinetic-sm">Privacy policy</h1>
 <p class="lead">The short version: we only collect your email address if you sign up for the newsletter, we count visits without cookies, and we never sell or share your data.</p>
 <div class="glass adv-honest"><p class="small muted">Last updated {nice_date(PRIVACY_UPDATED)}.</p></div>
@@ -2038,7 +2176,7 @@ bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "
 open(os.path.join(OUT, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {absu(u('/sitemap.xml'))}\n")
 
 L1 = [f"# {NAME}", "", f"> {TAGLINE} {cfg['description']}", "", f"Data as of {BUILD_DATE}. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.", "",
-      "## Start here", f"- [What is an AI agent? (in simple terms)]({absu(u('/what-can-bots-do/'))}): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely", *[f"- [{t}]({absu(u(pth))}): {d}" for pth, t, d in NEW_GUIDES[1:]], f"- [How to build an AI agent without coding]({absu(u(BUILD_GUIDE))}): step-by-step beginner guide using a real blueprint as the worked example", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Write bot instructions]({absu(u('/bot-instructions/'))}): free in-tab templates for a weekly plan, an email draft, or a quote comparison. Saved setups are not on sale; sign-in and checkout are off", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", f"- [{NAME} Weekly newsletter]({absu(u('/newsletter/'))}): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; new subscribers get a free Starter Pack PDF of 7 ready-to-paste agent setups plus a power-user bonus; past issues on the web", "", "## Use cases by category"]
+      "## Start here", f"- [What is an AI agent? (in simple terms)]({absu(u('/what-can-bots-do/'))}): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely", *[f"- [{t}]({absu(u(pth))}): {d}" for pth, t, d in NEW_GUIDES[1:]], f"- [How to build an AI agent without coding]({absu(u(BUILD_GUIDE))}): step-by-step beginner guide using a real blueprint as the worked example", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Free bot instructions builder]({absu(u('/bot-instructions/'))}): free in-browser templates that write copy-paste instructions for ChatGPT, Claude, Gemini or Grok (a weekly plan, an email draft, or a quote comparison). No sign-up; nothing is stored. Saved setups are not on sale; sign-in and checkout are off", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", f"- [{NAME} Weekly newsletter]({absu(u('/newsletter/'))}): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; new subscribers get a free Starter Pack PDF of 7 ready-to-paste agent setups plus a power-user bonus; past issues on the web", "", "## Use cases by category"]
 for c in cats:
     L1 += ["", f"### {c['name']}", f"All {c['name']} use cases: {absu(u('/category/'+c['slug']+'/'))}"] + [f"- [{x['title']}]({absu(u('/use-cases/'+x['slug']+'/'))}): {x['summary']}" for x in ucs if x["category"] == c["slug"]]
 L1 += ["", "## Latest in AI (newest first)"] + [f"- {n['date']} [{n['category']}] {n['headline']}: {n['explainer']} Source: {n['source_url']}" for n in NEWS[:15]]
@@ -2062,6 +2200,7 @@ F += ["## OpenClaw vs Hermes Agent: a beginner's guide", f"URL: {absu(u(CLAW_GUI
 F += ["## Is it safe to give an AI agent your email and calendar?", f"URL: {absu(u(SAFE_GUIDE))}", "Risks: prompt injection (hidden instructions in emails, pages, files), too much access (excessive agency), sending or accepting without review.", "Rules:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(SAFE_RULES)] + [f"Q: {q} A: {a}" for q, a, _ in SAFE_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('owasp01', 'owasp06', 'oai_pi', 'oai_agent', 'g_linked', 'oc_pi', 'hm_sec')] + [""]
 F += ["## Is OpenClaw safe?", f"URL: {absu(u(OCSAFE_GUIDE))}", "Rules:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(OCSAFE_RULES)] + [f"Q: {q} A: {a}" for q, a, _ in OCSAFE_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('ms_oc', 'sl_oc', 'df_cve', 'oc_secfaq', 'oc_sec')] + [""]
 F += ["## ChatGPT agent mode is gone: what replaced it", f"URL: {absu(u(AGENTMODE_GUIDE))}"] + [f"Q: {q} A: {a}" for q, a, _ in AGENTMODE_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('oai_agent_gone', 'oai_rn', 'oai_work')] + [""]
+F += ["## How to write instructions for an AI agent", f"URL: {absu(u(INSTR_GUIDE))}", "Template:", INSTR_TEMPLATE] + [f"Q: {q} A: {a}" for q, a, _ in INSTR_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('oai_guide', 'oai_ci', 'cl_proj', 'g_gems', 'udemy_agent')] + [""]
 F += ["## How to switch OpenClaw or Hermes to a cheaper model", f"URL: {absu(u(CHEAPMODEL_GUIDE))}"] + [f"Q: {q} A: {a}" for q, a, _ in CHEAP_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('oc_models', 'hm_models', 'hm_prov')] + [""]
 F += ["## What is an AI agent? (in simple terms)", f"URL: {absu(u('/what-can-bots-do/'))}"] + [f"- {q} {a}" for q, a in EXPLAIN_FAQ] + [""]
 F += ["## AI agent cost calculator", f"URL: {absu(u(LESS))}#calculator", "Monthly cost = runs per month x (input tokens x input price + output tokens x output price) / 1,000,000. Months use 30 days, 22 weekdays or 4 weeks. Batch halves the price at " + ", ".join(BATCH_PROVS) + ". Not included: caching, tool fees, voice, taxes, free tiers. Worked examples (cheapest vs priciest fitting model):"] + [f"- {c['title']}: {c['n']} run(s) per {c['unit']}, about {c['in']:,} tokens in and {c['out']:,} out per run; " + (lambda r: f"{r[0][1]['p']} {r[0][1]['m']} {money(r[0][0])}/month vs {r[-1][1]['p']} {r[-1][1]['m']} {money(r[-1][0])}/month")(calc_rows(c['n']*dict((k, m) for k, _, m in CALC_UNITS)[c['unit']], c['in'], c['out'], 'small', False)) for c in CALC_PRESETS] + [""]
