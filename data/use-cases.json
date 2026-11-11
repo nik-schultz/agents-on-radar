@@ -1,5 +1,113 @@
 [
  {
+  "slug": "let-ai-agents-dig-through-public-data-for-your-hobby",
+  "title": "Let AI agents dig through public data on a hobby question (and try to prove you wrong)",
+  "category": "work",
+  "source_date": "2026-11-11",
+  "summary": "Two non-scientists just used teams of AI agents on free public data: one found a Maya ruin hidden under jungle in NASA lidar scans overnight, the other turned up two planet candidates that NASA's TESS team has now listed. You pick the question and the rules; the agents do the hours of looking, checking and writing up.",
+  "what_the_bot_does": [
+   "Helps you turn a curious question into a clear plan: which free public data to use (NASA, government maps, archives) and what would count as a real find.",
+   "Downloads the data and splits the big job across several agents that work in parallel, for example 48 agents each checking a batch of lidar images against the same written guide.",
+   "Runs overnight and leaves you a report in the morning with its best leads and the evidence for each.",
+   "Tries to knock its own finding down: hides part of the data and predicts it, checks for look-alikes and false alarms, and has a second, separate AI review the work.",
+   "Searches papers, catalogs and official registers to see whether someone already found it, then drafts a short report for the right experts."
+  ],
+  "what_you_end_up_with": "A shortlist of real leads from public data, each with the evidence and the checks it passed, plus a draft note for the experts who can confirm it.",
+  "difficulty": "Advanced",
+  "tools": [
+   {
+    "id": "claude",
+    "note": "Claude Code did most of the planet-hunt analysis"
+   },
+   {
+    "id": "chatgpt",
+    "note": "Codex was used as an independent reviewer"
+   },
+   {
+    "id": "gemini",
+    "note": "Used for brainstorming in the Maya lidar project"
+   }
+  ],
+  "prompt": "I'm curious whether [your question, e.g. there are unmapped old ruins in this region] using free public data from [source, e.g. NASA lidar / TESS]. First, write a plan: which data to download, what a real find would look like, and 5 tests that could prove a lead is NOT real. Then do the work in parallel batches and give me a morning report with your top 3 leads and the evidence for each. For every lead, search papers, catalogs and official registers to check whether it's already known, and tell me how sure you are. Don't contact anyone or submit anything without asking me.",
+  "setup": [
+   "Pick a question where good free data already exists (NASA's TESS star data, public lidar scans, census or government records).",
+   "Use a coding agent that can download files and run code on its own, such as Claude Code or Codex, ideally on a spare computer or a cloud workspace.",
+   "Write down the pass/fail rules before you look at results, and ask the agent to try to disprove its own finding, not confirm it.",
+   "Open a fresh session (or a second AI) with read-only access to review the work and look for mistakes.",
+   "Before you announce anything, have the agent check the literature and official registers, then send a short, careful report to the experts who own that field."
+  ],
+  "watch_out": [
+   "Agents can miss earlier work. The Maya site turned out to be already mapped in a 2025 paper; the agents missed it during their literature search, so it was a rediscovery (author's Nov 11 update).",
+   "Ask for ways it's wrong, not whether it's right. The planet hunter's lesson was to keep giving the agent tests that could disprove the signal, and an audit still caught one claim that looked stronger than it was.",
+   "A candidate is not a discovery. TOI 7930 is listed as 'planet candidate' until follow-up observations confirm it, and the TESS team flags it as a possible multi-planet system around a variable star.",
+   "Archaeological sites are protected by law in many countries. Report finds to the authority (in Mexico, INAH) and keep exact locations private.",
+   "Long agent runs use a lot of compute. Set a spending limit on your AI account before leaving it running overnight."
+  ],
+  "sources": [
+   {
+    "label": "Pietro Miotti blog (updated 2026-11-11): 'My AI Agents Found an Unmapped Maya Site', 48 agents read NASA lidar overnight; later found to be already mapped in a 2025 paper",
+    "url": "https://pietromiotti.com/latest/maya-site/",
+    "kind": "article"
+   },
+   {
+    "label": "Hacker News: 'Google SWE points 48 AI agents at NASA Lidar, finds unmapped Maya pyramid in 72h' (759 points, 283 comments, measured 2026-11-11)",
+    "url": "https://news.ycombinator.com/item?id=50452455",
+    "kind": "hn",
+    "stats": {
+     "points": 759,
+     "comments": 283
+    },
+    "posted_at": "2026-11-11",
+    "measured_at": "2026-11-11"
+   },
+   {
+    "label": "NASA ExoFOP: TIC 4206066 is now TOI 7930, both signals listed as planet candidates (checked 2026-11-11)",
+    "url": "https://exofop.ipac.caltech.edu/tess/target.php?id=4206066",
+    "kind": "official"
+   },
+   {
+    "label": "Gizmodo: Did Claude help an amateur astronomer discover a new planet? (74 tests with Claude Code, Codex as a second check)",
+    "url": "https://gizmodo.com/did-claude-help-an-amateur-astronomer-discover-a-new-planet-2000824393",
+    "kind": "article"
+   },
+   {
+    "label": "X thread by @p_rabtsevich (2026-10-07): 'I think I found a planet nobody knew existed', built with Claude Code and Codex",
+    "url": "https://x.com/p_rabtsevich/status/2107803696058822742",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2107803696058822742",
+   "author": "@p_rabtsevich",
+   "url": "https://x.com/p_rabtsevich/status/2107803696058822742",
+   "posted_at": "2026-10-07",
+   "likes": 8730,
+   "reposts": 837,
+   "replies": 306,
+   "bookmarks": 2424,
+   "views": 1217482,
+   "measured_at": "2026-11-11"
+  },
+  "tags": [
+   "research",
+   "science",
+   "citizen science",
+   "multi-agent",
+   "overnight",
+   "claude code",
+   "codex",
+   "nasa",
+   "lidar",
+   "exoplanet",
+   "hobby"
+  ],
+  "seo_title": "Use AI agents to research a hobby question with public data",
+  "date_added": "2026-11-11",
+  "origin": "pipeline",
+  "last_checked": "2026-11-11"
+ },
+ {
   "slug": "hand-your-agent-an-errand-from-your-watch",
   "title": "Hand your agent a quick errand from your smartwatch",
   "category": "travel",
@@ -69,12 +177,12 @@
    "author": "@Muse",
    "url": "https://x.com/Muse/status/2119919277692383330",
    "posted_at": "2026-11-09",
-   "likes": 4609,
-   "reposts": 643,
-   "replies": 223,
-   "bookmarks": 563,
-   "views": 393022,
-   "measured_at": "2026-11-10"
+   "likes": 4924,
+   "reposts": 675,
+   "replies": 241,
+   "bookmarks": 610,
+   "views": 448227,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "smartwatch",
@@ -362,8 +470,8 @@
    "reposts": 5,
    "replies": 2,
    "bookmarks": 1,
-   "views": 503,
-   "measured_at": "2026-11-10"
+   "views": 507,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "family history",
@@ -411,6 +519,7 @@
   "watch_out": [
    "Thumbs up/down feedback can send the whole conversation for training even after you opt out, according to OpenAI.",
    "Google says chats picked for human review are kept for up to three years, even if you delete your activity.",
+   "If you connect Gmail or Drive to the personal Gemini app, Google's help page now says a subset of that data can be read by human reviewers, and for a short or very relevant email or file the 'summary' may be the whole item. The only way to keep reviewers out is to turn off Keep Activity, which also switches off the Gmail/Drive connection (Google Help, CyberInsider, DailyAI; Hacker News 727 points).",
    "Turning off training doesn't make a shared chat private. Share links can be seen by anyone who has them, so remove personal details before you share a chat, as Meta Muse users found out in October.",
    "Settings and labels change often. If a step doesn't match what you see, search the vendor's help page for 'data controls' or 'Keep Activity'.",
    "Work accounts (ChatGPT Business/Enterprise, Google Workspace) follow your employer's rules; ask IT."
@@ -450,6 +559,32 @@
     "label": "The Verge: Meta Muse AI chat sharing",
     "url": "https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats",
     "kind": "article"
+   },
+   {
+    "label": "Hacker News: Google Gemini routes personal Drive files and emails to human annotators (727 points, 147 comments, measured 2026-11-11)",
+    "url": "https://news.ycombinator.com/item?id=50429426",
+    "kind": "hn",
+    "stats": {
+     "points": 727,
+     "comments": 147
+    },
+    "posted_at": "2026-11-09",
+    "measured_at": "2026-11-11"
+   },
+   {
+    "label": "Gemini Apps Help: About personalization with Connected Apps (human review of a subset of connected Gmail/Drive data; checked 2026-11-11)",
+    "url": "https://support.google.com/gemini/answer/16836988?hl=en",
+    "kind": "official"
+   },
+   {
+    "label": "CyberInsider: Gemini faces scrutiny over human review of Gmail and Drive content",
+    "url": "https://cyberinsider.com/gemini-gmail-drive-human-review-privacy-concerns/",
+    "kind": "article"
+   },
+   {
+    "label": "DailyAI (Nov 2026): Gemini shouldn't need human review to read your Gmail (Keep Activity off also turns off connected apps)",
+    "url": "https://dailyai.com/2026/11/google-shouldnt-make-gmail-users-accept-human-review-to-use-gemini/",
+    "kind": "article"
    }
   ],
   "tags": [
@@ -465,7 +600,7 @@
   "source_date": "2026-11-04",
   "date_added": "2026-11-04",
   "origin": "pipeline",
-  "last_checked": "2026-11-04",
+  "last_checked": "2026-11-11",
   "seo_title": "Stop ChatGPT and Gemini from training on your chats"
  },
  {
@@ -1578,8 +1713,8 @@
    "reposts": 5,
    "replies": 21,
    "bookmarks": 2,
-   "views": 4482,
-   "measured_at": "2026-11-10"
+   "views": 4485,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "IFTTT",
@@ -1681,12 +1816,12 @@
    "author": "@ChatGPT",
    "url": "https://x.com/ChatGPT/status/2115139248458191070",
    "posted_at": "2026-10-27",
-   "likes": 5827,
-   "reposts": 392,
-   "replies": 403,
-   "bookmarks": 1057,
-   "views": 2119375,
-   "measured_at": "2026-11-10"
+   "likes": 5825,
+   "reposts": 391,
+   "replies": 402,
+   "bookmarks": 1054,
+   "views": 2122141,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "iCloud",
@@ -1874,8 +2009,8 @@
    "reposts": 7,
    "replies": 25,
    "bookmarks": 66,
-   "views": 39359,
-   "measured_at": "2026-11-10"
+   "views": 39411,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "online shopping",
@@ -1957,12 +2092,12 @@
    "author": "@noahrshinn",
    "url": "https://x.com/noahrshinn/status/2115143830924341534",
    "posted_at": "2026-10-27",
-   "likes": 1086,
+   "likes": 1087,
    "reposts": 35,
    "replies": 98,
-   "bookmarks": 312,
-   "views": 371457,
-   "measured_at": "2026-11-10"
+   "bookmarks": 316,
+   "views": 371844,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "group chat",
@@ -2510,12 +2645,12 @@
    "author": "@NadavKeyson",
    "url": "https://x.com/NadavKeyson/status/2114759149770723804",
    "posted_at": "2026-10-26",
-   "likes": 665,
+   "likes": 666,
    "reposts": 88,
    "replies": 175,
    "bookmarks": 814,
-   "views": 1044931,
-   "measured_at": "2026-11-10"
+   "views": 1045181,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "podcast",
@@ -2957,7 +3092,7 @@
    "replies": 0,
    "bookmarks": 1,
    "views": 163,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "phone calls",
@@ -3176,8 +3311,8 @@
    "reposts": 5,
    "replies": 13,
    "bookmarks": 26,
-   "views": 5895,
-   "measured_at": "2026-11-10"
+   "views": 5898,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "proactive",
@@ -3369,7 +3504,7 @@
    "replies": 12,
    "bookmarks": 0,
    "views": 1107,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "fact check",
@@ -3476,8 +3611,8 @@
    "reposts": 15,
    "replies": 34,
    "bookmarks": 190,
-   "views": 178941,
-   "measured_at": "2026-11-10"
+   "views": 178947,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "second brain",
@@ -3685,7 +3820,7 @@
    "replies": 20,
    "bookmarks": 30,
    "views": 5448,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "read later",
@@ -3771,7 +3906,7 @@
    "replies": 4,
    "bookmarks": 6,
    "views": 1781,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "contact form",
@@ -3980,7 +4115,7 @@
    "replies": 3,
    "bookmarks": 6,
    "views": 586,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "schedule",
@@ -4359,9 +4494,9 @@
    "likes": 251,
    "reposts": 15,
    "replies": 26,
-   "bookmarks": 505,
-   "views": 25529,
-   "measured_at": "2026-11-10"
+   "bookmarks": 504,
+   "views": 25537,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "multi-agent",
@@ -4455,7 +4590,7 @@
    "replies": 37,
    "bookmarks": 73,
    "views": 46442,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "multi-agent",
@@ -4474,7 +4609,7 @@
   "title": "Hand off tasks to your agent by voice while you drive",
   "category": "work",
   "source_date": "2026-10-05",
-  "summary": "Long drive? Talk to your agent on a voice call and hand off research, follow-ups and to-dos, then find them done when you arrive.",
+  "summary": "Long drive? Talk to your agent on a voice call and hand off research, follow-ups and to-dos, then find them done when you arrive. Since Nov 11, 2026 Gemini works on Apple CarPlay too, so ChatGPT, Claude, Grok and Gemini can all be reached from the car screen.",
   "what_the_bot_does": [
    "Takes a hands-free voice call from you.",
    "Turns what you say into tasks: research, drafts, reminders, routine changes.",
@@ -4493,13 +4628,16 @@
     "note": "Voice mode for quick hand-offs"
    },
    {
-    "id": "gemini"
+    "id": "gemini",
+    "note": "Gemini Live on Android Auto and, from Nov 11, 2026, Apple CarPlay; reads your Gmail and Calendar if connected"
    }
   ],
   "prompt": "I'm driving, so keep replies short and spoken. I'll list tasks one at a time. For each one, repeat it back in one sentence and start it. Research and drafts are fine; don't send, post, buy or book anything until I review it later. When I hang up, write me a summary: done, in progress, waiting for my OK.",
   "watch_out": [
    "Use hands-free only, and keep your eyes on the road. Don't read the summaries until you've stopped.",
-   "Have it hold anything that sends or buys until you can check it properly."
+   "Have it hold anything that sends or buys until you can check it properly.",
+   "Gemini on CarPlay needs the latest Gemini iPhone app, microphone permission and one Gemini Live chat on your phone first. Daily Brief isn't available under 18 or in the EEA (Google).",
+   "If your agent can read your email, it may read out private details to everyone in the car. Ask for summaries only when you're alone."
   ],
   "sources": [
    {
@@ -4515,6 +4653,21 @@
      "views": 1245
     },
     "measured_at": "2026-10-24"
+   },
+   {
+    "label": "Google blog (2026-11-11): Talk it through with Gemini, now on Apple CarPlay (daily brief, inbox catch-up, calendar by voice)",
+    "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-on-apple-carplay/",
+    "kind": "official"
+   },
+   {
+    "label": "9to5Google (2026-11-11): Google rolling out Gemini app for CarPlay, with example prompts",
+    "url": "https://9to5google.com/2026/11/11/gemini-app-carplay/",
+    "kind": "article"
+   },
+   {
+    "label": "9to5Mac (2026-11-11): CarPlay now supports every major AI chatbot (ChatGPT, Claude, Grok, Perplexity, Gemini)",
+    "url": "https://9to5mac.com/2026/11/11/google-confirms-gemini-app-coming-to-apple-carplay/",
+    "kind": "article"
    }
   ],
   "popularity": {
@@ -4528,7 +4681,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "voice",
@@ -4537,9 +4690,14 @@
    "delegation"
   ],
   "date_added": "2026-10-21",
-  "last_checked": "2026-10-21",
+  "last_checked": "2026-11-11",
   "origin": "refocus-2026-10-21",
-  "setup": []
+  "setup": [
+   "Update your agent's iPhone or Android app and allow the microphone.",
+   "Start one voice chat on your phone first (Gemini requires this before it shows on CarPlay).",
+   "Connect only the accounts you want it to read on the road, like calendar and email.",
+   "Before you set off, tap the app on the car screen and say what you want handed off; check the results after you park."
+  ]
  },
  {
   "slug": "get-roadside-help-abroad",
@@ -4597,7 +4755,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 47,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "roadside assistance",
@@ -4694,7 +4852,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 399,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "computer use",
@@ -4766,7 +4924,7 @@
    "replies": 2,
    "bookmarks": 0,
    "views": 913,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "contractors",
@@ -4836,7 +4994,7 @@
    "replies": 5,
    "bookmarks": 0,
    "views": 131,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "used car",
@@ -4899,8 +5057,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7522,
-   "measured_at": "2026-11-10"
+   "views": 7528,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "pharmacy",
@@ -4983,8 +5141,8 @@
    "reposts": 24,
    "replies": 29,
    "bookmarks": 232,
-   "views": 326835,
-   "measured_at": "2026-11-10"
+   "views": 326883,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "newsletters",
@@ -5085,11 +5243,11 @@
    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
    "posted_at": "2026-10-18",
    "likes": 852,
-   "reposts": 92,
+   "reposts": 91,
    "replies": 192,
    "bookmarks": 998,
-   "views": 1227109,
-   "measured_at": "2026-11-10"
+   "views": 1227429,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "phone call",
@@ -5255,8 +5413,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 563,
-   "measured_at": "2026-11-10"
+   "views": 564,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "spam calls",
@@ -5329,8 +5487,8 @@
    "reposts": 3,
    "replies": 8,
    "bookmarks": 37,
-   "views": 5459,
-   "measured_at": "2026-11-10"
+   "views": 5460,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "food log",
@@ -5422,9 +5580,9 @@
    "likes": 65,
    "reposts": 3,
    "replies": 12,
-   "bookmarks": 13,
-   "views": 3130,
-   "measured_at": "2026-11-10"
+   "bookmarks": 14,
+   "views": 3133,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "phone call",
@@ -5616,8 +5774,8 @@
    "reposts": 29,
    "replies": 81,
    "bookmarks": 2886,
-   "views": 312018,
-   "measured_at": "2026-11-10"
+   "views": 312067,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "meal plan",
@@ -5693,8 +5851,8 @@
    "reposts": 34,
    "replies": 37,
    "bookmarks": 1161,
-   "views": 67444,
-   "measured_at": "2026-11-10"
+   "views": 67460,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "calendar",
@@ -5785,10 +5943,10 @@
    "posted_at": "2026-10-05",
    "likes": 678,
    "reposts": 35,
-   "replies": 156,
+   "replies": 157,
    "bookmarks": 718,
-   "views": 83390,
-   "measured_at": "2026-11-10"
+   "views": 83451,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "personal agent",
@@ -5868,8 +6026,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41484,
-   "measured_at": "2026-11-10"
+   "views": 41493,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "scams",
@@ -5952,8 +6110,8 @@
    "reposts": 14,
    "replies": 29,
    "bookmarks": 118,
-   "views": 25467,
-   "measured_at": "2026-11-10"
+   "views": 25479,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "family chat",
@@ -6043,7 +6201,7 @@
    "replies": 10,
    "bookmarks": 15,
    "views": 4099,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "groceries",
@@ -6122,8 +6280,8 @@
    "reposts": 12,
    "replies": 12,
    "bookmarks": 11,
-   "views": 9681,
-   "measured_at": "2026-11-10"
+   "views": 9685,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "travel",
@@ -6191,8 +6349,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 2320,
-   "measured_at": "2026-11-10"
+   "views": 2321,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "flights",
@@ -6341,8 +6499,8 @@
    "reposts": 23,
    "replies": 63,
    "bookmarks": 241,
-   "views": 93770,
-   "measured_at": "2026-11-10"
+   "views": 93775,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "restaurant",
@@ -6412,7 +6570,7 @@
    "replies": 9,
    "bookmarks": 27,
    "views": 4066,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "appointment",
@@ -6507,7 +6665,7 @@
    "replies": 14,
    "bookmarks": 37,
    "views": 9215,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "receipts",
@@ -6598,8 +6756,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 272,
-   "views": 9881,
-   "measured_at": "2026-11-10"
+   "views": 9892,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "chief of staff",
@@ -6658,8 +6816,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1891,
-   "measured_at": "2026-11-10"
+   "views": 1893,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "multiple brands",
@@ -6732,8 +6890,8 @@
    "reposts": 1,
    "replies": 12,
    "bookmarks": 27,
-   "views": 3252,
-   "measured_at": "2026-11-10"
+   "views": 3253,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "real estate",
@@ -6834,7 +6992,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 83,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "paper mail",
@@ -6923,7 +7081,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 79,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "monitoring",
@@ -6994,7 +7152,7 @@
    "replies": 6,
    "bookmarks": 1,
    "views": 1450,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "follow up",
@@ -7068,7 +7226,7 @@
    "replies": 7,
    "bookmarks": 54,
    "views": 4945,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "leads",
@@ -7163,8 +7321,8 @@
    "reposts": 1,
    "replies": 2,
    "bookmarks": 19,
-   "views": 2158,
-   "measured_at": "2026-11-10"
+   "views": 2159,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "email",
@@ -7817,8 +7975,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 808,
-   "measured_at": "2026-11-10"
+   "views": 810,
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "marketplace",
@@ -8086,7 +8244,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1506,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "payments",
@@ -8161,7 +8319,7 @@
    "replies": 4,
    "bookmarks": 3,
    "views": 908,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "tags": [
    "ads",
@@ -9170,7 +9328,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1373,
-   "measured_at": "2026-11-10"
+   "measured_at": "2026-11-11"
   },
   "origin": "migrated-2026-10-19"
  },
@@ -10481,6 +10639,10 @@
    {
     "id": "ollama",
     "note": "Runs the AI model on your own computer"
+   },
+   {
+    "id": "claude",
+    "note": "Can create and edit Home Assistant automations through the HA-MCP add-on"
    }
   ],
   "prompt": "(Use this as the instructions for the Home Assistant conversation agent.) You control my home through Home Assistant. Only use the devices I've exposed. Before unlocking a door, opening the garage or turning off an alarm, ask me to confirm. If you're not sure which device I mean, ask. Keep answers to one short sentence.",
@@ -10494,7 +10656,8 @@
   "watch_out": [
    "Home Assistant's docs call device control through Ollama an experimental feature. Expose only the devices you're happy for it to touch.",
    "Small local models can misunderstand. Keep locks, alarms and heating behind a confirmation step.",
-   "A local model needs a reasonably capable computer to answer quickly."
+   "A local model needs a reasonably capable computer to answer quickly.",
+   "Letting Claude or ChatGPT set up your automations (for example with the HA-MCP add-on) means giving it an administrator token. Its own guide suggests a separate local-only admin account for the AI, not your own login, and you should review each automation before you rely on it."
   ],
   "sources": [
    {
@@ -10545,6 +10708,15 @@
     "url": "https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pczh0a8/",
     "kind": "reddit",
     "posted_at": "2026-09-30"
+   },
+   {
+    "label": "GitHub: homeassistant-ai/ha-mcp, configure and automate Home Assistant by asking Claude, ChatGPT and other assistants (v9.2.0 released 2026-11-11; 7,145 stars, measured 2026-11-11)",
+    "url": "https://github.com/homeassistant-ai/ha-mcp",
+    "kind": "github",
+    "stats": {
+     "stars": 7145
+    },
+    "measured_at": "2026-11-11"
    }
   ],
   "tags": [
@@ -10556,7 +10728,7 @@
    "Ollama"
   ],
   "date_added": "2026-10-24",
-  "last_checked": "2026-10-24",
+  "last_checked": "2026-11-11",
   "origin": "community-backfill-2026-10-24",
   "popularity": null
  },

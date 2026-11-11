@@ -362,3 +362,11 @@ Top domains: youtube.com (91), x.com (74), news.ycombinator.com (38), reddit.com
 - X share of source links: **75/510 = 15%** (community links: 75/261 = 29%); X-only use cases: **5**
 - Added this run: hand-your-agent-an-errand-from-your-watch (5 sources: TechCrunch, Gadgets & Wearables, PCMag, Times of India Gadgets Now, @Muse X post 4,609 likes / 393k views; 1 of 5 X). Extended keep-an-ai-agent-from-deleting-your-files with the Claude Code "Don't ask again" password watch-out (The Hacker News, HN 50407882 624 pts / 425 comments, LATENT; 0 X). Refreshed 49 X popularity blocks.
 - Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits; X search since Nov 9 only unrelated "bots do that" phrases; Reddit blocked from this box).
+
+## After midday trending run (measured 2026-11-11)
+
+- Use cases: **126**; source links: **525**
+- X share of source links: **76/525 = 14%** (community links: 76/265 = 29%); X-only use cases: **5**
+- Added this run: let-ai-agents-dig-through-public-data-for-your-hobby (5 sources: Pietro Miotti blog, Hacker News 50452455 759 pts / 283 comments, NASA ExoFOP TOI 7930, Gizmodo, @p_rabtsevich X thread 8,730 likes / 1.22M views; 1 of 5 X).
+- Extended (0 X): stop-your-ai-chats-being-used-for-training (+HN 50429426 727/147, Gemini Connected Apps help, CyberInsider, DailyAI); hand-off-tasks-by-voice-while-driving (was X + YouTube; +Google blog, 9to5Google, 9to5Mac on Gemini for CarPlay); control-your-smart-home-with-a-private-ai (+GitHub homeassistant-ai/ha-mcp 7,145 stars). Refreshed 50 X popularity blocks.
+- Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits; X search since Nov 10 only unrelated "bots do that" phrases; Reddit blocked from this box).

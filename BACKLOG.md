@@ -359,3 +359,12 @@ Bugs/complaints: none found on the site or in feedback scans.
 - [ ] Candidate: Hermes + Discord / Telegram gateway setup walkthrough (autocomplete "hermes agent setup discord/telegram"), from Hermes messaging docs only.
 - [ ] Still open: thin /category/health/ (6 use cases); MRI/lab report item above needs strict guardrails + 2 sources.
 - Data fix spotted: LHL3341/awesome-claws still links qwibitai/nanoclaw; the repo is now nanocoai/nanoclaw (GitHub API, Nov 11). Our page uses the new URL.
+
+## Midday trending 2026-11-11
+- Added `let-ai-agents-dig-through-public-data-for-your-hobby` (Maya lidar 48-agent run + TESS TOI 7930 planet candidates). Extended `stop-your-ai-chats-being-used-for-training` (Gemini Connected Apps human review), `hand-off-tasks-by-voice-while-driving` (Gemini on CarPlay, Nov 11), `control-your-smart-home-with-a-private-ai` (HA-MCP).
+- [ ] n8n Nod (open-source local personal agent with its own browser; blog.n8n.io/meet-nod, Nov 10): candidate tool entry in tools.json + mention in personal-agent use cases; needs a second independent source and a check that it's usable without n8n.
+- [ ] Databricks always-on Genie (Nov 11): enterprise-only; skip unless a consumer angle appears. Its "priority inbox + email alerts for decisions" pattern could be a tip in always-on agent guides.
+- [ ] Hermes Agent "Chef Pierre" family kitchen (pantry from grocery receipts, family votes, approved Kroger cart; via The Agent Field newsletter citing Reddit + GitHub skills): could extend family-meal-plan-and-grocery-order once the original Reddit/GitHub post is opened.
+- [ ] "Did my agent really do it?" posts keep coming (X @levithefirst "My AI Agent booked a designer for the wrong day", 20 likes): add as an example to make-your-agent-prove-it-finished-the-job if it gets traction.
+- Skipped: Grok Bot $980 Apple/Affirm refund catch and OpenClaw property-tax appeal (money/bill-cutting, out of scope); we-promise/sure finance app (money); Atuin Threads, Chrome modern-web-guidance, agent-browser (developer tools); SaaStr/LinkedIn outreach agents (sales spam angle).
+- Bugs/complaints: none found. Reddit still blocked from this box (old.reddit JSON returns empty); YouTube and Product Hunt not scanned this run.

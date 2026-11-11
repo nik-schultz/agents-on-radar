@@ -1,0 +1,47 @@
+{
+  "slug": "let-ai-agents-dig-through-public-data-for-your-hobby",
+  "title": "Let AI agents dig through public data on a hobby question (and try to prove you wrong)",
+  "category": "work",
+  "source_date": "2026-11-11",
+  "summary": "Two non-scientists just used teams of AI agents on free public data: one found a Maya ruin hidden under jungle in NASA lidar scans overnight, the other turned up two planet candidates that NASA's TESS team has now listed. You pick the question and the rules; the agents do the hours of looking, checking and writing up.",
+  "what_the_bot_does": [
+    "Helps you turn a curious question into a clear plan: which free public data to use (NASA, government maps, archives) and what would count as a real find.",
+    "Downloads the data and splits the big job across several agents that work in parallel, for example 48 agents each checking a batch of lidar images against the same written guide.",
+    "Runs overnight and leaves you a report in the morning with its best leads and the evidence for each.",
+    "Tries to knock its own finding down: hides part of the data and predicts it, checks for look-alikes and false alarms, and has a second, separate AI review the work.",
+    "Searches papers, catalogs and official registers to see whether someone already found it, then drafts a short report for the right experts."
+  ],
+  "what_you_end_up_with": "A shortlist of real leads from public data, each with the evidence and the checks it passed, plus a draft note for the experts who can confirm it.",
+  "difficulty": "Advanced",
+  "tools": [
+    {"id": "claude", "note": "Claude Code did most of the planet-hunt analysis"},
+    {"id": "chatgpt", "note": "Codex was used as an independent reviewer"},
+    {"id": "gemini", "note": "Used for brainstorming in the Maya lidar project"}
+  ],
+  "prompt": "I'm curious whether [your question, e.g. there are unmapped old ruins in this region] using free public data from [source, e.g. NASA lidar / TESS]. First, write a plan: which data to download, what a real find would look like, and 5 tests that could prove a lead is NOT real. Then do the work in parallel batches and give me a morning report with your top 3 leads and the evidence for each. For every lead, search papers, catalogs and official registers to check whether it's already known, and tell me how sure you are. Don't contact anyone or submit anything without asking me.",
+  "setup": [
+    "Pick a question where good free data already exists (NASA's TESS star data, public lidar scans, census or government records).",
+    "Use a coding agent that can download files and run code on its own, such as Claude Code or Codex, ideally on a spare computer or a cloud workspace.",
+    "Write down the pass/fail rules before you look at results, and ask the agent to try to disprove its own finding, not confirm it.",
+    "Open a fresh session (or a second AI) with read-only access to review the work and look for mistakes.",
+    "Before you announce anything, have the agent check the literature and official registers, then send a short, careful report to the experts who own that field."
+  ],
+  "watch_out": [
+    "Agents can miss earlier work. The Maya site turned out to be already mapped in a 2025 paper; the agents missed it during their literature search, so it was a rediscovery (author's Nov 11 update).",
+    "Ask for ways it's wrong, not whether it's right. The planet hunter's lesson was to keep giving the agent tests that could disprove the signal, and an audit still caught one claim that looked stronger than it was.",
+    "A candidate is not a discovery. TOI 7930 is listed as 'planet candidate' until follow-up observations confirm it, and the TESS team flags it as a possible multi-planet system around a variable star.",
+    "Archaeological sites are protected by law in many countries. Report finds to the authority (in Mexico, INAH) and keep exact locations private.",
+    "Long agent runs use a lot of compute. Set a spending limit on your AI account before leaving it running overnight."
+  ],
+  "sources": [
+    {"label": "Pietro Miotti blog (updated 2026-11-11): 'My AI Agents Found an Unmapped Maya Site', 48 agents read NASA lidar overnight; later found to be already mapped in a 2025 paper", "url": "https://pietromiotti.com/latest/maya-site/", "kind": "article"},
+    {"label": "Hacker News: 'Google SWE points 48 AI agents at NASA Lidar, finds unmapped Maya pyramid in 72h' (759 points, 283 comments, measured 2026-11-11)", "url": "https://news.ycombinator.com/item?id=50452455", "kind": "hn", "stats": {"points": 759, "comments": 283}, "posted_at": "2026-11-11", "measured_at": "2026-11-11"},
+    {"label": "NASA ExoFOP: TIC 4206066 is now TOI 7930, both signals listed as planet candidates (checked 2026-11-11)", "url": "https://exofop.ipac.caltech.edu/tess/target.php?id=4206066", "kind": "official"},
+    {"label": "Gizmodo: Did Claude help an amateur astronomer discover a new planet? (74 tests with Claude Code, Codex as a second check)", "url": "https://gizmodo.com/did-claude-help-an-amateur-astronomer-discover-a-new-planet-2000824393", "kind": "article"},
+    {"label": "X thread by @p_rabtsevich (2026-10-07): 'I think I found a planet nobody knew existed', built with Claude Code and Codex", "url": "https://x.com/p_rabtsevich/status/2107803696058822742", "kind": "x"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2107803696058822742", "author": "@p_rabtsevich", "url": "https://x.com/p_rabtsevich/status/2107803696058822742", "posted_at": "2026-10-07",
+    "likes": 8730, "reposts": 837, "replies": 306, "bookmarks": 2424, "views": 1217482, "measured_at": "2026-11-11"},
+  "tags": ["research", "science", "citizen science", "multi-agent", "overnight", "claude code", "codex", "nasa", "lidar", "exoplanet", "hobby"],
+  "seo_title": "Use AI agents to research a hobby question with public data"
+}

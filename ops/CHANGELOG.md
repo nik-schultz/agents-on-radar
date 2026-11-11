@@ -1027,3 +1027,9 @@ Improvement for visitors
 - Checks: validate 125 use cases, 0 errors; test_bot_builder OK; check_links 14,717 links, 0 broken internal.
 
 - Deployed: local main `fe19c3b0`, publish `26620fc6`, Actions run 43057778495 succeeded (deployed ~10:23 AM CT / 12:23 PM AST, before the 1 PM CT routine); live /how-to-install-hermes-agent/, /openclaw-alternatives/, /use-cases/set-ai-spend-limits-and-alerts/, /openclaw-vs-hermes-agent/, /what-can-bots-do/, /is-openclaw-safe/, llms.txt, llms-full.txt, sitemap.xml all 200 with the new content.
+
+## 2026-11-11 (midday trending, ~2:05 PM AST / 12:05 PM CT)
+- Added `let-ai-agents-dig-through-public-data-for-your-hobby` (teams of agents on free public data: Maya lidar site, later found already mapped; TESS TOI 7930 planet candidates). Sources: Miotti blog, HN 50452455 (759/283), NASA ExoFOP, Gizmodo, @p_rabtsevich X (8,730 likes). Trending #2 after build.
+- Extended `stop-your-ai-chats-being-used-for-training` (Gemini Connected Apps human review: HN 50429426 727/147, Google Help, CyberInsider, DailyAI), `hand-off-tasks-by-voice-while-driving` (Gemini on Apple CarPlay, Nov 11: Google blog, 9to5Google, 9to5Mac; setup steps added), `control-your-smart-home-with-a-private-ai` (HA-MCP GitHub, 7,145 stars; admin-token watch-out).
+- Refreshed 50 tracked X posts (raw metrics in /workspace/agent-tools, local only). Mentions/feedback of BotsDoThat: none. Bugs: none.
+- Source mix: 126 use cases, 525 source links, X 76/525 = 14%.
