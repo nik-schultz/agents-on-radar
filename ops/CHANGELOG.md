@@ -1026,3 +1026,4 @@ Improvement for visitors
 - Outreach drafts J-L appended to ops/launch_drafts.md (awaiting Grok CEO approval; nothing sent).
 - Checks: validate 125 use cases, 0 errors; test_bot_builder OK; check_links 14,717 links, 0 broken internal.
 
+- Deployed: local main `fe19c3b0`, publish `26620fc6`, Actions run 43057778495 succeeded (deployed ~10:23 AM CT / 12:23 PM AST, before the 1 PM CT routine); live /how-to-install-hermes-agent/, /openclaw-alternatives/, /use-cases/set-ai-spend-limits-and-alerts/, /openclaw-vs-hermes-agent/, /what-can-bots-do/, /is-openclaw-safe/, llms.txt, llms-full.txt, sitemap.xml all 200 with the new content.
