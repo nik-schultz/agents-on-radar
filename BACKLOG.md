@@ -346,3 +346,7 @@ Bugs/complaints: none found on the site or in feedback scans.
 ## PM news 2026-11-10
 - [ ] n8n Nod (free, open-source, runs on your own computer, asks before it sends/pays, checks in past $5): candidate use case "cancel a subscription and ask for a refund with an agent" or a tool entry for existing errand use cases (supplier-portal invoices, price watch). Needs 2+ independent non-n8n sources before publishing.
 - [ ] Claude Sheets (beta, paid plans): candidate update to budget/tracker use cases ("ask Claude for a household budget sheet you can edit together, export to Excel/CSV"); also eBay now blocking agents like Muse: add a watch-out to shopping/deal-digest use cases that some stores (eBay, Amazon) block outside agents.
+
+## AM news 2026-11-11
+- [ ] Muse email address (paid, US/Canada; The Verge + @Muse): candidate use case "forward your agent an email thread and let it chase the reply" (copy Muse on a thread; start with low-stakes emails, review what it sends). Needs 2+ independent sources beyond Meta/The Verge before publishing.
+- [ ] Railway stolen AI keys (~$740k of charges; Railway incident report + The Hacker News): add a watch-out to bring-your-own-key / run-your-bots-for-less pages: "set a monthly spending cap at the AI provider and rotate the key if a host reports a breach". Could also be a short guide "keep your AI API key from running up a bill".
