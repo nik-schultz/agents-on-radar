@@ -349,4 +349,13 @@ Bugs/complaints: none found on the site or in feedback scans.
 
 ## AM news 2026-11-11
 - [ ] Muse email address (paid, US/Canada; The Verge + @Muse): candidate use case "forward your agent an email thread and let it chase the reply" (copy Muse on a thread; start with low-stakes emails, review what it sends). Needs 2+ independent sources beyond Meta/The Verge before publishing.
-- [ ] Railway stolen AI keys (~$740k of charges; Railway incident report + The Hacker News): add a watch-out to bring-your-own-key / run-your-bots-for-less pages: "set a monthly spending cap at the AI provider and rotate the key if a host reports a breach". Could also be a short guide "keep your AI API key from running up a bill".
+- [x] (2026-11-11 done, weekly SEO run: watch-out + 2 sources on set-ai-spend-limits-and-alerts) Railway stolen AI keys (~$740k of charges; Railway incident report + The Hacker News): add a watch-out to bring-your-own-key / run-your-bots-for-less pages: "set a monthly spending cap at the AI provider and rotate the key if a host reports a breach". Could also be a short guide "keep your AI API key from running up a bill".
+
+## Weekly SEO run 2026-11-11 (Wed)
+- [x] Growth-plan week 2 (OpenClaw/Hermes cluster) shipped: /how-to-install-hermes-agent/ and /openclaw-alternatives/.
+- Autocomplete pulled 2026-11-11 (Google suggest, free): "hermes agent install" (+ linux, windows, mac, ubuntu, docker, failed, skills), "how to install hermes agent on windows 11 / mac / mac mini", "hermes agent setup" (+ discord, telegram, local model, docker), "openclaw alternatives" (+ reddit, hermes, open source, github, comparison, for windows, claude, for mac), "is hermes agent free / safe / secure / local / worth it / better than openclaw", "how to set up an ai agent in claude / chatgpt / gemini / for free / locally", "personal ai agent free / comparison / app / muse", "ai agent that applies to jobs for you".
+- [ ] Candidate: "Is Hermes Agent safe?" standalone page (autocomplete "is hermes agent safe/secure"); today it is an FAQ on the install guide. Only if GSC shows impressions for it.
+- [ ] Candidate: "How to set up an AI agent in Claude / ChatGPT / Gemini" (autocomplete); check overlap with /how-to-build-an-ai-agent-without-coding/ and /how-to-write-instructions-for-an-ai-agent/ before writing; maybe retitle/extend instead.
+- [ ] Candidate: Hermes + Discord / Telegram gateway setup walkthrough (autocomplete "hermes agent setup discord/telegram"), from Hermes messaging docs only.
+- [ ] Still open: thin /category/health/ (6 use cases); MRI/lab report item above needs strict guardrails + 2 sources.
+- Data fix spotted: LHL3341/awesome-claws still links qwibitai/nanoclaw; the repo is now nanocoai/nanoclaw (GitHub API, Nov 11). Our page uses the new URL.

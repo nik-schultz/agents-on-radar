@@ -1009,3 +1009,20 @@ Improvement for visitors
 - Refreshed X numbers on 111 existing items (posted in the last 30 days) + 13 new blocks (raw: research/x_news_measure_2026_11_11_am.json.txt, local only; apply script research/news_x_2026_11_11_am.py). Top story stays claude-fable-5-2; trending #1 claude-sheets-whiteboards-data.
 - Skipped: DeepMind AlphaProof Code / Signal proof (research), Gemini for healthcare and ChatGPT Enterprise on AWS Marketplace (enterprise-only), Google TPU 8tx/8i Max (infrastructure), New York RAISE Act registration (lab compliance), Oura-Counsel Health, Bay funding, Reddit Reviews test, Claris Harbor early access, Muse Expedia connector, OpenAI caregivers/education posts. 2 BACKLOG notes.
 - Deployed: local main `dbd2e217`, publish `b9826275`, Actions run 43021741320 succeeded; live /, /news/, /news/feed.xml, /ai-pricing/ 200 and new items present.
+
+## 2026-11-11 (standing site QA, ~9:20 AM AST)
+- Live: /, /news/, /use-cases/, /bot-instructions/, /ai-pricing/, /sitemap.xml, /news/feed.xml, /llms.txt, /robots.txt, /404.html all 200 (/ ~0.2s). Site was not down. validate: 125 use cases, 0 errors; test_bot_builder passes; check_links: 14,534 links, 0 broken internal. Homepage: viewport meta, skip link, lang, one h1, all images have alt/width/height and below-the-fold ones are lazy. Console/mobile not testable from this box (static checks only).
+- External (--external): 960 OK, 143 not-200, nearly all 403/429/timeouts from bot-blocking (businesswire, forbes, nytimes, perplexity, etc.). The two ftc.gov 404s are box-side (ftc.gov root also 404s from here); the FTC Operation AI Comply URL matches the title Reuters/NBC report, so left as is.
+- Bugs: none.
+- Improvement: homepage "Live feed · updated <date>" showed the newest guide date (Nov 10) while news items dated Nov 11 were live; it now uses the newest of guides and news (scripts/build.py).
+- Deployed: local main `df1ed22d`, publish `3f9a9e4b`, Actions run 43029071523 succeeded; live homepage shows "updated Nov 11, 2026".
+
+## 2026-11-11 (weekly SEO run, content half, SEO agent, ~11:20 AM AST)
+- New guides (facts only from official docs/READMEs/launch posts, linked inline; no stats or time-saved claims):
+  - /how-to-install-hermes-agent/ — desktop app (Mac Apple silicon/Windows) vs one-line installer (Linux/macOS/WSL2, PowerShell), Termux/Docker notes, `hermes setup` modes (Quick/Full/Blank Slate), 64K-context minimum, first test chat, 5 safe-setup rules (approvals, Docker backend, gateway allowlists/pairing, .env perms, read-only first job), failed-install table, update/uninstall. Article + FAQPage (7 Q) + HowTo + Breadcrumb JSON-LD. Sources: Hermes docs installation, quickstart, security, updating, migrate-from-openclaw, Hermes vs OpenClaw page. Targets autocomplete "hermes agent install" (+windows/mac/linux/docker/failed), "is hermes agent safe/free".
+  - /openclaw-alternatives/ — Hermes Agent, n8n Nod, nanobot, NanoClaw, ZeroClaw, IronClaw table (maker/licence, install, what stands out; GitHub READMEs + n8n blog, repos checked via GitHub API Nov 11), how to pick, no-install options (Hermes Cloud, ChatGPT Work), safety rules. Article + FAQPage (6 Q) + ItemList + Breadcrumb JSON-LD. Targets "openclaw alternatives" (+hermes, open source, for windows/mac, reddit).
+- Internal links: OpenClaw vs Hermes "How to pick" → both; /what-can-bots-do/ "Go deeper" → both; /is-openclaw-safe/ next step → alternatives; new guides link CLAW/OCSAFE/CHEAPMODEL/COST/SAFE/INSTR/AGENTMODE/BUILD, blueprints, builder and 2 use cases. Added to NEW_GUIDES (llms.txt, search index with extra keywords), llms-full.txt sections, sitemap, share bar, end-of-page newsletter.
+- Improved: `set-ai-spend-limits-and-alerts` new first watch-out on stolen keys (Railway incident report Nov 10: ~$740,000 estimated unauthorized spend) + Railway and The Hacker News sources; last_checked 2026-11-11 (BACKLOG 11-11 AM news note closed).
+- Outreach drafts J-L appended to ops/launch_drafts.md (awaiting Grok CEO approval; nothing sent).
+- Checks: validate 125 use cases, 0 errors; test_bot_builder OK; check_links 14,717 links, 0 broken internal.
+

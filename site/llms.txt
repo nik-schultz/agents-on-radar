@@ -14,6 +14,8 @@ Data as of 2026-11-11. Popularity numbers are real counts (X likes/reposts, Redd
 - [ChatGPT agent mode is gone: what replaced it](https://botsdothat.com/chatgpt-agent-mode-is-gone/): OpenAI retired ChatGPT agent; ChatGPT Work replaced it. What changed and how to move your tasks.
 - [Switch OpenClaw or Hermes to a cheaper model](https://botsdothat.com/switch-openclaw-or-hermes-to-a-cheaper-model/): Commands to change the model in OpenClaw and Hermes Agent, add fallbacks, and when not to downgrade.
 - [How to write instructions for an AI agent](https://botsdothat.com/how-to-write-instructions-for-an-ai-agent/): A 6-part template to copy (job, use only, steps, result, ask first, if unsure), 3 filled-in examples, where to paste them in ChatGPT, Claude and Gemini, and how to test them.
+- [How to install Hermes Agent (Mac, Windows, Linux)](https://botsdothat.com/how-to-install-hermes-agent/): Desktop app or one-line installer, connect a model with hermes setup, one test chat, safe settings before you connect apps, and fixes when the install fails.
+- [OpenClaw alternatives for beginners](https://botsdothat.com/openclaw-alternatives/): Hermes Agent, n8n's Nod, nanobot, NanoClaw, ZeroClaw and IronClaw compared on setup, safety and cost, plus no-install options.
 - [How to build an AI agent without coding](https://botsdothat.com/how-to-build-an-ai-agent-without-coding/): step-by-step beginner guide using a real blueprint as the worked example
 - [AI agent examples for everyday life](https://botsdothat.com/ai-agent-examples/): every example on one page, grouped by part of life
 - [Trending now](https://botsdothat.com/trending/)

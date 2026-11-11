@@ -15,6 +15,7 @@ COST_GUIDE = "/how-much-does-it-cost-to-run-an-ai-agent/"; CLAW_GUIDE = "/opencl
 PHONE_GUIDE = "/can-ai-make-phone-calls-for-you/"  # added 2026-11-03
 OCSAFE_GUIDE = "/is-openclaw-safe/"; AGENTMODE_GUIDE = "/chatgpt-agent-mode-is-gone/"; CHEAPMODEL_GUIDE = "/switch-openclaw-or-hermes-to-a-cheaper-model/"  # added 2026-11-04
 INSTR_GUIDE = "/how-to-write-instructions-for-an-ai-agent/"  # added 2026-11-10
+HMI_GUIDE = "/how-to-install-hermes-agent/"; ALT_GUIDE = "/openclaw-alternatives/"  # added 2026-11-11
 PHONE_UCS = {"call-and-book-by-phone", "make-a-customer-service-call", "let-a-bot-answer-and-screen-your-calls", "restaurant-reservations-by-agent"}
 CAT = {c["slug"]: c for c in cats}
 UC = {x["slug"]: x for x in ucs}
@@ -289,7 +290,7 @@ def featured_slot(slot, cat=None):
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
     return newsletter_box(f"nl-{slot}", "card")  # no sponsor booked: show a newsletter signup instead of an empty ad box
 
-SHARE_PATHS = {INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/"}
+SHARE_PATHS = {HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/"}
 def share_bar(title, url):
     """Share on X / Copy link / Email a friend. Plain links + one button; no third-party scripts."""
     q = urllib.parse.quote
@@ -304,7 +305,7 @@ def share_bar(title, url):
 <label class="share-nojs"><span class="sr">Link to this page</span><input type="text" readonly value="{e(url)}" size="34"></label>
 <a class="share-btn" href="{e(mh)}" aria-label="Email this page to a friend">{msvg}<span>Email a friend</span></a>
 </div><p class="share-status small" role="status" aria-live="polite"></p></section>"""
-NL_END_PATHS = {"/trending/", "/news/", INSTR_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", "/bot-instructions/", PRICING, LESS, "/about/"}
+NL_END_PATHS = {"/trending/", "/news/", HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", "/bot-instructions/", PRICING, LESS, "/about/"}
 # Long guides also get a signup after their 3rd top-level section (mid-article), not only at the end.
 NL_MID_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/"}
 def _insert_mid(body, snippet, after=3):
@@ -1038,7 +1039,7 @@ explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 <li><b>Get in everywhere.</b> Some sites block agents. One user says Amazon blocked his ({S('X post', 'https://x.com/NickADobos/status/2110749518518235276')}).</li>
 <li><b>Replace a professional.</b> Use bots to organize and draft. Medical, legal and money decisions stay with you and a qualified person. Be wary of anyone promising AI miracles; the U.S. FTC has acted against deceptive AI claims ({S('FTC Operation AI Comply', 'https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes')}).</li></ul></section>
 
-<p class="small">Go deeper: <a href="{u(INSTR_GUIDE)}">how to write instructions for an AI agent</a> · <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a> · <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> · <a href="{u(AGENTMODE_GUIDE)}">ChatGPT agent mode is gone</a></p>
+<p class="small">Go deeper: <a href="{u(INSTR_GUIDE)}">how to write instructions for an AI agent</a> · <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a> · <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> · <a href="{u(ALT_GUIDE)}">OpenClaw alternatives</a> · <a href="{u(HMI_GUIDE)}">how to install Hermes Agent</a> · <a href="{u(AGENTMODE_GUIDE)}">ChatGPT agent mode is gone</a></p>
 <section class="reveal"><h2>7 rules that keep you safe</h2><ol class="rules">
 <li>Start <b>read-only</b>. Let it look before it does anything.</li>
 <li>Make it <b>ask before</b> it sends, buys, books, cancels or deletes.</li>
@@ -1524,7 +1525,8 @@ claw_body = f"""<article class="wrap narrow explainer">{wbc}
 <li><b>Want iMessage, Teams or one of OpenClaw's 25+ chat apps, and a non-profit project with no paid tier?</b> OpenClaw.</li>
 <li><b>Want it hosted and always on without your own server (Hermes Cloud), cloud sandboxes, or one login for models and tools (Nous Portal)?</b> Hermes Agent.</li>
 <li><b>Want new skills to wait for your OK?</b> Either can do it: OpenClaw's “propose” mode ({C('oc_workshop', 'Skill Workshop')}) or Hermes' write-approval gate ({C('hm_vs', 'Hermes')}). Both learn on their own by default.</li>
-<li><b>Not sure?</b> Try one. Each can import the other's setup later ({C('hm_mig', 'Hermes importer')}, {C('oc_mig', 'OpenClaw importer')}).</li></ul></section>
+<li><b>Not sure?</b> Try one. Each can import the other's setup later ({C('hm_mig', 'Hermes importer')}, {C('oc_mig', 'OpenClaw importer')}).</li>
+<li><b>Picked Hermes?</b> Step by step: <a href="{u(HMI_GUIDE)}">how to install Hermes Agent on Mac, Windows or Linux</a>. Want neither? See <a href="{u(ALT_GUIDE)}">OpenClaw alternatives for beginners</a>.</li></ul></section>
 
 <section class="reveal" id="cost"><h2>What they cost to run</h2>
 <p>The software is free. You pay for the AI model and, if you don't use your own computer, a server. OpenClaw's minimum server is 1 vCPU and 1 GB of RAM ({C('oc_host')}). OpenClaw also lets you sign in with an API key or reuse a Claude or ChatGPT/Codex subscription you already have ({C('oc_qs')}). The cheapest route for Hermes is a local model through Ollama, which its docs call “Zero API Cost” ({C('hm_ollama')}). Asked whether a local model is OK for casual chats, OpenClaw's FAQ answers “usually no” and warns that smaller models raise prompt-injection risk ({C('oc_host', 'OpenClaw FAQ')}).</p>
@@ -1722,7 +1724,7 @@ ocsafe_body = f"""<article class="wrap narrow explainer">{ocb}
 <section class="reveal" id="who"><h2>Who should (and shouldn't) use it</h2>
 <p>If you're comfortable with a spare computer or a small server, separate accounts and reading config files, OpenClaw is a powerful free agent. If you'd rather not manage any of that, a hosted agent app with built-in approvals is the simpler choice: see <a href="{u('/what-can-bots-do/')}">what an AI agent is</a> and <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> Also useful: {_ua('keep-an-ai-agent-from-deleting-your-files')} and {_ua('set-ai-spend-limits-and-alerts')}.</p></section>
 <section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(OCSAFE_FAQ)}</section>
-<section class="glass explain-card"><h2>Next step</h2><p>Choosing between the two big open-source agents? Read <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a>. Worried about the bill? <a href="{u(CHEAPMODEL_GUIDE)}">Switch OpenClaw or Hermes to a cheaper model</a>.</p></section>
+<section class="glass explain-card"><h2>Next step</h2><p>Choosing between the two big open-source agents? Read <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a>, or compare others in <a href="{u(ALT_GUIDE)}">OpenClaw alternatives for beginners</a>. Worried about the bill? <a href="{u(CHEAPMODEL_GUIDE)}">Switch OpenClaw or Hermes to a cheaper model</a>.</p></section>
 <section class="reveal"><h2>Sources</h2>{_src_list(['ms_oc','sl_oc','df_cve','oc_secfaq','oc_sec','oc_pi','oc_sandbox','hm_sec'])}</section>
 </article>"""
 page(OCSAFE_GUIDE, "Is OpenClaw safe? Real risks and 6 rules to run it safely", _ocs_desc, ocsafe_body, _g_ld(OCSAFE_GUIDE, "Is OpenClaw safe?", _ocs_desc, OCSAFE_FAQ, ocld), og_type="article")
@@ -1929,6 +1931,158 @@ page(INSTR_GUIDE, "How to write instructions for an AI agent (template)", _in_de
      [inld, _art_ld(INSTR_GUIDE, "How to write instructions for an AI agent", _in_desc, published="2026-11-10"), _faq_ld(INSTR_FAQ),
       {"@context": "https://schema.org", "@type": "HowTo", "name": "How to write instructions for an AI agent", "description": _in_desc,
        "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(_ins_steps)]}], og_type="article")
+# ----- 10. How to install Hermes Agent (2026-11-11, weekly SEO run) -----
+SRC.update({
+ "hm_install": ("Hermes docs: Installation", "https://hermes-agent.nousresearch.com/docs/getting-started/installation/"),
+ "hm_qs": ("Hermes docs: Quickstart", "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart/"),
+ "hm_update": ("Hermes docs: Updating and uninstalling", "https://hermes-agent.nousresearch.com/docs/getting-started/updating/"),
+})
+HMI_STEPS = [
+ ("Pick how to install", "On a Mac (Apple silicon) or Windows PC, download the Hermes Desktop app from the Hermes website. For command line only: run the one-line installer for Linux, macOS or WSL2, or the PowerShell one for Windows."),
+ ("Connect an AI model", "Run hermes setup. Quick Setup signs you in to a Nous Portal subscription; Full Setup lets you bring your own key or plan; Blank Slate starts with almost every tool turned off. hermes model changes the provider later."),
+ ("Run one test chat", "Start hermes (or hermes --tui), ask something easy to check, and make sure it replies and can resume with hermes -c."),
+ ("Lock it down before you connect apps", "Keep approvals on, never use --yolo, consider the Docker sandbox, and only add chat apps with hermes gateway setup once the plain chat works. Keep allowlists or pairing on."),
+ ("Fix problems with hermes doctor", "If something breaks, run hermes doctor, then hermes model, then hermes setup."),
+]
+HMI_FAQ = [
+ ("How do I install Hermes Agent?",
+  "On a Mac with Apple silicon or a Windows PC, the docs recommend the Hermes Desktop installer from the Hermes website. For a command-line install, run curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash on Linux, macOS or WSL2, or iex (irm https://hermes-agent.nousresearch.com/install.ps1) in PowerShell on Windows. Then run hermes setup to connect a model.", None),
+ ("How do I install Hermes Agent on Windows?",
+  "Either download the Windows desktop package from the Hermes website and open it with Windows App Installer, or run iex (irm https://hermes-agent.nousresearch.com/install.ps1) in PowerShell for a command-line install. WSL2 also works with the Linux installer.", None),
+ ("Does Hermes Agent work on an Intel Mac?",
+  "Not officially. The installation docs say the macOS installer is Apple silicon only and that macOS on Intel processors is not a supported platform.", None),
+ ("Is Hermes Agent safe?",
+  "It has real safety controls, but the defaults are not a lock. By default it asks (or has a helper model judge) before dangerous commands, scheduled jobs deny dangerous commands, and unknown people who message your bot are denied unless you pair or allowlist them. It still runs commands on your own computer unless you switch on the Docker sandbox, and turning approvals off or using --yolo removes the prompts. Give it only the accounts it needs.", None),
+ ("Hermes Agent install failed. What should I do?",
+  "Run hermes doctor first; it reports what's missing. If the shell says hermes: command not found, reload it (source ~/.bashrc or ~/.zshrc). If it says API key not set, run hermes model. The installer writes a log to logs/install.log in the Hermes data folder, and a failed step prints its last lines.", None),
+ ("Is Hermes Agent free?",
+  "The software is free and open source under the MIT license. You pay for the AI model you connect (or use a plan you already have, like a ChatGPT or Codex subscription), and Nous Portal is an optional paid subscription.", None),
+ ("How do I update or uninstall Hermes Agent?",
+  "For a command-line install, run hermes update; the desktop app has its own Update control. To remove it, run hermes uninstall --dry-run first to see what would go, and hermes backup if you might want your setup later.", None),
+]
+hib, hild = crumbs([("Home", "/"), ("OpenClaw vs Hermes Agent", CLAW_GUIDE), ("How to install Hermes Agent", None)])
+_hi_desc = mdesc("Install Hermes Agent on Mac, Windows or Linux: desktop app or one-line installer, connect a model, run a test chat, lock it down, fix failed installs.")
+hmi_body = f"""<article class="wrap narrow explainer">{hib}
+<header class="page-head"><p class="eyebrow">Beginner guide · Hermes Agent</p><h1 class="kinetic-sm">How to install Hermes Agent (Mac, Windows, Linux)</h1>
+<p class="lead">Short answer: on a Mac with Apple silicon or a Windows PC, download the Hermes Desktop app from the Hermes website. On Linux (or if you want command line only), run one install command, then <code>hermes setup</code> to connect an AI model. Test one plain chat before you connect Telegram, email or anything else, and keep approvals on.</p>
+{_byline()}<p class="small muted">Every command here is from Nous Research's official Hermes docs, linked inline. Hermes changes often, so check the linked page if a step looks different.</p></header>
+<section class="glass explain-card reveal" id="before"><h2>Before you start</h2><ul class="big-list">
+<li><b>A computer that stays on</b> if you want it to answer you all day: your own Mac, Windows PC, Linux machine or a server. Prefer not to run one? Hermes Cloud is a hosted, always-on Hermes included with paid Nous Portal plans ({C('hm_vs', 'Hermes')}).</li>
+<li><b>Mac users:</b> the macOS installer is Apple silicon only; Intel Macs are not a supported platform ({C('hm_install', 'install docs')}).</li>
+<li><b>An AI model.</b> Options include a Nous Portal subscription, your ChatGPT or Codex subscription, an Anthropic, OpenRouter or Google AI Studio key, or a local model. The model needs at least 64,000 tokens of context; for a local model, set its context size to 64K ({C('hm_qs', 'quickstart')}).</li>
+<li><b>Ten quiet minutes and one test job.</b> Don't connect your real inbox on day one.</li></ul></section>
+<section class="reveal" id="install"><h2>Step 1: Install Hermes Agent</h2>
+<h3>Easiest: the desktop app (Mac or Windows)</h3>
+<p>The quickstart calls the Hermes Desktop installer the recommended route on macOS and Windows ({C('hm_qs', 'quickstart')}). Download it from the <a href="https://hermes-agent.nousresearch.com/" rel="noopener">Hermes website</a>. On Windows, open the <code>.appinstaller</code> file with Windows App Installer. On a Mac, open the DMG and copy <code>Hermes.app</code> to Applications. The bundle already contains the agent and what it needs to run ({C('hm_install', 'install docs')}).</p>
+<h3>Command line: Linux, macOS or WSL2</h3>
+{copybox("curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash", "Terminal (Linux, macOS, WSL2)", "hm-unix")}
+<h3>Command line: Windows (PowerShell)</h3>
+{copybox("iex (irm https://hermes-agent.nousresearch.com/install.ps1)", "PowerShell (Windows)", "hm-win")}
+<p>Then reload your terminal (<code>source ~/.bashrc</code> or <code>source ~/.zshrc</code>). The installer also adds a browser and a computer-use driver by default; add <code>--skip-browser</code> or <code>--skip-computer-use</code> (Windows: <code>-SkipBrowser</code>, <code>-SkipComputerUse</code>) to leave them out. Want the desktop app later? Run <code>hermes desktop</code> ({C('hm_install', 'install docs')}).</p>
+<p class="small">Android phones (aarch64) use the Termux package (<code>pkg install hermes-agent</code>), not these scripts. Docker installs update by pulling the image, for example <code>docker pull nousresearch/hermes-agent:latest</code> ({C('hm_install', 'install docs')}, {C('hm_update', 'updating')}).</p>
+<p class="small">Running a command that pipes a web script into your shell means trusting that site. Copy it only from the official docs page.</p></section>
+<section class="glass explain-card reveal" id="model"><h2>Step 2: Connect an AI model</h2>
+<p>Run <code>hermes setup</code>. On a fresh install it offers three modes ({C('hm_qs', 'quickstart')}):</p><ul class="big-list">
+<li><b>Quick Setup (Nous Portal):</b> sign in, no API keys to manage; billed to a Nous Portal subscription. Shortcut: <code>hermes setup --portal</code>.</li>
+<li><b>Full Setup:</b> pick each provider and tool yourself and bring your own keys, or sign in with a ChatGPT/Codex plan.</li>
+<li><b>Blank Slate:</b> almost everything starts off (only the model, file and terminal tools). The careful choice if you want to turn on tools one at a time.</li></ul>
+<p>Already know your provider? <code>hermes model</code> does just that step. Secrets go to <code>~/.hermes/.env</code> and normal settings to <code>~/.hermes/config.yaml</code> ({C('hm_qs', 'quickstart')}). Coming from OpenClaw? <code>hermes setup</code> offers to import your setup when it finds one; see also {C('hm_mig', 'Migrate from OpenClaw')}. Worried about the bill? See <a href="{u(CHEAPMODEL_GUIDE)}">switch Hermes to a cheaper model</a> and <a href="{u(COST_GUIDE)}">what an AI agent costs per month</a>.</p></section>
+<section class="reveal" id="test"><h2>Step 3: Run one test chat</h2>
+<p>Start <code>hermes</code> (or <code>hermes --tui</code> for the newer screen). The docs' advice: if Hermes can't finish a normal chat, don't add features yet ({C('hm_qs', 'quickstart')}). It's working when:</p><ul class="big-list">
+<li>the banner shows the model you picked,</li><li>it replies without an error and keeps going for more than one turn,</li><li><code>hermes -c</code> brings you back to the same conversation.</li></ul></section>
+<section class="reveal warn glass" id="safe"><h2>Step 4: Make it safe before you connect anything</h2><ol class="rules">
+<li><b>Keep approvals on.</b> The default “smart” mode lets a helper model approve low-risk commands, deny dangerous ones and ask you when unsure; “manual” always asks. Don't set approvals to off or start with <code>--yolo</code>, which skip the prompts ({C('hm_sec', 'Hermes security')}).</li>
+<li><b>Use the sandbox.</b> <code>hermes config set terminal.backend docker</code> runs the agent's commands in a container instead of on your computer ({C('hm_qs', 'quickstart')}).</li>
+<li><b>Add chat apps last.</b> <code>hermes gateway setup</code> connects Telegram, Discord, Slack, WhatsApp, Signal or email. Unknown people are denied unless you allowlist them or approve a pairing code with <code>hermes pairing approve</code>; never set <code>GATEWAY_ALLOW_ALL_USERS=true</code> ({C('hm_sec', 'Hermes security')}).</li>
+<li><b>Protect your keys:</b> <code>chmod 600 ~/.hermes/.env</code>, and set a spend limit at your AI provider: {_ua('set-ai-spend-limits-and-alerts')}.</li>
+<li><b>Start with read-only jobs.</b> A summary or a watcher before anything that sends, buys or deletes. More: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email?</a> and how to {_ua('keep-an-ai-agent-from-deleting-your-files')}.</li></ol></section>
+<section class="reveal" id="fix"><h2>If the install fails</h2>
+<div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">What you see</th><th scope="col">What to do</th></tr></thead><tbody>
+<tr><td><code>hermes: command not found</code></td><td class="small">Reload your shell (<code>source ~/.bashrc</code>) or check PATH</td></tr>
+<tr><td><code>API key not set</code></td><td class="small">Run <code>hermes model</code> to set up a provider</td></tr>
+<tr><td>Opens, but replies are empty or broken</td><td class="small">Run <code>hermes model</code> again and check provider, model and sign-in</td></tr>
+<tr><td>Bot connected, but nobody can message it</td><td class="small">Re-run <code>hermes gateway setup</code>; check <code>hermes gateway status</code> and your allowlist</td></tr>
+<tr><td>Anything else</td><td class="small"><code>hermes doctor</code>, then <code>hermes model</code>, then <code>hermes setup</code></td></tr></tbody></table></div>
+<p class="small">From {C('hm_install', 'install docs')} and {C('hm_qs', 'quickstart')}. The installer writes a log to <code>logs/install.log</code> in the Hermes data folder.</p></section>
+<section class="reveal" id="update"><h2>Updating and uninstalling</h2>
+<p>Command-line installs update with <code>hermes update</code>; the desktop app updates from its own Update control. To remove it, run <code>hermes uninstall --dry-run</code> first to see what would go, and <code>hermes backup</code> if you might come back ({C('hm_update', 'updating docs')}).</p></section>
+<section class="reveal" id="next"><h2>What to hand it first</h2><p>Any of our {len(bps)} <a href="{u('/blueprints/')}">blueprints</a> works as instructions for Hermes. Good first ones: {_ba('morning-inbox-briefing')} and {_ba('web-page-watcher')}. Write your own with the <a href="{u(INSTR_GUIDE)}">6-part instructions template</a>. Still choosing? <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a> or <a href="{u(ALT_GUIDE)}">OpenClaw alternatives for beginners</a>.</p></section>
+<section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(HMI_FAQ)}</section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['hm_install','hm_qs','hm_sec','hm_update','hm_mig','hm_vs'])}</section>
+</article>"""
+page(HMI_GUIDE, "How to install Hermes Agent on Mac, Windows or Linux", _hi_desc, hmi_body,
+     [hild, _art_ld(HMI_GUIDE, "How to install Hermes Agent (Mac, Windows, Linux)", _hi_desc, published="2026-11-11"), _faq_ld(HMI_FAQ),
+      {"@context": "https://schema.org", "@type": "HowTo", "name": "How to install Hermes Agent", "description": _hi_desc,
+       "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(HMI_STEPS)]}], og_type="article")
+
+# ----- 11. OpenClaw alternatives for beginners (2026-11-11, weekly SEO run) -----
+SRC.update({
+ "nod_gh": ("n8n Nod on GitHub (README)", "https://github.com/n8n-io/nod"),
+ "nod_blog": ("n8n blog: Meet Nod (Nov 10, 2026)", "https://blog.n8n.io/meet-nod/"),
+ "nb_gh": ("nanobot on GitHub (README)", "https://github.com/HKUDS/nanobot"),
+ "nb_start": ("nanobot docs: Start without technical background", "https://github.com/HKUDS/nanobot/blob/main/docs/start-without-technical-background.md"),
+ "nc_gh": ("NanoClaw on GitHub (README)", "https://github.com/nanocoai/nanoclaw"),
+ "zc_gh": ("ZeroClaw on GitHub (README)", "https://github.com/zeroclaw-labs/zeroclaw"),
+ "ic_gh": ("IronClaw on GitHub (README)", "https://github.com/nearai/ironclaw"),
+})
+ALT_ROWS = [
+ ("Hermes Agent", f"Nous Research · MIT ({C('hm_readme', 'README')})", f"Desktop app for Mac (Apple silicon) and Windows, or a one-line installer ({C('hm_install', 'docs')})", f"Closest match to OpenClaw: chat apps, memory, scheduled jobs, writes its own skills; imports an OpenClaw setup ({C('hm_mig', 'docs')}); optional hosted Hermes Cloud ({C('hm_vs', 'Hermes')})"),
+ ("Nod", f"n8n Labs · Apache-2.0 · research preview ({C('nod_gh', 'README')})", f"Desktop app for macOS 14+ and Windows 11 (preview) ({C('nod_gh', 'README')})", f"Errands on real websites in its own sandbox and browser; asks before it acts; checks in once a task passes $5; stops when your laptop sleeps ({C('nod_blog', 'n8n blog')})"),
+ ("nanobot", f"HKUDS · MIT ({C('nb_gh', 'README')})", f"One-line installer that opens a browser setup page; a walkthrough for people with no terminal background ({C('nb_start', 'docs')})", f"Small Python agent: browser UI, memory, scheduled tasks; Telegram, Discord, Slack, email and more ({C('nb_gh', 'README')})"),
+ ("NanoClaw", f"Open source · MIT ({C('nc_gh', 'README')})", f"<code>git clone</code> then <code>bash nanoclaw.sh</code>; installs Docker if missing; uses Claude by default ({C('nc_gh', 'README')})", f"Each agent in its own Linux container; agents never hold raw API keys ({C('nc_gh', 'README')})"),
+ ("ZeroClaw", f"ZeroClaw Labs · Apache-2.0 ({C('zc_gh', 'README')})", f"One install command on Mac/Linux, prebuilt PowerShell path on Windows ({C('zc_gh', 'README')})", f"One Rust program and one settings file; default “supervised”: medium-risk actions need your OK, high-risk ones are blocked ({C('zc_gh', 'README')})"),
+ ("IronClaw", f"NEAR AI · Apache-2.0 ({C('ic_gh', 'README')})", f"Installer for macOS, Linux or Windows, then <code>ironclaw onboard</code> ({C('ic_gh', 'README')})", f"Untrusted tools run in WebAssembly sandboxes; secrets never shown to tools; web requests only to hosts you allow ({C('ic_gh', 'README')})"),
+]
+ALT_FAQ = [
+ ("What is the best alternative to OpenClaw?",
+  "It depends on why you're leaving. The closest match is Hermes Agent from Nous Research: also free (MIT), also chat-app based, with memory, scheduled jobs and an official importer for OpenClaw setups. If you want a desktop app with no terminal, look at n8n's Nod (a research preview). If you want stronger isolation, NanoClaw runs each agent in its own container and IronClaw runs tools in WebAssembly sandboxes.", None),
+ ("Is there an OpenClaw alternative that doesn't need a terminal?",
+  "Yes. Nod is a desktop app for Mac and Windows 11 (preview), and Hermes Agent has a desktop app for Apple-silicon Macs and Windows. nanobot's installer opens a browser setup page and has a walkthrough for people with no terminal background. A hosted agent app (like ChatGPT Work on paid plans) needs no install at all.", None),
+ ("Is there an OpenClaw alternative for Windows?",
+  "Several. Hermes Agent has a Windows desktop app and a PowerShell installer, Nod has a Windows 11 preview app, nanobot and IronClaw have Windows installers, and ZeroClaw has a prebuilt PowerShell install path.", None),
+ ("Which OpenClaw alternative is the most secure?",
+  "None is safe by default for everything. They take different approaches: NanoClaw puts each agent in its own Linux container, IronClaw runs untrusted tools in WebAssembly sandboxes and only lets them reach hosts you allow, ZeroClaw asks before medium-risk actions and blocks high-risk ones by default, and Nod checks app and website actions against your request and asks about anything else. Whatever you pick, give it only the accounts it needs and keep approvals on.", None),
+ ("Are OpenClaw alternatives free?",
+  "The ones on this page are open source and free to download. You still pay for the AI model you connect (Nod and Hermes can also use a ChatGPT plan) and for the computer or server it runs on.", None),
+ ("Can I move my OpenClaw setup to Hermes Agent?",
+  "Yes. Hermes has an official importer, hermes import-agent openclaw, and a fresh hermes setup offers to import when it finds OpenClaw on your computer.", None),
+]
+_alt_tbl = "".join(f'<tr><th scope="row">{e(k)}</th><td class="small">{a}</td><td class="small">{b}</td><td class="small">{c}</td></tr>' for k, a, b, c in ALT_ROWS)
+alb, alld = crumbs([("Home", "/"), ("OpenClaw vs Hermes Agent", CLAW_GUIDE), ("OpenClaw alternatives", None)])
+_al_desc = mdesc("OpenClaw alternatives for beginners: Hermes Agent, Nod, nanobot, NanoClaw, ZeroClaw and IronClaw compared on setup and safety, plus no-install options.")
+alt_body = f"""<article class="wrap narrow explainer">{alb}
+<header class="page-head"><p class="eyebrow">Beginner guide · Open-source agents</p><h1 class="kinetic-sm">OpenClaw alternatives for beginners</h1>
+<p class="lead">Short answer: the closest alternative is <b>Hermes Agent</b> from Nous Research: free, chat-app based, and it can import your OpenClaw setup. Want a desktop app instead of a terminal? Try n8n's <b>Nod</b> (a research preview). Want something smaller or more locked down? Look at nanobot, NanoClaw, ZeroClaw or IronClaw. And if you don't want to run anything yourself, a hosted agent may suit you better.</p>
+{_byline()}<p class="small muted">Every fact here comes from each project's own README, docs or launch post, linked inline. We don't rank them by opinion; pick by what matters to you.</p></header>
+<section class="reveal" id="why"><h2>Why people look for an OpenClaw alternative</h2><ul class="big-list">
+<li><b>Setup feels too technical.</b> OpenClaw needs an install, an AI model and careful settings (<a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes</a> explains both).</li>
+<li><b>Security worries.</b> It has had real security problems; see <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a></li>
+<li><b>The bill.</b> Long chats send a lot of text to the model each turn. Often a cheaper model fixes this without switching apps: <a href="{u(CHEAPMODEL_GUIDE)}">switch OpenClaw to a cheaper model</a>.</li></ul></section>
+<section class="reveal" id="compare"><h2>Open-source OpenClaw alternatives, side by side</h2>
+<div class="table-wrap glass"><table class="rank-table cmp-table"><thead><tr><th scope="col">Project</th><th scope="col">Who makes it · licence</th><th scope="col">How you install it</th><th scope="col">What stands out</th></tr></thead><tbody>{_alt_tbl}</tbody></table></div>
+<p class="small">All are free to download. You still pay for the AI model and for the computer it runs on.</p></section>
+<section class="reveal" id="pick"><h2>How to pick one</h2><ul class="big-list">
+<li><b>Same idea as OpenClaw, easy switch:</b> Hermes Agent. Install guide: <a href="{u(HMI_GUIDE)}">how to install Hermes Agent</a>; then <code>hermes import-agent openclaw</code> ({C('hm_mig', 'Hermes docs')}).</li>
+<li><b>No terminal, errands on websites:</b> Nod. It's a research preview, it stops when your laptop sleeps, and each install has one owner ({C('nod_blog', 'n8n blog')}).</li>
+<li><b>Small enough to read, browser setup:</b> nanobot ({C('nb_start', 'beginner walkthrough')}).</li>
+<li><b>Strong isolation:</b> NanoClaw (containers, needs Docker and, by default, Claude) or IronClaw (WebAssembly sandboxes, allowlisted web access).</li>
+<li><b>Approval-first by default, low resources:</b> ZeroClaw.</li>
+<li><b>OpenClaw already works for you?</b> Staying is fine. Harden it with the 6 rules in <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a></li></ul></section>
+<section class="glass explain-card reveal" id="no-server"><h2>No install at all</h2>
+<p>If you don't want to run software or keep a computer on, a hosted agent does the same kind of jobs from an app or website. Two examples with official sources: <b>Hermes Cloud</b>, an always-on hosted Hermes included with paid Nous Portal plans ({C('hm_vs', 'Hermes')}), and <b>ChatGPT Work</b>, OpenAI's agent for longer tasks on paid plans (<a href="{u(AGENTMODE_GUIDE)}">what replaced ChatGPT agent mode</a>). For more, browse <a href="{u('/ai-agent-examples/')}">AI agent examples</a> and our <a href="{u(BUILD_GUIDE)}">no-code guide</a>.</p></section>
+<section class="reveal warn glass" id="safety"><h2>Whichever you choose</h2><ol class="rules">
+<li>Start with one read-only job and copies of your files.</li>
+<li>Keep approvals on for anything that sends, buys or deletes.</li>
+<li>Only connect the accounts the job needs, and set a spend limit at your AI provider: {_ua('set-ai-spend-limits-and-alerts')}.</li>
+<li>Treat emails and web pages it reads as untrusted: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email?</a></li></ol></section>
+<section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(ALT_FAQ)}</section>
+<section class="glass explain-card"><h2>Next step</h2><p>Picked one? Write its first job with the <a href="{u(INSTR_GUIDE)}">6-part instructions template</a> or the free <a href="{u('/bot-instructions/')}">instruction builder</a>, then follow a <a href="{u('/blueprints/')}">blueprint</a>.</p></section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['hm_readme','hm_install','hm_mig','hm_vs','nod_gh','nod_blog','nb_gh','nb_start','nc_gh','zc_gh','ic_gh','oc_readme'])}</section>
+</article>"""
+page(ALT_GUIDE, "OpenClaw alternatives for beginners: Hermes Agent, Nod and more", _al_desc, alt_body,
+     [alld, _art_ld(ALT_GUIDE, "OpenClaw alternatives for beginners", _al_desc, published="2026-11-11"), _faq_ld(ALT_FAQ),
+      {"@context": "https://schema.org", "@type": "ItemList", "name": "Open-source OpenClaw alternatives", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": r[0]} for i, r in enumerate(ALT_ROWS)]}], og_type="article")
+
 NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner guide: pick one job, write it in four lines, paste instructions into an agent app, test once, schedule it safely."),
               (COST_GUIDE, "How much does it cost to run an AI agent?", f"Monthly estimates for {len(_cost_rows)} everyday bots at official API prices, with the math shown."),
               (CLAW_GUIDE, "OpenClaw vs Hermes Agent: a beginner's guide", "What each open-source agent is, side-by-side comparison, how to pick, cost and safety tips."),
@@ -1937,7 +2091,9 @@ NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner
               (OCSAFE_GUIDE, "Is OpenClaw safe?", "The real security problems so far, what Microsoft and OpenClaw's docs advise, and 6 rules for running it safely."),
               (AGENTMODE_GUIDE, "ChatGPT agent mode is gone: what replaced it", "OpenAI retired ChatGPT agent; ChatGPT Work replaced it. What changed and how to move your tasks."),
               (CHEAPMODEL_GUIDE, "Switch OpenClaw or Hermes to a cheaper model", "Commands to change the model in OpenClaw and Hermes Agent, add fallbacks, and when not to downgrade."),
-              (INSTR_GUIDE, "How to write instructions for an AI agent", "A 6-part template to copy (job, use only, steps, result, ask first, if unsure), 3 filled-in examples, where to paste them in ChatGPT, Claude and Gemini, and how to test them.")]
+              (INSTR_GUIDE, "How to write instructions for an AI agent", "A 6-part template to copy (job, use only, steps, result, ask first, if unsure), 3 filled-in examples, where to paste them in ChatGPT, Claude and Gemini, and how to test them."),
+              (HMI_GUIDE, "How to install Hermes Agent (Mac, Windows, Linux)", "Desktop app or one-line installer, connect a model with hermes setup, one test chat, safe settings before you connect apps, and fixes when the install fails."),
+              (ALT_GUIDE, "OpenClaw alternatives for beginners", "Hermes Agent, n8n's Nod, nanobot, NanoClaw, ZeroClaw and IronClaw compared on setup, safety and cost, plus no-install options.")]
 
 # ---------- LATEST IN AI (/news/ + /news/feed.xml) -------------------------------------
 NEWS_CATS = J("data", "news.json")["categories"]
@@ -2146,7 +2302,7 @@ page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wr
 # ---------- MACHINE FILES ------------------------------------------------------------
 idx = [{"t": x["title"], "u": u("/use-cases/" + x["slug"] + "/"), "c": CAT[x["category"]]["name"], "i": CAT[x["category"]]["icon"], "d": x["difficulty"], "h": x["_heat"], "s": search_text(x)} for x in ucs]
 idx += [{"t": "Blueprint: " + b["title"], "u": u("/blueprints/" + b["slug"] + "/"), "c": "Blueprint", "i": "⚙", "d": b["difficulty"], "h": 0, "s": norm(b["title"] + " " + b["goal"] + " " + b["watches"])} for b in bps]
-idx += [{"t": t, "u": u(pth), "c": "Guide", "i": "📘", "d": "Easy", "h": 0, "s": norm(t + " " + d + (" openclaw hermes agent nous research self-hosted open source" if pth == CLAW_GUIDE else ""))} for pth, t, d in NEW_GUIDES]
+idx += [{"t": t, "u": u(pth), "c": "Guide", "i": "📘", "d": "Easy", "h": 0, "s": norm(t + " " + d + (" openclaw hermes agent nous research self-hosted open source" if pth in (CLAW_GUIDE, ALT_GUIDE, HMI_GUIDE) else "") + (" nod nanobot nanoclaw zeroclaw ironclaw alternative" if pth == ALT_GUIDE else "") + (" install setup windows mac linux desktop" if pth == HMI_GUIDE else ""))} for pth, t, d in NEW_GUIDES]
 idx.append({"t": "Write bot instructions", "u": u("/bot-instructions/"), "c": "Guide", "i": "✎", "d": "Easy", "h": 0, "s": norm("write bot instructions text only chat weekly planning email draft compare quotes troubleshooting template pilot")})
 json.dump(idx, open(os.path.join(OUT, "assets", "search-index.json"), "w"), ensure_ascii=False, separators=(",", ":"))
 
@@ -2201,6 +2357,8 @@ F += ["## Is it safe to give an AI agent your email and calendar?", f"URL: {absu
 F += ["## Is OpenClaw safe?", f"URL: {absu(u(OCSAFE_GUIDE))}", "Rules:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(OCSAFE_RULES)] + [f"Q: {q} A: {a}" for q, a, _ in OCSAFE_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('ms_oc', 'sl_oc', 'df_cve', 'oc_secfaq', 'oc_sec')] + [""]
 F += ["## ChatGPT agent mode is gone: what replaced it", f"URL: {absu(u(AGENTMODE_GUIDE))}"] + [f"Q: {q} A: {a}" for q, a, _ in AGENTMODE_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('oai_agent_gone', 'oai_rn', 'oai_work')] + [""]
 F += ["## How to write instructions for an AI agent", f"URL: {absu(u(INSTR_GUIDE))}", "Template:", INSTR_TEMPLATE] + [f"Q: {q} A: {a}" for q, a, _ in INSTR_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('oai_guide', 'oai_ci', 'cl_proj', 'g_gems', 'udemy_agent')] + [""]
+F += ["## How to install Hermes Agent (Mac, Windows, Linux)", f"URL: {absu(u(HMI_GUIDE))}", "Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(HMI_STEPS)] + [f"Q: {q} A: {a}" for q, a, _ in HMI_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('hm_install', 'hm_qs', 'hm_sec', 'hm_update', 'hm_mig')] + [""]
+F += ["## OpenClaw alternatives for beginners", f"URL: {absu(u(ALT_GUIDE))}"] + [f"- {k}: {re.sub('<[^>]+>', '', a)} | Install: {re.sub('<[^>]+>', '', b)} | Stands out: {re.sub('<[^>]+>', '', c)}" for k, a, b, c in ALT_ROWS] + [f"Q: {q} A: {a}" for q, a, _ in ALT_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('hm_readme', 'hm_mig', 'hm_vs', 'nod_gh', 'nod_blog', 'nb_gh', 'nb_start', 'nc_gh', 'zc_gh', 'ic_gh')] + [""]
 F += ["## How to switch OpenClaw or Hermes to a cheaper model", f"URL: {absu(u(CHEAPMODEL_GUIDE))}"] + [f"Q: {q} A: {a}" for q, a, _ in CHEAP_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('oc_models', 'hm_models', 'hm_prov')] + [""]
 F += ["## What is an AI agent? (in simple terms)", f"URL: {absu(u('/what-can-bots-do/'))}"] + [f"- {q} {a}" for q, a in EXPLAIN_FAQ] + [""]
 F += ["## AI agent cost calculator", f"URL: {absu(u(LESS))}#calculator", "Monthly cost = runs per month x (input tokens x input price + output tokens x output price) / 1,000,000. Months use 30 days, 22 weekdays or 4 weeks. Batch halves the price at " + ", ".join(BATCH_PROVS) + ". Not included: caching, tool fees, voice, taxes, free tiers. Worked examples (cheapest vs priciest fitting model):"] + [f"- {c['title']}: {c['n']} run(s) per {c['unit']}, about {c['in']:,} tokens in and {c['out']:,} out per run; " + (lambda r: f"{r[0][1]['p']} {r[0][1]['m']} {money(r[0][0])}/month vs {r[-1][1]['p']} {r[-1][1]['m']} {money(r[-1][0])}/month")(calc_rows(c['n']*dict((k, m) for k, _, m in CALC_UNITS)[c['unit']], c['in'], c['out'], 'small', False)) for c in CALC_PRESETS] + [""]

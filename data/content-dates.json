@@ -23,6 +23,10 @@
   "hash": "66f44b3afd62a385fe0113df0f87188c37500ef9",
   "date": "2026-11-10"
  },
+ "/how-to-install-hermes-agent/": {
+  "hash": "e285ed48665910f40bc0d667d24da1e047a95bfc",
+  "date": "2026-11-11"
+ },
  "/how-to-write-instructions-for-an-ai-agent/": {
   "hash": "1576fbcbc44861b43958e754326d571201582267",
   "date": "2026-11-10"
@@ -32,19 +36,23 @@
   "date": "2026-11-04"
  },
  "/is-openclaw-safe/": {
-  "hash": "8b886a0715189b02ee42cb1adbfae7652d6957b0",
-  "date": "2026-11-04"
+  "hash": "3fa6f4fcfd71c46c1f412e197d7fd35701c88938",
+  "date": "2026-11-11"
+ },
+ "/openclaw-alternatives/": {
+  "hash": "0d5ba57809df528a58dbeeb49c441d53d0a9a516",
+  "date": "2026-11-11"
  },
  "/openclaw-vs-hermes-agent/": {
-  "hash": "98c2d221253cfd6e95383a7053d9fe72ac5ae8b7",
-  "date": "2026-11-10"
+  "hash": "f9e9ee13d5b91a17cce8715cb134eba324b8396c",
+  "date": "2026-11-11"
  },
  "/switch-openclaw-or-hermes-to-a-cheaper-model/": {
   "hash": "538416ceab4a5025708629943f0aa340d74fc1db",
   "date": "2026-11-04"
  },
  "/what-can-bots-do/": {
-  "hash": "533aae822f2b8e67b6ee806edd4dceb05143a486",
-  "date": "2026-11-10"
+  "hash": "77754ff230965b898afcaff6eab7bb90ec8721c5",
+  "date": "2026-11-11"
  }
 }

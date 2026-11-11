@@ -3811,6 +3811,7 @@
   ],
   "prompt": "Help me set safe limits. My providers: [list]. My expected monthly use: [estimate]. For each provider, tell me where in its official billing settings to set a spend limit and usage alerts, and suggest a limit about [1.5x] my estimate. Point me to the provider's own help page for each step.",
   "watch_out": [
+   "Keys can be stolen from services that store them. In October 2026 an attacker took AI provider keys saved on the app host Railway; Railway estimates the unauthorized spend on stolen keys at about $740,000. A spend limit at the provider caps what a stolen key can cost you, and if any service that holds your key reports a breach, create a new key and delete the old one.",
    "Anthropic says that when you reach a spend limit you set, API requests stop until you raise it or the period resets. Any scheduled bots on that account stop too, often without telling you, so set an alert for when the limit is hit (not just when it's close) and glance each morning that your scheduled jobs actually ran.",
    "On Anthropic you can't set spend limits on the default workspace, so put bots in their own workspace.",
    "Consumer plans work differently: you hit usage limits instead of a bill."
@@ -3825,6 +3826,16 @@
     "label": "Mistral pricing FAQ: the Studio dashboard tracks API usage and costs",
     "url": "https://mistral.ai/pricing",
     "kind": "docs"
+   },
+   {
+    "label": "Railway incident report: October 21st security attack (Nov 10, 2026)",
+    "url": "https://blog.railway.com/p/incident-report-october-security-incident",
+    "kind": "official"
+   },
+   {
+    "label": "The Hacker News: Railway says stolen customer AI keys led to $740,000 in estimated unauthorized usage charges",
+    "url": "https://thehackernews.com/2026/11/railway-says-stolen-customer-ai-keys.html",
+    "kind": "article"
    }
   ],
   "tags": [
@@ -3835,7 +3846,7 @@
   ],
   "category": "run-for-less",
   "date_added": "2026-10-21",
-  "last_checked": "2026-11-03",
+  "last_checked": "2026-11-11",
   "origin": "run-for-less-2026-10-21",
   "setup": [],
   "source_date": "2026-10-21",

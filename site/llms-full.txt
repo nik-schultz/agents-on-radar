@@ -1449,6 +1449,7 @@ Prompt:
 Help me set safe limits. My providers: [list]. My expected monthly use: [estimate]. For each provider, tell me where in its official billing settings to set a spend limit and usage alerts, and suggest a limit about [1.5x] my estimate. Point me to the provider's own help page for each step.
 
 Watch out:
+- Keys can be stolen from services that store them. In October 2026 an attacker took AI provider keys saved on the app host Railway; Railway estimates the unauthorized spend on stolen keys at about $740,000. A spend limit at the provider caps what a stolen key can cost you, and if any service that holds your key reports a breach, create a new key and delete the old one.
 - Anthropic says that when you reach a spend limit you set, API requests stop until you raise it or the period resets. Any scheduled bots on that account stop too, often without telling you, so set an alert for when the limit is hit (not just when it's close) and glance each morning that your scheduled jobs actually ran.
 - On Anthropic you can't set spend limits on the default workspace, so put bots in their own workspace.
 - Consumer plans work differently: you hit usage limits instead of a bill.
@@ -1456,6 +1457,8 @@ Watch out:
 Sources:
 - Anthropic docs: spend limits, setting your own limit, workspace limits: https://docs.anthropic.com/en/api/rate-limits
 - Mistral pricing FAQ: the Studio dashboard tracks API usage and costs: https://mistral.ai/pricing
+- Railway incident report: October 21st security attack (Nov 10, 2026): https://blog.railway.com/p/incident-report-october-security-incident
+- The Hacker News: Railway says stolen customer AI keys led to $740,000 in estimated unauthorized usage charges: https://thehackernews.com/2026/11/railway-says-stolen-customer-ai-keys.html
 
 ## Keep your bot's prompts, tools and context short
 URL: https://botsdothat.com/use-cases/keep-prompts-and-context-short/
@@ -4783,6 +4786,9 @@ Sources:
 - OpenClaw docs: Models: https://docs.openclaw.ai/concepts/models
 - Hermes docs: Configuring models: https://hermes-agent.nousresearch.com/docs/user-guide/configuring-models
 - Hermes docs: LLM and model providers: https://hermes-agent.nousresearch.com/docs/integrations/providers
+- Hermes docs: Installation: https://hermes-agent.nousresearch.com/docs/getting-started/installation/
+- Hermes docs: Quickstart: https://hermes-agent.nousresearch.com/docs/getting-started/quickstart/
+- Hermes docs: Updating and uninstalling: https://hermes-agent.nousresearch.com/docs/getting-started/updating/
 
 ## Is it safe to give an AI agent your email and calendar?
 URL: https://botsdothat.com/is-it-safe-to-give-an-ai-agent-your-email/
@@ -4869,6 +4875,54 @@ Sources:
 - Claude Help: How can I create and manage projects?: https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects
 - Gemini Apps Help: Tips for creating custom Gems: https://support.google.com/gemini/answer/15235603?hl=en
 - Udemy blog: How to build an AI agent, a beginner's guide: https://blog.udemy.com/how-to-build-an-ai-agent/
+
+## How to install Hermes Agent (Mac, Windows, Linux)
+URL: https://botsdothat.com/how-to-install-hermes-agent/
+Steps:
+1. Pick how to install: On a Mac (Apple silicon) or Windows PC, download the Hermes Desktop app from the Hermes website. For command line only: run the one-line installer for Linux, macOS or WSL2, or the PowerShell one for Windows.
+2. Connect an AI model: Run hermes setup. Quick Setup signs you in to a Nous Portal subscription; Full Setup lets you bring your own key or plan; Blank Slate starts with almost every tool turned off. hermes model changes the provider later.
+3. Run one test chat: Start hermes (or hermes --tui), ask something easy to check, and make sure it replies and can resume with hermes -c.
+4. Lock it down before you connect apps: Keep approvals on, never use --yolo, consider the Docker sandbox, and only add chat apps with hermes gateway setup once the plain chat works. Keep allowlists or pairing on.
+5. Fix problems with hermes doctor: If something breaks, run hermes doctor, then hermes model, then hermes setup.
+Q: How do I install Hermes Agent? A: On a Mac with Apple silicon or a Windows PC, the docs recommend the Hermes Desktop installer from the Hermes website. For a command-line install, run curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash on Linux, macOS or WSL2, or iex (irm https://hermes-agent.nousresearch.com/install.ps1) in PowerShell on Windows. Then run hermes setup to connect a model.
+Q: How do I install Hermes Agent on Windows? A: Either download the Windows desktop package from the Hermes website and open it with Windows App Installer, or run iex (irm https://hermes-agent.nousresearch.com/install.ps1) in PowerShell for a command-line install. WSL2 also works with the Linux installer.
+Q: Does Hermes Agent work on an Intel Mac? A: Not officially. The installation docs say the macOS installer is Apple silicon only and that macOS on Intel processors is not a supported platform.
+Q: Is Hermes Agent safe? A: It has real safety controls, but the defaults are not a lock. By default it asks (or has a helper model judge) before dangerous commands, scheduled jobs deny dangerous commands, and unknown people who message your bot are denied unless you pair or allowlist them. It still runs commands on your own computer unless you switch on the Docker sandbox, and turning approvals off or using --yolo removes the prompts. Give it only the accounts it needs.
+Q: Hermes Agent install failed. What should I do? A: Run hermes doctor first; it reports what's missing. If the shell says hermes: command not found, reload it (source ~/.bashrc or ~/.zshrc). If it says API key not set, run hermes model. The installer writes a log to logs/install.log in the Hermes data folder, and a failed step prints its last lines.
+Q: Is Hermes Agent free? A: The software is free and open source under the MIT license. You pay for the AI model you connect (or use a plan you already have, like a ChatGPT or Codex subscription), and Nous Portal is an optional paid subscription.
+Q: How do I update or uninstall Hermes Agent? A: For a command-line install, run hermes update; the desktop app has its own Update control. To remove it, run hermes uninstall --dry-run first to see what would go, and hermes backup if you might want your setup later.
+Sources:
+- Hermes docs: Installation: https://hermes-agent.nousresearch.com/docs/getting-started/installation/
+- Hermes docs: Quickstart: https://hermes-agent.nousresearch.com/docs/getting-started/quickstart/
+- Hermes docs: Security: https://hermes-agent.nousresearch.com/docs/user-guide/security/
+- Hermes docs: Updating and uninstalling: https://hermes-agent.nousresearch.com/docs/getting-started/updating/
+- Hermes docs: Migrate from OpenClaw: https://hermes-agent.nousresearch.com/docs/guides/migrate-from-openclaw/
+
+## OpenClaw alternatives for beginners
+URL: https://botsdothat.com/openclaw-alternatives/
+- Hermes Agent: Nous Research · MIT (README) | Install: Desktop app for Mac (Apple silicon) and Windows, or a one-line installer (docs) | Stands out: Closest match to OpenClaw: chat apps, memory, scheduled jobs, writes its own skills; imports an OpenClaw setup (docs); optional hosted Hermes Cloud (Hermes)
+- Nod: n8n Labs · Apache-2.0 · research preview (README) | Install: Desktop app for macOS 14+ and Windows 11 (preview) (README) | Stands out: Errands on real websites in its own sandbox and browser; asks before it acts; checks in once a task passes $5; stops when your laptop sleeps (n8n blog)
+- nanobot: HKUDS · MIT (README) | Install: One-line installer that opens a browser setup page; a walkthrough for people with no terminal background (docs) | Stands out: Small Python agent: browser UI, memory, scheduled tasks; Telegram, Discord, Slack, email and more (README)
+- NanoClaw: Open source · MIT (README) | Install: git clone then bash nanoclaw.sh; installs Docker if missing; uses Claude by default (README) | Stands out: Each agent in its own Linux container; agents never hold raw API keys (README)
+- ZeroClaw: ZeroClaw Labs · Apache-2.0 (README) | Install: One install command on Mac/Linux, prebuilt PowerShell path on Windows (README) | Stands out: One Rust program and one settings file; default “supervised”: medium-risk actions need your OK, high-risk ones are blocked (README)
+- IronClaw: NEAR AI · Apache-2.0 (README) | Install: Installer for macOS, Linux or Windows, then ironclaw onboard (README) | Stands out: Untrusted tools run in WebAssembly sandboxes; secrets never shown to tools; web requests only to hosts you allow (README)
+Q: What is the best alternative to OpenClaw? A: It depends on why you're leaving. The closest match is Hermes Agent from Nous Research: also free (MIT), also chat-app based, with memory, scheduled jobs and an official importer for OpenClaw setups. If you want a desktop app with no terminal, look at n8n's Nod (a research preview). If you want stronger isolation, NanoClaw runs each agent in its own container and IronClaw runs tools in WebAssembly sandboxes.
+Q: Is there an OpenClaw alternative that doesn't need a terminal? A: Yes. Nod is a desktop app for Mac and Windows 11 (preview), and Hermes Agent has a desktop app for Apple-silicon Macs and Windows. nanobot's installer opens a browser setup page and has a walkthrough for people with no terminal background. A hosted agent app (like ChatGPT Work on paid plans) needs no install at all.
+Q: Is there an OpenClaw alternative for Windows? A: Several. Hermes Agent has a Windows desktop app and a PowerShell installer, Nod has a Windows 11 preview app, nanobot and IronClaw have Windows installers, and ZeroClaw has a prebuilt PowerShell install path.
+Q: Which OpenClaw alternative is the most secure? A: None is safe by default for everything. They take different approaches: NanoClaw puts each agent in its own Linux container, IronClaw runs untrusted tools in WebAssembly sandboxes and only lets them reach hosts you allow, ZeroClaw asks before medium-risk actions and blocks high-risk ones by default, and Nod checks app and website actions against your request and asks about anything else. Whatever you pick, give it only the accounts it needs and keep approvals on.
+Q: Are OpenClaw alternatives free? A: The ones on this page are open source and free to download. You still pay for the AI model you connect (Nod and Hermes can also use a ChatGPT plan) and for the computer or server it runs on.
+Q: Can I move my OpenClaw setup to Hermes Agent? A: Yes. Hermes has an official importer, hermes import-agent openclaw, and a fresh hermes setup offers to import when it finds OpenClaw on your computer.
+Sources:
+- Hermes Agent README: https://github.com/NousResearch/hermes-agent
+- Hermes docs: Migrate from OpenClaw: https://hermes-agent.nousresearch.com/docs/guides/migrate-from-openclaw/
+- Hermes Agent: Hermes Agent vs OpenClaw (checked Nov 9, 2026): https://hermes-agent.nousresearch.com/compare/openclaw
+- n8n Nod on GitHub (README): https://github.com/n8n-io/nod
+- n8n blog: Meet Nod (Nov 10, 2026): https://blog.n8n.io/meet-nod/
+- nanobot on GitHub (README): https://github.com/HKUDS/nanobot
+- nanobot docs: Start without technical background: https://github.com/HKUDS/nanobot/blob/main/docs/start-without-technical-background.md
+- NanoClaw on GitHub (README): https://github.com/nanocoai/nanoclaw
+- ZeroClaw on GitHub (README): https://github.com/zeroclaw-labs/zeroclaw
+- IronClaw on GitHub (README): https://github.com/nearai/ironclaw
 
 ## How to switch OpenClaw or Hermes to a cheaper model
 URL: https://botsdothat.com/switch-openclaw-or-hermes-to-a-cheaper-model/
