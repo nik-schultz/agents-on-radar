@@ -607,7 +607,7 @@ def tk_n(x):
     return "♥ " + fmt(p["likes"]) if p["platform"] == "x" else "▲ " + fmt(p["points"] if p["platform"] == "hn" else p["upvotes"])
 ticker = "".join(f'<li><a href="{u("/use-cases/"+x["slug"]+"/")}"><span class="tk-src">{e(x["_pop"]["author"])}</span><span class="tk-n">{tk_n(x)}</span> {e(x["title"])}</a></li>' for x in TRENDING[:12])
 n_sources = len({s["url"] for x in ucs for s in x["sources"]})
-latest_added = NEWEST[0]["date_added"]
+latest_added = max([NEWEST[0]["date_added"]] + [n["date"] for n in NEWS])  # feed = guides + news
 trend_cards = "".join(card(x, rank=i + 1, big=(i == 0)) for i, x in enumerate(TRENDING[:9]))
 feed_rows = "".join(f"""<li class="feed-row reveal"><a href="{u('/use-cases/'+x['slug']+'/')}"><time datetime="{e(x['date_added'])}">{e(x['date_added'])}</time>
 <span class="feed-cat cat-{e(x['category'])}">{CAT[x['category']]['icon']} {e(CAT[x['category']]['name'])}</span><span class="feed-title">{e(x['title'])}</span><span class="feed-pop">{('♥ '+fmt(x['popularity']['likes'])) if x.get('popularity') and x['popularity']['platform']=='x' else ('▲ '+fmt(x['popularity']['upvotes'])) if x.get('popularity') else '·'}</span><span class="feed-go" aria-hidden="true">→</span></a></li>""" for x in NEWEST[:10])
