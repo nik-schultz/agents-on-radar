@@ -368,3 +368,7 @@ Bugs/complaints: none found on the site or in feedback scans.
 - [ ] "Did my agent really do it?" posts keep coming (X @levithefirst "My AI Agent booked a designer for the wrong day", 20 likes): add as an example to make-your-agent-prove-it-finished-the-job if it gets traction.
 - Skipped: Grok Bot $980 Apple/Affirm refund catch and OpenClaw property-tax appeal (money/bill-cutting, out of scope); we-promise/sure finance app (money); Atuin Threads, Chrome modern-web-guidance, agent-browser (developer tools); SaaStr/LinkedIn outreach agents (sales spam angle).
 - Bugs/complaints: none found. Reddit still blocked from this box (old.reddit JSON returns empty); YouTube and Product Hunt not scanned this run.
+
+### 2026-11-11 PM news run notes
+- [ ] Google Workspace skills (SKILL.md format, Gemini in Gmail/Docs/Slides/Drive/Chat, Rapid Release now, Scheduled Release Nov 30; workspaceupdates.googleblog.com/2026/11/skills-in-workspace.html): add a "use the same instructions in Gemini at work" section to /how-to-write-instructions-for-an-ai-agent/ or teach-your-bot-to-remember-what-works.
+- [ ] Gemini Decisions API (Gemini Decision 1, $0.10/M input, $0 output, 150-250 ms): possible note in /run-your-bots-for-less/ on using a cheap yes/no "sorter" step before a big model (developer-level, so only if it fits the plain-English angle).
