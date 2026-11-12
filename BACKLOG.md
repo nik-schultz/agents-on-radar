@@ -385,3 +385,5 @@ Bugs/complaints: none found on the site or in feedback scans.
 - [ ] Pomerado (Launch HN 50455811, 58/47): turns any website into an MCP for agents; developer-only for now.
 - Skipped: overnight "Grok Bot trading terminal turned $44 into $11k" posts (crypto/money hype, out of scope, unverifiable); LinkedIn mass-apply skill (spam risk); AWS emulator, Klad, Atuin Threads, A2UI (developer tools).
 - Bugs/complaints: none found. Site mentions: none (X search for botsdothat only matched the phrase "bots do that"). Reddit still blocked from this box (HTML instead of JSON); YouTube and Product Hunt not scanned this run.
+- [ ] (Nov 12 PM news) Gemini 4 Hydrogen in Gemini in Google Sheets (AI Pro/Ultra first): candidate use case "Turn a spreadsheet of numbers into a what-if forecast with AI" once there's real user coverage beyond Google's blog.
+- [ ] (Nov 12 PM news) Wirex Navoka (invite-only) gives an agent its own card with merchant/cap rules: candidate watch-out or setup tip for shopping/booking use cases (give an agent a separate capped card, never your main one) once it opens up.

@@ -116,6 +116,17 @@
   },
   {
    "provider": "Google",
+   "model": "gemini-4-hydrogen",
+   "tier": "mid",
+   "input": 1.5,
+   "output": 7.5,
+   "cached_input": 0.075,
+   "note": "Fast Gemini 4 model for everyday and agent work, released Nov 12, 2026; same price across the full 1M-token context. Free tier available.",
+   "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
+   "checked_on": "2026-11-12"
+  },
+  {
+   "provider": "Google",
    "model": "gemini-3.8-flash",
    "tier": "mid",
    "input": 0.75,
@@ -412,11 +423,6 @@
    "provider": "Groq",
    "what": "Consumer plan",
    "why": "Groq sells API access, not a consumer chat plan."
-  },
-  {
-   "provider": "Google",
-   "what": "Gemini 4 Carbon API price",
-   "why": "Announced Oct 28, 2026 at an introductory $2 / $10 per 1M tokens (later $4 / $20), but it's limited to selected cyber defenders and not on the official Gemini API pricing page yet."
   }
  ],
  "blueprint_models": [

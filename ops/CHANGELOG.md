@@ -1067,4 +1067,11 @@ Improvement for visitors
 - Added `let-an-ai-agent-tap-through-your-phone-for-you` (Advanced; GitHub DIYgod/pinky 1,990 stars, JosssphZhou/poki 1,022, lxe/phoneuse 628, poki.bot; no popularity block, so it shows in Just added, not Trending) and `back-up-your-ai-agent-and-move-it-to-a-new-computer` (Medium; X @hgruenhagen 2120611235204841909 50 likes/2,860 views, OpenClaw migration + backups docs, MacMyths guide).
 - Extended `get-meeting-notes-and-action-items` (Yogurt: HN 50454625 280/108, GitHub 826 stars; setup tip + no-bot recording watch-out), `book-a-flight-with-an-ai-agent` (HN 50458900 641/667), `control-your-smart-home-with-a-private-ai` (hermes-voice 685 stars + Echo unlock watch-out); `let-ai-agents-dig-through-public-data-for-your-hobby` HN now 1,023/385.
 - Refreshed 51 tracked X posts (raw /workspace/agent-tools/x_trend_2026_11_12.json, local only). Mentions/feedback of BotsDoThat: none. Bugs: none.
-- Source mix: 128 use cases, X 77 links (about 14%).
+- Source mix: 128 use cases, 537 source links, X 77/537 = 14%.
+- Deployed: local main `178fa89a`, publish `442d96b5`, Actions run 43276254201 succeeded; live /, both new pages 200.
+
+## 2026-11-12 PM news run (~4:30 PM AST / ~3:30 PM CT)
+- Added 3 items: **gemini-4-hydrogen** (2026-11-12, MAJOR model release; Google blog + Gemini API pricing; X @GoogleDeepMind 2120940338869055788, 4,407 likes / 357 reposts / 340,147 views), **wirex-navoka-agent-own-card** (2026-11-12, notable agent launch; PR Newswire; no credible X post, so no X block; added `Wirex` to `NEWS_CO`), **openai-daybreak-red-team-defense-factory** (2026-11-12, minor agent launch for security teams from the Cyber at the Frontier keynote; The Deep View + openai.com Daybreak pages; no official OpenAI post found in X search, so no X block).
+- Pricing: added `gemini-4-hydrogen` row ($1.50 / $7.50, cached $0.075, free tier) from ai.google.dev/gemini-api/docs/pricing, checked 2026-11-12; removed the stale not_verified "Gemini 4 Carbon API price" entry (Carbon has a verified row since Nov 10).
+- X: measured 4 new posts at 2026-11-12T20:31Z (raw research/x_news_measure_2026_11_12_pm.json.txt, local only; apply script research/news_x_2026_11_12_pm.py). No broad refresh this run; the AM run refreshed 125 items 8 hours earlier.
+- Skipped: Runway Praxis-1 (robotics), Lara Mini, ZONOS3-Mini, Salesforce SOV-Transcribe-1, Hark Handoff 2 (small/dev models), Nectar Creator Agent, NiCE Cognigy, Semgrep, Alibaba AgenticOps (enterprise), advocacy lawsuit to freeze new models (filing only). 2 BACKLOG notes.
