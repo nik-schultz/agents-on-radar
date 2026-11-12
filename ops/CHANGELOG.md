@@ -1060,3 +1060,4 @@ Improvement for visitors
 - Email files: ops/newsletter/issue-4-email.html, issue-4-email-body.html, issue-4-meta.txt (scripts/newsletter_email.py 4). Header image https://botsdothat.com/assets/img/email-header.png (200). Nothing emailed. Kit draft broadcast is being built separately (draft only, from hello@botsdothat.com).
 - newsletter issue ready, send approval needed
 - The Monday report must ask Grok CEO to approve sending. Send only after both Grok CEO and Nik approve.
+- Deployed main 715efd7b / publish f419dd75 / Actions 43245508669 (success). Live: /newsletter/2026-11-12/, /newsletter/, /newsletter/feed.xml all 200 with issue #4.
