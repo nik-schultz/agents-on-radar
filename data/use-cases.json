@@ -1,5 +1,185 @@
 [
  {
+  "slug": "let-an-ai-agent-tap-through-your-phone-for-you",
+  "title": "Let an AI agent tap through your phone apps for you (and ask before it sends or pays)",
+  "category": "work",
+  "source_date": "2026-11-06",
+  "summary": "New free, open-source tools let an AI agent open apps on your real iPhone or Android phone, tap, scroll, type and read the screen, while you watch on your computer. It's handy for app-only chores like checking fares in an airline app, and the best ones hold every send, payment or delete until you click Allow.",
+  "what_the_bot_does": [
+   "Connects to your phone through a small app on your computer (over USB, or Wi-Fi once paired).",
+   "Opens the app you name and works through it like a person: taps buttons, scrolls, types into fields and reads what's on the screen.",
+   "Stops and waits for your OK before risky steps such as sending a message, paying, deleting or installing something.",
+   "Lets you take over at any moment, then hand control back.",
+   "Keeps a step-by-step record with screenshots so you can check exactly what it did."
+  ],
+  "what_you_end_up_with": "An app-only chore done on your own phone, such as fares read back from an airline app or a form filled in, with a record of every tap and nothing sent or paid without your click.",
+  "difficulty": "Advanced",
+  "tools": [
+   {
+    "id": "claude",
+    "note": "Claude Code or Claude Desktop can drive the phone through Pinky or Poki"
+   },
+   {
+    "id": "chatgpt",
+    "note": "Codex works with the same tools"
+   }
+  ],
+  "prompt": "Use my phone to [task, e.g. open my airline's app and find the cheapest flight home this Friday]. Only use the [app name] app. Read back what you find before doing anything else. Do not send any message, buy, pay, book, delete or change settings without asking me first, and stop if you hit a login, password or one-time code.",
+  "setup": [
+   "Pick a tool: Pinky (free, open source) works with iPhone and Android from a Mac, Windows or Linux computer; Poki (free, open source) is for iPhone from a Mac.",
+   "Install it on your computer and follow its 'Add phone' steps. On Android that means turning on USB debugging; on iPhone it means trusting the computer and turning on Developer Mode.",
+   "Connect it to an AI agent that can use tools (Claude Code, Claude Desktop or Codex). Pinky has a one-click setting for this.",
+   "In the tool's safety settings, make sends, payments, deletions and installs wait for your OK.",
+   "Start with one low-stakes task in one app, watch it on your computer, and check the step record when it's done."
+  ],
+  "watch_out": [
+   "These are early tools. Pinky's own page calls it pre-alpha, and Poki's free Apple Account signing has to be renewed every 7 days.",
+   "Anything the agent taps really happens. Turn on 'ask first' for sends and payments, and keep banking, wallet and password apps off-limits (Pinky hides them by default).",
+   "Text on a web page or in an app can try to trick an agent. Pinky enforces its approvals outside the agent so the agent can't approve itself, but you should still watch the first few runs.",
+   "Setup is technical: developer settings on the phone, a USB cable and an agent on your computer. If that's too much, try a phone-based assistant first."
+  ],
+  "sources": [
+   {
+    "label": "GitHub: DIYgod/pinky, 'Let AI agents use your phone, with you in the loop' (iPhone and Android, Apache-2.0, pre-alpha; measured 2026-11-12)",
+    "url": "https://github.com/DIYgod/pinky",
+    "kind": "github",
+    "stats": {
+     "stars": 1990
+    },
+    "posted_at": "2026-11-06",
+    "measured_at": "2026-11-12"
+   },
+   {
+    "label": "GitHub: JosssphZhou/poki, 'Poki uses your iPhone like you do' (local MCP server for Claude Code or Codex, AGPL-3.0; measured 2026-11-12)",
+    "url": "https://github.com/JosssphZhou/poki",
+    "kind": "github",
+    "stats": {
+     "stars": 1022
+    },
+    "posted_at": "2026-11-05",
+    "measured_at": "2026-11-12"
+   },
+   {
+    "label": "GitHub: lxe/phoneuse, see and operate an unmodified iPhone from a Linux PC (MIT; measured 2026-11-12)",
+    "url": "https://github.com/lxe/phoneuse",
+    "kind": "github",
+    "stats": {
+     "stars": 628
+    },
+    "posted_at": "2026-11-07",
+    "measured_at": "2026-11-12"
+   },
+   {
+    "label": "Poki website (checked 2026-11-12)",
+    "url": "https://poki.bot",
+    "kind": "official"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "phone",
+   "iphone",
+   "android",
+   "phone use",
+   "mcp",
+   "claude code",
+   "codex",
+   "approvals",
+   "open source"
+  ],
+  "seo_title": "Let an AI agent use your iPhone or Android phone safely",
+  "date_added": "2026-11-12",
+  "origin": "pipeline",
+  "last_checked": "2026-11-12"
+ },
+ {
+  "slug": "back-up-your-ai-agent-and-move-it-to-a-new-computer",
+  "title": "Back up your AI agent so you never lose its memory (and move it to a new computer)",
+  "category": "work",
+  "source_date": "2026-11-11",
+  "summary": "If your agent runs on your own computer or server, its memory, chats, automations and logins live in a folder that one crash could wipe. OpenClaw has a built-in backup and restore, and one user just moved 9 agents and 800+ sessions to a bigger server with 11 minutes of downtime.",
+  "what_the_bot_does": [
+   "Pauses the agent so nothing changes while the backup is made.",
+   "Packs its settings, memory files, chat history, automations and saved logins into one checked backup file.",
+   "Restores that file on a new computer or server into a fresh folder, without touching anything live.",
+   "Runs a health check, then starts the agent again so conversations pick up where they left off."
+  ],
+  "what_you_end_up_with": "A tested backup file of your agent you can restore any time, or the same agent running on a new machine with its memory and automations intact.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "openclaw",
+    "note": "Built-in 'openclaw backup create' and 'openclaw backup restore'"
+   },
+   {
+    "id": "hermes-agent",
+    "note": "Back up its folder the same way; check its docs for the exact steps"
+   }
+  ],
+  "prompt": "Help me back up my [OpenClaw] agent safely. Walk me through it one step at a time in plain words: stop it, make a verified backup file, and tell me where the file is. Then help me test restoring it into an empty folder so I know the backup works. Don't delete or overwrite anything from my current setup, and don't print any API keys or passwords on screen.",
+  "setup": [
+   "Find where your agent keeps its data. For OpenClaw, run 'openclaw status' to see the folder (usually ~/.openclaw).",
+   "Stop the agent first ('openclaw gateway stop'), then make a checked backup: 'openclaw backup create --output ~/Backups/openclaw --verify'.",
+   "Copy the backup file somewhere safe: an external drive or private cloud storage. It contains your keys and logins, so treat it like a password.",
+   "To move: install the same OpenClaw version on the new machine, run 'openclaw backup restore <file> --target ~/openclaw-restored', point OpenClaw at it, then run 'openclaw doctor' and restart.",
+   "Do a quick test chat and check your automations ran before you switch off the old machine."
+  ],
+  "watch_out": [
+   "The backup holds API keys, logins and chat history. Store it encrypted or somewhere private, never in a public folder.",
+   "OpenClaw's docs say to stop the agent before backing up, because copying files while it runs can save a broken database.",
+   "Restoring old chat-app logins (like WhatsApp) can get out of sync; you may need to reconnect them. Plugins also need reinstalling.",
+   "If you're retiring an old server, it's a good time to change your API keys (OpenClaw migration guide)."
+  ],
+  "sources": [
+   {
+    "label": "X post by @hgruenhagen (2026-11-11): 'My @openclaw agent just moved itself to a bigger server: downtime just 11 minutes', 9 agents and 800+ sessions carried over",
+    "url": "https://x.com/hgruenhagen/status/2120611235204841909",
+    "kind": "x"
+   },
+   {
+    "label": "OpenClaw docs: Migration guide, move OpenClaw to a new machine (checked 2026-11-12)",
+    "url": "https://docs.openclaw.ai/install/migrating",
+    "kind": "docs"
+   },
+   {
+    "label": "OpenClaw docs: Backups and restore (checked 2026-11-12)",
+    "url": "https://docs.openclaw.ai/install/backups",
+    "kind": "docs"
+   },
+   {
+    "label": "MacMyths: OpenClaw backup and restore, full archives, databases and server moves",
+    "url": "https://macmyths.com/how-to-back-up-and-restore-openclaw/",
+    "kind": "article"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2120611235204841909",
+   "author": "@hgruenhagen",
+   "url": "https://x.com/hgruenhagen/status/2120611235204841909",
+   "posted_at": "2026-11-11",
+   "likes": 50,
+   "reposts": 3,
+   "replies": 14,
+   "bookmarks": 17,
+   "views": 2860,
+   "measured_at": "2026-11-12"
+  },
+  "tags": [
+   "backup",
+   "restore",
+   "migrate",
+   "openclaw",
+   "server",
+   "self-hosted",
+   "memory"
+  ],
+  "seo_title": "How to back up and move your OpenClaw agent",
+  "date_added": "2026-11-12",
+  "origin": "pipeline",
+  "last_checked": "2026-11-12"
+ },
+ {
   "slug": "let-ai-agents-dig-through-public-data-for-your-hobby",
   "title": "Let AI agents dig through public data on a hobby question (and try to prove you wrong)",
   "category": "work",
@@ -50,15 +230,15 @@
     "kind": "article"
    },
    {
-    "label": "Hacker News: 'Google SWE points 48 AI agents at NASA Lidar, finds unmapped Maya pyramid in 72h' (759 points, 283 comments, measured 2026-11-11)",
+    "label": "Hacker News: 'My AI agents found an unmapped Maya site?' (1,023 points, 385 comments, measured 2026-11-12)",
     "url": "https://news.ycombinator.com/item?id=50452455",
     "kind": "hn",
     "stats": {
-     "points": 759,
-     "comments": 283
+     "points": 1023,
+     "comments": 385
     },
     "posted_at": "2026-11-11",
-    "measured_at": "2026-11-11"
+    "measured_at": "2026-11-12"
    },
    {
     "label": "NASA ExoFOP: TIC 4206066 is now TOI 7930, both signals listed as planet candidates (checked 2026-11-11)",
@@ -82,12 +262,12 @@
    "author": "@p_rabtsevich",
    "url": "https://x.com/p_rabtsevich/status/2107803696058822742",
    "posted_at": "2026-10-07",
-   "likes": 8730,
+   "likes": 8732,
    "reposts": 837,
    "replies": 306,
-   "bookmarks": 2424,
-   "views": 1217482,
-   "measured_at": "2026-11-11"
+   "bookmarks": 2423,
+   "views": 1217895,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "research",
@@ -105,7 +285,7 @@
   "seo_title": "Use AI agents to research a hobby question with public data",
   "date_added": "2026-11-11",
   "origin": "pipeline",
-  "last_checked": "2026-11-11"
+  "last_checked": "2026-11-12"
  },
  {
   "slug": "hand-your-agent-an-errand-from-your-watch",
@@ -177,12 +357,12 @@
    "author": "@Muse",
    "url": "https://x.com/Muse/status/2119919277692383330",
    "posted_at": "2026-11-09",
-   "likes": 4924,
-   "reposts": 675,
+   "likes": 4949,
+   "reposts": 677,
    "replies": 241,
-   "bookmarks": 610,
-   "views": 448227,
-   "measured_at": "2026-11-11"
+   "bookmarks": 611,
+   "views": 458647,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "smartwatch",
@@ -470,8 +650,8 @@
    "reposts": 5,
    "replies": 2,
    "bookmarks": 1,
-   "views": 507,
-   "measured_at": "2026-11-11"
+   "views": 508,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "family history",
@@ -1107,6 +1287,17 @@
     "kind": "official"
    },
    {
+    "label": "Hacker News: 'United Airlines bans AI agents from booking flights on behalf of travelers' (CBS News; 641 points, 667 comments, measured 2026-11-12)",
+    "url": "https://news.ycombinator.com/item?id=50458900",
+    "kind": "hn",
+    "stats": {
+     "points": 641,
+     "comments": 667
+    },
+    "posted_at": "2026-11-11",
+    "measured_at": "2026-11-12"
+   },
+   {
     "label": "Google blog: How to book travel with AI Mode in Google Search (flight options from 300+ airlines and sites, price tracking, buy on the airline's site)",
     "url": "https://blog.google/products-and-platforms/products/search/book-travel-ai-mode/",
     "kind": "official"
@@ -1715,7 +1906,7 @@
    "replies": 21,
    "bookmarks": 2,
    "views": 4485,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "IFTTT",
@@ -1817,12 +2008,12 @@
    "author": "@ChatGPT",
    "url": "https://x.com/ChatGPT/status/2115139248458191070",
    "posted_at": "2026-10-27",
-   "likes": 5825,
+   "likes": 5826,
    "reposts": 391,
-   "replies": 402,
-   "bookmarks": 1054,
-   "views": 2122141,
-   "measured_at": "2026-11-11"
+   "replies": 403,
+   "bookmarks": 1055,
+   "views": 2124872,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "iCloud",
@@ -2010,8 +2201,8 @@
    "reposts": 7,
    "replies": 25,
    "bookmarks": 66,
-   "views": 39411,
-   "measured_at": "2026-11-11"
+   "views": 39458,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "online shopping",
@@ -2093,12 +2284,12 @@
    "author": "@noahrshinn",
    "url": "https://x.com/noahrshinn/status/2115143830924341534",
    "posted_at": "2026-10-27",
-   "likes": 1087,
+   "likes": 1086,
    "reposts": 35,
    "replies": 98,
    "bookmarks": 316,
-   "views": 371844,
-   "measured_at": "2026-11-11"
+   "views": 372150,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "group chat",
@@ -2650,8 +2841,8 @@
    "reposts": 88,
    "replies": 175,
    "bookmarks": 814,
-   "views": 1045181,
-   "measured_at": "2026-11-11"
+   "views": 1045398,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "podcast",
@@ -3093,7 +3284,7 @@
    "replies": 0,
    "bookmarks": 1,
    "views": 163,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "phone calls",
@@ -3312,8 +3503,8 @@
    "reposts": 5,
    "replies": 13,
    "bookmarks": 26,
-   "views": 5898,
-   "measured_at": "2026-11-11"
+   "views": 5899,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "proactive",
@@ -3505,7 +3696,7 @@
    "replies": 12,
    "bookmarks": 0,
    "views": 1107,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "fact check",
@@ -3608,12 +3799,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 333,
+   "likes": 332,
    "reposts": 15,
    "replies": 34,
-   "bookmarks": 190,
-   "views": 178947,
-   "measured_at": "2026-11-11"
+   "bookmarks": 189,
+   "views": 178955,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "second brain",
@@ -3821,7 +4012,7 @@
    "replies": 20,
    "bookmarks": 30,
    "views": 5448,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "read later",
@@ -3907,7 +4098,7 @@
    "replies": 4,
    "bookmarks": 6,
    "views": 1781,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "contact form",
@@ -4116,7 +4307,7 @@
    "replies": 3,
    "bookmarks": 6,
    "views": 586,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "schedule",
@@ -4496,8 +4687,8 @@
    "reposts": 15,
    "replies": 26,
    "bookmarks": 504,
-   "views": 25537,
-   "measured_at": "2026-11-11"
+   "views": 25540,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "multi-agent",
@@ -4590,8 +4781,8 @@
    "reposts": 29,
    "replies": 37,
    "bookmarks": 73,
-   "views": 46442,
-   "measured_at": "2026-11-11"
+   "views": 46444,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "multi-agent",
@@ -4682,7 +4873,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "voice",
@@ -4756,7 +4947,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 47,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "roadside assistance",
@@ -4853,7 +5044,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 399,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "computer use",
@@ -4924,8 +5115,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 0,
-   "views": 913,
-   "measured_at": "2026-11-11"
+   "views": 914,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "contractors",
@@ -4995,7 +5186,7 @@
    "replies": 5,
    "bookmarks": 0,
    "views": 131,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "used car",
@@ -5058,8 +5249,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7528,
-   "measured_at": "2026-11-11"
+   "views": 7540,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "pharmacy",
@@ -5142,8 +5333,8 @@
    "reposts": 24,
    "replies": 29,
    "bookmarks": 232,
-   "views": 326883,
-   "measured_at": "2026-11-11"
+   "views": 326938,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "newsletters",
@@ -5246,9 +5437,9 @@
    "likes": 852,
    "reposts": 91,
    "replies": 192,
-   "bookmarks": 998,
-   "views": 1227429,
-   "measured_at": "2026-11-11"
+   "bookmarks": 996,
+   "views": 1227728,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "phone call",
@@ -5414,8 +5605,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 4,
-   "views": 564,
-   "measured_at": "2026-11-11"
+   "views": 567,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "spam calls",
@@ -5487,9 +5678,9 @@
    "likes": 66,
    "reposts": 3,
    "replies": 8,
-   "bookmarks": 37,
-   "views": 5460,
-   "measured_at": "2026-11-11"
+   "bookmarks": 36,
+   "views": 5461,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "food log",
@@ -5582,8 +5773,8 @@
    "reposts": 3,
    "replies": 12,
    "bookmarks": 14,
-   "views": 3133,
-   "measured_at": "2026-11-11"
+   "views": 3134,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "phone call",
@@ -5774,9 +5965,9 @@
    "likes": 1010,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2886,
-   "views": 312067,
-   "measured_at": "2026-11-11"
+   "bookmarks": 2885,
+   "views": 312101,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "meal plan",
@@ -5852,8 +6043,8 @@
    "reposts": 34,
    "replies": 37,
    "bookmarks": 1161,
-   "views": 67460,
-   "measured_at": "2026-11-11"
+   "views": 67503,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "calendar",
@@ -5946,8 +6137,8 @@
    "reposts": 35,
    "replies": 157,
    "bookmarks": 718,
-   "views": 83451,
-   "measured_at": "2026-11-11"
+   "views": 83480,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "personal agent",
@@ -6027,8 +6218,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 212,
-   "views": 41493,
-   "measured_at": "2026-11-11"
+   "views": 41499,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "scams",
@@ -6107,12 +6298,12 @@
    "author": "@saviomartin",
    "url": "https://x.com/saviomartin/status/2109330165381910817",
    "posted_at": "2026-10-11",
-   "likes": 164,
+   "likes": 165,
    "reposts": 14,
    "replies": 29,
    "bookmarks": 118,
-   "views": 25479,
-   "measured_at": "2026-11-11"
+   "views": 25493,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "family chat",
@@ -6201,8 +6392,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4099,
-   "measured_at": "2026-11-11"
+   "views": 4100,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "groceries",
@@ -6282,7 +6473,7 @@
    "replies": 12,
    "bookmarks": 11,
    "views": 9685,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "travel",
@@ -6350,8 +6541,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 2321,
-   "measured_at": "2026-11-11"
+   "views": 2323,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "flights",
@@ -6500,8 +6691,8 @@
    "reposts": 23,
    "replies": 63,
    "bookmarks": 241,
-   "views": 93775,
-   "measured_at": "2026-11-11"
+   "views": 93778,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "restaurant",
@@ -6570,8 +6761,8 @@
    "reposts": 4,
    "replies": 9,
    "bookmarks": 27,
-   "views": 4066,
-   "measured_at": "2026-11-11"
+   "views": 4068,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "appointment",
@@ -6665,8 +6856,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9215,
-   "measured_at": "2026-11-11"
+   "views": 9216,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "receipts",
@@ -6757,8 +6948,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 272,
-   "views": 9892,
-   "measured_at": "2026-11-11"
+   "views": 9913,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "chief of staff",
@@ -6817,8 +7008,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1893,
-   "measured_at": "2026-11-11"
+   "views": 1895,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "multiple brands",
@@ -6892,7 +7083,7 @@
    "replies": 12,
    "bookmarks": 27,
    "views": 3253,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "real estate",
@@ -6992,8 +7183,8 @@
    "reposts": 0,
    "replies": 0,
    "bookmarks": 0,
-   "views": 83,
-   "measured_at": "2026-11-11"
+   "views": 84,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "paper mail",
@@ -7082,7 +7273,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 79,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "monitoring",
@@ -7152,8 +7343,8 @@
    "reposts": 2,
    "replies": 6,
    "bookmarks": 1,
-   "views": 1450,
-   "measured_at": "2026-11-11"
+   "views": 1451,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "follow up",
@@ -7226,8 +7417,8 @@
    "reposts": 4,
    "replies": 7,
    "bookmarks": 54,
-   "views": 4945,
-   "measured_at": "2026-11-11"
+   "views": 4946,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "leads",
@@ -7322,8 +7513,8 @@
    "reposts": 1,
    "replies": 2,
    "bookmarks": 19,
-   "views": 2159,
-   "measured_at": "2026-11-11"
+   "views": 2160,
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "email",
@@ -7977,7 +8168,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 810,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "marketplace",
@@ -8245,7 +8436,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1506,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "payments",
@@ -8320,7 +8511,7 @@
    "replies": 4,
    "bookmarks": 3,
    "views": 908,
-   "measured_at": "2026-11-11"
+   "measured_at": "2026-11-12"
   },
   "tags": [
    "ads",
@@ -9328,8 +9519,8 @@
    "reposts": 1,
    "replies": 3,
    "bookmarks": 3,
-   "views": 1373,
-   "measured_at": "2026-11-11"
+   "views": 1374,
+   "measured_at": "2026-11-12"
   },
   "origin": "migrated-2026-10-19"
  },
@@ -10658,7 +10849,8 @@
    "Home Assistant's docs call device control through Ollama an experimental feature. Expose only the devices you're happy for it to touch.",
    "Small local models can misunderstand. Keep locks, alarms and heating behind a confirmation step.",
    "A local model needs a reasonably capable computer to answer quickly.",
-   "Letting Claude or ChatGPT set up your automations (for example with the HA-MCP add-on) means giving it an administrator token. Its own guide suggests a separate local-only admin account for the AI, not your own login, and you should review each automation before you rely on it."
+   "Letting Claude or ChatGPT set up your automations (for example with the HA-MCP add-on) means giving it an administrator token. Its own guide suggests a separate local-only admin account for the AI, not your own login, and you should review each automation before you rely on it.",
+   "Reusing an old Echo with Hermes Voice means unlocking it with a community firmware tool; its README warns that some Amazon updates block the unlock, so check the exact model and software version before buying a used one."
   ],
   "sources": [
    {
@@ -10718,6 +10910,16 @@
      "stars": 7145
     },
     "measured_at": "2026-11-11"
+   },
+   {
+    "label": "GitHub: majorminorlabs/hermes-voice, talk to a Hermes Agent profile out loud through Home Assistant Assist on an old Amazon Echo (MIT; measured 2026-11-12)",
+    "url": "https://github.com/majorminorlabs/hermes-voice",
+    "kind": "github",
+    "stats": {
+     "stars": 685
+    },
+    "posted_at": "2026-11-05",
+    "measured_at": "2026-11-12"
    }
   ],
   "tags": [
@@ -10729,7 +10931,7 @@
    "Ollama"
   ],
   "date_added": "2026-10-24",
-  "last_checked": "2026-11-11",
+  "last_checked": "2026-11-12",
   "origin": "community-backfill-2026-10-24",
   "popularity": null
  },
@@ -10843,14 +11045,37 @@
    "Google Meet: in a meeting, select the Gemini notes option (“Take notes for me”). The organizer gets an email with the notes after the call.",
    "Other apps: turn on the call's transcript, or use an open-source note taker like Meetily that runs on your own computer.",
    "For a transcript, paste it into ChatGPT, Claude or Gemini with the prompt.",
-   "Read the action items and fix anything wrong before you share them."
+   "Read the action items and fix anything wrong before you share them.",
+   "Want it free and private? Yogurt (free, open source, Mac/Windows/Linux) records your calls on your own computer without adding a bot to the meeting, writes the summary and next steps, and keeps the audio and AI processing on your machine."
   ],
   "watch_out": [
    "Tell people the call is being recorded or transcribed, and follow your workplace's rules. Some places require everyone's consent.",
    "Google's help page says “Take notes for me” works in a limited set of languages, one language per meeting.",
-   "AI notes can misattribute who said what. Check names on action items before sending."
+   "AI notes can misattribute who said what. Check names on action items before sending.",
+   "Tools that record without a bot joining the call (like Yogurt) are invisible to other people, so say out loud that you're recording."
   ],
   "sources": [
+   {
+    "label": "Hacker News: 'Show HN: Yogurt – Free, private, open-source alternative to Granola' (280 points, 108 comments, measured 2026-11-12)",
+    "url": "https://news.ycombinator.com/item?id=50454625",
+    "kind": "hn",
+    "stats": {
+     "points": 280,
+     "comments": 108
+    },
+    "posted_at": "2026-11-11",
+    "measured_at": "2026-11-12"
+   },
+   {
+    "label": "GitHub: FrigadeHQ/yogurt, private AI meeting notes that record without adding a bot to the call (Mac, Windows, Linux; MIT; measured 2026-11-12)",
+    "url": "https://github.com/FrigadeHQ/yogurt",
+    "kind": "github",
+    "stats": {
+     "stars": 826
+    },
+    "posted_at": "2026-11-10",
+    "measured_at": "2026-11-12"
+   },
    {
     "label": "Hacker News: “Launch HN: Hyprnote (YC S25) – An open-source AI meeting notetaker”",
     "url": "https://news.ycombinator.com/item?id=44725306",
@@ -10895,7 +11120,7 @@
    "Google Meet"
   ],
   "date_added": "2026-10-24",
-  "last_checked": "2026-10-24",
+  "last_checked": "2026-11-12",
   "origin": "community-backfill-2026-10-24",
   "popularity": null
  },

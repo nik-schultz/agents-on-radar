@@ -4,10 +4,75 @@ There's a bot for that. Here's how.
 
 A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
 
+## Let an AI agent tap through your phone apps for you (and ask before it sends or pays)
+URL: https://botsdothat.com/use-cases/let-an-ai-agent-tap-through-your-phone-for-you/
+Category: Work & career | Difficulty: Advanced | Added: 2026-11-12
+Popularity: not measured
+
+New free, open-source tools let an AI agent open apps on your real iPhone or Android phone, tap, scroll, type and read the screen, while you watch on your computer. It's handy for app-only chores like checking fares in an airline app, and the best ones hold every send, payment or delete until you click Allow.
+
+What the bot does:
+1. Connects to your phone through a small app on your computer (over USB, or Wi-Fi once paired).
+2. Opens the app you name and works through it like a person: taps buttons, scrolls, types into fields and reads what's on the screen.
+3. Stops and waits for your OK before risky steps such as sending a message, paying, deleting or installing something.
+4. Lets you take over at any moment, then hand control back.
+5. Keeps a step-by-step record with screenshots so you can check exactly what it did.
+
+What you end up with: An app-only chore done on your own phone, such as fares read back from an airline app or a form filled in, with a record of every tap and nothing sent or paid without your click.
+
+Tools: Claude, ChatGPT
+
+Prompt:
+Use my phone to [task, e.g. open my airline's app and find the cheapest flight home this Friday]. Only use the [app name] app. Read back what you find before doing anything else. Do not send any message, buy, pay, book, delete or change settings without asking me first, and stop if you hit a login, password or one-time code.
+
+Watch out:
+- These are early tools. Pinky's own page calls it pre-alpha, and Poki's free Apple Account signing has to be renewed every 7 days.
+- Anything the agent taps really happens. Turn on 'ask first' for sends and payments, and keep banking, wallet and password apps off-limits (Pinky hides them by default).
+- Text on a web page or in an app can try to trick an agent. Pinky enforces its approvals outside the agent so the agent can't approve itself, but you should still watch the first few runs.
+- Setup is technical: developer settings on the phone, a USB cable and an agent on your computer. If that's too much, try a phone-based assistant first.
+
+Sources:
+- GitHub: DIYgod/pinky, 'Let AI agents use your phone, with you in the loop' (iPhone and Android, Apache-2.0, pre-alpha; measured 2026-11-12): https://github.com/DIYgod/pinky
+- GitHub: JosssphZhou/poki, 'Poki uses your iPhone like you do' (local MCP server for Claude Code or Codex, AGPL-3.0; measured 2026-11-12): https://github.com/JosssphZhou/poki
+- GitHub: lxe/phoneuse, see and operate an unmodified iPhone from a Linux PC (MIT; measured 2026-11-12): https://github.com/lxe/phoneuse
+- Poki website (checked 2026-11-12): https://poki.bot
+
+## Back up your AI agent so you never lose its memory (and move it to a new computer)
+URL: https://botsdothat.com/use-cases/back-up-your-ai-agent-and-move-it-to-a-new-computer/
+Category: Work & career | Difficulty: Medium | Added: 2026-11-12
+Popularity: 50 likes, 3 reposts on X (https://x.com/hgruenhagen/status/2120611235204841909, measured 2026-11-12)
+
+If your agent runs on your own computer or server, its memory, chats, automations and logins live in a folder that one crash could wipe. OpenClaw has a built-in backup and restore, and one user just moved 9 agents and 800+ sessions to a bigger server with 11 minutes of downtime.
+
+What the bot does:
+1. Pauses the agent so nothing changes while the backup is made.
+2. Packs its settings, memory files, chat history, automations and saved logins into one checked backup file.
+3. Restores that file on a new computer or server into a fresh folder, without touching anything live.
+4. Runs a health check, then starts the agent again so conversations pick up where they left off.
+
+What you end up with: A tested backup file of your agent you can restore any time, or the same agent running on a new machine with its memory and automations intact.
+
+Tools: OpenClaw, Hermes Agent
+
+Prompt:
+Help me back up my [OpenClaw] agent safely. Walk me through it one step at a time in plain words: stop it, make a verified backup file, and tell me where the file is. Then help me test restoring it into an empty folder so I know the backup works. Don't delete or overwrite anything from my current setup, and don't print any API keys or passwords on screen.
+
+Watch out:
+- The backup holds API keys, logins and chat history. Store it encrypted or somewhere private, never in a public folder.
+- OpenClaw's docs say to stop the agent before backing up, because copying files while it runs can save a broken database.
+- Restoring old chat-app logins (like WhatsApp) can get out of sync; you may need to reconnect them. Plugins also need reinstalling.
+- If you're retiring an old server, it's a good time to change your API keys (OpenClaw migration guide).
+
+Sources:
+- X post by @hgruenhagen (2026-11-11): 'My @openclaw agent just moved itself to a bigger server: downtime just 11 minutes', 9 agents and 800+ sessions carried over: https://x.com/hgruenhagen/status/2120611235204841909
+- OpenClaw docs: Migration guide, move OpenClaw to a new machine (checked 2026-11-12): https://docs.openclaw.ai/install/migrating
+- OpenClaw docs: Backups and restore (checked 2026-11-12): https://docs.openclaw.ai/install/backups
+- MacMyths: OpenClaw backup and restore, full archives, databases and server moves: https://macmyths.com/how-to-back-up-and-restore-openclaw/
+
 ## Let AI agents dig through public data on a hobby question (and try to prove you wrong)
 URL: https://botsdothat.com/use-cases/let-ai-agents-dig-through-public-data-for-your-hobby/
 Category: Work & career | Difficulty: Advanced | Added: 2026-11-11
-Popularity: 8730 likes, 837 reposts on X (https://x.com/p_rabtsevich/status/2107803696058822742, measured 2026-11-11)
+Popularity: 8732 likes, 837 reposts on X (https://x.com/p_rabtsevich/status/2107803696058822742, measured 2026-11-12)
 
 Two non-scientists just used teams of AI agents on free public data: one found a Maya ruin hidden under jungle in NASA lidar scans overnight, the other turned up two planet candidates that NASA's TESS team has now listed. You pick the question and the rules; the agents do the hours of looking, checking and writing up.
 
@@ -34,7 +99,7 @@ Watch out:
 
 Sources:
 - Pietro Miotti blog (updated 2026-11-11): 'My AI Agents Found an Unmapped Maya Site', 48 agents read NASA lidar overnight; later found to be already mapped in a 2025 paper: https://pietromiotti.com/latest/maya-site/
-- Hacker News: 'Google SWE points 48 AI agents at NASA Lidar, finds unmapped Maya pyramid in 72h' (759 points, 283 comments, measured 2026-11-11): https://news.ycombinator.com/item?id=50452455
+- Hacker News: 'My AI agents found an unmapped Maya site?' (1,023 points, 385 comments, measured 2026-11-12): https://news.ycombinator.com/item?id=50452455
 - NASA ExoFOP: TIC 4206066 is now TOI 7930, both signals listed as planet candidates (checked 2026-11-11): https://exofop.ipac.caltech.edu/tess/target.php?id=4206066
 - Gizmodo: Did Claude help an amateur astronomer discover a new planet? (74 tests with Claude Code, Codex as a second check): https://gizmodo.com/did-claude-help-an-amateur-astronomer-discover-a-new-planet-2000824393
 - X thread by @p_rabtsevich (2026-10-07): 'I think I found a planet nobody knew existed', built with Claude Code and Codex: https://x.com/p_rabtsevich/status/2107803696058822742
@@ -42,7 +107,7 @@ Sources:
 ## Hand your agent a quick errand from your smartwatch
 URL: https://botsdothat.com/use-cases/hand-your-agent-an-errand-from-your-watch/
 Category: Bookings & travel | Difficulty: Easy | Added: 2026-11-10
-Popularity: 4924 likes, 675 reposts on X (https://x.com/Muse/status/2119919277692383330, measured 2026-11-11)
+Popularity: 4949 likes, 677 reposts on X (https://x.com/Muse/status/2119919277692383330, measured 2026-11-12)
 
 Meta's Muse agent now has an Apple Watch and Wear OS app. Say or type a quick errand on your wrist, like finding movie tickets or fixing a calendar clash, and approve the result without pulling out your phone.
 
@@ -147,7 +212,7 @@ Sources:
 ## Have an AI agent research your family history for you
 URL: https://botsdothat.com/use-cases/research-your-family-history-with-an-ai-agent/
 Category: Family & home | Difficulty: Easy | Added: 2026-11-05
-Popularity: 6 likes, 5 reposts on X (https://x.com/MyHeritage/status/2117929712404328556, measured 2026-11-11)
+Popularity: 6 likes, 5 reposts on X (https://x.com/MyHeritage/status/2117929712404328556, measured 2026-11-12)
 
 MyHeritage just launched GAIA, an AI research agent that takes a question like 'who were my great-grandfather's parents?', searches old records and your family tree on its own, and shows you what it found with a confidence rating. Nothing goes into your tree until you approve it.
 
@@ -430,6 +495,7 @@ Questions:
 
 Sources:
 - OpenAI Help Center: Using cloud browser in ChatGPT (asks for confirmation before booking or paying; some sites need you to finish): https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt
+- Hacker News: 'United Airlines bans AI agents from booking flights on behalf of travelers' (CBS News; 641 points, 667 comments, measured 2026-11-12): https://news.ycombinator.com/item?id=50458900
 - Google blog: How to book travel with AI Mode in Google Search (flight options from 300+ airlines and sites, price tracking, buy on the airline's site): https://blog.google/products-and-platforms/products/search/book-travel-ai-mode/
 - Hacker News comment (Sep 30, 2026): ChatGPT Dots booked a trip but re-asked for confirmation and wouldn't fetch 2FA codes: https://news.ycombinator.com/item?id=49904198
 - Show HN (Oct 2026): flight booking in Claude via an MCP connector, airline charges your card directly: https://news.ycombinator.com/item?id=50174185
@@ -626,7 +692,7 @@ Sources:
 ## Describe an automation in plain words and let IFTTT's AI build and run it
 URL: https://botsdothat.com/use-cases/tell-ifttt-what-to-automate-in-plain-words/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-29
-Popularity: 35 likes, 5 reposts on X (https://x.com/ltibbets/status/2115481237808726130, measured 2026-11-11)
+Popularity: 35 likes, 5 reposts on X (https://x.com/ltibbets/status/2115481237808726130, measured 2026-11-12)
 
 IFTTT ("if this, then that") is now IFTTT.ai. You type what you want, like "when a package is delivered, flash my lights" or "email me when it's going to rain tomorrow", and it builds the automation and runs it around the clock. Its new AI Agent can also watch a web page for new items, or act across your connected apps from a plain-language instruction.
 
@@ -661,7 +727,7 @@ Sources:
 ## Let ChatGPT catch you up on your iCloud Mail and update your iPhone calendar
 URL: https://botsdothat.com/use-cases/let-chatgpt-run-your-icloud-mail-and-calendar/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-29
-Popularity: 5825 likes, 391 reposts on X (https://x.com/ChatGPT/status/2115139248458191070, measured 2026-11-11)
+Popularity: 5826 likes, 391 reposts on X (https://x.com/ChatGPT/status/2115139248458191070, measured 2026-11-12)
 
 If your email ends in @icloud.com, @me.com or @mac.com, ChatGPT can now read and search it, draft replies and add or move events on the calendar you see on your iPhone. It works on every ChatGPT plan, including Free, and ChatGPT's always-on dots can use it too.
 
@@ -731,7 +797,7 @@ Sources:
 ## Let your AI find and buy things for you with Shop Pay
 URL: https://botsdothat.com/use-cases/let-your-ai-shop-for-you-with-shop-pay/
 Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-29
-Popularity: 85 likes, 7 reposts on X (https://x.com/benjaminsehl/status/2110101061499539825, measured 2026-11-11)
+Popularity: 85 likes, 7 reposts on X (https://x.com/benjaminsehl/status/2110101061499539825, measured 2026-11-12)
 
 Connect Shopify's free Shop skill to ChatGPT or Claude (or use Shop Pay inside Muse, Instinct, Claude Duet or Grok Bot) and your AI can search online stores, fill in a checkout and pay with Shop Pay. You approve every purchase, and your card number is never handed to the AI.
 
@@ -764,7 +830,7 @@ Sources:
 ## Add an AI to your friends' group chat to make plans happen
 URL: https://botsdothat.com/use-cases/add-an-ai-to-your-friends-group-chat-to-make-plans/
 Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-28
-Popularity: 1087 likes, 35 reposts on X (https://x.com/noahrshinn/status/2115143830924341534, measured 2026-11-11)
+Popularity: 1086 likes, 35 reposts on X (https://x.com/noahrshinn/status/2115143830924341534, measured 2026-11-12)
 
 Instead of 60 messages about where and when, you add an AI agent to the iMessage group. It suggests options, gets everyone to agree, and then books the table, tickets or rental car for the group once someone says yes.
 
@@ -955,7 +1021,7 @@ Sources:
 ## Hand your podcast or video edit to a team of AI agents
 URL: https://botsdothat.com/use-cases/turn-a-recording-into-an-episode-clips-and-posts/
 Category: Small business & side hustles | Difficulty: Easy | Added: 2026-10-27
-Popularity: 666 likes, 88 reposts on X (https://x.com/NadavKeyson/status/2114759149770723804, measured 2026-11-11)
+Popularity: 666 likes, 88 reposts on X (https://x.com/NadavKeyson/status/2114759149770723804, measured 2026-11-12)
 
 Record your episode, then let a small team of agents do everything after: one plans the edit, one cuts short clips, one writes the captions and schedules the posts. Nothing goes live until you say yes.
 
@@ -1131,7 +1197,7 @@ Sources:
 ## Let a bot answer your phone and take messages for you
 URL: https://botsdothat.com/use-cases/let-a-bot-answer-and-screen-your-calls/
 Category: Inbox, calls & paperwork | Difficulty: Medium | Added: 2026-10-26
-Popularity: 1 likes, 0 reposts on X (https://x.com/pointmash/status/2113459229940203777, measured 2026-11-11)
+Popularity: 1 likes, 0 reposts on X (https://x.com/pointmash/status/2113459229940203777, measured 2026-11-12)
 
 Forward your calls to an agent with its own phone number. It picks up, says it's your AI assistant, talks to the caller, takes a message and sends you a short summary. People who use it say many spam callers simply hang up.
 
@@ -1210,7 +1276,7 @@ Sources:
 ## Get a bot that suggests your next moves twice a day
 URL: https://botsdothat.com/use-cases/proactive-next-moves-bot/
 Category: Work & career | Difficulty: Medium | Added: 2026-10-23
-Popularity: 47 likes, 5 reposts on X (https://x.com/mrfundman/status/2113621259279872107, measured 2026-11-11)
+Popularity: 47 likes, 5 reposts on X (https://x.com/mrfundman/status/2113621259279872107, measured 2026-11-12)
 
 Instead of waiting for you to ask, this bot looks through your email, calendar and notes twice a day and comes back with two or three things worth doing next, each with a draft already written. You say yes, edit, or skip.
 
@@ -1295,7 +1361,7 @@ Sources:
 ## Have two AIs check each other's answers
 URL: https://botsdothat.com/use-cases/have-two-ais-check-each-other/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-22
-Popularity: 29 likes, 0 reposts on X (https://x.com/emilios_eth/status/2112999610394542544, measured 2026-11-11)
+Popularity: 29 likes, 0 reposts on X (https://x.com/emilios_eth/status/2112999610394542544, measured 2026-11-12)
 
 Before you trust an important answer, have your bot ask a second AI the same question, compare the two, and check the real sources itself. Each AI catches mistakes the other missed.
 
@@ -1326,7 +1392,7 @@ Sources:
 ## Build a second brain your bot reads every morning
 URL: https://botsdothat.com/use-cases/build-a-second-brain-your-bot-reads/
 Category: Work & career | Difficulty: Medium | Added: 2026-10-22
-Popularity: 333 likes, 15 reposts on X (https://x.com/vinayp10/status/2113263397491855821, measured 2026-11-11)
+Popularity: 332 likes, 15 reposts on X (https://x.com/vinayp10/status/2113263397491855821, measured 2026-11-12)
 
 Keep your notes, plans and to-dos in plain files you own, plus one short "about me" file. Your bot reads them at the start of every chat, so it remembers who you are and picks up where you left off.
 
@@ -1413,7 +1479,7 @@ Sources:
 ## Send a long video or thread to your bot with one reply
 URL: https://botsdothat.com/use-cases/send-a-long-video-or-thread-to-your-bot/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-21
-Popularity: 66 likes, 6 reposts on X (https://x.com/Texas_Twins_Dad/status/2112662250225811697, measured 2026-11-11)
+Popularity: 66 likes, 6 reposts on X (https://x.com/Texas_Twins_Dad/status/2112662250225811697, measured 2026-11-12)
 
 See a long video or X thread you don't have time for? Reply to it by tagging your bot, and a short summary waits for you in your bot's app later.
 
@@ -1443,7 +1509,7 @@ Sources:
 ## Let your bot handle your website's contact email
 URL: https://botsdothat.com/use-cases/let-your-bot-handle-your-sites-contact-email/
 Category: Small business & side hustles | Difficulty: Medium | Added: 2026-10-21
-Popularity: 37 likes, 2 reposts on X (https://x.com/Texas_Twins_Dad/status/2112926907549323538, measured 2026-11-11)
+Popularity: 37 likes, 2 reposts on X (https://x.com/Texas_Twins_Dad/status/2112926907549323538, measured 2026-11-12)
 
 Forward the contact address of your website, club or class to your bot's own email. It reads each message, sums it up for you, and only answers when you say so.
 
@@ -1532,7 +1598,7 @@ Sources:
 ## Stop always-on bots burning tokens: run them less often
 URL: https://botsdothat.com/use-cases/schedule-bots-without-burning-tokens/
 Category: Run your bots for less | Difficulty: Easy | Added: 2026-10-21
-Popularity: 11 likes, 1 reposts on X (https://x.com/sunfellow/status/2112585672657969563, measured 2026-11-11)
+Popularity: 11 likes, 1 reposts on X (https://x.com/sunfellow/status/2112585672657969563, measured 2026-11-12)
 
 Every scheduled run costs tokens, even when nothing has changed. Match the schedule to how often the thing really changes, and switch fun-but-idle bots to run only when you ask.
 
@@ -1713,7 +1779,7 @@ Sources:
 ## Give your agents a shared Apple account for notes and reminders
 URL: https://botsdothat.com/use-cases/give-your-agents-a-shared-apple-account/
 Category: Work & career | Difficulty: Advanced | Added: 2026-10-21
-Popularity: 251 likes, 15 reposts on X (https://x.com/BrianRoemmele/status/2109351823996035338, measured 2026-11-11)
+Popularity: 251 likes, 15 reposts on X (https://x.com/BrianRoemmele/status/2109351823996035338, measured 2026-11-12)
 
 A Mac signed in to a separate Apple Account can become the shared desk where your agents leave each other reminders, notes, calendar events and messages, while your personal account stays private.
 
@@ -1740,7 +1806,7 @@ Sources:
 ## Put a small team of agents on one project, each with its own job
 URL: https://botsdothat.com/use-cases/team-of-agents-with-roles/
 Category: Small business & side hustles | Difficulty: Advanced | Added: 2026-10-21
-Popularity: 183 likes, 29 reposts on X (https://x.com/Parul_Gautam7/status/2108202625929970077, measured 2026-11-11)
+Popularity: 183 likes, 29 reposts on X (https://x.com/Parul_Gautam7/status/2108202625929970077, measured 2026-11-12)
 
 Instead of one chatbot doing everything, give separate agents separate roles (one researches, one builds) and let them hand work to each other in a shared conversation you can watch.
 
@@ -1771,7 +1837,7 @@ Sources:
 ## Hand off tasks to your agent by voice while you drive
 URL: https://botsdothat.com/use-cases/hand-off-tasks-by-voice-while-driving/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-21
-Popularity: 1 likes, 0 reposts on X (https://x.com/nmtalkss/status/2107157837134843995, measured 2026-11-11)
+Popularity: 1 likes, 0 reposts on X (https://x.com/nmtalkss/status/2107157837134843995, measured 2026-11-12)
 
 Long drive? Talk to your agent on a voice call and hand off research, follow-ups and to-dos, then find them done when you arrive. Since Nov 11, 2026 Gemini works on Apple CarPlay too, so ChatGPT, Claude, Grok and Gemini can all be reached from the car screen.
 
@@ -1804,7 +1870,7 @@ Sources:
 ## Get roadside help abroad when nobody speaks your language
 URL: https://botsdothat.com/use-cases/get-roadside-help-abroad/
 Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-21
-Popularity: 0 likes, 0 reposts on X (https://x.com/farmerathlete/status/2111861042531782681, measured 2026-11-11)
+Popularity: 0 likes, 0 reposts on X (https://x.com/farmerathlete/status/2111861042531782681, measured 2026-11-12)
 
 Broken down in another country and the insurer's phone line is in a language you don't speak? An agent can find the right help form, fill it in with your details and get help moving.
 
@@ -1831,7 +1897,7 @@ Sources:
 ## Hand a clunky web form to an agent that uses the computer
 URL: https://botsdothat.com/use-cases/hand-a-clunky-web-form-to-an-agent/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-21
-Popularity: 3 likes, 0 reposts on X (https://x.com/brian_a_burns/status/2112326114542858689, measured 2026-11-11)
+Popularity: 3 likes, 0 reposts on X (https://x.com/brian_a_burns/status/2112326114542858689, measured 2026-11-12)
 
 Some software you only touch once a year. A computer-use agent can click through it for you, from a login you control, while you watch.
 
@@ -1862,7 +1928,7 @@ Sources:
 ## Have an agent line up contractor quotes for a home project
 URL: https://botsdothat.com/use-cases/line-up-contractors-for-a-home-project/
 Category: Family & home | Difficulty: Medium | Added: 2026-10-21
-Popularity: 8 likes, 0 reposts on X (https://x.com/NaughtyNomad/status/2094720744030642252, measured 2026-11-11)
+Popularity: 8 likes, 0 reposts on X (https://x.com/NaughtyNomad/status/2094720744030642252, measured 2026-11-12)
 
 Instead of calling round electricians, plumbers and roofers yourself, let an agent reach out to all of them, collect their replies and put them side by side.
 
@@ -1890,7 +1956,7 @@ Sources:
 ## Have an agent research a used car from its listing link
 URL: https://botsdothat.com/use-cases/research-a-used-car-from-a-listing/
 Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-21
-Popularity: 1 likes, 0 reposts on X (https://x.com/IamOnurYilmaz/status/2110811317514940897, measured 2026-11-11)
+Popularity: 1 likes, 0 reposts on X (https://x.com/IamOnurYilmaz/status/2110811317514940897, measured 2026-11-12)
 
 Drop in a used-car listing link and let an agent dig in: what the model is known for, the car's damage history and the questions to ask before you call the seller.
 
@@ -1918,7 +1984,7 @@ Sources:
 ## Get pinged when a prescription is ready, and told when to leave
 URL: https://botsdothat.com/use-cases/prescription-ready-and-time-to-leave/
 Category: Health & care | Difficulty: Easy | Added: 2026-10-21
-Popularity: 47 likes, 0 reposts on X (https://x.com/WaitWhat/status/2104354985224069224, measured 2026-11-11)
+Popularity: 47 likes, 0 reposts on X (https://x.com/WaitWhat/status/2104354985224069224, measured 2026-11-12)
 
 A personal agent can sweep your email every morning for "ready for pickup" notices, and check live traffic before your appointments to tell you when to head out.
 
@@ -1945,7 +2011,7 @@ Sources:
 ## Send all your newsletters to your bot and get one daily report
 URL: https://botsdothat.com/use-cases/newsletter-daily-report/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-21
-Popularity: 213 likes, 24 reposts on X (https://x.com/BrianRoemmele/status/2110433542182457609, measured 2026-11-11)
+Popularity: 213 likes, 24 reposts on X (https://x.com/BrianRoemmele/status/2110433542182457609, measured 2026-11-12)
 
 Subscribe your newsletters to your bot's own email address. It reads every issue and sends you one short report each day, with a score that tells you which ones are worth reading in full.
 
@@ -1975,7 +2041,7 @@ Sources:
 ## Give your bot a phone number so it can call and book for you
 URL: https://botsdothat.com/use-cases/call-and-book-by-phone/
 Category: Bookings & travel | Difficulty: Medium | Added: 2026-10-21
-Popularity: 852 likes, 91 reposts on X (https://x.com/BrianRoemmele/status/2111812467500458135, measured 2026-11-11)
+Popularity: 852 likes, 91 reposts on X (https://x.com/BrianRoemmele/status/2111812467500458135, measured 2026-11-12)
 
 Plenty of places still only take bookings by phone. Once your bot has its own number, it can call a restaurant, a vet or a salon, book the slot and tell you what was said.
 
@@ -2055,7 +2121,7 @@ Sources:
 ## Get your phone number off people-search sites to cut spam calls
 URL: https://botsdothat.com/use-cases/remove-your-number-from-people-search-sites/
 Category: Family & home | Difficulty: Medium | Added: 2026-10-20
-Popularity: 6 likes, 0 reposts on X (https://x.com/PixelRainbowNFT/status/2112256029543329930, measured 2026-11-11)
+Popularity: 6 likes, 0 reposts on X (https://x.com/PixelRainbowNFT/status/2112256029543329930, measured 2026-11-12)
 
 A bot finds where your phone number is listed on people-search and data-broker sites, files the opt-out requests, and checks again later.
 
@@ -2085,7 +2151,7 @@ Sources:
 ## Log your meals by talking and get a daily weight check-in
 URL: https://botsdothat.com/use-cases/log-meals-and-weight-by-voice/
 Category: Health & care | Difficulty: Easy | Added: 2026-10-20
-Popularity: 66 likes, 3 reposts on X (https://x.com/RayFernando1337/status/2112529809557401660, measured 2026-11-11)
+Popularity: 66 likes, 3 reposts on X (https://x.com/RayFernando1337/status/2112529809557401660, measured 2026-11-12)
 
 Tell your bot what you ate, out loud, and it keeps the food log for you. It can also check in on your weight each morning.
 
@@ -2114,7 +2180,7 @@ Sources:
 ## Have your bot make a customer-service phone call for you
 URL: https://botsdothat.com/use-cases/make-a-customer-service-call/
 Category: Inbox, calls & paperwork | Difficulty: Medium | Added: 2026-10-20
-Popularity: 65 likes, 3 reposts on X (https://x.com/skeptrune/status/2112563230019289456, measured 2026-11-11)
+Popularity: 65 likes, 3 reposts on X (https://x.com/skeptrune/status/2112563230019289456, measured 2026-11-12)
 
 Some jobs still need a phone call, like cancelling a service, booking a same-day appointment or sorting out an account. Grok Bot can now place the call itself for US businesses (live transcript, take-over button, summary after), or you can still connect a phone-calling add-on.
 
@@ -2196,7 +2262,7 @@ Sources:
 ## Plan a week of family meals and fill the grocery cart
 URL: https://botsdothat.com/use-cases/family-meal-plan-and-grocery-order/
 Category: Shopping & groceries | Difficulty: Medium | Added: 2026-10-20
-Popularity: 1010 likes, 29 reposts on X (https://x.com/lyndallschreinr/status/2107888353630908437, measured 2026-11-11)
+Popularity: 1010 likes, 29 reposts on X (https://x.com/lyndallschreinr/status/2107888353630908437, measured 2026-11-12)
 
 A bot keeps your recipe list, writes the week's meal plan and turns it into a shopping list that fills your grocery cart.
 
@@ -2231,7 +2297,7 @@ Sources:
 ## Catch family calendar clashes before the week starts
 URL: https://botsdothat.com/use-cases/sunday-family-calendar-check/
 Category: Family & home | Difficulty: Easy | Added: 2026-10-20
-Popularity: 511 likes, 34 reposts on X (https://x.com/Michael_Fenech_/status/2108579992456327489, measured 2026-11-11)
+Popularity: 511 likes, 34 reposts on X (https://x.com/Michael_Fenech_/status/2108579992456327489, measured 2026-11-12)
 
 Every Sunday a bot reads the next two weeks of your family calendar and school notices and flags the clashes.
 
@@ -2259,7 +2325,7 @@ Sources:
 ## Hand your most-hated weekly chores to a personal agent
 URL: https://botsdothat.com/use-cases/hand-your-most-hated-chores-to-a-personal-agent/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
-Popularity: 678 likes, 35 reposts on X (https://x.com/AlexFinn/status/2107254007412756589, measured 2026-11-11)
+Popularity: 678 likes, 35 reposts on X (https://x.com/AlexFinn/status/2107254007412756589, measured 2026-11-12)
 
 Personal agents like Meta Muse, Grok Bot and Gemini Spark work in the background on a schedule. Start with the chore you hate most.
 
@@ -2290,7 +2356,7 @@ Sources:
 ## Get a daily scam check on your inbox
 URL: https://botsdothat.com/use-cases/email-scam-filter/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-20
-Popularity: 203 likes, 18 reposts on X (https://x.com/BrianRoemmele/status/2110008406807568813, measured 2026-11-11)
+Popularity: 203 likes, 18 reposts on X (https://x.com/BrianRoemmele/status/2110008406807568813, measured 2026-11-12)
 
 A read-only bot reads your new email each morning and gives each suspicious message a risk score and the red flags.
 
@@ -2319,7 +2385,7 @@ Sources:
 ## Run family logistics from the family group chat
 URL: https://botsdothat.com/use-cases/run-family-logistics-from-the-group-chat/
 Category: Family & home | Difficulty: Easy | Added: 2026-10-20
-Popularity: 164 likes, 14 reposts on X (https://x.com/saviomartin/status/2109330165381910817, measured 2026-11-11)
+Popularity: 165 likes, 14 reposts on X (https://x.com/saviomartin/status/2109330165381910817, measured 2026-11-12)
 
 New “family agents” sit in your family chat and handle the small jobs: restocking, booking the dentist and reminders.
 
@@ -2350,7 +2416,7 @@ Sources:
 ## Let an agent reorder your regular groceries
 URL: https://botsdothat.com/use-cases/reorder-your-regular-groceries/
 Category: Shopping & groceries | Difficulty: Medium | Added: 2026-10-20
-Popularity: 96 likes, 4 reposts on X (https://x.com/NickADobos/status/2110749518518235276, measured 2026-11-11)
+Popularity: 96 likes, 4 reposts on X (https://x.com/NickADobos/status/2110749518518235276, measured 2026-11-12)
 
 Some people now let an agent handle their weekly grocery order and switch stores when a better offer appears.
 
@@ -2381,7 +2447,7 @@ Sources:
 ## Plan and book a whole trip by texting your bot
 URL: https://botsdothat.com/use-cases/plan-and-book-a-whole-trip-by-text/
 Category: Bookings & travel | Difficulty: Medium | Added: 2026-10-20
-Popularity: 61 likes, 12 reposts on X (https://x.com/Teslaconomics/status/2110721195817509068, measured 2026-11-11)
+Popularity: 61 likes, 12 reposts on X (https://x.com/Teslaconomics/status/2110721195817509068, measured 2026-11-12)
 
 One parent says his bot booked the flight, the rental car, the vacation rental, a restaurant and event tickets, all over text.
 
@@ -2412,7 +2478,7 @@ Sources:
 ## Get rebooked fast when your flight is delayed
 URL: https://botsdothat.com/use-cases/rebook-a-delayed-flight/
 Category: Bookings & travel | Difficulty: Medium | Added: 2026-10-20
-Popularity: 17 likes, 1 reposts on X (https://x.com/su_adeline_k/status/2098109328112636407, measured 2026-11-11)
+Popularity: 17 likes, 1 reposts on X (https://x.com/su_adeline_k/status/2098109328112636407, measured 2026-11-12)
 
 When a flight slips, an agent can find the fastest alternative that still gets you there on time and book it for you.
 
@@ -2468,7 +2534,7 @@ Sources:
 ## Book restaurant tables by message, even at phone-only places
 URL: https://botsdothat.com/use-cases/restaurant-reservations-by-agent/
 Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-20
-Popularity: 534 likes, 23 reposts on X (https://x.com/MilksandMatcha/status/2105372125288976402, measured 2026-11-11)
+Popularity: 534 likes, 23 reposts on X (https://x.com/MilksandMatcha/status/2105372125288976402, measured 2026-11-12)
 
 Restaurant bookings are the gateway task for many agent users, including small places that only take WhatsApp or calls.
 
@@ -2500,7 +2566,7 @@ Sources:
 ## Book a haircut or appointment, even when the form won't work
 URL: https://botsdothat.com/use-cases/book-a-haircut-by-email/
 Category: Bookings & travel | Difficulty: Easy | Added: 2026-10-20
-Popularity: 20 likes, 4 reposts on X (https://x.com/startupideaspod/status/2100245612910571873, measured 2026-11-11)
+Popularity: 20 likes, 4 reposts on X (https://x.com/startupideaspod/status/2100245612910571873, measured 2026-11-12)
 
 When the online booking needs a local phone number, an agent can just email the business instead.
 
@@ -2526,7 +2592,7 @@ Sources:
 ## Match every business expense to its receipt, weekly
 URL: https://botsdothat.com/use-cases/small-business-receipt-matching/
 Category: Small business & side hustles | Difficulty: Advanced | Added: 2026-10-20
-Popularity: 68 likes, 2 reposts on X (https://x.com/siyabuilt/status/2094755088841457892, measured 2026-11-11)
+Popularity: 68 likes, 2 reposts on X (https://x.com/siyabuilt/status/2094755088841457892, measured 2026-11-12)
 
 A read-only bot checks your card and payment activity against the receipts in a dedicated inbox and lists what's missing.
 
@@ -2556,7 +2622,7 @@ Sources:
 ## Set up a “chief of staff” bot that plans your other bots
 URL: https://botsdothat.com/use-cases/hire-a-chief-of-staff-bot/
 Category: Work & career | Difficulty: Easy | Added: 2026-10-20
-Popularity: 104 likes, 6 reposts on X (https://x.com/coreyganim/status/2099808193178485185, measured 2026-11-11)
+Popularity: 104 likes, 6 reposts on X (https://x.com/coreyganim/status/2099808193178485185, measured 2026-11-12)
 
 Instead of building lots of bots, start with one that asks what you do and suggests which helpers you need.
 
@@ -2589,7 +2655,7 @@ Sources:
 ## Run several brands or jobs with one bot each
 URL: https://botsdothat.com/use-cases/one-bot-per-brand/
 Category: Small business & side hustles | Difficulty: Advanced | Added: 2026-10-20
-Popularity: 61 likes, 7 reposts on X (https://x.com/Sarut0biSasuke/status/2107076101293969587, measured 2026-11-11)
+Popularity: 61 likes, 7 reposts on X (https://x.com/Sarut0biSasuke/status/2107076101293969587, measured 2026-11-12)
 
 If you juggle several brands or clients, give each its own bot with its own tools, plus a coordinator that collects a daily note.
 
@@ -2615,7 +2681,7 @@ Sources:
 ## Catch offers and deadlines the moment they land in your inbox
 URL: https://botsdothat.com/use-cases/time-sensitive-inbox-watcher/
 Category: Work & career | Difficulty: Medium | Added: 2026-10-20
-Popularity: 37 likes, 1 reposts on X (https://x.com/DMAC_19/status/2105719791751487542, measured 2026-11-11)
+Popularity: 37 likes, 1 reposts on X (https://x.com/DMAC_19/status/2105719791751487542, measured 2026-11-12)
 
 For fast-moving work (real estate, sales, hiring), a bot in your inbox and calendar texts you when something time-sensitive arrives.
 
@@ -2644,7 +2710,7 @@ Sources:
 ## Have a bot sort your scanned paper mail and flag what needs you
 URL: https://botsdothat.com/use-cases/sort-scanned-paper-mail-with-alerts/
 Category: Inbox, calls & paperwork | Difficulty: Advanced | Added: 2026-10-20
-Popularity: 1 likes, 0 reposts on X (https://x.com/mikekamo/status/2102768278812680522, measured 2026-11-11)
+Popularity: 1 likes, 0 reposts on X (https://x.com/mikekamo/status/2102768278812680522, measured 2026-11-12)
 
 A virtual mailbox service scans your paper mail to email. The bot reads every letter, queues up the routine ones for your OK, and pulls you in only when something looks unusual.
 
@@ -2677,7 +2743,7 @@ Sources:
 ## Have a bot watch any web page and ping you when it changes
 URL: https://botsdothat.com/use-cases/watch-a-web-page-for-changes/
 Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-20
-Popularity: 2 likes, 1 reposts on X (https://x.com/teeRex247/status/2111981455077466525, measured 2026-11-11)
+Popularity: 2 likes, 1 reposts on X (https://x.com/teeRex247/status/2111981455077466525, measured 2026-11-12)
 
 Instead of refreshing a page, tell a bot what matters on it. It checks on a schedule and pings you only when that changes.
 
@@ -2707,7 +2773,7 @@ Sources:
 ## Find the conversations you forgot to follow up on
 URL: https://botsdothat.com/use-cases/find-dead-conversations-to-follow-up/
 Category: Work & career | Difficulty: Medium | Added: 2026-10-20
-Popularity: 5 likes, 2 reposts on X (https://x.com/BassamDahabra/status/2102701286307119565, measured 2026-11-11)
+Popularity: 5 likes, 2 reposts on X (https://x.com/BassamDahabra/status/2102701286307119565, measured 2026-11-12)
 
 A weekly automation reads your calendar, inbox and tasks and lists people still waiting to hear back, with drafted nudges.
 
@@ -2734,7 +2800,7 @@ Sources:
 ## Build a list of local leads and approve every email
 URL: https://botsdothat.com/use-cases/build-a-lead-list-with-approval/
 Category: Small business & side hustles | Difficulty: Advanced | Added: 2026-10-20
-Popularity: 70 likes, 4 reposts on X (https://x.com/Teevince_Ben/status/2090800086477389964, measured 2026-11-11)
+Popularity: 70 likes, 4 reposts on X (https://x.com/Teevince_Ben/status/2090800086477389964, measured 2026-11-12)
 
 A workflow finds businesses in your niche and area, researches each one and drafts a personal email. Nothing goes out until you approve it.
 
@@ -2763,7 +2829,7 @@ Sources:
 ## Give your agent its own email address
 URL: https://botsdothat.com/use-cases/give-your-agent-its-own-email-address/
 Category: Inbox, calls & paperwork | Difficulty: Medium | Added: 2026-10-20
-Popularity: 17 likes, 1 reposts on X (https://x.com/pvergadia/status/2110022751247556669, measured 2026-11-11)
+Popularity: 17 likes, 1 reposts on X (https://x.com/pvergadia/status/2110022751247556669, measured 2026-11-12)
 
 Give your agent an inbox of its own. Then you or anyone else can forward it jobs, like a meeting request it turns into a calendar invite with prep notes.
 
@@ -3029,7 +3095,7 @@ Sources:
 ## Sell on Marketplace with an agent, with safety rules set first
 URL: https://botsdothat.com/use-cases/sell-on-marketplace-with-rules/
 Category: Small business & side hustles | Difficulty: Medium | Added: 2026-10-20
-Popularity: 10 likes, 0 reposts on X (https://x.com/_architected/status/2104442538254123102, measured 2026-11-11)
+Popularity: 10 likes, 0 reposts on X (https://x.com/_architected/status/2104442538254123102, measured 2026-11-12)
 
 Agents can answer buyers and schedule pickups, but set rules first. One story tells of an agent sharing an address and booking a pickup when the seller was out.
 
@@ -3139,7 +3205,7 @@ Sources:
 ## Give your agent a single-use card before it buys anything
 URL: https://botsdothat.com/use-cases/pay-with-a-single-use-virtual-card/
 Category: Shopping & groceries | Difficulty: Easy | Added: 2026-10-20
-Popularity: 9 likes, 0 reposts on X (https://x.com/robbieklages/status/2105830877259346021, measured 2026-11-11)
+Popularity: 9 likes, 0 reposts on X (https://x.com/robbieklages/status/2105830877259346021, measured 2026-11-12)
 
 When an agent books or buys for you, give it a one-time virtual card so it can't be charged again.
 
@@ -3170,7 +3236,7 @@ Sources:
 ## Get your ads and sales numbers every morning without logging in
 URL: https://botsdothat.com/use-cases/daily-ads-and-sales-report/
 Category: Small business & side hustles | Difficulty: Medium | Added: 2026-10-20
-Popularity: 4 likes, 0 reposts on X (https://x.com/johnmccoyx/status/2108012315602034988, measured 2026-11-11)
+Popularity: 4 likes, 0 reposts on X (https://x.com/johnmccoyx/status/2108012315602034988, measured 2026-11-12)
 
 A bot logs into your ad and sales dashboards (read-only) and sends a morning summary with what changed.
 
@@ -3486,7 +3552,7 @@ Sources:
 ## Make a moving checklist and change your address everywhere
 URL: https://botsdothat.com/use-cases/moving-checklist-and-change-of-address/
 Category: Inbox, calls & paperwork | Difficulty: Easy | Added: 2026-10-19
-Popularity: 7 likes, 1 reposts on X (https://x.com/tomchris/status/2072663153532666045, measured 2026-11-11)
+Popularity: 7 likes, 1 reposts on X (https://x.com/tomchris/status/2072663153532666045, measured 2026-11-12)
 
 Moving means telling dozens of companies and offices your new address, and something always gets missed. Your AI finds who to tell from your inbox, then an agent works through the address-change pages with you, asking before anything final.
 
@@ -4068,6 +4134,7 @@ Watch out:
 - Small local models can misunderstand. Keep locks, alarms and heating behind a confirmation step.
 - A local model needs a reasonably capable computer to answer quickly.
 - Letting Claude or ChatGPT set up your automations (for example with the HA-MCP add-on) means giving it an administrator token. Its own guide suggests a separate local-only admin account for the AI, not your own login, and you should review each automation before you rely on it.
+- Reusing an old Echo with Hermes Voice means unlocking it with a community firmware tool; its README warns that some Amazon updates block the unlock, so check the exact model and software version before buying a used one.
 
 Sources:
 - Hacker News: “Building a fully local LLM voice assistant to control my smart home”: https://news.ycombinator.com/item?id=38985152
@@ -4077,6 +4144,7 @@ Sources:
 - Home Assistant docs: Ollama integration (control is experimental; checked 2026-10-24): https://www.home-assistant.io/integrations/ollama/
 - Reddit r/AI_Agents, “What is an AI agent that changed your life for real?”: u/Bencham95 uses an agent inside Home Assistant so home automations take much less time: https://www.reddit.com/r/AI_Agents/comments/1wu2d7b/what_is_an_ai_agent_that_changed_your_life_for/pczh0a8/
 - GitHub: homeassistant-ai/ha-mcp, configure and automate Home Assistant by asking Claude, ChatGPT and other assistants (v9.2.0 released 2026-11-11; 7,145 stars, measured 2026-11-11): https://github.com/homeassistant-ai/ha-mcp
+- GitHub: majorminorlabs/hermes-voice, talk to a Hermes Agent profile out loud through Home Assistant Assist on an old Amazon Echo (MIT; measured 2026-11-12): https://github.com/majorminorlabs/hermes-voice
 
 ## Show AI your screen or camera and get live tech help
 URL: https://botsdothat.com/use-cases/show-ai-your-screen-for-tech-help/
@@ -4133,8 +4201,11 @@ Watch out:
 - Tell people the call is being recorded or transcribed, and follow your workplace's rules. Some places require everyone's consent.
 - Google's help page says “Take notes for me” works in a limited set of languages, one language per meeting.
 - AI notes can misattribute who said what. Check names on action items before sending.
+- Tools that record without a bot joining the call (like Yogurt) are invisible to other people, so say out loud that you're recording.
 
 Sources:
+- Hacker News: 'Show HN: Yogurt – Free, private, open-source alternative to Granola' (280 points, 108 comments, measured 2026-11-12): https://news.ycombinator.com/item?id=50454625
+- GitHub: FrigadeHQ/yogurt, private AI meeting notes that record without adding a bot to the call (Mac, Windows, Linux; MIT; measured 2026-11-12): https://github.com/FrigadeHQ/yogurt
 - Hacker News: “Launch HN: Hyprnote (YC S25) – An open-source AI meeting notetaker”: https://news.ycombinator.com/item?id=44725306
 - GitHub: Zackriya-Solutions/meetily (open-source meeting note taker that runs on your computer): https://github.com/Zackriya-Solutions/meetily
 - YouTube: “How to Automate Meeting Notes in Microsoft Teams with AI!” by Scott Brant: https://www.youtube.com/watch?v=9uEH72FMyJU

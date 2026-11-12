@@ -1,0 +1,42 @@
+{
+ "slug": "back-up-your-ai-agent-and-move-it-to-a-new-computer",
+ "title": "Back up your AI agent so you never lose its memory (and move it to a new computer)",
+ "category": "work",
+ "source_date": "2026-11-11",
+ "summary": "If your agent runs on your own computer or server, its memory, chats, automations and logins live in a folder that one crash could wipe. OpenClaw has a built-in backup and restore, and one user just moved 9 agents and 800+ sessions to a bigger server with 11 minutes of downtime.",
+ "what_the_bot_does": [
+  "Pauses the agent so nothing changes while the backup is made.",
+  "Packs its settings, memory files, chat history, automations and saved logins into one checked backup file.",
+  "Restores that file on a new computer or server into a fresh folder, without touching anything live.",
+  "Runs a health check, then starts the agent again so conversations pick up where they left off."
+ ],
+ "what_you_end_up_with": "A tested backup file of your agent you can restore any time, or the same agent running on a new machine with its memory and automations intact.",
+ "difficulty": "Medium",
+ "tools": [
+  {"id": "openclaw", "note": "Built-in 'openclaw backup create' and 'openclaw backup restore'"},
+  {"id": "hermes-agent", "note": "Back up its folder the same way; check its docs for the exact steps"}
+ ],
+ "prompt": "Help me back up my [OpenClaw] agent safely. Walk me through it one step at a time in plain words: stop it, make a verified backup file, and tell me where the file is. Then help me test restoring it into an empty folder so I know the backup works. Don't delete or overwrite anything from my current setup, and don't print any API keys or passwords on screen.",
+ "setup": [
+  "Find where your agent keeps its data. For OpenClaw, run 'openclaw status' to see the folder (usually ~/.openclaw).",
+  "Stop the agent first ('openclaw gateway stop'), then make a checked backup: 'openclaw backup create --output ~/Backups/openclaw --verify'.",
+  "Copy the backup file somewhere safe: an external drive or private cloud storage. It contains your keys and logins, so treat it like a password.",
+  "To move: install the same OpenClaw version on the new machine, run 'openclaw backup restore <file> --target ~/openclaw-restored', point OpenClaw at it, then run 'openclaw doctor' and restart.",
+  "Do a quick test chat and check your automations ran before you switch off the old machine."
+ ],
+ "watch_out": [
+  "The backup holds API keys, logins and chat history. Store it encrypted or somewhere private, never in a public folder.",
+  "OpenClaw's docs say to stop the agent before backing up, because copying files while it runs can save a broken database.",
+  "Restoring old chat-app logins (like WhatsApp) can get out of sync; you may need to reconnect them. Plugins also need reinstalling.",
+  "If you're retiring an old server, it's a good time to change your API keys (OpenClaw migration guide)."
+ ],
+ "sources": [
+  {"label": "X post by @hgruenhagen (2026-11-11): 'My @openclaw agent just moved itself to a bigger server: downtime just 11 minutes', 9 agents and 800+ sessions carried over", "url": "https://x.com/hgruenhagen/status/2120611235204841909", "kind": "x"},
+  {"label": "OpenClaw docs: Migration guide, move OpenClaw to a new machine (checked 2026-11-12)", "url": "https://docs.openclaw.ai/install/migrating", "kind": "docs"},
+  {"label": "OpenClaw docs: Backups and restore (checked 2026-11-12)", "url": "https://docs.openclaw.ai/install/backups", "kind": "docs"},
+  {"label": "MacMyths: OpenClaw backup and restore, full archives, databases and server moves", "url": "https://macmyths.com/how-to-back-up-and-restore-openclaw/", "kind": "article"}
+ ],
+ "popularity": {"platform": "x", "post_id": "2120611235204841909", "author": "@hgruenhagen", "url": "https://x.com/hgruenhagen/status/2120611235204841909", "posted_at": "2026-11-11", "likes": 50, "reposts": 3, "replies": 14, "bookmarks": 17, "views": 2860, "measured_at": "2026-11-12"},
+ "tags": ["backup", "restore", "migrate", "openclaw", "server", "self-hosted", "memory"],
+ "seo_title": "How to back up and move your OpenClaw agent"
+}

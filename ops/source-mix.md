@@ -370,3 +370,11 @@ Top domains: youtube.com (91), x.com (74), news.ycombinator.com (38), reddit.com
 - Added this run: let-ai-agents-dig-through-public-data-for-your-hobby (5 sources: Pietro Miotti blog, Hacker News 50452455 759 pts / 283 comments, NASA ExoFOP TOI 7930, Gizmodo, @p_rabtsevich X thread 8,730 likes / 1.22M views; 1 of 5 X).
 - Extended (0 X): stop-your-ai-chats-being-used-for-training (+HN 50429426 727/147, Gemini Connected Apps help, CyberInsider, DailyAI); hand-off-tasks-by-voice-while-driving (was X + YouTube; +Google blog, 9to5Google, 9to5Mac on Gemini for CarPlay); control-your-smart-home-with-a-private-ai (+GitHub homeassistant-ai/ha-mcp 7,145 stars). Refreshed 50 X popularity blocks.
 - Mentions/feedback of BotsDoThat: none found (HN Algolia 0 hits; X search since Nov 10 only unrelated "bots do that" phrases; Reddit blocked from this box).
+
+## After midday trending (measured 2026-11-12)
+
+- Use cases: **128**; source links: **537**
+- X share of source links: **77/537 = 14%** (community links: 77/273 = 28%); X-only use cases: **5**
+- Added this run: let-an-ai-agent-tap-through-your-phone-for-you (4 sources, 0 X: GitHub pinky 1,990 stars, poki 1,022, phoneuse 628, poki.bot); back-up-your-ai-agent-and-move-it-to-a-new-computer (4 sources, 1 X: @hgruenhagen 50 likes, OpenClaw migration + backups docs, MacMyths).
+- Extended (0 X): get-meeting-notes-and-action-items (+HN 50454625 280/108, +GitHub yogurt 826 stars); book-a-flight-with-an-ai-agent (+HN 50458900 641/667); control-your-smart-home-with-a-private-ai (+GitHub hermes-voice 685 stars). Maya HN refreshed to 1,023/385. Refreshed 51 X popularity blocks.
+- Mentions/feedback of BotsDoThat: none found (X search since Nov 5 only unrelated "bots do that" phrases; HN Algolia 0 hits; Reddit blocked from this box).

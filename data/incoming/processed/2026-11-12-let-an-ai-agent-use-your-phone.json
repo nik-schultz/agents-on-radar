@@ -1,0 +1,43 @@
+{
+ "slug": "let-an-ai-agent-tap-through-your-phone-for-you",
+ "title": "Let an AI agent tap through your phone apps for you (and ask before it sends or pays)",
+ "category": "work",
+ "source_date": "2026-11-06",
+ "summary": "New free, open-source tools let an AI agent open apps on your real iPhone or Android phone, tap, scroll, type and read the screen, while you watch on your computer. It's handy for app-only chores like checking fares in an airline app, and the best ones hold every send, payment or delete until you click Allow.",
+ "what_the_bot_does": [
+  "Connects to your phone through a small app on your computer (over USB, or Wi-Fi once paired).",
+  "Opens the app you name and works through it like a person: taps buttons, scrolls, types into fields and reads what's on the screen.",
+  "Stops and waits for your OK before risky steps such as sending a message, paying, deleting or installing something.",
+  "Lets you take over at any moment, then hand control back.",
+  "Keeps a step-by-step record with screenshots so you can check exactly what it did."
+ ],
+ "what_you_end_up_with": "An app-only chore done on your own phone, such as fares read back from an airline app or a form filled in, with a record of every tap and nothing sent or paid without your click.",
+ "difficulty": "Advanced",
+ "tools": [
+  {"id": "claude", "note": "Claude Code or Claude Desktop can drive the phone through Pinky or Poki"},
+  {"id": "chatgpt", "note": "Codex works with the same tools"}
+ ],
+ "prompt": "Use my phone to [task, e.g. open my airline's app and find the cheapest flight home this Friday]. Only use the [app name] app. Read back what you find before doing anything else. Do not send any message, buy, pay, book, delete or change settings without asking me first, and stop if you hit a login, password or one-time code.",
+ "setup": [
+  "Pick a tool: Pinky (free, open source) works with iPhone and Android from a Mac, Windows or Linux computer; Poki (free, open source) is for iPhone from a Mac.",
+  "Install it on your computer and follow its 'Add phone' steps. On Android that means turning on USB debugging; on iPhone it means trusting the computer and turning on Developer Mode.",
+  "Connect it to an AI agent that can use tools (Claude Code, Claude Desktop or Codex). Pinky has a one-click setting for this.",
+  "In the tool's safety settings, make sends, payments, deletions and installs wait for your OK.",
+  "Start with one low-stakes task in one app, watch it on your computer, and check the step record when it's done."
+ ],
+ "watch_out": [
+  "These are early tools. Pinky's own page calls it pre-alpha, and Poki's free Apple Account signing has to be renewed every 7 days.",
+  "Anything the agent taps really happens. Turn on 'ask first' for sends and payments, and keep banking, wallet and password apps off-limits (Pinky hides them by default).",
+  "Text on a web page or in an app can try to trick an agent. Pinky enforces its approvals outside the agent so the agent can't approve itself, but you should still watch the first few runs.",
+  "Setup is technical: developer settings on the phone, a USB cable and an agent on your computer. If that's too much, try a phone-based assistant first."
+ ],
+ "sources": [
+  {"label": "GitHub: DIYgod/pinky, 'Let AI agents use your phone, with you in the loop' (iPhone and Android, Apache-2.0, pre-alpha; measured 2026-11-12)", "url": "https://github.com/DIYgod/pinky", "kind": "github", "stats": {"stars": 1990}, "posted_at": "2026-11-06", "measured_at": "2026-11-12"},
+  {"label": "GitHub: JosssphZhou/poki, 'Poki uses your iPhone like you do' (local MCP server for Claude Code or Codex, AGPL-3.0; measured 2026-11-12)", "url": "https://github.com/JosssphZhou/poki", "kind": "github", "stats": {"stars": 1022}, "posted_at": "2026-11-05", "measured_at": "2026-11-12"},
+  {"label": "GitHub: lxe/phoneuse, see and operate an unmodified iPhone from a Linux PC (MIT; measured 2026-11-12)", "url": "https://github.com/lxe/phoneuse", "kind": "github", "stats": {"stars": 628}, "posted_at": "2026-11-07", "measured_at": "2026-11-12"},
+  {"label": "Poki website (checked 2026-11-12)", "url": "https://poki.bot", "kind": "official"}
+ ],
+ "popularity": null,
+ "tags": ["phone", "iphone", "android", "phone use", "mcp", "claude code", "codex", "approvals", "open source"],
+ "seo_title": "Let an AI agent use your iPhone or Android phone safely"
+}

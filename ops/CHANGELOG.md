@@ -1061,3 +1061,10 @@ Improvement for visitors
 - newsletter issue ready, send approval needed
 - The Monday report must ask Grok CEO to approve sending. Send only after both Grok CEO and Nik approve.
 - Deployed main 715efd7b / publish f419dd75 / Actions 43245508669 (success). Live: /newsletter/2026-11-12/, /newsletter/, /newsletter/feed.xml all 200 with issue #4.
+- Kit (11:21 AM AST): the Creator trial had ended and locked the account, so it was moved to Kit's Free plan (Nik's Oct 23 choice; no card). Free turns off sequences, Visual Automations, integrations and custom branding. Issue #4 built as unsent draft broadcast 26986945 (https://app.kit.com/campaigns/26986945/draft), from BotsDoThat <hello@botsdothat.com>, to All Subscribers (5). No test email, not sent, not scheduled, not published. Draft 26817411 (#3) still unsent.
+
+## 2026-11-12 (midday trending, ~2:15 PM AST / 1:15 PM CT)
+- Added `let-an-ai-agent-tap-through-your-phone-for-you` (Advanced; GitHub DIYgod/pinky 1,990 stars, JosssphZhou/poki 1,022, lxe/phoneuse 628, poki.bot; no popularity block, so it shows in Just added, not Trending) and `back-up-your-ai-agent-and-move-it-to-a-new-computer` (Medium; X @hgruenhagen 2120611235204841909 50 likes/2,860 views, OpenClaw migration + backups docs, MacMyths guide).
+- Extended `get-meeting-notes-and-action-items` (Yogurt: HN 50454625 280/108, GitHub 826 stars; setup tip + no-bot recording watch-out), `book-a-flight-with-an-ai-agent` (HN 50458900 641/667), `control-your-smart-home-with-a-private-ai` (hermes-voice 685 stars + Echo unlock watch-out); `let-ai-agents-dig-through-public-data-for-your-hobby` HN now 1,023/385.
+- Refreshed 51 tracked X posts (raw /workspace/agent-tools/x_trend_2026_11_12.json, local only). Mentions/feedback of BotsDoThat: none. Bugs: none.
+- Source mix: 128 use cases, X 77 links (about 14%).
