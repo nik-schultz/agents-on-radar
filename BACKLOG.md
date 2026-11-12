@@ -372,3 +372,8 @@ Bugs/complaints: none found on the site or in feedback scans.
 ### 2026-11-11 PM news run notes
 - [ ] Google Workspace skills (SKILL.md format, Gemini in Gmail/Docs/Slides/Drive/Chat, Rapid Release now, Scheduled Release Nov 30; workspaceupdates.googleblog.com/2026/11/skills-in-workspace.html): add a "use the same instructions in Gemini at work" section to /how-to-write-instructions-for-an-ai-agent/ or teach-your-bot-to-remember-what-works.
 - [ ] Gemini Decisions API (Gemini Decision 1, $0.10/M input, $0 output, 150-250 ms): possible note in /run-your-bots-for-less/ on using a cheap yes/no "sorter" step before a big model (developer-level, so only if it fits the plain-English angle).
+
+### 2026-11-12 AM news run notes
+- [ ] United Airlines blocks personal AI agents from booking (The Verge/WSJ, Nov 11), after eBay and Amazon: add a watch-out to flight/travel booking use cases (e.g. book-an-appointment / trip-planning pages): "the agent can find fares, but some airlines make you finish checkout yourself; tell it to stop at the payment page".
+- [ ] Gemini Live on Apple CarPlay (Nov 11, global, iOS): already noted in hand-off-tasks-by-voice-while-driving by the midday trending run; candidate tip "rehearse a pitch or tough conversation out loud on your commute" for practice-a-job-interview-out-loud.
+- Missed earlier, not added (older than a week): Apple opened Siri AI to all app developers via App Intents in the iOS 27.3 betas on Nov 3 (developer.apple.com/news/?id=gdk2umrf); customer release in a few months, App Store submissions in spring. Revisit when it ships to users.
