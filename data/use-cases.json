@@ -1079,6 +1079,7 @@
    "Afterwards, open the booking on the airline's website with your booking code and check every passenger is on it."
   ],
   "watch_out": [
+   "Some airlines now block personal AI agents from booking: United did in November 2026, after eBay and Amazon did the same on their sites. The agent can still find fares, so tell it to stop at the payment page and finish checkout yourself.",
    "Check passenger names letter by letter before you approve. A wrong name can mean a new ticket.",
    "Ask where it's booking. A third-party booking site can make changes and refunds slower than booking direct with the airline.",
    "Agents still get stuck on sign-in codes and repeated confirmations: one Hacker News user said ChatGPT's Dots agent booked a trip but kept re-asking to confirm the same booking and wouldn't fetch two-factor codes.",
@@ -1151,7 +1152,7 @@
   ],
   "date_added": "2026-11-03",
   "origin": "pipeline",
-  "last_checked": "2026-11-03"
+  "last_checked": "2026-11-12"
  },
  {
   "slug": "turn-a-photo-of-your-shopping-list-into-a-cart",

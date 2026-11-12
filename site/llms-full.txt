@@ -416,6 +416,7 @@ Prompt:
 Find me a flight from [city or airport] to [city or airport], leaving [date, time window] and returning [date, time window]. [Number] travelers, [cabin], [number] checked bags, at most [number] stop(s), budget [amount] total. Show me the 3 best options in a table: airline, flight numbers, times, total price including bags, and the change/refund rules. Book on the airline's own website unless I say otherwise. Passenger names exactly as on passports: [names]. Stop before payment and show me a summary of names, flights, total price and fare rules. Do not pay, accept paid extras (seats, insurance) or confirm anything until I reply "book it". If a site asks for a sign-in code or CAPTCHA, hand control back to me.
 
 Watch out:
+- Some airlines now block personal AI agents from booking: United did in November 2026, after eBay and Amazon did the same on their sites. The agent can still find fares, so tell it to stop at the payment page and finish checkout yourself.
 - Check passenger names letter by letter before you approve. A wrong name can mean a new ticket.
 - Ask where it's booking. A third-party booking site can make changes and refunds slower than booking direct with the airline.
 - Agents still get stuck on sign-in codes and repeated confirmations: one Hacker News user said ChatGPT's Dots agent booked a trip but kept re-asking to confirm the same booking and wouldn't fetch two-factor codes.
