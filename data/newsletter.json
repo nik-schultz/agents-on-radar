@@ -99,6 +99,41 @@
    "watch_out": null,
    "sponsor": null,
    "sent_on": null
+  },
+  {
+   "number": 4,
+   "slug": "2026-11-12",
+   "date": "2026-11-12",
+   "subject": "Let AI book your flight and take errands from your car or watch",
+   "preview": "Four jobs to hand to AI this week, each with a prompt to copy, plus a new guide to writing instructions your agent actually follows.",
+   "intro": "This week's picks are about handing jobs to AI when your hands are busy: booking a holiday flight, passing along errands from the car or your wrist, and letting agents search public data on a question you care about. Each prompt tells the AI to stop and ask you before anything is booked, paid or sent. Copy one, fill in the brackets, and try it.",
+   "items": [
+    {
+     "slug": "book-a-flight-with-an-ai-agent",
+     "why": "Booking holiday travel? An agent can compare fares and fill in passenger details, then stop for your OK before paying. New this week: United now blocks personal AI agents from booking, so on some airlines you'll let the agent find the fare and finish checkout yourself."
+    },
+    {
+     "slug": "hand-off-tasks-by-voice-while-driving",
+     "why": "Since Nov 11, Gemini works on Apple CarPlay, so ChatGPT, Claude, Grok and Gemini can all be reached from the car screen. Talk through your to-dos on the drive, and the prompt makes it hold anything that sends or buys until you've parked and checked."
+    },
+    {
+     "slug": "hand-your-agent-an-errand-from-your-watch",
+     "why": "Meta's Muse agent now has an Apple Watch and Wear OS app. Ask for movie tickets or a calendar fix from your wrist and approve the result when it's ready. Save bigger payments for your phone, where you can read the details."
+    },
+    {
+     "slug": "let-ai-agents-dig-through-public-data-for-your-hobby",
+     "why": "A weekend project: two hobbyists pointed AI agents at free NASA data. One found what turned out to be an already-mapped Maya site; the other turned up two signals now listed as planet candidates. The prompt asks the agents to try to prove each lead wrong."
+    }
+   ],
+   "new_page": {
+    "slug": "how-to-write-instructions-for-an-ai-agent",
+    "path": "/how-to-write-instructions-for-an-ai-agent/",
+    "title": "How to write instructions for an AI agent",
+    "note": "Good agent instructions say six things in plain sentences: the one job, what it may read, the steps, what the result looks like, what it must ask you first, and what to do when it's unsure. The new guide has a template to copy, 3 filled-in examples, where to paste them in ChatGPT, Claude and Gemini, and a 3-minute test."
+   },
+   "watch_out": "railway-stolen-ai-keys",
+   "sponsor": null,
+   "sent_on": null
   }
  ]
 }

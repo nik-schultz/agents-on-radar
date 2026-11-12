@@ -198,6 +198,7 @@ All Small business & side hustles use cases: https://botsdothat.com/category/bus
 - 2026-11-10 [feature] Pixel 10 phones get Gemini Intelligence: tidy voice typing, custom widgets and errands done for you: The November Pixel Drop brings Rambler (talk messily, get a clean message), widgets you describe in words, chat summaries, and Gemini doing multi-step jobs like ordering groceries or booking a ride, that last part only in Japan, the UK and India for now. It rolls out over the next few weeks; the Pixel 10a isn't included. Source: https://blog.google/products-and-platforms/devices/pixel/november-2026-pixel-drop/
 
 ## BotsDoThat Weekly (past issues)
+- [Let AI book your flight and take errands from your car or watch](https://botsdothat.com/newsletter/2026-11-12/) (2026-11-12)
 - [Hand AI your shopping list, your raise talk and your day plan](https://botsdothat.com/newsletter/2026-11-05/) (2026-11-05)
 - [Let AI shop, plan and sort for you (it asks first)](https://botsdothat.com/newsletter/2026-10-29/) (2026-10-29)
 - [4 jobs you can hand to an AI this week](https://botsdothat.com/newsletter/2026-10-22/) (2026-10-22)

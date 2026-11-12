@@ -1052,3 +1052,11 @@ Improvement for visitors
 ## 2026-11-12 site health run (~9:10 AM AST)
 - QA: live https://botsdothat.com/ 200; check_links 14,833 links, 0 broken internal. No bugs found.
 - Improvement: `book-a-flight-with-an-ai-agent` new first watch-out that United (Nov 2026) and others block personal AI agents from booking, so stop at the payment page and check out yourself (matches existing news item united-blocks-ai-agent-bookings); last_checked 2026-11-12. BACKLOG United note closed.
+
+## 2026-11-12 (weekly newsletter routine) — BotsDoThat Weekly #4
+- Web issue: https://botsdothat.com/newsletter/2026-11-12/ (also on /newsletter/ and /newsletter/feed.xml). Subject: "Let AI book your flight and take errands from your car or watch". Preview: "Four jobs to hand to AI this week, each with a prompt to copy, plus a new guide to writing instructions your agent actually follows." sent_on null.
+- Items: `book-a-flight-with-an-ai-agent` (new United agent-block watch-out), `hand-off-tasks-by-voice-while-driving` (Gemini on CarPlay, Nov 11), `hand-your-agent-an-errand-from-your-watch` (Muse on Apple Watch/Wear OS), `let-ai-agents-dig-through-public-data-for-your-hobby` (Maya lidar + TOI 7930 candidates). All have copy-paste prompts; none repeat issues 1-3. New page: `/how-to-write-instructions-for-an-ai-agent/` (guide added 2026-11-10; new_page uses path/title since it isn't a use case). Watch-out: `railway-stolen-ai-keys`. No stats or time-saved claims.
+- Sponsor check (Stripe live, ~11:15 AM AST): 25 checkout sessions on the account, all expired/unpaid with empty custom fields (latest Nov 1, our tests); 0 charges. No paid newsletter or bundle booking, so house ad to /advertise/ with FIRST2.
+- Email files: ops/newsletter/issue-4-email.html, issue-4-email-body.html, issue-4-meta.txt (scripts/newsletter_email.py 4). Header image https://botsdothat.com/assets/img/email-header.png (200). Nothing emailed. Kit draft broadcast is being built separately (draft only, from hello@botsdothat.com).
+- newsletter issue ready, send approval needed
+- The Monday report must ask Grok CEO to approve sending. Send only after both Grok CEO and Nik approve.
