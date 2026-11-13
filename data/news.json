@@ -9,6 +9,85 @@
  ],
  "items": [
   {
+   "id": "claude-meetings-beta",
+   "date": "2026-11-12",
+   "category": "feature",
+   "company": "Anthropic",
+   "impact": "notable",
+   "headline": "Claude can now join your Google Meet calls to take notes and build docs and whiteboards while you talk",
+   "explainer": "If your workplace pays for Claude Team or Enterprise, you can add Claude to a Google Meet call and it writes the notes and action items, answers questions in the chat, and drafts docs or whiteboards that everyone on the call can edit. It's a beta for Google Meet only for now, notes and answers are free during the beta, and you should check that everyone on the call is fine with being transcribed.",
+   "source_url": "https://claude.com/resources/articles/claude-meetings",
+   "source_name": "Claude blog",
+   "more_sources": [
+    {
+     "label": "Claude Help Center: Use Claude Meetings",
+     "url": "https://support.claude.com/en/articles/18325154-use-claude-meetings"
+    },
+    {
+     "label": "VentureBeat",
+     "url": "https://venturebeat.com/technology/anthropic-brings-claude-into-google-meet-to-draft-documents-and-whiteboards-during-your-meetings"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/claudeai/status/2120973994191094179",
+    "author": "@claudeai",
+    "kind": "official",
+    "likes": 63393,
+    "reposts": 3963,
+    "views": 5488446,
+    "posted_at": "2026-11-12",
+    "measured_at": "2026-11-13T12:34:00Z"
+   }
+  },
+  {
+   "id": "chatgpt-dots-custom-instructions",
+   "date": "2026-11-12",
+   "category": "feature",
+   "company": "OpenAI",
+   "impact": "notable",
+   "headline": "ChatGPT's dots now follow your own instructions, like 'show me a draft before sending any emails'",
+   "explainer": "You can now tell your ChatGPT dot how to behave and which actions need your go-ahead, for example always asking before it sends an email, and it keeps following that. OpenAI also says dots reply faster with less jargon; set it in the chat or under Customize, then Behavior.",
+   "source_url": "https://learn.chatgpt.com/docs/whats-new",
+   "source_name": "ChatGPT What's new",
+   "more_sources": [
+    {
+     "label": "Gadgets 360",
+     "url": "https://www.gadgets360.com/ai/news/openai-chatgpt-dots-update-adds-custom-instructions-12321895"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/ChatGPT/status/2120970988796170275",
+    "author": "@ChatGPT",
+    "kind": "official",
+    "likes": 3647,
+    "reposts": 208,
+    "views": 1032303,
+    "posted_at": "2026-11-12",
+    "measured_at": "2026-11-13T12:34:00Z"
+   }
+  },
+  {
+   "id": "yandex-alice-do-it-agent",
+   "date": "2026-11-12",
+   "category": "agent launch",
+   "company": "Yandex",
+   "impact": "notable",
+   "headline": "Yandex's Alice AI gets 'Do it!', an agent that can phone a doctor's office for you, fill in web forms and order groceries",
+   "explainer": "Yandex's assistant can now take a whole errand, such as calling to book an appointment while showing you a live transcript, browsing sites in its own cloud browser, or ordering through connected services, and it asks before any booking or purchase. It's an early-access beta for a few thousand Alice Plus subscribers in Russia, and you can plug in your own tools through MCP.",
+   "source_url": "https://yandex.ru/company/news/12-11-2026-01",
+   "source_name": "Yandex newsroom",
+   "x": {
+    "url": "https://x.com/yandexcom/status/2120905470231925168",
+    "author": "@yandexcom",
+    "kind": "official",
+    "likes": 76,
+    "reposts": 4,
+    "views": 5115,
+    "posted_at": "2026-11-12",
+    "measured_at": "2026-11-13T12:34:00Z"
+   }
+  },
+  {
    "id": "gemini-4-hydrogen",
    "date": "2026-11-12",
    "category": "model release",
@@ -83,6 +162,33 @@
      "url": "https://economictimes.indiatimes.com/ai/ai-insights/openai-brings-local-inference-to-india-starting-with-gpt-6-luna/articleshow/135760461.cms"
     }
    ]
+  },
+  {
+   "id": "google-labs-tabletop",
+   "date": "2026-11-11",
+   "category": "agent launch",
+   "company": "Google",
+   "impact": "notable",
+   "headline": "Google Labs' Tabletop turns a group's links and ideas into custom planning tools like trip itineraries, polls and expense splitters",
+   "explainer": "Friends, families or clubs share one space, drop in links and files, and ask Tabletop to build what the group needs, such as a shared itinerary, a dinner poll or a chore chart, which everyone can edit at once. It's a US-only experiment for adults with a waitlist.",
+   "source_url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/",
+   "source_name": "Google blog",
+   "more_sources": [
+    {
+     "label": "The Verge",
+     "url": "https://www.theverge.com/tech/1031526/google-tabletop-ai-experiment-waitlist-availability"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/GoogleLabs/status/2120549258692882702",
+    "author": "@GoogleLabs",
+    "kind": "official",
+    "likes": 1510,
+    "reposts": 128,
+    "views": 129514,
+    "posted_at": "2026-11-11",
+    "measured_at": "2026-11-13T12:34:00Z"
+   }
   },
   {
    "id": "united-blocks-ai-agent-bookings",
