@@ -9,6 +9,81 @@
  ],
  "items": [
   {
+   "id": "chatgpt-wallet-dots-purchases",
+   "date": "2026-11-13",
+   "category": "agent launch",
+   "company": "OpenAI",
+   "impact": "notable",
+   "headline": "ChatGPT Wallet lets your ChatGPT agent (a \"dot\") buy things for you after you approve each purchase",
+   "explainer": "You add a card once, and when your dot is ready to check out you see the items, total and card, then approve with Face ID or a fingerprint; the store gets a stand-in card number, not your real one, and you keep your card's rewards and dispute protections. It's rolling out only to US ChatGPT Pro subscribers (18+) with US cards for now, and some shops may still block or decline agent purchases.",
+   "source_url": "https://openai.com/index/introducing-chatgpt-wallet/",
+   "source_name": "OpenAI",
+   "more_sources": [
+    {
+     "label": "TechCrunch",
+     "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/ChatGPT/status/2121283151729496235",
+    "author": "@ChatGPT",
+    "kind": "official",
+    "likes": 2913,
+    "reposts": 218,
+    "views": 277258,
+    "posted_at": "2026-11-13",
+    "measured_at": "2026-11-13T20:31:00Z"
+   }
+  },
+  {
+   "id": "sierra-poppy-1-0-muse-shopify",
+   "date": "2026-11-13",
+   "category": "industry",
+   "company": "Sierra",
+   "impact": "notable",
+   "headline": "A new standard called Poppy lets personal AI agents like Meta's Muse deal directly with stores, banks and airlines",
+   "explainer": "Poppy 1.0 gives your agent an official way in to a company's site, so it can see what it's allowed to do instead of clicking around like a person: it's now on for every Muse user, every Shopify store publishes it automatically, and Mercury, Turkish Airlines and Synchrony are live. You sign in with the company to control what your agent can do, and it must ask you before certain actions like paying.",
+   "source_url": "https://sierra.ai/blog/releasing-poppy",
+   "source_name": "Sierra blog",
+   "x": {
+    "url": "https://x.com/SierraPlatform/status/2121296788766519431",
+    "author": "@SierraPlatform",
+    "kind": "official",
+    "likes": 166,
+    "reposts": 17,
+    "views": 14822,
+    "posted_at": "2026-11-13",
+    "measured_at": "2026-11-13T20:31:00Z"
+   }
+  },
+  {
+   "id": "deepseek-app-features-api",
+   "date": "2026-11-13",
+   "category": "feature",
+   "company": "DeepSeek",
+   "impact": "minor",
+   "headline": "DeepSeek opens its app's web search, file reading, link reading and voice tools to developers",
+   "explainer": "Apps and bots built on DeepSeek's cheap Flash model can now switch on search with citations, PDF and Office file reading, link reading, and speech-to-text or text-to-speech with a few settings, instead of wiring up separate services. It isn't a new model, and each tool use is billed on top of the usual token price.",
+   "source_url": "https://api-docs.deepseek.com/updates",
+   "source_name": "DeepSeek API change log",
+   "more_sources": [
+    {
+     "label": "AGI Pulse",
+     "url": "https://agipulse.org/e/1125"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/deepseek_ai/status/2121247896918253875",
+    "author": "@deepseek_ai",
+    "kind": "official",
+    "likes": 6349,
+    "reposts": 522,
+    "views": 461148,
+    "posted_at": "2026-11-13",
+    "measured_at": "2026-11-13T20:31:00Z"
+   }
+  },
+  {
    "id": "claude-meetings-beta",
    "date": "2026-11-12",
    "category": "feature",
@@ -162,6 +237,33 @@
      "url": "https://economictimes.indiatimes.com/ai/ai-insights/openai-brings-local-inference-to-india-starting-with-gpt-6-luna/articleshow/135760461.cms"
     }
    ]
+  },
+  {
+   "id": "grok-bot-joins-meetings",
+   "date": "2026-11-11",
+   "category": "feature",
+   "company": "xAI",
+   "impact": "notable",
+   "headline": "Grok Bot can now join your Google Meet, Zoom or Teams call, answer questions in the chat and send a summary after",
+   "explainer": "Paste a meeting link into your Bot's chat and ask it to join; the host lets it in, and it keeps track of decisions, answers questions in the meeting chat and sends notes and action items afterward. It's for Team, Enterprise and Ultra plans, and you should tell everyone on the call that a bot is listening.",
+   "source_url": "https://x.ai/changelog/bot",
+   "source_name": "Grok Bot changelog",
+   "more_sources": [
+    {
+     "label": "Grok Bot docs: Add a Bot to your meetings",
+     "url": "https://docs.x.ai/grok-bot/meetings"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/bot/status/2121320089920430181",
+    "author": "@bot",
+    "kind": "official",
+    "likes": 2386,
+    "reposts": 190,
+    "views": 373774,
+    "posted_at": "2026-11-13",
+    "measured_at": "2026-11-13T20:31:00Z"
+   }
   },
   {
    "id": "google-labs-tabletop",

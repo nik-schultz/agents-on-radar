@@ -399,3 +399,8 @@ Bugs/complaints: none found on the site or in feedback scans.
 - [ ] Toki Matter (Product Hunt Nov 12, #14, 96 upvotes): executive-assistant agent that tracks ongoing "Matters". Watch for user reviews.
 - Skipped: Grok Bot/Bitget/Solana "while I slept" trading posts and Makefun USDC bounties (crypto/money, out of scope); LinkedIn mass-apply skill (spam risk); Nod's "cancel trials / watch hotel prices" examples (money-saving, out of scope; not used in our Nod text); Brave Search x402 agent payments, AgentRun, Plurai, Omnigraph, Spacefast (developer tools).
 - Bugs/complaints: none found about BotsDoThat. Site mentions: none. Reddit still blocked from this box and from the fetch tool (timeouts); YouTube scanned via web search only (no new video picked).
+
+## From PM news run 2026-11-13
+- [ ] ChatGPT Wallet (Nov 13; openai.com + TechCrunch): dots can complete purchases after a per-purchase Face ID/fingerprint approval, US Pro only. Candidate tool/watch-out for shopping use cases ("let an agent buy something you already picked, with approval"); add once real user reports exist. Pair with the Grok Bot shopping item already in news.
+- [ ] Sierra Poppy 1.0 (Nov 13): on for all Muse users, every Shopify store, Turkish Airlines/Mercury live. Candidate setup note for book-a-flight-with-an-ai-agent (Turkish Airlines fare/upgrade checks via Muse) and for shopping entries; needs a hands-on report before adding.
+- Skipped this run: self-hosted Claude Managed Agents (Nov 12, enterprise private beta), ElevenAI app (team preview/waitlist), Pine Drama Studio / Pine Phone, Problembot, Nectar Creator Agent, LangChain $3B raise, Perplexity Decider v1.3 / Edge0-145B / Haru-4B (developer models), "Grok 4.1 Fast enterprise API" (aggregator signal only, not on x.ai).
