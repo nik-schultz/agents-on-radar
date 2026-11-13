@@ -1,0 +1,47 @@
+{
+  "slug": "share-a-scam-check-bot-with-an-older-parent",
+  "title": "Share a scam-check bot your parent can text before they send money",
+  "category": "family",
+  "source_date": "2026-11-12",
+  "summary": "Set up one AI bot with clear scam-checking instructions and share it with an older parent. When a scary call, text or email arrives ('your grandson is in jail'), they text the bot first and get a calm, plain answer and the safe next step, like calling the relative back on a saved number.",
+  "what_the_bot_does": [
+    "Waits for your parent to text it, forward a message or describe a call in their own words.",
+    "Points out the warning signs it sees, such as pressure to act fast, a secret ('don't tell Mom'), or a request for gift cards, a wire, a payment app or crypto.",
+    "Tells them the safe next step in one or two short sentences: hang up, call the relative back on the number saved in their contacts, or ask for the family safe word.",
+    "Never asks for passwords, codes or bank details, and tells them to call you before any money moves.",
+    "Remembers the family details you gave it (names, the safe word reminder, your number), so they don't have to explain each time."
+  ],
+  "what_you_end_up_with": "A patient 'second opinion' your parent can text any time, set up once by you, that pushes every money-under-pressure moment back to a phone call with family.",
+  "difficulty": "Easy",
+  "tools": [
+    {"id": "grok-bot", "note": "Grok Bot 1.0 lets you share a Bot with people you invite (xAI lists Team Bots on Team and Enterprise plans)"},
+    {"id": "chatgpt", "note": "Or put the same instructions in custom instructions on their own account"},
+    {"id": "claude"}
+  ],
+  "prompt": "You are a scam checker for my [mom/dad], [name], who is [age] and not technical. When [name] sends you a message, a screenshot or describes a phone call, reply in 2-3 short, calm sentences: say whether it looks like a scam, name the warning signs, and give ONE safe next step. Treat any request for money, gift cards, wire transfers, payment apps, crypto, passwords or codes as a likely scam. For anyone claiming to be family in trouble, tell [name] to hang up and call that person back on the number saved in their contacts, or ask for our family safe word. Never ask [name] for passwords, codes, card or bank details. If money is about to move, tell [name] to call me first at [your number]. Do not contact anyone or click any links yourself.",
+  "setup": [
+    "Pick a family safe word together first (the FCC suggests one that only family knows), and agree that nobody sends money after a surprise call without calling back.",
+    "Create the bot: in Grok Bot, click + > Create a Bot, name it something friendly (e.g. 'Scam Check'), and paste the prompt above as what it should help with. In ChatGPT or Claude, paste it into the custom instructions or a project on your parent's own account instead.",
+    "Grok Bot: when it's ready, click Publish, then Share > People you invite, and add your parent as a Collaborator so they can chat but not change it. Sharing needs a Team or Enterprise plan; check yours.",
+    "Put the bot on your parent's home screen (or pin the chat) and practise once together with a fake 'grandson in jail' text.",
+    "Tell them the one rule: if anyone asks for money or a code in a hurry, text the bot and call you first."
+  ],
+  "watch_out": [
+    "A bot can miss a new scam or flag a real message. Treat it as a second opinion; the safe step is always to hang up and call back on a saved number.",
+    "Scammers now clone voices with AI and spoof caller ID (FCC). 'It sounded just like him' is not proof.",
+    "In a shared Grok Bot, each person's chat is private, so you won't see what your parent asked. That's why the prompt tells them to call you before money moves.",
+    "Don't give the bot your parent's bank logins, card numbers or email access. It only needs to read what they paste in.",
+    "If money was already sent, call the bank or payment app right away and report it to the FTC (reportfraud.ftc.gov) and local police."
+  ],
+  "sources": [
+    {"label": "X post by @0chob (2026-11-12): after their 67-year-old mom almost sent $2,400 to a 'grandson in jail' scammer, they shared their Grok Bot with her so she can text it like a person (161 likes, 193 bookmarks, 33,513 views; measured 2026-11-13)", "url": "https://x.com/0chob/status/2120909462286254271", "kind": "x"},
+    {"label": "xAI: Introducing Grok Bot 1.0 (share Bots with specific people or groups; Bots ask before sensitive actions; Team Bots on Team and Enterprise plans)", "url": "https://x.ai/news/grok-bot-1-0", "kind": "official"},
+    {"label": "Flavio Copes (updated 2026-11-12): What's new in Grok Bot 1.0, how to Publish and Share a Bot, the Collaborator/Manager/Owner roles, and why the owner can't read teammates' chats", "url": "https://flaviocopes.com/grok-bot-1-0/", "kind": "article"},
+    {"label": "Product Hunt daily leaderboard, Nov 12, 2026: Grok Bot 1.0 'Bots work together alongside your team' at #10 (score 122, 4 comments; checked 2026-11-13)", "url": "https://www.producthunt.com/leaderboard/daily/2026/11/12", "kind": "article"},
+    {"label": "FCC consumer alert (updated 2026-04-24): 'Grandparent' scams get more sophisticated: AI voice clones, spoofed caller ID; hang up, call the relative back on a saved number, use a family safe word", "url": "https://www.fcc.gov/consumers/scam-alert/grandparent-scams-get-more-sophisticated", "kind": "official"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2120909462286254271", "author": "@0chob", "url": "https://x.com/0chob/status/2120909462286254271", "posted_at": "2026-11-12", "likes": 161, "reposts": 11, "replies": 16, "bookmarks": 193, "views": 33513, "measured_at": "2026-11-13"},
+  "tags": ["scams", "grandparent scam", "older parents", "elder fraud", "family", "shared bot", "grok bot", "safe word", "caregiver"],
+  "seo_title": "Set up an AI scam checker your older parent can text",
+  "last_checked": "2026-11-13"
+}

@@ -378,3 +378,14 @@ Top domains: youtube.com (91), x.com (74), news.ycombinator.com (38), reddit.com
 - Added this run: let-an-ai-agent-tap-through-your-phone-for-you (4 sources, 0 X: GitHub pinky 1,990 stars, poki 1,022, phoneuse 628, poki.bot); back-up-your-ai-agent-and-move-it-to-a-new-computer (4 sources, 1 X: @hgruenhagen 50 likes, OpenClaw migration + backups docs, MacMyths).
 - Extended (0 X): get-meeting-notes-and-action-items (+HN 50454625 280/108, +GitHub yogurt 826 stars); book-a-flight-with-an-ai-agent (+HN 50458900 641/667); control-your-smart-home-with-a-private-ai (+GitHub hermes-voice 685 stars). Maya HN refreshed to 1,023/385. Refreshed 51 X popularity blocks.
 - Mentions/feedback of BotsDoThat: none found (X search since Nov 5 only unrelated "bots do that" phrases; HN Algolia 0 hits; Reddit blocked from this box).
+
+## After midday trending (measured 2026-11-13)
+
+- Use cases: **130**; source links: **554**
+- X share of source links: **79/554 = 14%**
+- X share of community links (X, Reddit, Hacker News, YouTube, GitHub, Product Hunt): **79/281 = 28%**
+- X-only use cases (every source is an X post): **5** (4%)
+- Use cases with at least one non-X community source (Reddit, Hacker News, YouTube, GitHub, Product Hunt): **91**
+- Added this run: share-a-scam-check-bot-with-an-older-parent (5 sources, 1 X: @0chob 161 likes / 33,513 views, xAI Grok Bot 1.0 post, Flavio Copes guide, Product Hunt Nov 12 leaderboard, FCC grandparent-scam alert); design-an-embroidery-pattern-with-an-ai-agent (4 sources, 0 X: HN 50470488 689/223, GitHub simpsoka/zigzag 565 stars, It's FOSS, zigzag.diy).
+- Extended: make-a-customer-service-call (+TechCrunch, Engadget, 1 X @alexandr_wang 1,382 likes / 92,273 views on Muse calling); control-your-smart-home-with-a-private-ai (+Coway blog, HN 50474959 423/123; 0 X); hand-your-most-hated-chores-to-a-personal-agent (+n8n Nod blog, Product Hunt 296 upvotes, GitHub n8n-io/nod 991 stars; 0 X). New links this run: 17, of which 2 X (12%). Refreshed 51 X popularity blocks.
+- Mentions/feedback of BotsDoThat: none found (X search since Nov 12 only unrelated "bots do that" phrases; HN Algolia 0 hits; web search only our own pages; Reddit blocked from this box).

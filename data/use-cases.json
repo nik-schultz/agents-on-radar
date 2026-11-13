@@ -1,5 +1,194 @@
 [
  {
+  "slug": "share-a-scam-check-bot-with-an-older-parent",
+  "title": "Share a scam-check bot your parent can text before they send money",
+  "category": "family",
+  "source_date": "2026-11-12",
+  "summary": "Set up one AI bot with clear scam-checking instructions and share it with an older parent. When a scary call, text or email arrives ('your grandson is in jail'), they text the bot first and get a calm, plain answer and the safe next step, like calling the relative back on a saved number.",
+  "what_the_bot_does": [
+   "Waits for your parent to text it, forward a message or describe a call in their own words.",
+   "Points out the warning signs it sees, such as pressure to act fast, a secret ('don't tell Mom'), or a request for gift cards, a wire, a payment app or crypto.",
+   "Tells them the safe next step in one or two short sentences: hang up, call the relative back on the number saved in their contacts, or ask for the family safe word.",
+   "Never asks for passwords, codes or bank details, and tells them to call you before any money moves.",
+   "Remembers the family details you gave it (names, the safe word reminder, your number), so they don't have to explain each time."
+  ],
+  "what_you_end_up_with": "A patient 'second opinion' your parent can text any time, set up once by you, that pushes every money-under-pressure moment back to a phone call with family.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "grok-bot",
+    "note": "Grok Bot 1.0 lets you share a Bot with people you invite (xAI lists Team Bots on Team and Enterprise plans)"
+   },
+   {
+    "id": "chatgpt",
+    "note": "Or put the same instructions in custom instructions on their own account"
+   },
+   {
+    "id": "claude"
+   }
+  ],
+  "prompt": "You are a scam checker for my [mom/dad], [name], who is [age] and not technical. When [name] sends you a message, a screenshot or describes a phone call, reply in 2-3 short, calm sentences: say whether it looks like a scam, name the warning signs, and give ONE safe next step. Treat any request for money, gift cards, wire transfers, payment apps, crypto, passwords or codes as a likely scam. For anyone claiming to be family in trouble, tell [name] to hang up and call that person back on the number saved in their contacts, or ask for our family safe word. Never ask [name] for passwords, codes, card or bank details. If money is about to move, tell [name] to call me first at [your number]. Do not contact anyone or click any links yourself.",
+  "setup": [
+   "Pick a family safe word together first (the FCC suggests one that only family knows), and agree that nobody sends money after a surprise call without calling back.",
+   "Create the bot: in Grok Bot, click + > Create a Bot, name it something friendly (e.g. 'Scam Check'), and paste the prompt above as what it should help with. In ChatGPT or Claude, paste it into the custom instructions or a project on your parent's own account instead.",
+   "Grok Bot: when it's ready, click Publish, then Share > People you invite, and add your parent as a Collaborator so they can chat but not change it. Sharing needs a Team or Enterprise plan; check yours.",
+   "Put the bot on your parent's home screen (or pin the chat) and practise once together with a fake 'grandson in jail' text.",
+   "Tell them the one rule: if anyone asks for money or a code in a hurry, text the bot and call you first."
+  ],
+  "watch_out": [
+   "A bot can miss a new scam or flag a real message. Treat it as a second opinion; the safe step is always to hang up and call back on a saved number.",
+   "Scammers now clone voices with AI and spoof caller ID (FCC). 'It sounded just like him' is not proof.",
+   "In a shared Grok Bot, each person's chat is private, so you won't see what your parent asked. That's why the prompt tells them to call you before money moves.",
+   "Don't give the bot your parent's bank logins, card numbers or email access. It only needs to read what they paste in.",
+   "If money was already sent, call the bank or payment app right away and report it to the FTC (reportfraud.ftc.gov) and local police."
+  ],
+  "sources": [
+   {
+    "label": "X post by @0chob (2026-11-12): after their 67-year-old mom almost sent $2,400 to a 'grandson in jail' scammer, they shared their Grok Bot with her so she can text it like a person (161 likes, 193 bookmarks, 33,513 views; measured 2026-11-13)",
+    "url": "https://x.com/0chob/status/2120909462286254271",
+    "kind": "x"
+   },
+   {
+    "label": "xAI: Introducing Grok Bot 1.0 (share Bots with specific people or groups; Bots ask before sensitive actions; Team Bots on Team and Enterprise plans)",
+    "url": "https://x.ai/news/grok-bot-1-0",
+    "kind": "official"
+   },
+   {
+    "label": "Flavio Copes (updated 2026-11-12): What's new in Grok Bot 1.0, how to Publish and Share a Bot, the Collaborator/Manager/Owner roles, and why the owner can't read teammates' chats",
+    "url": "https://flaviocopes.com/grok-bot-1-0/",
+    "kind": "article"
+   },
+   {
+    "label": "Product Hunt daily leaderboard, Nov 12, 2026: Grok Bot 1.0 'Bots work together alongside your team' at #10 (score 122, 4 comments; checked 2026-11-13)",
+    "url": "https://www.producthunt.com/leaderboard/daily/2026/11/12",
+    "kind": "article"
+   },
+   {
+    "label": "FCC consumer alert (updated 2026-04-24): 'Grandparent' scams get more sophisticated: AI voice clones, spoofed caller ID; hang up, call the relative back on a saved number, use a family safe word",
+    "url": "https://www.fcc.gov/consumers/scam-alert/grandparent-scams-get-more-sophisticated",
+    "kind": "official"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2120909462286254271",
+   "author": "@0chob",
+   "url": "https://x.com/0chob/status/2120909462286254271",
+   "posted_at": "2026-11-12",
+   "likes": 161,
+   "reposts": 11,
+   "replies": 16,
+   "bookmarks": 193,
+   "views": 33513,
+   "measured_at": "2026-11-13"
+  },
+  "tags": [
+   "scams",
+   "grandparent scam",
+   "older parents",
+   "elder fraud",
+   "family",
+   "shared bot",
+   "grok bot",
+   "safe word",
+   "caregiver"
+  ],
+  "seo_title": "Set up an AI scam checker your older parent can text",
+  "last_checked": "2026-11-13",
+  "date_added": "2026-11-13",
+  "origin": "pipeline"
+ },
+ {
+  "slug": "design-an-embroidery-pattern-with-an-ai-agent",
+  "title": "Design an embroidery pattern by telling an AI agent what to stitch",
+  "category": "work",
+  "source_date": "2026-11-12",
+  "summary": "ZigZag is a free, open-source embroidery editor for Mac and Windows with a built-in connection for AI agents. You describe a patch or monogram, the agent draws it in the editor while you watch, checks a stitch preview, and exports a file your embroidery machine can sew.",
+  "what_the_bot_does": [
+   "Connects to the ZigZag editor on your computer (it only listens on your own machine).",
+   "Draws shapes and lettering from your description, or places and traces artwork you give it.",
+   "Picks stitch types (fill, satin, running stitch and more) and sets the fabric and hoop size.",
+   "Renders a picture of the stitches and runs the editor's design check so it can fix problems before you sew.",
+   "Exports a PES, DST, EXP, JEF or VP3 file, or sends the design to a Brother Skitch over Bluetooth when you say so."
+  ],
+  "what_you_end_up_with": "A finished embroidery file for your machine, plus the design open in the editor so you can tweak any stitch yourself. Every agent step is one Undo.",
+  "difficulty": "Advanced",
+  "tools": [
+   {
+    "id": "claude",
+    "note": "Claude Code or Claude Desktop connect to ZigZag's MCP server"
+   },
+   {
+    "id": "chatgpt",
+    "note": "Codex works too (ZigZag's Ask Agent panel runs Claude Code or Codex)"
+   }
+  ],
+  "prompt": "In ZigZag, make a [size, e.g. 70 mm round] embroidered patch for [fabric, e.g. a denim jacket] that says '[text]' with [simple picture, e.g. a small mountain]. Use [number] thread colours at most, satin for the border and lettering, fill for the shapes. Render a stitch preview and run the design check, then show me before you change anything else. Don't export or send anything to my machine until I say yes.",
+  "setup": [
+   "Download ZigZag for Mac or Windows from zigzag.diy (free, Apache 2.0) and open it.",
+   "Click MCP in the bottom-right status bar. It shows the address and copy buttons to connect Claude Code or Claude Desktop.",
+   "For Claude Code, run: claude mcp add --transport http zigzag http://127.0.0.1:7878/mcp. Or use ZigZag's built-in Ask Agent panel with a Claude Code or Codex sign-in you already have.",
+   "Start with a simple design (a name or a small icon), check the stitch preview, then export the file type your machine uses.",
+   "Sew a test on scrap fabric before the real garment."
+  ],
+  "watch_out": [
+   "It's a new hobby project (version 0.1.x). Expect rough edges and keep backups of designs you care about.",
+   "Only the Brother Skitch PP1 can receive designs over Bluetooth, and you must close Brother's Artspira app first. The README advises against Skitch firmware updates.",
+   "On Windows, SmartScreen warns the first time because the app isn't Microsoft-signed (the README explains More info > Run anyway).",
+   "Agents can make odd stitch choices. Always look at the stitch preview, and test-sew, before using expensive fabric.",
+   "Only stitch artwork you have the right to use."
+  ],
+  "sources": [
+   {
+    "label": "Hacker News: 'Show HN: My $300 embroidery machine needed a subscription, so I built my own app' (689 points, 223 comments; measured 2026-11-13)",
+    "url": "https://news.ycombinator.com/item?id=50470488",
+    "kind": "hn",
+    "stats": {
+     "points": 689,
+     "comments": 223
+    },
+    "posted_at": "2026-11-12",
+    "measured_at": "2026-11-13"
+   },
+   {
+    "label": "GitHub: simpsoka/zigzag, free open-source embroidery editor with a built-in MCP server for AI agents (Apache-2.0; 565 stars, measured 2026-11-13)",
+    "url": "https://github.com/simpsoka/zigzag",
+    "kind": "github",
+    "stats": {
+     "stars": 565
+    },
+    "posted_at": "2026-11-11",
+    "measured_at": "2026-11-13"
+   },
+   {
+    "label": "It's FOSS (2026-11-13): 'Someone Made a Free Embroidery Editor': SVG to stitches, five file formats, Bluetooth to the Brother Skitch, and an MCP server so agents can draw and edit",
+    "url": "https://itsfoss.com/news/zigzag-embroidery-software/",
+    "kind": "article"
+   },
+   {
+    "label": "ZigZag website: free embroidery digitizing software for Mac and Windows, 'Works with AI agents' (checked 2026-11-13)",
+    "url": "https://zigzag.diy/",
+    "kind": "official"
+   }
+  ],
+  "popularity": null,
+  "tags": [
+   "embroidery",
+   "sewing",
+   "crafts",
+   "hobby",
+   "mcp",
+   "claude code",
+   "codex",
+   "open source",
+   "design"
+  ],
+  "seo_title": "Design embroidery with an AI agent (free ZigZag + Claude or Codex)",
+  "last_checked": "2026-11-13",
+  "date_added": "2026-11-13",
+  "origin": "pipeline"
+ },
+ {
   "slug": "let-an-ai-agent-tap-through-your-phone-for-you",
   "title": "Let an AI agent tap through your phone apps for you (and ask before it sends or pays)",
   "category": "work",
@@ -158,12 +347,12 @@
    "author": "@hgruenhagen",
    "url": "https://x.com/hgruenhagen/status/2120611235204841909",
    "posted_at": "2026-11-11",
-   "likes": 50,
+   "likes": 55,
    "reposts": 3,
-   "replies": 14,
-   "bookmarks": 17,
-   "views": 2860,
-   "measured_at": "2026-11-12"
+   "replies": 15,
+   "bookmarks": 18,
+   "views": 2999,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "backup",
@@ -265,9 +454,9 @@
    "likes": 8732,
    "reposts": 837,
    "replies": 306,
-   "bookmarks": 2423,
-   "views": 1217895,
-   "measured_at": "2026-11-12"
+   "bookmarks": 2421,
+   "views": 1218217,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "research",
@@ -357,12 +546,12 @@
    "author": "@Muse",
    "url": "https://x.com/Muse/status/2119919277692383330",
    "posted_at": "2026-11-09",
-   "likes": 4949,
-   "reposts": 677,
+   "likes": 4956,
+   "reposts": 676,
    "replies": 241,
-   "bookmarks": 611,
-   "views": 458647,
-   "measured_at": "2026-11-12"
+   "bookmarks": 612,
+   "views": 463253,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "smartwatch",
@@ -651,7 +840,7 @@
    "replies": 2,
    "bookmarks": 1,
    "views": 508,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "family history",
@@ -1905,8 +2094,8 @@
    "reposts": 5,
    "replies": 21,
    "bookmarks": 2,
-   "views": 4485,
-   "measured_at": "2026-11-12"
+   "views": 4488,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "IFTTT",
@@ -2008,12 +2197,12 @@
    "author": "@ChatGPT",
    "url": "https://x.com/ChatGPT/status/2115139248458191070",
    "posted_at": "2026-10-27",
-   "likes": 5826,
+   "likes": 5825,
    "reposts": 391,
    "replies": 403,
-   "bookmarks": 1055,
-   "views": 2124872,
-   "measured_at": "2026-11-12"
+   "bookmarks": 1054,
+   "views": 2126905,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "iCloud",
@@ -2201,8 +2390,8 @@
    "reposts": 7,
    "replies": 25,
    "bookmarks": 66,
-   "views": 39458,
-   "measured_at": "2026-11-12"
+   "views": 39481,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "online shopping",
@@ -2288,8 +2477,8 @@
    "reposts": 35,
    "replies": 98,
    "bookmarks": 316,
-   "views": 372150,
-   "measured_at": "2026-11-12"
+   "views": 372432,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "group chat",
@@ -2837,12 +3026,12 @@
    "author": "@NadavKeyson",
    "url": "https://x.com/NadavKeyson/status/2114759149770723804",
    "posted_at": "2026-10-26",
-   "likes": 666,
+   "likes": 667,
    "reposts": 88,
    "replies": 175,
    "bookmarks": 814,
-   "views": 1045398,
-   "measured_at": "2026-11-12"
+   "views": 1045685,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "podcast",
@@ -3284,7 +3473,7 @@
    "replies": 0,
    "bookmarks": 1,
    "views": 163,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "phone calls",
@@ -3504,7 +3693,7 @@
    "replies": 13,
    "bookmarks": 26,
    "views": 5899,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "proactive",
@@ -3696,7 +3885,7 @@
    "replies": 12,
    "bookmarks": 0,
    "views": 1107,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "fact check",
@@ -3799,12 +3988,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 332,
+   "likes": 331,
    "reposts": 15,
    "replies": 34,
-   "bookmarks": 189,
-   "views": 178955,
-   "measured_at": "2026-11-12"
+   "bookmarks": 187,
+   "views": 178961,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "second brain",
@@ -4012,7 +4201,7 @@
    "replies": 20,
    "bookmarks": 30,
    "views": 5448,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "read later",
@@ -4098,7 +4287,7 @@
    "replies": 4,
    "bookmarks": 6,
    "views": 1781,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "contact form",
@@ -4307,7 +4496,7 @@
    "replies": 3,
    "bookmarks": 6,
    "views": 586,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "schedule",
@@ -4687,8 +4876,8 @@
    "reposts": 15,
    "replies": 26,
    "bookmarks": 504,
-   "views": 25540,
-   "measured_at": "2026-11-12"
+   "views": 25550,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "multi-agent",
@@ -4777,12 +4966,12 @@
    "author": "@Parul_Gautam7",
    "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
    "posted_at": "2026-10-08",
-   "likes": 183,
+   "likes": 182,
    "reposts": 29,
    "replies": 37,
-   "bookmarks": 73,
+   "bookmarks": 72,
    "views": 46444,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "multi-agent",
@@ -4873,7 +5062,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "voice",
@@ -4947,7 +5136,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 47,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "roadside assistance",
@@ -5044,7 +5233,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 399,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "computer use",
@@ -5116,7 +5305,7 @@
    "replies": 2,
    "bookmarks": 0,
    "views": 914,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "contractors",
@@ -5186,7 +5375,7 @@
    "replies": 5,
    "bookmarks": 0,
    "views": 131,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "used car",
@@ -5249,8 +5438,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7540,
-   "measured_at": "2026-11-12"
+   "views": 7546,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "pharmacy",
@@ -5333,8 +5522,8 @@
    "reposts": 24,
    "replies": 29,
    "bookmarks": 232,
-   "views": 326938,
-   "measured_at": "2026-11-12"
+   "views": 326977,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "newsletters",
@@ -5437,9 +5626,9 @@
    "likes": 852,
    "reposts": 91,
    "replies": 192,
-   "bookmarks": 996,
-   "views": 1227728,
-   "measured_at": "2026-11-12"
+   "bookmarks": 997,
+   "views": 1227987,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "phone call",
@@ -5606,7 +5795,7 @@
    "replies": 2,
    "bookmarks": 4,
    "views": 567,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "spam calls",
@@ -5680,7 +5869,7 @@
    "replies": 8,
    "bookmarks": 36,
    "views": 5461,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "food log",
@@ -5700,7 +5889,7 @@
   "title": "Have your bot make a customer-service phone call for you",
   "category": "inbox",
   "source_date": "2026-10-20",
-  "summary": "Some jobs still need a phone call, like cancelling a service, booking a same-day appointment or sorting out an account. Grok Bot can now place the call itself for US businesses (live transcript, take-over button, summary after), or you can still connect a phone-calling add-on.",
+  "summary": "Some jobs still need a phone call, like cancelling a service, booking a same-day appointment or sorting out an account. Grok Bot can place the call itself for US businesses (live transcript, take-over button, summary after), Meta's Muse can now do the same for paid US subscribers (from Nov 12, 2026), or you can still connect a phone-calling add-on.",
   "what_the_bot_does": [
    "Shows a Phone call card with who it plans to call; you tap Call (or Cancel) before it dials.",
    "Looks up the company's customer-service line and the account details it will need.",
@@ -5714,6 +5903,10 @@
    {
     "id": "grok-bot",
     "note": "Native phone calls to US businesses (rolling out); live transcript and take-over. Older setups used a phone-calling add-on."
+   },
+   {
+    "id": "meta-muse",
+    "note": "Calls to US businesses on paid plans (from $20/month) since Nov 12, 2026"
    }
   ],
   "prompt": "Call [company] at their customer service line and cancel my [subscription name]. My account details: [name on account, email, last 4 of card if needed]. Start the call by saying you're an AI assistant calling on my behalf. Turn down any offers unless it's [what you'd accept], and don't agree to anything else. Afterwards, tell me what they said and give me the confirmation number.",
@@ -5723,7 +5916,8 @@
    "A phone call is harder to undo than an email, so be specific about what the bot may agree to.",
    "Check afterwards that the change really happened (for example, the next charge doesn't appear).",
    "Grok Bot calling is currently aimed at US numbers. Availability, plan limits and how calls count against usage are still being clarified by xAI.",
-   "Grok Bot terms require the call to identify itself as a virtual assistant on your behalf; some companies still refuse to act once they know it's an AI."
+   "Grok Bot terms require the call to identify itself as a virtual assistant on your behalf; some companies still refuse to act once they know it's an AI.",
+   "Meta's Muse now makes calls too (paid US plans only). Some businesses hang up on AI callers (TechCrunch), and in one shared Muse call it didn't say outright that it was an AI (Engadget). Tell whichever bot you use to say it's an AI assistant calling for you, and not to agree to any charge or cancellation fee without checking with you."
   ],
   "sources": [
    {
@@ -5761,20 +5955,37 @@
     "label": "Teslarati: Grok Bot can call US businesses — live transcript, approval before accepting terms, US-only; some reps refuse AI callers",
     "url": "https://www.teslarati.com/elon-musks-grok-bot-is-picking-up-the-phone-now-and-the-first-calls-are-wild/",
     "kind": "article"
+   },
+   {
+    "label": "X post by @alexandr_wang, Meta's chief AI officer (2026-11-12): 'muse can make phone calls for you', insurance, cable, DMV, dinner reservations; out now to paid subscribers in the US (1,382 likes, 114 reposts, 92,273 views; measured 2026-11-13)",
+    "url": "https://x.com/alexandr_wang/status/2120930586827391350",
+    "kind": "x"
+   },
+   {
+    "label": "TechCrunch (2026-11-12): Muse can now place calls to US businesses, if you pay; Power plan $20/month, Maximum $100/month; many businesses hang up on AI callers",
+    "url": "https://techcrunch.com/2026/11/12/muse-can-now-place-calls-to-u-s-businesses-if-you-pay/",
+    "kind": "article",
+    "posted_at": "2026-11-12"
+   },
+   {
+    "label": "Engadget (2026-11-12): Muse can schedule appointments, make reservations and wait on hold; in a shared sample call it said it was calling on the user's behalf and transcribing, but didn't explicitly say it was an AI",
+    "url": "https://www.engadget.com/2315525/metas-muse-can-now-make-calls-on-your-behalf-if-you-have-a-paid-subscription/",
+    "kind": "article",
+    "posted_at": "2026-11-12"
    }
   ],
   "popularity": {
    "platform": "x",
-   "post_id": "2112563230019289456",
-   "author": "@skeptrune",
-   "url": "https://x.com/skeptrune/status/2112563230019289456",
-   "posted_at": "2026-10-20",
-   "likes": 65,
-   "reposts": 3,
-   "replies": 12,
-   "bookmarks": 14,
-   "views": 3134,
-   "measured_at": "2026-11-12"
+   "post_id": "2120930586827391350",
+   "author": "@alexandr_wang",
+   "url": "https://x.com/alexandr_wang/status/2120930586827391350",
+   "posted_at": "2026-11-12",
+   "likes": 1382,
+   "reposts": 114,
+   "replies": 177,
+   "bookmarks": 148,
+   "views": 92273,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "phone call",
@@ -5785,11 +5996,12 @@
   ],
   "date_added": "2026-10-20",
   "origin": "pipeline",
-  "last_checked": "2026-11-06",
+  "last_checked": "2026-11-13",
   "setup": [
    "On Grok Bot (US numbers), ask it to call [company] about [one clear request], and spell out what it may and may not agree to.",
    "Review the Phone call card, then tap Call. Watch the live transcript; take over if the other side asks for a code only you know.",
-   "When it finishes, check the summary and confirm the change actually happened (email, app, or next statement)."
+   "When it finishes, check the summary and confirm the change actually happened (email, app, or next statement).",
+   "Using Meta's Muse instead: on a paid Muse plan in the US, just ask it in chat to call the business, giving the number, your name, account details it may need and what a good outcome looks like; read the summary when it's done."
   ]
  },
  {
@@ -5962,12 +6174,12 @@
    "author": "@lyndallschreinr",
    "url": "https://x.com/lyndallschreinr/status/2107888353630908437",
    "posted_at": "2026-10-07",
-   "likes": 1010,
+   "likes": 1011,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2885,
-   "views": 312101,
-   "measured_at": "2026-11-12"
+   "bookmarks": 2886,
+   "views": 312122,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "meal plan",
@@ -6039,12 +6251,12 @@
    "author": "@Michael_Fenech_",
    "url": "https://x.com/Michael_Fenech_/status/2108579992456327489",
    "posted_at": "2026-10-09",
-   "likes": 511,
-   "reposts": 34,
+   "likes": 512,
+   "reposts": 35,
    "replies": 37,
    "bookmarks": 1161,
-   "views": 67503,
-   "measured_at": "2026-11-12"
+   "views": 67527,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "calendar",
@@ -6061,7 +6273,7 @@
   "category": "inbox",
   "date_added": "2026-10-20",
   "source_date": "2026-10-05",
-  "summary": "Personal agents like Meta Muse, Grok Bot and Gemini Spark work in the background on a schedule. Start with the chore you hate most.",
+  "summary": "Personal agents like Meta Muse, Grok Bot and Gemini Spark work in the background on a schedule. Prefer something free that runs on your own computer? n8n's open-source Nod (Nov 2026) has its own private browser and asks before it sends, pays or deletes. Start with the chore you hate most.",
   "what_the_bot_does": [
    "Asks what you'd like help with and which apps it may use.",
    "Works through the task in the background on its own computer and browser.",
@@ -6087,13 +6299,22 @@
    {
     "id": "instinct",
     "note": "Works over iMessage and WhatsApp"
+   },
+   {
+    "id": "nod",
+    "note": "Free, open source, runs on your Mac or PC with your own AI provider"
    }
   ],
   "prompt": "I want to hand you one boring chore. Here it is: [describe the chore, e.g. 'every Friday, check my email for school forms and deadlines due next week and list them']. Before you start, ask me any questions you need answered. Show me the first result before you set it to repeat. Never send, buy, delete or book anything without asking me first.",
-  "setup": [],
+  "setup": [
+   "Pick the one weekly chore you hate most and write down exactly what 'done' looks like.",
+   "Choose a hosted agent (Muse, Grok Bot, Gemini Spark, Dots) for the easiest start, or Nod if you want it free and on your own computer: download it for Mac or Windows, connect your AI provider (API key or ChatGPT plan) and the apps it needs.",
+   "Run the chore once while you watch, then put it on a schedule."
+  ],
   "watch_out": [
    "Pick ONE chore first. Users who tried a general “do everything” assistant say they stopped using it within weeks; narrow tasks stuck.",
-   "Meta's own help page says Muse “may be inaccurate or take unexpected actions”. Check what it does."
+   "Meta's own help page says Muse “may be inaccurate or take unexpected actions”. Check what it does.",
+   "Nod is a research preview: it stops when your laptop sleeps, it can't make phone calls, and you pay your AI provider per task (it shows the cost and checks in once a task passes $5). Set a monthly spending limit."
   ],
   "sources": [
    {
@@ -6125,6 +6346,27 @@
     "url": "https://www.wired.com/story/i-tested-every-major-ai-agent-for-a-day-heres-the-best-one/",
     "kind": "article",
     "posted_at": "2026-10-27"
+   },
+   {
+    "label": "n8n blog (2026-11-10): 'Meet Nod', a standalone personal agent from n8n Labs with its own computer and browser on your Mac or PC; schedules, long memory, asks before it sends, pays, posts or deletes; free, you pay your AI provider; stops when the laptop sleeps",
+    "url": "https://blog.n8n.io/meet-nod/",
+    "kind": "official",
+    "posted_at": "2026-11-10"
+   },
+   {
+    "label": "Product Hunt: Nod by n8n, 'Open source personal agent with its own computer', #2 Product of the Day on Nov 11, 2026 (296 upvotes, 39 comments per hunted.space; checked 2026-11-13). One tester found it slow and weak on complex requests",
+    "url": "https://www.producthunt.com/products/n8n-io",
+    "kind": "article",
+    "posted_at": "2026-11-11"
+   },
+   {
+    "label": "GitHub: n8n-io/nod (Apache-2.0; 991 stars, measured 2026-11-13)",
+    "url": "https://github.com/n8n-io/nod",
+    "kind": "github",
+    "stats": {
+     "stars": 991
+    },
+    "measured_at": "2026-11-13"
    }
   ],
   "popularity": {
@@ -6136,9 +6378,9 @@
    "likes": 678,
    "reposts": 35,
    "replies": 157,
-   "bookmarks": 718,
-   "views": 83480,
-   "measured_at": "2026-11-12"
+   "bookmarks": 716,
+   "views": 83522,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "personal agent",
@@ -6146,7 +6388,7 @@
    "chores",
    "getting started"
   ],
-  "last_checked": "2026-10-20",
+  "last_checked": "2026-11-13",
   "origin": "seed-2026-10-20"
  },
  {
@@ -6217,9 +6459,9 @@
    "likes": 203,
    "reposts": 18,
    "replies": 24,
-   "bookmarks": 212,
-   "views": 41499,
-   "measured_at": "2026-11-12"
+   "bookmarks": 211,
+   "views": 41509,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "scams",
@@ -6302,8 +6544,8 @@
    "reposts": 14,
    "replies": 29,
    "bookmarks": 118,
-   "views": 25493,
-   "measured_at": "2026-11-12"
+   "views": 25498,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "family chat",
@@ -6393,7 +6635,7 @@
    "replies": 10,
    "bookmarks": 15,
    "views": 4100,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "groceries",
@@ -6473,7 +6715,7 @@
    "replies": 12,
    "bookmarks": 11,
    "views": 9685,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "travel",
@@ -6541,8 +6783,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 2323,
-   "measured_at": "2026-11-12"
+   "views": 2326,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "flights",
@@ -6691,8 +6933,8 @@
    "reposts": 23,
    "replies": 63,
    "bookmarks": 241,
-   "views": 93778,
-   "measured_at": "2026-11-12"
+   "views": 93783,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "restaurant",
@@ -6762,7 +7004,7 @@
    "replies": 9,
    "bookmarks": 27,
    "views": 4068,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "appointment",
@@ -6857,7 +7099,7 @@
    "replies": 14,
    "bookmarks": 37,
    "views": 9216,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "receipts",
@@ -6948,8 +7190,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 272,
-   "views": 9913,
-   "measured_at": "2026-11-12"
+   "views": 9922,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "chief of staff",
@@ -7008,8 +7250,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1895,
-   "measured_at": "2026-11-12"
+   "views": 1896,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "multiple brands",
@@ -7082,8 +7324,8 @@
    "reposts": 1,
    "replies": 12,
    "bookmarks": 27,
-   "views": 3253,
-   "measured_at": "2026-11-12"
+   "views": 3257,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "real estate",
@@ -7184,7 +7426,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 84,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "paper mail",
@@ -7273,7 +7515,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 79,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "monitoring",
@@ -7343,8 +7585,8 @@
    "reposts": 2,
    "replies": 6,
    "bookmarks": 1,
-   "views": 1451,
-   "measured_at": "2026-11-12"
+   "views": 1456,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "follow up",
@@ -7418,7 +7660,7 @@
    "replies": 7,
    "bookmarks": 54,
    "views": 4946,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "leads",
@@ -7513,8 +7755,8 @@
    "reposts": 1,
    "replies": 2,
    "bookmarks": 19,
-   "views": 2160,
-   "measured_at": "2026-11-12"
+   "views": 2161,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "email",
@@ -8167,8 +8409,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 810,
-   "measured_at": "2026-11-12"
+   "views": 811,
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "marketplace",
@@ -8436,7 +8678,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1506,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "payments",
@@ -8511,7 +8753,7 @@
    "replies": 4,
    "bookmarks": 3,
    "views": 908,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "tags": [
    "ads",
@@ -9520,7 +9762,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1374,
-   "measured_at": "2026-11-12"
+   "measured_at": "2026-11-13"
   },
   "origin": "migrated-2026-10-19"
  },
@@ -10850,7 +11092,8 @@
    "Small local models can misunderstand. Keep locks, alarms and heating behind a confirmation step.",
    "A local model needs a reasonably capable computer to answer quickly.",
    "Letting Claude or ChatGPT set up your automations (for example with the HA-MCP add-on) means giving it an administrator token. Its own guide suggests a separate local-only admin account for the AI, not your own login, and you should review each automation before you rely on it.",
-   "Reusing an old Echo with Hermes Voice means unlocking it with a community firmware tool; its README warns that some Amazon updates block the unlock, so check the exact model and software version before buying a used one."
+   "Reusing an old Echo with Hermes Voice means unlocking it with a community firmware tool; its README warns that some Amazon updates block the unlock, so check the exact model and software version before buying a used one.",
+   "Cutting a cloud-only gadget loose so it works locally (like the Coway purifier write-up on Hacker News, Nov 2026) is an expert project even with an AI helping, and some assistants refuse steps that look like intercepting traffic. Check for an existing Home Assistant integration first, and only tinker with devices you own."
   ],
   "sources": [
    {
@@ -10920,6 +11163,23 @@
     },
     "posted_at": "2026-11-05",
     "measured_at": "2026-11-12"
+   },
+   {
+    "label": "Scott J. Goldman's blog (2026-11-11): 'Reverse Engineering My Coway Air Purifier to Ditch the Cloud': used ChatGPT to set up the network test rig so the purifier could be run locally and tied to an Apple Home 'Good Night' button via Home Assistant (Claude declined that step)",
+    "url": "https://scottjg.com/posts/2026-11-11-reverse-engineering-my-coway-air-purifier-to-ditch-the-cloud/",
+    "kind": "article",
+    "posted_at": "2026-11-11"
+   },
+   {
+    "label": "Hacker News: 'Reverse engineering my Coway air purifier to ditch the cloud' (423 points, 123 comments; measured 2026-11-13)",
+    "url": "https://news.ycombinator.com/item?id=50474959",
+    "kind": "hn",
+    "stats": {
+     "points": 423,
+     "comments": 123
+    },
+    "posted_at": "2026-11-12",
+    "measured_at": "2026-11-13"
    }
   ],
   "tags": [
@@ -10931,7 +11191,7 @@
    "Ollama"
   ],
   "date_added": "2026-10-24",
-  "last_checked": "2026-11-12",
+  "last_checked": "2026-11-13",
   "origin": "community-backfill-2026-10-24",
   "popularity": null
  },

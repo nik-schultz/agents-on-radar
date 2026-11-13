@@ -1,0 +1,45 @@
+{
+  "slug": "design-an-embroidery-pattern-with-an-ai-agent",
+  "title": "Design an embroidery pattern by telling an AI agent what to stitch",
+  "category": "work",
+  "source_date": "2026-11-12",
+  "summary": "ZigZag is a free, open-source embroidery editor for Mac and Windows with a built-in connection for AI agents. You describe a patch or monogram, the agent draws it in the editor while you watch, checks a stitch preview, and exports a file your embroidery machine can sew.",
+  "what_the_bot_does": [
+    "Connects to the ZigZag editor on your computer (it only listens on your own machine).",
+    "Draws shapes and lettering from your description, or places and traces artwork you give it.",
+    "Picks stitch types (fill, satin, running stitch and more) and sets the fabric and hoop size.",
+    "Renders a picture of the stitches and runs the editor's design check so it can fix problems before you sew.",
+    "Exports a PES, DST, EXP, JEF or VP3 file, or sends the design to a Brother Skitch over Bluetooth when you say so."
+  ],
+  "what_you_end_up_with": "A finished embroidery file for your machine, plus the design open in the editor so you can tweak any stitch yourself. Every agent step is one Undo.",
+  "difficulty": "Advanced",
+  "tools": [
+    {"id": "claude", "note": "Claude Code or Claude Desktop connect to ZigZag's MCP server"},
+    {"id": "chatgpt", "note": "Codex works too (ZigZag's Ask Agent panel runs Claude Code or Codex)"}
+  ],
+  "prompt": "In ZigZag, make a [size, e.g. 70 mm round] embroidered patch for [fabric, e.g. a denim jacket] that says '[text]' with [simple picture, e.g. a small mountain]. Use [number] thread colours at most, satin for the border and lettering, fill for the shapes. Render a stitch preview and run the design check, then show me before you change anything else. Don't export or send anything to my machine until I say yes.",
+  "setup": [
+    "Download ZigZag for Mac or Windows from zigzag.diy (free, Apache 2.0) and open it.",
+    "Click MCP in the bottom-right status bar. It shows the address and copy buttons to connect Claude Code or Claude Desktop.",
+    "For Claude Code, run: claude mcp add --transport http zigzag http://127.0.0.1:7878/mcp. Or use ZigZag's built-in Ask Agent panel with a Claude Code or Codex sign-in you already have.",
+    "Start with a simple design (a name or a small icon), check the stitch preview, then export the file type your machine uses.",
+    "Sew a test on scrap fabric before the real garment."
+  ],
+  "watch_out": [
+    "It's a new hobby project (version 0.1.x). Expect rough edges and keep backups of designs you care about.",
+    "Only the Brother Skitch PP1 can receive designs over Bluetooth, and you must close Brother's Artspira app first. The README advises against Skitch firmware updates.",
+    "On Windows, SmartScreen warns the first time because the app isn't Microsoft-signed (the README explains More info > Run anyway).",
+    "Agents can make odd stitch choices. Always look at the stitch preview, and test-sew, before using expensive fabric.",
+    "Only stitch artwork you have the right to use."
+  ],
+  "sources": [
+    {"label": "Hacker News: 'Show HN: My $300 embroidery machine needed a subscription, so I built my own app' (689 points, 223 comments; measured 2026-11-13)", "url": "https://news.ycombinator.com/item?id=50470488", "kind": "hn", "stats": {"points": 689, "comments": 223}, "posted_at": "2026-11-12", "measured_at": "2026-11-13"},
+    {"label": "GitHub: simpsoka/zigzag, free open-source embroidery editor with a built-in MCP server for AI agents (Apache-2.0; 565 stars, measured 2026-11-13)", "url": "https://github.com/simpsoka/zigzag", "kind": "github", "stats": {"stars": 565}, "posted_at": "2026-11-11", "measured_at": "2026-11-13"},
+    {"label": "It's FOSS (2026-11-13): 'Someone Made a Free Embroidery Editor': SVG to stitches, five file formats, Bluetooth to the Brother Skitch, and an MCP server so agents can draw and edit", "url": "https://itsfoss.com/news/zigzag-embroidery-software/", "kind": "article"},
+    {"label": "ZigZag website: free embroidery digitizing software for Mac and Windows, 'Works with AI agents' (checked 2026-11-13)", "url": "https://zigzag.diy/", "kind": "official"}
+  ],
+  "popularity": null,
+  "tags": ["embroidery", "sewing", "crafts", "hobby", "mcp", "claude code", "codex", "open source", "design"],
+  "seo_title": "Design embroidery with an AI agent (free ZigZag + Claude or Codex)",
+  "last_checked": "2026-11-13"
+}

@@ -172,5 +172,11 @@
   "url": "https://www.myheritage.com/research",
   "cost": "Free trial allowance for MyHeritage subscribers; more with OmniAI plans",
   "kind": "agent"
+ },
+ "nod": {
+  "name": "Nod (n8n Labs)",
+  "url": "https://blog.n8n.io/meet-nod/",
+  "cost": "Free and open source (research preview); you pay the AI provider you connect",
+  "kind": "agent"
  }
 }
