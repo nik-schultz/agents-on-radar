@@ -178,5 +178,11 @@
   "url": "https://blog.n8n.io/meet-nod/",
   "cost": "Free and open source (research preview); you pay the AI provider you connect",
   "kind": "agent"
+ },
+ "google-ask-maps": {
+  "name": "Ask Maps (Google Maps)",
+  "url": "https://blog.google/products-and-platforms/products/maps/ask-maps-holiday-travel-features-2026/",
+  "cost": "Free in the Google Maps app; appointment finding US-only at launch",
+  "kind": "agent"
  }
 }

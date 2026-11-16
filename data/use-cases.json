@@ -1,5 +1,114 @@
 [
  {
+  "slug": "turn-your-booking-emails-into-one-trip-sheet",
+  "title": "Turn scattered booking emails into one trip sheet that flags clashes",
+  "category": "travel",
+  "source_date": "2026-11-13",
+  "summary": "Your flight, hotel, train and dinner confirmations are spread over five emails. Put them in one folder (or forward them) and an AI agent reads them all, writes one day-by-day trip sheet with every time, address and confirmation code, and warns you about clashes, like a flight that lands after the hotel desk closes.",
+  "what_the_bot_does": [
+   "Reads only the booking emails or PDFs you put in one folder, or the ones you forward to it.",
+   "Pulls out each booking's date, time, place, confirmation code and any deadline (check-in, cancellation cut-off).",
+   "Checks that each date's weekday is right and lists any email that isn't about this trip.",
+   "Writes one trip sheet, day by day in time order, that you can open on your phone.",
+   "Puts a list of clashes at the top: overlapping bookings, arriving somewhere after it closes, or a checkout after your train leaves.",
+   "Shows you the sheet and saves it only after you say yes. It doesn't book, change or cancel anything."
+  ],
+  "what_you_end_up_with": "One trip sheet with every booking in time order and a short list of problems to fix before you leave.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "hermes-agent",
+    "note": "Point it at a folder of confirmations (the Hermes recipe this guide is based on)"
+   },
+   {
+    "id": "claude-cowork",
+    "note": "Give it the one folder that holds your confirmations"
+   },
+   {
+    "id": "chatgpt",
+    "note": "Or just attach the confirmation PDFs or screenshots to a chat"
+   }
+  ],
+  "prompt": "Turn my booking confirmations into one trip sheet and tell me what clashes. Look only at [the folder name / the files I attached]. Use only what the confirmations say; where they're silent, write \"not in the confirmations\".\n\n1. List each file with a few words on what it is, and name any that aren't about my trip to [destination] on [dates].\n2. Check every date's weekday and flag any that don't match.\n3. Write the trip sheet day by day, in time order: each booking with its time, address and confirmation code, plus anything I must do first (online check-in, ID, deadlines).\n4. Put a list of clashes at the top: overlapping bookings, places I'd reach after they close, and tight connections under [60] minutes.\n5. Show me the whole sheet and wait for my yes before you save it as [trip-sheet] in that folder.\n\nDon't book, change, cancel or email anyone.",
+  "setup": [
+   "Make a new folder (or an email label) and put only this trip's confirmation emails and PDFs in it. Most mail apps let you save or print an email as a PDF.",
+   "Hermes Agent or Claude Cowork: open a new chat, give it that one folder, paste the prompt and fill in the brackets. ChatGPT, Claude or Gemini in a browser: attach the PDFs or screenshots to the chat instead.",
+   "Read the clash list first and fix those with the airline or hotel yourself.",
+   "Check each line against the original email once. Then save the sheet to your phone or share it with whoever is travelling with you.",
+   "Prefer an app? Travel Wallet, Moonjar and the open-source UB Trippin each give you an email address you forward confirmations to, and they build the trip for you."
+  ],
+  "watch_out": [
+   "AI can misread a faded PDF, an odd layout or a name spelled two ways. Travel Wallet's own guide says to check each ticket's name, date, time and seat before you go.",
+   "Give the agent one folder of copies, not your whole inbox or Documents. That keeps it away from unrelated mail and files.",
+   "Confirmation codes and booking references let someone change your booking. Don't post the sheet publicly or share it beyond the people on the trip.",
+   "A trip sheet doesn't follow live delays. Keep your airline app's alerts on for schedule changes.",
+   "Forwarding services read whatever you send them. Only forward the booking emails, not threads with other personal details."
+  ],
+  "sources": [
+   {
+    "label": "X post by @witcheer (2026-11-01): put booking emails in one folder and Hermes Agent writes one trip sheet in time order with a clash list; it caught a flight landing 40 minutes after hotel reception closed (42 likes, 17 bookmarks, 2,377 views; measured 2026-11-16)",
+    "url": "https://x.com/witcheer/status/2116969522968334434",
+    "kind": "x"
+   },
+   {
+    "label": "Hermes recipes #28: one trip sheet from your booking emails (full copy-paste prompt, posted 2026-11-01)",
+    "url": "https://notwitcheer.github.io/hermes-recipes/prompts/28-trip-sheet/",
+    "kind": "article"
+   },
+   {
+    "label": "Hermes HQ use case: Consolidate trip bookings and spot timing conflicts",
+    "url": "https://hermeshq.ai/use-cases/consolidate-trip-bookings-and-spot-timing-conflicts/",
+    "kind": "article"
+   },
+   {
+    "label": "Yandex (2026-11-13): Alice AI 'Do it!' agent can gather tickets and booking confirmations from emails into a single folder, asking approval before important actions",
+    "url": "https://yandex.com/company/news/2026-11-13",
+    "kind": "official"
+   },
+   {
+    "label": "Travel Wallet guide (updated 2026-10-16): forward a booking email and the app reads it, splits it into tickets and files them by trip and day; what it can't do",
+    "url": "https://gettravelwallet.com/guides/ai-ticket-sorting/",
+    "kind": "article"
+   },
+   {
+    "label": "Moonjar Help: forward a booking email and Claude classifies and files it into the right trip",
+    "url": "https://help.moonjar.io/trips/email-to-booking/",
+    "kind": "official"
+   },
+   {
+    "label": "GitHub fistfulayen/ubtrippin: open-source, agent-first trip organizer you forward confirmations to (5 stars, checked 2026-11-16)",
+    "url": "https://github.com/fistfulayen/ubtrippin",
+    "kind": "article"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2116969522968334434",
+   "author": "@witcheer",
+   "url": "https://x.com/witcheer/status/2116969522968334434",
+   "posted_at": "2026-11-01",
+   "likes": 42,
+   "reposts": 1,
+   "replies": 11,
+   "bookmarks": 17,
+   "views": 2377,
+   "measured_at": "2026-11-16"
+  },
+  "tags": [
+   "travel",
+   "trip itinerary",
+   "booking confirmations",
+   "email",
+   "hermes agent",
+   "holiday travel",
+   "clash check",
+   "trip planner"
+  ],
+  "date_added": "2026-11-16",
+  "origin": "pipeline",
+  "last_checked": "2026-11-16"
+ },
+ {
   "slug": "share-a-scam-check-bot-with-an-older-parent",
   "title": "Share a scam-check bot your parent can text before they send money",
   "category": "family",
@@ -75,12 +184,12 @@
    "author": "@0chob",
    "url": "https://x.com/0chob/status/2120909462286254271",
    "posted_at": "2026-11-12",
-   "likes": 161,
+   "likes": 162,
    "reposts": 11,
-   "replies": 16,
-   "bookmarks": 193,
-   "views": 33513,
-   "measured_at": "2026-11-13"
+   "replies": 18,
+   "bookmarks": 194,
+   "views": 34506,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "scams",
@@ -347,12 +456,12 @@
    "author": "@hgruenhagen",
    "url": "https://x.com/hgruenhagen/status/2120611235204841909",
    "posted_at": "2026-11-11",
-   "likes": 55,
-   "reposts": 3,
-   "replies": 15,
-   "bookmarks": 18,
-   "views": 2999,
-   "measured_at": "2026-11-13"
+   "likes": 65,
+   "reposts": 4,
+   "replies": 17,
+   "bookmarks": 26,
+   "views": 3582,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "backup",
@@ -451,12 +560,12 @@
    "author": "@p_rabtsevich",
    "url": "https://x.com/p_rabtsevich/status/2107803696058822742",
    "posted_at": "2026-10-07",
-   "likes": 8732,
-   "reposts": 837,
+   "likes": 8729,
+   "reposts": 836,
    "replies": 306,
-   "bookmarks": 2421,
-   "views": 1218217,
-   "measured_at": "2026-11-13"
+   "bookmarks": 2420,
+   "views": 1219169,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "research",
@@ -546,12 +655,12 @@
    "author": "@Muse",
    "url": "https://x.com/Muse/status/2119919277692383330",
    "posted_at": "2026-11-09",
-   "likes": 4956,
-   "reposts": 676,
-   "replies": 241,
-   "bookmarks": 612,
-   "views": 463253,
-   "measured_at": "2026-11-13"
+   "likes": 4968,
+   "reposts": 677,
+   "replies": 243,
+   "bookmarks": 615,
+   "views": 472499,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "smartwatch",
@@ -839,8 +948,8 @@
    "reposts": 5,
    "replies": 2,
    "bookmarks": 1,
-   "views": 508,
-   "measured_at": "2026-11-13"
+   "views": 512,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "family history",
@@ -2094,8 +2203,8 @@
    "reposts": 5,
    "replies": 21,
    "bookmarks": 2,
-   "views": 4488,
-   "measured_at": "2026-11-13"
+   "views": 4504,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "IFTTT",
@@ -2197,12 +2306,12 @@
    "author": "@ChatGPT",
    "url": "https://x.com/ChatGPT/status/2115139248458191070",
    "posted_at": "2026-10-27",
-   "likes": 5825,
-   "reposts": 391,
+   "likes": 5820,
+   "reposts": 390,
    "replies": 403,
-   "bookmarks": 1054,
-   "views": 2126905,
-   "measured_at": "2026-11-13"
+   "bookmarks": 1050,
+   "views": 2130042,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "iCloud",
@@ -2386,12 +2495,12 @@
    "author": "@benjaminsehl",
    "url": "https://x.com/benjaminsehl/status/2110101061499539825",
    "posted_at": "2026-10-13",
-   "likes": 85,
+   "likes": 84,
    "reposts": 7,
    "replies": 25,
-   "bookmarks": 66,
-   "views": 39481,
-   "measured_at": "2026-11-13"
+   "bookmarks": 65,
+   "views": 39532,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "online shopping",
@@ -2473,12 +2582,12 @@
    "author": "@noahrshinn",
    "url": "https://x.com/noahrshinn/status/2115143830924341534",
    "posted_at": "2026-10-27",
-   "likes": 1086,
+   "likes": 1084,
    "reposts": 35,
    "replies": 98,
-   "bookmarks": 316,
-   "views": 372432,
-   "measured_at": "2026-11-13"
+   "bookmarks": 315,
+   "views": 373192,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "group chat",
@@ -2539,6 +2648,7 @@
   ],
   "watch_out": [
    "Full-access modes are where the horror stories come from. In July 2026 OpenAI confirmed GPT-5.6 Sol had deleted some users' files; its Codex lead said this usually happened in Full-Access mode without the sandbox or Auto-review (The Register).",
+   "It can happen on a tiny job. A University of Chicago law professor asked Claude to renumber pages, and it deleted his whole current syllabus and a year of lecture notes; he got them back only because they were in Dropbox (Tom's Hardware, Nov 2026). Keep anything you hand an agent in a folder with version history or a backup.",
    "A sandbox only protects what's outside it. Inside the folder you allowed, the agent can still overwrite or wipe things, as a Hacker News commenter pointed out about git commands inside a project folder. Work on copies and keep a backup.",
    "Clicking Allow out of habit defeats the point. Anthropic's Cowork course puts it plainly: Claude won't delete without asking, but the cost of clicking through the wrong confirmation is the cost of the file.",
    "Safety checks can fail. A Claude Code bug report on GitHub describes a sub-agent that ran a delete outside the working folder and wiped a whole Windows user profile, so a backup the agent can't reach is your real safety net.",
@@ -2630,6 +2740,16 @@
     "label": "LATENT (2026-11-08): inside the 1,122 files, and steps to check your own folders",
     "url": "https://latent.tokyo/en/articles/2026-11-08-claude-code-dont-ask-again-secrets",
     "kind": "article"
+   },
+   {
+    "label": "Tom's Hardware (2026-11-06): Claude asked to renumber pages deletes a law professor's syllabus and a year of lecture notes; recovered from Dropbox",
+    "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/rogue-claude-ai-tasked-with-renumbering-pages-accidentally-deletes-law-professors-entire-syllabus-one-year-of-lecture-notes-youre-right-to-be-angry-i-deleted-your-files-through-my-own-carelessness-humbled-agent-admits",
+    "kind": "article"
+   },
+   {
+    "label": "Hacker News 50499114: \"Claude asked to renumber pages deletes professor's syllabus, year of notes\" (51 points / 75 comments, measured 2026-11-16)",
+    "url": "https://news.ycombinator.com/item?id=50499114",
+    "kind": "article"
    }
   ],
   "tags": [
@@ -2649,7 +2769,7 @@
   ],
   "date_added": "2026-10-28",
   "origin": "weekly-seo-2026-10-28",
-  "last_checked": "2026-11-10",
+  "last_checked": "2026-11-16",
   "popularity": null,
   "see_also": [
    {
@@ -3026,12 +3146,12 @@
    "author": "@NadavKeyson",
    "url": "https://x.com/NadavKeyson/status/2114759149770723804",
    "posted_at": "2026-10-26",
-   "likes": 667,
-   "reposts": 88,
+   "likes": 666,
+   "reposts": 87,
    "replies": 175,
    "bookmarks": 814,
-   "views": 1045685,
-   "measured_at": "2026-11-13"
+   "views": 1046423,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "podcast",
@@ -3473,7 +3593,7 @@
    "replies": 0,
    "bookmarks": 1,
    "views": 163,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "phone calls",
@@ -3692,8 +3812,8 @@
    "reposts": 5,
    "replies": 13,
    "bookmarks": 26,
-   "views": 5899,
-   "measured_at": "2026-11-13"
+   "views": 5903,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "proactive",
@@ -3885,7 +4005,7 @@
    "replies": 12,
    "bookmarks": 0,
    "views": 1107,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "fact check",
@@ -3988,12 +4108,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 331,
+   "likes": 329,
    "reposts": 15,
    "replies": 34,
-   "bookmarks": 187,
-   "views": 178961,
-   "measured_at": "2026-11-13"
+   "bookmarks": 185,
+   "views": 178983,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "second brain",
@@ -4200,8 +4320,8 @@
    "reposts": 6,
    "replies": 20,
    "bookmarks": 30,
-   "views": 5448,
-   "measured_at": "2026-11-13"
+   "views": 5449,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "read later",
@@ -4287,7 +4407,7 @@
    "replies": 4,
    "bookmarks": 6,
    "views": 1781,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "contact form",
@@ -4496,7 +4616,7 @@
    "replies": 3,
    "bookmarks": 6,
    "views": 586,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "schedule",
@@ -4876,8 +4996,8 @@
    "reposts": 15,
    "replies": 26,
    "bookmarks": 504,
-   "views": 25550,
-   "measured_at": "2026-11-13"
+   "views": 25564,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "multi-agent",
@@ -4966,12 +5086,12 @@
    "author": "@Parul_Gautam7",
    "url": "https://x.com/Parul_Gautam7/status/2108202625929970077",
    "posted_at": "2026-10-08",
-   "likes": 182,
+   "likes": 180,
    "reposts": 29,
    "replies": 37,
-   "bookmarks": 72,
-   "views": 46444,
-   "measured_at": "2026-11-13"
+   "bookmarks": 71,
+   "views": 46449,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "multi-agent",
@@ -5062,7 +5182,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "voice",
@@ -5136,7 +5256,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 47,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "roadside assistance",
@@ -5232,8 +5352,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 399,
-   "measured_at": "2026-11-13"
+   "views": 400,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "computer use",
@@ -5304,8 +5424,8 @@
    "reposts": 0,
    "replies": 2,
    "bookmarks": 0,
-   "views": 914,
-   "measured_at": "2026-11-13"
+   "views": 915,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "contractors",
@@ -5375,7 +5495,7 @@
    "replies": 5,
    "bookmarks": 0,
    "views": 131,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "used car",
@@ -5438,8 +5558,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7546,
-   "measured_at": "2026-11-13"
+   "views": 7549,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "pharmacy",
@@ -5522,8 +5642,8 @@
    "reposts": 24,
    "replies": 29,
    "bookmarks": 232,
-   "views": 326977,
-   "measured_at": "2026-11-13"
+   "views": 327099,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "newsletters",
@@ -5623,12 +5743,12 @@
    "author": "@BrianRoemmele",
    "url": "https://x.com/BrianRoemmele/status/2111812467500458135",
    "posted_at": "2026-10-18",
-   "likes": 852,
+   "likes": 851,
    "reposts": 91,
    "replies": 192,
-   "bookmarks": 997,
-   "views": 1227987,
-   "measured_at": "2026-11-13"
+   "bookmarks": 996,
+   "views": 1228849,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "phone call",
@@ -5795,7 +5915,7 @@
    "replies": 2,
    "bookmarks": 4,
    "views": 567,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "spam calls",
@@ -5868,8 +5988,8 @@
    "reposts": 3,
    "replies": 8,
    "bookmarks": 36,
-   "views": 5461,
-   "measured_at": "2026-11-13"
+   "views": 5463,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "food log",
@@ -5980,12 +6100,12 @@
    "author": "@alexandr_wang",
    "url": "https://x.com/alexandr_wang/status/2120930586827391350",
    "posted_at": "2026-11-12",
-   "likes": 1382,
-   "reposts": 114,
-   "replies": 177,
-   "bookmarks": 148,
-   "views": 92273,
-   "measured_at": "2026-11-13"
+   "likes": 1473,
+   "reposts": 120,
+   "replies": 192,
+   "bookmarks": 158,
+   "views": 113630,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "phone call",
@@ -6177,9 +6297,9 @@
    "likes": 1011,
    "reposts": 29,
    "replies": 81,
-   "bookmarks": 2886,
-   "views": 312122,
-   "measured_at": "2026-11-13"
+   "bookmarks": 2884,
+   "views": 312199,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "meal plan",
@@ -6254,9 +6374,9 @@
    "likes": 512,
    "reposts": 35,
    "replies": 37,
-   "bookmarks": 1161,
-   "views": 67527,
-   "measured_at": "2026-11-13"
+   "bookmarks": 1160,
+   "views": 67565,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "calendar",
@@ -6375,12 +6495,12 @@
    "author": "@AlexFinn",
    "url": "https://x.com/AlexFinn/status/2107254007412756589",
    "posted_at": "2026-10-05",
-   "likes": 678,
+   "likes": 679,
    "reposts": 35,
-   "replies": 157,
-   "bookmarks": 716,
-   "views": 83522,
-   "measured_at": "2026-11-13"
+   "replies": 156,
+   "bookmarks": 717,
+   "views": 83685,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "personal agent",
@@ -6460,8 +6580,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 211,
-   "views": 41509,
-   "measured_at": "2026-11-13"
+   "views": 41514,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "scams",
@@ -6544,8 +6664,8 @@
    "reposts": 14,
    "replies": 29,
    "bookmarks": 118,
-   "views": 25498,
-   "measured_at": "2026-11-13"
+   "views": 25526,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "family chat",
@@ -6634,8 +6754,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4100,
-   "measured_at": "2026-11-13"
+   "views": 4103,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "groceries",
@@ -6711,11 +6831,11 @@
    "url": "https://x.com/Teslaconomics/status/2110721195817509068",
    "posted_at": "2026-10-15",
    "likes": 61,
-   "reposts": 12,
+   "reposts": 11,
    "replies": 12,
    "bookmarks": 11,
-   "views": 9685,
-   "measured_at": "2026-11-13"
+   "views": 9687,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "travel",
@@ -6783,8 +6903,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 2326,
-   "measured_at": "2026-11-13"
+   "views": 2329,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "flights",
@@ -6933,8 +7053,8 @@
    "reposts": 23,
    "replies": 63,
    "bookmarks": 241,
-   "views": 93783,
-   "measured_at": "2026-11-13"
+   "views": 93797,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "restaurant",
@@ -7003,8 +7123,8 @@
    "reposts": 4,
    "replies": 9,
    "bookmarks": 27,
-   "views": 4068,
-   "measured_at": "2026-11-13"
+   "views": 4070,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "appointment",
@@ -7098,8 +7218,8 @@
    "reposts": 2,
    "replies": 14,
    "bookmarks": 37,
-   "views": 9216,
-   "measured_at": "2026-11-13"
+   "views": 9222,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "receipts",
@@ -7190,8 +7310,8 @@
    "reposts": 6,
    "replies": 12,
    "bookmarks": 272,
-   "views": 9922,
-   "measured_at": "2026-11-13"
+   "views": 9932,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "chief of staff",
@@ -7251,7 +7371,7 @@
    "replies": 48,
    "bookmarks": 14,
    "views": 1896,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "multiple brands",
@@ -7325,7 +7445,7 @@
    "replies": 12,
    "bookmarks": 27,
    "views": 3257,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "real estate",
@@ -7426,7 +7546,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 84,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "paper mail",
@@ -7515,7 +7635,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 79,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "monitoring",
@@ -7585,8 +7705,8 @@
    "reposts": 2,
    "replies": 6,
    "bookmarks": 1,
-   "views": 1456,
-   "measured_at": "2026-11-13"
+   "views": 1460,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "follow up",
@@ -7660,7 +7780,7 @@
    "replies": 7,
    "bookmarks": 54,
    "views": 4946,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "leads",
@@ -7755,8 +7875,8 @@
    "reposts": 1,
    "replies": 2,
    "bookmarks": 19,
-   "views": 2161,
-   "measured_at": "2026-11-13"
+   "views": 2163,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "email",
@@ -8409,8 +8529,8 @@
    "reposts": 0,
    "replies": 1,
    "bookmarks": 0,
-   "views": 811,
-   "measured_at": "2026-11-13"
+   "views": 812,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "marketplace",
@@ -8677,8 +8797,8 @@
    "reposts": 0,
    "replies": 3,
    "bookmarks": 3,
-   "views": 1506,
-   "measured_at": "2026-11-13"
+   "views": 1507,
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "payments",
@@ -8753,7 +8873,7 @@
    "replies": 4,
    "bookmarks": 3,
    "views": 908,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "tags": [
    "ads",
@@ -9188,6 +9308,10 @@
     "note": "Can use websites for you, including ones you sign in to; asks before bookings or payments."
    },
    {
+    "id": "google-ask-maps",
+    "note": "Finds open beauty, pet care, auto and home repair slots, checking online or calling nearby businesses for you (US, rolling out Nov 16, 2026)"
+   },
+   {
     "id": "gemini-opentable",
     "note": "Can check, book and cancel OpenTable restaurant reservations."
    },
@@ -9216,7 +9340,8 @@
    "OpenAI says some websites block automated agents. If that happens, the agent should hand the task back to you.",
    "Double-check the date, time, location and total price before you approve. Agents can misread a page.",
    "Never paste passwords, security codes or payment details into the conversation. OpenAI's own guidance says the same.",
-   "Agents sometimes say a booking is done when it never went through (Eon tested 19 models on everyday tasks and found false \"done\" reports were the most common failure). Ask for a confirmation number or open the reservation yourself before you trust it."
+   "Agents sometimes say a booking is done when it never went through (Eon tested 19 models on everyday tasks and found false \"done\" reports were the most common failure). Ask for a confirmation number or open the reservation yourself before you trust it.",
+   "When an AI calls a business for you, it may share your request details with them. Google's help page for its AI price-check calls says your request, which may include your name, is shared with the businesses it calls."
   ],
   "faq": [
    {
@@ -9272,6 +9397,26 @@
     },
     "posted_at": "2026-09-24",
     "measured_at": "2026-10-27"
+   },
+   {
+    "label": "Google blog (2026-11-16): New Ask Maps features for the holidays: find beauty, pet care, auto and home repair appointments online and call local businesses for you (US first)",
+    "url": "https://blog.google/products-and-platforms/products/maps/ask-maps-holiday-travel-features-2026/",
+    "kind": "official"
+   },
+   {
+    "label": "Android Authority (2026-11-16): Ask Maps gets itineraries, list search and appointment booking",
+    "url": "https://www.androidauthority.com/google-maps-ask-maps-update-3735628/",
+    "kind": "article"
+   },
+   {
+    "label": "Digital Trends (2026-11-16): Google Maps can now organize multi-day trips and call businesses to check appointments",
+    "url": "https://www.digitaltrends.com/phones/google-maps-can-now-organize-multi-day-trips-and-call-businesses-to-check-appointments/",
+    "kind": "article"
+   },
+   {
+    "label": "Google Search Help: have AI contact businesses to check availability and prices (shares your request details, which may include your name)",
+    "url": "https://support.google.com/websearch/answer/16421135?hl=en",
+    "kind": "official"
    }
   ],
   "real_examples": [],
@@ -9332,7 +9477,7 @@
     }
    ]
   },
-  "last_checked": "2026-11-06",
+  "last_checked": "2026-11-16",
   "date_added": "2026-10-19",
   "source_date": null,
   "summary": "You need a DMV slot, a restaurant table or a service appointment, and you don't have time to click through booking sites or keep checking for openings.",
@@ -9344,7 +9489,9 @@
    "Say yes, then check the confirmation email and add it to your calendar."
   ],
   "what_you_end_up_with": "The agent finds options that fit your times and rules, shows you its pick, and books it only after you say yes.",
-  "setup": [],
+  "setup": [
+   "Google Maps (US): open Ask Maps and ask something like \"Find me a 4 p.m. nail appointment near me.\" Google says it checks online booking or calls local businesses, then shows open slots across nearby places so you pick one. It covers beauty, pet care, auto and home repair, and is rolling out on Android and iOS from Nov 16, 2026."
+  ],
   "popularity": null,
   "origin": "migrated-2026-10-19",
   "see_also": [
@@ -9762,7 +9909,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1374,
-   "measured_at": "2026-11-13"
+   "measured_at": "2026-11-16"
   },
   "origin": "migrated-2026-10-19"
  },

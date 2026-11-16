@@ -1119,3 +1119,13 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - Added 4 items: **openai-science-blog-standard-model** (2026-11-15, notable industry; openai.com; X @OpenAI 2122123437141553630, 3,027 likes / 286 reposts / 552,761 views), **gemini-google-wallet-finance** (2026-11-13, notable feature; blog.google + Android Central; X @Google 2121293823837921433, 961 / 103 / 1,003,745), **claude-duet-us-waitlist-invited** (2026-11-13, notable; Claude Help Center + Frontier Now; X @ahuja_karan coverage 2121332990836163033, 2,317 / 110 / 285,659), **grok-bot-usage-efficiency** (2026-11-13, minor pricing; @SamSokolin X post + Tesla North; X @elonmusk 2121628295234023654, 9,351 / 781 / 2,331,244, measured via search).
 - Refreshed X numbers on 76 items dated Nov 2 or later. Measured 2026-11-16T12:29Z (raw research/x_news_measure_2026_11_16_am.json.txt, local only; apply script research/news_x_2026_11_16_am.py).
 - No major release, no pricing-table change. 2 BACKLOG notes; skips listed in BACKLOG.
+- Deploy: local main `ae5c86dc`, publish `a0f47021` (`a89adac7..a0f47021`), Actions run 43867310389 succeeded; live /news/ shows the new items.
+
+## 2026-11-16 (standing site QA, ~7:30 AM CT)
+- QA: live /, /news/, /trending/, /sitemap.xml all 200 (home 0.15 s); check_links 15,327 links, 0 broken internal; every <img> has alt; all pages have lang. No bugs found, so no deploy. No improvement shipped this run (the 6:30 AM news run already deployed today's content).
+
+## 2026-11-16 (midday trending, ~12:40 PM CT)
+- Added `turn-your-booking-emails-into-one-trip-sheet` (travel, Easy): booking confirmations in one folder → one day-by-day trip sheet with a clash list; no booking or changes. Sources: X @witcheer 2116969522968334434 (42 likes / 1 repost / 17 bookmarks / 2,377 views, measured 2026-11-16), Hermes recipes #28, Hermes HQ use case, Yandex Alice "Do it!" (Nov 13), Travel Wallet guide, Moonjar Help, GitHub fistfulayen/ubtrippin (5 stars).
+- Extended `book-an-appointment-with-an-ai-agent` with Google Ask Maps appointment finding (blog.google Nov 16, Android Authority, Digital Trends; new tool `google-ask-maps`; setup step + watch-out that AI calls share your request details, per Google Search Help) and `keep-an-ai-agent-from-deleting-your-files` with the Claude syllabus-deletion story (Tom's Hardware, HN 50499114 51/75).
+- Refreshed 53 tracked X posts (raw /workspace/agent-tools/x_trend_2026_11_16.json, local only). Mentions/feedback of BotsDoThat: none. Bugs: none. Reddit JSON blocked; RSS gave titles only.
+- Source mix: 131 use cases, 567 source links, X 80/567 = 14% (this run's new links: 1 of 13 X). Validate 0 errors; build 182 pages; check_links 15,425 links, 0 broken internal.

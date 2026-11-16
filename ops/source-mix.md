@@ -389,3 +389,14 @@ Top domains: youtube.com (91), x.com (74), news.ycombinator.com (38), reddit.com
 - Added this run: share-a-scam-check-bot-with-an-older-parent (5 sources, 1 X: @0chob 161 likes / 33,513 views, xAI Grok Bot 1.0 post, Flavio Copes guide, Product Hunt Nov 12 leaderboard, FCC grandparent-scam alert); design-an-embroidery-pattern-with-an-ai-agent (4 sources, 0 X: HN 50470488 689/223, GitHub simpsoka/zigzag 565 stars, It's FOSS, zigzag.diy).
 - Extended: make-a-customer-service-call (+TechCrunch, Engadget, 1 X @alexandr_wang 1,382 likes / 92,273 views on Muse calling); control-your-smart-home-with-a-private-ai (+Coway blog, HN 50474959 423/123; 0 X); hand-your-most-hated-chores-to-a-personal-agent (+n8n Nod blog, Product Hunt 296 upvotes, GitHub n8n-io/nod 991 stars; 0 X). New links this run: 17, of which 2 X (12%). Refreshed 51 X popularity blocks.
 - Mentions/feedback of BotsDoThat: none found (X search since Nov 12 only unrelated "bots do that" phrases; HN Algolia 0 hits; web search only our own pages; Reddit blocked from this box).
+
+## After midday trending (measured 2026-11-16)
+
+- Use cases: **131**; source links: **567**
+- X share of source links: **80/567 = 14%**
+- X share of community links (X, Reddit, Hacker News, YouTube, GitHub, Product Hunt): **80/284 = 28%**
+- X-only use cases (every source is an X post): **5** (4%)
+- Use cases with at least one non-X community source (Reddit, Hacker News, YouTube, GitHub, Product Hunt): **92**
+- Added this run: turn-your-booking-emails-into-one-trip-sheet (7 sources, 1 X: @witcheer 42 likes / 17 bookmarks / 2,377 views; Hermes recipes #28, Hermes HQ use case, Yandex Alice "Do it!" Nov 13, Travel Wallet guide, Moonjar Help, GitHub fistfulayen/ubtrippin 5 stars).
+- Extended: book-an-appointment-with-an-ai-agent (+Google blog Ask Maps Nov 16, Android Authority, Digital Trends, Google Search Help; 0 X; new tool google-ask-maps); keep-an-ai-agent-from-deleting-your-files (+Tom's Hardware, HN 50499114 51/75; 0 X). New links this run: 13, of which 1 X (8%). Refreshed 53 X popularity blocks.
+- Mentions/feedback of BotsDoThat: none found (X search since Nov 12 only unrelated "bots do that" phrases; HN Algolia 0 hits; Reddit RSS search empty, scores blocked from this box).

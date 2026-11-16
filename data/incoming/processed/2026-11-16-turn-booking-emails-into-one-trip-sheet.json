@@ -1,0 +1,49 @@
+{
+  "slug": "turn-your-booking-emails-into-one-trip-sheet",
+  "title": "Turn scattered booking emails into one trip sheet that flags clashes",
+  "category": "travel",
+  "source_date": "2026-11-13",
+  "summary": "Your flight, hotel, train and dinner confirmations are spread over five emails. Put them in one folder (or forward them) and an AI agent reads them all, writes one day-by-day trip sheet with every time, address and confirmation code, and warns you about clashes, like a flight that lands after the hotel desk closes.",
+  "what_the_bot_does": [
+    "Reads only the booking emails or PDFs you put in one folder, or the ones you forward to it.",
+    "Pulls out each booking's date, time, place, confirmation code and any deadline (check-in, cancellation cut-off).",
+    "Checks that each date's weekday is right and lists any email that isn't about this trip.",
+    "Writes one trip sheet, day by day in time order, that you can open on your phone.",
+    "Puts a list of clashes at the top: overlapping bookings, arriving somewhere after it closes, or a checkout after your train leaves.",
+    "Shows you the sheet and saves it only after you say yes. It doesn't book, change or cancel anything."
+  ],
+  "what_you_end_up_with": "One trip sheet with every booking in time order and a short list of problems to fix before you leave.",
+  "difficulty": "Easy",
+  "tools": [
+    {"id": "hermes-agent", "note": "Point it at a folder of confirmations (the Hermes recipe this guide is based on)"},
+    {"id": "claude-cowork", "note": "Give it the one folder that holds your confirmations"},
+    {"id": "chatgpt", "note": "Or just attach the confirmation PDFs or screenshots to a chat"}
+  ],
+  "prompt": "Turn my booking confirmations into one trip sheet and tell me what clashes. Look only at [the folder name / the files I attached]. Use only what the confirmations say; where they're silent, write \"not in the confirmations\".\n\n1. List each file with a few words on what it is, and name any that aren't about my trip to [destination] on [dates].\n2. Check every date's weekday and flag any that don't match.\n3. Write the trip sheet day by day, in time order: each booking with its time, address and confirmation code, plus anything I must do first (online check-in, ID, deadlines).\n4. Put a list of clashes at the top: overlapping bookings, places I'd reach after they close, and tight connections under [60] minutes.\n5. Show me the whole sheet and wait for my yes before you save it as [trip-sheet] in that folder.\n\nDon't book, change, cancel or email anyone.",
+  "setup": [
+    "Make a new folder (or an email label) and put only this trip's confirmation emails and PDFs in it. Most mail apps let you save or print an email as a PDF.",
+    "Hermes Agent or Claude Cowork: open a new chat, give it that one folder, paste the prompt and fill in the brackets. ChatGPT, Claude or Gemini in a browser: attach the PDFs or screenshots to the chat instead.",
+    "Read the clash list first and fix those with the airline or hotel yourself.",
+    "Check each line against the original email once. Then save the sheet to your phone or share it with whoever is travelling with you.",
+    "Prefer an app? Travel Wallet, Moonjar and the open-source UB Trippin each give you an email address you forward confirmations to, and they build the trip for you."
+  ],
+  "watch_out": [
+    "AI can misread a faded PDF, an odd layout or a name spelled two ways. Travel Wallet's own guide says to check each ticket's name, date, time and seat before you go.",
+    "Give the agent one folder of copies, not your whole inbox or Documents. That keeps it away from unrelated mail and files.",
+    "Confirmation codes and booking references let someone change your booking. Don't post the sheet publicly or share it beyond the people on the trip.",
+    "A trip sheet doesn't follow live delays. Keep your airline app's alerts on for schedule changes.",
+    "Forwarding services read whatever you send them. Only forward the booking emails, not threads with other personal details."
+  ],
+  "sources": [
+    {"label": "X post by @witcheer (2026-11-01): put booking emails in one folder and Hermes Agent writes one trip sheet in time order with a clash list; it caught a flight landing 40 minutes after hotel reception closed (42 likes, 17 bookmarks, 2,377 views; measured 2026-11-16)", "url": "https://x.com/witcheer/status/2116969522968334434", "kind": "x"},
+    {"label": "Hermes recipes #28: one trip sheet from your booking emails (full copy-paste prompt, posted 2026-11-01)", "url": "https://notwitcheer.github.io/hermes-recipes/prompts/28-trip-sheet/", "kind": "article"},
+    {"label": "Hermes HQ use case: Consolidate trip bookings and spot timing conflicts", "url": "https://hermeshq.ai/use-cases/consolidate-trip-bookings-and-spot-timing-conflicts/", "kind": "article"},
+    {"label": "Yandex (2026-11-13): Alice AI 'Do it!' agent can gather tickets and booking confirmations from emails into a single folder, asking approval before important actions", "url": "https://yandex.com/company/news/2026-11-13", "kind": "official"},
+    {"label": "Travel Wallet guide (updated 2026-10-16): forward a booking email and the app reads it, splits it into tickets and files them by trip and day; what it can't do", "url": "https://gettravelwallet.com/guides/ai-ticket-sorting/", "kind": "article"},
+    {"label": "Moonjar Help: forward a booking email and Claude classifies and files it into the right trip", "url": "https://help.moonjar.io/trips/email-to-booking/", "kind": "official"},
+    {"label": "GitHub fistfulayen/ubtrippin: open-source, agent-first trip organizer you forward confirmations to (5 stars, checked 2026-11-16)", "url": "https://github.com/fistfulayen/ubtrippin", "kind": "article"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2116969522968334434", "author": "@witcheer", "url": "https://x.com/witcheer/status/2116969522968334434", "posted_at": "2026-11-01",
+                 "likes": 42, "reposts": 1, "replies": 11, "bookmarks": 17, "views": 2377, "measured_at": "2026-11-16"},
+  "tags": ["travel", "trip itinerary", "booking confirmations", "email", "hermes agent", "holiday travel", "clash check", "trip planner"]
+}
