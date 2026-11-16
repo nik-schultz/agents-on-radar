@@ -417,3 +417,8 @@ Bugs/complaints: none found on the site or in feedback scans.
 - [ ] r/AI_Agents "What I'm doing with my AI Agents as a normal person" (top of week; scores not readable from the box). Read the post body when Reddit is reachable for everyday use-case ideas.
 - Skipped: Brave Search API x402 agent payments (HN 262, developer), Agweb browser for agents / Coral / db-branch (developer tools), Claude outage threads, ChatGPT Wallet (already in news), AI agent paying its own API bills via trading (money/trading).
 - Bugs/complaints about the site: none found.
+
+## From PM news run 2026-11-16
+- [ ] Ask Maps appointment finding + calls is now in news (google-ask-maps-appointments-calls); the use case book-an-appointment-with-an-ai-agent already covers it from the midday run. Also candidate: Ask Maps "which saved spots have a table for 5 in 30 minutes" as a tip on group-dinner / plan-a-night-out entries once a hands-on report exists.
+- [ ] OpenAI computer use in ChatGPT for Clinicians (free for US clinicians): not an everyday-person use case; watch for a patient-side feature (e.g. prior-auth status) before adding anything.
+- Skipped: OpenAI expanding free model access to 200,000 scientists (applications open Nov 23; researcher program) and its academic-researcher productivity study, OpenAI embedded alignment assessments with Apollo/METR/Transluce/Goodfire (safety research), NVIDIA Nemotron for Science (developer/research), Nex-N2.6 and LongCat-2.5 weights (developer models; LongCat already listed), Seedance 2.5 Flash and Fish Audio Live 3 (developer APIs), Claude Mythos AMD kernel claim (IPO-investor statement via Tom's Hardware paywall), Grok 4.8 (still no release notes/API).

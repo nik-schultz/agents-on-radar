@@ -1129,3 +1129,9 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - Extended `book-an-appointment-with-an-ai-agent` with Google Ask Maps appointment finding (blog.google Nov 16, Android Authority, Digital Trends; new tool `google-ask-maps`; setup step + watch-out that AI calls share your request details, per Google Search Help) and `keep-an-ai-agent-from-deleting-your-files` with the Claude syllabus-deletion story (Tom's Hardware, HN 50499114 51/75).
 - Refreshed 53 tracked X posts (raw /workspace/agent-tools/x_trend_2026_11_16.json, local only). Mentions/feedback of BotsDoThat: none. Bugs: none. Reddit JSON blocked; RSS gave titles only.
 - Source mix: 131 use cases, 567 source links, X 80/567 = 14% (this run's new links: 1 of 13 X). Validate 0 errors; build 182 pages; check_links 15,425 links, 0 broken internal.
+- Deployed: local main `138cd5ec` (also carried the 7:30 AM site-QA note), publish `cca4d356` (`a0f47021..cca4d356`), Actions run 43929406770 succeeded; live /, the new page and the Ask Maps update all 200 with the new text.
+
+## 2026-11-16 PM news run (~2:35 PM CT)
+- Added 3 items (all notable): **alibaba-qwen4-max-release** (2026-11-16, model release; Alibaba Cloud press room + QwenCloud pricing $1.50/$4.50 + eWeek; X @Alibaba_Qwen 2122148127520289151), **openai-computer-use-healthcare** (2026-11-16, agent launch; openai.com; X @OpenAI 2122419941756531150), **google-ask-maps-appointments-calls** (2026-11-16, feature; blog.google + Engadget; X @googlemaps 2122396544729305165).
+- Refreshed X numbers on 44 items dated Nov 9 or later. Measured 2026-11-16T20:31Z (raw research/x_news_measure_2026_11_16_pm.json.txt, local only; apply script research/news_x_2026_11_16_pm.py).
+- No major release. No pricing-table change (Qwen isn't in the AI price table). 2 BACKLOG notes; skips listed in BACKLOG.
