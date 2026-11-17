@@ -1164,3 +1164,11 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - Refreshed 54 X posts (raw research/x_trend_2026_11_17.json.txt, local only) and 64 community stats (42 HN via Algolia, 22 GitHub via API; scripts research/trend_2026_11_17.py, research/refresh_community_2026_11_17.py).
 - Source mix: 132 use cases, 578 source links, X 82/578 = 14%; X-only use cases 4. Validate 0 errors; build 184 pages; check_links 15,638 links, 0 broken internal.
 - Feedback: 1 reply to @botsdothat (constructive). Bugs: none. Reddit blocked from the box (RSS returns empty), used web search + WebFetch for Reddit threads.
+- Deployed: local main `5bf64ce4`, publish `d5d648fb` (`5b49339b..d5d648fb`), Actions run 44147535009 succeeded; live /, the new page and book-a-haircut-by-email all 200 with the new text.
+
+## 2026-11-17 PM news run (~2:40 PM CT)
+- Added 5 items (2026-11-17): **gpt-6-2-astra-sol** (major, model release; openai.com + API pricing page; X @OpenAI 2122750124543926515), **gemini-tasks-free** (major, agent launch; blog.google + The Verge + TechCrunch + 9to5Google; X @sundarpichai 2122741728247738688), **cognition-devin-bots** (notable; devin.ai + Fortune; X @cognition 2122737511684587551; new NEWS_CO entry "Cognition"), **claude-linked-billing** (notable, feature; claude.com + The Next Web; X @ClaudeDevs 2122751844455956760), **meta-muse-australia** (notable; about.fb.com; X @alexandr_wang 2122762964419870792).
+- Pricing: data/ai-pricing.json adds gpt-6.2-astra ($8 / $40, cached $0.40) and renames the gpt-6.1-sol row to gpt-6.2-sol (same $2 / $10 / $0.10), both read from developers.openai.com/api/docs/pricing on Nov 17; gpt-6-astra kept as previous flagship; blueprint_models now uses gpt-6.2-astra.
+- data/tools.json: Gemini Spark cost note now says Tasks in Gemini is free in 6 countries (from Google's Nov 17 post).
+- Refreshed X numbers on 50 items dated Nov 9 or later, measured 2026-11-17T20:32Z (raw research/x_news_measure_2026_11_17_pm.json.txt, local only; apply script research/news_x_2026_11_17_pm.py).
+- 3 BACKLOG notes; skips listed in BACKLOG.
