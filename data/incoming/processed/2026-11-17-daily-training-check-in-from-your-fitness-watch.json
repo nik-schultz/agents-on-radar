@@ -1,0 +1,135 @@
+{
+ "slug": "get-a-daily-training-check-in-from-your-fitness-watch",
+ "title": "Get a morning check-in from your fitness watch that says how you slept and what to train today",
+ "category": "health",
+ "source_date": "2026-11-17",
+ "summary": "Connect your Garmin (or Oura, Strava or Withings) data to an AI assistant and it reads your sleep, heart-rate variability (HRV), recent runs and training load, then gives you a short morning note: how recovered you look, how last week went, and a suggested session for today. Some connectors can also put an approved workout straight onto your watch.",
+ "what_the_bot_does": [
+  "Reads your watch data through a connector you add once: last night's sleep, HRV, resting heart rate and your recent workouts.",
+  "Compares today with your own recent baseline, not with other people.",
+  "Writes a short note: how recovered you look, what you did this week, and one suggested session for today with an easier option.",
+  "Answers follow-up questions in plain words, like 'were my easy runs actually easy?' or 'am I faster at the same heart rate than two months ago?'",
+  "If your connector can write workouts, it shows you the session first and only puts it on your Garmin calendar after you say yes. It syncs to the watch next time it connects.",
+  "Can run every morning on its own if your app or agent supports scheduled tasks."
+ ],
+ "what_you_end_up_with": "A two-minute morning read on your recovery and training, plus an approved workout waiting on your watch if you want one.",
+ "difficulty": "Medium",
+ "tools": [
+  {
+   "id": "claude",
+   "note": "Add a Garmin connector as a custom connector (Daash says Claude works on the free plan)"
+  },
+  {
+   "id": "chatgpt",
+   "note": "Custom connectors need a paid plan (Daash and garmlink guides)"
+  },
+  {
+   "id": "grok",
+   "note": "Add the connector at grok.com/connectors → New Connector → Custom"
+  },
+  {
+   "id": "grok-bot",
+   "note": "An always-on bot can send the note every morning without being asked"
+  }
+ ],
+ "prompt": "You're my training check-in. Use only my [Garmin] data from the connector. If something is missing, say \"no data\" instead of guessing.\n\n1. Last night: sleep time, HRV and resting heart rate, each compared with my own last [14] days.\n2. This week so far: sessions done, total time, and how hard they were (time in each heart-rate zone).\n3. Say in one line whether I look well recovered, normal, or tired, and which numbers made you say that.\n4. Suggest one session for today that fits my goal of [a 10K on 15 March / getting fitter / losing 5 kg], plus an easier option if I feel worse than the numbers say.\n5. If I ask you to put a workout on my watch, show me the exact session and date first and wait for my yes.\n\nKeep it under 150 words. Don't change or delete anything in my account, and remind me this isn't medical advice if anything looks unusual.",
+ "setup": [
+  "Pick a connector for your watch. Free hosted options include Daash (can also put workouts on your watch) and garmlink (read-only). Garmin Community MCP can send workouts on its paid Athlete/Coach plans. If you're comfortable running things yourself, the open-source garmin_mcp on GitHub is the most popular.",
+  "Add it to your AI app. In Grok: grok.com/connectors → New Connector → Custom, paste the connector's address and sign in. Claude and ChatGPT have a similar 'custom connector' setting; each connector's site has a step-by-step guide per app.",
+  "Start a new chat with the connector switched on and ask something simple first, like 'How did I sleep this week?', to check it can see your data.",
+  "Paste the prompt above and fill in the brackets with your goal.",
+  "To get it every morning without asking, save it as a daily scheduled task if your app or agent offers one (for example an always-on Grok Bot). Otherwise keep the prompt handy and paste it each morning.",
+  "Before any workout goes to your watch, read the session and date it shows you and only then say yes."
+ ],
+ "watch_out": [
+  "This is coaching guidance, not medical advice. If you feel unwell, have an injury or a health condition, or your numbers suddenly look very different, talk to a doctor or a qualified coach.",
+  "Some connectors sign in to Garmin with your email and password. Where a connector offers Garmin's own sign-in page instead, use that so your password never reaches a third party (Daash explains both routes on Reddit).",
+  "Your health data goes to the connector and to the AI company. Commenters on Hacker News pointed out that chat providers may keep it for a long time. Check each one's privacy page, and disconnect if you stop using it (Daash says disconnecting deletes what it keeps).",
+  "Read-only connectors like garmlink can't put workouts on your watch or change anything, which is the safer place to start.",
+  "A daily score is a guide, not an order. If the note says 'go hard' but you feel run down, take the easier option."
+ ],
+ "sources": [
+  {
+   "label": "X article by @mikepat711 (2026-11-13): three Grok Bots (Doctor, Dietician, Fitness) read Oura, Strava and Withings data, send a daily brief and use sleep, HRV and overnight heart rate to recommend training efforts (51 likes, 64 bookmarks, 12,620 views; measured 2026-11-17)",
+   "url": "https://x.com/mikepat711/status/2121273962818678837",
+   "kind": "x"
+  },
+  {
+   "label": "X post by @hellobeekay (2026-11-17): set up a fitness coach in Grok that reads his Garmin every morning before he asks and says what to train today (3 likes, 134 views; measured 2026-11-17)",
+   "url": "https://x.com/hellobeekay/status/2122572580083151296",
+   "kind": "x"
+  },
+  {
+   "label": "Reddit r/the5krunner (posted about Oct 26, 2026): 'built a free Garmin connector for ChatGPT/Claude that writes workouts to your watch' — it proposes the plan first and writes only after you say go; about 80 runners connected in the first month",
+   "url": "https://www.reddit.com/r/the5krunner/comments/1xfzqdj/built_a_free_garmin_connector_for_chatgptclaude/",
+   "kind": "reddit"
+  },
+  {
+   "label": "Reddit r/Garmin: 'Need help. Which garmin connector for claude ai coaching?' (a beginner asking how to connect Garmin data to Claude for coaching)",
+   "url": "https://www.reddit.com/r/Garmin/comments/1x6soyy/need_help_which_garmin_connector_for_claude_ai/",
+   "kind": "reddit"
+  },
+  {
+   "label": "Hacker News 50081045: 'Creating a Garmin \"MCP\"' (61 points / 74 comments, measured 2026-11-17)",
+   "url": "https://news.ycombinator.com/item?id=50081045",
+   "kind": "hn",
+   "stats": {
+    "points": 61,
+    "comments": 74
+   },
+   "posted_at": "2026-10-14",
+   "measured_at": "2026-11-17"
+  },
+  {
+   "label": "GitHub: Taxuspt/garmin_mcp, open-source MCP server to access Garmin data (MIT; 1,516 stars, measured 2026-11-17)",
+   "url": "https://github.com/Taxuspt/garmin_mcp",
+   "kind": "github",
+   "stats": {
+    "stars": 1516
+   },
+   "measured_at": "2026-11-17"
+  },
+  {
+   "label": "Daash guide (updated 2026-11-13): connect Garmin to Grok as a custom connector; read runs, sleep and HRV or put a workout on your watch; deleting always asks first",
+   "url": "https://daash.run/connect-garmin-to-grok",
+   "kind": "docs"
+  },
+  {
+   "label": "garmlink Help (updated 2026-11-11): connect Garmin to Grok over MCP; read-only, Garmin password used once and not stored",
+   "url": "https://garmlink.ai/help/setup-grok",
+   "kind": "docs"
+  },
+  {
+   "label": "Garmin Community MCP: connect Garmin to Grok and send approved workouts to your watch (requirements checked 2026-10-28)",
+   "url": "https://garmincommunitymcp.com/connect-garmin-to-grok/",
+   "kind": "docs"
+  }
+ ],
+ "popularity": {
+  "platform": "x",
+  "post_id": "2121273962818678837",
+  "author": "@mikepat711",
+  "url": "https://x.com/mikepat711/status/2121273962818678837",
+  "posted_at": "2026-11-13",
+  "likes": 51,
+  "reposts": 1,
+  "replies": 13,
+  "bookmarks": 64,
+  "views": 12620,
+  "measured_at": "2026-11-17"
+ },
+ "tags": [
+  "fitness",
+  "garmin",
+  "running",
+  "training plan",
+  "sleep",
+  "hrv",
+  "oura",
+  "strava",
+  "health coach",
+  "morning brief",
+  "wearables",
+  "mcp connector"
+ ]
+}

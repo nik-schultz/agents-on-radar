@@ -125,6 +125,7 @@ All Family & home use cases: https://botsdothat.com/category/family/
 
 ### Health & care
 All Health & care use cases: https://botsdothat.com/category/health/
+- [Get a morning check-in from your fitness watch that says how you slept and what to train today](https://botsdothat.com/use-cases/get-a-daily-training-check-in-from-your-fitness-watch/): Connect your Garmin (or Oura, Strava or Withings) data to an AI assistant and it reads your sleep, heart-rate variability (HRV), recent runs and training load, then gives you a short morning note: how recovered you look, how last week went, and a suggested session for today. Some connectors can also put an approved workout straight onto your watch.
 - [Get pinged when a prescription is ready, and told when to leave](https://botsdothat.com/use-cases/prescription-ready-and-time-to-leave/): A personal agent can sweep your email every morning for "ready for pickup" notices, and check live traffic before your appointments to tell you when to head out.
 - [Log your meals by talking and get a daily weight check-in](https://botsdothat.com/use-cases/log-meals-and-weight-by-voice/): Tell your bot what you ate, out loud, and it keeps the food log for you. It can also check in on your weight each morning.
 - [Set up medication and appointment reminders for a parent](https://botsdothat.com/use-cases/medication-reminders-for-a-parent/): Family agents can remind an older parent about medication and book routine appointments, with the family kept in the loop.

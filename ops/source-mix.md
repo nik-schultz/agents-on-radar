@@ -400,3 +400,16 @@ Top domains: youtube.com (91), x.com (74), news.ycombinator.com (38), reddit.com
 - Added this run: turn-your-booking-emails-into-one-trip-sheet (7 sources, 1 X: @witcheer 42 likes / 17 bookmarks / 2,377 views; Hermes recipes #28, Hermes HQ use case, Yandex Alice "Do it!" Nov 13, Travel Wallet guide, Moonjar Help, GitHub fistfulayen/ubtrippin 5 stars).
 - Extended: book-an-appointment-with-an-ai-agent (+Google blog Ask Maps Nov 16, Android Authority, Digital Trends, Google Search Help; 0 X; new tool google-ask-maps); keep-an-ai-agent-from-deleting-your-files (+Tom's Hardware, HN 50499114 51/75; 0 X). New links this run: 13, of which 1 X (8%). Refreshed 53 X popularity blocks.
 - Mentions/feedback of BotsDoThat: none found (X search since Nov 12 only unrelated "bots do that" phrases; HN Algolia 0 hits; Reddit RSS search empty, scores blocked from this box).
+
+## After midday trending (measured 2026-11-17)
+
+- Use cases: **132**; source links: **578**
+- X share of source links: **82/578 = 14%**
+- X share of community links (X, Reddit, Hacker News, YouTube, GitHub, Product Hunt): **82/290 = 28%**
+- X-only use cases (every source is an X post): **4** (3%) — book-a-haircut-by-email is no longer X-only
+- Use cases with at least one non-X community source (Reddit, Hacker News, YouTube, GitHub, Product Hunt): **93**
+- By domain: youtube.com 91, x.com 82, news.ycombinator.com 49, reddit.com 33, google.com 26, github.com 25, support.google.com 22, help.openai.com 18, support.claude.com 14, techcrunch.com 7, blog.google 7, docs.anthropic.com 7
+- Added this run: get-a-daily-training-check-in-from-your-fitness-watch (9 sources, 2 X: @mikepat711 X article 51 likes / 64 bookmarks / 12,620 views, @hellobeekay 3 likes; Reddit r/the5krunner Daash thread, Reddit r/Garmin beginner question, HN 50081045 61/74, GitHub Taxuspt/garmin_mcp 1,516 stars, Daash, garmlink and Garmin Community MCP setup guides).
+- Extended: book-a-haircut-by-email (+TechCrunch, Engadget on Ask Maps appointment finding/calls; 0 X); teach-your-bot-to-remember-what-works (+reader tip: keep a dated copy of the notes file before letting the bot tidy it). New links this run: 11, of which 2 X (18%).
+- Refreshed: 54 X popularity blocks + 64 community stats (42 Hacker News items via Algolia, 22 GitHub repos via API). Biggest moves: HN Coway 423→801 points, n8n-io/nod 991→2,280 stars, FrigadeHQ/yogurt 826→1,977, zigzag 565→889, hob 243→551, pinky 1,990→2,364, poki 1,022→1,563. Non-X share of refreshed items: 64/118 = 54%.
+- Mentions/feedback of BotsDoThat: one reply to @botsdothat (X @NabhaniMehdi, 2026-11-16, on the "dreaming" memory post): suggestion to keep a dated copy of the notes file; folded into teach-your-bot-to-remember-what-works. HN Algolia 0 hits; Reddit blocked from this box.
