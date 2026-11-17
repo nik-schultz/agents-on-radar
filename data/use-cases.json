@@ -2,6 +2,7 @@
  {
   "slug": "turn-your-booking-emails-into-one-trip-sheet",
   "title": "Turn scattered booking emails into one trip sheet that flags clashes",
+  "seo_title": "AI trip planner: turn booking emails into one trip sheet",
   "category": "travel",
   "source_date": "2026-11-13",
   "summary": "Your flight, hotel, train and dinner confirmations are spread over five emails. Put them in one folder (or forward them) and an AI agent reads them all, writes one day-by-day trip sheet with every time, address and confirmation code, and warns you about clashes, like a flight that lands after the hotel desk closes.",
@@ -292,7 +293,7 @@
    "open source",
    "design"
   ],
-  "seo_title": "Design embroidery with an AI agent (free ZigZag + Claude or Codex)",
+  "seo_title": "Design embroidery with an AI agent (free ZigZag + Claude)",
   "last_checked": "2026-11-13",
   "date_added": "2026-11-13",
   "origin": "pipeline"

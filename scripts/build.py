@@ -16,6 +16,7 @@ PHONE_GUIDE = "/can-ai-make-phone-calls-for-you/"  # added 2026-11-03
 OCSAFE_GUIDE = "/is-openclaw-safe/"; AGENTMODE_GUIDE = "/chatgpt-agent-mode-is-gone/"; CHEAPMODEL_GUIDE = "/switch-openclaw-or-hermes-to-a-cheaper-model/"  # added 2026-11-04
 INSTR_GUIDE = "/how-to-write-instructions-for-an-ai-agent/"  # added 2026-11-10
 HMI_GUIDE = "/how-to-install-hermes-agent/"; ALT_GUIDE = "/openclaw-alternatives/"  # added 2026-11-11
+PA_GUIDE = "/chatgpt-dots-vs-grok-bot-vs-meta-muse/"  # added 2026-11-17 (personal agents compared)
 PHONE_UCS = {"call-and-book-by-phone", "make-a-customer-service-call", "let-a-bot-answer-and-screen-your-calls", "restaurant-reservations-by-agent"}
 CAT = {c["slug"]: c for c in cats}
 UC = {x["slug"]: x for x in ucs}
@@ -290,7 +291,7 @@ def featured_slot(slot, cat=None):
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
     return newsletter_box(f"nl-{slot}", "card")  # no sponsor booked: show a newsletter signup instead of an empty ad box
 
-SHARE_PATHS = {HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/"}
+SHARE_PATHS = {PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/"}
 def share_bar(title, url):
     """Share on X / Copy link / Email a friend. Plain links + one button; no third-party scripts."""
     q = urllib.parse.quote
@@ -305,7 +306,7 @@ def share_bar(title, url):
 <label class="share-nojs"><span class="sr">Link to this page</span><input type="text" readonly value="{e(url)}" size="34"></label>
 <a class="share-btn" href="{e(mh)}" aria-label="Email this page to a friend">{msvg}<span>Email a friend</span></a>
 </div><p class="share-status small" role="status" aria-live="polite"></p></section>"""
-NL_END_PATHS = {"/trending/", "/news/", HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", "/bot-instructions/", PRICING, LESS, "/about/"}
+NL_END_PATHS = {"/trending/", "/news/", PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", "/bot-instructions/", PRICING, LESS, "/about/"}
 # Long guides also get a signup after their 3rd top-level section (mid-article), not only at the end.
 NL_MID_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/"}
 def _insert_mid(body, snippet, after=3):
@@ -1039,7 +1040,7 @@ explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 <li><b>Get in everywhere.</b> Some sites block agents. One user says Amazon blocked his ({S('X post', 'https://x.com/NickADobos/status/2110749518518235276')}).</li>
 <li><b>Replace a professional.</b> Use bots to organize and draft. Medical, legal and money decisions stay with you and a qualified person. Be wary of anyone promising AI miracles; the U.S. FTC has acted against deceptive AI claims ({S('FTC Operation AI Comply', 'https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes')}).</li></ul></section>
 
-<p class="small">Go deeper: <a href="{u(INSTR_GUIDE)}">how to write instructions for an AI agent</a> · <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a> · <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> · <a href="{u(ALT_GUIDE)}">OpenClaw alternatives</a> · <a href="{u(HMI_GUIDE)}">how to install Hermes Agent</a> · <a href="{u(AGENTMODE_GUIDE)}">ChatGPT agent mode is gone</a></p>
+<p class="small">Go deeper: <a href="{u(PA_GUIDE)}">ChatGPT dots vs Grok Bot vs Meta Muse</a> · <a href="{u(INSTR_GUIDE)}">how to write instructions for an AI agent</a> · <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a> · <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> · <a href="{u(ALT_GUIDE)}">OpenClaw alternatives</a> · <a href="{u(HMI_GUIDE)}">how to install Hermes Agent</a> · <a href="{u(AGENTMODE_GUIDE)}">ChatGPT agent mode is gone</a></p>
 <section class="reveal"><h2>7 rules that keep you safe</h2><ol class="rules">
 <li>Start <b>read-only</b>. Let it look before it does anything.</li>
 <li>Make it <b>ask before</b> it sends, buys, books, cancels or deletes.</li>
@@ -1422,7 +1423,7 @@ cost_body = f"""<article class="wrap narrow explainer">{cbc}
 {_byline()}</header>
 
 <section class="glass explain-card reveal" id="at-a-glance"><h2>AI agent cost at a glance</h2><ul class="big-list">
-<li><b>The agent software:</b> often free. OpenClaw and Hermes Agent are free and open source; agent apps like Claude Cowork, ChatGPT dots, Gemini Spark and Grok Bot run inside a plan (<a href="#plans">plan prices</a>).</li>
+<li><b>The agent software:</b> often free. OpenClaw and Hermes Agent are free and open source; agent apps like Claude Cowork, ChatGPT dots, Gemini Spark and Grok Bot run inside a plan (<a href="#plans">plan prices</a>; <a href="{u(PA_GUIDE)}">which plan includes which agent</a>).</li>
 <li><b>The AI model, pay-per-use:</b> {money(_lo_all)} to {money(_hi_all)} a month for each of our {len(_cost_rows)} everyday bots, depending on the bot and the model (<a href="#examples">full table</a>).</li>
 <li><b>Phone and voice bots:</b> billed per minute, not per token: {_pz(_vp_lo)} to {_pz(_vp_hi)} a minute on the platforms we checked ({_vp_note}), so about {_vp_rate({"price_min": _vp_lo, "price_max": _vp_hi}, _pmo)} for {_pmo} minutes of calls a month before extras (<a href="#voice">voice agent costs</a>).</li>
 <li><b>The biggest lever:</b> model choice. Within one company, the small model can cost up to {LESS_RATIO}× less than the flagship (<a href="#cut">how to pay less</a>).</li></ul>
@@ -2069,7 +2070,7 @@ alt_body = f"""<article class="wrap narrow explainer">{alb}
 <li><b>Approval-first by default, low resources:</b> ZeroClaw.</li>
 <li><b>OpenClaw already works for you?</b> Staying is fine. Harden it with the 6 rules in <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a></li></ul></section>
 <section class="glass explain-card reveal" id="no-server"><h2>No install at all</h2>
-<p>If you don't want to run software or keep a computer on, a hosted agent does the same kind of jobs from an app or website. Two examples with official sources: <b>Hermes Cloud</b>, an always-on hosted Hermes included with paid Nous Portal plans ({C('hm_vs', 'Hermes')}), and <b>ChatGPT Work</b>, OpenAI's agent for longer tasks on paid plans (<a href="{u(AGENTMODE_GUIDE)}">what replaced ChatGPT agent mode</a>). For more, browse <a href="{u('/ai-agent-examples/')}">AI agent examples</a> and our <a href="{u(BUILD_GUIDE)}">no-code guide</a>.</p></section>
+<p>If you don't want to run software or keep a computer on, a hosted agent does the same kind of jobs from an app or website. Two examples with official sources: <b>Hermes Cloud</b>, an always-on hosted Hermes included with paid Nous Portal plans ({C('hm_vs', 'Hermes')}), and <b>ChatGPT Work</b>, OpenAI's agent for longer tasks on paid plans (<a href="{u(AGENTMODE_GUIDE)}">what replaced ChatGPT agent mode</a>). Comparing hosted personal agents? See <a href="{u(PA_GUIDE)}">ChatGPT dots vs Grok Bot vs Meta Muse</a>. For more, browse <a href="{u('/ai-agent-examples/')}">AI agent examples</a> and our <a href="{u(BUILD_GUIDE)}">no-code guide</a>.</p></section>
 <section class="reveal warn glass" id="safety"><h2>Whichever you choose</h2><ol class="rules">
 <li>Start with one read-only job and copies of your files.</li>
 <li>Keep approvals on for anything that sends, buys or deletes.</li>
@@ -2083,6 +2084,108 @@ page(ALT_GUIDE, "OpenClaw alternatives for beginners: Hermes Agent, Nod and more
      [alld, _art_ld(ALT_GUIDE, "OpenClaw alternatives for beginners", _al_desc, published="2026-11-11"), _faq_ld(ALT_FAQ),
       {"@context": "https://schema.org", "@type": "ItemList", "name": "Open-source OpenClaw alternatives", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": r[0]} for i, r in enumerate(ALT_ROWS)]}], og_type="article")
 
+# ----- 12. Personal AI agents compared: ChatGPT dots vs Grok Bot vs Meta Muse (+ Claude Cowork, tasks in Gemini) (2026-11-17, weekly SEO run) -----
+SRC.update({
+ "dots_intro": ("OpenAI: Introducing dots (Sep 29, 2026; updated Nov 3, 2026)", "https://openai.com/index/introducing-dots/"),
+ "gb_over": ("Grok Bot docs: Overview", "https://docs.x.ai/grok-bot/overview"),
+ "gb_start": ("Grok Bot docs: Get started (which plans include Grok Bot)", "https://docs.x.ai/grok-bot/get-started"),
+ "gb_faq": ("Grok Bot docs: FAQ", "https://docs.x.ai/grok-bot/faq"),
+ "muse_help": ("Meta Help Center: How to get started with Muse", "https://www.meta.com/help/superintelligence/1331373868832401/"),
+ "cw_help": ("Claude Help Center: Get started with Claude Cowork", "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork"),
+ "g_tasks": ("Gemini Apps Help: Manage your tasks & workflows in Gemini Apps", "https://support.google.com/gemini/answer/17094507"),
+ "cl_price": ("Claude pricing", "https://claude.com/pricing"),
+ "g_subs": ("Google AI plans (Gemini subscriptions)", "https://gemini.google/subscriptions/"),
+})
+def _cp(prov, plan):
+    r = next((c for c in PR["consumer"] if c["provider"] == prov and c["plan"] == plan), None)
+    return f'{r["price"]} {r["period"].split(" (")[0]}'.strip() if r else ""
+PA_ROWS = [
+ ("ChatGPT dots", f"OpenAI · ChatGPT Pro and Business Premium in eligible markets; your first dot is included; Enterprise beta ({C('dots_intro', 'OpenAI')})",
+  "ChatGPT on desktop, web and mobile (set up on desktop first), Slack, Teams, voice calls",
+  "Yes. Each dot has its own cloud computer and browser and works 24/7",
+  "Built-in rules plus your Custom Rules (allow, ask, block); auto-review checks risky actions; changing a password always stays with you"),
+ ("Grok Bot", f"SpaceXSI · included with Premium, Super and Ultra on The X Subscription, or a linked SuperGrok / X Premium+ plan ({C('gb_start', 'docs')})",
+  "Desktop app (Mac, Windows, Linux), iPhone and Android app, X Chat, @bot on X, Slack, Teams",
+  "Yes. Bots share one cloud computer; closing your laptop doesn't stop a routine",
+  "Approval cards and narrow “Ask first” rules; signs in from Vault without seeing your passwords"),
+ ("Meta Muse", f"Meta · free with a usage limit; paid subscription for more ({C('muse_help', 'Meta')})",
+  "Muse app and web, signed in with a Meta account (Facebook, Instagram, email or phone)",
+  "Meta's help page doesn't say; it can set reminders and keeps context across chats",
+  "Meta says Muse may take unexpected actions: monitor it and tell it its limits (“only search my email”)"),
+ ("Claude Cowork", f"Anthropic · paid Claude plans only (Pro, Max, Ultra, Team, Enterprise); Pro is {_cp('Anthropic', 'Claude Pro')} ({C('cw_help', 'Claude Help')})",
+  "Claude desktop app (Mac, Windows, Linux beta), web and mobile",
+  "Scheduled tasks run in the cloud with no device online; local files and your browser need the desktop app open",
+  "Three permission modes; each connector can be Always allow, Needs approval or Blocked; asks before permanently deleting files"),
+ ("Tasks in Gemini", f"Google · Google AI Pro ({_cp('Google', 'Google AI Pro')}) or Ultra, 18+, personal Google account; not in the EEA, UK, Switzerland or Nigeria ({C('g_tasks', 'Google Help')})",
+  "Gemini web app, mobile app and Mac app",
+  "Partly. With your own Chrome it needs your computer awake; otherwise it may use a remote browser in the cloud",
+  "Some tasks ask for confirmation; Google advises not to schedule sensitive tasks or type passwords into a task"),
+]
+PA_STEPS = [
+ ("Pick one boring, repeating job", "Choose something you do every week that only needs reading, like an inbox check or a calendar clash check. Read-only first; sending and buying later."),
+ ("Use the agent your plan already includes", "Check the table: if you already pay for ChatGPT Pro, Claude, Google AI Pro or an X subscription, start there. If you pay for none, Meta Muse has a free tier."),
+ ("Connect only the apps that job needs", "One job, one or two apps. Don't connect banking, health or work accounts on day one."),
+ ("Paste a short first-job prompt", "Say the job, what it may use, what it must never do, when to ask you, and what the result looks like. Copy the prompt below."),
+ ("Keep approvals on", "Make sure sending, buying, deleting and posting need your OK. Every agent on this page has a setting or rule for that."),
+ ("Run it once by hand, then schedule it", "Check the first result yourself. Only when it's right, ask the agent to repeat it on a schedule."),
+]
+PA_PROMPT = """Your job: every weekday at 7 AM, read my email from the last 24 hours and send me a short list of
+1) what needs a reply today, 2) deadlines this week, 3) anything that looks like a scam.
+Use only: my email, read-only.
+Never: send, delete, archive, buy, sign up or post anything.
+Ask me first: before any action that changes something or contacts anyone.
+If unsure: say what you're unsure about instead of guessing.
+Result: at most 10 bullets, most important first, each with the sender and one line on why."""
+PA_FAQ = [
+ ("Which personal AI agent is best for beginners?",
+  "Start with the one your current plan already includes, because the job matters more than the brand. If you pay for ChatGPT Pro, try a dot; if you pay for Claude, try Cowork; with Google AI Pro or Ultra, try tasks in Gemini; with an X Premium, Super or Ultra subscription, try Grok Bot. If you pay for none, Meta Muse has a free tier with a usage limit.", None),
+ ("Is there a free personal AI agent?",
+  "Meta Muse is free with a usage limit (a paid subscription adds more). ChatGPT dots, Claude Cowork, tasks in Gemini and Grok Bot need a paid plan. Open-source agents such as Hermes Agent and OpenClaw are free to download, but you pay for the AI model and the computer they run on.", None),
+ ("Do personal AI agents keep working when my computer is off?",
+  "ChatGPT dots and Grok Bot work on their own cloud computers, so yes. Claude Cowork's scheduled tasks run in the cloud with no device online, but jobs that use your local files or browser need the desktop app open. Tasks in Gemini that use your own Chrome need your computer awake; otherwise Gemini may use a remote browser.", None),
+ ("Is it safe to let a personal agent read my email?",
+  "It can be, with limits: connect only what the job needs, start read-only, and keep approvals on for sending, buying and deleting. Emails can contain hidden instructions aimed at agents, so treat what it reads as untrusted. All five agents here have approval settings, and Meta and Google both warn their agents can make mistakes.", None),
+ ("What is the difference between ChatGPT and ChatGPT dots?",
+  "ChatGPT answers when you ask. A dot is an always-on agent inside ChatGPT with its own cloud computer and browser: it works on tasks in the background, connects to your apps and messages you with progress or questions. Dots are on ChatGPT Pro and Business Premium in eligible markets.", None),
+ ("Can I use more than one personal agent?",
+  "Yes, but give each one a different job and don't connect the same accounts to all of them. Two agents watching one inbox means twice the access and twice the chance of a mistake.", None),
+]
+_pa_tbl = "".join(f'<tr><th scope="row">{e(k)}</th><td class="small">{a}</td><td class="small">{e(b)}</td><td class="small">{e(c)}</td><td class="small">{e(d)}</td></tr>' for k, a, b, c, d in PA_ROWS)
+pab, pald = crumbs([("Home", "/"), ("What is an AI agent?", "/what-can-bots-do/"), ("Personal AI agents compared", None)])
+_pa_desc = mdesc("ChatGPT dots vs Grok Bot vs Meta Muse, plus Claude Cowork and Gemini tasks: which plans include them, what runs while you're away, how each asks first.")
+pa_body = f"""<article class="wrap narrow explainer">{pab}
+<header class="page-head"><p class="eyebrow">Beginner guide · Personal AI agents</p><h1 class="kinetic-sm">ChatGPT dots vs Grok Bot vs Meta Muse (plus Claude Cowork and Gemini)</h1>
+<p class="lead">Short answer: use the personal agent your plan already includes. <b>ChatGPT dots</b> come with ChatGPT Pro, <b>Grok Bot</b> with X Premium, Super or Ultra, <b>Claude Cowork</b> with any paid Claude plan and <b>tasks in Gemini</b> with Google AI Pro or Ultra. <b>Meta Muse</b> is the only one with a free tier. All five can work on jobs for you, not just chat, and all five let you require your OK before they act.</p>
+{_byline()}<p class="small muted">Every fact comes from each company's own announcement or help pages, linked inline and checked {MOD_NICE}. We don't rank them; features and plans change often.</p></header>
+<section class="reveal" id="compare"><h2>Personal AI agents side by side</h2>
+<div class="table-wrap glass"><table class="rank-table cmp-table"><thead><tr><th scope="col">Agent</th><th scope="col">Who makes it · which plans</th><th scope="col">Where you use it</th><th scope="col">Works while you're away?</th><th scope="col">How it asks first</th></tr></thead><tbody>{_pa_tbl}</tbody></table></div>
+<p class="small">Sources: {C('dots_intro', 'OpenAI')}, {C('gb_over', 'Grok Bot docs')} and {C('gb_faq', 'FAQ')}, {C('muse_help', 'Meta Help Center')}, {C('cw_help', 'Claude Help Center')}, {C('g_tasks', 'Gemini Apps Help')}. Plan prices: <a href="{u(PRICING)}">AI price table</a>.</p></section>
+<section class="reveal" id="pick"><h2>Which one should you pick?</h2><ul class="big-list">
+<li><b>You pay for nothing yet:</b> Meta Muse (free with a usage limit). Good first jobs: {_ua('make-a-customer-service-call')} or {_ua('add-an-ai-to-your-friends-group-chat-to-make-plans')}.</li>
+<li><b>You already pay for ChatGPT Pro:</b> a dot. Try {_ua('catch-calendar-clashes-hiding-in-your-email')} or {_ua('let-chatgpt-run-your-icloud-mail-and-calendar')}.</li>
+<li><b>You want several agents with separate jobs that hand work to each other:</b> Grok Bot. Try {_ua('share-a-scam-check-bot-with-an-older-parent')} or {_ua('let-your-bot-sign-in-without-seeing-your-passwords')}.</li>
+<li><b>Your work lives in files and documents:</b> Claude Cowork. Try {_ua('turn-your-booking-emails-into-one-trip-sheet')} or {_ua('put-together-an-insurance-claim-with-an-ai-agent')}, and read {_ua('keep-an-ai-agent-from-deleting-your-files')} first.</li>
+<li><b>You live in Gmail and Google Calendar:</b> tasks in Gemini. Try {_ua('family-meal-plan-and-grocery-order')} or {_ua('catch-airline-schedule-changes')}.</li>
+<li><b>You'd rather run your own:</b> open-source agents, compared in <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a> and <a href="{u(ALT_GUIDE)}">OpenClaw alternatives</a>.</li></ul></section>
+<section class="reveal" id="steps"><h2>How to start with any personal AI agent: {len(PA_STEPS)} steps</h2><ol class="rules">{''.join(f'<li><b>{e(t)}.</b> {e(d)}</li>' for t, d in PA_STEPS)}</ol>
+<p>Copy this first job into any of the five. It only reads, so it's a safe first test:</p>
+{copybox(PA_PROMPT, "First job for any personal AI agent", "pa-prompt")}
+<p class="small">Want a different job? Build one in the free <a href="{u('/bot-instructions/')}">instruction builder</a> or use the <a href="{u(INSTR_GUIDE)}">6-part instructions template</a>.</p></section>
+<section class="reveal warn glass" id="safety"><h2>Before you connect your email</h2><ol class="rules">
+<li>Start read-only. Let it send, buy or delete only after a week of good results.</li>
+<li>Keep approvals on for sending, buying, deleting and posting.</li>
+<li>Never type passwords or card numbers into the chat; use the agent's own sign-in feature or do that step yourself.</li>
+<li>Treat emails and web pages it reads as untrusted: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email?</a></li></ol></section>
+<section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(PA_FAQ)}</section>
+<section class="glass explain-card"><h2>Next step</h2><p>New to agents? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is</a>, browse <a href="{u('/ai-agent-examples/')}">{len(ucs)} AI agent examples</a>, or follow a <a href="{u('/blueprints/')}">blueprint</a> step by step.</p></section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['dots_intro','gb_over','gb_start','gb_faq','muse_help','cw_help','g_tasks','cl_price','g_subs'])}</section>
+</article>"""
+page(PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse: which personal agent?", _pa_desc, pa_body,
+     [pald, _art_ld(PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse (plus Claude Cowork and Gemini)", _pa_desc, published="2026-11-17"), _faq_ld(PA_FAQ),
+      {"@context": "https://schema.org", "@type": "HowTo", "name": "How to start with a personal AI agent", "description": _pa_desc,
+       "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(PA_STEPS)]},
+      {"@context": "https://schema.org", "@type": "ItemList", "name": "Personal AI agents compared", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": r[0]} for i, r in enumerate(PA_ROWS)]}], og_type="article")
+
 NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner guide: pick one job, write it in four lines, paste instructions into an agent app, test once, schedule it safely."),
               (COST_GUIDE, "How much does it cost to run an AI agent?", f"Monthly estimates for {len(_cost_rows)} everyday bots at official API prices, with the math shown."),
               (CLAW_GUIDE, "OpenClaw vs Hermes Agent: a beginner's guide", "What each open-source agent is, side-by-side comparison, how to pick, cost and safety tips."),
@@ -2093,7 +2196,8 @@ NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner
               (CHEAPMODEL_GUIDE, "Switch OpenClaw or Hermes to a cheaper model", "Commands to change the model in OpenClaw and Hermes Agent, add fallbacks, and when not to downgrade."),
               (INSTR_GUIDE, "How to write instructions for an AI agent", "A 6-part template to copy (job, use only, steps, result, ask first, if unsure), 3 filled-in examples, where to paste them in ChatGPT, Claude and Gemini, and how to test them."),
               (HMI_GUIDE, "How to install Hermes Agent (Mac, Windows, Linux)", "Desktop app or one-line installer, connect a model with hermes setup, one test chat, safe settings before you connect apps, and fixes when the install fails."),
-              (ALT_GUIDE, "OpenClaw alternatives for beginners", "Hermes Agent, n8n's Nod, nanobot, NanoClaw, ZeroClaw and IronClaw compared on setup, safety and cost, plus no-install options.")]
+              (ALT_GUIDE, "OpenClaw alternatives for beginners", "Hermes Agent, n8n's Nod, nanobot, NanoClaw, ZeroClaw and IronClaw compared on setup, safety and cost, plus no-install options."),
+              (PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse: personal AI agents compared", "ChatGPT dots, Grok Bot, Meta Muse, Claude Cowork and tasks in Gemini compared: which plans include them, where they work, what runs while you're away, how each asks first, and a safe first job to copy.")]
 
 # ---------- LATEST IN AI (/news/ + /news/feed.xml) -------------------------------------
 NEWS_CATS = J("data", "news.json")["categories"]
@@ -2302,7 +2406,7 @@ page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wr
 # ---------- MACHINE FILES ------------------------------------------------------------
 idx = [{"t": x["title"], "u": u("/use-cases/" + x["slug"] + "/"), "c": CAT[x["category"]]["name"], "i": CAT[x["category"]]["icon"], "d": x["difficulty"], "h": x["_heat"], "s": search_text(x)} for x in ucs]
 idx += [{"t": "Blueprint: " + b["title"], "u": u("/blueprints/" + b["slug"] + "/"), "c": "Blueprint", "i": "⚙", "d": b["difficulty"], "h": 0, "s": norm(b["title"] + " " + b["goal"] + " " + b["watches"])} for b in bps]
-idx += [{"t": t, "u": u(pth), "c": "Guide", "i": "📘", "d": "Easy", "h": 0, "s": norm(t + " " + d + (" openclaw hermes agent nous research self-hosted open source" if pth in (CLAW_GUIDE, ALT_GUIDE, HMI_GUIDE) else "") + (" nod nanobot nanoclaw zeroclaw ironclaw alternative" if pth == ALT_GUIDE else "") + (" install setup windows mac linux desktop" if pth == HMI_GUIDE else ""))} for pth, t, d in NEW_GUIDES]
+idx += [{"t": t, "u": u(pth), "c": "Guide", "i": "📘", "d": "Easy", "h": 0, "s": norm(t + " " + d + (" openclaw hermes agent nous research self-hosted open source" if pth in (CLAW_GUIDE, ALT_GUIDE, HMI_GUIDE) else "") + (" nod nanobot nanoclaw zeroclaw ironclaw alternative" if pth == ALT_GUIDE else "") + (" install setup windows mac linux desktop" if pth == HMI_GUIDE else "") + (" personal ai agent always-on dots grok bot muse cowork gemini tasks spark compare best free" if pth == PA_GUIDE else ""))} for pth, t, d in NEW_GUIDES]
 idx.append({"t": "Write bot instructions", "u": u("/bot-instructions/"), "c": "Guide", "i": "✎", "d": "Easy", "h": 0, "s": norm("write bot instructions text only chat weekly planning email draft compare quotes troubleshooting template pilot")})
 json.dump(idx, open(os.path.join(OUT, "assets", "search-index.json"), "w"), ensure_ascii=False, separators=(",", ":"))
 
@@ -2359,6 +2463,7 @@ F += ["## ChatGPT agent mode is gone: what replaced it", f"URL: {absu(u(AGENTMOD
 F += ["## How to write instructions for an AI agent", f"URL: {absu(u(INSTR_GUIDE))}", "Template:", INSTR_TEMPLATE] + [f"Q: {q} A: {a}" for q, a, _ in INSTR_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('oai_guide', 'oai_ci', 'cl_proj', 'g_gems', 'udemy_agent')] + [""]
 F += ["## How to install Hermes Agent (Mac, Windows, Linux)", f"URL: {absu(u(HMI_GUIDE))}", "Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(HMI_STEPS)] + [f"Q: {q} A: {a}" for q, a, _ in HMI_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('hm_install', 'hm_qs', 'hm_sec', 'hm_update', 'hm_mig')] + [""]
 F += ["## OpenClaw alternatives for beginners", f"URL: {absu(u(ALT_GUIDE))}"] + [f"- {k}: {re.sub('<[^>]+>', '', a)} | Install: {re.sub('<[^>]+>', '', b)} | Stands out: {re.sub('<[^>]+>', '', c)}" for k, a, b, c in ALT_ROWS] + [f"Q: {q} A: {a}" for q, a, _ in ALT_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('hm_readme', 'hm_mig', 'hm_vs', 'nod_gh', 'nod_blog', 'nb_gh', 'nb_start', 'nc_gh', 'zc_gh', 'ic_gh')] + [""]
+F += ["## ChatGPT dots vs Grok Bot vs Meta Muse: personal AI agents compared", f"URL: {absu(u(PA_GUIDE))}"] + [f"- {k}: {re.sub('<[^>]+>', '', a)} | Where: {b} | Works while you're away: {c} | Asks first: {d}" for k, a, b, c, d in PA_ROWS] + ["Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(PA_STEPS)] + ["First-job prompt:", PA_PROMPT] + [f"Q: {q} A: {a}" for q, a, _ in PA_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('dots_intro', 'gb_over', 'gb_start', 'gb_faq', 'muse_help', 'cw_help', 'g_tasks')] + [""]
 F += ["## How to switch OpenClaw or Hermes to a cheaper model", f"URL: {absu(u(CHEAPMODEL_GUIDE))}"] + [f"Q: {q} A: {a}" for q, a, _ in CHEAP_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('oc_models', 'hm_models', 'hm_prov')] + [""]
 F += ["## What is an AI agent? (in simple terms)", f"URL: {absu(u('/what-can-bots-do/'))}"] + [f"- {q} {a}" for q, a in EXPLAIN_FAQ] + [""]
 F += ["## AI agent cost calculator", f"URL: {absu(u(LESS))}#calculator", "Monthly cost = runs per month x (input tokens x input price + output tokens x output price) / 1,000,000. Months use 30 days, 22 weekdays or 4 weeks. Batch halves the price at " + ", ".join(BATCH_PROVS) + ". Not included: caching, tool fees, voice, taxes, free tiers. Worked examples (cheapest vs priciest fitting model):"] + [f"- {c['title']}: {c['n']} run(s) per {c['unit']}, about {c['in']:,} tokens in and {c['out']:,} out per run; " + (lambda r: f"{r[0][1]['p']} {r[0][1]['m']} {money(r[0][0])}/month vs {r[-1][1]['p']} {r[-1][1]['m']} {money(r[-1][0])}/month")(calc_rows(c['n']*dict((k, m) for k, _, m in CALC_UNITS)[c['unit']], c['in'], c['out'], 'small', False)) for c in CALC_PRESETS] + [""]

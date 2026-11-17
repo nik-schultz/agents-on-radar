@@ -4,24 +4,28 @@
   "date": "2026-11-16"
  },
  "/can-ai-make-phone-calls-for-you/": {
-  "hash": "0531004f20c5ccda8f40b2310a2b54232822d71a",
-  "date": "2026-11-10"
+  "hash": "a2335d086c4bafed8bf164dc7d1b7a273df753d1",
+  "date": "2026-11-17"
  },
  "/chatgpt-agent-mode-is-gone/": {
   "hash": "cae58eb8ef8fe33cd2aa2486e29e921f3f29b3d3",
   "date": "2026-11-04"
+ },
+ "/chatgpt-dots-vs-grok-bot-vs-meta-muse/": {
+  "hash": "37981abb2ba516133a87291e628da8b10716fa19",
+  "date": "2026-11-17"
  },
  "/disclosure/": {
   "hash": "0b6fc5d8646bb94c6544e8534e3d3a3430a104d1",
   "date": "2026-10-23"
  },
  "/how-much-does-it-cost-to-run-an-ai-agent/": {
-  "hash": "7750aae21609d904c188217cee704ae9ff081187",
-  "date": "2026-11-10"
+  "hash": "4f3c5fade81e5f765328154d2da3ece09194aaa3",
+  "date": "2026-11-17"
  },
  "/how-to-build-an-ai-agent-without-coding/": {
-  "hash": "3b296e4936cabf714e1f4fee2cbaa08108a67ebd",
-  "date": "2026-11-16"
+  "hash": "bedd63daf477951449d9b11bf93111ee85de85cb",
+  "date": "2026-11-17"
  },
  "/how-to-install-hermes-agent/": {
   "hash": "e285ed48665910f40bc0d667d24da1e047a95bfc",
@@ -40,8 +44,8 @@
   "date": "2026-11-11"
  },
  "/openclaw-alternatives/": {
-  "hash": "0d5ba57809df528a58dbeeb49c441d53d0a9a516",
-  "date": "2026-11-11"
+  "hash": "d7501418c124280ce2e79e14f0ef4dc43fa9726b",
+  "date": "2026-11-17"
  },
  "/openclaw-vs-hermes-agent/": {
   "hash": "f9e9ee13d5b91a17cce8715cb134eba324b8396c",
@@ -52,7 +56,7 @@
   "date": "2026-11-04"
  },
  "/what-can-bots-do/": {
-  "hash": "dd5ef02a74c0e6c4380a33b964c8fc2ef3a73f47",
-  "date": "2026-11-16"
+  "hash": "777ff9dd7f844b13e05a59acc284fb02c0f5efc2",
+  "date": "2026-11-17"
  }
 }

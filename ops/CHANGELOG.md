@@ -1142,3 +1142,7 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - openai-computer-use-healthcare: its X post 2122419941756531150 now returns Not Found, so the x block points to @OpenAI 2122465625109090646 (2,251 / 174 / 310,773).
 - Refreshed X numbers on 47 items dated Nov 9 or later. Measured 2026-11-17T12:35Z (raw research/x_news_measure_2026_11_17_am.json.txt, local only; apply script research/news_x_2026_11_17_am.py).
 - No major release. No pricing-table change (Tencent isn't in the AI price table). 2 BACKLOG notes; skips listed in BACKLOG.
+- Deploy: local main `9ebf5ad8`, publish `002c5b19` (`d14d38a3..002c5b19`), Actions run 44084453421 succeeded; live /news/ shows all 3 new items.
+
+## 2026-11-17 (standing site QA, ~7:20 AM CT)
+- QA: live /, /news/, /trending/, /bot-instructions/, /sitemap.xml all 200 (home 0.19 s). Link check run on local build; no bugs found, so no deploy. No separate improvement shipped (6:30 AM news run already deployed today's content).

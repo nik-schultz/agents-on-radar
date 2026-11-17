@@ -32,19 +32,19 @@
  "chatgpt-dots": {
   "name": "ChatGPT dots (always-on agents)",
   "url": "https://openai.com/index/introducing-dots/",
-  "cost": "Rolling out to eligible paid plans; check OpenAI's page",
+  "cost": "ChatGPT Pro and Business Premium in eligible markets (first dot included); Enterprise beta",
   "kind": "agent"
  },
  "claude-cowork": {
   "name": "Claude Cowork",
   "url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
-  "cost": "Paid Claude plans only (Pro, Max, Team, Enterprise)",
+  "cost": "Paid Claude plans only (Pro, Max, Ultra, Team, Enterprise)",
   "kind": "agent"
  },
  "gemini-spark": {
   "name": "Gemini Spark",
-  "url": "https://gemini.google/overview/agent/spark/",
-  "cost": "Google AI Pro and Ultra subscribers in select countries",
+  "url": "https://support.google.com/gemini/answer/17094507",
+  "cost": "Google AI Pro and Ultra subscribers, 18+, personal Google Account; not in the EEA, UK, Switzerland or Nigeria",
   "kind": "agent"
  },
  "gemini-opentable": {
@@ -62,7 +62,7 @@
  "grok-bot": {
   "name": "Grok Bot (personal agents)",
   "url": "https://docs.x.ai/grok-bot/overview",
-  "cost": "Included with paid individual Cursor plans and Cursor Teams; or link SuperGrok, SuperGrok Plus or SuperGrok Heavy; or a self-serve Grok Business seat",
+  "cost": "Included with Premium, Super and Ultra on The X Subscription; or link SuperGrok, SuperGrok Plus, SuperGrok Heavy or X Premium+; a Grok Business seat; or a legacy paid Cursor plan",
   "kind": "agent"
  },
  "meta-muse": {
