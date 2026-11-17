@@ -1135,3 +1135,10 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - Added 3 items (all notable): **alibaba-qwen4-max-release** (2026-11-16, model release; Alibaba Cloud press room + QwenCloud pricing $1.50/$4.50 + eWeek; X @Alibaba_Qwen 2122148127520289151), **openai-computer-use-healthcare** (2026-11-16, agent launch; openai.com; X @OpenAI 2122419941756531150), **google-ask-maps-appointments-calls** (2026-11-16, feature; blog.google + Engadget; X @googlemaps 2122396544729305165).
 - Refreshed X numbers on 44 items dated Nov 9 or later. Measured 2026-11-16T20:31Z (raw research/x_news_measure_2026_11_16_pm.json.txt, local only; apply script research/news_x_2026_11_16_pm.py).
 - No major release. No pricing-table change (Qwen isn't in the AI price table). 2 BACKLOG notes; skips listed in BACKLOG.
+- Deploy: local main `a5ea4c4d`, publish `d14d38a3` (`cca4d356..d14d38a3`), Actions run 43950855114 succeeded; live /news/ shows all 3 new items.
+
+## 2026-11-17 AM news run (~6:40 AM CT)
+- Added 3 items (all notable, 2026-11-16): **tencent-hy4-flash-cheap-model** (model release; tencent.com + PR Newswire + Dataconomy; X @TencentHunyuan 2122217770314301469, 2,714 likes / 243 reposts / 715,669 views), **gemini-notebook-interactive-sites** (feature; blog.google + Digital Trends + Android Authority; X @Google 2122449668613579018, 1,333 / 146 / 235,980), **california-ag-sues-openai-rogue-agents** (industry; TechCrunch; X @NBCNews coverage 2122414415131607245, 300 / 68 / 22,048).
+- openai-computer-use-healthcare: its X post 2122419941756531150 now returns Not Found, so the x block points to @OpenAI 2122465625109090646 (2,251 / 174 / 310,773).
+- Refreshed X numbers on 47 items dated Nov 9 or later. Measured 2026-11-17T12:35Z (raw research/x_news_measure_2026_11_17_am.json.txt, local only; apply script research/news_x_2026_11_17_am.py).
+- No major release. No pricing-table change (Tencent isn't in the AI price table). 2 BACKLOG notes; skips listed in BACKLOG.
