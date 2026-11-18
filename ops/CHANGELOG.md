@@ -1172,3 +1172,10 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - data/tools.json: Gemini Spark cost note now says Tasks in Gemini is free in 6 countries (from Google's Nov 17 post).
 - Refreshed X numbers on 50 items dated Nov 9 or later, measured 2026-11-17T20:32Z (raw research/x_news_measure_2026_11_17_pm.json.txt, local only; apply script research/news_x_2026_11_17_pm.py).
 - 3 BACKLOG notes; skips listed in BACKLOG.
+- Deploy: local main `17bae0be`, publish `e74b4efb` (`d5d648fb..e74b4efb`), Actions run 44170576033 succeeded.
+
+## 2026-11-18 AM news run (~6:35 AM CT)
+- Added 8 items: **microsoft-copilot-autopilot-ignite** (2026-11-17, notable, agent launch; Microsoft Copilot blog + Microsoft Source; X @satyanadella 2122793040058442116), **microsoft-mai-seven-models** (2026-11-17, notable, model release; microsoft.ai + InfoWorld; X @MicrosoftAI 2122762037927322044), **grok-bot-accounting-team** (2026-11-17, notable, industry; x.ai + Benzinga; X @bot 2122771386456551516), **newcore-grok-bot-background-check-ins** (2026-11-17, notable, industry; NewCore + Ars Technica + Cybernews; X @arstechnica coverage 2122693103698219327), **proton-lumo-desktop** (2026-11-17, notable, agent launch; TechCrunch; X @ProtonPrivacy 2122725988329226420), **daydream-agent-stylist** (2026-11-17, notable, agent launch; TechCrunch; X @TechCrunch coverage 2122729757485781155), **chatgpt-for-sales** (2026-11-17, minor, feature; openai.com; no X block, no official post found), **gemini-history-training-controls** (2026-11-16, notable, feature; blog.google + TechCrunch + Ars; X @TechCrunch coverage 2122763976354279846). New NEWS_CO entries "Proton" and "Daydream".
+- Refreshed X numbers on 31 existing items dated Nov 11 or later (+7 new = 38 posts), measured 2026-11-18T12:34Z (raw research/x_news_measure_2026_11_18_am.json.txt, local only; apply script research/news_x_2026_11_18_am.py).
+- No major release. No pricing-table change (Microsoft MAI isn't in the AI price table; GPT-6.2 rows were added in the Nov 17 PM run).
+- 5 BACKLOG notes; skips listed in BACKLOG.
