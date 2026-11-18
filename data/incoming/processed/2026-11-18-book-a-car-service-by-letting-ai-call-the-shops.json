@@ -1,0 +1,95 @@
+{
+  "slug": "book-a-car-service-by-letting-ai-call-the-shops",
+  "title": "Get your car booked in for a service by letting an AI call the nearby shops",
+  "category": "travel",
+  "source_date": "2026-11-17",
+  "summary": "Tell your AI assistant your car is due for a service and when you're free. It phones the nearest shops or dealerships at the same time, sits on hold for you, finds one that takes appointments at a time that fits, and puts it on your calendar.",
+  "what_the_bot_does": [
+    "Finds the nearest dealerships or repair shops for your car on the map.",
+    "Calls two or more of them at once, says it's an AI calling for you, and waits on hold so you don't have to.",
+    "Asks each one about the next appointment that fits the days and times you gave it, and skips walk-in-only places.",
+    "Checks your calendar so it only picks a time you're actually free.",
+    "Tells you what each shop said, books the one you agree to and adds it to your calendar with the address."
+  ],
+  "what_you_end_up_with": "A confirmed service appointment on your calendar, plus a short note of what each shop offered, without spending time on hold.",
+  "difficulty": "Easy",
+  "tools": [
+    {
+      "id": "gemini-spark",
+      "note": "Tasks in Gemini is free in the US, Canada, Japan, Korea, Australia and India; calling businesses is US-only to start and not offered in Indiana, Louisiana, Minnesota, Montana or Nebraska"
+    },
+    {
+      "id": "meta-muse",
+      "note": "Calls US businesses on paid Muse plans (from $20/month)"
+    },
+    {
+      "id": "grok-bot",
+      "note": "Can call US businesses on plans that include Grok Bot"
+    }
+  ],
+  "prompt": "My [2019 Honda Odyssey] is due for [its regular service / a check-engine light check]. Please call the [two] nearest [dealerships / repair shops] near [my home / ZIP code] and find an appointment on [a weekday morning before 9am] in the next [4 weeks].\n\n- Say you're an AI assistant calling for me.\n- Only pick a time when my calendar is free, and skip shops that are walk-in only.\n- Ask roughly how long it takes and whether they can give me a ride or a loaner.\n- Don't agree to any repairs, prices or deposits, and don't give out my card or account details.\n- Before you book, tell me what each shop offered and wait for my OK. Then add the appointment to my calendar with the address.",
+  "setup": [
+    "Pick an assistant that can make calls where you live. In Gemini: open the app and flip the toggle on the home screen from Chat to Task (the US also lets you text tasks to Gemini or forward emails to gemini@google.com).",
+    "Connect your calendar so it can see when you're free. Gemini already uses Google Calendar; Muse and Grok Bot need their calendar connection switched on.",
+    "Save your car's make, model and year, and your home area, in the assistant's memory or put them in the prompt.",
+    "Paste the prompt above, fill in the brackets and send it.",
+    "When it reports back, read what each shop said, say which one to book, and check the calendar entry it adds."
+  ],
+  "watch_out": [
+    "Some businesses won't talk to an AI or hang up, and Google says businesses can opt out of Gemini calls. Have a backup plan if no one picks up.",
+    "Don't let the assistant agree to repair work or a price on the call. Get the shop to quote you in person or in writing first.",
+    "Gemini says it won't share your payment or private account details unless you say so. Keep it that way for a simple booking.",
+    "Calling is only offered in some places so far. Check your assistant's help page before relying on it."
+  ],
+  "sources": [
+    {
+      "label": "X post by @GeminiApp (2026-11-17): Tasks in Gemini, for longer projects and recurring schedules, is now free for hundreds of millions of users in the US, Japan, Korea, Canada, Australia and India (3,112 likes, 264 reposts, 728,025 views; measured 2026-11-18)",
+      "url": "https://x.com/GeminiApp/status/2122737596971503885",
+      "kind": "x"
+    },
+    {
+      "label": "Google blog (2026-11-17): Josh Woodward asked Gemini to book his minivan's overdue service; it called the two nearest dealerships at once, sat through the hold music, booked the shop that takes appointments and added Friday morning to his calendar in under five minutes",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+      "kind": "official"
+    },
+    {
+      "label": "TechCrunch (2026-11-17): Google expands Tasks in Gemini, which can call businesses, book appointments and make purchases",
+      "url": "https://techcrunch.com/2026/11/17/google-expands-access-to-gemini-tasks-which-can-help-with-calls-purchases/",
+      "kind": "article"
+    },
+    {
+      "label": "Android Authority (2026-11-17): Gemini Tasks is now free and can call businesses on your behalf; recaps the dealership example and the approval step before payment or private info is shared",
+      "url": "https://www.androidauthority.com/google-gemini-tasks-update-3736266/",
+      "kind": "article"
+    },
+    {
+      "label": "The Verge (2026-11-17): Google's Spark agent becomes 'Tasks' and is free; it stops and asks before sensitive steps like buying",
+      "url": "https://www.theverge.com/tech/1035756/google-spark-ai-tasks-free",
+      "kind": "article"
+    }
+  ],
+  "popularity": {
+    "platform": "x",
+    "post_id": "2122737596971503885",
+    "author": "@GeminiApp",
+    "url": "https://x.com/GeminiApp/status/2122737596971503885",
+    "posted_at": "2026-11-17",
+    "likes": 3112,
+    "reposts": 264,
+    "replies": 196,
+    "bookmarks": 1069,
+    "views": 728025,
+    "measured_at": "2026-11-18"
+  },
+  "tags": [
+    "car service",
+    "car maintenance",
+    "dealership",
+    "mechanic",
+    "phone calls",
+    "appointment",
+    "gemini tasks",
+    "calendar",
+    "on hold"
+  ]
+}

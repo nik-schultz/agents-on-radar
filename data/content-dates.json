@@ -1,6 +1,6 @@
 {
  "/ai-agent-examples/": {
-  "hash": "e9a10e5f298d40c55cf5389e0edfe80a5b916368",
+  "hash": "ebb2de7d14e89fd3817a517f52b09beec3f9bd4d",
   "date": "2026-11-18"
  },
  "/can-ai-make-phone-calls-for-you/": {
@@ -12,7 +12,7 @@
   "date": "2026-11-18"
  },
  "/chatgpt-dots-vs-grok-bot-vs-meta-muse/": {
-  "hash": "220c00ec05b76697b88d01f66f3012e014d0d104",
+  "hash": "3f4df20ea09b8a8a39886e301268746602c8ea53",
   "date": "2026-11-18"
  },
  "/disclosure/": {
@@ -24,7 +24,7 @@
   "date": "2026-11-18"
  },
  "/how-to-build-an-ai-agent-without-coding/": {
-  "hash": "9ad5599dd25e7668d607073b02a6a575920950aa",
+  "hash": "e786029cf0d990be7d6822277fa9042065f1b8b3",
   "date": "2026-11-18"
  },
  "/how-to-install-hermes-agent/": {
@@ -32,7 +32,7 @@
   "date": "2026-11-11"
  },
  "/how-to-use-tasks-in-gemini/": {
-  "hash": "fe4864071ce5ad7870e35c1385d0cf8f7657ef94",
+  "hash": "735234d714d5c09add7fe481029326b709fd2c89",
   "date": "2026-11-18"
  },
  "/how-to-write-instructions-for-an-ai-agent/": {
@@ -60,7 +60,7 @@
   "date": "2026-11-04"
  },
  "/what-can-bots-do/": {
-  "hash": "3618de1d3a357439431130c3a964016e4308379c",
+  "hash": "718ca8ec5a3d5a1aa0a7cebfa6427af144b0ba2d",
   "date": "2026-11-18"
  }
 }

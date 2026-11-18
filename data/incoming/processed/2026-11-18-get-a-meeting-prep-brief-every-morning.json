@@ -1,0 +1,99 @@
+{
+  "slug": "get-a-meeting-prep-brief-every-morning",
+  "title": "Get a morning brief that pulls in the emails you need for each of today's meetings",
+  "category": "work",
+  "source_date": "2026-11-18",
+  "summary": "Set a daily task so your AI assistant checks your calendar each morning, finds the emails, messages and notes behind each meeting, and hands you one short page: what each meeting is about, what you owe people, and what clashes.",
+  "what_the_bot_does": [
+    "Runs on its own every weekday morning at the time you choose.",
+    "Reads today's calendar and, for each meeting, finds the latest related emails or messages.",
+    "Writes two or three lines per meeting: what it's about, what was last agreed and anything you promised to bring.",
+    "Lists replies you owe and how many days late they are, plus anything due this week.",
+    "Flags meetings that overlap or leave you no time to get there.",
+    "Can draft replies for you, but doesn't send anything until you say yes."
+  ],
+  "what_you_end_up_with": "One page to read over coffee that tells you what each of today's meetings needs from you, with the right emails already linked.",
+  "difficulty": "Easy",
+  "tools": [
+    {
+      "id": "gemini-spark",
+      "note": "Save it as a recurring task; reads Gmail and Google Calendar"
+    },
+    {
+      "id": "grok-bot",
+      "note": "On Mac it can read Messages, Mail, Calendar and Reminders, and update a page at a set time every day"
+    },
+    {
+      "id": "chatgpt",
+      "note": "Use a scheduled task with your email and calendar connected"
+    },
+    {
+      "id": "claude",
+      "note": "Connect Google Workspace; each action asks for your OK"
+    }
+  ],
+  "prompt": "Every weekday at [7:00am], look at my calendar for today and make me one short page.\n\nFor each meeting:\n- Time, who's in it, and what it's about in one line.\n- The latest emails or messages with those people or on that topic (link them), and what was last agreed.\n- Anything I promised to bring or send.\n\nThen add:\n- Replies I owe, with who and how many days late.\n- Anything due this week from my reminders or emails with a date in them.\n- Clashes: meetings that overlap or leave me less than [15] minutes to get between places.\n\nKeep it under [250] words. Draft replies if useful, but never send, accept, decline or move anything until I say yes.",
+  "setup": [
+    "Pick one assistant that can read both your email and your calendar (Gemini with Gmail and Google Calendar, Grok Bot on Mac with Mail and Calendar, or ChatGPT/Claude with those connectors switched on).",
+    "Paste the prompt and fill in the brackets.",
+    "Ask it to run this every weekday at the time you want. In Gemini, use Task mode and ask for a recurring schedule; in other apps use 'scheduled task' or 'routine'.",
+    "Read the first brief and tell it what to cut or add (for example 'skip internal stand-ups' or 'include the Zoom link').",
+    "Once a week, check the brief really arrived each day. A schedule that quietly stopped looks the same as a quiet morning."
+  ],
+  "watch_out": [
+    "The brief is only as good as what it can see. If a meeting was arranged by phone or on another account, it will say little about it.",
+    "Keep 'never send without my OK' in the prompt. Drafting is safe; sending on your behalf is where mistakes cost you.",
+    "Your email and calendar go through the AI company. Check its privacy and history settings if your work email has sensitive material."
+  ],
+  "sources": [
+    {
+      "label": "X post by @WesRoth (2026-11-18): the best part of Gemini Tasks going free is scheduling: 'Every morning, check my calendar and pull in the emails I need for those meetings' is a routine worth handing off (32 likes, 4 bookmarks, 2,267 views; measured 2026-11-18)",
+      "url": "https://x.com/WesRoth/status/2122842225260531757",
+      "kind": "x"
+    },
+    {
+      "label": "X post by @free_ai_guides (2026-11-17): Grok Bot 'morning page' prompt that reads Messages, Mail, Calendar and Reminders on a Mac and updates at 7am: replies owed, today's schedule, due this week, clashes; never sends without a yes (17 likes, 35 bookmarks, 4,657 views; measured 2026-11-18)",
+      "url": "https://x.com/free_ai_guides/status/2122721717026214358",
+      "kind": "x"
+    },
+    {
+      "label": "Google blog (2026-11-17): Tasks in Gemini, now free, handles longer projects and recurring schedules across Gmail, Calendar and other apps",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+      "kind": "official"
+    },
+    {
+      "label": "Reddit r/AI_Agents: 'One agent runs my mornings while I make the decisions': an agent reads the inboxes overnight and sends one 5:30am briefing of what needs a decision; replies approved before anything sends. A commenter warns that a scheduled run that silently crashes looks just like a quiet night",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1v10ihn/one_agent_runs_my_mornings_while_i_make_the/",
+      "kind": "reddit"
+    },
+    {
+      "label": "Gemini Apps Help: Get started with your daily brief in Gemini Apps",
+      "url": "https://support.google.com/gemini/answer/17077455?hl=en",
+      "kind": "official"
+    }
+  ],
+  "popularity": {
+    "platform": "x",
+    "post_id": "2122842225260531757",
+    "author": "@WesRoth",
+    "url": "https://x.com/WesRoth/status/2122842225260531757",
+    "posted_at": "2026-11-18",
+    "likes": 32,
+    "reposts": 0,
+    "replies": 4,
+    "bookmarks": 4,
+    "views": 2267,
+    "measured_at": "2026-11-18"
+  },
+  "tags": [
+    "meeting prep",
+    "morning brief",
+    "calendar",
+    "email",
+    "daily briefing",
+    "gemini tasks",
+    "grok bot",
+    "scheduled task",
+    "work"
+  ]
+}

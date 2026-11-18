@@ -413,3 +413,16 @@ Top domains: youtube.com (91), x.com (74), news.ycombinator.com (38), reddit.com
 - Extended: book-a-haircut-by-email (+TechCrunch, Engadget on Ask Maps appointment finding/calls; 0 X); teach-your-bot-to-remember-what-works (+reader tip: keep a dated copy of the notes file before letting the bot tidy it). New links this run: 11, of which 2 X (18%).
 - Refreshed: 54 X popularity blocks + 64 community stats (42 Hacker News items via Algolia, 22 GitHub repos via API). Biggest moves: HN Coway 423→801 points, n8n-io/nod 991→2,280 stars, FrigadeHQ/yogurt 826→1,977, zigzag 565→889, hob 243→551, pinky 1,990→2,364, poki 1,022→1,563. Non-X share of refreshed items: 64/118 = 54%.
 - Mentions/feedback of BotsDoThat: one reply to @botsdothat (X @NabhaniMehdi, 2026-11-16, on the "dreaming" memory post): suggestion to keep a dated copy of the notes file; folded into teach-your-bot-to-remember-what-works. HN Algolia 0 hits; Reddit blocked from this box.
+
+## After midday trending (measured 2026-11-18)
+
+- Use cases: **134**; source links: **592**
+- X share of source links: **87/592 = 15%**
+- X share of community links (X, Reddit, Hacker News, YouTube, GitHub, Product Hunt): **87/296 = 29%**
+- X-only use cases (every source is an X post): **4** (3%)
+- Use cases with at least one non-X community source (Reddit, Hacker News, YouTube, GitHub, Product Hunt): **94**
+- By domain: youtube.com 91, x.com 87, news.ycombinator.com 49, reddit.com 34, google.com 26, github.com 25, support.google.com 23, help.openai.com 18, support.claude.com 14, blog.google 9, techcrunch.com 8, docs.anthropic.com 7
+- Added this run: book-a-car-service-by-letting-ai-call-the-shops (5 sources, 1 X: @GeminiApp Tasks launch 3,112 likes / 264 reposts / 728,025 views; Google blog dealership example, TechCrunch, Android Authority, The Verge); get-a-meeting-prep-brief-every-morning (5 sources, 2 X: @WesRoth 32 likes / 2,267 views, @free_ai_guides morning-page prompt 17 likes / 35 bookmarks / 4,657 views; Google blog, Reddit r/AI_Agents morning-briefing thread, Gemini Apps Help).
+- Extended: make-a-customer-service-call (+@derariob Muse got a lost Express receipt emailed, 150 views; +Android Authority); reorder-your-regular-groceries (+@JeremyCainadian Gemini Tasks Walmart cart, 405 views; +The Verge). New links this run: 14, of which 5 X (36%).
+- Refreshed: 55 X popularity blocks + 64 community stats (42 Hacker News via Algolia, 22 GitHub via API). Biggest moves: n8n-io/nod 2,280→2,470 stars, FrigadeHQ/yogurt 1,977→2,294, pinky 2,364→2,453. Non-X share of refreshed items: 64/119 = 54%.
+- Mentions/feedback of BotsDoThat: none found (X search since Nov 17: only our own @botsdothat posts and unrelated "bots do that" phrases; HN Algolia 0 hits; Reddit blocked from this box).
