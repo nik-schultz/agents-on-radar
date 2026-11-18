@@ -17,6 +17,7 @@ OCSAFE_GUIDE = "/is-openclaw-safe/"; AGENTMODE_GUIDE = "/chatgpt-agent-mode-is-g
 INSTR_GUIDE = "/how-to-write-instructions-for-an-ai-agent/"  # added 2026-11-10
 HMI_GUIDE = "/how-to-install-hermes-agent/"; ALT_GUIDE = "/openclaw-alternatives/"  # added 2026-11-11
 PA_GUIDE = "/chatgpt-dots-vs-grok-bot-vs-meta-muse/"  # added 2026-11-17 (personal agents compared)
+GT_GUIDE = "/how-to-use-tasks-in-gemini/"  # added 2026-11-18 (weekly SEO run: Tasks in Gemini how-to)
 PHONE_UCS = {"call-and-book-by-phone", "make-a-customer-service-call", "let-a-bot-answer-and-screen-your-calls", "restaurant-reservations-by-agent"}
 CAT = {c["slug"]: c for c in cats}
 UC = {x["slug"]: x for x in ucs}
@@ -291,7 +292,7 @@ def featured_slot(slot, cat=None):
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
     return newsletter_box(f"nl-{slot}", "card")  # no sponsor booked: show a newsletter signup instead of an empty ad box
 
-SHARE_PATHS = {PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/"}
+SHARE_PATHS = {GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/"}
 def share_bar(title, url):
     """Share on X / Copy link / Email a friend. Plain links + one button; no third-party scripts."""
     q = urllib.parse.quote
@@ -306,7 +307,7 @@ def share_bar(title, url):
 <label class="share-nojs"><span class="sr">Link to this page</span><input type="text" readonly value="{e(url)}" size="34"></label>
 <a class="share-btn" href="{e(mh)}" aria-label="Email this page to a friend">{msvg}<span>Email a friend</span></a>
 </div><p class="share-status small" role="status" aria-live="polite"></p></section>"""
-NL_END_PATHS = {"/trending/", "/news/", PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", "/bot-instructions/", PRICING, LESS, "/about/"}
+NL_END_PATHS = {"/trending/", "/news/", GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", "/bot-instructions/", PRICING, LESS, "/about/"}
 # Long guides also get a signup after their 3rd top-level section (mid-article), not only at the end.
 NL_MID_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/"}
 def _insert_mid(body, snippet, after=3):
@@ -836,6 +837,8 @@ for x in ucs:
     ctable = (f'<section id="tools-compared"><h2>{e(_ct["h"])}</h2><div class="table-wrap glass"><table class="rank-table"><thead><tr>' + "".join(f'<th scope="col">{e(h)}</th>' for h in _ct["cols"]) + "</tr></thead><tbody>" + "".join(
         f'<tr><td><b>{e(r["tool"])}</b></td><td class="small">{e(r["how"])}</td><td class="small">{e(r["get"])}{(" (<a href=" + chr(34) + e(r["url"]) + chr(34) + " rel=" + chr(34) + "noopener" + chr(34) + ">" + e(r["source"]) + "</a>)") if r.get("url") else ""}</td></tr>' for r in _ct["rows"]) + f'</tbody></table></div><p class="small">{e(_ct.get("note", ""))}</p></section>') if _ct else ""
     phone_note = (f'<p class="small">The big picture: <a href="{u(PHONE_GUIDE)}">can AI make phone calls for you?</a> Which agents can call today, what it costs per minute and what goes wrong.</p>') if x["slug"] in PHONE_UCS else ""
+    if any(t.get("id") == "gemini-spark" for t in x.get("tools", [])):  # 2026-11-18: link the Tasks in Gemini how-to from every use case that lists it
+        phone_note += f'<p class="small">Using Gemini for this? <a href="{u(GT_GUIDE)}">How to use Tasks in Gemini</a>: free in six countries, with a safe first task and schedule limits.</p>'
     _mod = x.get("last_checked") or x["date_added"]  # same value as the HowTo dateModified below
     relx = REL_X.get(x["slug"], [])
     relx_html = ('<section class="related-x"><h2>Related</h2><ul class="ex-list">' + "".join(
@@ -905,7 +908,7 @@ def cost_html(b):
 # ---------- BLUEPRINTS ---------------------------------------------------------------
 HOWTO_STEPS = [
  ("Pick one boring job", "Choose ONE small job you do every week, like reading school emails or checking a web page. Narrow jobs work; “run my life” doesn't. People who kept using agents say the narrow, boring ones are the ones that stuck."),
- ("Pick your tool", "Use what you already have. Gmail and Google Calendar → Gemini Spark. Want to text your bot → Meta Muse or Instinct. Want routines on a schedule → Grok Bot, Claude Cowork scheduled tasks or ChatGPT dots. Prefer no AI chat at all → Zapier or Make. No agent yet? Paste the instructions into ChatGPT, Claude, Gemini or Grok each time; that works too, just not on autopilot."),
+ ("Pick your tool", "Use what you already have. Gmail and Google Calendar → tasks in Gemini. Want to text your bot → Meta Muse or Instinct. Want routines on a schedule → Grok Bot, Claude Cowork scheduled tasks or ChatGPT dots. Prefer no AI chat at all → Zapier or Make. No agent yet? Paste the instructions into ChatGPT, Claude, Gemini or Grok each time; that works too, just not on autopilot."),
  ("Paste the instructions and fill in the [brackets]", "Open a new chat in the tool. Copy the blueprint's instructions, paste them, and replace everything in [square brackets] with your details. If the tool asks to connect your email or calendar, say yes only to the apps the blueprint lists."),
  ("Say “Run this once now and show me the result”", "Don't schedule anything yet. Watch the first run, compare it with your real inbox or page, and tell it what to fix in plain words (“ignore emails from the PTA”, “shorter”)."),
  ("Then say “Do this every [day/time]” and lock it down", "Once the result looks right, ask it to repeat on a schedule. Keep it read-only or approval-only: it may read and draft, but it must ask you before it sends, buys, books or deletes. Check the first week of results."),
@@ -1016,8 +1019,8 @@ explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 
 <section class="glass explain-card reveal" id="ai-agent-vs-chatbot"><h2>AI agent vs. chatbot: what's the difference?</h2>
 <div class="vs"><div><h3>💬 Chatbot</h3><p>You ask, it answers. It can write a letter, explain a confusing form or make a plan, but <b>you</b> do the clicking. ChatGPT, Claude, Gemini and Grok all work like this for free.</p></div>
-<div><h3>🤖 Agent (a “bot”)</h3><p>You give it a job, and it <b>does the steps</b>: opens websites, reads your email, fills in forms, and can repeat the job on a schedule. Examples: Meta Muse, Gemini Spark, Grok Bot, ChatGPT Work and dots, Claude Cowork, Instinct, plus no-code tools like Zapier, n8n and Make.</p></div></div>
-<p>Most agents run on their own computer in the cloud, so they keep working when your laptop is shut. Google says Gemini Spark “keeps working in the background even when you close your laptop” ({S('Google', 'https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/')}).</p></section>
+<div><h3>🤖 Agent (a “bot”)</h3><p>You give it a job, and it <b>does the steps</b>: opens websites, reads your email, fills in forms, and can repeat the job on a schedule. Examples: Meta Muse, tasks in Gemini (formerly Gemini Spark), Grok Bot, ChatGPT Work and dots, Claude Cowork, Instinct, plus no-code tools like Zapier, n8n and Make.</p></div></div>
+<p>Most agents run on their own computer in the cloud, so they keep working when your laptop is shut. Google said Gemini Spark (now called tasks in Gemini) “keeps working in the background even when you close your laptop” ({S('Google', 'https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/')}).</p></section>
 
 <section class="reveal"><h2>✅ What AI agents are good at today</h2><ul class="big-list">
 <li><b>Reading and summarizing</b>: inbox briefings, {L('school-email-digest')}, explaining a confusing letter.</li>
@@ -1030,7 +1033,7 @@ explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 <li>{L('restaurant-reservations-by-agent')}, {L('book-a-haircut-by-email')} and {L('plan-and-book-a-whole-trip-by-text')}.</li>
 <li>{L('reorder-your-regular-groceries')}: some stores block agents, so check which ones work.</li>
 <li>{L('make-a-customer-service-call')}: tell it exactly what “resolved” means.</li></ul>
-<p>OpenAI says its agent asks before bookings and payments ({S('OpenAI help', 'https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt')}); Google says Spark asks before “high-stakes actions like spending money or sending emails” ({S('Google', 'https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/')}).</p></section>
+<p>OpenAI says its agent asks before bookings and payments ({S('OpenAI help', 'https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt')}); Google says Spark (now tasks in Gemini) asks before “high-stakes actions like spending money or sending emails” ({S('Google', 'https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/')}).</p></section>
 
 <section class="reveal warn glass"><h2>🛑 What they can't do safely yet</h2><ul class="big-list">
 <li><b>Get it right every time.</b> A benchmark of four personal agents found that even when they found the right information, they “often miss what matters, overshare, or make things up” ({S('micro1, Oct 2026', 'https://x.com/aliansarinik/status/2107497652871155953')}).</li>
@@ -1040,7 +1043,7 @@ explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 <li><b>Get in everywhere.</b> Some sites block agents. One user says Amazon blocked his ({S('X post', 'https://x.com/NickADobos/status/2110749518518235276')}).</li>
 <li><b>Replace a professional.</b> Use bots to organize and draft. Medical, legal and money decisions stay with you and a qualified person. Be wary of anyone promising AI miracles; the U.S. FTC has acted against deceptive AI claims ({S('FTC Operation AI Comply', 'https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes')}).</li></ul></section>
 
-<p class="small">Go deeper: <a href="{u(PA_GUIDE)}">ChatGPT dots vs Grok Bot vs Meta Muse</a> · <a href="{u(INSTR_GUIDE)}">how to write instructions for an AI agent</a> · <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a> · <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> · <a href="{u(ALT_GUIDE)}">OpenClaw alternatives</a> · <a href="{u(HMI_GUIDE)}">how to install Hermes Agent</a> · <a href="{u(AGENTMODE_GUIDE)}">ChatGPT agent mode is gone</a></p>
+<p class="small">Go deeper: <a href="{u(GT_GUIDE)}">how to use Tasks in Gemini (free)</a> · <a href="{u(PA_GUIDE)}">ChatGPT dots vs Grok Bot vs Meta Muse</a> · <a href="{u(INSTR_GUIDE)}">how to write instructions for an AI agent</a> · <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a> · <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> · <a href="{u(ALT_GUIDE)}">OpenClaw alternatives</a> · <a href="{u(HMI_GUIDE)}">how to install Hermes Agent</a> · <a href="{u(AGENTMODE_GUIDE)}">ChatGPT agent mode is gone</a></p>
 <section class="reveal"><h2>7 rules that keep you safe</h2><ol class="rules">
 <li>Start <b>read-only</b>. Let it look before it does anything.</li>
 <li>Make it <b>ask before</b> it sends, buys, books, cancels or deletes.</li>
@@ -1078,7 +1081,7 @@ ex_faq = [
     ("What are examples of AI agents for personal use?", "Popular personal uses: a morning inbox summary, a bot that adds calendar events and reminders when you ask, a weekly meal plan with the grocery list, a watcher that pings you when a price or web page changes, and a bot that phones a business to book or cancel something for you. Every example on this page links to a how-to with a prompt to copy."),
     ("What is an example of an AI agent in everyday life?", "A common one is an inbox agent that reads your new email each morning and sends you a short summary of what needs a reply, without sending anything itself. Others watch a web page and ping you when it changes, plan a week of meals and build the grocery list, or make a customer-service phone call for you."),
     ("What's the difference between an AI agent and a chatbot?", "A chatbot answers when you ask, and you do the clicking. An agent can take steps for you, like reading your inbox on a schedule, filling a form or watching a page, and it should ask before it sends, buys or deletes anything."),
-    ("What's the best AI agent for everyday use?", "The one that works with apps you already use. If you live in Gmail and Google Calendar, try Gemini Spark. If you want to text your bot, try Meta Muse or Instinct. For routines on a schedule, try Grok Bot, Claude Cowork scheduled tasks or ChatGPT dots. No agent yet? Paste a prompt from this page into ChatGPT, Claude, Gemini or Grok."),
+    ("What's the best AI agent for everyday use?", "The one that works with apps you already use. If you live in Gmail and Google Calendar, try tasks in Gemini (free in the US, Canada, India, Japan, South Korea and Australia). If you want to text your bot, try Meta Muse or Instinct. For routines on a schedule, try Grok Bot, Claude Cowork scheduled tasks or ChatGPT dots. No agent yet? Paste a prompt from this page into ChatGPT, Claude, Gemini or Grok."),
     ("Are AI agents safe to use?", "They're good at reading, watching, sorting and drafting. Don't trust them yet with your money, your address or anything you can't undo. Start with read-only jobs and have the agent ask before it sends or buys."),
 ]
 ex_body = f"""<article class="wrap narrow explainer">{crumbs([("Home", "/"), ("AI agent examples", None)])[0]}
@@ -1088,7 +1091,7 @@ ex_body = f"""<article class="wrap narrow explainer">{crumbs([("Home", "/"), ("A
 <p class="small hub-note">This page is the one-page overview of what AI agents can do, grouped by part of life. To set one up, open its step-by-step page, or search and filter all of them in <a href="{u('/use-cases/')}">use cases</a>. Items marked {CHAT_BADGE} are one-off prompts for a chat app, not bots that act for you.</p>
 {ex_groups}
 <section><h2>Questions people ask</h2>{''.join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}{_faq_more(q)}</p></details>' for q, a in ex_faq)}</section>
-<section class="glass explain-card"><h2>Want it on autopilot?</h2><p>Turn any of these into a bot that runs on a schedule with a <a href="{u('/blueprints/')}">build-your-own-bot blueprint</a>. Never built one? Follow <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>.</p></section>
+<section class="glass explain-card"><h2>Want it on autopilot?</h2><p>Turn any of these into a bot that runs on a schedule with a <a href="{u('/blueprints/')}">build-your-own-bot blueprint</a>. Never built one? Follow <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>. Use Gmail and Google Calendar? <a href="{u(GT_GUIDE)}">Tasks in Gemini</a> is free in six countries. Then write your bot's rules in the free <a href="{u('/bot-instructions/')}">instruction builder</a>.</p></section>
 </article>"""
 page("/ai-agent-examples/", f"{len(ex_items)} AI agent examples for personal use and everyday life", mdesc(f"{len(ex_items)} AI agent examples for personal use on one page, grouped by inbox, calls, shopping, travel, family, health and work. Each links to a how-to."), ex_body,
      [crumbs([("Home", "/"), ("AI agent examples", None)])[1],
@@ -1234,9 +1237,9 @@ _g_rows = calc_rows(_ex_rpm, _ex["in"], _ex["out"])
 _g_cost = f"about {money(_g_rows[0][0])} a month on {_g_rows[0][1]['p']} {_g_rows[0][1]['m']} and about {money(_g_rows[-1][0])} on {_g_rows[-1][1]['p']} {_g_rows[-1][1]['m']}"
 _easy = [b for b in bps if b["difficulty"] == "Easy"]
 _free_txt = (f"Partly. ChatGPT, Claude, Gemini and Grok each list a free plan (paid plans add more), so you can paste a blueprint's instructions into one whenever you need it, even without a scheduled agent. "
-             f"n8n is free to self-host, and Zapier and Make have free plans. Some agent features cost money: Gemini Spark is for {tools['gemini-spark']['cost']}, and ChatGPT's cloud browser needs a paid ChatGPT plan. Plans change, so check each tool's own page.")
+             f"n8n is free to self-host, and Zapier and Make have free plans. Some agent features depend on your plan or country: tasks in Gemini is free in the US, Japan, Korea, Canada, Australia and India (elsewhere it needs Google AI Pro or Ultra), and ChatGPT's cloud browser needs a paid ChatGPT plan. Plans change, so check each tool's own page.")
 _free_html = (f"Partly. {_tl('chatgpt')}, {_tl('claude')}, {_tl('gemini')} and {_tl('grok')} each list a free plan (paid plans add more), so you can paste a blueprint's instructions into one whenever you need it, even without a scheduled agent. "
-              f"{_tl('n8n')} is free to self-host, and {_tl('zapier')} and {_tl('make')} have free plans. Some agent features cost money: {_tl('gemini-spark')} is for {e(tools['gemini-spark']['cost'])}, and ChatGPT's cloud browser ({_tl('chatgpt-work')}) needs a paid ChatGPT plan. Plans change, so check each tool's own page.")
+              f"{_tl('n8n')} is free to self-host, and {_tl('zapier')} and {_tl('make')} have free plans. Some agent features depend on your plan or country: {_tl('gemini-spark')} is free in the US, Japan, Korea, Canada, Australia and India (elsewhere it needs Google AI Pro or Ultra; <a href='{u(GT_GUIDE)}'>how to use it</a>), and ChatGPT's cloud browser ({_tl('chatgpt-work')}) needs a paid ChatGPT plan. Plans change, so check each tool's own page.")
 GUIDE_FAQ = [
     ("Do I need to know how to code to build an AI agent?", "No. Agent apps take instructions in plain words: you describe the job, connect the apps it needs with the official connect button, and tell it when to run. Our blueprints give you the exact words to paste.", None),
     ("What's the easiest AI agent to build first?", "A read-only one that only reads and reports, so nothing can go wrong. Our easiest blueprints are the " + ", ".join(b["title"] for b in _easy[:-1]) + " and " + _easy[-1]["title"] + ".",
@@ -1423,7 +1426,7 @@ cost_body = f"""<article class="wrap narrow explainer">{cbc}
 {_byline()}</header>
 
 <section class="glass explain-card reveal" id="at-a-glance"><h2>AI agent cost at a glance</h2><ul class="big-list">
-<li><b>The agent software:</b> often free. OpenClaw and Hermes Agent are free and open source; agent apps like Claude Cowork, ChatGPT dots, Gemini Spark and Grok Bot run inside a plan (<a href="#plans">plan prices</a>; <a href="{u(PA_GUIDE)}">which plan includes which agent</a>).</li>
+<li><b>The agent software:</b> often free. OpenClaw and Hermes Agent are free and open source; agent apps like Claude Cowork, ChatGPT dots and Grok Bot run inside a plan, and tasks in Gemini is free in six countries (<a href="#plans">plan prices</a>; <a href="{u(PA_GUIDE)}">which plan includes which agent</a>).</li>
 <li><b>The AI model, pay-per-use:</b> {money(_lo_all)} to {money(_hi_all)} a month for each of our {len(_cost_rows)} everyday bots, depending on the bot and the model (<a href="#examples">full table</a>).</li>
 <li><b>Phone and voice bots:</b> billed per minute, not per token: {_pz(_vp_lo)} to {_pz(_vp_hi)} a minute on the platforms we checked ({_vp_note}), so about {_vp_rate({"price_min": _vp_lo, "price_max": _vp_hi}, _pmo)} for {_pmo} minutes of calls a month before extras (<a href="#voice">voice agent costs</a>).</li>
 <li><b>The biggest lever:</b> model choice. Within one company, the small model can cost up to {LESS_RATIO}× less than the flagship (<a href="#cut">how to pay less</a>).</li></ul>
@@ -1448,7 +1451,7 @@ cost_body = f"""<article class="wrap narrow explainer">{cbc}
 <p><a class="btn" href="{u(LESS)}?bot=morning-inbox-briefing#calculator">Change the numbers in the calculator</a></p></section>
 
 <section class="reveal" id="plans"><h2>App plan or pay-per-use?</h2>
-<p>Agent apps like Claude Cowork, ChatGPT dots, Gemini Spark and Grok Bot run inside a plan instead of billing per token. Plan prices we've checked on official pages:</p>
+<p>Agent apps like Claude Cowork, ChatGPT dots and Grok Bot run inside a plan instead of billing per token (tasks in Gemini is free in six countries). Plan prices we've checked on official pages:</p>
 <div class="table-wrap glass"><table class="rank-table"><thead><tr><th scope="col">Plan</th><th scope="col">Price</th><th scope="col">Details</th><th scope="col">Source</th></tr></thead><tbody>{_plans}</tbody></table></div>
 <p>For a few small bots, pay-per-use is often a few dollars a month or less. A plan you already pay for may be simpler. Compare: {_ua('subscription-or-pay-per-use')}.</p></section>
 
@@ -1619,13 +1622,14 @@ SRC.update({
  "x_air": ("X post by @mike_nopages (2026-10-17): the airline wouldn't rebook because he wasn't on the line", "https://x.com/mike_nopages/status/2111346928185496016"),
  "x_hangup": ("X post by @james_fowler_ (2026-10-18): a restaurant owner nearly hung up until the bot said it was an AI", "https://x.com/james_fowler_/status/2111888527826813404"),
  "manus": ("Manus blog: Introducing Manus 2.0 and Cue", "https://manus.im/blog/introducing-manus-2-0"),
+ "g_blog_tasks": ("Google blog (Nov 17, 2026): Put Gemini to work for you (Tasks in Gemini free, calls, Google Pay, email and text)", "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/"),
 })
 _vp_list = "".join(f'<li><b>{e(v["provider"])}</b> ({e(v["plan"])}): {_vp_txt(v)} a minute; {e(v["includes"])}. A {_pcall}-minute call: {_vp_rate(v, _pcall)}. (<a href="{e(v["source_url"])}" rel="noopener">official pricing</a>, checked {nice_date(v["checked_on"])})</li>' for v in _VP)
 PHONE_FAQ = [
  ("Can AI make phone calls for you?",
   "Yes. Some personal AI agents can now phone a business for you, book a table or an appointment, make a customer-service call and tell you what was said. Grok Bot can do it once you connect a phone-calling add-on that gives it its own number, Meta Muse can call businesses for you, and Cue by Manus gives each agent its own phone number. Make it say it's an AI, and keep anything involving money or your account details for yourself.", None),
  ("Which AI can make phone calls for me?",
-  "Grok Bot with a phone-calling add-on connected, Meta Muse, Instinct (an invite-only beta, per WIRED in September 2026) and Cue by Manus. Developers can also build a call bot on a voice-agent platform such as Retell AI, Vapi or Bland.", None),
+  "Grok Bot with a phone-calling add-on connected, Meta Muse, tasks in Gemini (in the US, outside five states), Instinct (an invite-only beta, per WIRED in September 2026) and Cue by Manus. Developers can also build a call bot on a voice-agent platform such as Retell AI, Vapi or Bland.", None),
  ("How much does it cost for AI to make a phone call?",
   f"On the voice-agent platforms we checked ({nice_date(PR['checked_on'])}), {_pz(_vp_lo)} to {_pz(_vp_hi)} a minute ({_vp_note}), so a {_pcall}-minute call is about {money(_vp_lo*_pcall)} to {money(_vp_hi*_pcall)} before any extras. Agent apps may instead include calls in a plan or charge for the phone number separately.",
   f"On the voice-agent platforms we checked ({nice_date(PR['checked_on'])}), {_pz(_vp_lo)} to {_pz(_vp_hi)} a minute ({_vp_note}), so a {_pcall}-minute call is about {money(_vp_lo*_pcall)} to {money(_vp_hi*_pcall)} before any extras (<a href=\"#cost\">table with sources</a>). Agent apps may instead include calls in a plan or charge for the phone number separately."),
@@ -1639,7 +1643,7 @@ PHONE_FAQ = [
   "For simple bookings and questions, yes, if you set rules: say what it may agree to, never let it share card numbers or one-time codes, and check afterwards that the change really happened. If calls are recorded, check the recording rules where you live; some places need everyone's consent.", None),
 ]
 pbc, pbld = crumbs([("Home", "/"), ("What is an AI agent?", "/what-can-bots-do/"), ("Can AI make phone calls for you?", None)])
-_phone_desc = mdesc(f"Yes: Grok Bot, Meta Muse and Cue by Manus can call businesses for you. What works, what goes wrong, and what each minute of a call costs.")
+_phone_desc = mdesc(f"Yes: Grok Bot, Meta Muse, Gemini (US) and Cue by Manus can call businesses for you. What works, what goes wrong, and what each minute of a call costs.")
 phone_body = f"""<article class="wrap narrow explainer">{pbc}
 <header class="page-head"><p class="eyebrow">Phone calls, in plain English</p><h1 class="kinetic-sm">Can AI make phone calls for you?</h1>
 <p class="lead">Short answer: yes. Some personal AI agents can now phone a restaurant, a vet or a salon, book the slot, sit through a customer-service call and tell you what was said. You give the job in a message; the bot makes the call from its own number. It works best for simple bookings and questions, and you should keep payments and account changes for yourself.</p>
@@ -1655,7 +1659,8 @@ phone_body = f"""<article class="wrap narrow explainer">{pbc}
 <li><b>Grok Bot:</b> once you connect a phone-calling add-on so the bot has its own number. The calls above were made this way.</li>
 <li><b>Meta Muse:</b> can call businesses for you; see {_ua('restaurant-reservations-by-agent', 'booking tables by agent')} for a test where it booked easily but failed to cancel.</li>
 <li><b>Instinct:</b> messages or calls small businesses; an invite-only beta when WIRED reviewed it ({C('wired')}).</li>
-<li><b>Cue by Manus:</b> each agent gets its own phone number and can make and take calls ({C('manus')}).</li></ul>
+<li><b>Cue by Manus:</b> each agent gets its own phone number and can make and take calls ({C('manus')}).</li>
+<li><b>Tasks in Gemini:</b> in the US, Gemini can call businesses for you, for example to find an appointment; it says it's an AI and businesses can opt out. Not yet in Indiana, Louisiana, Minnesota, Montana or Nebraska ({C('g_blog_tasks', 'Google')}). How to start: <a href="{u(GT_GUIDE)}">how to use Tasks in Gemini</a>.</li></ul>
 <p>Want to build your own? The {_ba('phone-call-bot')} blueprint has the instructions to paste in, the guardrails and the cost of a call.</p></section>
 
 <section class="reveal" id="cost"><h2>What AI phone calls cost</h2>
@@ -1670,7 +1675,7 @@ phone_body = f"""<article class="wrap narrow explainer">{pbc}
 
 <section class="reveal" id="faq"><h2>Questions people ask</h2>{_faq_html(PHONE_FAQ)}</section>
 <section class="glass explain-card"><h2>Next step</h2><p>Start with one low-stakes booking using the {_ba('phone-call-bot')}. New to agents? Read <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a> and <a href="{u(SAFE_GUIDE)}">how to keep it safe</a>.</p></section>
-<section class="reveal"><h2>Sources</h2>{_src_list(['x_vet','x_rest','x_hulu','x_air','x_hangup','manus','wired'])}<ul class="small src-list">{"".join(f'<li><a href="{e(v["source_url"])}" rel="noopener">{e(v["provider"])} pricing</a>, checked {nice_date(v["checked_on"])}</li>' for v in _VP)}</ul></section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['x_vet','x_rest','x_hulu','x_air','x_hangup','manus','wired','g_blog_tasks'])}<ul class="small src-list">{"".join(f'<li><a href="{e(v["source_url"])}" rel="noopener">{e(v["provider"])} pricing</a>, checked {nice_date(v["checked_on"])}</li>' for v in _VP)}</ul></section>
 </article>"""
 page(PHONE_GUIDE, "Can AI make phone calls for you? What works and what it costs", _phone_desc, phone_body,
      [pbld, _art_ld(PHONE_GUIDE, "Can AI make phone calls for you?", _phone_desc, published="2026-11-03"), _faq_ld(PHONE_FAQ)], og_type="article")
@@ -1731,6 +1736,8 @@ ocsafe_body = f"""<article class="wrap narrow explainer">{ocb}
 page(OCSAFE_GUIDE, "Is OpenClaw safe? Real risks and 6 rules to run it safely", _ocs_desc, ocsafe_body, _g_ld(OCSAFE_GUIDE, "Is OpenClaw safe?", _ocs_desc, OCSAFE_FAQ, ocld), og_type="article")
 
 AGENTMODE_FAQ = [
+ ("Why is ChatGPT agent mode not showing?",
+  "Because OpenAI removed it. Agent mode no longer appears in the tools menu and /agent does nothing. OpenAI's help page says ChatGPT agent is no longer available and points to ChatGPT Work. On a paid plan, pick Work instead of Chat and paste the same instructions.", None),
  ("Is ChatGPT agent mode gone?",
   "Yes. OpenAI's help page now says: \"ChatGPT agent is no longer available. Use ChatGPT Work for longer, multi-step tasks and finished deliverables.\" Browser tasks moved to the cloud browser in ChatGPT.", None),
  ("What replaced ChatGPT agent mode?",
@@ -1741,12 +1748,15 @@ AGENTMODE_FAQ = [
   "OpenAI's release notes say Work rolled out on web and mobile to paid plans except Free and Go.", None),
  ("When did agent mode stop working?",
   "OpenAI hasn't published an exact retirement date. Its release notes introduced ChatGPT Work on July 9, 2026, and the agent help page now says agent is no longer available.", None),
+ ("Is there a free alternative to ChatGPT agent mode?",
+  "Tasks in Gemini is free with a personal Google account in the US, Canada, India, Japan, South Korea and Australia (18+, History on). It can browse, work in Gmail and Calendar, and run a task once a day on a schedule. Meta Muse also has a free tier with a usage limit.",
+  f"Tasks in Gemini is free with a personal Google account in the US, Canada, India, Japan, South Korea and Australia (18+, History on). It can browse, work in Gmail and Calendar, and run a task once a day on a schedule: <a href=\"{u(GT_GUIDE)}\">how to use Tasks in Gemini</a>. Meta Muse also has a free tier with a usage limit; see <a href=\"{u(PA_GUIDE)}\">personal AI agents compared</a>."),
 ]
 amb, amld = crumbs([("Home", "/"), ("What is an AI agent?", "/what-can-bots-do/"), ("ChatGPT agent mode is gone", None)])
-_am_desc = mdesc("ChatGPT agent mode is no longer available. OpenAI replaced it with ChatGPT Work. What changed, who gets it, and how to move your agent tasks over.")
+_am_desc = mdesc("ChatGPT agent mode not showing? OpenAI removed it; /agent no longer works. Use ChatGPT Work on paid plans instead. How to switch, plus a free alternative.")
 agentmode_body = f"""<article class="wrap narrow explainer">{amb}
 <header class="page-head"><p class="eyebrow">ChatGPT, in plain English</p><h1 class="kinetic-sm">ChatGPT agent mode is gone. Here's what replaced it</h1>
-<p class="lead">If you typed /agent in ChatGPT and nothing happened, it's not you. OpenAI's help page now says "ChatGPT agent is no longer available" and points to <b>ChatGPT Work</b> for longer, multi-step jobs, plus the cloud browser for web tasks ({C('oai_agent_gone', 'OpenAI Help')}).</p>
+<p class="lead"><b>Short answer: agent mode isn't hidden, it's been removed.</b> OpenAI's help page now says "ChatGPT agent is no longer available" and points to <b>ChatGPT Work</b> for longer, multi-step jobs, plus the cloud browser for web tasks ({C('oai_agent_gone', 'OpenAI Help')}). On a paid plan, switch from Chat to Work and paste the same instructions. No paid plan? <a href="{u(GT_GUIDE)}">Tasks in Gemini</a> is a free alternative in six countries.</p>
 {_byline()}</header>
 <section class="glass explain-card reveal" id="what-is-work"><h2>What ChatGPT Work is</h2><ul class="big-list">
 <li><b>An agent for longer tasks.</b> It researches, works across your connected apps and files, and makes documents, spreadsheets, presentations and reports. You can follow along, change direction and approve important actions ({C('oai_rn', 'release notes, July 9, 2026')}).</li>
@@ -1758,11 +1768,12 @@ agentmode_body = f"""<article class="wrap narrow explainer">{amb}
 <li>Re-create anything that ran on a schedule as a Scheduled Task, and check the first run yourself.</li>
 <li>For jobs on websites (forms, bookings, shopping), use the cloud browser and sign in through its own sign-in screen, never by pasting a password into the chat ({C('oai_agent', 'OpenAI Help: cloud browser')}).</li>
 <li>Keep "ask before sending, buying or deleting" on. See <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a></li></ol>
-<p>Other agents that can do these jobs: <a href="{u('/ai-agent-examples/')}">AI agent examples</a>. Prefer something you run yourself? <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a>.</p></section>
+<p>Other agents that can do these jobs: <a href="{u('/ai-agent-examples/')}">AI agent examples</a> and <a href="{u(PA_GUIDE)}">personal AI agents compared</a>. Free option: <a href="{u(GT_GUIDE)}">how to use Tasks in Gemini</a>. Prefer something you run yourself? <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a> or <a href="{u(HMI_GUIDE)}">install Hermes Agent</a>.</p></section>
 <section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(AGENTMODE_FAQ)}</section>
+<section class="glass explain-card"><h2>Next step</h2><p>Your old agent prompts work better with clear rules. Rewrite one in the free <a href="{u('/bot-instructions/')}">instruction builder</a> (no sign-up), or use the <a href="{u(INSTR_GUIDE)}">6-part instructions template</a>, then paste it into Work.</p></section>
 <section class="reveal"><h2>Sources</h2>{_src_list(['oai_agent_gone','oai_rn','oai_work','oai_agent'])}</section>
 </article>"""
-page(AGENTMODE_GUIDE, "ChatGPT agent mode is gone: what replaced it (ChatGPT Work)", _am_desc, agentmode_body, _g_ld(AGENTMODE_GUIDE, "ChatGPT agent mode is gone. Here's what replaced it", _am_desc, AGENTMODE_FAQ, amld), og_type="article")
+page(AGENTMODE_GUIDE, "ChatGPT agent mode not showing? It's gone: use Work instead", _am_desc, agentmode_body, _g_ld(AGENTMODE_GUIDE, "ChatGPT agent mode is gone. Here's what replaced it", _am_desc, AGENTMODE_FAQ, amld), og_type="article")
 
 CHEAP_FAQ = [
  ("How do I change the model in OpenClaw?",
@@ -2116,14 +2127,14 @@ PA_ROWS = [
   "Claude desktop app (Mac, Windows, Linux beta), web and mobile",
   "Scheduled tasks run in the cloud with no device online; local files and your browser need the desktop app open",
   "Three permission modes; each connector can be Always allow, Needs approval or Blocked; asks before permanently deleting files"),
- ("Tasks in Gemini", f"Google · Google AI Pro ({_cp('Google', 'Google AI Pro')}) or Ultra, 18+, personal Google account; not in the EEA, UK, Switzerland or Nigeria ({C('g_tasks', 'Google Help')})",
+ ("Tasks in Gemini", f"Google · free in the US, Canada, India, Japan, South Korea and Australia; elsewhere Google AI Pro ({_cp('Google', 'Google AI Pro')}) or Ultra; 18+, personal Google account; not in the EEA, UK, Switzerland or Nigeria ({C('g_tasks', 'Google Help')}; <a href=\"{u(GT_GUIDE)}\">how to use it</a>)",
   "Gemini web app, mobile app and Mac app",
   "Partly. With your own Chrome it needs your computer awake; otherwise it may use a remote browser in the cloud",
   "Some tasks ask for confirmation; Google advises not to schedule sensitive tasks or type passwords into a task"),
 ]
 PA_STEPS = [
  ("Pick one boring, repeating job", "Choose something you do every week that only needs reading, like an inbox check or a calendar clash check. Read-only first; sending and buying later."),
- ("Use the agent your plan already includes", "Check the table: if you already pay for ChatGPT Pro, Claude, Google AI Pro or an X subscription, start there. If you pay for none, Meta Muse has a free tier."),
+ ("Use the agent your plan already includes", "Check the table: if you already pay for ChatGPT Pro, Claude, Google AI Pro or an X subscription, start there. If you pay for none, try tasks in Gemini (free in six countries) or Meta Muse's free tier."),
  ("Connect only the apps that job needs", "One job, one or two apps. Don't connect banking, health or work accounts on day one."),
  ("Paste a short first-job prompt", "Say the job, what it may use, what it must never do, when to ask you, and what the result looks like. Copy the prompt below."),
  ("Keep approvals on", "Make sure sending, buying, deleting and posting need your OK. Every agent on this page has a setting or rule for that."),
@@ -2138,9 +2149,9 @@ If unsure: say what you're unsure about instead of guessing.
 Result: at most 10 bullets, most important first, each with the sender and one line on why."""
 PA_FAQ = [
  ("Which personal AI agent is best for beginners?",
-  "Start with the one your current plan already includes, because the job matters more than the brand. If you pay for ChatGPT Pro, try a dot; if you pay for Claude, try Cowork; with Google AI Pro or Ultra, try tasks in Gemini; with an X Premium, Super or Ultra subscription, try Grok Bot. If you pay for none, Meta Muse has a free tier with a usage limit.", None),
+  "Start with the one your current plan already includes, because the job matters more than the brand. If you pay for ChatGPT Pro, try a dot; if you pay for Claude, try Cowork; with an X Premium, Super or Ultra subscription, try Grok Bot. If you pay for none, tasks in Gemini is free in the US, Canada, India, Japan, South Korea and Australia, and Meta Muse has a free tier with a usage limit.", None),
  ("Is there a free personal AI agent?",
-  "Meta Muse is free with a usage limit (a paid subscription adds more). ChatGPT dots, Claude Cowork, tasks in Gemini and Grok Bot need a paid plan. Open-source agents such as Hermes Agent and OpenClaw are free to download, but you pay for the AI model and the computer they run on.", None),
+  "Yes. Tasks in Gemini became free on Nov 17, 2026 in the US, Canada, India, Japan, South Korea and Australia (Google AI Pro or Ultra elsewhere), and Meta Muse is free with a usage limit. ChatGPT dots, Claude Cowork and Grok Bot need a paid plan. Open-source agents such as Hermes Agent and OpenClaw are free to download, but you pay for the AI model and the computer they run on.", None),
  ("Do personal AI agents keep working when my computer is off?",
   "ChatGPT dots and Grok Bot work on their own cloud computers, so yes. Claude Cowork's scheduled tasks run in the cloud with no device online, but jobs that use your local files or browser need the desktop app open. Tasks in Gemini that use your own Chrome need your computer awake; otherwise Gemini may use a remote browser.", None),
  ("Is it safe to let a personal agent read my email?",
@@ -2155,17 +2166,17 @@ pab, pald = crumbs([("Home", "/"), ("What is an AI agent?", "/what-can-bots-do/"
 _pa_desc = mdesc("ChatGPT dots vs Grok Bot vs Meta Muse, plus Claude Cowork and Gemini tasks: which plans include them, what runs while you're away, how each asks first.")
 pa_body = f"""<article class="wrap narrow explainer">{pab}
 <header class="page-head"><p class="eyebrow">Beginner guide · Personal AI agents</p><h1 class="kinetic-sm">ChatGPT dots vs Grok Bot vs Meta Muse (plus Claude Cowork and Gemini)</h1>
-<p class="lead">Short answer: use the personal agent your plan already includes. <b>ChatGPT dots</b> come with ChatGPT Pro, <b>Grok Bot</b> with X Premium, Super or Ultra, <b>Claude Cowork</b> with any paid Claude plan and <b>tasks in Gemini</b> with Google AI Pro or Ultra. <b>Meta Muse</b> is the only one with a free tier. All five can work on jobs for you, not just chat, and all five let you require your OK before they act.</p>
+<p class="lead">Short answer: use the personal agent your plan already includes. <b>ChatGPT dots</b> come with ChatGPT Pro, <b>Grok Bot</b> with X Premium, Super or Ultra, <b>Claude Cowork</b> with any paid Claude plan. <b>Tasks in Gemini</b> is free in the US, Canada, India, Japan, South Korea and Australia (Google AI Pro or Ultra elsewhere), and <b>Meta Muse</b> has a free tier. All five can work on jobs for you, not just chat, and all five let you require your OK before they act.</p>
 {_byline()}<p class="small muted">Every fact comes from each company's own announcement or help pages, linked inline and checked {MOD_NICE}. We don't rank them; features and plans change often.</p></header>
 <section class="reveal" id="compare"><h2>Personal AI agents side by side</h2>
 <div class="table-wrap glass"><table class="rank-table cmp-table"><thead><tr><th scope="col">Agent</th><th scope="col">Who makes it · which plans</th><th scope="col">Where you use it</th><th scope="col">Works while you're away?</th><th scope="col">How it asks first</th></tr></thead><tbody>{_pa_tbl}</tbody></table></div>
 <p class="small">Sources: {C('dots_intro', 'OpenAI')}, {C('gb_over', 'Grok Bot docs')} and {C('gb_faq', 'FAQ')}, {C('muse_help', 'Meta Help Center')}, {C('cw_help', 'Claude Help Center')}, {C('g_tasks', 'Gemini Apps Help')}. Plan prices: <a href="{u(PRICING)}">AI price table</a>.</p></section>
 <section class="reveal" id="pick"><h2>Which one should you pick?</h2><ul class="big-list">
-<li><b>You pay for nothing yet:</b> Meta Muse (free with a usage limit). Good first jobs: {_ua('make-a-customer-service-call')} or {_ua('add-an-ai-to-your-friends-group-chat-to-make-plans')}.</li>
+<li><b>You pay for nothing yet:</b> tasks in Gemini if you're in the US, Canada, India, Japan, South Korea or Australia (<a href="{u(GT_GUIDE)}">how to use Tasks in Gemini</a>), or Meta Muse (free with a usage limit). Good first jobs: {_ua('make-a-customer-service-call')} or {_ua('add-an-ai-to-your-friends-group-chat-to-make-plans')}.</li>
 <li><b>You already pay for ChatGPT Pro:</b> a dot. Try {_ua('catch-calendar-clashes-hiding-in-your-email')} or {_ua('let-chatgpt-run-your-icloud-mail-and-calendar')}.</li>
 <li><b>You want several agents with separate jobs that hand work to each other:</b> Grok Bot. Try {_ua('share-a-scam-check-bot-with-an-older-parent')} or {_ua('let-your-bot-sign-in-without-seeing-your-passwords')}.</li>
 <li><b>Your work lives in files and documents:</b> Claude Cowork. Try {_ua('turn-your-booking-emails-into-one-trip-sheet')} or {_ua('put-together-an-insurance-claim-with-an-ai-agent')}, and read {_ua('keep-an-ai-agent-from-deleting-your-files')} first.</li>
-<li><b>You live in Gmail and Google Calendar:</b> tasks in Gemini. Try {_ua('family-meal-plan-and-grocery-order')} or {_ua('catch-airline-schedule-changes')}.</li>
+<li><b>You live in Gmail and Google Calendar:</b> tasks in Gemini (<a href="{u(GT_GUIDE)}">step-by-step setup</a>). Try {_ua('family-meal-plan-and-grocery-order')} or {_ua('catch-airline-schedule-changes')}.</li>
 <li><b>You'd rather run your own:</b> open-source agents, compared in <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a> and <a href="{u(ALT_GUIDE)}">OpenClaw alternatives</a>.</li></ul></section>
 <section class="reveal" id="steps"><h2>How to start with any personal AI agent: {len(PA_STEPS)} steps</h2><ol class="rules">{''.join(f'<li><b>{e(t)}.</b> {e(d)}</li>' for t, d in PA_STEPS)}</ol>
 <p>Copy this first job into any of the five. It only reads, so it's a safe first test:</p>
@@ -2186,6 +2197,101 @@ page(PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse: which personal agent?", _
        "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(PA_STEPS)]},
       {"@context": "https://schema.org", "@type": "ItemList", "name": "Personal AI agents compared", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": r[0]} for i, r in enumerate(PA_ROWS)]}], og_type="article")
 
+# ----- 13. How to use Tasks in Gemini (free from Nov 17, 2026) (2026-11-18, weekly SEO run) -----
+SRC.update({
+ "g_sched": ("Gemini Apps Help: Create & manage schedules for tasks in Gemini", "https://support.google.com/gemini/answer/17094710"),
+ "g_9to5_chan": ("9to5Google (Nov 17, 2026): You can now email and text Gemini", "https://9to5google.com/2026/11/17/email-text-with-gemini/"),
+})
+GT_STEPS = [
+ ("Check you can use it", "You need to be 18 or over, signed in with a personal Google account (not a work or school one), with Gemini History on. It's free in the US, Canada, India, Japan, South Korea and Australia; elsewhere it needs Google AI Pro or Ultra, and it isn't offered in the EEA, UK, Switzerland or Nigeria."),
+ ("Switch from Chat to Task", "Open the Gemini app on your phone, the Gemini app on a Mac, or gemini.google.com. Flip the toggle next to the text box from Chat to Task. No toggle? Re-check step 1; Google is also rolling it out in stages."),
+ ("Let Gemini interview you (optional)", "Type “get started”, “set up” or “interview me” in a task and Gemini walks you through your first tasks and skills."),
+ ("Describe one read-only job", "Say what to do, what it may use, what it must never do, and what the result looks like. Start with a job that only reads, like an inbox check. Copy the prompt below."),
+ ("Connect only the apps that job needs", "Gemini can use Connected Apps such as Gmail, Calendar, Drive and Keep. For a first job, Gmail alone is enough."),
+ ("Watch the first run", "Open the task thread and click the progress chip to see each step. Type new instructions at any time; Gemini changes course without starting over. If it asks you to take over the browser, do that step yourself."),
+ ("Then put it on a schedule", "Ask in the task thread (“do this every morning”) or open Scheduled in the sidebar and click Create a scheduled task. Use More, then Run now to test it. Check a few runs before you trust it."),
+]
+GT_PROMPT = """Task: every morning, read my Gmail from the last 24 hours and give me a short list of
+1) emails that need a reply today, 2) dates or deadlines this week, 3) anything that looks like a scam.
+Use only: my Gmail, read-only.
+Never: send, reply, delete, archive, unsubscribe, buy or sign up for anything.
+Ask me first: before any step that changes something or contacts anyone.
+If unsure: say what you're unsure about instead of guessing.
+Result: at most 10 bullets, most important first, each with the sender and one line on why."""
+GT_PLANS = [
+ ("Schedules", "Up to once a day, in a general window: overnight, daytime or evening", "Once, hourly, daily, weekly, monthly or yearly at a set time"),
+ ("Run when an email arrives (Gmail monitor)", "No", "Yes"),
+ ("Watch a topic (news, sports, local events)", "No", "Yes"),
+ ("Active schedules", "Up to 10", "Up to 50"),
+ ("Tasks running at once", "Up to 15", "Up to 15"),
+ ("Usage", "Compute-based limit", "Higher limit"),
+]
+GT_FAQ = [
+ ("Is Gemini Tasks free?",
+  "Yes, in six countries. Since Nov 17, 2026, tasks in Gemini is free without a Google AI subscription in the US, Canada, India, Japan, South Korea and Australia. Elsewhere you need Google AI Pro or Ultra, and it isn't available in the EEA, UK, Switzerland or Nigeria. Free use has a compute-based usage limit and schedules can run at most once a day.", None),
+ ("What happened to Gemini Spark?",
+  "Google renamed it. Gemini's help page says Spark was tested in beta with subscribers since May and renamed Task because people kept asking it to finish tasks. Your existing tasks and schedules are still in the sidebar.", None),
+ ("Why can't I see the Task option in Gemini?",
+  "Check four things: you're 18 or over, signed in with a personal Google account (work and school accounts can't use it yet), History is on, and you're in a supported country. Google is rolling it out in stages, so it may not have reached every eligible account yet.", None),
+ ("Can Gemini run tasks on a schedule for free?",
+  "Yes, up to once a day in a general time window (overnight, daytime or evening), with up to 10 active schedules. Exact times, hourly runs, Gmail triggers and topic monitors need Google AI Pro or Ultra.", None),
+ ("Does Gemini keep working when my computer is off?",
+  "Mostly. Google's help says Gemini runs tasks in the cloud and keeps working when your device is off. Tasks that use your own Chrome browser need your computer awake; if it isn't, Gemini may switch to a remote browser, and some steps, like signing in, wait for you.", None),
+ ("Can Gemini make phone calls and buy things for me?",
+  "In the US, yes. It can call businesses (not yet in Indiana, Louisiana, Minnesota, Montana or Nebraska) and says it's an AI. It can pay with Google Pay; Google says it's designed to ask for your confirmation or pre-approval before clicking Buy, and you can set a spending cap.", None),
+ ("How do I email or text a task to Gemini?",
+  "In the US, open the Channels page (in the Gemini app: Settings, then Channels; on the web: gemini.google.com/channels). Turn on Email with Gemini, then forward or send emails to gemini@google.com; or set up Text with Gemini and verify your phone number. Texts aren't end-to-end encrypted, so don't text anything private.", None),
+ ("Is it safe to let Gemini work in my Gmail?",
+  "Start read-only and keep confirmations on. Google says Gemini is designed to always ask before sending messages, deleting data, buying or submitting forms, but warns that emails and web pages can hide instructions aimed at the agent (prompt injection). Don't schedule sensitive tasks, and never type passwords or card numbers into a task.", None),
+]
+_gt_tbl = "".join(f'<tr><th scope="row">{e(a)}</th><td class="small">{e(b)}</td><td class="small">{e(c)}</td></tr>' for a, b, c in GT_PLANS)
+gtb, gtld = crumbs([("Home", "/"), ("What is an AI agent?", "/what-can-bots-do/"), ("How to use Tasks in Gemini", None)])
+_gt_desc = mdesc("Gemini Tasks is now free in the US and 5 more countries. Switch from Chat to Task, give it a safe first job, schedule it, and email or text Gemini.")
+gt_body = f"""<article class="wrap narrow explainer">{gtb}
+<header class="page-head"><p class="eyebrow">Beginner guide · Gemini</p><h1 class="kinetic-sm">How to use Tasks in Gemini (now free): your first task, step by step</h1>
+<p class="lead"><b>Short answer:</b> open Gemini on your phone, Mac or gemini.google.com, flip the toggle next to the text box from <b>Chat</b> to <b>Task</b>, describe the job and when it should run, and submit. Gemini then works on it for you: it can browse websites, work in Gmail, Calendar and Drive, and repeat the job on a schedule. Since Nov 17, 2026 it's free with a personal Google account in the US, Canada, India, Japan, South Korea and Australia ({C('g_blog_tasks', 'Google')}; {C('g_tasks', 'Gemini Help')}). It used to be called Gemini Spark.</p>
+{_byline()}<p class="small muted">Every fact comes from Google's own help pages and announcement, linked inline and checked {MOD_NICE}. Google is rolling this out in stages and changing it often.</p></header>
+<section class="glass explain-card reveal" id="what-it-is"><h2>What Tasks in Gemini is</h2><ul class="big-list">
+<li><b>Chat answers; Task does.</b> In Task mode Gemini works on a job in the background, using your Connected Apps, websites you're signed into, your files and more, and shows its plan and progress as it goes ({C('g_tasks', 'Gemini Help')}).</li>
+<li><b>Three building blocks.</b> A <b>task</b> is the goal, a <b>schedule</b> says when it runs (a time, or an event like a new email), and a <b>skill</b> is reusable instructions for how to do it ({C('g_sched', 'Gemini Help')}).</li>
+<li><b>It can use a browser.</b> Either your own Chrome on a computer (which must stay awake) or a separate remote browser in the cloud. Some steps, like signing in, pause until you take over.</li>
+<li><b>New in the US:</b> it can phone businesses, pay with Google Pay after you approve, and take jobs by email or text ({C('g_blog_tasks', 'Google')}).</li></ul>
+<p class="small">New to agents? Read <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>.</p></section>
+<section class="reveal" id="steps"><h2>How to set up your first task: {len(GT_STEPS)} steps</h2><ol class="rules">{''.join(f'<li><b>{e(t)}.</b> {e(d)}</li>' for t, d in GT_STEPS)}</ol>
+<p>Paste this as your first task. It only reads, so it's a safe test:</p>
+{copybox(GT_PROMPT, "First task for Gemini (read-only)", "gt-prompt")}
+<p class="small">Want a different job? Build it in the free <a href="{u('/bot-instructions/')}">instruction builder</a> and paste the result into a task, or use the <a href="{u(INSTR_GUIDE)}">6-part instructions template</a>. Sources: {C('g_tasks', 'Manage your tasks')}, {C('g_sched', 'Schedules for tasks')}.</p></section>
+<section class="reveal" id="free-vs-paid"><h2>Free vs Google AI Pro or Ultra</h2>
+<div class="table-wrap glass"><table class="rank-table cmp-table"><thead><tr><th scope="col">What</th><th scope="col">Free (or Google AI Plus)</th><th scope="col">Google AI Pro or Ultra</th></tr></thead><tbody>{_gt_tbl}</tbody></table></div>
+<p class="small">From {C('g_sched', 'Gemini Help: schedules for tasks')} and {C('g_tasks', 'Manage your tasks')}. Schedules are approximate and can be late when Gemini is busy; a schedule doesn't run if you've hit your usage limit or already have 15 tasks running. Plan prices: <a href="{u(PRICING)}">AI price table</a>.</p></section>
+<section class="reveal" id="email-text"><h2>Hand Gemini a task by email or text (US)</h2><ul class="big-list">
+<li><b>Email:</b> turn on Email with Gemini on the Channels page (gemini.google.com/channels), then forward or send emails to <b>gemini@google.com</b> from Gmail, Apple Mail or Outlook. Gemini replies only to you, with a link to review and confirm the result ({C('g_9to5_chan', '9to5Google')}).</li>
+<li><b>Text:</b> in the Gemini app on Android or iPhone, tap Settings, then Channels, then Set up under Text with Gemini, and verify your phone number. You need a US number with an eligible carrier ({C('g_blog_tasks', 'Google')}). Google notes these texts are not end-to-end encrypted ({C('g_9to5_chan', '9to5Google')}).</li>
+<li><b>Phone calls:</b> ask it to call businesses, for example to find an appointment. Not yet in Indiana, Louisiana, Minnesota, Montana or Nebraska ({C('g_blog_tasks', 'Google')}). More: <a href="{u(PHONE_GUIDE)}">can AI make phone calls for you?</a></li></ul></section>
+<section class="reveal" id="first-jobs"><h2>Good first tasks to try</h2><ul class="big-list">
+<li><b>Inbox:</b> {_ua('clean-up-your-email-inbox')}, {_ua('school-email-digest')} or the {_ba('morning-inbox-briefing')} blueprint.</li>
+<li><b>Family calendar:</b> {_ua('sunday-family-calendar-check')} or {_ua('watch-your-kids-team-apps-for-schedule-changes')}.</li>
+<li><b>Travel:</b> {_ua('catch-airline-schedule-changes')}. Google's help also suggests watching flight and hotel prices within your budget ({C('g_tasks', 'Gemini Help')}).</li>
+<li><b>News:</b> {_ua('morning-news-digest')}.</li></ul>
+<p>More ideas: <a href="{u('/ai-agent-examples/')}">{len(ucs)} AI agent examples</a>.</p></section>
+<section class="reveal warn glass" id="safety"><h2>Before you let it act: 6 rules</h2><ol class="rules">
+<li><b>Never type passwords or card numbers into a task.</b> When it needs them, take over the browser and enter them on the website yourself ({C('g_tasks', 'Gemini Help')}).</li>
+<li><b>Don't schedule sensitive jobs.</b> Google warns that if a schedule runs while you're offline, you may not be able to stop an unintended action.</li>
+<li><b>Keep confirmations on.</b> Google says Gemini is designed to always ask before sending messages, deleting data, buying, paying or submitting forms, even if you chose “Always allow” for routine steps.</li>
+<li><b>Watch Google Tasks.</b> Google's help says Gemini can add, change and delete many reminders in Google Tasks at once without asking, so word those requests carefully.</li>
+<li><b>Treat what it reads as untrusted.</b> Emails and web pages can hide instructions meant for the agent (prompt injection). See <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email?</a></li>
+<li><b>Clean up after sensitive jobs.</b> Settings, then Browser, then Delete remote browser data. To stop everything: Settings, then Task settings, then Turn off. Schedules pause and your tasks and files are kept; remote browser data is deleted.</li></ol></section>
+<section class="reveal" id="compare"><h2>Tasks in Gemini vs other agents</h2>
+<p>On ChatGPT, the same kind of job now runs in ChatGPT Work on paid plans (<a href="{u(AGENTMODE_GUIDE)}">what replaced ChatGPT agent mode</a>). To compare plans and approvals across ChatGPT dots, Grok Bot, Meta Muse, Claude Cowork and Gemini, see <a href="{u(PA_GUIDE)}">personal AI agents compared</a>. Want an agent you run yourself, with your own model and cron schedules? Hermes Agent is free and open source: <a href="{u(HMI_GUIDE)}">how to install Hermes Agent</a> ({C('hm_cron', 'Hermes scheduled tasks')}).</p></section>
+<section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(GT_FAQ)}</section>
+<section class="glass explain-card"><h2>Next step</h2><p>Write your first task's rules in the free <a href="{u('/bot-instructions/')}">bot instruction builder</a> (no sign-up, nothing stored), then paste them into Gemini's Task box. Or follow a <a href="{u('/blueprints/')}">blueprint</a> step by step.</p></section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['g_blog_tasks','g_tasks','g_sched','g_9to5_chan','hm_cron'])}</section>
+</article>"""
+page(GT_GUIDE, "How to use Gemini Tasks (free): set up your first task", _gt_desc, gt_body,
+     [gtld, _art_ld(GT_GUIDE, "How to use Tasks in Gemini (now free): your first task, step by step", _gt_desc, published="2026-11-18"), _faq_ld(GT_FAQ),
+      {"@context": "https://schema.org", "@type": "HowTo", "name": "How to set up your first task in Gemini", "description": _gt_desc,
+       "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(GT_STEPS)]}], og_type="article")
+
 NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner guide: pick one job, write it in four lines, paste instructions into an agent app, test once, schedule it safely."),
               (COST_GUIDE, "How much does it cost to run an AI agent?", f"Monthly estimates for {len(_cost_rows)} everyday bots at official API prices, with the math shown."),
               (CLAW_GUIDE, "OpenClaw vs Hermes Agent: a beginner's guide", "What each open-source agent is, side-by-side comparison, how to pick, cost and safety tips."),
@@ -2197,7 +2303,8 @@ NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner
               (INSTR_GUIDE, "How to write instructions for an AI agent", "A 6-part template to copy (job, use only, steps, result, ask first, if unsure), 3 filled-in examples, where to paste them in ChatGPT, Claude and Gemini, and how to test them."),
               (HMI_GUIDE, "How to install Hermes Agent (Mac, Windows, Linux)", "Desktop app or one-line installer, connect a model with hermes setup, one test chat, safe settings before you connect apps, and fixes when the install fails."),
               (ALT_GUIDE, "OpenClaw alternatives for beginners", "Hermes Agent, n8n's Nod, nanobot, NanoClaw, ZeroClaw and IronClaw compared on setup, safety and cost, plus no-install options."),
-              (PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse: personal AI agents compared", "ChatGPT dots, Grok Bot, Meta Muse, Claude Cowork and tasks in Gemini compared: which plans include them, where they work, what runs while you're away, how each asks first, and a safe first job to copy.")]
+              (PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse: personal AI agents compared", "ChatGPT dots, Grok Bot, Meta Muse, Claude Cowork and tasks in Gemini compared: which plans include them, where they work, what runs while you're away, how each asks first, and a safe first job to copy."),
+              (GT_GUIDE, "How to use Tasks in Gemini (free): your first task", "Tasks in Gemini (formerly Gemini Spark), free since Nov 17, 2026 in the US, Canada, India, Japan, South Korea and Australia: switch from Chat to Task, a read-only first task, schedules (free vs Pro/Ultra), emailing or texting Gemini, and 6 safety rules.")]
 
 # ---------- LATEST IN AI (/news/ + /news/feed.xml) -------------------------------------
 NEWS_CATS = J("data", "news.json")["categories"]
@@ -2406,7 +2513,7 @@ page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wr
 # ---------- MACHINE FILES ------------------------------------------------------------
 idx = [{"t": x["title"], "u": u("/use-cases/" + x["slug"] + "/"), "c": CAT[x["category"]]["name"], "i": CAT[x["category"]]["icon"], "d": x["difficulty"], "h": x["_heat"], "s": search_text(x)} for x in ucs]
 idx += [{"t": "Blueprint: " + b["title"], "u": u("/blueprints/" + b["slug"] + "/"), "c": "Blueprint", "i": "⚙", "d": b["difficulty"], "h": 0, "s": norm(b["title"] + " " + b["goal"] + " " + b["watches"])} for b in bps]
-idx += [{"t": t, "u": u(pth), "c": "Guide", "i": "📘", "d": "Easy", "h": 0, "s": norm(t + " " + d + (" openclaw hermes agent nous research self-hosted open source" if pth in (CLAW_GUIDE, ALT_GUIDE, HMI_GUIDE) else "") + (" nod nanobot nanoclaw zeroclaw ironclaw alternative" if pth == ALT_GUIDE else "") + (" install setup windows mac linux desktop" if pth == HMI_GUIDE else "") + (" personal ai agent always-on dots grok bot muse cowork gemini tasks spark compare best free" if pth == PA_GUIDE else ""))} for pth, t, d in NEW_GUIDES]
+idx += [{"t": t, "u": u(pth), "c": "Guide", "i": "📘", "d": "Easy", "h": 0, "s": norm(t + " " + d + (" openclaw hermes agent nous research self-hosted open source" if pth in (CLAW_GUIDE, ALT_GUIDE, HMI_GUIDE) else "") + (" nod nanobot nanoclaw zeroclaw ironclaw alternative" if pth == ALT_GUIDE else "") + (" install setup windows mac linux desktop" if pth == HMI_GUIDE else "") + (" personal ai agent always-on dots grok bot muse cowork gemini tasks spark compare best free" if pth == PA_GUIDE else "") + (" gemini tasks task mode spark schedule scheduled free google gmail calendar email text gemini@google.com" if pth == GT_GUIDE else ""))} for pth, t, d in NEW_GUIDES]
 idx.append({"t": "Write bot instructions", "u": u("/bot-instructions/"), "c": "Guide", "i": "✎", "d": "Easy", "h": 0, "s": norm("write bot instructions text only chat weekly planning email draft compare quotes troubleshooting template pilot")})
 json.dump(idx, open(os.path.join(OUT, "assets", "search-index.json"), "w"), ensure_ascii=False, separators=(",", ":"))
 
@@ -2464,6 +2571,7 @@ F += ["## How to write instructions for an AI agent", f"URL: {absu(u(INSTR_GUIDE
 F += ["## How to install Hermes Agent (Mac, Windows, Linux)", f"URL: {absu(u(HMI_GUIDE))}", "Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(HMI_STEPS)] + [f"Q: {q} A: {a}" for q, a, _ in HMI_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('hm_install', 'hm_qs', 'hm_sec', 'hm_update', 'hm_mig')] + [""]
 F += ["## OpenClaw alternatives for beginners", f"URL: {absu(u(ALT_GUIDE))}"] + [f"- {k}: {re.sub('<[^>]+>', '', a)} | Install: {re.sub('<[^>]+>', '', b)} | Stands out: {re.sub('<[^>]+>', '', c)}" for k, a, b, c in ALT_ROWS] + [f"Q: {q} A: {a}" for q, a, _ in ALT_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('hm_readme', 'hm_mig', 'hm_vs', 'nod_gh', 'nod_blog', 'nb_gh', 'nb_start', 'nc_gh', 'zc_gh', 'ic_gh')] + [""]
 F += ["## ChatGPT dots vs Grok Bot vs Meta Muse: personal AI agents compared", f"URL: {absu(u(PA_GUIDE))}"] + [f"- {k}: {re.sub('<[^>]+>', '', a)} | Where: {b} | Works while you're away: {c} | Asks first: {d}" for k, a, b, c, d in PA_ROWS] + ["Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(PA_STEPS)] + ["First-job prompt:", PA_PROMPT] + [f"Q: {q} A: {a}" for q, a, _ in PA_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('dots_intro', 'gb_over', 'gb_start', 'gb_faq', 'muse_help', 'cw_help', 'g_tasks')] + [""]
+F += ["## How to use Tasks in Gemini (free): your first task", f"URL: {absu(u(GT_GUIDE))}", "Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(GT_STEPS)] + ["First task prompt:", GT_PROMPT, "Free vs Google AI Pro/Ultra:"] + [f"- {a}: free {b} | Pro/Ultra {c}" for a, b, c in GT_PLANS] + [f"Q: {q} A: {a}" for q, a, _ in GT_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('g_blog_tasks', 'g_tasks', 'g_sched', 'g_9to5_chan', 'hm_cron')] + [""]
 F += ["## How to switch OpenClaw or Hermes to a cheaper model", f"URL: {absu(u(CHEAPMODEL_GUIDE))}"] + [f"Q: {q} A: {a}" for q, a, _ in CHEAP_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('oc_models', 'hm_models', 'hm_prov')] + [""]
 F += ["## What is an AI agent? (in simple terms)", f"URL: {absu(u('/what-can-bots-do/'))}"] + [f"- {q} {a}" for q, a in EXPLAIN_FAQ] + [""]
 F += ["## AI agent cost calculator", f"URL: {absu(u(LESS))}#calculator", "Monthly cost = runs per month x (input tokens x input price + output tokens x output price) / 1,000,000. Months use 30 days, 22 weekdays or 4 weeks. Batch halves the price at " + ", ".join(BATCH_PROVS) + ". Not included: caching, tool fees, voice, taxes, free tiers. Worked examples (cheapest vs priciest fitting model):"] + [f"- {c['title']}: {c['n']} run(s) per {c['unit']}, about {c['in']:,} tokens in and {c['out']:,} out per run; " + (lambda r: f"{r[0][1]['p']} {r[0][1]['m']} {money(r[0][0])}/month vs {r[-1][1]['p']} {r[-1][1]['m']} {money(r[-1][0])}/month")(calc_rows(c['n']*dict((k, m) for k, _, m in CALC_UNITS)[c['unit']], c['in'], c['out'], 'small', False)) for c in CALC_PRESETS] + [""]

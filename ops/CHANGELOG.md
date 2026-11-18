@@ -1179,3 +1179,7 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - Refreshed X numbers on 31 existing items dated Nov 11 or later (+7 new = 38 posts), measured 2026-11-18T12:34Z (raw research/x_news_measure_2026_11_18_am.json.txt, local only; apply script research/news_x_2026_11_18_am.py).
 - No major release. No pricing-table change (Microsoft MAI isn't in the AI price table; GPT-6.2 rows were added in the Nov 17 PM run).
 - 5 BACKLOG notes; skips listed in BACKLOG.
+- Deploy: local main `6b14106a`, publish `8485c3bc` (`e74b4efb..8485c3bc`), Actions run 44305455937 succeeded; live /news/ shows the new items.
+
+## 2026-11-18 (site health, ~7:25 AM CT)
+- Live check: /, /news/, /use-cases/, /bot-instructions/, /newsletter/, /ai-pricing/, /sitemap.xml all 200 (home 0.18 s). validate 132 use cases / 12 blueprints 0 errors; rebuild 184 pages; check_links 15,677 links, 0 broken internal; no img without alt, all pages have viewport meta. No bugs found, no redeploy needed (nothing changed since the 6:35 AM deploy 8485c3bc). Improvement: none beyond this morning's news additions.

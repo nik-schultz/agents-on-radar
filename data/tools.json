@@ -42,7 +42,7 @@
   "kind": "agent"
  },
  "gemini-spark": {
-  "name": "Gemini Spark",
+  "name": "Tasks in Gemini (formerly Spark)",
   "url": "https://support.google.com/gemini/answer/17094507",
   "cost": "Now called Tasks in Gemini: free from Nov 17, 2026 in the US, Japan, Korea, Canada, Australia and India (Gemini 4 Hydrogen); calls, Google Pay purchases and email/text hand-off start in the US",
   "kind": "agent"

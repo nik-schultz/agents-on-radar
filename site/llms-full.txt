@@ -551,7 +551,7 @@ What the bot does:
 
 What you end up with: Emails written and sent from your own Gmail or Outlook without opening your inbox, each one checked and approved by you first.
 
-Tools: ChatGPT, Claude, Gemini Spark, Grok Bot (personal agents)
+Tools: ChatGPT, Claude, Tasks in Gemini (formerly Spark), Grok Bot (personal agents)
 
 Prompt:
 Write an email to [name, email address] about [what it's about]. Here's what I want to say: [2-3 bullet points]. Tone: [friendly / formal / short]. Sign it [your name]. Show me the full email with To, Cc and Subject before you do anything. Do not send it until I reply "send it". Only send to the addresses I gave you, never add anyone, and don't attach or forward anything. If you're not sure about a fact, leave a [CHECK] note in the draft instead of guessing.
@@ -594,7 +594,7 @@ What the bot does:
 
 What you end up with: A few small jobs that run themselves on a schedule, like a morning briefing, a weekly plan and a watcher that only pings you when something changes.
 
-Tools: ChatGPT, Claude Cowork, Gemini Spark, Grok Bot (personal agents)
+Tools: ChatGPT, Claude Cowork, Tasks in Gemini (formerly Spark), Grok Bot (personal agents)
 
 Prompt:
 Every [weekday / Monday / day] at [time, your time zone], do this: [the job, e.g. check my Google Calendar and Gmail for today and list meetings, deadlines and emails from real people that need a reply]. Keep it under [10] bullet points, most urgent first, and say why each one matters. Skip newsletters and promotions. If there's nothing worth telling me, say "Nothing today" in one line. Never send, reply, delete or buy anything as part of this task; only report to me.
@@ -1314,7 +1314,7 @@ What the bot does:
 
 What you end up with: One quiet check-in that covers every team, so you stop opening four apps a day and still catch the practice that moved.
 
-Tools: Grok Bot (personal agents), Meta Muse, Gemini Spark
+Tools: Grok Bot (personal agents), Meta Muse, Tasks in Gemini (formerly Spark)
 
 Prompt:
 Every morning at [7:00], check my kids' team schedules: [child 1] on [TeamSnap team name], [child 2] on [GameChanger team name], plus any emails from [coach or league addresses]. Compare everything with what you found yesterday and with my [family calendar]. Only message me if something changed: a new time, a new game or meet, a cancellation, or a clash with something already on the calendar. Say which child, what changed and what it clashes with. If nothing changed, don't message me. Don't RSVP, reply to coaches or change my calendar without asking.
@@ -1688,7 +1688,7 @@ What the bot does:
 
 What you end up with: One short summary instead of a cluttered contact inbox, with replies drafted and waiting for your OK.
 
-Tools: Grok Bot (personal agents), Gemini Spark, Zapier
+Tools: Grok Bot (personal agents), Tasks in Gemini (formerly Spark), Zapier
 
 Prompt:
 Mail sent to my site [site name]'s contact address is forwarded to you. For each message: sort it as question, sign-up, complaint, sales pitch or spam; send me a 2-line summary; and draft a friendly reply in my voice. Bundle them into one message at [time] each day, with anything urgent sent right away. Never send a reply, click a link in the email, or share anyone's details without my OK.
@@ -2163,7 +2163,7 @@ What the bot does:
 
 What you end up with: A ping when your prescription is ready and a "leave now" nudge before each appointment.
 
-Tools: Meta Muse, Gemini Spark, Grok Bot (personal agents)
+Tools: Meta Muse, Tasks in Gemini (formerly Spark), Grok Bot (personal agents)
 
 Prompt:
 Every morning at [8:00am], check my email for messages from [pharmacy name] saying a prescription is ready, and message me right away if you find one. Also look at my calendar for today. For each appointment with an address, check live traffic from [home/work] and tell me what time to leave to arrive [10] minutes early. Don't reply to any emails or change my calendar.
@@ -2191,7 +2191,7 @@ What the bot does:
 
 What you end up with: One daily digest in place of a pile of unread newsletters, and a clear signal about which subscriptions earn their place.
 
-Tools: Grok Bot (personal agents), ChatGPT dots (always-on agents), Gemini Spark
+Tools: Grok Bot (personal agents), ChatGPT dots (always-on agents), Tasks in Gemini (formerly Spark)
 
 Prompt:
 Every morning at [7:00am], read every newsletter that arrived in [your inbox / your own email address] since yesterday. If an email is only a teaser, follow its main link. Start with a 5-bullet summary of the most important points across all of them. Then give one short paragraph per issue and rate it 1 to 10 for how useful and original it was. Don't click unsubscribe links or reply to anyone.
@@ -2446,7 +2446,7 @@ What the bot does:
 
 What you end up with: A printed weekly meal plan and a filled grocery cart waiting for your OK.
 
-Tools: Grok Bot (personal agents), ChatGPT Work (cloud browser), Claude, Gemini Spark
+Tools: Grok Bot (personal agents), ChatGPT Work (cloud browser), Claude, Tasks in Gemini (formerly Spark)
 
 Prompt:
 Every Thursday, plan [5] dinners for [2 adults and 2 kids]. Use only recipes from my recipe list below, avoid [allergies], keep the week under [$ budget]. Reuse ingredients so little goes to waste. Give me: (1) a one-page meal plan I can print, (2) one shopping list grouped by store section, leaving out what I said we already have. Don't buy anything.
@@ -2480,7 +2480,7 @@ What the bot does:
 
 What you end up with: A short Sunday note: what's coming up, what clashes, and what to prepare.
 
-Tools: Grok Bot (personal agents), Gemini Spark, Claude Cowork, Meta Muse
+Tools: Grok Bot (personal agents), Tasks in Gemini (formerly Spark), Claude Cowork, Meta Muse
 
 Prompt:
 Every Sunday at 6pm, review our family calendar for the next 14 days. Highlight important events, scheduling conflicts, missing information and anything we need to prepare. Keep it under 10 bullet points. Don't change or delete any calendar events. Just tell me.
@@ -2508,7 +2508,7 @@ What the bot does:
 
 What you end up with: One recurring chore that now happens without you, plus a message when it needs a yes or no.
 
-Tools: Meta Muse, Grok Bot (personal agents), Gemini Spark, ChatGPT dots (always-on agents), Instinct, Nod (n8n Labs)
+Tools: Meta Muse, Grok Bot (personal agents), Tasks in Gemini (formerly Spark), ChatGPT dots (always-on agents), Instinct, Nod (n8n Labs)
 
 Prompt:
 I want to hand you one boring chore. Here it is: [describe the chore, e.g. 'every Friday, check my email for school forms and deadlines due next week and list them']. Before you start, ask me any questions you need answered. Show me the first result before you set it to repeat. Never send, buy, delete or book anything without asking me first.
@@ -2543,7 +2543,7 @@ What the bot does:
 
 What you end up with: A morning list: “Confirmed scam / High suspicion / Possible / Clear”, with what to do next.
 
-Tools: Grok Bot (personal agents), Gemini Spark, Claude Cowork, ChatGPT
+Tools: Grok Bot (personal agents), Tasks in Gemini (formerly Spark), Claude Cowork, ChatGPT
 
 Prompt:
 Every morning at 7am, check new emails in my inbox for scams: phishing, fake invoices, fake prize offers, blackmail emails and fake 'IT department' alerts. For each suspicious email give a risk level (Confirmed scam / High suspicion / Possible / Clear), the exact red flags (sender address, lookalike links, urgency, payment requests) and safe next steps. You are read-only: never click links, never reply, never delete.
@@ -2603,7 +2603,7 @@ What the bot does:
 
 What you end up with: Groceries ordered after a quick chat and one confirm tap.
 
-Tools: ChatGPT Work (cloud browser), Meta Muse, Instinct, Gemini Spark
+Tools: ChatGPT Work (cloud browser), Meta Muse, Instinct, Tasks in Gemini (formerly Spark)
 
 Prompt:
 Here's my usual weekly grocery list: [list with brands and sizes]. Build this order on [Instacart / store site]. If an item is out of stock, pick the closest match and tell me. Stop at checkout and show me the total.
@@ -2693,7 +2693,7 @@ What the bot does:
 
 What you end up with: An alert when your flight changes, your options under the airline's rules, and a request drafted for whichever one you pick.
 
-Tools: Instinct, Gemini Spark, Grok Bot (personal agents), ChatGPT
+Tools: Instinct, Tasks in Gemini (formerly Spark), Grok Bot (personal agents), ChatGPT
 
 Prompt:
 Watch my email for any message from an airline about a schedule change, a time change or a cancellation. When you find one, tell me the old and new times and the size of the change, and check that airline's published rules for my options (keep, rebook, cancel). Draft the request for the option I pick, but don't change or cancel anything without my OK.
@@ -2812,7 +2812,7 @@ What the bot does:
 
 What you end up with: A short, sensible plan for which bots you need, often fewer than you thought.
 
-Tools: Grok Bot (personal agents), ChatGPT dots (always-on agents), Gemini Spark, Claude Cowork
+Tools: Grok Bot (personal agents), ChatGPT dots (always-on agents), Tasks in Gemini (formerly Spark), Claude Cowork
 
 Prompt:
 You're my Chief of Staff bot. Give me a list of all the things a typical chief of staff would be responsible for, then suggest a system prompt you can install for yourself.
@@ -2872,7 +2872,7 @@ What the bot does:
 
 What you end up with: No missed offers, a Monday follow-up list and early warnings on deadline clashes.
 
-Tools: Grok Bot (personal agents), Gemini Spark, Claude Cowork, Zapier
+Tools: Grok Bot (personal agents), Tasks in Gemini (formerly Spark), Claude Cowork, Zapier
 
 Prompt:
 Watch my inbox for offers, counteroffers and deadline changes on my active files: [list]. When one arrives, text me: who, price and terms, and the deadline. Every Monday at 8am, give me a follow-up list of everyone waiting on me. Flag any two dates on my calendar that conflict. Draft replies but never send them.
@@ -2901,7 +2901,7 @@ What the bot does:
 
 What you end up with: Your paper mail read and sorted, routine items queued for one quick approval, and only the unusual ones in front of you.
 
-Tools: Claude Cowork, Gemini Spark, Grok Bot (personal agents)
+Tools: Claude Cowork, Tasks in Gemini (formerly Spark), Grok Bot (personal agents)
 
 Prompt:
 Each time a scanned letter arrives in my email from [mail service], read it and add it to my mail log: sender, what it is, any due date, what it asks me to do. If it's a routine item I've approved before, compare it with the last 3 from that sender. If it's more than 20% different, or the sender is new, stop and message me. Otherwise add it to my 'ready to approve' list. Do not pay, reply or sign anything until I approve.
@@ -2963,7 +2963,7 @@ What the bot does:
 
 What you end up with: A list of dropped threads with a ready-to-send nudge for each.
 
-Tools: n8n, Zapier, Gemini Spark, Grok Bot (personal agents)
+Tools: n8n, Zapier, Tasks in Gemini (formerly Spark), Grok Bot (personal agents)
 
 Prompt:
 Every Monday at 8am, look at my sent email, my calendar from the last 30 days and my task list. List conversations where (a) I promised something and haven't sent it, or (b) I asked something and got no reply in 7+ days. For each, draft a 2-sentence friendly follow-up. Don't send anything.
@@ -3019,7 +3019,7 @@ What the bot does:
 
 What you end up with: A forwarding address for chores. Forward it a request and it gets handled.
 
-Tools: Grok Bot (personal agents), Gemini Spark, Claude
+Tools: Grok Bot (personal agents), Tasks in Gemini (formerly Spark), Claude
 
 Prompt:
 When an email arrives at your address: if it's a meeting request, find a 30-minute slot in my calendar next week, create a draft invite and add 3 bullet points of research about the sender. If it's anything else, summarize it and ask me what to do. Never reply to the sender without my OK.
@@ -3050,7 +3050,7 @@ What the bot does:
 
 What you end up with: A short daily email of well-matched jobs, ready for you to apply.
 
-Tools: n8n, Gemini Spark, Grok Bot (personal agents), ChatGPT
+Tools: n8n, Tasks in Gemini (formerly Spark), Grok Bot (personal agents), ChatGPT
 
 Prompt:
 Every weekday at 9am, find new [job title] roles in [location/remote] posted in the last 24 hours. Score each 1–10 against my CV below. For any 7 or above, give me: the link, why it fits, gaps to address, and a 3-sentence note to the hiring manager. Don't apply to anything.
@@ -3084,7 +3084,7 @@ What the bot does:
 
 What you end up with: One digest a week with nothing important buried in a newsletter link.
 
-Tools: Claude Cowork, Gemini Spark, Meta Muse, Grok Bot (personal agents)
+Tools: Claude Cowork, Tasks in Gemini (formerly Spark), Meta Muse, Grok Bot (personal agents)
 
 Prompt:
 Every Sunday at 6am, read all emails labeled 'School' that aren't labeled 'Processed'. Open any newsletter links. Extract permission slips, payments, deadlines, events and anything needing a reply. My kids: [initials, grades, schools]. Ignore other grades and [sports]. Put district-wide closures at the top, remove duplicates, and label each email 'Processed' when done. Draft replies for my approval; don't send.
@@ -3116,7 +3116,7 @@ What the bot does:
 
 What you end up with: A short Monday briefing and a ranked to-do list.
 
-Tools: Gemini Spark, Grok Bot (personal agents), Claude Cowork, ChatGPT dots (always-on agents)
+Tools: Tasks in Gemini (formerly Spark), Grok Bot (personal agents), Claude Cowork, ChatGPT dots (always-on agents)
 
 Prompt:
 Every Monday at 9:00 AM, scan my inbox and review my emails from the past week. Give me a quick recap of the most important updates and a suggested, prioritized to-do list for this week. Also suggest calendar blocks for focused work, but ask before adding them.
@@ -3144,7 +3144,7 @@ What the bot does:
 
 What you end up with: An inbox where the flagged emails are the only ones you need to answer.
 
-Tools: Gemini Spark, Grok Bot (personal agents), Zapier, Claude Cowork
+Tools: Tasks in Gemini (formerly Spark), Grok Bot (personal agents), Zapier, Claude Cowork
 
 Prompt:
 Go through my new email every hour. If a message needs a reply from me within 24 hours, star it and add a one-line reason. Label newsletters 'Read later', receipts 'Receipts' and promotions 'Promos', and archive them. Never delete or reply.
@@ -3173,7 +3173,7 @@ What the bot does:
 
 What you end up with: Drafts that sound like you, so you edit less.
 
-Tools: Gemini Spark, Grok Bot (personal agents), Claude
+Tools: Tasks in Gemini (formerly Spark), Grok Bot (personal agents), Claude
 
 Prompt:
 Read through the last 50 emails I wrote and turn them into a style guide for how I write emails. Turn that into a skill that gets used every time I ask you to draft an email. Call the skill 'ghostwriter'. Drafts only; never send.
@@ -3201,7 +3201,7 @@ What the bot does:
 
 What you end up with: A client tracker that fills itself in, so no inquiry slips.
 
-Tools: Gemini Spark, Zapier, Make, Grok Bot (personal agents)
+Tools: Tasks in Gemini (formerly Spark), Zapier, Make, Grok Bot (personal agents)
 
 Prompt:
 When I receive an email asking about my [service], extract the client's name, requested date and request, and log it in my 'Client Tracker' sheet. Then create a new folder named after the client. Draft a friendly reply with my availability, but don't send it.
@@ -3229,7 +3229,7 @@ What the bot does:
 
 What you end up with: A short daily briefing instead of doom-scrolling.
 
-Tools: Meta Muse, Grok Bot (personal agents), Gemini Spark, ChatGPT dots (always-on agents)
+Tools: Meta Muse, Grok Bot (personal agents), Tasks in Gemini (formerly Spark), ChatGPT dots (always-on agents)
 
 Prompt:
 Every morning at 7am, send me the 5 most important stories about [topics] from the last 24 hours, in plain English, 2 sentences each, with a link to the original source. Skip anything that's just opinion.
@@ -3259,7 +3259,7 @@ What the bot does:
 
 What you end up with: A ping the moment it arrives, so you stop checking.
 
-Tools: Grok Bot (personal agents), Gemini Spark, Zapier
+Tools: Grok Bot (personal agents), Tasks in Gemini (formerly Spark), Zapier
 
 Prompt:
 Check my email daily for a message from [sender/organization] about [topic]. When it arrives, message me a 3-line summary and any deadline or action it asks for. Stop checking once it arrives.
@@ -3341,7 +3341,7 @@ What the bot does:
 
 What you end up with: A Friday list of 5 doable weekend plans.
 
-Tools: Grok Bot (personal agents), Meta Muse, Gemini Spark, ChatGPT
+Tools: Grok Bot (personal agents), Meta Muse, Tasks in Gemini (formerly Spark), ChatGPT
 
 Prompt:
 Every Friday, suggest 5 family activities for this weekend based on our children's ages [ages], interests [interests], location [town], the weather and a budget of [$]. Include estimated costs, booking requirements and a wet-weather alternative.
@@ -4002,7 +4002,7 @@ What the bot does:
 
 What you end up with: A simple folder or label system, a list of senders to unsubscribe from, and short replies drafted for the emails that matter.
 
-Tools: ChatGPT, Claude, Gemini, Grok, Gemini Spark, Grok Bot (personal agents)
+Tools: ChatGPT, Claude, Gemini, Grok, Tasks in Gemini (formerly Spark), Grok Bot (personal agents)
 
 Prompt:
 Help me get my inbox under control. Here's a list of my most frequent senders and some recent subject lines (no personal details):
@@ -5043,7 +5043,7 @@ URL: https://botsdothat.com/how-to-build-an-ai-agent-without-coding/
 Steps:
 1. Pick one small, boring job: Choose one job you do every week that mostly means reading or checking: a morning inbox summary, a weekly school-email digest, a web page you keep refreshing. Narrow, read-only jobs make the easiest first bots. All of our blueprints are jobs like this.
 2. Write the job down in four lines: Goal: what you want to end up with. Runs: when it should work (every weekday at 7am, or only when you ask). Watches: what it reads (new emails since yesterday). Never: what it may never do (send, buy, delete). Every blueprint starts with these lines, so you can copy them.
-3. Pick a tool you already use: Use what you already have. Gmail and Google Calendar → Gemini Spark. Want to text your bot → Meta Muse or Instinct. Want routines on a schedule → Grok Bot, Claude Cowork scheduled tasks or ChatGPT dots. Prefer no AI chat at all → Zapier or Make. No agent yet? Paste the instructions into ChatGPT, Claude, Gemini or Grok each time; that works too, just not on autopilot.
+3. Pick a tool you already use: Use what you already have. Gmail and Google Calendar → tasks in Gemini. Want to text your bot → Meta Muse or Instinct. Want routines on a schedule → Grok Bot, Claude Cowork scheduled tasks or ChatGPT dots. Prefer no AI chat at all → Zapier or Make. No agent yet? Paste the instructions into ChatGPT, Claude, Gemini or Grok each time; that works too, just not on autopilot.
 4. Paste the instructions and connect only what it needs: Open a new chat in the tool. Copy the blueprint's instructions, paste them, and replace everything in [square brackets] with your details. If the tool asks to connect your email or calendar, say yes only to the apps the blueprint lists.
 5. Run it once and fix it in plain words: Don't schedule anything yet. Watch the first run, compare it with your real inbox or page, and tell it what to fix in plain words (“ignore emails from the PTA”, “shorter”).
 6. Put it on a schedule, with approval rules: Once the result looks right, ask it to repeat on a schedule. Keep it read-only or approval-only: it may read and draft, but it must ask you before it sends, buys, books or deletes. Check the first week of results.
@@ -5054,7 +5054,7 @@ Worked example: Morning Inbox Briefing blueprint (https://botsdothat.com/bluepri
 Questions:
 - Do I need to know how to code to build an AI agent? No. Agent apps take instructions in plain words: you describe the job, connect the apps it needs with the official connect button, and tell it when to run. Our blueprints give you the exact words to paste.
 - What's the easiest AI agent to build first? A read-only one that only reads and reports, so nothing can go wrong. Our easiest blueprints are the Morning Inbox Briefing, Web Page Watcher, Scam Checker, Weekly Meal Plan Bot, Family Calendar Guardian and New Inquiry Logger.
-- Can I build an AI agent for free? Partly. ChatGPT, Claude, Gemini and Grok each list a free plan (paid plans add more), so you can paste a blueprint's instructions into one whenever you need it, even without a scheduled agent. n8n is free to self-host, and Zapier and Make have free plans. Some agent features cost money: Gemini Spark is for Now called Tasks in Gemini: free from Nov 17, 2026 in the US, Japan, Korea, Canada, Australia and India (Gemini 4 Hydrogen); calls, Google Pay purchases and email/text hand-off start in the US, and ChatGPT's cloud browser needs a paid ChatGPT plan. Plans change, so check each tool's own page.
+- Can I build an AI agent for free? Partly. ChatGPT, Claude, Gemini and Grok each list a free plan (paid plans add more), so you can paste a blueprint's instructions into one whenever you need it, even without a scheduled agent. n8n is free to self-host, and Zapier and Make have free plans. Some agent features depend on your plan or country: tasks in Gemini is free in the US, Japan, Korea, Canada, Australia and India (elsewhere it needs Google AI Pro or Ultra), and ChatGPT's cloud browser needs a paid ChatGPT plan. Plans change, so check each tool's own page.
 - How much does it cost to run an AI agent? Inside an app plan it runs within your plan's limits. On a pay-per-use AI API it depends on how often it runs and how much it reads. Our example, the Morning Inbox Briefing (22 runs a month, about 15,000 tokens in and 800 out each time, our estimate), comes to about $0.03 a month on Groq openai/gpt-oss-20b and about $4.18 on OpenAI gpt-6-astra at standard API prices checked Nov 17, 2026.
 - Is it safe to connect my email to an AI agent? It can be, if you keep it on a short leash: start read-only, make it ask before it sends, buys or deletes anything, connect apps only with the official connect button (never paste passwords into a chat), tell it to ignore instructions found inside emails from strangers, and check the first week of results.
 - What's the difference between an AI agent and an automation? An automation follows the exact steps you set up, the same way every time. An AI agent reads your plain-English instructions and works out the steps itself, which is more flexible but needs approval rules. Tools like Zapier, Make and n8n let you build the step-by-step kind.
@@ -5187,11 +5187,13 @@ Sources:
 
 ## ChatGPT agent mode is gone: what replaced it
 URL: https://botsdothat.com/chatgpt-agent-mode-is-gone/
+Q: Why is ChatGPT agent mode not showing? A: Because OpenAI removed it. Agent mode no longer appears in the tools menu and /agent does nothing. OpenAI's help page says ChatGPT agent is no longer available and points to ChatGPT Work. On a paid plan, pick Work instead of Chat and paste the same instructions.
 Q: Is ChatGPT agent mode gone? A: Yes. OpenAI's help page now says: "ChatGPT agent is no longer available. Use ChatGPT Work for longer, multi-step tasks and finished deliverables." Browser tasks moved to the cloud browser in ChatGPT.
 Q: What replaced ChatGPT agent mode? A: ChatGPT Work, introduced in OpenAI's release notes on July 9, 2026. It is an agent for longer tasks: it researches, works across connected apps and files, makes documents, spreadsheets and reports, and asks you to approve important actions. It can also run Scheduled Tasks.
 Q: Why does /agent not work in ChatGPT anymore? A: Because agent mode was retired. Pick Work instead of Chat at the top of the composer (on paid plans) and describe the job.
 Q: Is ChatGPT Work free? A: OpenAI's release notes say Work rolled out on web and mobile to paid plans except Free and Go.
 Q: When did agent mode stop working? A: OpenAI hasn't published an exact retirement date. Its release notes introduced ChatGPT Work on July 9, 2026, and the agent help page now says agent is no longer available.
+Q: Is there a free alternative to ChatGPT agent mode? A: Tasks in Gemini is free with a personal Google account in the US, Canada, India, Japan, South Korea and Australia (18+, History on). It can browse, work in Gmail and Calendar, and run a task once a day on a schedule. Meta Muse also has a free tier with a usage limit.
 Sources:
 - OpenAI Help: ChatGPT agent: https://help.openai.com/en/articles/11752874-chatgpt-agent
 - OpenAI: ChatGPT release notes (July 9, 2026: Introducing ChatGPT Work): https://help.openai.com/en/articles/6825453-chatgpt-release-notes
@@ -5277,10 +5279,10 @@ URL: https://botsdothat.com/chatgpt-dots-vs-grok-bot-vs-meta-muse/
 - Grok Bot: SpaceXSI · included with Premium, Super and Ultra on The X Subscription, or a linked SuperGrok / X Premium+ plan (docs) | Where: Desktop app (Mac, Windows, Linux), iPhone and Android app, X Chat, @bot on X, Slack, Teams | Works while you're away: Yes. Bots share one cloud computer; closing your laptop doesn't stop a routine | Asks first: Approval cards and narrow “Ask first” rules; signs in from Vault without seeing your passwords
 - Meta Muse: Meta · free with a usage limit; paid subscription for more (Meta) | Where: Muse app and web, signed in with a Meta account (Facebook, Instagram, email or phone) | Works while you're away: Meta's help page doesn't say; it can set reminders and keeps context across chats | Asks first: Meta says Muse may take unexpected actions: monitor it and tell it its limits (“only search my email”)
 - Claude Cowork: Anthropic · paid Claude plans only (Pro, Max, Ultra, Team, Enterprise); Pro is $20 per month billed monthly (Claude Help) | Where: Claude desktop app (Mac, Windows, Linux beta), web and mobile | Works while you're away: Scheduled tasks run in the cloud with no device online; local files and your browser need the desktop app open | Asks first: Three permission modes; each connector can be Always allow, Needs approval or Blocked; asks before permanently deleting files
-- Tasks in Gemini: Google · Google AI Pro ($19.99 per month) or Ultra, 18+, personal Google account; not in the EEA, UK, Switzerland or Nigeria (Google Help) | Where: Gemini web app, mobile app and Mac app | Works while you're away: Partly. With your own Chrome it needs your computer awake; otherwise it may use a remote browser in the cloud | Asks first: Some tasks ask for confirmation; Google advises not to schedule sensitive tasks or type passwords into a task
+- Tasks in Gemini: Google · free in the US, Canada, India, Japan, South Korea and Australia; elsewhere Google AI Pro ($19.99 per month) or Ultra; 18+, personal Google account; not in the EEA, UK, Switzerland or Nigeria (Google Help; how to use it) | Where: Gemini web app, mobile app and Mac app | Works while you're away: Partly. With your own Chrome it needs your computer awake; otherwise it may use a remote browser in the cloud | Asks first: Some tasks ask for confirmation; Google advises not to schedule sensitive tasks or type passwords into a task
 Steps:
 1. Pick one boring, repeating job: Choose something you do every week that only needs reading, like an inbox check or a calendar clash check. Read-only first; sending and buying later.
-2. Use the agent your plan already includes: Check the table: if you already pay for ChatGPT Pro, Claude, Google AI Pro or an X subscription, start there. If you pay for none, Meta Muse has a free tier.
+2. Use the agent your plan already includes: Check the table: if you already pay for ChatGPT Pro, Claude, Google AI Pro or an X subscription, start there. If you pay for none, try tasks in Gemini (free in six countries) or Meta Muse's free tier.
 3. Connect only the apps that job needs: One job, one or two apps. Don't connect banking, health or work accounts on day one.
 4. Paste a short first-job prompt: Say the job, what it may use, what it must never do, when to ask you, and what the result looks like. Copy the prompt below.
 5. Keep approvals on: Make sure sending, buying, deleting and posting need your OK. Every agent on this page has a setting or rule for that.
@@ -5293,8 +5295,8 @@ Never: send, delete, archive, buy, sign up or post anything.
 Ask me first: before any action that changes something or contacts anyone.
 If unsure: say what you're unsure about instead of guessing.
 Result: at most 10 bullets, most important first, each with the sender and one line on why.
-Q: Which personal AI agent is best for beginners? A: Start with the one your current plan already includes, because the job matters more than the brand. If you pay for ChatGPT Pro, try a dot; if you pay for Claude, try Cowork; with Google AI Pro or Ultra, try tasks in Gemini; with an X Premium, Super or Ultra subscription, try Grok Bot. If you pay for none, Meta Muse has a free tier with a usage limit.
-Q: Is there a free personal AI agent? A: Meta Muse is free with a usage limit (a paid subscription adds more). ChatGPT dots, Claude Cowork, tasks in Gemini and Grok Bot need a paid plan. Open-source agents such as Hermes Agent and OpenClaw are free to download, but you pay for the AI model and the computer they run on.
+Q: Which personal AI agent is best for beginners? A: Start with the one your current plan already includes, because the job matters more than the brand. If you pay for ChatGPT Pro, try a dot; if you pay for Claude, try Cowork; with an X Premium, Super or Ultra subscription, try Grok Bot. If you pay for none, tasks in Gemini is free in the US, Canada, India, Japan, South Korea and Australia, and Meta Muse has a free tier with a usage limit.
+Q: Is there a free personal AI agent? A: Yes. Tasks in Gemini became free on Nov 17, 2026 in the US, Canada, India, Japan, South Korea and Australia (Google AI Pro or Ultra elsewhere), and Meta Muse is free with a usage limit. ChatGPT dots, Claude Cowork and Grok Bot need a paid plan. Open-source agents such as Hermes Agent and OpenClaw are free to download, but you pay for the AI model and the computer they run on.
 Q: Do personal AI agents keep working when my computer is off? A: ChatGPT dots and Grok Bot work on their own cloud computers, so yes. Claude Cowork's scheduled tasks run in the cloud with no device online, but jobs that use your local files or browser need the desktop app open. Tasks in Gemini that use your own Chrome need your computer awake; otherwise Gemini may use a remote browser.
 Q: Is it safe to let a personal agent read my email? A: It can be, with limits: connect only what the job needs, start read-only, and keep approvals on for sending, buying and deleting. Emails can contain hidden instructions aimed at agents, so treat what it reads as untrusted. All five agents here have approval settings, and Meta and Google both warn their agents can make mistakes.
 Q: What is the difference between ChatGPT and ChatGPT dots? A: ChatGPT answers when you ask. A dot is an always-on agent inside ChatGPT with its own cloud computer and browser: it works on tasks in the background, connects to your apps and messages you with progress or questions. Dots are on ChatGPT Pro and Business Premium in eligible markets.
@@ -5307,6 +5309,46 @@ Sources:
 - Meta Help Center: How to get started with Muse: https://www.meta.com/help/superintelligence/1331373868832401/
 - Claude Help Center: Get started with Claude Cowork: https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork
 - Gemini Apps Help: Manage your tasks & workflows in Gemini Apps: https://support.google.com/gemini/answer/17094507
+
+## How to use Tasks in Gemini (free): your first task
+URL: https://botsdothat.com/how-to-use-tasks-in-gemini/
+Steps:
+1. Check you can use it: You need to be 18 or over, signed in with a personal Google account (not a work or school one), with Gemini History on. It's free in the US, Canada, India, Japan, South Korea and Australia; elsewhere it needs Google AI Pro or Ultra, and it isn't offered in the EEA, UK, Switzerland or Nigeria.
+2. Switch from Chat to Task: Open the Gemini app on your phone, the Gemini app on a Mac, or gemini.google.com. Flip the toggle next to the text box from Chat to Task. No toggle? Re-check step 1; Google is also rolling it out in stages.
+3. Let Gemini interview you (optional): Type “get started”, “set up” or “interview me” in a task and Gemini walks you through your first tasks and skills.
+4. Describe one read-only job: Say what to do, what it may use, what it must never do, and what the result looks like. Start with a job that only reads, like an inbox check. Copy the prompt below.
+5. Connect only the apps that job needs: Gemini can use Connected Apps such as Gmail, Calendar, Drive and Keep. For a first job, Gmail alone is enough.
+6. Watch the first run: Open the task thread and click the progress chip to see each step. Type new instructions at any time; Gemini changes course without starting over. If it asks you to take over the browser, do that step yourself.
+7. Then put it on a schedule: Ask in the task thread (“do this every morning”) or open Scheduled in the sidebar and click Create a scheduled task. Use More, then Run now to test it. Check a few runs before you trust it.
+First task prompt:
+Task: every morning, read my Gmail from the last 24 hours and give me a short list of
+1) emails that need a reply today, 2) dates or deadlines this week, 3) anything that looks like a scam.
+Use only: my Gmail, read-only.
+Never: send, reply, delete, archive, unsubscribe, buy or sign up for anything.
+Ask me first: before any step that changes something or contacts anyone.
+If unsure: say what you're unsure about instead of guessing.
+Result: at most 10 bullets, most important first, each with the sender and one line on why.
+Free vs Google AI Pro/Ultra:
+- Schedules: free Up to once a day, in a general window: overnight, daytime or evening | Pro/Ultra Once, hourly, daily, weekly, monthly or yearly at a set time
+- Run when an email arrives (Gmail monitor): free No | Pro/Ultra Yes
+- Watch a topic (news, sports, local events): free No | Pro/Ultra Yes
+- Active schedules: free Up to 10 | Pro/Ultra Up to 50
+- Tasks running at once: free Up to 15 | Pro/Ultra Up to 15
+- Usage: free Compute-based limit | Pro/Ultra Higher limit
+Q: Is Gemini Tasks free? A: Yes, in six countries. Since Nov 17, 2026, tasks in Gemini is free without a Google AI subscription in the US, Canada, India, Japan, South Korea and Australia. Elsewhere you need Google AI Pro or Ultra, and it isn't available in the EEA, UK, Switzerland or Nigeria. Free use has a compute-based usage limit and schedules can run at most once a day.
+Q: What happened to Gemini Spark? A: Google renamed it. Gemini's help page says Spark was tested in beta with subscribers since May and renamed Task because people kept asking it to finish tasks. Your existing tasks and schedules are still in the sidebar.
+Q: Why can't I see the Task option in Gemini? A: Check four things: you're 18 or over, signed in with a personal Google account (work and school accounts can't use it yet), History is on, and you're in a supported country. Google is rolling it out in stages, so it may not have reached every eligible account yet.
+Q: Can Gemini run tasks on a schedule for free? A: Yes, up to once a day in a general time window (overnight, daytime or evening), with up to 10 active schedules. Exact times, hourly runs, Gmail triggers and topic monitors need Google AI Pro or Ultra.
+Q: Does Gemini keep working when my computer is off? A: Mostly. Google's help says Gemini runs tasks in the cloud and keeps working when your device is off. Tasks that use your own Chrome browser need your computer awake; if it isn't, Gemini may switch to a remote browser, and some steps, like signing in, wait for you.
+Q: Can Gemini make phone calls and buy things for me? A: In the US, yes. It can call businesses (not yet in Indiana, Louisiana, Minnesota, Montana or Nebraska) and says it's an AI. It can pay with Google Pay; Google says it's designed to ask for your confirmation or pre-approval before clicking Buy, and you can set a spending cap.
+Q: How do I email or text a task to Gemini? A: In the US, open the Channels page (in the Gemini app: Settings, then Channels; on the web: gemini.google.com/channels). Turn on Email with Gemini, then forward or send emails to gemini@google.com; or set up Text with Gemini and verify your phone number. Texts aren't end-to-end encrypted, so don't text anything private.
+Q: Is it safe to let Gemini work in my Gmail? A: Start read-only and keep confirmations on. Google says Gemini is designed to always ask before sending messages, deleting data, buying or submitting forms, but warns that emails and web pages can hide instructions aimed at the agent (prompt injection). Don't schedule sensitive tasks, and never type passwords or card numbers into a task.
+Sources:
+- Google blog (Nov 17, 2026): Put Gemini to work for you (Tasks in Gemini free, calls, Google Pay, email and text): https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/
+- Gemini Apps Help: Manage your tasks & workflows in Gemini Apps: https://support.google.com/gemini/answer/17094507
+- Gemini Apps Help: Create & manage schedules for tasks in Gemini: https://support.google.com/gemini/answer/17094710
+- 9to5Google (Nov 17, 2026): You can now email and text Gemini: https://9to5google.com/2026/11/17/email-text-with-gemini/
+- Hermes docs: Scheduled tasks: https://hermes-agent.nousresearch.com/docs/user-guide/features/cron/
 
 ## How to switch OpenClaw or Hermes to a cheaper model
 URL: https://botsdothat.com/switch-openclaw-or-hermes-to-a-cheaper-model/
