@@ -208,6 +208,7 @@ All Small business & side hustles use cases: https://botsdothat.com/category/bus
 - 2026-11-17 [model release] Elon Musk says Grok 4.8 is in a soft rollout to some Grok Bot users, with a general release a week or two away: Musk said on X that xAI has quietly started giving some Grok Bot users Grok 4.8 but still needs another week or two of polish before everyone gets it; there's no xAI release note or price yet. If your Grok Bot seems to answer differently this week, this may be why, but most people won't see it until the general release. Source: https://x.com/elonmusk/status/2122758986483269956
 
 ## BotsDoThat Weekly (past issues)
+- [A scam-check bot for your parent, plus 3 AI jobs](https://botsdothat.com/newsletter/2026-11-19/) (2026-11-19)
 - [Let AI book your flight and take errands from your car or watch](https://botsdothat.com/newsletter/2026-11-12/) (2026-11-12)
 - [Hand AI your shopping list, your raise talk and your day plan](https://botsdothat.com/newsletter/2026-11-05/) (2026-11-05)
 - [Let AI shop, plan and sort for you (it asks first)](https://botsdothat.com/newsletter/2026-10-29/) (2026-10-29)

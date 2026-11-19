@@ -134,6 +134,42 @@
    "watch_out": "railway-stolen-ai-keys",
    "sponsor": null,
    "sent_on": null
+  },
+  {
+   "number": 5,
+   "slug": "2026-11-19",
+   "date": "2026-11-19",
+   "subject": "A scam-check bot for your parent, plus 3 AI jobs",
+   "preview": "Four jobs to hand to AI this week, each with a prompt to copy, plus a step-by-step guide to Gemini's newly free Tasks.",
+   "intro": "This week's picks are about AI that looks out for you: a scam checker your mom or dad can text before sending money, an assistant that phones the car shops so you don't sit on hold, a morning brief for your meetings and a training check-in from your watch. Each prompt tells the AI to stop and ask you before anything is booked, sent or paid. Copy one, fill in the brackets, and try it.",
+   "items": [
+    {
+     "slug": "share-a-scam-check-bot-with-an-older-parent",
+     "why": "Set up one bot with clear scam-checking instructions and share it with an older parent. When a scary call, text or email arrives (\"your grandson is in jail\"), they text the bot first and get a calm answer and one safe next step, like calling the relative back on a saved number. It's a second opinion, not a guarantee, so the prompt sends every money request back to a call with you."
+    },
+    {
+     "slug": "book-a-car-service-by-letting-ai-call-the-shops",
+     "why": "Tasks in Gemini became free on Nov 17, and in the US it can phone businesses for you (Grok Bot and paid Muse plans can too). The prompt has it call nearby shops, find a slot that fits your calendar and check with you before booking. It won't agree to repairs, prices or deposits on the call."
+    },
+    {
+     "slug": "get-a-meeting-prep-brief-every-morning",
+     "why": "Save this once as a daily task in Gemini, ChatGPT, Claude or Grok Bot. Each weekday morning you get one short page: what each meeting is about, the emails behind it, what you promised to bring and the replies you owe. It can draft replies, but it never sends, accepts or moves anything without your yes."
+    },
+    {
+     "slug": "get-a-daily-training-check-in-from-your-fitness-watch",
+     "why": "Connect your Garmin (or Oura, Strava or Withings) data to Claude, ChatGPT or Grok and get a short morning note on your sleep, HRV and recent training, with one suggested session for today. It shows you any workout before putting it on your watch. It's coaching guidance, not medical advice."
+    }
+   ],
+   "new_page": {
+    "slug": "how-to-use-tasks-in-gemini",
+    "path": "/how-to-use-tasks-in-gemini/",
+    "title": "How to use Tasks in Gemini (now free)",
+    "note": "Tasks in Gemini (it used to be called Gemini Spark) has been free since Nov 17 with a personal Google account in the US, Canada, India, Japan, South Korea and Australia. The new guide covers the Chat-to-Task toggle, 7 setup steps with a read-only first task to copy, what free gets you versus Google AI Pro or Ultra, and 6 safety rules."
+   },
+   "watch_out": "banks-ai-agent-liability-citi-pnc",
+   "watch_out_label": "One rule change to know",
+   "sponsor": null,
+   "sent_on": null
   }
  ]
 }
