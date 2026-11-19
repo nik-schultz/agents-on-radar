@@ -1230,3 +1230,10 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - Refreshed 56 X posts (raw research/x_trend_2026_11_19.json.txt, local only) and 64 community stats (42 HN, 22 GitHub; research/refresh_community_2026_11_19.py). Fixed 5 HN labels missing "(" from the Nov 18 refresh and the regex that dropped it.
 - Source mix: 137 use cases, 613 source links, X 92/613 = 15%; X-only use cases 2. Validate 0 errors; build 191 pages; check_links 16,378 links, 0 broken internal.
 - Feedback: no BotsDoThat mentions found. Bugs: none on the site. Reddit still blocked from the box (used WebFetch/web search).
+- Deployed: local main `d0ff7cc8`, publish `bf3edabe` (`78468573..bf3edabe`), Actions run 44589005690 succeeded; live /, the 3 new pages and line-up-contractors all 200 with the new text.
+
+## 2026-11-19 PM news run (~2:30 PM CT)
+- Added 5 items: **gemini-computer-use-mac** (2026-11-19, notable, agent launch; blog.google + TechCrunch; X @9to5mac coverage 2123490417559716018; no official Google/GeminiApp post found), **meta-muse-privacy-reuters** (2026-11-19, notable, industry; TechCrunch citing Reuters; X @Cointelegraph coverage 2123499173781610567), **superhuman-go-personal-assistant** (2026-11-19, notable, agent launch; Superhuman blog; X @shishirmehrotra official 2123422259029463095; new NEWS_CO entry "Superhuman"), **gemini-api-tool-retrieval** (2026-11-19, minor, feature; blog.google; X @GoogleAIStudio 2123489911684866251), **deepseek-free-chat-limits** (2026-11-16, notable, industry; TechNode + Lianhe Zaobao; X @thePandaily coverage 2122279329036222717).
+- No major release and no model price change (Tool Retrieval has no separate charge), so ai-pricing.json untouched.
+- Refreshed X numbers on 43 existing items dated Nov 12 or later (+5 new = 48 posts), measured 2026-11-19T20:30Z (raw research/x_news_measure_2026_11_19_pm.json.txt, local only; apply script research/news_x_2026_11_19_pm.py).
+- 4 BACKLOG notes + skips under "PM news 2026-11-19".
