@@ -1,0 +1,80 @@
+{
+  "slug": "ask-your-bot-where-you-put-things",
+  "title": "Tell your bot where you put things, then just ask it later",
+  "category": "family",
+  "source_date": "2026-11-15",
+  "summary": "Every time you store, lend or move something, tell your bot in one line. Months later, ask 'where are the spare batteries?' or 'what's in bin 4?' and it answers with the room, shelf or box.",
+  "what_the_bot_does": [
+    "Keeps one running list of your things and where each one lives (room, shelf, box or bin).",
+    "Updates the list when you text or say a move, like 'camping stove to garage, bin 4' or 'ladder lent to Sam'.",
+    "Answers 'where is...' and 'what's in...' questions from that list.",
+    "Can read a photo of a box's contents and add each item.",
+    "Can remind you about things tied to an item, like returning something you borrowed or changing a filter."
+  ],
+  "what_you_end_up_with": "A searchable list of what you own and where it is, kept up to date by one-line messages instead of a spreadsheet.",
+  "difficulty": "Easy",
+  "tools": [
+    {
+      "id": "chatgpt",
+      "note": "Apps such as Wheredai or OnHand connect a home inventory to ChatGPT (OnHand's ChatGPT/Claude link is on its Pro plan)"
+    },
+    {
+      "id": "claude",
+      "note": "Wheredai and OnHand also connect to Claude"
+    },
+    {
+      "id": "grok-bot",
+      "note": "Keep the list in a note or spreadsheet the bot can edit, and text it moves"
+    },
+    {
+      "id": "meta-muse"
+    }
+  ],
+  "prompt": "Be my 'where is it' memory. Keep one list of my things with: item, where it is (room > shelf/box), who has it if lent, and the date of the last change.\n\nWhen I message a move like '[item] to [place]' or '[item] lent to [name]', update the list and reply with one line confirming it.\nWhen I ask 'where is [item]?' or 'what's in [box]?', answer from the list only. If it isn't on the list, say so; don't guess.\nIf I send a photo of a box, list what you see and ask me before adding it.\nEvery [month], send me anything marked 'lent' for more than [30] days.\nNever delete an item without asking me.",
+  "setup": [
+    "Pick where the list lives: a home-inventory app that connects to your chat app (Wheredai and OnHand both work with ChatGPT and Claude), or a simple note or spreadsheet your bot can edit.",
+    "Name your places once: rooms, then shelves or numbered bins. Write the bin number on the bin.",
+    "Paste the prompt and start with one area, like the garage or the hall closet. Snap a photo of each box and let it list the contents.",
+    "From then on, send a one-line message whenever you put something away, move it or lend it.",
+    "Test it: ask for three things you know the location of. If it gets one wrong, correct it straight away."
+  ],
+  "watch_out": [
+    "It only knows what you tell it. If someone else moves things and doesn't say, the answer will be out of date. Share the list with your household.",
+    "A list of what you own and where can be sensitive. Keep valuables and safes out of it, or in a private section only you can see.",
+    "These apps use saved records, not tracking. It can't find something you never logged."
+  ],
+  "sources": [
+    {
+      "label": "Reddit r/AI_Agents, u/supermario218 (Nov 2026): his work bot 'Drew' tracks every forklift move on an RV lot and 'tells me exactly what spot they're in'; 'I used to drive around the yard 100 times a day looking for units'",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1xvs8tr/what_im_doing_with_my_ai_agents_as_a_normal_person/",
+      "kind": "reddit"
+    },
+    {
+      "label": "Agent Cookbook (verified 2026-11-15): how the same bot works: he texts a move like '3657 rtp', the bot replies with the unit's location card and updates it when he says the move is done",
+      "url": "https://agentcookbook.dev/r/grok-bot-eight-bots-normal-life",
+      "kind": "article"
+    },
+    {
+      "label": "OpenApps listing: Wheredai ChatGPT app (first listed 2026-11-06; also a Claude connector): 'Say where it is. Ask where it went.' Starter prompts include 'Remember that my AA batteries are in the kitchen drawer' and 'Where did I put the spare batteries?'; locations come from saved records, not GPS",
+      "url": "https://theopenapps.com/chatgpt/apps/wheredai",
+      "kind": "article"
+    },
+    {
+      "label": "OnHand: snap a photo and it files the item by room, shelf and bin; ask 'Where did I put the camping stove?' in ChatGPT or Claude and it checks every change before it happens",
+      "url": "https://onhand.io/",
+      "kind": "official"
+    }
+  ],
+  "popularity": null,
+  "tags": [
+    "where did I put it",
+    "home inventory",
+    "storage",
+    "garage",
+    "bins",
+    "lent items",
+    "memory",
+    "chatgpt apps",
+    "family"
+  ]
+}

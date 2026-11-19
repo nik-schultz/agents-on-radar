@@ -1,0 +1,97 @@
+{
+  "slug": "have-your-bot-fax-an-office-that-wont-answer",
+  "title": "Have your bot send a fax when an office won't pick up the phone",
+  "category": "health",
+  "source_date": "2026-11-17",
+  "summary": "Some doctor's offices and agencies are almost impossible to reach by phone, and some hang up on AI callers. Your bot can find their fax number, write a one-page request in your name, and send it through an online fax service once you approve it.",
+  "what_the_bot_does": [
+    "Confirms the office's phone and fax numbers on its own website.",
+    "Tries the phone first if you want, asking you before each call.",
+    "If the calls fail, writes a short one-page request: who you are, what you need, how to reach you and when you're free.",
+    "Shows you the page and waits for your OK.",
+    "Sends it through an online fax service connected to your chat app, then checks whether it went through."
+  ],
+  "what_you_end_up_with": "Your request sitting on the office's fax machine, plus a copy and a delivery status, without buying a fax machine or driving over.",
+  "difficulty": "Easy",
+  "tools": [
+    {
+      "id": "grok-bot",
+      "note": "The source used Grok Bot's phone assistant, then a free online fax service"
+    },
+    {
+      "id": "claude",
+      "note": "Add a fax connector such as Faxwell, GotFreeFax or Faxify"
+    },
+    {
+      "id": "chatgpt",
+      "note": "Fax services such as Faxify offer a ChatGPT connection"
+    }
+  ],
+  "prompt": "I need [what you need, e.g. an appointment with Dr. ___ to sign some paperwork] from [office name] in [town].\n\n1. Confirm the office phone and fax numbers on the office's own website and show me the link.\n2. [Optional] Ask me before each call, then try calling.\n3. If you can't get through, draft a one-page fax in my name: what I need, my phone number, and the times I'm free: [times]. Keep health details to the minimum.\n4. Show me the page. Only send it after I say yes.\n5. Tell me when it was delivered, or if it failed.",
+  "setup": [
+    "Add a fax connector to your chat app. Faxwell and GotFreeFax work in Claude without an account; Faxify connects to ChatGPT and Claude. A free fax may need you to click a confirmation link in your email.",
+    "Paste the prompt and fill in the brackets.",
+    "Check the fax number it found against the office's own website before you approve.",
+    "Read the page it drafted, then approve the send.",
+    "Ask 'did my fax go through?' an hour later, and call or use the patient portal if you hear nothing in a few days."
+  ],
+  "watch_out": [
+    "The document passes through your AI app and the fax service. Don't include your full medical history, ID numbers or insurance numbers unless the office asks for them.",
+    "Free fax services have page and daily limits, and some ask you to confirm each fax by email.",
+    "In the source, the nurse hung up when she heard a virtual assistant. Be ready for that, and use the patient portal if the office has one."
+  ],
+  "sources": [
+    {
+      "label": "X post by @CtnMcKinley1971 (2026-11-17): 'My AI Assistant Got Through to a Hard-to-Reach Doctor's Office': Grok Bot checked Texas notary rules, made two approved calls (one hung up on it, one dropped), then found the fax number and sent a one-page appointment request through a free online fax service; about 20 minutes in total (0 likes, 32 views; measured 2026-11-19)",
+      "url": "https://x.com/CtnMcKinley1971/status/2122741428543463744",
+      "kind": "x"
+    },
+    {
+      "label": "Artificially Nerdy (updated 2026-11-18): 'Have Grok Bot fax a doctor's office when calls fail', a write-up of the same story with a copy-paste prompt and a note that some offices hang up on AI callers",
+      "url": "https://artificiallynerdy.com/use-cases/patient-has-grok-bot-fax-a-doctors-office-when-calls-fail/",
+      "kind": "article"
+    },
+    {
+      "label": "Faxwell (updated 2026-11-06): 'How to send a fax with AI': add the connector to Claude or ChatGPT, ask it to fax a document, then check the fax and pay on a link before it sends",
+      "url": "https://sendfaxwell.com/guides/send-a-fax-with-ai",
+      "kind": "official"
+    },
+    {
+      "label": "GitHub: vannet/gotfreefax-mcp, send a free fax to US/Canada numbers from Claude, ChatGPT and other agents (3 pages, 2 a day, email confirmation required; 0 stars, measured 2026-11-19)",
+      "url": "https://github.com/vannet/gotfreefax-mcp",
+      "kind": "github",
+      "stats": {
+        "stars": 0
+      },
+      "measured_at": "2026-11-19"
+    },
+    {
+      "label": "Faxify MCP: ChatGPT, Claude and Cursor can send and track faxes (included on every Faxify plan)",
+      "url": "https://www.faxify.com/en/mcp",
+      "kind": "official"
+    }
+  ],
+  "popularity": {
+    "platform": "x",
+    "post_id": "2122741428543463744",
+    "author": "@CtnMcKinley1971",
+    "url": "https://x.com/CtnMcKinley1971/status/2122741428543463744",
+    "posted_at": "2026-11-17",
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "bookmarks": 0,
+    "views": 32,
+    "measured_at": "2026-11-19"
+  },
+  "tags": [
+    "fax",
+    "doctor's office",
+    "appointment",
+    "can't get through",
+    "phone assistant",
+    "grok bot",
+    "claude connector",
+    "health admin"
+  ]
+}

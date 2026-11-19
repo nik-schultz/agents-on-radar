@@ -1220,3 +1220,13 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - Checks: validate 134 use cases / 12 blueprints 0 errors; build 188 indexed pages; check_links 16,094 links, 0 broken internal.
 - newsletter issue ready, waiting on Nik's send approval
 - Send needs only Nik's yes in chat (Nov 13 rule; no Grok CEO sign-off). One yes covers this issue only.
+- Deployed main 0cb32ed6 / publish 78468573 (`6aaafd79..78468573`) / Actions 44554935946 (success). Live: /newsletter/2026-11-19/, /newsletter/, /newsletter/feed.xml all 200 with issue #5.
+
+## 2026-11-19 (midday trending, ~12:35 PM CT)
+- Added `onboard-a-new-bot-by-talking-it-through` (work, Easy): talk to a new bot for ~10 minutes like onboarding a hire, have it restate the job, save a written manual/skill, then watch → propose → work alone. 5 sources (1 X): X @poteto 2122774297840398639 (1,726 likes / 78 reposts / 628 bookmarks / 107,980 views, measured 2026-11-19), SpaceXSI "Building an accounting team with Grok Bot", Reddit r/AI_Agents u/supermario218, Agent Cookbook, Grok Bot changelog.
+- Added `ask-your-bot-where-you-put-things` (family, Easy): one-line messages keep a "where is it" list; ask later. 4 sources (0 X): Reddit u/supermario218 (forklift yard bot), Agent Cookbook, Wheredai ChatGPT app (OpenApps), OnHand. Popularity null (no measurable post).
+- Added `have-your-bot-fax-an-office-that-wont-answer` (health, Easy): bot confirms the fax number, drafts a one-page request, sends via a fax connector after approval. 5 sources (1 X): X @CtnMcKinley1971 2122741428543463744 (0 likes / 32 views), Artificially Nerdy, Faxwell guide, GitHub vannet/gotfreefax-mcp (0 stars), Faxify MCP.
+- Extended `line-up-contractors-for-a-home-project` (Grok Bot phoned contractors for bids and booked the pick: X @thecsguy 31 likes / 2,078 views, now the popularity post; The Agent Field; clears the Nov 18 BACKLOG item), `make-a-customer-service-call` (+Muse patches you in for a PIN), `weekend-family-activities` (+Dot unprompted event tip, +Reddit daily local-events agent), and X-only `give-your-agents-a-shared-apple-account` (+Reddit) and `one-bot-per-brand` (+SpaceXSI).
+- Refreshed 56 X posts (raw research/x_trend_2026_11_19.json.txt, local only) and 64 community stats (42 HN, 22 GitHub; research/refresh_community_2026_11_19.py). Fixed 5 HN labels missing "(" from the Nov 18 refresh and the regex that dropped it.
+- Source mix: 137 use cases, 613 source links, X 92/613 = 15%; X-only use cases 2. Validate 0 errors; build 191 pages; check_links 16,378 links, 0 broken internal.
+- Feedback: no BotsDoThat mentions found. Bugs: none on the site. Reddit still blocked from the box (used WebFetch/web search).

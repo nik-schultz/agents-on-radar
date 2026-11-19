@@ -1,0 +1,99 @@
+{
+  "slug": "onboard-a-new-bot-by-talking-it-through",
+  "title": "Set up a new bot by talking it through like a new hire",
+  "category": "work",
+  "source_date": "2026-11-17",
+  "summary": "Instead of writing a perfect prompt, talk to your new bot for about 10 minutes about the job, the way you'd brief a new employee. Then have it repeat the job back, save it as written instructions, and let it suggest actions for a while before it works on its own.",
+  "what_the_bot_does": [
+    "Listens while you describe the job out loud: what it's for, what comes in, which apps you use, what good work looks like and what it must never do.",
+    "Repeats the job back in its own words so you can correct anything it got wrong.",
+    "Turns the brief into a short written manual (or a saved skill) it reads before every run.",
+    "Asks to connect only the apps you mentioned.",
+    "Spends the first runs proposing what it would do and waits for your OK, then handles routine work on its own and asks you about anything unusual."
+  ],
+  "what_you_end_up_with": "A bot with one clear job and written instructions it follows the same way every time, instead of a chat you have to re-explain every morning.",
+  "difficulty": "Easy",
+  "tools": [
+    {
+      "id": "grok-bot",
+      "note": "Can save skills and connect the apps you name; set each tool to ask first or run on its own"
+    },
+    {
+      "id": "chatgpt",
+      "note": "Use voice dictation, then save the brief in a project or as custom instructions"
+    },
+    {
+      "id": "claude",
+      "note": "Put the brief in a project's instructions"
+    },
+    {
+      "id": "gemini",
+      "note": "Use the brief as the opening of a recurring task"
+    }
+  ],
+  "prompt": "I'm going to describe a job I want you to do for me, like I'm onboarding a new hire. Don't start the job yet.\n\nJob: [one job, e.g. keep our household supply list and tell me what's running low]\nWhat comes in: [where the work starts, e.g. texts from me, an email, a shared list]\nApps I use for it: [apps]\nWhat good looks like: [the result I want, and how often]\nNever do: [e.g. buy, send or delete anything without my yes]\n\nWhen I'm done talking:\n1. Repeat the job back in your own words and list anything you're unsure about.\n2. Write it up as a short manual you'll read before every run, and save it.\n3. For the first [week], only propose what you'd do and wait for my OK. After that, do the routine parts yourself and ask me about anything unusual.",
+  "setup": [
+    "Pick one job you already do and know well, like your inbox, a supply list or a weekly report. One bot, one job.",
+    "Open a new bot or chat and use voice dictation. Talk for about 10 minutes: what the job is, what comes in, the apps involved, what a good result looks like and what it must never do.",
+    "Before you send, ask it to restate the job in its own words and fix anything it misunderstood.",
+    "Ask it to save the brief as a written manual or skill, and to connect only the apps you named.",
+    "Week one: let it watch and propose. Week two: it does the work and you approve. After that: routine work alone, anything unusual comes to you.",
+    "When it gets something wrong, correct the manual, not just the chat, so the fix sticks."
+  ],
+  "watch_out": [
+    "Don't give a brand-new bot permission to send, buy or delete. Let it earn that over the first weeks, and keep money moves (refunds, payments, purchases) behind your OK for good.",
+    "If one bot starts taking on other jobs, steer it back. Small bots with tight roles are easier to check.",
+    "Everything you say in the brief goes to the AI company. Leave out passwords and card numbers."
+  ],
+  "sources": [
+    {
+      "label": "X post by @poteto (Grok Bot team, 2026-11-17): use voice dictation and talk for 10 minutes about your workflow, 'like you would if you hired someone'; ask it to restate the brief back before you send, mention the apps you use so it asks to connect them, and have it save its own skills (1,726 likes, 78 reposts, 628 bookmarks, 107,980 views; measured 2026-11-19)",
+      "url": "https://x.com/poteto/status/2122774297840398639",
+      "kind": "x"
+    },
+    {
+      "label": "SpaceXSI (2026-11-17), 'Building an accounting team with Grok Bot': each Bot owns one job, learns it from a written operating manual, and is trained like a new employee over about three weeks (observe, then propose with a person approving, then work alone); refunds and credits always need a person's OK",
+      "url": "https://x.ai/news/grok-bot-accounting",
+      "kind": "official"
+    },
+    {
+      "label": "Reddit r/AI_Agents, u/supermario218 (Nov 2026): 'What I'm doing with my AI Agents as a normal person': 8 Grok Bots with one job each; 'Usually I make one with no idea what to do with it, and the more I use it, the more I figure out how I want to use it'",
+      "url": "https://www.reddit.com/r/AI_Agents/comments/1xvs8tr/what_im_doing_with_my_ai_agents_as_a_normal_person/",
+      "kind": "reddit"
+    },
+    {
+      "label": "Agent Cookbook (verified 2026-11-15): summary of the same post and its comments: most setup was talking through instructions (what inputs to expect, how you'll talk to it, when it outputs); keep roles tight and say 'No, that is Bob's job' when a bot reaches for more work",
+      "url": "https://agentcookbook.dev/r/grok-bot-eight-bots-normal-life",
+      "kind": "article"
+    },
+    {
+      "label": "Grok Bot changelog (2026-11-18): set each connected tool to Always allow, Auto-review, Needs approval or Blocked",
+      "url": "https://x.ai/changelog/bot",
+      "kind": "official"
+    }
+  ],
+  "popularity": {
+    "platform": "x",
+    "post_id": "2122774297840398639",
+    "author": "@poteto",
+    "url": "https://x.com/poteto/status/2122774297840398639",
+    "posted_at": "2026-11-17",
+    "likes": 1726,
+    "reposts": 78,
+    "replies": 145,
+    "bookmarks": 628,
+    "views": 107980,
+    "measured_at": "2026-11-19"
+  },
+  "tags": [
+    "set up a bot",
+    "onboarding",
+    "beginner",
+    "voice dictation",
+    "instructions",
+    "skills",
+    "one bot one job",
+    "grok bot",
+    "approval"
+  ]
+}

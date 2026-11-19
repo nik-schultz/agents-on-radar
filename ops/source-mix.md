@@ -426,3 +426,16 @@ Top domains: youtube.com (91), x.com (74), news.ycombinator.com (38), reddit.com
 - Extended: make-a-customer-service-call (+@derariob Muse got a lost Express receipt emailed, 150 views; +Android Authority); reorder-your-regular-groceries (+@JeremyCainadian Gemini Tasks Walmart cart, 405 views; +The Verge). New links this run: 14, of which 5 X (36%).
 - Refreshed: 55 X popularity blocks + 64 community stats (42 Hacker News via Algolia, 22 GitHub via API). Biggest moves: n8n-io/nod 2,280→2,470 stars, FrigadeHQ/yogurt 1,977→2,294, pinky 2,364→2,453. Non-X share of refreshed items: 64/119 = 54%.
 - Mentions/feedback of BotsDoThat: none found (X search since Nov 17: only our own @botsdothat posts and unrelated "bots do that" phrases; HN Algolia 0 hits; Reddit blocked from this box).
+
+## After midday trending (measured 2026-11-19)
+
+- Use cases: **137**; source links: **613**
+- X share of source links: **92/613 = 15%**
+- X share of community links (X, Reddit, Hacker News, YouTube, GitHub, Product Hunt): **92/306 = 30%**
+- X-only use cases (every source is an X post): **2** (1%; give-your-agents-a-shared-apple-account and one-bot-per-brand now have non-X sources)
+- Use cases with at least one non-X community source (Reddit, Hacker News, YouTube, GitHub, Product Hunt): **98**
+- By domain: x.com 92, youtube.com 91, news.ycombinator.com 49, reddit.com 38, github.com 26, google.com 26, support.google.com 23, help.openai.com 18, support.claude.com 14, blog.google 9, techcrunch.com 8, docs.anthropic.com 7
+- Added this run: onboard-a-new-bot-by-talking-it-through (5 sources, 1 X: @poteto 1,726 likes / 78 reposts / 628 bookmarks / 107,980 views; SpaceXSI accounting-team post, Reddit r/AI_Agents u/supermario218, Agent Cookbook, Grok Bot changelog); ask-your-bot-where-you-put-things (4 sources, 0 X: Reddit u/supermario218, Agent Cookbook, Wheredai on OpenApps, OnHand); have-your-bot-fax-an-office-that-wont-answer (5 sources, 1 X: @CtnMcKinley1971 0 likes / 32 views; Artificially Nerdy, Faxwell guide, GitHub vannet/gotfreefax-mcp 0 stars, Faxify MCP).
+- Extended: line-up-contractors-for-a-home-project (+@thecsguy 31 likes / 2,078 views, now the popularity post; +The Agent Field newsletter); make-a-customer-service-call (+@poetnchief Muse patched him in for a PIN, 52 views); weekend-family-activities (+@RealDavidIsrael Dot suggested a family event unprompted, 35 views; +Reddit r/AI_Agents daily local-events agent); give-your-agents-a-shared-apple-account (+Reddit); one-bot-per-brand (+SpaceXSI official). New links this run: 21, of which 5 X (24%).
+- Refreshed: 56 X popularity blocks + 64 community stats (42 Hacker News via Algolia, 22 GitHub via API). Biggest moves: @GeminiApp Tasks post 3,112→3,292 likes (728,025→870,557 views), n8n-io/nod 2,470→2,644 stars, FrigadeHQ/yogurt 2,294→2,579, DIYgod/pinky 2,453→2,527. Non-X share of refreshed items: 64/120 = 53%.
+- Mentions/feedback of BotsDoThat: none found (X search Nov 17-19 for botsdothat / @botsdothat / url:botsdothat.com: 0 results; "bots do that" phrase hits are unrelated; HN Algolia 0 hits; Reddit blocked from this box, nothing found via web search).
