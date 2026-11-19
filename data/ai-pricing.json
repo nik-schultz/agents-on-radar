@@ -127,6 +127,17 @@
   },
   {
    "provider": "Google",
+   "model": "gemini-4-neon",
+   "tier": "flagship",
+   "input": 3.0,
+   "output": 15.0,
+   "cached_input": 0.15,
+   "note": "New Nov 18, 2026; sits between Carbon and Hydrogen. Same price across the full 1M-token context; cached input is implicit caching only. Not on the free tier.",
+   "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
+   "checked_on": "2026-11-19"
+  },
+  {
+   "provider": "Google",
    "model": "gemini-4-hydrogen",
    "tier": "mid",
    "input": 1.5,

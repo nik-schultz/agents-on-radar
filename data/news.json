@@ -9,6 +9,198 @@
  ],
  "items": [
   {
+   "id": "gemini-4-neon",
+   "date": "2026-11-18",
+   "category": "model release",
+   "company": "Google",
+   "impact": "major",
+   "headline": "Google releases Gemini 4 Neon, a faster Gemini 4 model it pitches as close to its top Carbon model on hard work",
+   "explainer": "If you pay for Google AI Pro or Ultra, you can now pick Gemini 4 Neon (\"Deeper analysis\") in the Gemini app for long documents, spreadsheets and multi-step agent jobs, and Google says it makes things up less often than its earlier models. Developers pay $3 per million input tokens and $15 per million output tokens with no free tier, which works out cheaper than Carbon once Carbon's promo price ends on Nov 30.",
+   "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+   "source_name": "Google",
+   "more_sources": [
+    {
+     "label": "Gemini API pricing",
+     "url": "https://ai.google.dev/gemini-api/docs/pricing"
+    },
+    {
+     "label": "9to5Google",
+     "url": "https://9to5google.com/2026/11/18/gemini-4-neon-announcement/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/sundarpichai/status/2123167780988125621",
+    "author": "@sundarpichai",
+    "kind": "official",
+    "likes": 14640,
+    "reposts": 1179,
+    "views": 1434086,
+    "posted_at": "2026-11-18",
+    "measured_at": "2026-11-19T12:28:00Z"
+   }
+  },
+  {
+   "id": "chatgpt-live-dictation",
+   "date": "2026-11-18",
+   "category": "feature",
+   "company": "OpenAI",
+   "impact": "notable",
+   "headline": "ChatGPT's dictation now types your words as you talk, and the 10-minute limit is gone",
+   "explainer": "Tap the microphone and your words appear while you speak, so long voice notes, meeting recaps or brain dumps for your bot no longer get cut off at 10 minutes. It's rolling out to every ChatGPT plan on iPhone, Android, web and desktop; the audio stays with the chat until you delete it.",
+   "source_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+   "source_name": "ChatGPT release notes",
+   "more_sources": [
+    {
+     "label": "9to5Mac",
+     "url": "https://9to5mac.com/2026/11/18/chatgpt-app-gains-enhanced-live-dictation-streaming-without-10-minute-limit/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/ChatGPT/status/2123114715257946334",
+    "author": "@ChatGPT",
+    "kind": "official",
+    "likes": 4355,
+    "reposts": 231,
+    "views": 452853,
+    "posted_at": "2026-11-18",
+    "measured_at": "2026-11-19T12:28:00Z"
+   }
+  },
+  {
+   "id": "chatgpt-for-accounting",
+   "date": "2026-11-18",
+   "category": "feature",
+   "company": "OpenAI",
+   "impact": "notable",
+   "headline": "ChatGPT for Accounting: a free plugin that drafts bank reconciliations, invoice entries and month-end reports for you to check",
+   "explainer": "In the ChatGPT desktop app with computer use, the Accounting plugin works from your spreadsheets or a connected app like QuickBooks Online, Xero, FreshBooks or BILL and prepares drafts, flagging missing or uncertain items for you to review. It's for ChatGPT Business and Enterprise workspaces (Enterprise admins must approve it first), so a small business owner or bookkeeper still signs off on every number.",
+   "source_url": "https://help.openai.com/en/articles/20001709-using-chatgpt-for-accounting-work",
+   "source_name": "OpenAI Help Center",
+   "more_sources": [
+    {
+     "label": "ChatGPT release notes",
+     "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    },
+    {
+     "label": "Gadgets 360",
+     "url": "https://www.gadgets360.com/ai/news/openai-chatgpt-live-dictation-update-release-accounting-features-12349148"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/ChatGPT/status/2123159134963196357",
+    "author": "@ChatGPT",
+    "kind": "official",
+    "likes": 8510,
+    "reposts": 721,
+    "views": 2827095,
+    "posted_at": "2026-11-18",
+    "measured_at": "2026-11-19T12:28:00Z"
+   }
+  },
+  {
+   "id": "anthropic-ipo-priced",
+   "date": "2026-11-18",
+   "category": "industry",
+   "company": "Anthropic",
+   "impact": "notable",
+   "headline": "Anthropic prices its IPO at $83 a share, raising about $81 billion, with trading on Nasdaq as ANT from Nov 19",
+   "explainer": "The maker of Claude priced above its expected range in what CNBC calls the largest IPO on record. Nothing changes in your Claude app or plan today, but Claude's maker is now a public company answering to shareholders, so watch for its next moves on prices and plans.",
+   "source_url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+   "source_name": "Anthropic",
+   "more_sources": [
+    {
+     "label": "CNBC",
+     "url": "https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/AnthropicAI/status/2123196808675405860",
+    "author": "@AnthropicAI",
+    "kind": "official",
+    "likes": 14516,
+    "reposts": 1880,
+    "views": 2353031,
+    "posted_at": "2026-11-18",
+    "measured_at": "2026-11-19T12:28:00Z"
+   }
+  },
+  {
+   "id": "grok-bot-travel-booking",
+   "date": "2026-11-18",
+   "category": "feature",
+   "company": "xAI",
+   "impact": "notable",
+   "headline": "Grok Bot can now search and book flights, hotels and rental cars for you in one chat",
+   "explainer": "Tell your Grok Bot where and when you're going and it compares fares, rooms and cars, showing bag, change and refund rules, maps and reviews, and books the option you pick. Some airlines, such as United, don't let AI agents finish a booking, and when the Bot can't confirm a final purchase it sends you the link instead, so check the details before you tap Book.",
+   "source_url": "https://x.com/bot/status/2123121401762918718",
+   "source_name": "Grok Bot on X",
+   "more_sources": [
+    {
+     "label": "Grok Bot changelog",
+     "url": "https://x.ai/changelog/bot"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/bot/status/2123121401762918718",
+    "author": "@bot",
+    "kind": "official",
+    "likes": 3323,
+    "reposts": 244,
+    "views": 417975,
+    "posted_at": "2026-11-18",
+    "measured_at": "2026-11-19T12:28:00Z"
+   }
+  },
+  {
+   "id": "grok-bot-tool-permissions",
+   "date": "2026-11-18",
+   "category": "feature",
+   "company": "xAI",
+   "impact": "minor",
+   "headline": "Grok Bot lets you set each connected tool to Always allow, Auto-review, Needs approval or Blocked",
+   "explainer": "On each connector's page you can now decide, tool by tool, what your Bot may do on its own, for example let it read your calendar freely but always ask before it sends an email. Routines that lose a sign-in now pause and send you a reconnect card instead of failing quietly, and new sign-ups must be 18 or older.",
+   "source_url": "https://x.ai/changelog/bot",
+   "source_name": "Grok Bot changelog"
+  },
+  {
+   "id": "meta-muse-loblaw-canada",
+   "date": "2026-11-18",
+   "category": "feature",
+   "company": "Meta",
+   "impact": "notable",
+   "headline": "Canadians can now plan meals, fill a grocery basket and check out with Loblaw stores inside Meta's Muse",
+   "explainer": "Loblaw is the first Canadian retailer connected to Muse, so you can ask your Muse for a week of meals and it builds the basket at participating Loblaw banners, remembering brands and food allergies for next time. Muse voice chats and Spaces (custom planners you describe) also reach Canada, and Muse asks before sensitive steps like a purchase.",
+   "source_url": "https://about.fb.com/news/2026/11/meta-welcomes-loblaw-as-first-canadian-retail-partner-to-muse/",
+   "source_name": "Meta",
+   "more_sources": [
+    {
+     "label": "Loblaw",
+     "url": "https://www.loblaw.ca/en/loblaw-becomes-first-canadian-retailer-to-bring-ai-powered-shopping-to-metas-muse/"
+    }
+   ]
+  },
+  {
+   "id": "banks-ai-agent-liability-citi-pnc",
+   "date": "2026-11-18",
+   "category": "industry",
+   "company": "Citi",
+   "impact": "notable",
+   "headline": "Citi, PNC and Citizens tell customers they're on the hook for anything their AI agents do in their bank accounts, even after a hack",
+   "explainer": "Citi changed its online terms this week so that if you give a third-party AI agent your bank login and it makes a wrong payment, or the tool gets hacked, the losses are yours; JPMorgan and Bank of America announced similar policies last month. If your bot helps with money, keep it read-only (like summarizing statements) and make every payment yourself.",
+   "source_url": "https://techcrunch.com/2026/11/18/more-banks-says-customers-using-ai-agents-are-on-their-own-even-if-they-get-hacked/",
+   "source_name": "TechCrunch",
+   "x": {
+    "url": "https://x.com/TechCrunch/status/2123107245005189365",
+    "author": "@TechCrunch",
+    "kind": "coverage",
+    "likes": 37,
+    "reposts": 10,
+    "views": 17503,
+    "posted_at": "2026-11-18",
+    "measured_at": "2026-11-19T12:28:00Z"
+   }
+  },
+  {
    "id": "google-project-genie-4-ultra",
    "date": "2026-11-18",
    "category": "feature",
@@ -22,11 +214,11 @@
     "url": "https://x.com/GoogleDeepMind/status/2123117733709586849",
     "author": "@GoogleDeepMind",
     "kind": "official",
-    "likes": 1385,
-    "reposts": 113,
-    "views": 88772,
+    "likes": 2217,
+    "reposts": 210,
+    "views": 169814,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -43,11 +235,11 @@
     "url": "https://x.com/GeminiApp/status/2123100943604707606",
     "author": "@GeminiApp",
     "kind": "official",
-    "likes": 625,
-    "reposts": 37,
-    "views": 50613,
+    "likes": 993,
+    "reposts": 59,
+    "views": 86362,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -64,11 +256,90 @@
     "url": "https://x.com/Google/status/2123101724047200432",
     "author": "@Google",
     "kind": "official",
-    "likes": 859,
-    "reposts": 58,
-    "views": 133041,
+    "likes": 1524,
+    "reposts": 102,
+    "views": 200868,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
+   }
+  },
+  {
+   "id": "mistral-vibe-desktop",
+   "date": "2026-11-17",
+   "category": "agent launch",
+   "company": "Mistral",
+   "impact": "minor",
+   "headline": "Mistral launches Vibe Desktop, a Mac and Windows app for its Work and coding agents",
+   "explainer": "Vibe Desktop puts Mistral's Vibe Work assistant and its coding agent in one app that can use folders on your computer or run tasks in a cloud sandbox while you do something else. It's mostly for people who code or use Mistral at work; Linux support is coming later.",
+   "source_url": "https://docs.mistral.ai/resources/release-notes",
+   "source_name": "Mistral docs",
+   "x": {
+    "url": "https://x.com/MistralAI/status/2123073168659141119",
+    "author": "@MistralAI",
+    "kind": "official",
+    "likes": 2419,
+    "reposts": 205,
+    "views": 190490,
+    "posted_at": "2026-11-18",
+    "measured_at": "2026-11-19T12:28:00Z"
+   }
+  },
+  {
+   "id": "google-ai-mode-temporary-threads",
+   "date": "2026-11-17",
+   "category": "feature",
+   "company": "Google",
+   "impact": "notable",
+   "headline": "Google Search's AI Mode gets temporary threads, a private mode that isn't saved to your history",
+   "explainer": "Click the temporary threads icon in the top-right of AI Mode and that conversation won't show up in your search history, won't use your past activity and won't shape future recommendations, which helps for health, money or gift questions. It's rolling out worldwide on desktop and mobile, and a closed thread can't be recovered.",
+   "source_url": "https://blog.google/products-and-platforms/products/search/temporary-threads-ai-mode/",
+   "source_name": "Google",
+   "more_sources": [
+    {
+     "label": "Google Search Help",
+     "url": "https://support.google.com/websearch/answer/18752729"
+    },
+    {
+     "label": "TechCrunch",
+     "url": "https://techcrunch.com/2026/11/18/googles-ai-feature-in-search-gets-its-own-incognito-mode/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/9to5Google/status/2122736668121661520",
+    "author": "@9to5Google",
+    "kind": "coverage",
+    "likes": 47,
+    "reposts": 2,
+    "views": 4305,
+    "posted_at": "2026-11-17",
+    "measured_at": "2026-11-19T12:28:00Z"
+   }
+  },
+  {
+   "id": "x-pauses-grok-training-agent-data-ireland",
+   "date": "2026-11-17",
+   "category": "industry",
+   "company": "xAI",
+   "impact": "notable",
+   "headline": "After Ireland's privacy regulator stepped in, X stopped training its AI on other people's data collected by Grok Bot",
+   "explainer": "Ireland's Data Protection Commission told POLITICO that X had been training its AI on third-party data gathered by Grok Bot since late October, meaning personal details about other people, such as holiday photos a friend shares with you or pages the agent reads online, and X confirmed it has suspended this. It's a reminder that what your agent sees about friends, family or clients can travel further than you expect; the regulator says it's also talking to another, unnamed tech company.",
+   "source_url": "https://www.politico.eu/article/x-stops-training-ai-with-agents-data-after-ireland-intervened/",
+   "source_name": "POLITICO Europe",
+   "more_sources": [
+    {
+     "label": "heise online",
+     "url": "https://www.heise.de/news/X-stoppt-Grok-KI-Training-mit-Drittanbieterdaten-auf-Druck-aus-Irland-11528427.html"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/POLITICOEurope/status/2122663275082973443",
+    "author": "@POLITICOEurope",
+    "kind": "coverage",
+    "likes": 52,
+    "reposts": 24,
+    "views": 6376,
+    "posted_at": "2026-11-17",
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -91,11 +362,11 @@
     "url": "https://x.com/elonmusk/status/2122758986483269956",
     "author": "@elonmusk",
     "kind": "official",
-    "likes": 4552,
+    "likes": 4593,
     "reposts": 200,
-    "views": 205142,
+    "views": 211126,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -118,11 +389,11 @@
     "url": "https://x.com/perplexity_ai/status/2122785177135096053",
     "author": "@perplexity_ai",
     "kind": "official",
-    "likes": 358,
-    "reposts": 36,
-    "views": 256612,
+    "likes": 367,
+    "reposts": 37,
+    "views": 262696,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -145,11 +416,11 @@
     "url": "https://x.com/satyanadella/status/2122793040058442116",
     "author": "@satyanadella",
     "kind": "official",
-    "likes": 5270,
-    "reposts": 338,
-    "views": 994024,
+    "likes": 5356,
+    "reposts": 345,
+    "views": 1028390,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -172,11 +443,11 @@
     "url": "https://x.com/MicrosoftAI/status/2122762037927322044",
     "author": "@MicrosoftAI",
     "kind": "official",
-    "likes": 1309,
-    "reposts": 105,
-    "views": 131644,
+    "likes": 1331,
+    "reposts": 107,
+    "views": 141235,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -199,11 +470,11 @@
     "url": "https://x.com/bot/status/2122771386456551516",
     "author": "@bot",
     "kind": "official",
-    "likes": 9596,
-    "reposts": 686,
-    "views": 2795574,
+    "likes": 10106,
+    "reposts": 741,
+    "views": 3209259,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -232,9 +503,9 @@
     "kind": "coverage",
     "likes": 69,
     "reposts": 12,
-    "views": 15601,
+    "views": 15857,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -251,11 +522,11 @@
     "url": "https://x.com/ProtonPrivacy/status/2122725988329226420",
     "author": "@ProtonPrivacy",
     "kind": "official",
-    "likes": 695,
-    "reposts": 38,
-    "views": 33365,
+    "likes": 723,
+    "reposts": 42,
+    "views": 35018,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -274,9 +545,9 @@
     "kind": "coverage",
     "likes": 21,
     "reposts": 4,
-    "views": 16682,
+    "views": 17091,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -314,11 +585,11 @@
     "url": "https://x.com/OpenAI/status/2122750124543926515",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 35215,
-    "reposts": 3561,
-    "views": 9085132,
+    "likes": 35676,
+    "reposts": 3595,
+    "views": 10129788,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -349,11 +620,11 @@
     "url": "https://x.com/sundarpichai/status/2122741728247738688",
     "author": "@sundarpichai",
     "kind": "official",
-    "likes": 5315,
-    "reposts": 419,
-    "views": 361181,
+    "likes": 5509,
+    "reposts": 430,
+    "views": 387544,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -376,11 +647,11 @@
     "url": "https://x.com/cognition/status/2122737511684587551",
     "author": "@cognition",
     "kind": "official",
-    "likes": 3377,
-    "reposts": 343,
-    "views": 1205057,
+    "likes": 3512,
+    "reposts": 360,
+    "views": 1391005,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -403,11 +674,11 @@
     "url": "https://x.com/ClaudeDevs/status/2122751844455956760",
     "author": "@ClaudeDevs",
     "kind": "official",
-    "likes": 2498,
-    "reposts": 87,
-    "views": 319754,
+    "likes": 2555,
+    "reposts": 91,
+    "views": 342279,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -424,11 +695,11 @@
     "url": "https://x.com/alexandr_wang/status/2122762964419870792",
     "author": "@alexandr_wang",
     "kind": "official",
-    "likes": 3698,
-    "reposts": 176,
-    "views": 257578,
+    "likes": 3815,
+    "reposts": 187,
+    "views": 281790,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -455,11 +726,11 @@
     "url": "https://x.com/TechCrunch/status/2122763976354279846",
     "author": "@TechCrunch",
     "kind": "coverage",
-    "likes": 68,
+    "likes": 71,
     "reposts": 16,
-    "views": 30448,
+    "views": 35156,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -486,11 +757,11 @@
     "url": "https://x.com/TencentHunyuan/status/2122217770314301469",
     "author": "@TencentHunyuan",
     "kind": "official",
-    "likes": 2793,
+    "likes": 2794,
     "reposts": 248,
-    "views": 804176,
+    "views": 821004,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -519,9 +790,9 @@
     "kind": "official",
     "likes": 1877,
     "reposts": 220,
-    "views": 305362,
+    "views": 308432,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -540,9 +811,9 @@
     "kind": "coverage",
     "likes": 225,
     "reposts": 75,
-    "views": 23743,
+    "views": 23845,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -569,11 +840,11 @@
     "url": "https://x.com/Alibaba_Qwen/status/2122148127520289151",
     "author": "@Alibaba_Qwen",
     "kind": "official",
-    "likes": 14829,
-    "reposts": 1599,
-    "views": 2470696,
+    "likes": 14845,
+    "reposts": 1604,
+    "views": 2499909,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -590,11 +861,11 @@
     "url": "https://x.com/OpenAI/status/2122465625109090646",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 2949,
-    "reposts": 233,
-    "views": 474856,
+    "likes": 2962,
+    "reposts": 234,
+    "views": 483219,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -617,11 +888,11 @@
     "url": "https://x.com/googlemaps/status/2122396544729305165",
     "author": "@googlemaps",
     "kind": "official",
-    "likes": 366,
+    "likes": 369,
     "reposts": 42,
-    "views": 28736,
+    "views": 29033,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -638,11 +909,11 @@
     "url": "https://x.com/OpenAI/status/2122123437141553630",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 3818,
-    "reposts": 371,
-    "views": 856232,
+    "likes": 3819,
+    "reposts": 372,
+    "views": 860579,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -665,11 +936,11 @@
     "url": "https://x.com/Google/status/2121293823837921433",
     "author": "@Google",
     "kind": "official",
-    "likes": 974,
+    "likes": 975,
     "reposts": 104,
-    "views": 1012504,
+    "views": 1013364,
     "posted_at": "2026-11-13",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -692,11 +963,11 @@
     "url": "https://x.com/ahuja_karan/status/2121332990836163033",
     "author": "@ahuja_karan",
     "kind": "coverage",
-    "likes": 2309,
-    "reposts": 110,
-    "views": 288392,
+    "likes": 2308,
+    "reposts": 109,
+    "views": 288850,
     "posted_at": "2026-11-13",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -719,11 +990,11 @@
     "url": "https://x.com/elonmusk/status/2121628295234023654",
     "author": "@elonmusk",
     "kind": "official",
-    "likes": 9394,
-    "reposts": 736,
-    "views": 2402230,
+    "likes": 9395,
+    "reposts": 737,
+    "views": 2409713,
     "posted_at": "2026-11-14",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -746,11 +1017,11 @@
     "url": "https://x.com/ChatGPT/status/2121283151729496235",
     "author": "@ChatGPT",
     "kind": "official",
-    "likes": 5219,
-    "reposts": 416,
-    "views": 981605,
+    "likes": 5223,
+    "reposts": 417,
+    "views": 990298,
     "posted_at": "2026-11-13",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -768,10 +1039,10 @@
     "author": "@SierraPlatform",
     "kind": "official",
     "likes": 1442,
-    "reposts": 164,
-    "views": 363121,
+    "reposts": 163,
+    "views": 364146,
     "posted_at": "2026-11-13",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -794,11 +1065,11 @@
     "url": "https://x.com/deepseek_ai/status/2121247896918253875",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 12386,
-    "reposts": 1265,
-    "views": 1213024,
+    "likes": 12389,
+    "reposts": 1264,
+    "views": 1221854,
     "posted_at": "2026-11-13",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -825,11 +1096,11 @@
     "url": "https://x.com/claudeai/status/2120973994191094179",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 81358,
-    "reposts": 5172,
-    "views": 10174411,
+    "likes": 81373,
+    "reposts": 5173,
+    "views": 10197604,
     "posted_at": "2026-11-12",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -852,11 +1123,11 @@
     "url": "https://x.com/ChatGPT/status/2120970988796170275",
     "author": "@ChatGPT",
     "kind": "official",
-    "likes": 4113,
-    "reposts": 234,
-    "views": 1597654,
+    "likes": 4114,
+    "reposts": 233,
+    "views": 1611133,
     "posted_at": "2026-11-12",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -873,11 +1144,11 @@
     "url": "https://x.com/yandexcom/status/2120905470231925168",
     "author": "@yandexcom",
     "kind": "official",
-    "likes": 83,
+    "likes": 82,
     "reposts": 5,
-    "views": 7934,
+    "views": 8234,
     "posted_at": "2026-11-12",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
@@ -900,11 +1171,11 @@
     "url": "https://x.com/GoogleDeepMind/status/2120940338869055788",
     "author": "@GoogleDeepMind",
     "kind": "official",
-    "likes": 7542,
-    "reposts": 631,
-    "views": 1596168,
+    "likes": 7550,
+    "reposts": 635,
+    "views": 1602618,
     "posted_at": "2026-11-12",
-    "measured_at": "2026-11-18T20:40:00Z"
+    "measured_at": "2026-11-19T12:28:00Z"
    }
   },
   {
