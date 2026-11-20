@@ -90,7 +90,7 @@ Reddit numbers: Reddit blocks reads from this box. If you get counts another way
 `/` is **BotsDoThat Today**: each weekday, the 3 changes in AI assistants that matter for everyday users ("what it means for you" = the item's `explainer`), one **job of the day** with its prompt, a Bot Checkup alert when the week's news touches Grok Bot, ChatGPT dots, Claude Duet, Meta Muse or Gemini Tasks, and "Also today".
 It fills itself from the routines' data; `scripts/today.py` holds the rules and `scripts/test_today.py` tests them.
 - **3 changes:** `data/news.json` items for the edition date (weekend items roll into Monday), ranked by `impact`, then by a Bot Checkup assistant match, then by measured X views. Fewer than 3 that day: the newest older items fill in and show their own date.
-- **Job of the day:** a use case added that day (easiest first), otherwise a fixed rotation through Easy use cases.
+- **Job of the day:** a use case added on the previous weekday (easiest first), so the morning build fixes it for the day and the midday routine's additions become tomorrow's job; otherwise a fixed rotation through Easy use cases.
 - **Overrides (optional):** `data/today.json` `days["YYYY-MM-DD"] = {"picks": [news ids], "job": "use-case-slug", "note": "one sentence"}`. `first_edition` turns on edition numbers from launch day (null = no numbers).
 - Also built: `/today/` (last `archive_days` editions), `/today/<date>/` (the latest one canonicalises to `/`), `/today/feed.xml`, and `/guides/` (every guide grouped: Start here, Stay safe, Compare, Costs, Ready-made setups).
 - **Streak / tried it / "which apps do you use":** `static/today.js`, localStorage only (`bdt-days`, `bdt-apps`), no network calls. "I tried this" also appears on every use-case page.

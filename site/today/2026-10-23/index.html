@@ -21,7 +21,7 @@
 <nav aria-label="Main" class="menu" id="site-menu"><a href="/" aria-current=page>Today</a><a href="/use-cases/">Jobs to try</a><a href="/bot-checkup/">Bot Checkup</a><a href="/news/">AI news</a><a href="/guides/">Guides</a></nav>
 <div class="nav-actions"><a class="btn btn-sm nav-build" href="/bot-checkup/">Free checkup</a><a class="btn btn-sm btn-ghost nav-news" href="/newsletter/">Weekly email</a></div>
 </div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Today</a></li><li><a href="/today/">All editions</a></li><li aria-current="page">Friday, Oct 23</li></ol></nav></div><div class="td" data-edition="2026-10-23" data-job="add-events-and-reminders-by-asking-your-bot">
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Today</a></li><li><a href="/today/">All editions</a></li><li aria-current="page">Friday, Oct 23</li></ol></nav></div><div class="td" data-edition="2026-10-23" data-job="fill-out-a-job-application-faster">
 <section class="wrap td-head"><p class="td-arch glass small">This is the Friday, Oct 23 edition. <a href="/">Go to today's →</a></p>
 <p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Today in AI assistants</p>
 <h1 class="td-date">Friday, Oct 23</h1>
@@ -50,23 +50,25 @@
 <p class="small muted" id="streak-msg">Read today's 3 or try the job to start a streak. Weekends don't break it.</p>
 <button class="btn btn-sm btn-ghost" type="button" id="streak-share" hidden>Copy my day</button><span class="small" id="streak-copied" role="status"></span></div></section>
 <section class="wrap block td-job" aria-labelledby="job-h"><div class="glass td-job-in">
-<p class="eyebrow">🧰 Job of the day <span class="td-why">New on the site today</span></p>
-<h2 id="job-h"><a href="/use-cases/add-events-and-reminders-by-asking-your-bot/">Add calendar events and reminders just by asking your bot</a></h2>
-<p class="lead">Instead of opening your calendar and typing everything in, you tell your phone&#x27;s AI assistant &quot;add this&quot; or &quot;remind me&quot;, and it puts the event or reminder in the right app. Grok Bot and Gemini can both do this now, once you allow them into those apps.</p>
-<div class="card-meta"><span class="cat-tag cat-family">🏡 Family &amp; home</span><span class="diff diff-easy">Easy</span><span class="tools-mini">Works in: <span class="tchip">Grok Bot</span><span class="tchip">Gemini</span></span></div>
-<p><b>You end up with:</b> Events and reminders added from a sentence, a pasted text or a photo, with a short read-back so you can catch mistakes before you rely on them.</p>
+<p class="eyebrow">🧰 Job of the day <span class="td-why">New on the site</span></p>
+<h2 id="job-h"><a href="/use-cases/fill-out-a-job-application-faster/">Fill out a job application faster with an agent</a></h2>
+<p class="lead">Online job applications ask for the same details over and over. A browser agent can type them in from your resume and a short fact sheet, while you sign in yourself and press Submit yourself.</p>
+<div class="card-meta"><span class="cat-tag cat-work">💼 Work &amp; career</span><span class="diff diff-easy">Easy</span><span class="tools-mini">Works in: <span class="tchip">ChatGPT Work</span><span class="tchip">Claude Cowork</span><span class="tchip">Grok Bot</span> <span class="more">+1</span></span></div>
+<p><b>You end up with:</b> An application filled in from your own facts, a list of anything the agent couldn&#x27;t answer, and a summary to check before you press Submit.</p>
 <div class="term glass"><div class="term-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="term-title">Copy today&#x27;s prompt</span>
-<button class="btn btn-sm copy" type="button" data-copy="#job-prompt">Copy</button></div><pre class="term-body" id="job-prompt" tabindex="0">Please add this to my calendar and reminders:
-[PASTE THE TEXT, EMAIL OR DETAILS, e.g. &quot;Dentist, Thursday Nov 5, 3:15pm, Main St Dental&quot;]
+<button class="btn btn-sm copy" type="button" data-copy="#job-prompt">Copy</button></div><pre class="term-body" id="job-prompt" tabindex="0">Help me apply for this job: [LINK TO THE JOB ON THE EMPLOYER&#x27;S OWN CAREERS PAGE]
+
+Use ONLY the facts in my fact sheet and attached resume:
+[PASTE FACT SHEET: name, email, phone, city, work history with dates, education, work authorization, earliest start date, answers to common screening questions]
 
 Rules:
-1. Put it on my [default / family / work] calendar with the right date, time and place.
-2. Add a reminder [the night before at 8pm / 1 hour before].
-3. If the date, time or place isn&#x27;t clear, ask me instead of guessing.
-4. Don&#x27;t invite anyone, message anyone, or change or delete any other event or reminder.
-5. When you&#x27;re done, read back exactly what you added: title, day, date, time, place and reminder time.</pre></div>
-<p class="small td-wo"><b>Watch out:</b> Allow only the apps you need. Grok Bot&#x27;s permission screen has a separate Allow button for each app (Messages, Location, Calendar, Home, Reminders, Contacts), per Digital Trends and TeslaNorth. Allowing Calendar and Reminders doesn&#x27;t mean you have to allow Messages or Home.</p>
-<div class="td-acts"><button class="btn tried-btn" type="button" data-mark="tried" data-slug="add-events-and-reminders-by-asking-your-bot" hidden>✓ I tried it</button><a class="btn btn-ghost" href="/use-cases/add-events-and-reminders-by-asking-your-bot/">Full how-to, step by step →</a></div>
+1. When you reach a sign-in or create-account page, stop and let me sign in myself.
+2. Never guess or make anything up. If a question isn&#x27;t covered by my facts, leave it blank and add it to a list for me.
+3. Don&#x27;t enter a Social Security number, bank details, or ID numbers, and don&#x27;t pay for anything. If the site asks for any of these, stop and tell me.
+4. Don&#x27;t tick any agreement or consent box for me; list them so I can read them.
+5. Stop before the final Submit button. Show me a summary of every answer you entered and the list of open questions.</pre></div>
+<p class="small td-wo"><b>Watch out:</b> You&#x27;re signing your name to every answer. Check the summary line by line before you submit; OpenAI&#x27;s own help page says to check results and confirmation requests, because agents can misread a page.</p>
+<div class="td-acts"><button class="btn tried-btn" type="button" data-mark="tried" data-slug="fill-out-a-job-application-faster" hidden>✓ I tried it</button><a class="btn btn-ghost" href="/use-cases/fill-out-a-job-application-faster/">Full how-to, step by step →</a></div>
 </div></section>
 
 <section class="wrap block td-also" aria-labelledby="also-h"><h2 id="also-h" class="nb-label">Also today <span class="nb-why">6 more</span></h2><ul class="td-alsol"><li data-apps=""><span class="nt-co">Cursor</span> <a href="/news/#cursor-computer-use-desktop">Cursor&#x27;s coding bot can now click and type in other apps on your computer</a> <span class="td-you" hidden>You use this</span></li><li data-apps=""><span class="nt-co">NVIDIA</span> <a href="/news/#nvidia-nemotron-3-5-bolt-e4b">NVIDIA releases a free 4GB AI model for assistants that run on your own device</a> <span class="td-you" hidden>You use this</span></li><li data-apps="claude"><span class="nt-co">Anthropic</span> <a href="/news/#claude-enterprise-chat-cowork-merge">Claude Enterprise merges chat and Cowork into one Claude that keeps working in the cloud</a> <span class="td-you" hidden>You use this</span></li><li data-apps="gemini"><span class="nt-co">Google</span> <a href="/news/#gemini-notebook-connected-app">Gemini can now create notebooks and add sources to Gemini Notebook from your chat</a> <span class="td-you" hidden>You use this</span></li><li data-apps="chatgpt"><span class="nt-co">OpenAI</span> <a href="/news/#openai-agents-api-scheduled-automations">OpenAI&#x27;s Agents API can now run bots on a schedule</a> <span class="td-you" hidden>You use this</span></li><li data-apps="chatgpt"><span class="nt-co">OpenAI</span> <a href="/news/#openai-legacy-models-shutdown-oct-23">OpenAI switched off older models including GPT-4, GPT-3.5 Turbo, o4-mini and gpt-image-1</a> <span class="td-you" hidden>You use this</span></li></ul><p class="small"><a href="/news/">All AI news →</a></p></section>

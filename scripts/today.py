@@ -5,8 +5,9 @@ Everything here is chosen from data the routines already write, so the page fill
   * "3 things that changed": data/news.json items for the edition date, ranked by importance (impact), then by
     whether they touch an assistant people use (Bot Checkup match), then by measured X views. Weekend items roll
     into Monday's edition. If a weekday has fewer than 3 items, the newest older items fill in and keep their own date.
-  * "Job of the day": a use case added that day (newest, easiest first); otherwise a fixed rotation through the
-    Easy use cases, so every date always gets the same job.
+  * "Job of the day": a use case added on the previous weekday (easiest first), so the job is fixed from the morning
+    build and doesn't change when the midday routine adds new ones; otherwise a fixed rotation through the Easy use
+    cases, so every date always gets the same job.
   * Overrides: data/today.json "days" -> {"YYYY-MM-DD": {"picks": [news ids], "job": "use-case-slug", "note": "..."}}.
     The routines may set these; nothing else needs editing.
 Stdlib only. Pure functions so scripts/test_today.py can test them without building the site.
@@ -147,12 +148,15 @@ def _rotation(ucs):
 
 
 def pick_job(ucs, ed, overrides=None):
-    """Job of the day for edition `ed`: override > a use case added that edition (easiest, newest) > fixed rotation."""
+    """Job of the day for edition `ed`: override > a use case added the previous weekday (easiest first) > fixed rotation.
+    Using the previous weekday's additions keeps the job stable all day: the midday routine's new use cases become
+    tomorrow's job instead of swapping today's in the afternoon."""
     overrides = overrides or {}
     by_slug = {x["slug"]: x for x in ucs}
     if overrides.get("job") in by_slug:
         return by_slug[overrides["job"]], "picked"
-    fresh = [x for x in ucs if x.get("prompt") and edition_date_for(d(x["date_added"])) == ed]
+    prev = prev_edition(ed)
+    fresh = [x for x in ucs if x.get("prompt") and edition_date_for(d(x["date_added"])) == prev]
     if fresh:
         fresh.sort(key=lambda x: (DIFF_RANK.get(x.get("difficulty"), 1), x["date_added"], x["slug"]))
         return fresh[0], "new"

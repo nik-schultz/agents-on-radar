@@ -947,7 +947,7 @@ def today_item(n, k, ed):
 def today_job(x, why, ed, prompt_id="job-prompt"):
     if not x: return ""
     c = CAT[x["category"]]
-    lbl = {"new": "New on the site today", "picked": "Picked for today", "rotation": "From our library of everyday jobs"}.get(why, "")
+    lbl = {"new": "New on the site", "picked": "Picked for today", "rotation": "From our library of everyday jobs"}.get(why, "")
     wo = (x.get("watch_out") or [""])[0]
     return f"""<section class="wrap block td-job" aria-labelledby="job-h"><div class="glass td-job-in">
 <p class="eyebrow">🧰 Job of the day <span class="td-why">{e(lbl)}</span></p>

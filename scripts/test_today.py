@@ -71,9 +71,11 @@ class Picks(unittest.TestCase):
         self.assertEqual({n["id"] for n in top[:2]}, {"sat", "mon"})
 
     def test_job_override_then_fresh_then_stable_rotation(self):
-        ucs = [uc("hard-new", "2026-11-19", "Advanced"), uc("easy-new", "2026-11-19"), uc("old1", "2026-10-01"), uc("old2", "2026-10-02")]
+        # added Wed 11-18 -> Thursday's job; added Thu 11-19 (midday) must NOT change Thursday's job
+        ucs = [uc("hard-new", "2026-11-18", "Advanced"), uc("easy-new", "2026-11-18"), uc("old1", "2026-10-01"), uc("old2", "2026-10-02"), uc("midday", "2026-11-19")]
         self.assertEqual(T.pick_job(ucs, D(2026, 11, 19), {"job": "old2"})[0]["slug"], "old2")
         self.assertEqual(T.pick_job(ucs, D(2026, 11, 19)), (ucs[1], "new"))
+        self.assertEqual(T.pick_job(ucs, D(2026, 11, 20)), (ucs[4], "new"))  # Thursday's midday add is Friday's job
         a = T.pick_job(ucs, D(2026, 11, 12)); b = T.pick_job(ucs, D(2026, 11, 12))
         self.assertEqual(a, b); self.assertEqual(a[1], "rotation")
 
@@ -177,6 +179,7 @@ class Browser(unittest.TestCase):
     def _page(self, now="2026-11-19T09:00:00"):
         ctx = self.b.new_context()
         ctx.add_init_script(f"window.BDT_NOW = '{now}';")
+        ctx.set_default_timeout(60000)  # the shared box is sometimes slow to start Chrome
         return ctx, ctx.new_page()
 
     def test_streak_counts_weekdays_and_survives_weekends(self):

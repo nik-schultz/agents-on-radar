@@ -21,7 +21,7 @@
 <nav aria-label="Main" class="menu" id="site-menu"><a href="/" aria-current=page>Today</a><a href="/use-cases/">Jobs to try</a><a href="/bot-checkup/">Bot Checkup</a><a href="/news/">AI news</a><a href="/guides/">Guides</a></nav>
 <div class="nav-actions"><a class="btn btn-sm nav-build" href="/bot-checkup/">Free checkup</a><a class="btn btn-sm btn-ghost nav-news" href="/newsletter/">Weekly email</a></div>
 </div></header>
-<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Today</a></li><li><a href="/today/">All editions</a></li><li aria-current="page">Thursday, Nov 19</li></ol></nav></div><div class="td" data-edition="2026-11-19" data-job="ask-your-bot-where-you-put-things">
+<main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Today</a></li><li><a href="/today/">All editions</a></li><li aria-current="page">Thursday, Nov 19</li></ol></nav></div><div class="td" data-edition="2026-11-19" data-job="book-a-car-service-by-letting-ai-call-the-shops">
 <section class="wrap td-head">
 <p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Today in AI assistants</p>
 <h1 class="td-date">Thursday, Nov 19</h1>
@@ -50,21 +50,21 @@
 <p class="small muted" id="streak-msg">Read today's 3 or try the job to start a streak. Weekends don't break it.</p>
 <button class="btn btn-sm btn-ghost" type="button" id="streak-share" hidden>Copy my day</button><span class="small" id="streak-copied" role="status"></span></div></section>
 <section class="wrap block td-job" aria-labelledby="job-h"><div class="glass td-job-in">
-<p class="eyebrow">🧰 Job of the day <span class="td-why">New on the site today</span></p>
-<h2 id="job-h"><a href="/use-cases/ask-your-bot-where-you-put-things/">Tell your bot where you put things, then just ask it later</a></h2>
-<p class="lead">Every time you store, lend or move something, tell your bot in one line. Months later, ask &#x27;where are the spare batteries?&#x27; or &#x27;what&#x27;s in bin 4?&#x27; and it answers with the room, shelf or box.</p>
-<div class="card-meta"><span class="cat-tag cat-family">🏡 Family &amp; home</span><span class="diff diff-easy">Easy</span><span class="tools-mini">Works in: <span class="tchip">ChatGPT</span><span class="tchip">Claude</span><span class="tchip">Grok Bot</span> <span class="more">+1</span></span></div>
-<p><b>You end up with:</b> A searchable list of what you own and where it is, kept up to date by one-line messages instead of a spreadsheet.</p>
+<p class="eyebrow">🧰 Job of the day <span class="td-why">New on the site</span></p>
+<h2 id="job-h"><a href="/use-cases/book-a-car-service-by-letting-ai-call-the-shops/">Get your car booked in for a service by letting an AI call the nearby shops</a></h2>
+<p class="lead">Tell your AI assistant your car is due for a service and when you&#x27;re free. It phones the nearest shops or dealerships at the same time, sits on hold for you, finds one that takes appointments at a time that fits, and puts it on your calendar.</p>
+<div class="card-meta"><span class="cat-tag cat-travel">✈️ Bookings &amp; travel</span><span class="diff diff-easy">Easy</span><span class="tools-mini">Works in: <span class="tchip">Tasks in Gemini</span><span class="tchip">Meta Muse</span><span class="tchip">Grok Bot</span></span></div>
+<p><b>You end up with:</b> A confirmed service appointment on your calendar, plus a short note of what each shop offered, without spending time on hold.</p>
 <div class="term glass"><div class="term-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="term-title">Copy today&#x27;s prompt</span>
-<button class="btn btn-sm copy" type="button" data-copy="#job-prompt">Copy</button></div><pre class="term-body" id="job-prompt" tabindex="0">Be my &#x27;where is it&#x27; memory. Keep one list of my things with: item, where it is (room &gt; shelf/box), who has it if lent, and the date of the last change.
+<button class="btn btn-sm copy" type="button" data-copy="#job-prompt">Copy</button></div><pre class="term-body" id="job-prompt" tabindex="0">My [2019 Honda Odyssey] is due for [its regular service / a check-engine light check]. Please call the [two] nearest [dealerships / repair shops] near [my home / ZIP code] and find an appointment on [a weekday morning before 9am] in the next [4 weeks].
 
-When I message a move like &#x27;[item] to [place]&#x27; or &#x27;[item] lent to [name]&#x27;, update the list and reply with one line confirming it.
-When I ask &#x27;where is [item]?&#x27; or &#x27;what&#x27;s in [box]?&#x27;, answer from the list only. If it isn&#x27;t on the list, say so; don&#x27;t guess.
-If I send a photo of a box, list what you see and ask me before adding it.
-Every [month], send me anything marked &#x27;lent&#x27; for more than [30] days.
-Never delete an item without asking me.</pre></div>
-<p class="small td-wo"><b>Watch out:</b> It only knows what you tell it. If someone else moves things and doesn&#x27;t say, the answer will be out of date. Share the list with your household.</p>
-<div class="td-acts"><button class="btn tried-btn" type="button" data-mark="tried" data-slug="ask-your-bot-where-you-put-things" hidden>✓ I tried it</button><a class="btn btn-ghost" href="/use-cases/ask-your-bot-where-you-put-things/">Full how-to, step by step →</a></div>
+- Say you&#x27;re an AI assistant calling for me.
+- Only pick a time when my calendar is free, and skip shops that are walk-in only.
+- Ask roughly how long it takes and whether they can give me a ride or a loaner.
+- Don&#x27;t agree to any repairs, prices or deposits, and don&#x27;t give out my card or account details.
+- Before you book, tell me what each shop offered and wait for my OK. Then add the appointment to my calendar with the address.</pre></div>
+<p class="small td-wo"><b>Watch out:</b> Some businesses won&#x27;t talk to an AI or hang up, and Google says businesses can opt out of Gemini calls. Have a backup plan if no one picks up.</p>
+<div class="td-acts"><button class="btn tried-btn" type="button" data-mark="tried" data-slug="book-a-car-service-by-letting-ai-call-the-shops" hidden>✓ I tried it</button><a class="btn btn-ghost" href="/use-cases/book-a-car-service-by-letting-ai-call-the-shops/">Full how-to, step by step →</a></div>
 </div></section>
 
 <section class="wrap block td-also" aria-labelledby="also-h"><h2 id="also-h" class="nb-label">Also today <span class="nb-why">1 more</span></h2><ul class="td-alsol"><li data-apps="gemini"><span class="nt-co">Google</span> <a href="/news/#gemini-api-tool-retrieval">Gemini API adds Tool Retrieval, so an agent with hundreds of tools loads only the ones it needs</a> <span class="td-you" hidden>You use this</span></li></ul><p class="small"><a href="/news/">All AI news →</a></p></section>
