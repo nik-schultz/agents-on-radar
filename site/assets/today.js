@@ -57,6 +57,13 @@
       else msg.textContent = 'Read today\'s 3 or try the job to start a streak. Weekends don\'t break it.';
       var sh = d.getElementById('streak-share'); if (sh) sh.hidden = !done.length;
     }
+    // home page Today box: a small streak / done-for-today badge
+    var hb = d.querySelector('.hb-streak');
+    if (hb) {
+      var k = BDT.streak();
+      hb.textContent = done.length ? '✓ Done for today' + (k > 1 ? ' · 🔥 ' + k : '') : (k ? '🔥 ' + k + '-day streak: keep it going' : '');
+      hb.hidden = !hb.textContent;
+    }
   }
 
   d.addEventListener('click', function (ev) {
@@ -67,7 +74,7 @@
       var txt = 'BotsDoThat Today, ' + BDT.today().toDateString().slice(4, 10) + '\n' +
         (done.indexOf('read') >= 0 ? '✅ Caught up on the 3 changes\n' : '') +
         (done.some(function (x) { return x.indexOf('tried:') === 0; }) ? '✅ Tried the job of the day\n' : '') +
-        '🔥 ' + BDT.streak() + '-day streak\n' + location.origin + '/';
+        '🔥 ' + BDT.streak() + '-day streak\n' + location.origin + '/today/';
       var ok = function () { var s = d.getElementById('streak-copied'); if (s) s.textContent = ' Copied. Paste it anywhere.'; };
       if (navigator.clipboard) navigator.clipboard.writeText(txt).then(ok, function () {}); else ok();
     }

@@ -486,8 +486,10 @@ process.stdin.on("end", () => {
             with open(index, encoding="utf-8") as fh:
                 page = fh.read()
             self.assertIn('class="btn btn-sm nav-build" href="/bot-checkup/"', page)
-            # Nov 19, 2026 overhaul: the home page is the daily Today page; the checkup is its standing call to action.
-            self.assertIn(">Run the free 3-minute checkup</a>", page)
+            # Nov 20, 2026: "/" is the site overview (Bot Checkup is its first feature card); the daily edition at /today/ keeps the checkup band.
+            self.assertIn('<h3 class="nt-h"><a href="/bot-checkup/">', page)
+            with open(os.path.join(ROOT, "site", "today", "index.html"), encoding="utf-8") as fh:
+                self.assertIn(">Run the free 3-minute checkup</a>", fh.read())
             self.assertIn('href="/bot-instructions/"', page)
             self.assertIn(">Weekly email</a>", page)
             self.assertNotIn(">My bots</a>", page)
