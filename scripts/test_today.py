@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tests for BotsDoThat Today (the daily home page, /today/ archive, feed, /guides/, nav and streak).
+"""Tests for BotsDoThat Today (/today/ daily edition, /today/archive/, feed, the home overview + Today box, /guides/, nav and streak).
   python3 scripts/build.py && python3 scripts/test_today.py
 Unit tests use small fixtures. Page tests read the built site/. Browser tests use Playwright (skip when missing)."""
 import datetime, json, os, re, sys, threading, unittest, warnings, xml.dom.minidom
@@ -92,9 +92,10 @@ class Picks(unittest.TestCase):
 
 @unittest.skipUnless(os.path.exists(os.path.join(SITE, "index.html")), "run scripts/build.py first")
 class Pages(unittest.TestCase):
-    def test_home_is_the_daily_page(self):
-        h = built("/")
+    def test_today_url_is_the_daily_page(self):
+        h = built("/today/")
         self.assertIn('data-page="today"', h)
+        self.assertRegex(h, r'<h1 class="td-date">[A-Z][a-z]+day, [A-Z][a-z]{2} \d{1,2}</h1>')  # the routines check this heading
         self.assertIn("3 things that changed", h)
         self.assertEqual(h.count('class="td-item glass"'), 3)
         self.assertIn("Job of the day", h)
@@ -105,18 +106,51 @@ class Pages(unittest.TestCase):
         self.assertEqual(len(re.findall(r'<li class="td-item[^"]*"[^>]*>.*?Source: <a href="https?://', h, re.S)), 3)  # every item is sourced
         self.assertNotIn("radar-stage", h)  # old hero is gone
 
+    def test_home_is_a_short_overview_with_a_today_box(self):
+        h = built("/")
+        self.assertIn('data-page="home"', h)
+        self.assertNotIn('class="td-item glass"', h)  # the full edition is not on the home page
+        box = re.search(r'<a class="hb-today" href="/today/"[^>]*data-edition="(\d{4}-\d{2}-\d{2})">(.*?)</a></section>', h, re.S)
+        self.assertTrue(box, "Today box linking to /today/ near the top")
+        self.assertLess(h.index('class="hb-today"'), h.index('class="hf-grid"'))
+        t = built("/today/")
+        ed = re.search(r'<div class="td" data-edition="([\d-]+)" data-job="([^"]*)"', t)
+        self.assertEqual(box.group(1), ed.group(1))  # same edition as /today/
+        top1 = re.search(r'<h3 class="td-h">(.*?)</h3>', t).group(1)
+        self.assertIn(top1, box.group(2))  # teaser = the #1 change on /today/
+        job_title = re.search(r'<h2 id="job-h"><a [^>]*>(.*?)</a></h2>', t).group(1)
+        self.assertIn(job_title, box.group(2))  # same job of the day
+        self.assertIn(re.search(r'<h1 class="td-date">(.*?)</h1>', t).group(1), box.group(2))
+        for p in ("/bot-checkup/", "/use-cases/", "/news/", "/guides/", "/bot-instructions/", "/ai-pricing/"):
+            self.assertIn(f'<a href="{p}">', re.search(r'class="hf-grid">(.*?)</ul>', h, re.S).group(1), p)
+        main = re.search(r'<main id="main">(.*?)</main>', h, re.S).group(1)
+        self.assertEqual(main.count('class="nl-form"'), 1)  # one signup form
+        self.assertIn('href="/advertise/"', h.split('<footer', 1)[1])  # advertise stays in the footer
+        self.assertNotIn('/advertise/', main)
+        n_ucs = len(json.load(open(os.path.join(ROOT, "data", "use-cases.json"))))
+        self.assertIn(f"{n_ucs} jobs", h)  # counts come from the data, never typed in
+
+    def test_live_check_script_reads_the_build(self):
+        import check_today
+        ed = datetime.date.fromisoformat(re.search(r'<div class="td" data-edition="([\d-]+)"', built("/today/")).group(1))
+        self.assertEqual(check_today.check(SITE, ed, local=True), [])
+        self.assertEqual(len(check_today.check(SITE, ed - datetime.timedelta(days=7), local=True)), 3)
+
     def test_nav_is_five_items_in_order(self):
         h = built("/news/")
         nav = re.search(r'<nav aria-label="Main" class="menu" id="site-menu">(.*?)</nav>', h, re.S).group(1)
         self.assertEqual(re.findall(r">([^<]+)</a>", nav), ["Today", "Jobs to try", "Bot Checkup", "AI news", "Guides"])
-        self.assertIn('href="/" aria-current=page', built("/"))
+        self.assertIn('href="/today/" aria-current=page', built("/today/"))
+        self.assertIn('href="/today/" aria-current=page', built("/today/archive/"))
+        self.assertNotIn("aria-current=page", re.search(r'<nav aria-label="Main".*?</nav>', built("/"), re.S).group(0))
 
     def test_archive_pages_feed_and_canonical(self):
-        arch = built("/today/")
+        arch = built("/today/archive/")
         dates = re.findall(r'href="/today/(\d{4}-\d{2}-\d{2})/"', arch)
         self.assertGreaterEqual(len(dates), 5)
         latest = built(f"/today/{dates[0]}/")
-        self.assertIn('<link rel="canonical" href="https://botsdothat.com/">', latest)  # no duplicate of the home page
+        self.assertIn('<link rel="canonical" href="https://botsdothat.com/today/">', latest)  # no duplicate of /today/
+        self.assertIn('<link rel="canonical" href="https://botsdothat.com/today/">', built("/today/"))
         older = built(f"/today/{dates[1]}/")
         self.assertIn(f'<link rel="canonical" href="https://botsdothat.com/today/{dates[1]}/">', older)
         self.assertIn("Go to today", older)
@@ -126,6 +160,9 @@ class Pages(unittest.TestCase):
         feed = open(os.path.join(SITE, "today", "feed.xml"), encoding="utf-8").read()
         xml.dom.minidom.parseString(feed.encode("utf-8"))
         self.assertGreaterEqual(feed.count("<item>"), 5)
+        self.assertIn("<link>https://botsdothat.com/today/</link>", feed)
+        self.assertIn("https://botsdothat.com/today/</loc>", sm)
+        self.assertIn("https://botsdothat.com/today/archive/</loc>", sm)
 
     def test_guides_hub_links_every_guide(self):
         g = built("/guides/")
@@ -134,7 +171,10 @@ class Pages(unittest.TestCase):
 
     def test_every_old_url_still_exists(self):
         missing = []
-        for line in open(os.path.join(ROOT, "scripts", "fixtures", "urls-before-overhaul.txt")):
+        lines = []
+        for f in ("urls-before-overhaul.txt", "urls-before-home-overview.txt"):
+            lines += open(os.path.join(ROOT, "scripts", "fixtures", f)).read().split()
+        for line in lines:
             p = line.strip()
             if not p: continue
             fp = os.path.join(SITE, p.lstrip("/"), "index.html") if p.endswith("/") else os.path.join(SITE, p.lstrip("/"))
@@ -184,7 +224,7 @@ class Browser(unittest.TestCase):
 
     def test_streak_counts_weekdays_and_survives_weekends(self):
         ctx, pg = self._page("2026-11-23T09:00:00")  # a Monday
-        pg.goto(self.base + "/")
+        pg.goto(self.base + "/today/")
         self.assertEqual(pg.inner_text("#streak-lbl"), "Start a streak")
         # seed Thu + Fri done; the weekend in between must not break it
         pg.evaluate("localStorage.setItem('bdt-days', JSON.stringify({'2026-11-19':['read'],'2026-11-20':['read']}))")
@@ -200,18 +240,18 @@ class Browser(unittest.TestCase):
 
     def test_tried_on_a_use_case_page_counts_on_today(self):
         ctx, pg = self._page()
-        pg.goto(self.base + "/")
+        pg.goto(self.base + "/today/")
         slug = pg.get_attribute(".td", "data-job")
         pg.goto(self.base + f"/use-cases/{slug}/")
         pg.click("[data-mark=tried]")
-        pg.goto(self.base + "/")
+        pg.goto(self.base + "/today/")
         self.assertEqual(pg.inner_text("#streak-n"), "1")
         self.assertEqual(pg.get_attribute(".td-job [data-mark=tried]", "aria-pressed"), "true")
         ctx.close()
 
     def test_app_picker_flags_matching_items(self):
         ctx, pg = self._page()
-        pg.goto(self.base + "/")
+        pg.goto(self.base + "/today/")
         apps = pg.eval_on_selector_all(".td-item", "els => els.map(e => e.dataset.apps).filter(Boolean)")
         self.assertTrue(apps, "expected at least one item about a known app")
         app = apps[0].split()[0]
@@ -223,10 +263,33 @@ class Browser(unittest.TestCase):
         self.assertGreaterEqual(pg.locator(".td-item.is-yours").count(), 1)
         ctx.close()
 
+    def test_home_box_shows_streak_and_opens_today(self):
+        ctx, pg = self._page("2026-11-20T09:00:00")
+        pg.goto(self.base + "/")
+        self.assertFalse(pg.is_visible(".hb-streak"))  # nothing until you start
+        pg.evaluate("localStorage.setItem('bdt-days', JSON.stringify({'2026-11-18':['read'],'2026-11-19':['read']}))")
+        pg.reload()
+        self.assertIn("2-day streak", pg.inner_text(".hb-streak"))
+        pg.click(".hb-today")
+        pg.wait_for_url("**/today/")
+        self.assertTrue(pg.is_visible("h1.td-date"))
+        ctx.close()
+
+    def test_home_is_short_on_mobile(self):
+        ctx = self.b.new_context(viewport={"width": 390, "height": 844}, is_mobile=True)
+        pg = ctx.new_page()
+        pg.goto(self.base + "/")
+        box_top = pg.evaluate("document.querySelector('.hb-today').getBoundingClientRect().top")
+        self.assertLess(box_top, 844)  # the Today box is on the first phone screen
+        main_h = pg.evaluate("document.getElementById('main').scrollHeight")
+        pg.goto(self.base + "/today/")
+        self.assertLess(main_h, pg.evaluate("document.getElementById('main').scrollHeight"))
+        ctx.close()
+
     def test_mobile_has_no_horizontal_scroll(self):
         ctx = self.b.new_context(viewport={"width": 360, "height": 740}, is_mobile=True)
         pg = ctx.new_page()
-        for p in ("/", "/today/", "/guides/"):
+        for p in ("/", "/today/", "/today/archive/", "/guides/"):
             pg.goto(self.base + p)
             self.assertLessEqual(pg.evaluate("document.documentElement.scrollWidth"), 361, p)
         ctx.close()
