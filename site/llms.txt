@@ -20,6 +20,7 @@ Data as of 2026-11-19. Popularity numbers are real counts (X likes/reposts, Redd
 - [How to use Tasks in Gemini (free): your first task](https://botsdothat.com/how-to-use-tasks-in-gemini/): Tasks in Gemini (formerly Gemini Spark), free since Nov 17, 2026 in the US, Canada, India, Japan, South Korea and Australia: switch from Chat to Task, a read-only first task, schedules (free vs Pro/Ultra), emailing or texting Gemini, and 6 safety rules.
 - [How to build an AI agent without coding](https://botsdothat.com/how-to-build-an-ai-agent-without-coding/): step-by-step beginner guide using a real blueprint as the worked example
 - [AI agent examples for everyday life](https://botsdothat.com/ai-agent-examples/): every example on one page, grouped by part of life
+- [Bot Checkup](https://botsdothat.com/bot-checkup/): free checkup of the settings to change in Grok Bot, ChatGPT dots, Claude Duet, Meta Muse and Gemini Tasks, each linked to the vendor's help page, plus portable house rules
 - [Trending now](https://botsdothat.com/trending/)
 - [Bot blueprints](https://botsdothat.com/blueprints/): build-your-own-bot recipes
 - [Free bot instructions builder](https://botsdothat.com/bot-instructions/): free in-browser templates that write copy-paste instructions for ChatGPT, Claude, Gemini or Grok (a weekly plan, an email draft, or a quote comparison). No sign-up; nothing is stored. Saved setups are not on sale; sign-in and checkout are off
