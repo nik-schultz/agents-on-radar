@@ -2512,11 +2512,18 @@ news_ld += [{"@context": "https://schema.org", "@type": "NewsArticle", "headline
              "url": absu(u("/news/#" + n["id"])), "isBasedOn": n["source_url"], "image": absu(u("/assets/og.png")),
              "author": {"@type": "Organization", "name": NAME}, "publisher": {"@type": "Organization", "name": NAME}} for n in NEWS[:20]]
 page("/news/", "AI news this week: new models and AI agent launches, explained", mdesc(f"AI news in plain English, updated {nice_date(NEWS[0]['date'])}: new models from OpenAI, Anthropic, Google, xAI and more, plus AI agent launches, what they mean for you, sourced."),
-     f"""<div class="wrap page-head news-head">{bc}<p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Latest in AI · updated {nice_date(NEWS[0]['date'])}</p><h1 class="kinetic-sm">Latest in AI</h1>
-<p class="lead">The AI news that matters for you and your bots, in plain words. <b>Top story</b> = most important. <b>Trending</b> = most likes and reposts on X right now. Every story links to its source.</p>
-<p class="small muted">{len(NEWS)} stories · {cat_counts} · {sum(1 for n in NEWS if n.get('x'))} with measured X numbers · <a href="{u('/news/feed.xml')}">RSS feed</a> · Price changes also go into the <a href="{u(PRICING)}">AI price table</a>. <a href="{u('/about/#popularity')}">How we measure</a>.</p>
-<p class="td-band glass small"><b>Short on time?</b> <a href="{u('/today/')}">Today</a> picks the 3 changes that matter for people who use AI assistants, with a job to try. Using Grok Bot, ChatGPT dots, Claude Duet, Meta Muse or Gemini Tasks? <a href="{u('/bot-checkup/')}">Run the free Bot Checkup</a>.</p>
-<p class="small news-start">New to AI agents? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is</a>, <a href="{u(BUILD_GUIDE)}">how to build one without coding</a> and <a href="{u(COST_GUIDE)}">what one costs to run</a>. Want the useful parts once a week? <a href="{u('/newsletter/')}">Get the {e(NAME)} Weekly</a>, free.</p>
+     f"""<div class="wrap page-head news-head">{bc}
+<div class="nh-row"><div class="nh-title"><p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Latest in AI · updated {nice_date(NEWS[0]['date'])}</p><h1 class="kinetic-sm">Latest in AI</h1></div>
+<details class="ni" id="news-info"><summary class="ni-btn">About this page <span aria-hidden="true">ⓘ</span></summary>
+<div class="ni-panel glass" id="ni-panel" role="region" aria-label="About this page">
+<p class="ni-h">How this page works</p>
+<p class="small"><b>Top story</b> = the biggest-impact news of the last 2 weeks. <b>Trending</b> = the most likes and reposts on X right now, weighted toward newer posts. Every story links to its source.</p>
+<p class="small muted ni-stats">{len(NEWS)} stories · {cat_counts} · {sum(1 for n in NEWS if n.get('x'))} with measured X numbers</p>
+<p class="small"><a href="{u('/news/feed.xml')}">RSS feed</a> · Price changes also go into the <a href="{u(PRICING)}">AI price table</a> · <a href="{u('/about/#popularity')}">How we measure</a></p>
+<p class="small ni-start">New to AI agents? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is</a>, <a href="{u(BUILD_GUIDE)}">how to build one without coding</a> and <a href="{u(COST_GUIDE)}">what one costs to run</a>. Want the useful parts once a week? <a href="{u('/newsletter/')}">Get the {e(NAME)} Weekly</a>, free.</p>
+</div></details></div>
+<p class="lead nh-lead">The AI news that matters for you and your bots, in plain words.</p>
+<p class="nh-pill" id="news-pill"><a class="nh-pill-main" href="{u('/today/')}">⚡ Short on time? See Today's 3 changes <span aria-hidden="true">→</span></a><span class="nh-sep" aria-hidden="true">·</span><a class="nh-pill-ck" href="{u('/bot-checkup/')}">Free Bot Checkup</a><button class="nh-x" type="button" aria-label="Dismiss this tip" hidden>×</button></p>
 <div class="chips news-chips" role="group" aria-label="Filter news" hidden>{news_chips}</div></div>
 <div class="wrap news-wrap"><div id="news-bento">{news_body}</div><div id="news-results" class="nt-grid" hidden></div><p class="empty" id="news-empty" hidden>Nothing in this filter yet.</p>
 <p class="small muted nb-note">How we rank. <b>Heat</b> = (likes + 2 × reposts) on the announcing X post (or the most-engaged post about it), divided by weeks since it was posted. Numbers were measured on the date in each tooltip. Stories with no post we could find get no number. <b>Major</b> means a new flagship model or a big agent launch from OpenAI, Anthropic, Google, Meta or xAI. It describes importance, not popularity.</p></div>""",

@@ -124,6 +124,29 @@
     nchips.addEventListener('click', function (ev) { var c = ev.target.closest('.chip'); if (c) setF(c.dataset.nf); });
   }
 
+  // ---- /news/ "About this page" popover: <details> without JS; with JS a real button (aria-expanded), Esc and click-outside close it
+  var ni = d.getElementById('news-info');
+  if (ni && ni.tagName === 'DETAILS') {
+    var nsum = ni.querySelector('summary'), npanel = d.getElementById('ni-panel');
+    var nwrap = d.createElement('div'); nwrap.className = 'ni'; nwrap.id = 'news-info';
+    var nbtn = d.createElement('button'); nbtn.type = 'button'; nbtn.className = 'ni-btn'; nbtn.innerHTML = nsum.innerHTML;
+    nbtn.setAttribute('aria-expanded', 'false'); nbtn.setAttribute('aria-controls', 'ni-panel');
+    npanel.hidden = true; nwrap.appendChild(nbtn); nwrap.appendChild(npanel); ni.parentNode.replaceChild(nwrap, ni);
+    var nset = function (open, focusBtn) { npanel.hidden = !open; nbtn.setAttribute('aria-expanded', open ? 'true' : 'false'); if (!open && focusBtn) nbtn.focus(); };
+    nbtn.addEventListener('click', function () { nset(npanel.hidden); });
+    d.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !npanel.hidden) nset(false, true); });
+    d.addEventListener('click', function (ev) { if (!npanel.hidden && !nwrap.contains(ev.target)) nset(false); });
+  }
+  // ---- /news/ "Short on time?" pill: dismissible, remembered in this browser
+  var npill = d.getElementById('news-pill');
+  if (npill) {
+    var NKEY = 'bdt-news-pill-off', nls = null;
+    try { nls = window.localStorage; } catch (e) {}
+    if (nls && nls.getItem(NKEY)) npill.hidden = true;
+    var nx = npill.querySelector('.nh-x');
+    if (nx && nls) { nx.hidden = false; nx.addEventListener('click', function () { npill.hidden = true; try { nls.setItem(NKEY, '1'); } catch (e) {} }); }
+  }
+
   // ---- "What will my bot cost?" calculator (full on /run-your-bots-for-less/, mini on the homepage)
   var RANK = { small: 0, mid: 1, flagship: 2 };
   var money = function (v) { if (v < 0.005) return 'under 1¢'; if (v >= 100) return '$' + Math.round(v).toLocaleString('en-US'); return '$' + v.toFixed(2); };

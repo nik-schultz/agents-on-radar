@@ -717,3 +717,29 @@ html.js .bb-app{display:block}
   .hf .nt-mono{width:26px;height:26px}.hf-go{display:none}.hb-cta .muted{display:none}
 }
 html[data-page="today"] main>.wrap{max-width:920px}
+/* /news/ compact header (2026-11-20): title row + "About this page" popover, one-line Today pill */
+.news-head{padding-top:20px;padding-bottom:10px}
+.nh-row{display:flex;align-items:flex-end;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;position:relative}
+.nh-title h1{margin:0}.nh-title .eyebrow{margin-bottom:.3em}
+.news-head .nh-lead{margin:.35em 0 .5em;font-size:1.02rem;max-width:72ch}
+.ni{position:relative;margin-bottom:.5em}
+.ni-btn{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.35em;font:inherit;font-size:.85rem;font-weight:600;color:var(--ink);background:var(--glass2);border:1px solid var(--line);border-radius:999px;padding:.35em .85em;transition:.2s}
+.ni-btn::-webkit-details-marker{display:none}.ni-btn::marker{content:""}
+.ni-btn:hover,.ni-btn[aria-expanded="true"],.ni[open]>.ni-btn{border-color:var(--c1);color:#fff}
+.ni-panel{position:absolute;right:0;top:calc(100% + 8px);z-index:30;width:min(440px,calc(100vw - 40px));padding:16px 18px;box-shadow:0 24px 60px -20px rgba(0,0,0,.8);background:rgba(12,17,36,.97)}
+.ni-panel p{margin:0 0 .6em}.ni-panel p:last-child{margin:0}
+.ni-h{font-size:.75rem;text-transform:uppercase;letter-spacing:.14em;font-weight:700;color:var(--c1)}
+.ni-panel[hidden]{display:none}
+.nh-pill{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:0;padding:.3em .5em .3em .9em;font-size:.86rem;border-radius:999px;border:1px solid rgba(94,242,214,.35);background:rgba(94,242,214,.07)}
+.nh-pill[hidden]{display:none}
+.nh-pill-main{font-weight:700;text-decoration:none;color:var(--c1)}.nh-pill-main:hover{color:#fff}
+.nh-pill-ck{color:var(--muted);font-size:.82rem}.nh-sep{color:var(--muted)}
+.nh-x{font:inherit;font-size:1rem;line-height:1;color:var(--muted);background:none;border:0;border-radius:50%;width:24px;height:24px;cursor:pointer}.nh-x:hover{color:#fff;background:rgba(255,255,255,.08)}
+.news-head .news-chips{margin-top:10px}
+@media(max-width:600px){
+  .nh-row{display:block}.ni{display:inline-block;margin:.5em 0 0}
+  .ni-panel{left:0;right:auto}
+  .news-head .nh-lead{font-size:.95rem}
+  .nh-pill{border-radius:14px}
+  .nb--top .nt--xl{min-height:0}
+}

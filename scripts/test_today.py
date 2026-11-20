@@ -130,6 +130,23 @@ class Pages(unittest.TestCase):
         n_ucs = len(json.load(open(os.path.join(ROOT, "data", "use-cases.json"))))
         self.assertIn(f"{n_ucs} jobs", h)  # counts come from the data, never typed in
 
+    def test_news_header_is_compact(self):
+        h = built("/news/")
+        head = re.search(r'<div class="wrap page-head news-head">(.*?)<div class="wrap news-wrap">', h, re.S).group(1)
+        self.assertNotIn("td-band", head)  # old "Short on time?" box is gone
+        info = re.search(r'<details class="ni" id="news-info"><summary class="ni-btn">About this page.*?</details>', head, re.S)
+        self.assertTrue(info, "no-JS fallback: a <details> holds the page info")
+        outside = head.replace(info.group(0), "")
+        for moved in ("New to AI agents?", "How we measure", "with measured X numbers", "/news/feed.xml"):
+            self.assertIn(moved, info.group(0), moved)
+            self.assertNotIn(moved, outside, moved)
+        news = json.load(open(os.path.join(ROOT, "data", "news.json")))["items"]
+        self.assertIn(f"{len(news)} stories", info.group(0))  # counts come from the data
+        self.assertIn(f"{sum(1 for n in news if n.get('x'))} with measured X numbers", info.group(0))
+        pill = re.search(r'<p class="nh-pill" id="news-pill">(.*?)</p>', outside, re.S).group(1)
+        self.assertIn('href="/today/"', pill); self.assertIn('href="/bot-checkup/"', pill); self.assertIn('class="nh-x"', pill)
+        self.assertLess(outside.index("news-pill"), outside.index("news-chips"))
+
     def test_live_check_script_reads_the_build(self):
         import check_today
         ed = datetime.date.fromisoformat(re.search(r'<div class="td" data-edition="([\d-]+)"', built("/today/")).group(1))
@@ -286,10 +303,43 @@ class Browser(unittest.TestCase):
         self.assertLess(main_h, pg.evaluate("document.getElementById('main').scrollHeight"))
         ctx.close()
 
+    def test_news_popover_and_pill(self):
+        ctx = self.b.new_context(viewport={"width": 1280, "height": 800}); ctx.set_default_timeout(60000)
+        pg = ctx.new_page()
+        pg.goto(self.base + "/news/")
+        btn = "button.ni-btn"
+        self.assertEqual(pg.get_attribute(btn, "aria-expanded"), "false")
+        self.assertEqual(pg.get_attribute(btn, "aria-controls"), "ni-panel")
+        self.assertFalse(pg.is_visible("#ni-panel"))
+        pg.click(btn)
+        self.assertTrue(pg.is_visible("#ni-panel")); self.assertEqual(pg.get_attribute(btn, "aria-expanded"), "true")
+        pg.keyboard.press("Escape")
+        self.assertFalse(pg.is_visible("#ni-panel")); self.assertEqual(pg.get_attribute(btn, "aria-expanded"), "false")
+        pg.click(btn); pg.mouse.click(20, 780)  # click outside
+        self.assertFalse(pg.is_visible("#ni-panel"))
+        # chips and the top story / trending cards are on the first screen
+        for sel in (".news-chips", ".nb--top .nt--xl", ".nb--top .nb-side .nt"):
+            self.assertLess(pg.evaluate(f"document.querySelector('{sel}').getBoundingClientRect().top"), 800, sel)
+        pg.click("#news-pill .nh-x")
+        self.assertFalse(pg.is_visible("#news-pill"))
+        pg.reload()
+        self.assertFalse(pg.is_visible("#news-pill"))  # remembered in this browser
+        ctx.close()
+
+    def test_news_works_without_js(self):
+        ctx = self.b.new_context(java_script_enabled=False); ctx.set_default_timeout(60000)
+        pg = ctx.new_page()
+        pg.goto(self.base + "/news/")
+        self.assertFalse(pg.is_visible("#ni-panel"))
+        pg.click("summary.ni-btn")
+        self.assertTrue(pg.is_visible("#ni-panel"))
+        self.assertFalse(pg.is_visible("#news-pill .nh-x"))  # no dead dismiss button without JS
+        ctx.close()
+
     def test_mobile_has_no_horizontal_scroll(self):
         ctx = self.b.new_context(viewport={"width": 360, "height": 740}, is_mobile=True)
         pg = ctx.new_page()
-        for p in ("/", "/today/", "/today/archive/", "/guides/"):
+        for p in ("/", "/today/", "/today/archive/", "/guides/", "/news/"):
             pg.goto(self.base + p)
             self.assertLessEqual(pg.evaluate("document.documentElement.scrollWidth"), 361, p)
         ctx.close()
