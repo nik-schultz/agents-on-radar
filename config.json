@@ -1,9 +1,9 @@
 {
   "site_name": "BotsDoThat",
   "_site_name_help": "Brand name (final, picked Oct 21, 2026). Written as one CamelCase word; the header/footer wordmark highlights the middle word. Changing it renames titles, logo, feeds, og image and llms.txt.",
-  "tagline": "There's a bot for that. Here's how.",
-  "subtagline": "See what AI agents are doing for real people, and build your own.",
-  "description": "A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.",
+  "tagline": "What changed in AI assistants today, and one job to try.",
+  "subtagline": "A 3-minute daily check-in for people who use ChatGPT, Claude, Gemini, Grok and Meta AI. Sourced, plain English, and independent of every AI company.",
+  "description": "BotsDoThat Today: every weekday, the 3 changes in AI assistants that matter for everyday users, what each means for you, and one job to try with a copy-paste prompt. Plus a free Bot Checkup for your assistant's settings, a library of everyday jobs to hand to AI, and plain-English guides. Every item links to its source.",
   "base_url": "https://botsdothat.com/",
   "base_path": "",
   "cname": "botsdothat.com",
@@ -21,7 +21,7 @@
     "provider": "Kit",
     "hosted_page": "https://botsdothat.kit.com/e874d57257"
   },
-  "meta_description": "See what AI agents are doing for real people, with sources and real popularity numbers. Then build your own with copy-paste bot blueprints. Updated daily.",
+  "meta_description": "Every weekday: the 3 changes in AI assistants that matter for you, in plain English with sources, plus one job to try with a copy-paste prompt. About 3 minutes.",
   "verification": {
     "google": "",
     "bing": "",

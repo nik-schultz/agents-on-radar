@@ -151,7 +151,7 @@ class PageTests(unittest.TestCase):
         bi = built("/bot-instructions/")
         self.assertIn('class="ck-upsell', bi)
         self.assertIn('id="bb-form"' if 'id="bb-form"' in bi else "bot-builder.js", bi)  # builder still renders
-        self.assertIn(">Start the free Bot Checkup</a>", built("/"))
+        self.assertIn(">Run the free 3-minute checkup</a>", built("/"))  # Today page (Nov 19, 2026 overhaul)
 
 
 class BrowserTests(unittest.TestCase):

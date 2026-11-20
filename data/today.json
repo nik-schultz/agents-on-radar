@@ -1,0 +1,6 @@
+{
+  "_help": "BotsDoThat Today (the home page, /today/ archive and /today/feed.xml). Everything is picked automatically from data/news.json and data/use-cases.json; see scripts/today.py. Optional per-day overrides: days[YYYY-MM-DD] = {picks: [up to 3 news ids, in order], job: use-case slug, note: one plain sentence shown under the date}. first_edition: the weekday the daily Today page launched; editions are numbered from it (null = no numbers, so we never claim editions that didn't run). archive_days: how many weekday editions get their own dated page.",
+  "first_edition": null,
+  "archive_days": 20,
+  "days": {}
+}

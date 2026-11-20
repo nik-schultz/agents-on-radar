@@ -486,11 +486,11 @@ process.stdin.on("end", () => {
             with open(index, encoding="utf-8") as fh:
                 page = fh.read()
             self.assertIn('class="btn btn-sm nav-build" href="/bot-checkup/"', page)
-            self.assertIn(">Start the free Bot Checkup</a>", page)
+            # Nov 19, 2026 overhaul: the home page is the daily Today page; the checkup is its standing call to action.
+            self.assertIn(">Run the free 3-minute checkup</a>", page)
             self.assertIn('href="/bot-instructions/"', page)
             self.assertIn(">Weekly email</a>", page)
             self.assertNotIn(">My bots</a>", page)
-            self.assertLess(page.find('id="subscribe"'), page.find("What's in the feed"))
 
 
 class WeeklyLoopTests(unittest.TestCase):
