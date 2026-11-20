@@ -1238,3 +1238,10 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - Refreshed X numbers on 43 existing items dated Nov 12 or later (+5 new = 48 posts), measured 2026-11-19T20:30Z (raw research/x_news_measure_2026_11_19_pm.json.txt, local only; apply script research/news_x_2026_11_19_pm.py).
 - 4 BACKLOG notes + skips under "PM news 2026-11-19".
 - Deployed: local main `effb0fc5`, publish `abe53555` (`bf3edabe..abe53555`), Actions run 44608778053 succeeded; live /news/ shows the new items.
+
+## 2026-11-19 (Bot Checkup launch, ~10:04 PM CT)
+- Shipped **Bot Checkup** at `/bot-checkup/`: a free in-browser settings checkup for Grok Bot, ChatGPT dots, Claude Duet, Meta Muse and Gemini Tasks, with parent mode, portable house rules, and vendor-sourced settings paths (checked 2026-11-19). `/bot-instructions/` stays a free tool and still works.
+- Top site action is now Bot Checkup: header button “Free checkup”, home hero “Start the free Bot Checkup”, and nav all link to `/bot-checkup/`.
+- Checkup Watch $5 / Household $9 shown as “Coming soon · no charge today”. Interest list posts to existing Kit form 10088120 (`email_address` plus `fields[watch_plan]` = `watch` or `household`). No Stripe, no checkout, PR #2 untouched.
+- Merged PR #3 (`0ea6893c`, parents `abe53555` + `befab677`). Applied the Bot Checkup commit onto local main (which already had the unpushed PM news changelog line) as `baf108b2`. Reset local publish to the merge commit, then deployed with `scripts/deploy.sh`.
+- Deployed: local main `baf108b2`, publish `4507c22a` (`0ea6893c..4507c22a`). Actions: merge run 44671828321 succeeded; deploy.sh run 44671906120 succeeded. Live `/bot-checkup/`, `/`, and `/bot-instructions/` all HTTP 200; headless Chrome ran the checkup flow (Watch form was not submitted).
