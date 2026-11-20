@@ -470,7 +470,8 @@ process.stdin.on("end", () => {
         self.assertIn("Gemini", html)
         self.assertIn("Grok Bot", html)
 
-    def test_header_leads_with_the_builder_and_hides_my_bots(self):
+    def test_header_leads_with_bot_checkup_keeps_builder_and_hides_my_bots(self):
+        """Nov 19, 2026: Bot Checkup replaced the builder as the top site action; the builder stays a free sub-tool."""
         with open(os.path.join(ROOT, "config.json"), encoding="utf-8") as fh:
             cfg = json.load(fh)
         self.assertFalse(cfg["saved_setups"]["sign_in"])
@@ -478,17 +479,17 @@ process.stdin.on("end", () => {
         self.assertFalse(cfg["saved_setups"]["live_launch"])
         with open(os.path.join(ROOT, "scripts", "build.py"), encoding="utf-8") as fh:
             source = fh.read()
-        self.assertIn("Build your bot", source)
         self.assertIn('saved_setups") or {}).get("sign_in")', source)
-        self.assertIn("Try a weekly-planning example", source)
+        self.assertIn('page("/bot-instructions/"', source)
         index = os.path.join(ROOT, "site", "index.html")
         if os.path.exists(index):
             with open(index, encoding="utf-8") as fh:
                 page = fh.read()
-            self.assertIn(">Build your bot</a>", page)
+            self.assertIn('class="btn btn-sm nav-build" href="/bot-checkup/"', page)
+            self.assertIn(">Start the free Bot Checkup</a>", page)
+            self.assertIn('href="/bot-instructions/"', page)
             self.assertIn(">Weekly email</a>", page)
             self.assertNotIn(">My bots</a>", page)
-            self.assertIn('href="/bot-instructions/#weekly-sample"', page)
             self.assertLess(page.find('id="subscribe"'), page.find("What's in the feed"))
 
 

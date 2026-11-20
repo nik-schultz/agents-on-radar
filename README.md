@@ -16,6 +16,7 @@ follow. The site URL comes from `base_url` (now `https://botsdothat.com/`, with 
 ```bash
 python3 scripts/build.py                 # writes site/
 python3 scripts/test_bot_builder.py      # instruction builder: templates, diagnosis, JS parity
+python3 scripts/test_bot_checkup.py      # Bot Checkup: sourced settings data, rules JS parity, page, headless flow
 python3 scripts/check_links.py           # internal link check (add --external to HEAD-check outside links)
 python3 -m http.server 8090 -d site      # preview at http://localhost:8090/
 ```
@@ -33,6 +34,8 @@ data/popularity-history.jsonl   append-only log of every measured number
 scripts/build.py          generator (pages, search index, RSS, sitemap, robots, llms.txt, og.png)
 scripts/bot_builder.py    text-only instruction builder (fixed templates; no model call)
 scripts/test_bot_builder.py  generation, diagnosis, and JS parity tests
+scripts/bot_checkup.py    Bot Checkup (/bot-checkup/): data/checkup.json settings (each cites the vendor's help page), news matching, house rules
+scripts/test_bot_checkup.py  Bot Checkup tests (data honesty, Python/JS rules parity, built page, headless browser flow)
 scripts/validate.py       schema + honesty checks (popularity must be measured integers with url + date)
 scripts/add_use_cases.py  appends data/incoming/*.json → data/use-cases.json
 scripts/refresh_popularity.py   merges real X / Reddit numbers into popularity

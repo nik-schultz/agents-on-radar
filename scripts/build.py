@@ -86,7 +86,7 @@ IMG_DIR = os.path.join(ROOT, "static", "img")
 import hashlib
 def _asset_v(name):  # content hash so browsers fetch fresh CSS/JS after every change
     with open(os.path.join(ROOT, "static", name), "rb") as fh: return hashlib.sha1(fh.read()).hexdigest()[:10]
-ASSET_V = {n: _asset_v(n) for n in ("style.css", "app.js", "bot-builder.js", "accounts.js")}
+ASSET_V = {n: _asset_v(n) for n in ("style.css", "app.js", "bot-builder.js", "accounts.js", "bot-checkup.js")}
 
 def nice_date(d):
     if not d: return ""
@@ -219,7 +219,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
     # Keep <title> within ~62 chars (Google truncates longer ones); drop the brand suffix when it won't fit.
     full_title = title if (NAME in title or len(title) + len(NAME) + 3 > 62) else f"{title} · {NAME}"
     og = absu(u(_og_for(path)))
-    nav = [("/what-can-bots-do/", "What's an AI agent?"), ("/trending/", "Trending"), ("/use-cases/", "Use cases"), ("/blueprints/", "Build a bot"), ("/bot-instructions/", "Instructions"), ("/news/", "AI news"), (LESS, "Run for less")]
+    nav = [("/what-can-bots-do/", "What's an AI agent?"), ("/trending/", "Trending"), ("/use-cases/", "Use cases"), ("/blueprints/", "Build a bot"), ("/bot-checkup/", "Bot Checkup"), ("/news/", "AI news"), (LESS, "Run for less")]
     navh = "".join(f'<a href="{u(p)}"{" class=nav-less" if p == LESS else ""}{" aria-current=page" if path==p else ""}>{"<span class=nav-less-dot aria-hidden=true></span>" if p == LESS else ""}{t}</a>' for p, t in nav)
     doc = f"""<!doctype html><html lang="en" data-page="{kind}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -241,13 +241,13 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <a class="logo" href="{u('/')}"><span class="logo-dot" aria-hidden="true"></span>{wordmark()}</a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-ico" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-lbl">Menu</span></button>
 <nav aria-label="Main" class="menu" id="site-menu">{navh}</nav>
-<div class="nav-actions">{'<a class="nav-mine" href="%s">My bots</a>' % u("/bot-instructions/#bb-account") if (cfg.get("saved_setups") or {}).get("sign_in") else ""}<a class="btn btn-sm nav-build" href="{u('/bot-instructions/')}"{' aria-current="page"' if path=="/bot-instructions/" else ""}>Build your bot</a><a class="btn btn-sm btn-ghost nav-news" href="{u('/newsletter/')}">Weekly email</a></div>
+<div class="nav-actions">{'<a class="nav-mine" href="%s">My bots</a>' % u("/bot-instructions/#bb-account") if (cfg.get("saved_setups") or {}).get("sign_in") else ""}<a class="btn btn-sm nav-build" href="{u('/bot-checkup/')}"{' aria-current="page"' if path=="/bot-checkup/" else ""}>Free checkup</a><a class="btn btn-sm btn-ghost nav-news" href="{u('/newsletter/')}">Weekly email</a></div>
 </div></header>
 <main id="main">{body}{nl_end}</main>
 <footer class="foot"><div class="wrap foot-grid">
 <div><p class="logo"><span class="logo-dot" aria-hidden="true"></span>{wordmark()}</p><p class="foot-tag">{e(TAGLINE)}</p><p class="small">{e(cfg.get('subtagline', ''))}</p>
 <p class="small">General information, not legal, medical or financial advice. Popularity numbers are real counts we measured, with the date. Unknown = not shown. Paid placements are labeled “Sponsored”; affiliate links are labeled “Affiliate link” (<a href="{u(DISCLOSE)}">disclosure</a>).</p></div>
-<div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">Use cases</a></li><li><a href="{u('/blueprints/')}">Build a bot</a></li><li><a href="{u('/bot-instructions/')}">Write bot instructions</a></li><li><a href="{u(BUILD_GUIDE)}">Build an AI agent without coding</a></li><li><a href="{u(COST_GUIDE)}">What an AI agent costs</a></li><li><a href="{u(SAFE_GUIDE)}">Email and calendar safety</a></li><li><a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a></li><li><a href="{u('/what-can-bots-do/')}">What's an AI agent?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
+<div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">Use cases</a></li><li><a href="{u('/blueprints/')}">Build a bot</a></li><li><a href="{u('/bot-checkup/')}">Bot Checkup</a></li><li><a href="{u('/bot-instructions/')}">Write bot instructions</a></li><li><a href="{u(BUILD_GUIDE)}">Build an AI agent without coding</a></li><li><a href="{u(COST_GUIDE)}">What an AI agent costs</a></li><li><a href="{u(SAFE_GUIDE)}">Email and calendar safety</a></li><li><a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a></li><li><a href="{u('/what-can-bots-do/')}">What's an AI agent?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
 <div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/advertise/')}">Advertise</a></li><li><a href="{u(DISCLOSE)}">Affiliate & sponsor disclosure</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u(PRIVACY)}">Privacy</a></li><li><a href="{u(SPONSOR_TERMS)}">Sponsor terms</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li>{('<li><a href="' + e(X_URL) + '" rel="me noopener">Follow on X (@' + e(X_HANDLE) + ')</a></li>') if X_URL else ""}<li><a href="{e(CONTACT_HREF)}">Contact{(": " + e(CONTACT)) if CONTACT else ""}</a></li></ul></div>
 </div><div class="wrap small foot-note">Data as of {nice_date(BUILD_DATE)} · {len(ucs)} use cases · {len(bps)} blueprints</div></footer>
 <script src="{u('/assets/app.js')}?v={ASSET_V['app.js']}" defer></script>
@@ -292,7 +292,7 @@ def featured_slot(slot, cat=None):
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
     return newsletter_box(f"nl-{slot}", "card")  # no sponsor booked: show a newsletter signup instead of an empty ad box
 
-SHARE_PATHS = {GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/"}
+SHARE_PATHS = {GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/", "/bot-checkup/"}
 def share_bar(title, url):
     """Share on X / Copy link / Email a friend. Plain links + one button; no third-party scripts."""
     q = urllib.parse.quote
@@ -629,8 +629,8 @@ home = f"""
 <div class="hl-stack">{hero_heads}</div>
 <div class="hl-stack">{hero_leads}</div>
 {searchbox(home=True)}
-<div class="hero-ctas"><a class="btn" href="{u('/bot-instructions/')}">Build your bot</a><a class="btn btn-ghost" href="{u('/bot-instructions/#weekly-sample')}">Try a weekly-planning example</a></div>
-<p class="small">Instructions, not a hosted bot. Nothing runs or books automatically. Build instructions for the AI app you already use. Check what it gets wrong, then make one small improvement for next week. The guides below stay free.</p>
+<div class="hero-ctas"><a class="btn" href="{u('/bot-checkup/')}">Start the free Bot Checkup</a><a class="btn btn-ghost" href="{u('/bot-instructions/')}">Write rules for a plain chat</a></div>
+<p class="small">Bot Checkup shows the settings to change in Grok Bot, ChatGPT dots, Claude Duet, Meta Muse and Gemini Tasks, each linked to the vendor's own help page, plus one set of house rules for all of them. It runs in your browser. The instruction writer and the guides below stay free.</p>
 </div>
 {radar(TRENDING)}
 </div>
@@ -946,13 +946,31 @@ _bb_bc, _bb_ld = crumbs([("Home", "/"), ("Write instructions", None)])
 _bb_faq = [{"@type": "Question", "name": item["q"], "acceptedAnswer": {"@type": "Answer", "text": item["a"]}} for item in _bb["faq"]]
 page("/bot-instructions/", "Free AI bot instructions builder: copy-paste templates",
      "Free builder for AI bot instructions you paste into ChatGPT, Claude, Gemini or Grok: a weekly plan, an email draft or a quote comparison. No sign-up.",
-     f'<div class="wrap">{_bb_bc}</div>' + bot_builder.render_page_inner(u),
+     f'<div class="wrap">{_bb_bc}<p class="ck-upsell glass small"><b>Using Grok Bot, ChatGPT dots, Claude Duet, Meta Muse or Gemini Tasks?</b> Those assistants can act in your accounts. Run the free <a href="{u("/bot-checkup/")}">Bot Checkup</a> for the settings to change in each app and one set of house rules for all of them. This page stays free for plain chat apps.</p></div>' + bot_builder.render_page_inner(u),
      [_bb_ld, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": _bb_faq},
       {"@context": "https://schema.org", "@type": "WebApplication", "name": "BotsDoThat bot instructions builder", "url": absu(u("/bot-instructions/")), "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (runs in your web browser)", "isAccessibleForFree": True,
        "description": "Fills a fixed template with the facts you type and gives you instructions to paste into your own AI chat app. It does not call an AI model and does not store what you type.",
        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}],
      lastmod="2026-11-08",
      head_extra=f'<script src="{u("/assets/bot-builder.js")}?v={ASSET_V["bot-builder.js"]}" defer></script><script src="{u("/assets/accounts.js")}?v={ASSET_V["accounts.js"]}" defer></script>')
+
+# ---------- BOT CHECKUP (independent settings checkup; replaces the builder as the top site action) ----------
+import bot_checkup
+_ck = bot_checkup.load()
+_ck_errs = bot_checkup.validate(_ck)
+if _ck_errs:
+    raise SystemExit("bot-checkup data: " + "; ".join(_ck_errs))
+_ck_news = bot_checkup.match_news(NEWS, _ck, TODAY)
+_ck_bc, _ck_ld = crumbs([("Home", "/"), ("Bot Checkup", None)])
+_ck_desc = "Free Bot Checkup: the settings to change in Grok Bot, ChatGPT dots, Claude Duet, Meta Muse and Gemini Tasks, linked to each vendor's help page, plus house rules."
+page("/bot-checkup/", "Bot Checkup: what can your AI assistant do with your accounts?", mdesc(_ck_desc),
+     f'<div class="wrap">{_ck_bc}</div>' + bot_checkup.render_page_inner(u, _ck, _ck_news, nice_date, cfg.get("checkup_watch") or {},
+                                                                       cfg["newsletter"].get("form_action", ""), cfg["newsletter"].get("email_field", "email_address"), u(PRIVACY)),
+     [_ck_ld, {"@context": "https://schema.org", "@type": "WebApplication", "name": "BotsDoThat Bot Checkup", "url": absu(u("/bot-checkup/")), "applicationCategory": "UtilitiesApplication",
+               "operatingSystem": "Any (runs in your web browser)", "isAccessibleForFree": True,
+               "description": "Pick your AI assistants and what they can reach. Get the documented settings to change in each app, with the vendor source, and one set of house rules. Runs in the browser; nothing is sent to us.",
+               "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}],
+     head_extra=f'<script src="{u("/assets/bot-checkup.js")}?v={ASSET_V["bot-checkup.js"]}" defer></script>')
 
 for b in bps:
     bc, bld = crumbs([("Home", "/"), ("Build a bot", "/blueprints/"), (b["title"], None)])
@@ -2181,7 +2199,7 @@ pa_body = f"""<article class="wrap narrow explainer">{pab}
 <section class="reveal" id="steps"><h2>How to start with any personal AI agent: {len(PA_STEPS)} steps</h2><ol class="rules">{''.join(f'<li><b>{e(t)}.</b> {e(d)}</li>' for t, d in PA_STEPS)}</ol>
 <p>Copy this first job into any of the five. It only reads, so it's a safe first test:</p>
 {copybox(PA_PROMPT, "First job for any personal AI agent", "pa-prompt")}
-<p class="small">Want a different job? Build one in the free <a href="{u('/bot-instructions/')}">instruction builder</a> or use the <a href="{u(INSTR_GUIDE)}">6-part instructions template</a>.</p></section>
+<p class="small">Already using one of these? Run the free <a href="{u('/bot-checkup/')}">Bot Checkup</a> for the settings to change in each app, linked to the vendor's help page. Want a different job? Build one in the free <a href="{u('/bot-instructions/')}">instruction builder</a> or use the <a href="{u(INSTR_GUIDE)}">6-part instructions template</a>.</p></section>
 <section class="reveal warn glass" id="safety"><h2>Before you connect your email</h2><ol class="rules">
 <li>Start read-only. Let it send, buy or delete only after a week of good results.</li>
 <li>Keep approvals on for sending, buying, deleting and posting.</li>
@@ -2284,7 +2302,7 @@ gt_body = f"""<article class="wrap narrow explainer">{gtb}
 <section class="reveal" id="compare"><h2>Tasks in Gemini vs other agents</h2>
 <p>On ChatGPT, the same kind of job now runs in ChatGPT Work on paid plans (<a href="{u(AGENTMODE_GUIDE)}">what replaced ChatGPT agent mode</a>). To compare plans and approvals across ChatGPT dots, Grok Bot, Meta Muse, Claude Cowork and Gemini, see <a href="{u(PA_GUIDE)}">personal AI agents compared</a>. Want an agent you run yourself, with your own model and cron schedules? Hermes Agent is free and open source: <a href="{u(HMI_GUIDE)}">how to install Hermes Agent</a> ({C('hm_cron', 'Hermes scheduled tasks')}).</p></section>
 <section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(GT_FAQ)}</section>
-<section class="glass explain-card"><h2>Next step</h2><p>Write your first task's rules in the free <a href="{u('/bot-instructions/')}">bot instruction builder</a> (no sign-up, nothing stored), then paste them into Gemini's Task box. Or follow a <a href="{u('/blueprints/')}">blueprint</a> step by step.</p></section>
+<section class="glass explain-card"><h2>Next step</h2><p>Before you connect Gmail or Google Pay, run the free <a href="{u('/bot-checkup/')}">Bot Checkup</a> for the Gemini settings worth changing. Then write your first task's rules in the free <a href="{u('/bot-instructions/')}">bot instruction builder</a> (no sign-up, nothing stored), then paste them into Gemini's Task box. Or follow a <a href="{u('/blueprints/')}">blueprint</a> step by step.</p></section>
 <section class="reveal"><h2>Sources</h2>{_src_list(['g_blog_tasks','g_tasks','g_sched','g_9to5_chan','hm_cron'])}</section>
 </article>"""
 page(GT_GUIDE, "How to use Gemini Tasks (free): set up your first task", _gt_desc, gt_body,
@@ -2486,6 +2504,7 @@ page(PRIVACY, "Privacy policy", f"What {NAME} collects (only your email, if you 
 <li>We use <a href="https://www.cloudflare.com/web-analytics/" rel="noopener">Cloudflare Web Analytics</a> to count page views and see which pages are popular.</li>
 <li>It doesn't use cookies, doesn't track you across other websites, and doesn't give us your name, email or any other personal details. That's why there's no cookie banner.</li></ul>
 <h2>Sponsors who pay us</h2><p>If you buy a sponsor spot, Stripe handles the payment. We never see your full card number. We receive your name, email, billing details Stripe asks for, and what you type at checkout (your website, ad text and start month), and we use them only to run your spot and send receipts. Stripe's <a href="https://stripe.com/privacy" rel="noopener">privacy policy</a> covers how it handles payment data.</p>
+<h2>Bot Checkup</h2><p>The <a href="{u('/bot-checkup/')}">Bot Checkup</a> runs in your browser. The assistants, connections and answers you pick stay in that tab, and we don't receive them. If you join the Checkup Watch interest list, the email address and the plan you picked go to Kit, the same provider that sends the newsletter, and you're added to the newsletter. No payment details are collected.</p>
 <h2>Instruction builder</h2><p>The <a href="{u('/bot-instructions/')}">instruction builder</a> runs in your browser. On this site, what you type stays in that tab. We don't receive it. Copy places the instructions on your clipboard only after you press Copy. Download saves a text file on your device only after you press Download. Clear answers, or closing the tab, drops it. Sign-in and saved setups are not turned on, so there is no account to reopen. Don't type passwords, payment numbers, identity numbers, health details, employer secrets, or someone else's private schedule.</p>
 <h2>What we never do</h2><ul><li>We never sell, rent or share your email address or data.</li><li>We don't run ad-tracking pixels.</li><li>We don't collect what you type into the instruction builder.</li>
 <li>Sponsors never get reader emails. If a sponsor's link is on a page, clicking it takes you to their site, and their privacy policy applies there.</li></ul>
@@ -2508,12 +2527,13 @@ page("/sponsor/", "Sponsor: moved to Advertise", "This page moved to Advertise."
      f'<div class="wrap narrow center"><p class="eyebrow">Moved</p><h1 class="kinetic-sm">This page moved</h1><p class="lead"><a class="btn" href="{u("/advertise/")}">Go to Advertise →</a></p></div>',
      noindex=True, head_extra=f'<meta http-equiv="refresh" content="0; url={u("/advertise/")}">')
 
-page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wrap narrow center"><p class="eyebrow">404</p><h1 class="kinetic-sm">Lost signal.</h1><p class="lead">That page isn\'t on our radar.</p>{searchbox(id_="q404")}<p><a class="btn" href="{u("/bot-instructions/")}">Build your bot</a> <a class="btn btn-ghost" href="{u("/use-cases/")}">Browse use cases</a> <a class="btn btn-ghost" href="{u("/")}">Back to the home page</a></p></div>', noindex=True)
+page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wrap narrow center"><p class="eyebrow">404</p><h1 class="kinetic-sm">Lost signal.</h1><p class="lead">That page isn\'t on our radar.</p>{searchbox(id_="q404")}<p><a class="btn" href="{u("/bot-checkup/")}">Start the free Bot Checkup</a> <a class="btn btn-ghost" href="{u("/use-cases/")}">Browse use cases</a> <a class="btn btn-ghost" href="{u("/")}">Back to the home page</a></p></div>', noindex=True)
 
 # ---------- MACHINE FILES ------------------------------------------------------------
 idx = [{"t": x["title"], "u": u("/use-cases/" + x["slug"] + "/"), "c": CAT[x["category"]]["name"], "i": CAT[x["category"]]["icon"], "d": x["difficulty"], "h": x["_heat"], "s": search_text(x)} for x in ucs]
 idx += [{"t": "Blueprint: " + b["title"], "u": u("/blueprints/" + b["slug"] + "/"), "c": "Blueprint", "i": "⚙", "d": b["difficulty"], "h": 0, "s": norm(b["title"] + " " + b["goal"] + " " + b["watches"])} for b in bps]
 idx += [{"t": t, "u": u(pth), "c": "Guide", "i": "📘", "d": "Easy", "h": 0, "s": norm(t + " " + d + (" openclaw hermes agent nous research self-hosted open source" if pth in (CLAW_GUIDE, ALT_GUIDE, HMI_GUIDE) else "") + (" nod nanobot nanoclaw zeroclaw ironclaw alternative" if pth == ALT_GUIDE else "") + (" install setup windows mac linux desktop" if pth == HMI_GUIDE else "") + (" personal ai agent always-on dots grok bot muse cowork gemini tasks spark compare best free" if pth == PA_GUIDE else "") + (" gemini tasks task mode spark schedule scheduled free google gmail calendar email text gemini@google.com" if pth == GT_GUIDE else ""))} for pth, t, d in NEW_GUIDES]
+idx.append({"t": "Bot Checkup: settings to change in your AI assistant", "u": u("/bot-checkup/"), "c": "Guide", "i": "✓", "d": "Easy", "h": 0, "s": norm("bot checkup ai assistant settings permissions approvals grok bot chatgpt dots claude duet meta muse gemini tasks house rules parent scam safety")})
 idx.append({"t": "Write bot instructions", "u": u("/bot-instructions/"), "c": "Guide", "i": "✎", "d": "Easy", "h": 0, "s": norm("write bot instructions text only chat weekly planning email draft compare quotes troubleshooting template pilot")})
 json.dump(idx, open(os.path.join(OUT, "assets", "search-index.json"), "w"), ensure_ascii=False, separators=(",", ":"))
 
@@ -2543,7 +2563,7 @@ bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "
 open(os.path.join(OUT, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {absu(u('/sitemap.xml'))}\n")
 
 L1 = [f"# {NAME}", "", f"> {TAGLINE} {cfg['description']}", "", f"Data as of {BUILD_DATE}. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.", "",
-      "## Start here", f"- [What is an AI agent? (in simple terms)]({absu(u('/what-can-bots-do/'))}): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely", *[f"- [{t}]({absu(u(pth))}): {d}" for pth, t, d in NEW_GUIDES[1:]], f"- [How to build an AI agent without coding]({absu(u(BUILD_GUIDE))}): step-by-step beginner guide using a real blueprint as the worked example", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Free bot instructions builder]({absu(u('/bot-instructions/'))}): free in-browser templates that write copy-paste instructions for ChatGPT, Claude, Gemini or Grok (a weekly plan, an email draft, or a quote comparison). No sign-up; nothing is stored. Saved setups are not on sale; sign-in and checkout are off", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", f"- [{NAME} Weekly newsletter]({absu(u('/newsletter/'))}): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; new subscribers get a free Starter Pack PDF of 7 ready-to-paste agent setups plus a power-user bonus; past issues on the web", "", "## Use cases by category"]
+      "## Start here", f"- [What is an AI agent? (in simple terms)]({absu(u('/what-can-bots-do/'))}): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely", *[f"- [{t}]({absu(u(pth))}): {d}" for pth, t, d in NEW_GUIDES[1:]], f"- [How to build an AI agent without coding]({absu(u(BUILD_GUIDE))}): step-by-step beginner guide using a real blueprint as the worked example", f"- [AI agent examples for everyday life]({absu(u('/ai-agent-examples/'))}): every example on one page, grouped by part of life", f"- [Bot Checkup]({absu(u('/bot-checkup/'))}): free checkup of the settings to change in Grok Bot, ChatGPT dots, Claude Duet, Meta Muse and Gemini Tasks, each linked to the vendor's help page, plus portable house rules", f"- [Trending now]({absu(u('/trending/'))})", f"- [Bot blueprints]({absu(u('/blueprints/'))}): build-your-own-bot recipes", f"- [Free bot instructions builder]({absu(u('/bot-instructions/'))}): free in-browser templates that write copy-paste instructions for ChatGPT, Claude, Gemini or Grok (a weekly plan, an email draft, or a quote comparison). No sign-up; nothing is stored. Saved setups are not on sale; sign-in and checkout are off", f"- [Latest in AI]({absu(u('/news/'))}): new models, agent launches and AI price changes in plain words, with sources (RSS: {absu(u('/news/feed.xml'))})", f"- [Run your bots for less]({absu(u(LESS))}): how to reduce AI API costs (model choice, free tiers, caching, batch, schedules, spend limits)", f"- [AI agent cost calculator]({absu(u(LESS))}#calculator): pick a bot or enter runs and message size, compare monthly cost across {len(CALC_MODELS)} models from official prices checked {PR['checked_on']}; prefill with ?bot=<blueprint-slug>", f"- [AI price table]({absu(u(PRICING))}): official API and plan prices for {', '.join(provs[:-1])} and {provs[-1]}, checked {PR['checked_on']}", f"- [RSS feed of new use cases]({absu(u('/feed.xml'))})", f"- [{NAME} Weekly newsletter]({absu(u('/newsletter/'))}): free weekly email with 3 to 5 sourced jobs you can hand to AI, a prompt to copy and one thing that went wrong; new subscribers get a free Starter Pack PDF of 7 ready-to-paste agent setups plus a power-user bonus; past issues on the web", "", "## Use cases by category"]
 for c in cats:
     L1 += ["", f"### {c['name']}", f"All {c['name']} use cases: {absu(u('/category/'+c['slug']+'/'))}"] + [f"- [{x['title']}]({absu(u('/use-cases/'+x['slug']+'/'))}): {x['summary']}" for x in ucs if x["category"] == c["slug"]]
 L1 += ["", "## Latest in AI (newest first)"] + [f"- {n['date']} [{n['category']}] {n['headline']}: {n['explainer']} Source: {n['source_url']}" for n in NEWS[:15]]

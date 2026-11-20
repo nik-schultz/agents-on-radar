@@ -59,5 +59,11 @@
     "supabase_publishable_key": "",
     "accounts_api_url": "",
     "_help": "Keep all three flags false in this file. Sign-in and billing turn on only after a Supabase project for this product and a billing server exist. Never put a service-role key or a Stripe secret here."
+  },
+  "checkup_watch": {
+    "charging": false,
+    "plan_field": "watch_plan",
+    "tag_id": "",
+    "_help": "Checkup Watch interest list on /bot-checkup/. Uses the existing Kit newsletter form (newsletter.form_action, form 10088120): email_address plus fields[<plan_field>] = watch or household. Create a Kit custom field whose key is plan_field (label 'watch_plan') BEFORE this goes live, or Kit may drop or reject the value. tag_id is optional: a Kit tag id sent as tags[]; leave empty unless a Kit tag exists. charging must stay false: there is no checkout, no Stripe and nothing from PR #2 here."
   }
 }
