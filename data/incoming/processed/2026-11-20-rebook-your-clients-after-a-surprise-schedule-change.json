@@ -1,0 +1,89 @@
+{
+  "slug": "rebook-your-clients-after-a-surprise-schedule-change",
+  "title": "Rebook all your clients after a surprise schedule change",
+  "category": "business",
+  "source_date": "2026-11-17",
+  "summary": "When a surgery, a sick day or a family emergency wipes out your week, your bot moves everyone for you. It looks at when each client usually comes, offers each one a new slot that fits, updates the calendar when they say yes, and sends reminders the night before.",
+  "what_the_bot_does": [
+    "Lists every appointment in the days you lost, from your calendar or booking app.",
+    "Looks at each client's past visits to learn the day and time they usually come.",
+    "Writes each client a short, friendly message offering one or two new slots that fit their usual pattern, and shows you the messages before they go out.",
+    "Updates the calendar only after a client confirms, and keeps a list of who hasn't answered.",
+    "Every evening, reminds the next day's clients of their time and details."
+  ],
+  "what_you_end_up_with": "A rebuilt schedule with every client offered a slot that suits them, in about an hour instead of a full day of texting, plus automatic reminders.",
+  "difficulty": "Medium",
+  "tools": [
+    {
+      "id": "grok-bot",
+      "note": "The salon example used Google Calendar history and WhatsApp messages"
+    },
+    {
+      "id": "meta-muse",
+      "note": "Can message in WhatsApp"
+    },
+    {
+      "id": "gemini-spark",
+      "note": "Works with Google Calendar"
+    },
+    {
+      "id": "chatgpt-dots"
+    }
+  ],
+  "prompt": "My schedule changed: I can't work from [first date] to [last date]. Help me move everyone.\n\n1. List every client appointment in those dates from my [Google Calendar / booking app], with name, service and length.\n2. For each client, look at their past appointments and tell me the day and time they usually come.\n3. Find open slots from [new start date] onward that fit each client's usual day and time. Don't double-book, and keep [my break / closing time] free.\n4. Draft one short, friendly message per client: '[My business] here. I have to move your [service] on [old date]. Would [slot 1] or [slot 2] work?' Show me all drafts before sending anything.\n5. When I approve, send them on [WhatsApp / text / email]. Only change the calendar after a client says yes. Keep a list of who hasn't answered after [24] hours.\n6. From now on, every evening at [6 pm], remind tomorrow's clients of their time and address.\n\nNever share one client's details with another, and ask me before offering a discount or anything I didn't list.",
+  "setup": [
+    "Connect your calendar or booking app and the app you message clients with (WhatsApp, text or email). Check that past appointments have the client's name in them.",
+    "Run steps 1 and 2 of the prompt first and read the list. If it's missing people, fix the calendar before going on.",
+    "Approve the message drafts in a batch, but read a few in full first, especially for regulars.",
+    "Let it send, then check back in an hour. Clients who ask for something different go to you.",
+    "Keep the evening reminders running after the rush. They cut no-shows."
+  ],
+  "watch_out": [
+    "Bulk messages from a new number or account can be flagged as spam. Send from the number your clients already know.",
+    "Ask it to change the calendar only after each 'yes'. Otherwise you can end up with two clients in one slot.",
+    "Client names, phone numbers and appointment history are private. Connect only the calendar that holds them, and keep health details out of messages.",
+    "The salon story is one owner's report shared by her husband (X, 2 likes); test it on a few clients before trusting it with all of them."
+  ],
+  "sources": [
+    {
+      "label": "X post by @ShuiCohen (2026-11-17): the day before his wife's surgery the hospital moved it back two weeks; her Grok Bot 'read each client's past appointments in Google Calendar, learned the day and time they usually come in, and offered each one a slot that fit on WhatsApp', rebooking almost 70 nail salon clients in about an hour, and now sends evening reminders; 'She's not a tech person. She runs a salon.' (2 likes / 1 repost / 3 replies / 62 views, measured 2026-11-20)",
+      "url": "https://x.com/ShuiCohen/status/2122744219592786291",
+      "kind": "x"
+    },
+    {
+      "label": "Reddit r/SaaS (about two months old as of 2026-11-20): 'I built an AI receptionist that books appointments inside WhatsApp and Instagram DMs. Salon and barber owners, tell me why this won't work for you.' A builder asking salon and barber owners about letting an AI handle bookings in the chat apps their clients already use",
+      "url": "https://www.reddit.com/r/SaaS/comments/1wf7yas/i_built_an_ai_receptionist_that_books/",
+      "kind": "reddit"
+    },
+    {
+      "label": "X post by @lukesammons (2026-11-20): his bot 'Clinic Desk' made 8+ phone calls to 4 clinics in two weeks to book, confirm and reschedule family doctor, dentist and specialist appointments, then handed them to his chief-of-staff bot, which added them to his iOS calendar (1 like / 26 views, measured 2026-11-20)",
+      "url": "https://x.com/lukesammons/status/2123587073202647177",
+      "kind": "x"
+    }
+  ],
+  "popularity": {
+    "platform": "x",
+    "post_id": "2122744219592786291",
+    "author": "@ShuiCohen",
+    "url": "https://x.com/ShuiCohen/status/2122744219592786291",
+    "posted_at": "2026-11-17",
+    "likes": 2,
+    "reposts": 1,
+    "replies": 3,
+    "bookmarks": 1,
+    "views": 62,
+    "measured_at": "2026-11-20"
+  },
+  "tags": [
+    "reschedule",
+    "rebook",
+    "clients",
+    "salon",
+    "small business",
+    "appointments",
+    "whatsapp",
+    "google calendar",
+    "reminders",
+    "sick day"
+  ]
+}

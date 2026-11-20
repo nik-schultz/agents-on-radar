@@ -1,0 +1,45 @@
+{
+  "slug": "check-on-every-package-and-chase-the-late-ones",
+  "title": "Have your bot check on every package and chase the late ones",
+  "category": "shopping",
+  "source_date": "2026-11-20",
+  "summary": "Your bot finds every shipping email from the last couple of weeks, opens each carrier's tracking page, and tells you what's on time, what's stuck and what to do about it. If a package is late or marked delivered but missing, it drafts the message to the store (or, in some apps, calls them) and waits for your OK.",
+  "what_the_bot_does": [
+    "Searches your email for order and shipping confirmations from the last [2] weeks and pulls out each tracking number.",
+    "Opens each carrier's tracking page itself, because the status in a days-old email is often out of date.",
+    "Sorts everything into: arriving today, on its way, stuck or late, and delivered.",
+    "For anything stuck (for example sitting at 'label created' for days) or 'delivered' but not at your door, drafts a short message to the store with the order number, and asks you before sending.",
+    "Can run on a schedule, like every morning in December, and only message you when something needs you."
+  ],
+  "what_you_end_up_with": "One short list of every package and where it really is, plus a ready-to-send note to the store for any that went wrong.",
+  "difficulty": "Easy",
+  "tools": [
+    {"id": "gemini-spark", "note": "Tasks in Gemini (now free in the US, Canada, Australia, India, Japan and Korea) reads Gmail and opens carrier sites; TechRadar's Nov 20 test"},
+    {"id": "grok-bot", "note": "Community templates such as Package Tracker and Order Concierge; can call a seller in the US after you approve"},
+    {"id": "meta-muse", "note": "One user says Muse handles UPS tracking well"},
+    {"id": "chatgpt-dots"}
+  ],
+  "prompt": "Check on all my packages. Look through my email for order and shipping confirmations from the last [14] days.\n\nFor each one, open the carrier's tracking page (don't just trust the email) and give me one short list:\n- Arriving today\n- On its way (with the expected date)\n- Stuck or late (no movement for [3] days, or past the promised date)\n- Delivered\n\nFor anything stuck, late, or marked delivered that I say I don't have, draft a short, polite message to the store with the order number, what the tracking shows, and what I'd like (an update or a replacement). Show me the draft. Don't send, call or file a claim without asking me first.\n\nIf you can't open a tracking page, say so instead of guessing.",
+  "setup": [
+    "Pick an assistant that can read your email and open websites: Tasks in Gemini (switch the Gemini home screen from Chat to Task), Grok Bot, ChatGPT dots or Muse.",
+    "Connect only the email account your orders go to. Read-only is enough for the checking part.",
+    "Paste the prompt and run it once while you watch. Check that it found every order you know about.",
+    "If it works, make it a routine: every morning during the holidays, or every Monday. Ask it to stay quiet unless something is late.",
+    "When it drafts a message to a store, read it, fix anything wrong, then send it yourself or tell it to send."
+  ],
+  "watch_out": [
+    "A routine can quietly stop working. One Grok Bot user found his shipping-tracking bot had 'silently ceased to do any work at all' after a one-off 'don't retry that' instruction during a UPS outage (X @randallwdean, Nov 16). Ask it to send a one-line 'all checked' note so you notice when it goes silent.",
+    "It only sees orders that have an email in the inbox you connected. Orders placed under another email or in an app won't show up.",
+    "Calling a store or filing a missing-package claim is a real action. Keep 'ask me first' on, and check the order number before it goes out.",
+    "Shipping-scam texts are common in the holidays. The bot should use the tracking link from the store's own email or the carrier's site, never a link from a text."
+  ],
+  "sources": [
+    {"label": "TechRadar, Eric Hal Schwartz (2026-11-20), '5 everyday jobs you can now ask Gemini Tasks to do': asked Tasks to find all shipping confirmations from two weeks, it opened both carriers' sites, found one package out for delivery and one stuck at 'Shipping Label Created' for days, and drafted an email to the seller for approval (about four minutes)", "url": "https://www.techradar.com/ai-platforms-assistants/google-just-made-its-ai-agent-free-here-are-5-everyday-jobs-you-can-now-ask-gemini-tasks-to-do-for-you", "kind": "article"},
+    {"label": "X post by @silentguyy66 (2026-11-18): when an order says 'delivered' but the photo shows someone else's doorstep, have Grok Bot call the seller (US), open an investigation and come back with a case number and follow-up date; 'check with me before agreeing to any extra charges' (48 likes / 30 bookmarks / 1,114 views, measured 2026-11-20)", "url": "https://x.com/silentguyy66/status/2123062451214180667", "kind": "x"},
+    {"label": "Bot Shelf: Package Tracker, a Grok Bot template by John Vanskiver (shared on X 2026-10-18): tracks packages from tracking numbers and shipping emails, flags delays, early arrivals and out-for-delivery, logs when each one arrives", "url": "https://botshelf.dev/templates/c84d173b9a7c/", "kind": "article"},
+    {"label": "Grok Bot Templates: Order Concierge by @MinLiBuilds (listed 2026-10-31): 'Know where every online shopping order stands', delivery tracking from order and shipping emails, drafts missing-package claims; the directory suggests adding 'Ask me before sending, posting, buying or deleting anything'", "url": "https://www.grokbottemplates.dev/templates/order-concierge", "kind": "article"},
+    {"label": "X reply by @lutefiskguy (2026-11-17): 'Right now Muse outperforms Grok Bot on package tracking (UPS)'", "url": "https://x.com/lutefiskguy/status/2122743625847349398", "kind": "x"}
+  ],
+  "popularity": {"platform": "x", "post_id": "2123062451214180667", "author": "@silentguyy66", "url": "https://x.com/silentguyy66/status/2123062451214180667", "posted_at": "2026-11-18", "likes": 48, "reposts": 1, "replies": 1, "bookmarks": 30, "views": 1114, "measured_at": "2026-11-20"},
+  "tags": ["packages", "delivery", "tracking", "late package", "missing package", "holiday shopping", "gemini tasks", "routine", "shipping emails"]
+}
