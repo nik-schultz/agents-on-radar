@@ -1237,3 +1237,4 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - No major release and no model price change (Tool Retrieval has no separate charge), so ai-pricing.json untouched.
 - Refreshed X numbers on 43 existing items dated Nov 12 or later (+5 new = 48 posts), measured 2026-11-19T20:30Z (raw research/x_news_measure_2026_11_19_pm.json.txt, local only; apply script research/news_x_2026_11_19_pm.py).
 - 4 BACKLOG notes + skips under "PM news 2026-11-19".
+- Deployed: local main `effb0fc5`, publish `abe53555` (`bf3edabe..abe53555`), Actions run 44608778053 succeeded; live /news/ shows the new items.
