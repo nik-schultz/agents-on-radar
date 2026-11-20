@@ -17,6 +17,7 @@ follow. The site URL comes from `base_url` (now `https://botsdothat.com/`, with 
 python3 scripts/build.py                 # writes site/
 python3 scripts/test_bot_builder.py      # instruction builder: templates, diagnosis, JS parity
 python3 scripts/test_bot_checkup.py      # Bot Checkup: sourced settings data, rules JS parity, page, headless flow
+python3 scripts/test_today.py            # Today page: picks, editions, archive/feed/canonical, old URLs, streak + app picker in headless Chrome
 python3 scripts/check_links.py           # internal link check (add --external to HEAD-check outside links)
 python3 -m http.server 8090 -d site      # preview at http://localhost:8090/
 ```
@@ -84,6 +85,16 @@ previews/                 screenshots (git-ignored)
 
 Reddit numbers: Reddit blocks reads from this box. If you get counts another way, write JSON lines
 `{"url","upvotes","comments","measured_at"}` and run `python3 scripts/refresh_popularity.py --from-reddit file.jsonl`.
+
+## Today (the home page, since the Nov 19, 2026 overhaul)
+`/` is **BotsDoThat Today**: each weekday, the 3 changes in AI assistants that matter for everyday users ("what it means for you" = the item's `explainer`), one **job of the day** with its prompt, a Bot Checkup alert when the week's news touches Grok Bot, ChatGPT dots, Claude Duet, Meta Muse or Gemini Tasks, and "Also today".
+It fills itself from the routines' data; `scripts/today.py` holds the rules and `scripts/test_today.py` tests them.
+- **3 changes:** `data/news.json` items for the edition date (weekend items roll into Monday), ranked by `impact`, then by a Bot Checkup assistant match, then by measured X views. Fewer than 3 that day: the newest older items fill in and show their own date.
+- **Job of the day:** a use case added that day (easiest first), otherwise a fixed rotation through Easy use cases.
+- **Overrides (optional):** `data/today.json` `days["YYYY-MM-DD"] = {"picks": [news ids], "job": "use-case-slug", "note": "one sentence"}`. `first_edition` turns on edition numbers from launch day (null = no numbers).
+- Also built: `/today/` (last `archive_days` editions), `/today/<date>/` (the latest one canonicalises to `/`), `/today/feed.xml`, and `/guides/` (every guide grouped: Start here, Stay safe, Compare, Costs, Ready-made setups).
+- **Streak / tried it / "which apps do you use":** `static/today.js`, localStorage only (`bdt-days`, `bdt-apps`), no network calls. "I tried this" also appears on every use-case page.
+- Nav: Today · Jobs to try (`/use-cases/`) · Bot Checkup · AI news · Guides. No URL was removed; `scripts/fixtures/urls-before-overhaul.txt` is the pre-overhaul URL list the tests check.
 
 ## Latest in AI (daily news update)
 `data/news.json` feeds the "Latest in AI" tiles on the homepage (top story + 3 trending + newest), plus `/news/` (Top story mega-tile, Trending tiles, This week / Earlier grids, filter chips), `/news/feed.xml`, the sitemap and llms.txt.

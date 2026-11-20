@@ -205,7 +205,7 @@ def render_page_inner(u, d, news, nice_date, watch_cfg, nl_action, nl_email_fiel
 <p class="small muted">Menus change often and some features roll out by plan or country, so what you see may differ. If a path is wrong, <a href="mailto:hello@botsdothat.com">tell us</a>.</p></section>
 
 <section class="wrap block" id="news" aria-labelledby="ck-news-h"><h2 id="ck-news-h">News that affects your setup</h2>
-<p class="muted">Dated items from our daily AI news feed, matched to the assistants you picked. Each links to its source.</p>
+<p class="muted">Dated items from our daily AI news feed, matched to the assistants you picked. Each links to its source. New ones show up on <a href="{u("/")}">Today</a> as a Checkup alert.</p>
 <ul class="ck-newslist glass">{news_html or '<li>No recent items.</li>'}</ul></section>
 
 <section class="wrap block" id="house-rules" aria-labelledby="ck-rules-h"><h2 id="ck-rules-h">Your house rules, one set for every assistant</h2>

@@ -86,7 +86,7 @@ IMG_DIR = os.path.join(ROOT, "static", "img")
 import hashlib
 def _asset_v(name):  # content hash so browsers fetch fresh CSS/JS after every change
     with open(os.path.join(ROOT, "static", name), "rb") as fh: return hashlib.sha1(fh.read()).hexdigest()[:10]
-ASSET_V = {n: _asset_v(n) for n in ("style.css", "app.js", "bot-builder.js", "accounts.js", "bot-checkup.js")}
+ASSET_V = {n: _asset_v(n) for n in ("style.css", "app.js", "bot-builder.js", "accounts.js", "bot-checkup.js", "today.js")}
 
 def nice_date(d):
     if not d: return ""
@@ -202,8 +202,8 @@ def _og_for(path):
     key = ("/" + path.split("#")[0].split("?")[0].strip("/") + "/").replace("//", "/")
     if key in OG_IMAGES: OG_USED.add(key); return OG_IMAGES[key]
     return "/assets/og.png"
-def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="page", og_type="website", head_extra=""):
-    canon = absu(u(path))
+def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="page", og_type="website", head_extra="", canonical=None):
+    canon = absu(canonical or u(path))
     _ldj = json.dumps(ld or [], ensure_ascii=False, sort_keys=True)
     moddate = None
     if MOD_ISO in body or MOD_NICE in body or MOD_ISO in _ldj:
@@ -219,8 +219,8 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
     # Keep <title> within ~62 chars (Google truncates longer ones); drop the brand suffix when it won't fit.
     full_title = title if (NAME in title or len(title) + len(NAME) + 3 > 62) else f"{title} · {NAME}"
     og = absu(u(_og_for(path)))
-    nav = [("/what-can-bots-do/", "What's an AI agent?"), ("/trending/", "Trending"), ("/use-cases/", "Use cases"), ("/blueprints/", "Build a bot"), ("/bot-checkup/", "Bot Checkup"), ("/news/", "AI news"), (LESS, "Run for less")]
-    navh = "".join(f'<a href="{u(p)}"{" class=nav-less" if p == LESS else ""}{" aria-current=page" if path==p else ""}>{"<span class=nav-less-dot aria-hidden=true></span>" if p == LESS else ""}{t}</a>' for p, t in nav)
+    nav = [("/", "Today"), ("/use-cases/", "Jobs to try"), ("/bot-checkup/", "Bot Checkup"), ("/news/", "AI news"), ("/guides/", "Guides")]  # 2026-11-19 overhaul: one daily front page; everything else is one click from it
+    navh = "".join(f'<a href="{u(p)}"{" aria-current=page" if (path == p or (p == "/" and path.startswith("/today/"))) else ""}>{t}</a>' for p, t in nav)
     doc = f"""<!doctype html><html lang="en" data-page="{kind}"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{e(full_title)}</title><meta name="description" content="{e(desc)}">
@@ -247,16 +247,16 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <footer class="foot"><div class="wrap foot-grid">
 <div><p class="logo"><span class="logo-dot" aria-hidden="true"></span>{wordmark()}</p><p class="foot-tag">{e(TAGLINE)}</p><p class="small">{e(cfg.get('subtagline', ''))}</p>
 <p class="small">General information, not legal, medical or financial advice. Popularity numbers are real counts we measured, with the date. Unknown = not shown. Paid placements are labeled “Sponsored”; affiliate links are labeled “Affiliate link” (<a href="{u(DISCLOSE)}">disclosure</a>).</p></div>
-<div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">Use cases</a></li><li><a href="{u('/blueprints/')}">Build a bot</a></li><li><a href="{u('/bot-checkup/')}">Bot Checkup</a></li><li><a href="{u('/bot-instructions/')}">Write bot instructions</a></li><li><a href="{u(BUILD_GUIDE)}">Build an AI agent without coding</a></li><li><a href="{u(COST_GUIDE)}">What an AI agent costs</a></li><li><a href="{u(SAFE_GUIDE)}">Email and calendar safety</a></li><li><a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a></li><li><a href="{u('/what-can-bots-do/')}">What's an AI agent?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
+<div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/')}">Today in AI assistants</a></li><li><a href="{u('/today/')}">All Today editions</a></li><li><a href="{u('/guides/')}">All guides</a></li><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">Use cases</a></li><li><a href="{u('/blueprints/')}">Build a bot</a></li><li><a href="{u('/bot-checkup/')}">Bot Checkup</a></li><li><a href="{u('/bot-instructions/')}">Write bot instructions</a></li><li><a href="{u(BUILD_GUIDE)}">Build an AI agent without coding</a></li><li><a href="{u(COST_GUIDE)}">What an AI agent costs</a></li><li><a href="{u(SAFE_GUIDE)}">Email and calendar safety</a></li><li><a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a></li><li><a href="{u('/what-can-bots-do/')}">What's an AI agent?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
 <div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/advertise/')}">Advertise</a></li><li><a href="{u(DISCLOSE)}">Affiliate & sponsor disclosure</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u(PRIVACY)}">Privacy</a></li><li><a href="{u(SPONSOR_TERMS)}">Sponsor terms</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li>{('<li><a href="' + e(X_URL) + '" rel="me noopener">Follow on X (@' + e(X_HANDLE) + ')</a></li>') if X_URL else ""}<li><a href="{e(CONTACT_HREF)}">Contact{(": " + e(CONTACT)) if CONTACT else ""}</a></li></ul></div>
 </div><div class="wrap small foot-note">Data as of {nice_date(BUILD_DATE)} · {len(ucs)} use cases · {len(bps)} blueprints</div></footer>
-<script src="{u('/assets/app.js')}?v={ASSET_V['app.js']}" defer></script>
+<script src="{u('/assets/app.js')}?v={ASSET_V['app.js']}" defer></script><script src="{u('/assets/today.js')}?v={ASSET_V['today.js']}" defer></script>
 </body></html>"""
     fp = os.path.join(OUT, path.lstrip("/"), "index.html") if path.endswith("/") else os.path.join(OUT, path.lstrip("/"))
     os.makedirs(os.path.dirname(fp), exist_ok=True)
     if moddate: doc = doc.replace(MOD_ISO, moddate).replace(MOD_NICE, nice_date(moddate))
     open(fp, "w").write(doc)
-    if not noindex: SITEMAP.append((canon, lastmod or BUILD_DATE))
+    if not noindex and not canonical: SITEMAP.append((canon, lastmod or BUILD_DATE))
 
 def is_demand(src):  # Google search-suggestion lookups show demand, not facts
     return "google.com/search" in src.get("url", "") or "search suggestions" in src.get("label", "").lower()
@@ -618,67 +618,8 @@ cat_tiles = "".join(f"""<li class="cat-tile reveal" style="--i:{i}"><a href="{u(
 <h3>{e(c['name'])}</h3><p>{e(c['blurb'])}</p><span class="count">{sum(1 for x in ucs if x['category']==c['slug'])} use cases →</span></a></li>""" for i, c in enumerate(cats))
 bp_cards = "".join(f"""<li class="bp-card glass reveal"><a href="{u('/blueprints/'+b['slug']+'/')}">{art(b['art'], cls='bp-art')}<span class="bp-trigger">⏱ {e(b['trigger'])}</span><h3>{e(b['title'])}</h3><p>{e(b['goal'])}</p><span class="diff diff-{e(b['difficulty'].lower())}">{e(b['difficulty'])}</span></a></li>""" for b in bps[:4])
 
-home = f"""
-<div class="intro" id="intro" aria-hidden="true"><div class="intro-radar"><div class="radar-rings"></div><div class="radar-sweep"></div></div>
-<div class="intro-term"><p class="l1">&gt; scanning X, Reddit and the web…</p><p class="l2">&gt; {len(ucs)} real use cases found</p><p class="l3">&gt; {len(bps)} bot blueprints ready_</p></div>
-<button class="intro-skip" type="button" tabindex="-1">Skip intro</button></div>
-<section class="hero"><div class="wrap hero-grid">
-<div class="hero-copy">
-<p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Live feed · updated {nice_date(latest_added)}</p>
-<p class="hero-tag">{e(TAGLINE)}</p>
-<div class="hl-stack">{hero_heads}</div>
-<div class="hl-stack">{hero_leads}</div>
-{searchbox(home=True)}
-<div class="hero-ctas"><a class="btn" href="{u('/bot-checkup/')}">Start the free Bot Checkup</a><a class="btn btn-ghost" href="{u('/bot-instructions/')}">Write rules for a plain chat</a></div>
-<p class="small">Bot Checkup shows the settings to change in Grok Bot, ChatGPT dots, Claude Duet, Meta Muse and Gemini Tasks, each linked to the vendor's own help page, plus one set of house rules for all of them. It runs in your browser. The instruction writer and the guides below stay free.</p>
-</div>
-{radar(TRENDING)}
-</div>
-<div class="ticker" aria-label="Most-liked recent posts"><ul class="ticker-track">{ticker}{ticker.replace('<li>', '<li aria-hidden="true">').replace('<a href=', '<a tabindex="-1" href=')}</ul></div>
-</section>
-<div class="wrap nl-hero" id="subscribe">{newsletter_box("nl-hero", "inline")}</div>
-
-<section class="wrap stats reveal" aria-label="What's in the feed"><div><b>{len(ucs)}</b><span>use cases</span></div><div><b>{len(TRENDING)}</b><span>with measured popularity</span></div><div><b>{len(bps)}</b><span>bot blueprints</span></div><div><b>{n_sources}</b><span>linked sources</span></div></section>
-
-<section class="wrap block news-block" aria-labelledby="news-h"><div class="block-head"><div><p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Latest in AI</p><h2 id="news-h">New models and agent launches, in plain words</h2>
-<p class="muted">The top story, what's trending on X, and what it means for you and your bots. Every item links to the official announcement or a news report.</p></div><a class="btn btn-ghost btn-sm" href="{u('/news/')}">All AI news →</a></div>
-{news_strip}</section>
-
-<section class="wrap block" id="trending" aria-labelledby="tr-h">
-<div class="block-head"><div><p class="eyebrow">Trending now</p><h2 id="tr-h">What people are getting bots to do right now</h2>
-<p class="muted">Ranked by real likes, reposts, upvotes and points from X, Reddit and Hacker News, weighted toward newer posts (last {cfg.get('trending_window_days',60)} days). <a href="{u('/about/#popularity')}">How we measure</a>.</p></div>
-<a class="btn btn-ghost btn-sm" href="{u('/trending/')}">Full trending list →</a></div>
-<ol class="bento">{trend_cards}</ol></section>
-
-{less_band}
-
-<section class="wrap block" aria-labelledby="new-h">
-<div class="block-head"><div><p class="eyebrow">Just added</p><h2 id="new-h">Fresh off the radar</h2></div><a class="btn btn-ghost btn-sm" href="{u('/feed.xml')}">RSS feed</a></div>
-<div class="feed glass"><div class="term-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="term-title">live-feed — newest first</span></div><ol class="feed-list">{feed_rows}</ol>
-<a class="feed-more" href="{u('/use-cases/?sort=new')}">See all {len(ucs)} use cases →</a></div></section>
-
-<section class="wrap block" aria-labelledby="cat-h"><div class="block-head"><div><p class="eyebrow">Categories</p><h2 id="cat-h">Pick the part of life you want back</h2></div></div>
-<ul class="cats-bento">{cat_tiles}</ul></section>
-
-<section class="wrap block" aria-labelledby="bp-h"><div class="block-head"><div><p class="eyebrow">Build a bot</p><h2 id="bp-h">Copy a blueprint. Paste. Done.</h2>
-<p class="muted">Each blueprint says what the bot watches, when it runs, which tool to use, and the exact words to paste. These guides stay free. To customize one job, use the <a href="{u('/bot-instructions/')}">instruction builder</a>.</p></div><a class="btn btn-ghost btn-sm" href="{u('/blueprints/')}">All {len(bps)} blueprints →</a></div>
-<ul class="bp-grid">{bp_cards}</ul></section>
-
-<section class="wrap block explain-teaser reveal" aria-labelledby="ex-h"><div class="block-head"><div><p class="eyebrow">New to this?</p><h2 id="ex-h">What can bots actually do?</h2></div></div>
-<div class="three"><div class="glass col good"><h3>✅ Good at today</h3><ul><li>Reading and summarizing your email</li><li>Watching for changes (web pages, letters, flight times)</li><li>Drafting messages and filling forms</li><li>Running the same small job every week</li></ul></div>
-<div class="glass col ok"><h3>👀 OK with you checking</h3><ul><li>Booking tables, haircuts and trips</li><li>Filling grocery carts</li><li>Making customer-service calls</li><li>Filling in long web forms</li></ul></div>
-<div class="glass col no"><h3>🛑 Not safely yet</h3><ul><li>Spending without a limit</li><li>Sharing your address or schedule</li><li>Medical, legal or money decisions</li><li>Anything you can't undo</li></ul></div></div>
-<p class="small">Easy ones people start with: <a href="{u('/use-cases/understand-a-confusing-letter/')}">understand a confusing letter</a>, <a href="{u('/use-cases/plan-a-trip-itinerary/')}">plan a trip itinerary</a>, <a href="{u('/use-cases/homework-help-that-teaches/')}">homework help that teaches</a>, <a href="{u('/use-cases/email-ghostwriter-style-guide/')}">emails that sound like you</a>, <a href="{u('/use-cases/book-an-appointment-with-an-ai-agent/')}">book an appointment</a>, <a href="{u('/use-cases/organize-a-parents-care-paperwork/')}">organize a parent's care paperwork</a> and the <a href="{u('/blueprints/scam-checker/')}">Scam Checker bot</a>.</p>
-<p><a class="btn" href="{u('/what-can-bots-do/')}">What is an AI agent? Read the explainer</a> <a class="btn btn-ghost" href="{u(BUILD_GUIDE)}">Build one without coding</a> <a class="btn btn-ghost" href="{u('/ai-agent-examples/')}">See every AI agent example</a></p></section>
-
-{('<div class="wrap two-up">' + featured_slot('featured_home') + newsletter_box() + '</div>') if spons.get('featured_home') else ('<div class="wrap nl-bottom">' + newsletter_box() + '</div>')}
-"""
-ld_home = [{"@context": "https://schema.org", "@type": "WebSite", "name": NAME, "alternateName": " ".join(re.findall(r"[A-Z][a-z0-9]*", NAME)) or NAME, "url": absu(u("/")), "description": cfg["description"],
-            "publisher": {**ORG, "slogan": TAGLINE, **({"email": CONTACT} if CONTACT else {})},
-            "potentialAction": {"@type": "SearchAction", "target": absu(u("/use-cases/")) + "?q={search_term_string}", "query-input": "required name=search_term_string"}},
-           {"@context": "https://schema.org", "@type": "ItemList", "name": "Trending AI agent use cases", "itemListElement": [
-               {"@type": "ListItem", "position": i + 1, "url": absu(u("/use-cases/" + x["slug"] + "/")), "name": x["title"]} for i, x in enumerate(TRENDING[:10])]}]
-page("/", f"{NAME}: {TAGLINE}", mdesc(cfg.get("meta_description") or cfg["description"]), home, ld_home, kind="home", lastmod="2026-11-08")
+# (2026-11-19 overhaul) The old homepage (radar hero, ticker, trending bento, run-for-less band, blueprints) was replaced by
+# the daily Today page, built in the TODAY section below. Its helpers above stay for other pages.
 
 # ---------- TRENDING + INDEX + CATEGORIES ------------------------------------------
 trows = "".join(f"""<tr><td class="num">{i+1}</td><td><a href="{u('/use-cases/'+x['slug']+'/')}">{e(x['title'])}</a><div class="small muted">{CAT[x['category']]['icon']} {e(CAT[x['category']]['name'])}</div></td>
@@ -693,7 +634,8 @@ page("/trending/", "Trending AI agent use cases this week", "The AI agent use ca
 
 allcards = "".join(card(x) for x in TRENDING) + "".join(card(x) for x in NEWEST if x["_heat"] == 0)
 page("/use-cases/", "AI agent use cases you can copy and run, step by step", f"{len(ucs)} step-by-step AI agent use cases you can copy and run: what the bot does, setup, the tools that can do it today and a copy-paste prompt, each with sources.",
-     f"""<div class="wrap page-head"><p class="eyebrow">The whole feed</p><h1 class="kinetic-sm">Use cases</h1><p class="lead">{len(ucs)} things real people get bots to do, each with sources.</p>
+     f"""<div class="wrap page-head"><p class="eyebrow">Jobs to try</p><h1 class="kinetic-sm">Jobs to hand to AI</h1><p class="lead">{len(ucs)} everyday jobs real people give AI assistants, each with a copy-paste prompt and sources. A new one is picked as the <a href="{u('/')}">job of the day</a> every weekday.</p>
+<p class="small">Want the most-talked-about first? <a href="{u('/trending/')}">Trending this week</a> · Want a whole bot? <a href="{u('/blueprints/')}">Ready-made setups</a></p>
 <p class="small hub-note">Each use case is a step-by-step page you can copy and run: what the bot does, setup, the tools and a prompt. Want a quick overview first? <a href="{u('/ai-agent-examples/')}">AI agent examples</a> puts everything agents can do on one page, grouped by part of life. Pages marked {CHAT_BADGE} are one-off prompts for a chat app, not bots that act for you.</p>
 {searchbox(id_="q2")}<div class="index-tools">{chips()}<label class="sort"><span>Sort</span><select id="sort"><option value="heat">Trending</option><option value="new">Newest</option><option value="easy">Easiest first</option></select></label></div>
 <p class="small muted" id="count" aria-live="polite"></p></div>
@@ -856,7 +798,7 @@ for x in ucs:
 <div class="uc-grid"><div class="uc-main">
 <section><h2>What the bot does</h2>{chat_note}<ol class="steps">{steps}</ol></section>
 <section class="endup glass"><h2>What you end up with</h2><p>{e(x['what_you_end_up_with'])}</p>{phone_note}</section>{ctable}{see_also_html(x)}{less_callout if x['category'] == 'run-for-less' else ''}{tool_listing(cat=x['category'])}
-<section><h2>Copy-paste prompt</h2><p class="muted small">Fill in the [brackets]. Then paste it into any tool below.</p>{copybox(x['prompt'])}
+<section><h2>Copy-paste prompt</h2><p class="muted small">Fill in the [brackets]. Then paste it into any tool below.</p>{copybox(x['prompt'])}<div class="tried-row"><button class="btn btn-sm btn-ghost tried-btn" type="button" data-mark="tried" data-slug="{e(x['slug'])}" hidden>✓ I tried this</button><span class="small muted tried-note" hidden>Counts toward your <a href="{u('/')}">daily streak</a>. Saved in this browser only.</span></div>
 <p class="small">New to this? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>, then <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>, or <a href="{u('/blueprints/#how-to')}">set up a bot in 5 plain steps →</a>{(' Choosing a self-hosted agent? See <a href="' + u(CLAW_GUIDE) + '">OpenClaw vs Hermes Agent for beginners</a>.') if any(t["id"] in ("openclaw", "hermes-agent") for t in x["tools"]) else ''}{(' Connecting email or a calendar? Read <a href="' + u(SAFE_GUIDE) + '">is it safe to give an AI agent your email and calendar?</a>') if (x['category'] == 'inbox' or any(t.lower() in ('gmail', 'outlook', 'calendar', 'google calendar', 'email') for t in x.get('tags', []))) else ''}</p>
 <p class="small nl-pointer">Want one new job like this each week, with a prompt to copy? <a href="{u('/newsletter/')}">Get the free {e(NAME)} Weekly email</a> and {e(NL_PACK)}: 7 ready-to-paste AI agent setups, plus a power-user bonus.</p></section>
 {setup}
@@ -971,6 +913,180 @@ page("/bot-checkup/", "Bot Checkup: what can your AI assistant do with your acco
                "description": "Pick your AI assistants and what they can reach. Get the documented settings to change in each app, with the vendor source, and one set of house rules. Runs in the browser; nothing is sent to us.",
                "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}],
      head_extra=f'<script src="{u("/assets/bot-checkup.js")}?v={ASSET_V["bot-checkup.js"]}" defer></script>')
+
+# ---------- TODAY (the home page): the daily front page, /today/ archive, /today/<date>/ and /today/feed.xml ----------
+# One promise: what changed in AI assistants today, what it means for you, and one job to try. Picks come from
+# data/news.json + data/use-cases.json (scripts/today.py); optional overrides live in data/today.json.
+import today as T
+_tcfg = T.load(ROOT)
+_t_errs = T.validate(_tcfg, NEWS, ucs)
+if _t_errs:
+    raise SystemExit("today.json: " + "; ".join(_t_errs))
+TODAY_EDS = T.edition_dates(NEWS, TODAY, limit=int(_tcfg.get("archive_days") or 20))
+TODAY_ED = TODAY_EDS[0]
+_CK_NAMES = {a["id"]: a["name"] for a in _ck["assistants"]}
+APP_NAMES = dict(T.APPS)
+def _dow(dt): return dt.strftime("%A, %b %-d")
+def _ed_path(ed): return f"/today/{ed.isoformat()}/"
+def _ed_no(ed):
+    n = T.edition_number(ed, _tcfg.get("first_edition"))
+    return f" · No. {n}" if n else ""
+def today_item(n, k, ed):
+    mono, col = NEWS_CO.get(n.get("company", ""), ("•", "#7c8cff"))
+    hits = T._assistant_hits(n, _ck)
+    apps = T.apps_for(n)
+    when = "" if T.edition_date_for(datetime.date.fromisoformat(n["date"])) == ed else f'<span class="td-older">From {e(nice_date(n["date"]))}</span>'
+    ck = (f'<a class="td-ck" href="{u("/bot-checkup/")}#news">⚠ Touches {e(", ".join(_CK_NAMES[h] for h in hits))}: check your settings →</a>') if hits else ""
+    bill = f'<a class="td-ck td-ck--bill" href="{u(LESS)}#calculator">💸 What this means for your bill →</a>' if n["category"] == "pricing" else ""
+    return f"""<li class="td-item glass" style="--co:{col}" data-apps="{e(' '.join(apps))}" id="t-{e(n['id'])}">
+<span class="td-n" aria-hidden="true">{k}</span><div class="td-body">
+<div class="nt-top"><span class="nt-mono" aria-hidden="true">{e(mono)}</span><span class="nt-co">{e(n.get('company',''))}</span>{news_tag(n)}{when}<span class="td-you" hidden>You use this</span></div>
+<h3 class="td-h">{e(n['headline'])}</h3>
+<p class="td-for"><b>What it means for you:</b> {e(n['explainer'])}</p>
+<p class="td-src">Source: <a href="{e(n['source_url'])}" rel="noopener">{e(n['source_name'])}</a>{news_more(n)}{(' · ' + news_x(n)) if n.get('x') else ''}</p>{ck}{bill}</div></li>"""
+def today_job(x, why, ed, prompt_id="job-prompt"):
+    if not x: return ""
+    c = CAT[x["category"]]
+    lbl = {"new": "New on the site today", "picked": "Picked for today", "rotation": "From our library of everyday jobs"}.get(why, "")
+    wo = (x.get("watch_out") or [""])[0]
+    return f"""<section class="wrap block td-job" aria-labelledby="job-h"><div class="glass td-job-in">
+<p class="eyebrow">🧰 Job of the day <span class="td-why">{e(lbl)}</span></p>
+<h2 id="job-h"><a href="{u('/use-cases/' + x['slug'] + '/')}">{e(x['title'])}</a></h2>
+<p class="lead">{e(x['summary'])}</p>
+<div class="card-meta"><span class="cat-tag cat-{e(x['category'])}">{c['icon']} {e(c['name'])}</span><span class="diff diff-{e(x['difficulty'].lower())}">{e(x['difficulty'])}</span><span class="tools-mini">Works in: {tool_names(x)}</span></div>
+<p><b>You end up with:</b> {e(x['what_you_end_up_with'])}</p>
+{copybox(x['prompt'], 'Copy today\'s prompt', prompt_id)}
+{('<p class="small td-wo"><b>Watch out:</b> ' + e(wo) + '</p>') if wo else ''}
+<div class="td-acts"><button class="btn tried-btn" type="button" data-mark="tried" data-slug="{e(x['slug'])}" hidden>✓ I tried it</button><a class="btn btn-ghost" href="{u('/use-cases/' + x['slug'] + '/')}">Full how-to, step by step →</a></div>
+</div></section>"""
+_wk_ck = [n for n in bot_checkup.match_news(NEWS, _ck, TODAY, days=7, limit=3)]
+def today_body(ed, archive=False):
+    ov = _tcfg["days"].get(ed.isoformat(), {})
+    top, also = T.pick_three(NEWS, ed, ov, _ck)
+    job, why = T.pick_job(ucs, ed, ov)
+    i = TODAY_EDS.index(ed) if ed in TODAY_EDS else -1
+    prev_ed = TODAY_EDS[i + 1] if 0 <= i < len(TODAY_EDS) - 1 else None
+    newer = TODAY_EDS[i - 1] if i > 0 else None
+    note = f'<p class="td-note">{e(ov["note"])}</p>' if ov.get("note") else ""
+    stale = "" if ed == T.latest_edition(TODAY) or archive else f'<p class="small td-stale">Today\'s edition isn\'t in yet. It usually lands by about 7 AM Central on weekdays. Here is the latest one.</p>'
+    weekend = '<p class="small td-stale">Weekday edition. The next one is Monday morning.</p>' if (not archive and TODAY.weekday() > 4) else ""
+    banner = (f'<p class="td-arch glass small">This is the {e(_dow(ed))} edition. <a href="{u("/")}">Go to today\'s →</a></p>') if archive and ed != TODAY_ED else ""
+    ck_band = "" if archive else f"""<section class="wrap block td-ckb" aria-labelledby="ckb-h"><div class="glass td-ckb-in"><div><p class="eyebrow">🛡 Bot Checkup</p>
+<h2 id="ckb-h">Does your AI assistant read your email, pay or make calls?</h2><p class="muted">No changes to Grok Bot, ChatGPT dots, Claude Duet, Meta Muse or Gemini Tasks in our feed this week. Check what you've let yours do anyway.</p></div>
+<div class="td-ckb-cta"><a class="btn" href="{u('/bot-checkup/')}">Run the free 3-minute checkup</a><p class="small muted">Runs in your browser. Nothing is sent to us.</p></div></div></section>"""
+    if not archive and _wk_ck:
+        lis = "".join(f'<li><b>{e(nice_date(n["date"]))} · {e(", ".join(_CK_NAMES[a] for a in n["assistants"]))}</b> <a href="{e(n["url"])}" rel="noopener">{e(n["headline"])}</a></li>' for n in _wk_ck)
+        ck_band = f"""<section class="wrap block td-ckb" aria-labelledby="ckb-h"><div class="glass td-ckb-in"><div><p class="eyebrow">🛡 Bot Checkup alert</p>
+<h2 id="ckb-h">{len(_wk_ck)} change{'s' if len(_wk_ck) != 1 else ''} this week to assistants that can act for you</h2>
+<ul class="td-ckl">{lis}</ul></div><div class="td-ckb-cta"><a class="btn" href="{u('/bot-checkup/')}">Run the free 3-minute checkup</a>
+<p class="small muted">See the settings to change in each app. Runs in your browser. <a href="{u('/bot-checkup/')}#watch">Want an email when this happens? Join the Watch list (free, no charge)</a></p></div></div></section>"""
+    also_h = ""
+    if also:
+        also_h = (f'<section class="wrap block td-also" aria-labelledby="also-h"><h2 id="also-h" class="nb-label">Also today <span class="nb-why">{len(also)} more</span></h2><ul class="td-alsol">'
+                  + "".join(f'<li data-apps="{e(" ".join(T.apps_for(n)))}"><span class="nt-co">{e(n.get("company",""))}</span> <a href="{u("/news/")}#{e(n["id"])}">{e(n["headline"])}</a> <span class="td-you" hidden>You use this</span></li>' for n in also)
+                  + f'</ul><p class="small"><a href="{u("/news/")}">All AI news →</a></p></section>')
+    apps = "".join(f'<button type="button" class="chip" data-app="{k}" aria-pressed="false">{e(v)}</button>' for k, v in T.APPS)
+    nav_eds = (f'<nav class="td-eds small" aria-label="Editions">' + (f'<a href="{u(_ed_path(prev_ed))}">← {e(_dow(prev_ed))}</a>' if prev_ed else "")
+               + f'<a href="{u("/today/")}">All editions</a>' + (f'<a href="{u(_ed_path(newer)) if newer != TODAY_ED else u("/")}">{e(_dow(newer))} →</a>' if newer else "") + '</nav>')
+    cats_h = "".join(f'<a class="chip" href="{u("/category/" + c["slug"] + "/")}">{c["icon"]} {e(c["name"])}</a>' for c in cats if c["slug"] != "run-for-less")
+    return f"""<div class="td" data-edition="{ed.isoformat()}" data-job="{e(job['slug'] if job else '')}">
+<section class="wrap td-head">{banner}
+<p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Today in AI assistants{_ed_no(ed)}</p>
+<h1 class="td-date">{e(_dow(ed))}</h1>
+<p class="lead td-promise">What changed in AI assistants, what it means for you, and one job to try. About 3 minutes, every weekday.</p>{note}{stale}{weekend}
+<details class="td-apps"><summary>Which AI apps do you use? <span class="muted small">(we'll flag what affects you; saved in this browser only)</span></summary><div class="chips" role="group" aria-label="AI apps you use">{apps}</div></details>
+</section>
+<section class="wrap block" aria-labelledby="three-h"><h2 id="three-h" class="nb-label">3 things that changed <span class="nb-why" id="you-count"></span></h2>
+<ol class="td-list">{''.join(today_item(n, k + 1, ed) for k, n in enumerate(top))}</ol>
+<div class="td-acts"><button class="btn btn-ghost" type="button" data-mark="read" hidden>✓ I'm caught up</button></div>
+<div class="td-streak glass" hidden><div class="td-streak-n"><span class="td-fire" aria-hidden="true">🔥</span> <b id="streak-n">0</b> <span id="streak-lbl">day streak</span></div>
+<p class="small muted" id="streak-msg">Read today's 3 or try the job to start a streak. Weekends don't break it.</p>
+<button class="btn btn-sm btn-ghost" type="button" id="streak-share" hidden>Copy my day</button><span class="small" id="streak-copied" role="status"></span></div></section>
+{today_job(job, why, ed)}
+{ck_band}
+{also_h}
+<section class="wrap block td-more" aria-labelledby="more-h"><h2 id="more-h" class="nb-label">Want more jobs to hand off?</h2>
+<div class="chips">{cats_h}</div>
+<p class="small"><a href="{u('/use-cases/')}">All {len(ucs)} jobs to try</a> · <a href="{u('/trending/')}">Trending this week</a> · <a href="{u('/guides/')}">Plain-English guides</a> · <a href="{u('/today/feed.xml')}">Today RSS feed</a></p>{nav_eds}</section>
+{featured_slot('featured_home') if spons.get('featured_home') else ''}
+<div class="wrap nl-end">{newsletter_box('nl-end', 'inline')}</div>
+</div>"""
+_today_head = f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)} Today" href="{u("/today/feed.xml")}">'
+_home_desc = mdesc(f"Today in AI assistants, {_dow(TODAY_ED)}: the 3 changes that matter for ChatGPT, Claude, Gemini, Grok and Meta AI users, what each means for you, and one job to try with a copy-paste prompt.")
+ld_home = [{"@context": "https://schema.org", "@type": "WebSite", "name": NAME, "alternateName": " ".join(re.findall(r"[A-Z][a-z0-9]*", NAME)) or NAME, "url": absu(u("/")), "description": cfg["description"],
+            "publisher": {**ORG, "slogan": TAGLINE, **({"email": CONTACT} if CONTACT else {})},
+            "potentialAction": {"@type": "SearchAction", "target": absu(u("/use-cases/")) + "?q={search_term_string}", "query-input": "required name=search_term_string"}}]
+page("/", f"{NAME} Today: what changed in AI assistants, and one job to try", _home_desc, today_body(TODAY_ED), ld_home, kind="today", lastmod=TODAY_ED.isoformat(), head_extra=_today_head)
+for _ed in TODAY_EDS:
+    _bc, _bld = crumbs([("Today", "/"), ("All editions", "/today/"), (_dow(_ed), None)])
+    page(_ed_path(_ed), f"AI assistants today, {_dow(_ed)}: 3 changes and a job to try", mdesc(f"The {_dow(_ed)} edition of {NAME} Today: the 3 changes in AI assistants that day, what each means for you, and one job to try."),
+         f'<div class="wrap">{_bc}</div>' + today_body(_ed, archive=True), [_bld], kind="today", lastmod=_ed.isoformat(), head_extra=_today_head,
+         canonical=(u("/") if _ed == TODAY_ED else None))
+_arch = ""
+for _ed in TODAY_EDS:
+    _ov = _tcfg["days"].get(_ed.isoformat(), {})
+    _top, _ = T.pick_three(NEWS, _ed, _ov, _ck); _job, _ = T.pick_job(ucs, _ed, _ov)
+    _arch += (f'<li class="glass td-ar"><h2 class="td-ar-h"><a href="{u(_ed_path(_ed))}">{e(_dow(_ed))}</a><span class="muted small">{_ed_no(_ed).replace(" · ", "")}</span></h2><ol class="small">'
+              + "".join(f"<li>{e(n['headline'])}</li>" for n in _top) + "</ol>"
+              + (f'<p class="small">🧰 Job: <a href="{u("/use-cases/" + _job["slug"] + "/")}">{e(_job["title"])}</a></p>' if _job else "") + "</li>")
+_abc, _abld = crumbs([("Today", "/"), ("All editions", None)])
+page("/today/", f"{NAME} Today: every daily edition", mdesc(f"Every {NAME} Today edition: the 3 changes in AI assistants each weekday and the job of the day."),
+     f"""<div class="wrap page-head">{_abc}<p class="eyebrow">Today in AI assistants</p><h1 class="kinetic-sm">All editions</h1>
+<p class="lead">Each weekday: 3 changes in AI assistants, what they mean for you, and one job to try. The last {len(TODAY_EDS)} editions are below. Every story links to its source.</p>
+<p class="small"><a href="{u('/today/feed.xml')}">Subscribe by RSS</a> · <a href="{u('/newsletter/')}">Weekly email</a></p></div>
+<div class="wrap"><ul class="td-arch-list">{_arch}</ul></div>""", [_abld], lastmod=TODAY_ED.isoformat())
+_ritems = ""
+for _ed in TODAY_EDS:
+    _ov = _tcfg["days"].get(_ed.isoformat(), {})
+    _top, _ = T.pick_three(NEWS, _ed, _ov, _ck); _job, _ = T.pick_job(ucs, _ed, _ov)
+    _desc = "".join(f"<p><b>{k + 1}. {e(n['headline'])}</b><br>{e(n['explainer'])} (<a href=\"{e(n['source_url'])}\">{e(n['source_name'])}</a>)</p>" for k, n in enumerate(_top))
+    if _job: _desc += f"<p><b>Job of the day:</b> <a href=\"{e(absu(u('/use-cases/' + _job['slug'] + '/')))}\">{e(_job['title'])}</a>. {e(_job['summary'])}</p>"
+    _url = absu(u(_ed_path(_ed)))
+    _ritems += (f"<item><title>{e(_dow(_ed))}: {e(_top[0]['headline'] if _top else 'AI assistants today')}</title><link>{e(_url)}</link><guid isPermaLink=\"true\">{e(_url)}</guid>"
+                f"<pubDate>{datetime.datetime.combine(_ed, datetime.time(12)).strftime('%a, %d %b %Y %H:%M:%S +0000')}</pubDate><description>{e(_desc)}</description></item>")
+os.makedirs(os.path.join(OUT, "today"), exist_ok=True)
+open(os.path.join(OUT, "today", "feed.xml"), "w").write(f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>{e(NAME)} Today</title><link>{e(absu(u('/')))}</link>
+<atom:link href="{e(absu(u('/today/feed.xml')))}" rel="self" type="application/rss+xml"/><description>Each weekday: 3 changes in AI assistants, what they mean for you, and one job to try.</description><language>en-us</language>
+{_ritems}</channel></rss>""")
+
+# ---------- GUIDES hub (/guides/): every explainer, comparison, cost and safety guide in one place ----------
+GUIDE_GROUPS = [
+    ("Start here", "New to AI assistants that act for you", [
+        ("/what-can-bots-do/", "What is an AI agent, and what can it do for you?", "The plain-English explainer: what agents are good at today, what needs you in the loop, and 7 safety rules."),
+        ("/ai-agent-examples/", f"{len(ucs)} AI agent examples for everyday life", "Everything agents can do on one page, grouped by part of life."),
+        (BUILD_GUIDE, "How to build an AI agent without coding", "Set up your first bot in plain English, step by step."),
+        (INSTR_GUIDE, "How to write instructions for an AI agent", "A template and examples you can paste."),
+        ("/bot-instructions/", "Free bot-instructions writer", "Fill in a few blanks and get rules to paste into a plain chat app.")]),
+    ("Stay safe", "What to allow, and what to keep for yourself", [
+        ("/bot-checkup/", "Bot Checkup", "The settings to change in Grok Bot, ChatGPT dots, Claude Duet, Meta Muse and Gemini Tasks, with each vendor's help page."),
+        (SAFE_GUIDE, "Is it safe to give an AI agent your email and calendar?", "What can go wrong, and the settings that prevent it."),
+        (OCSAFE_GUIDE, "Is OpenClaw safe?", "The risks of a self-hosted agent, in plain words.")]),
+    ("Compare", "Which assistant for which job", [
+        (PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse", "Personal AI agents compared, with Claude and Gemini."),
+        (GT_GUIDE, "How to use Tasks in Gemini", "Free from Nov 17, 2026: what it does and a first task to try."),
+        (PHONE_GUIDE, "Can AI make phone calls for you?", "Which assistants can call a business, and how."),
+        (AGENTMODE_GUIDE, "ChatGPT agent mode is gone. What now?", "Where the features went."),
+        (CLAW_GUIDE, "OpenClaw vs Hermes Agent", "Two self-hosted agents for tinkerers, compared."),
+        (ALT_GUIDE, "OpenClaw alternatives for beginners", "Easier options that don't need a server."),
+        (HMI_GUIDE, "How to install Hermes Agent", "For people comfortable with a terminal.")]),
+    ("Costs", "What it costs, and how to pay less", [
+        (COST_GUIDE, "How much does it cost to run an AI agent?", "Worked examples with official prices."),
+        (LESS, "Run your bots for less", "A cost calculator and 8 rules that cut the bill."),
+        (PRICING, "AI price table", "Official API prices per model, with the date checked."),
+        (CHEAPMODEL_GUIDE, "Switch OpenClaw or Hermes to a cheaper model", "Step by step.")]),
+    ("Ready-made setups", "Copy a whole bot", [
+        ("/blueprints/", "Bot blueprints", f"{len(bps)} build-your-own-bot blueprints with starter instructions and a schedule."),
+        ("/trending/", "Trending jobs this week", "The jobs people are talking about most, ranked by real likes and upvotes.")]),
+]
+_gb, _gld = crumbs([("Home", "/"), ("Guides", None)])
+_gh = "".join(f'<section class="gd-sec" aria-labelledby="g-{k}"><h2 id="g-{k}">{e(t)}</h2><p class="muted">{e(s)}</p><ul class="gd-grid">'
+              + "".join(f'<li class="glass gd-card"><a href="{u(p)}"><h3>{e(tt)}</h3><p class="small">{e(dd)}</p></a></li>' for p, tt, dd in items) + "</ul></section>"
+              for k, (t, s, items) in enumerate(GUIDE_GROUPS))
+page("/guides/", "Plain-English guides to AI assistants and agents", mdesc("Plain-English guides to AI assistants and agents: what they are, how to stay safe, how they compare, what they cost, and ready-made setups to copy."),
+     f"""<div class="wrap page-head">{_gb}<p class="eyebrow">📘 Guides</p><h1 class="kinetic-sm">Guides</h1>
+<p class="lead">Everything that doesn't change daily: what AI assistants are, how to stay safe, which to pick, and what they cost. For what changed today, see <a href="{u('/')}">Today</a>.</p></div>
+<div class="wrap">{_gh}</div>""", [_gld])
 
 for b in bps:
     bc, bld = crumbs([("Home", "/"), ("Build a bot", "/blueprints/"), (b["title"], None)])
@@ -2349,6 +2465,7 @@ page("/news/", "AI news this week: new models and AI agent launches, explained",
      f"""<div class="wrap page-head news-head">{bc}<p class="eyebrow live"><span class="pulse" aria-hidden="true"></span> Latest in AI · updated {nice_date(NEWS[0]['date'])}</p><h1 class="kinetic-sm">Latest in AI</h1>
 <p class="lead">The AI news that matters for you and your bots, in plain words. <b>Top story</b> = most important. <b>Trending</b> = most likes and reposts on X right now. Every story links to its source.</p>
 <p class="small muted">{len(NEWS)} stories · {cat_counts} · {sum(1 for n in NEWS if n.get('x'))} with measured X numbers · <a href="{u('/news/feed.xml')}">RSS feed</a> · Price changes also go into the <a href="{u(PRICING)}">AI price table</a>. <a href="{u('/about/#popularity')}">How we measure</a>.</p>
+<p class="td-band glass small"><b>Short on time?</b> <a href="{u('/')}">Today</a> picks the 3 changes that matter for people who use AI assistants, with a job to try. Using Grok Bot, ChatGPT dots, Claude Duet, Meta Muse or Gemini Tasks? <a href="{u('/bot-checkup/')}">Run the free Bot Checkup</a>.</p>
 <p class="small news-start">New to AI agents? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is</a>, <a href="{u(BUILD_GUIDE)}">how to build one without coding</a> and <a href="{u(COST_GUIDE)}">what one costs to run</a>. Want the useful parts once a week? <a href="{u('/newsletter/')}">Get the {e(NAME)} Weekly</a>, free.</p>
 <div class="chips news-chips" role="group" aria-label="Filter news" hidden>{news_chips}</div></div>
 <div class="wrap news-wrap"><div id="news-bento">{news_body}</div><div id="news-results" class="nt-grid" hidden></div><p class="empty" id="news-empty" hidden>Nothing in this filter yet.</p>

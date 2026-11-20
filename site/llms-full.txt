@@ -1,8 +1,8 @@
 # BotsDoThat: full text
 
-There's a bot for that. Here's how.
+What changed in AI assistants today, and one job to try.
 
-A live, sourced feed of real things people hand to AI agents (inbox and phone calls, shopping, travel, family, health, work, small business), with real popularity numbers, plain-English guides, copy-paste prompts, build-your-own-bot blueprints and tips to run your bots for less.
+BotsDoThat Today: every weekday, the 3 changes in AI assistants that matter for everyday users, what each means for you, and one job to try with a copy-paste prompt. Plus a free Bot Checkup for your assistant's settings, a library of everyday jobs to hand to AI, and plain-English guides. Every item links to its source.
 
 ## Set up a new bot by talking it through like a new hire
 URL: https://botsdothat.com/use-cases/onboard-a-new-bot-by-talking-it-through/
