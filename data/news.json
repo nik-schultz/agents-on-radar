@@ -9,6 +9,270 @@
  ],
  "items": [
   {
+   "id": "tencent-hy4-open-weights",
+   "date": "2026-11-20",
+   "category": "model release",
+   "company": "Tencent",
+   "impact": "notable",
+   "headline": "Tencent releases the downloadable weights for Hy4, its flagship model, so companies can run it on their own servers",
+   "explainer": "For most people nothing changes: Hy4 is a 1.5-terabyte download that needs data-centre hardware, so you'd use it through a host such as Together AI rather than on your own computer. Businesses that want to keep data in-house can now run it themselves under Tencent's own licence (not Apache 2.0 like the preview), which needs a separate deal only for companies selling hosted access with over $50 million a year in revenue, or for products with over 100 million monthly users.",
+   "source_url": "https://news.sulat.com/2026/11/20/tencent-hy4-open-weights/",
+   "source_name": "Sulat",
+   "more_sources": [
+    {
+     "label": "Hugging Face (Tencent Hy4)",
+     "url": "https://huggingface.co/tencent/Hy4"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/TencentHunyuan/status/2123625549147070538",
+    "author": "@TencentHunyuan",
+    "kind": "official",
+    "likes": 1355,
+    "reposts": 161,
+    "views": 77100,
+    "posted_at": "2026-11-20",
+    "measured_at": "2026-11-20T12:37:00Z"
+   }
+  },
+  {
+   "id": "chatgpt-dots-plus-test",
+   "date": "2026-11-19",
+   "category": "feature",
+   "company": "OpenAI",
+   "impact": "notable",
+   "headline": "OpenAI starts testing dots, ChatGPT's always-on agent, with a small number of Plus users, and brings them to all Business Standard users",
+   "explainer": "If you pay for ChatGPT Plus you might see a dot appear, the background agent that keeps working on your tasks and goals across connected apps, which until now needed Pro or a higher business plan. It's a limited test, OpenAI hasn't said what Plus usage limits will be, and Pro users with a dot can also switch on a redesigned mobile app where the dot gets its own tab.",
+   "source_url": "https://9to5mac.com/2026/11/19/openai-begins-testing-dots-with-chatgpt-plus-users-expands-business-access/",
+   "source_name": "9to5Mac",
+   "more_sources": [
+    {
+     "label": "The Verge (new mobile design)",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1038334/openai-is-testing-a-new-design-for-mobile-chatgpt"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/thsottiaux/status/2123556256392847657",
+    "author": "@thsottiaux",
+    "kind": "official",
+    "likes": 9100,
+    "reposts": 631,
+    "views": 1314300,
+    "posted_at": "2026-11-19",
+    "measured_at": "2026-11-20T12:34:00Z"
+   }
+  },
+  {
+   "id": "meta-muse-chrome-extension",
+   "date": "2026-11-19",
+   "category": "agent launch",
+   "company": "Meta",
+   "impact": "notable",
+   "headline": "Meta's Muse agent comes to Chrome as a sidebar extension that can fill in forms, compare prices and chase refunds in your own browser",
+   "explainer": "Muse can now work in your everyday Chrome browser, using the sites you're already logged into, in its own group of tabs you can take over by pressing Esc. Meta says it can't see your saved passwords or browsing history, but its activity can show up in your Google history, so log out of any account you don't want it to touch before connecting it.",
+   "source_url": "https://www.digitaltrends.com/computing/meta-is-putting-muse-in-a-chrome-sidebar-and-the-official-announcement-just-arrived/",
+   "source_name": "Digital Trends",
+   "more_sources": [
+    {
+     "label": "Chrome Web Store",
+     "url": "https://chromewebstore.google.com/detail/muse-from-meta/jnakhhjmpmoohbjgfccbccfoifnmbdjd"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/alexandr_wang/status/2123591819300934128",
+    "author": "@alexandr_wang",
+    "kind": "official",
+    "likes": 1379,
+    "reposts": 75,
+    "views": 96605,
+    "posted_at": "2026-11-19",
+    "measured_at": "2026-11-20T12:34:00Z"
+   }
+  },
+  {
+   "id": "meta-muse-email-everyone",
+   "date": "2026-11-19",
+   "category": "feature",
+   "company": "Meta",
+   "impact": "notable",
+   "headline": "Every Muse user in supported countries can now get a @muse.ai email address their agent sends and receives from",
+   "explainer": "You can forward Muse an email or ask it to write to a restaurant or a store for you, and it asks your approval before sending; the address doesn't give Muse access to your own inbox. Handles are first come, first served and can't be changed later, and anything you forward may include other people's details, so check the thread before you send it on.",
+   "source_url": "https://www.meta.com/help/superintelligence/1149305437517250/",
+   "source_name": "Meta Help Center",
+   "more_sources": [
+    {
+     "label": "The Tech Outlook",
+     "url": "https://www.thetechoutlook.com/new-release/software-apps/muse-now-supports-dedicated-muse-ai-email-addresses/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/Muse/status/2123602791356883032",
+    "author": "@Muse",
+    "kind": "official",
+    "likes": 2716,
+    "reposts": 242,
+    "views": 339861,
+    "posted_at": "2026-11-19",
+    "measured_at": "2026-11-20T12:34:00Z"
+   }
+  },
+  {
+   "id": "apple-computer-use-agent-report",
+   "date": "2026-11-19",
+   "category": "industry",
+   "company": "Apple",
+   "impact": "notable",
+   "headline": "Bloomberg: Apple is hiring to build its own AI agent that uses a Mac like a person, while macOS adds warnings for outside agents",
+   "explainer": "Nothing changes for you yet: Apple's job listing describes an agent that browses, works across apps and writes code privately, and Bloomberg says a launch could come as soon as the end of next year. Sooner, macOS 27.3 will add warnings that discourage giving outside AI agents full access to your Mac, so expect extra permission prompts when you set one up.",
+   "source_url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
+   "source_name": "TechCrunch",
+   "more_sources": [
+    {
+     "label": "Bloomberg Law",
+     "url": "https://news.bloomberglaw.com/california-brief/apple-is-working-on-own-ai-agent-to-rival-openai-and-anthropic"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/TheRundownAI/status/2123551782341107813",
+    "author": "@TheRundownAI",
+    "kind": "coverage",
+    "likes": 26,
+    "reposts": 4,
+    "views": 5138,
+    "posted_at": "2026-11-19",
+    "measured_at": "2026-11-20T12:34:00Z"
+   }
+  },
+  {
+   "id": "openai-gpt-live-1-1",
+   "date": "2026-11-19",
+   "category": "model release",
+   "company": "OpenAI",
+   "impact": "notable",
+   "headline": "OpenAI releases GPT-Live-1.1, a better-sounding voice model for developers, with a cheaper standby rate when nobody is talking",
+   "explainer": "Phone and voice bots built on OpenAI should sound more natural across languages and accents and transcribe you more accurately. For builders, active talk stays $0.05 a minute, and a new standby mode on WebRTC sessions drops silent stretches to $0.02 a minute, so always-on voice helpers cost less to leave running.",
+   "source_url": "https://developers.openai.com/api/docs/models/gpt-live-1.1",
+   "source_name": "OpenAI",
+   "more_sources": [
+    {
+     "label": "OpenAI API changelog",
+     "url": "https://developers.openai.com/api/docs/changelog"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/OpenAIDevs/status/2123506733524136446",
+    "author": "@OpenAIDevs",
+    "kind": "official",
+    "likes": 4602,
+    "reposts": 346,
+    "views": 467874,
+    "posted_at": "2026-11-19",
+    "measured_at": "2026-11-20T12:34:00Z"
+   }
+  },
+  {
+   "id": "google-search-homepage-ai-sidebar",
+   "date": "2026-11-19",
+   "category": "feature",
+   "company": "Google",
+   "impact": "notable",
+   "headline": "Google's desktop homepage gets a sidebar that keeps your AI Mode chats, so you can pick up an earlier search conversation",
+   "explainer": "On google.com on a computer, a collapsible bar on the left now lists your recent AI Mode searches, lets you search them, start a new thread or connect a Gemini Notebook. It's rolling out worldwide on desktop; if you'd rather not keep them, AI Mode's temporary threads aren't saved to your history.",
+   "source_url": "https://www.theverge.com/tech/1038059/google-search-homepage-ai-chats",
+   "source_name": "The Verge",
+   "more_sources": [
+    {
+     "label": "9to5Google",
+     "url": "https://9to5google.com/2026/11/19/google-search-homepage-gemini-sidebar-update/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/rmstein/status/2123500235930640844",
+    "author": "@rmstein",
+    "kind": "official",
+    "likes": 452,
+    "reposts": 43,
+    "views": 31597,
+    "posted_at": "2026-11-19",
+    "measured_at": "2026-11-20T12:34:00Z"
+   }
+  },
+  {
+   "id": "canva-ai-off-switch",
+   "date": "2026-11-19",
+   "category": "feature",
+   "company": "Canva",
+   "impact": "notable",
+   "headline": "Canva adds a switch to turn off its generative AI tools and an option to see less AI-made content in its library",
+   "explainer": "Free and Pro users can hide tools like Magic Write, Magic Expand and image generation under Profile > Settings > Permissions, and show more human-made templates under Profile > Your account > AI Personalization. Editing helpers like Background Remover stay on and don't add an AI-generated label to your design.",
+   "source_url": "https://www.canva.com/newsroom/news/ai-controls-canva/",
+   "source_name": "Canva",
+   "more_sources": [
+    {
+     "label": "The Verge",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1037126/canva-ai-features-off-button"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/canva/status/2123393385461432339",
+    "author": "@canva",
+    "kind": "official",
+    "likes": 109,
+    "reposts": 18,
+    "views": 9175,
+    "posted_at": "2026-11-19",
+    "measured_at": "2026-11-20T12:34:00Z"
+   }
+  },
+  {
+   "id": "meta-muse-charm-price-report",
+   "date": "2026-11-19",
+   "category": "industry",
+   "company": "Meta",
+   "impact": "notable",
+   "headline": "The Information: Meta plans to sell the Muse Charm, a small gadget for talking to your Muse agent, for $300 with a year of free Verizon 5G",
+   "explainer": "If you've been waiting for a Muse device, the reported price is $300, with shipping still expected in time for the December holidays; Meta hasn't confirmed the price and says it will share more soon. It's a report, so wait for Meta's own listing before planning a purchase.",
+   "source_url": "https://www.theverge.com/tech/1038087/meta-muse-charm-ai-price",
+   "source_name": "The Verge",
+   "more_sources": [
+    {
+     "label": "Engadget",
+     "url": "https://www.engadget.com/2322541/metas-muse-charm-will-reportedly-cost-300-and-come-with-free-verizon-5g/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/theinformation/status/2123514182955827445",
+    "author": "@theinformation",
+    "kind": "coverage",
+    "likes": 49,
+    "reposts": 8,
+    "views": 11074,
+    "posted_at": "2026-11-19",
+    "measured_at": "2026-11-20T12:34:00Z"
+   }
+  },
+  {
+   "id": "google-genie-4-gemini-api",
+   "date": "2026-11-19",
+   "category": "feature",
+   "company": "Google",
+   "impact": "minor",
+   "headline": "Genie 4, Google's model that builds explorable 3D worlds, is now available to developers in the Gemini API and AI Studio",
+   "explainer": "For people building apps: you can now generate a 720p world you can walk around in from a sentence or an image, with sound, and change it while it runs. It needs a paid API tier, a day after it opened to AI Ultra subscribers in Project Genie.",
+   "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/genie-4-in-gemini-api/",
+   "source_name": "Google",
+   "x": {
+    "url": "https://x.com/GoogleAIStudio/status/2123479057996116143",
+    "author": "@GoogleAIStudio",
+    "kind": "official",
+    "likes": 601,
+    "reposts": 51,
+    "views": 46084,
+    "posted_at": "2026-11-19",
+    "measured_at": "2026-11-20T12:34:00Z"
+   }
+  },
+  {
    "id": "gemini-computer-use-mac",
    "date": "2026-11-19",
    "category": "agent launch",
@@ -25,14 +289,14 @@
     }
    ],
    "x": {
-    "url": "https://x.com/9to5mac/status/2123490417559716018",
-    "author": "@9to5mac",
-    "kind": "coverage",
-    "likes": 24,
-    "reposts": 3,
-    "views": 7206,
+    "url": "https://x.com/GeminiApp/status/2123513203745538423",
+    "author": "@GeminiApp",
+    "kind": "official",
+    "likes": 1923,
+    "reposts": 168,
+    "views": 302055,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -49,11 +313,11 @@
     "url": "https://x.com/Cointelegraph/status/2123499173781610567",
     "author": "@Cointelegraph",
     "kind": "coverage",
-    "likes": 38,
-    "reposts": 6,
-    "views": 21604,
+    "likes": 113,
+    "reposts": 19,
+    "views": 38854,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -70,11 +334,11 @@
     "url": "https://x.com/shishirmehrotra/status/2123422259029463095",
     "author": "@shishirmehrotra",
     "kind": "official",
-    "likes": 44,
-    "reposts": 3,
-    "views": 3648,
+    "likes": 60,
+    "reposts": 5,
+    "views": 6006,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -91,11 +355,69 @@
     "url": "https://x.com/GoogleAIStudio/status/2123489911684866251",
     "author": "@GoogleAIStudio",
     "kind": "official",
-    "likes": 261,
-    "reposts": 18,
-    "views": 15304,
+    "likes": 626,
+    "reposts": 46,
+    "views": 43441,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
+   }
+  },
+  {
+   "id": "hermes-enterprise-microsoft-teams",
+   "date": "2026-11-18",
+   "category": "agent launch",
+   "company": "Nous Research",
+   "impact": "notable",
+   "headline": "Nous Research brings its open-source Hermes Agent to Microsoft Teams, the Microsoft Store and Azure for businesses",
+   "explainer": "If your company runs on Microsoft 365, staff can hand Hermes jobs like financial analysis, document drafts or inbox triage in a Teams chat and review the result there; it turns repeated work into skills colleagues can reuse. Companies with strict data rules can run it in their own Azure account, and nothing changes for people using Hermes on their own.",
+   "source_url": "https://nousresearch.com/hermes-enterprise-in-microsoft-teams",
+   "source_name": "Nous Research",
+   "more_sources": [
+    {
+     "label": "Microsoft Marketplace",
+     "url": "https://marketplace.microsoft.com/en-hk/product/wa200013263"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/NousResearch/status/2123535954946257096",
+    "author": "@NousResearch",
+    "kind": "official",
+    "likes": 6980,
+    "reposts": 666,
+    "views": 462761,
+    "posted_at": "2026-11-19",
+    "measured_at": "2026-11-20T12:34:00Z"
+   }
+  },
+  {
+   "id": "perplexity-brain-auto-skills",
+   "date": "2026-11-18",
+   "category": "feature",
+   "company": "Perplexity",
+   "impact": "notable",
+   "headline": "Perplexity's Computer agent now writes its own reusable skills from how you work, and its Teammates agents come to the phone app",
+   "explainer": "If you pay for Perplexity Max in the US, its Brain feature watches for jobs you repeat and writes step-by-step skills so you stop re-explaining them (up to 10, listed in the Plugins tab, and you can turn it off). Teammates and Multiagent also arrived in the iOS and Android apps for Max subscribers, with voice control for Teammates.",
+   "source_url": "https://www.unite.ai/perplexity-brain-creates-and-updates-agent-skills-from-experience/",
+   "source_name": "Unite.AI",
+   "more_sources": [
+    {
+     "label": "Perplexity blog",
+     "url": "https://www.perplexity.ai/hub/blog/self-improving-skills"
+    },
+    {
+     "label": "Perplexity (Teammates on mobile)",
+     "url": "https://www.perplexity.ai/hub/blog/work-with-teammates-on-mobile-with-voice-mode"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/perplexity_ai/status/2123449395882701224",
+    "author": "@perplexity_ai",
+    "kind": "official",
+    "likes": 374,
+    "reposts": 22,
+    "views": 45745,
+    "posted_at": "2026-11-19",
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -122,11 +444,11 @@
     "url": "https://x.com/sundarpichai/status/2123167780988125621",
     "author": "@sundarpichai",
     "kind": "official",
-    "likes": 16945,
-    "reposts": 1372,
-    "views": 1850430,
+    "likes": 18157,
+    "reposts": 1456,
+    "views": 2068227,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -149,11 +471,11 @@
     "url": "https://x.com/ChatGPT/status/2123114715257946334",
     "author": "@ChatGPT",
     "kind": "official",
-    "likes": 4799,
-    "reposts": 255,
-    "views": 565428,
+    "likes": 4965,
+    "reposts": 269,
+    "views": 618054,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -180,11 +502,11 @@
     "url": "https://x.com/ChatGPT/status/2123159134963196357",
     "author": "@ChatGPT",
     "kind": "official",
-    "likes": 16724,
-    "reposts": 1430,
-    "views": 6891139,
+    "likes": 20553,
+    "reposts": 1938,
+    "views": 8752905,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -207,11 +529,11 @@
     "url": "https://x.com/AnthropicAI/status/2123196808675405860",
     "author": "@AnthropicAI",
     "kind": "official",
-    "likes": 16456,
-    "reposts": 2126,
-    "views": 3090159,
+    "likes": 16866,
+    "reposts": 2182,
+    "views": 3315762,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -234,11 +556,11 @@
     "url": "https://x.com/bot/status/2123121401762918718",
     "author": "@bot",
     "kind": "official",
-    "likes": 3567,
-    "reposts": 260,
-    "views": 498473,
+    "likes": 3662,
+    "reposts": 372,
+    "views": 544804,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -285,9 +607,9 @@
     "kind": "coverage",
     "likes": 39,
     "reposts": 10,
-    "views": 18896,
+    "views": 19279,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -304,11 +626,11 @@
     "url": "https://x.com/GoogleDeepMind/status/2123117733709586849",
     "author": "@GoogleDeepMind",
     "kind": "official",
-    "likes": 2360,
-    "reposts": 225,
-    "views": 197334,
+    "likes": 2441,
+    "reposts": 235,
+    "views": 218657,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -325,11 +647,11 @@
     "url": "https://x.com/GeminiApp/status/2123100943604707606",
     "author": "@GeminiApp",
     "kind": "official",
-    "likes": 1130,
-    "reposts": 64,
-    "views": 97789,
+    "likes": 1152,
+    "reposts": 65,
+    "views": 102660,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -346,11 +668,11 @@
     "url": "https://x.com/Google/status/2123101724047200432",
     "author": "@Google",
     "kind": "official",
-    "likes": 1687,
-    "reposts": 117,
-    "views": 219144,
+    "likes": 1708,
+    "reposts": 120,
+    "views": 223276,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -367,11 +689,11 @@
     "url": "https://x.com/MistralAI/status/2123073168659141119",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 2495,
-    "reposts": 207,
-    "views": 213963,
+    "likes": 2532,
+    "reposts": 211,
+    "views": 223285,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -400,9 +722,9 @@
     "kind": "coverage",
     "likes": 47,
     "reposts": 2,
-    "views": 4324,
+    "views": 4339,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -427,9 +749,9 @@
     "kind": "coverage",
     "likes": 52,
     "reposts": 24,
-    "views": 6397,
+    "views": 6419,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -452,11 +774,11 @@
     "url": "https://x.com/elonmusk/status/2122758986483269956",
     "author": "@elonmusk",
     "kind": "official",
-    "likes": 4598,
-    "reposts": 201,
-    "views": 212938,
+    "likes": 4606,
+    "reposts": 200,
+    "views": 215057,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -479,11 +801,11 @@
     "url": "https://x.com/perplexity_ai/status/2122785177135096053",
     "author": "@perplexity_ai",
     "kind": "official",
-    "likes": 380,
+    "likes": 383,
     "reposts": 37,
-    "views": 264766,
+    "views": 266180,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -506,11 +828,11 @@
     "url": "https://x.com/satyanadella/status/2122793040058442116",
     "author": "@satyanadella",
     "kind": "official",
-    "likes": 5380,
+    "likes": 5390,
     "reposts": 348,
-    "views": 1035980,
+    "views": 1040273,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -533,11 +855,11 @@
     "url": "https://x.com/MicrosoftAI/status/2122762037927322044",
     "author": "@MicrosoftAI",
     "kind": "official",
-    "likes": 1339,
+    "likes": 1344,
     "reposts": 111,
-    "views": 143296,
+    "views": 144871,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -560,11 +882,11 @@
     "url": "https://x.com/bot/status/2122771386456551516",
     "author": "@bot",
     "kind": "official",
-    "likes": 10791,
-    "reposts": 792,
-    "views": 3436162,
+    "likes": 11131,
+    "reposts": 813,
+    "views": 3612119,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -593,9 +915,9 @@
     "kind": "coverage",
     "likes": 69,
     "reposts": 12,
-    "views": 15935,
+    "views": 16020,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -612,11 +934,11 @@
     "url": "https://x.com/ProtonPrivacy/status/2122725988329226420",
     "author": "@ProtonPrivacy",
     "kind": "official",
-    "likes": 728,
+    "likes": 726,
     "reposts": 43,
-    "views": 35454,
+    "views": 35827,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -635,9 +957,9 @@
     "kind": "coverage",
     "likes": 21,
     "reposts": 4,
-    "views": 17258,
+    "views": 17386,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -675,11 +997,11 @@
     "url": "https://x.com/OpenAI/status/2122750124543926515",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 35784,
-    "reposts": 3596,
-    "views": 10632796,
+    "likes": 35898,
+    "reposts": 3604,
+    "views": 11381410,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -711,10 +1033,10 @@
     "author": "@sundarpichai",
     "kind": "official",
     "likes": 5551,
-    "reposts": 433,
-    "views": 393119,
+    "reposts": 435,
+    "views": 396188,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -737,11 +1059,11 @@
     "url": "https://x.com/cognition/status/2122737511684587551",
     "author": "@cognition",
     "kind": "official",
-    "likes": 3558,
-    "reposts": 365,
-    "views": 1467569,
+    "likes": 3605,
+    "reposts": 367,
+    "views": 1547282,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -764,11 +1086,11 @@
     "url": "https://x.com/ClaudeDevs/status/2122751844455956760",
     "author": "@ClaudeDevs",
     "kind": "official",
-    "likes": 2570,
+    "likes": 2583,
     "reposts": 92,
-    "views": 347058,
+    "views": 353775,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -785,11 +1107,11 @@
     "url": "https://x.com/alexandr_wang/status/2122762964419870792",
     "author": "@alexandr_wang",
     "kind": "official",
-    "likes": 3837,
+    "likes": 3849,
     "reposts": 190,
-    "views": 285478,
+    "views": 288519,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -814,9 +1136,9 @@
     "kind": "coverage",
     "likes": 6,
     "reposts": 2,
-    "views": 808,
+    "views": 840,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -845,9 +1167,9 @@
     "kind": "coverage",
     "likes": 71,
     "reposts": 16,
-    "views": 35541,
+    "views": 35932,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -874,11 +1196,11 @@
     "url": "https://x.com/TencentHunyuan/status/2122217770314301469",
     "author": "@TencentHunyuan",
     "kind": "official",
-    "likes": 2794,
+    "likes": 2799,
     "reposts": 248,
-    "views": 823390,
+    "views": 829124,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -905,11 +1227,11 @@
     "url": "https://x.com/Google/status/2122449668613579018",
     "author": "@Google",
     "kind": "official",
-    "likes": 1882,
-    "reposts": 222,
-    "views": 309448,
+    "likes": 1884,
+    "reposts": 221,
+    "views": 310842,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -928,9 +1250,9 @@
     "kind": "coverage",
     "likes": 225,
     "reposts": 75,
-    "views": 23912,
+    "views": 23974,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -957,11 +1279,11 @@
     "url": "https://x.com/Alibaba_Qwen/status/2122148127520289151",
     "author": "@Alibaba_Qwen",
     "kind": "official",
-    "likes": 14853,
-    "reposts": 1604,
-    "views": 2511537,
+    "likes": 14877,
+    "reposts": 1609,
+    "views": 2529012,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -978,11 +1300,11 @@
     "url": "https://x.com/OpenAI/status/2122465625109090646",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 2966,
+    "likes": 2969,
     "reposts": 235,
-    "views": 486296,
+    "views": 490388,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -1005,11 +1327,11 @@
     "url": "https://x.com/googlemaps/status/2122396544729305165",
     "author": "@googlemaps",
     "kind": "official",
-    "likes": 370,
+    "likes": 374,
     "reposts": 42,
-    "views": 29171,
+    "views": 29554,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -1027,10 +1349,10 @@
     "author": "@OpenAI",
     "kind": "official",
     "likes": 3820,
-    "reposts": 372,
-    "views": 862481,
+    "reposts": 373,
+    "views": 865237,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -1053,11 +1375,11 @@
     "url": "https://x.com/Google/status/2121293823837921433",
     "author": "@Google",
     "kind": "official",
-    "likes": 975,
+    "likes": 974,
     "reposts": 104,
-    "views": 1013823,
+    "views": 1014581,
     "posted_at": "2026-11-13",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -1080,11 +1402,11 @@
     "url": "https://x.com/ahuja_karan/status/2121332990836163033",
     "author": "@ahuja_karan",
     "kind": "coverage",
-    "likes": 2309,
+    "likes": 2308,
     "reposts": 109,
-    "views": 289125,
+    "views": 289505,
     "posted_at": "2026-11-13",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -1107,11 +1429,11 @@
     "url": "https://x.com/elonmusk/status/2121628295234023654",
     "author": "@elonmusk",
     "kind": "official",
-    "likes": 9398,
-    "reposts": 737,
-    "views": 2413653,
+    "likes": 9394,
+    "reposts": 735,
+    "views": 2418888,
     "posted_at": "2026-11-14",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -1134,11 +1456,11 @@
     "url": "https://x.com/ChatGPT/status/2121283151729496235",
     "author": "@ChatGPT",
     "kind": "official",
-    "likes": 5228,
-    "reposts": 418,
-    "views": 993878,
+    "likes": 5234,
+    "reposts": 419,
+    "views": 998644,
     "posted_at": "2026-11-13",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -1157,9 +1479,9 @@
     "kind": "official",
     "likes": 1443,
     "reposts": 163,
-    "views": 364702,
+    "views": 365398,
     "posted_at": "2026-11-13",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -1182,11 +1504,11 @@
     "url": "https://x.com/deepseek_ai/status/2121247896918253875",
     "author": "@deepseek_ai",
     "kind": "official",
-    "likes": 12398,
-    "reposts": 1264,
-    "views": 1230377,
+    "likes": 12401,
+    "reposts": 1266,
+    "views": 1238624,
     "posted_at": "2026-11-13",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -1213,11 +1535,11 @@
     "url": "https://x.com/claudeai/status/2120973994191094179",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 81405,
-    "reposts": 5173,
-    "views": 10215630,
+    "likes": 81417,
+    "reposts": 5174,
+    "views": 10233620,
     "posted_at": "2026-11-12",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -1240,11 +1562,11 @@
     "url": "https://x.com/ChatGPT/status/2120970988796170275",
     "author": "@ChatGPT",
     "kind": "official",
-    "likes": 4117,
+    "likes": 4122,
     "reposts": 233,
-    "views": 1616399,
+    "views": 1626420,
     "posted_at": "2026-11-12",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -1261,11 +1583,11 @@
     "url": "https://x.com/yandexcom/status/2120905470231925168",
     "author": "@yandexcom",
     "kind": "official",
-    "likes": 82,
-    "reposts": 5,
-    "views": 8517,
+    "likes": 83,
+    "reposts": 6,
+    "views": 8728,
     "posted_at": "2026-11-12",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
@@ -1288,11 +1610,11 @@
     "url": "https://x.com/GoogleDeepMind/status/2120940338869055788",
     "author": "@GoogleDeepMind",
     "kind": "official",
-    "likes": 7547,
-    "reposts": 635,
-    "views": 1604650,
+    "likes": 7546,
+    "reposts": 634,
+    "views": 1607146,
     "posted_at": "2026-11-12",
-    "measured_at": "2026-11-19T20:30:00Z"
+    "measured_at": "2026-11-20T12:34:00Z"
    }
   },
   {
