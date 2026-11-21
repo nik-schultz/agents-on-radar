@@ -1290,3 +1290,4 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - Today page: data/today.json untouched (no picks override for 2026-11-20). The automatic top 3 for Friday, Nov 20 now = grok-bot-quickbooks, tencent-hy4-open-weights, chatgpt-space-plus (new Nov 20 items outrank the Nov 19 fill-ins). /news/ header unchanged.
 - 4 BACKLOG notes + skips under "PM news 2026-11-20".
 - Deployed: local main `f4e2b055`, publish `c169a49f` (`c9426bd4..c169a49f`), Actions run 44812620181 succeeded; live /news/ and /today/ show the new items; scripts/check_today.py OK (Friday, Nov 20).
+2026-11-21 UX hour pass: home search under Today box; shorter intros (home/checkup/examples/jobs/instructions); /news/ Earlier collapsed; redirects /pricing /jobs /examples /checkup /feed /rss /sitemap; clearer 404; drop dead intro splash; hide Weekly email <420px. publish 3fe498c3 · Actions https://github.com/nik-schultz/agents-on-radar/actions/runs/44922034807

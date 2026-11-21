@@ -633,6 +633,42 @@ html.js .bb-app{display:block}
 .ck-upsell{padding:12px 16px;margin:12px 0 0;border-color:rgba(94,242,214,.4)}
 [hidden]{display:none!important}
 @media(max-width:800px){.ck-plans{grid-template-columns:1fr}}
+
+/* Checkup clarity 2026-11-21: how-it-works, example, progress, services */
+.ck-one-line{font-size:1.05rem;max-width:52ch}
+.ck-howto{margin:14px 0 8px;padding:0;list-style:none;display:grid;gap:10px;max-width:720px}
+.ck-howto li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.03)}
+.ck-howto li::before{content:counter(ck-how);counter-increment:ck-how;font:800 .9rem/1.6 var(--mono);color:#04121a;background:var(--c1);width:1.6em;height:1.6em;border-radius:50%;text-align:center}
+.ck-howto{counter-reset:ck-how}
+.ck-example{padding:18px;margin:0}
+.ck-ex-grid{display:grid;gap:16px}
+@media(min-width:800px){.ck-ex-grid{grid-template-columns:1fr 1fr}}
+.ck-ex-lab{margin:0 0 4px;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ck-ex-title{margin:.2em 0 .4em;font-size:1.05rem}
+.ck-ex-rules{margin:0;padding:12px;border-radius:10px;background:rgba(0,0,0,.35);border:1px solid var(--line);font:0.82rem/1.45 var(--mono);color:#d9defa;white-space:pre-wrap;overflow:auto;max-height:220px}
+.ck-ex-mail{display:grid;gap:6px}
+.ck-compare{margin-top:8px}
+.ck-form-lead{margin-top:-4px}
+.ck-next{margin:12px 0 0}.ck-next .btn{min-height:44px}
+.ck-next--after{margin-top:16px}
+.ck-progress{position:sticky;top:56px;z-index:15;background:rgba(5,7,15,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:8px 0}
+.ck-progress ol{list-style:none;margin:0 auto;padding:0 14px;max-width:920px;display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ck-progress li{flex:1 1 0;min-width:72px}
+.ck-progress a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:6px 8px;border-radius:10px;font-size:.78rem;color:var(--muted);text-decoration:none;white-space:nowrap}
+.ck-progress .ck-pn{display:inline-flex;align-items:center;justify-content:center;width:1.4em;height:1.4em;border-radius:50%;border:1px solid var(--line);font:700 .75rem/1 var(--mono)}
+.ck-progress li.is-active a{color:var(--ink);background:rgba(94,242,214,.12)}
+.ck-progress li.is-active .ck-pn{background:var(--c1);color:#04121a;border-color:var(--c1)}
+.ck-progress li.is-done .ck-pn{border-color:var(--c1);color:var(--c1)}
+@media(min-width:901px){.ck-progress{display:none}}
+@media(max-width:600px){
+  .ck-howto li{padding:10px 12px}
+  .ck-form fieldset{scroll-margin-top:112px}
+  #result,#house-rules{scroll-margin-top:112px}
+  .ck-opts{width:100%;justify-content:stretch}
+  .ck-opts label{flex:1 1 30%}
+  .ck-opts span{width:100%;justify-content:center;min-height:44px}
+}
+
 /* ---------- Today (daily front page, 2026-11-19 overhaul) ---------- */
 .td .wrap{max-width:920px}
 .td-head{padding-top:28px;padding-bottom:4px}

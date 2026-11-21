@@ -126,6 +126,17 @@ class PageTests(unittest.TestCase):
         self.assertGreaterEqual(h.count("Coming soon · no charge today"), 3)
         self.assertIn('/assets/bot-checkup.js', h)
         self.assertIn('href="/bot-instructions/"', h)
+        # Beginner clarity (2026-11-21): one-line promise, how-it-works, example, compare, one CTA, FAQ
+        self.assertIn("A free 3-minute check of what your AI assistant can do with your accounts.", h)
+        self.assertIn('class="ck-howto"', h)
+        self.assertIn("You give:", h)
+        self.assertIn("Example of what you get", h)
+        self.assertIn('id="compare"', h)
+        self.assertIn('href="#checkup">Start the free checkup</a>', h)
+        self.assertIn('id="faq"', h)
+        self.assertIn('id="ck-progress"', h)
+        self.assertIn('data-ck-next="result"', h)
+        self.assertIn('href="/services/"', h)
 
     def test_interest_list_uses_the_free_kit_form_and_no_checkout(self):
         h = built("/bot-checkup/")
@@ -155,6 +166,26 @@ class PageTests(unittest.TestCase):
         self.assertIn('<h3 class="nt-h"><a href="/bot-checkup/">', built("/"))  # first feature card on the home overview
 
 
+class ServicesPageTests(unittest.TestCase):
+    def test_services_explains_free_vs_watch_without_checkout(self):
+        h = built("/services/")
+        self.assertIn("Free checkup now. Watch later, if you want it.", h)
+        self.assertIn('class="ck-howto"', h)
+        self.assertIn("Example of a Watch alert", h)
+        self.assertIn('id="compare"', h)
+        self.assertIn('id="faq"', h)
+        self.assertIn('href="/bot-checkup/"', h)
+        self.assertIn("Join the interest list", h)
+        form = h[h.index('class="nl-form ck-int-form"'):]
+        form = form[:form.index("</form>")]
+        self.assertIn('action="https://app.kit.com/forms/10088120/subscriptions"', form)
+        self.assertIn(f'name="fields[{CFG["checkup_watch"]["plan_field"]}]" value="watch"', form)
+        for w in ("buy.stripe.com", "checkout.stripe.com", "card number"):
+            self.assertNotIn(w, h.lower() if w == "card number" else h)
+        self.assertGreaterEqual(h.count("Coming soon · no charge today"), 2)
+
+
+
 class BrowserTests(unittest.TestCase):
     """Drives the built page in headless Chrome (skips when Playwright or the build is missing)."""
     def test_flow_filters_results_and_parent_mode_changes_rules(self):
@@ -182,6 +213,8 @@ class BrowserTests(unittest.TestCase):
                 pg.on("request", lambda r: requests.append(r.url))
                 pg.goto(f"http://127.0.0.1:{srv.server_port}/bot-checkup/")
                 pg.wait_for_function("document.getElementById('ck-count').textContent.indexOf('Pick') === 0")
+                self.assertEqual(pg.locator("#ck-progress").count(), 1)
+                self.assertEqual(pg.locator("[data-ck-next]").count(), 3)
                 self.assertEqual(pg.locator(".ck-assistant:visible").count(), 5)
                 pg.click("label.ck-chip:has(input[value=muse])")
                 self.assertEqual(pg.locator(".ck-assistant:visible").count(), 1)

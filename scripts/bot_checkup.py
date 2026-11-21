@@ -147,6 +147,87 @@ def _srcname(n):
     return f' <span class="muted small">({e(n["source"])})</span>' if n.get("source") else ""
 
 
+FAQ = [
+    ("What is Bot Checkup?",
+     "A free, 3-minute guide to the settings that control what Grok Bot, ChatGPT dots, Claude Duet, Meta Muse or Gemini Tasks can do with your accounts. You pick what's connected; we show the vendor-documented settings to change and one set of house rules to paste in."),
+    ("Does it connect to my accounts?",
+     "No. It runs in your browser. Nothing you pick is sent to us. It can't see what your assistant has done."),
+    ("Is this a security score or audit?",
+     "No. There are no scores or “safe” badges. It is a guide to settings each vendor documents, with links to their help pages. Use the vendor's own activity log to check what happened."),
+    ("What is Checkup Watch?",
+     "A planned paid add-on that would save your setup and email you when a vendor change affects it, with the setting to change. It isn't built yet. You can join a free interest list; there is no checkout and no charge today."),
+    ("What's free vs paid?",
+     "The checkup, house rules and parent mode are free forever. Checkup Watch ($5/month for one person, $9 for a household of up to 5) is a proposed paid plan that isn't live. Joining the interest list only adds you to our free weekly email."),
+]
+
+
+def faq_ld():
+    return {"@context": "https://schema.org", "@type": "FAQPage",
+            "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
+
+
+def _interest_form(watch_cfg, nl_action, nl_email_field, privacy_url, form_id="ck-int"):
+    field = (watch_cfg or {}).get("plan_field", "")
+    plans = "".join(
+        f'<label class="ck-plan"><input type="radio" name="{e("fields[" + field + "]") if field else "watch_plan"}" value="{e(code)}"{" checked" if code == "watch" else ""}><span><b>{e(name)}</b> ${price}/month · {e(desc)}</span></label>'
+        for code, name, price, desc in WATCH_PLANS)
+    dis = "" if nl_action else " disabled"
+    tag = (watch_cfg or {}).get("tag_id", "")
+    tag_in = f'<input type="hidden" name="tags[]" value="{e(tag)}">' if tag else ""
+    hid = f"{form_id}-h"
+    return f"""<div class="glass ck-interest"><h3 id="{hid}">Join the interest list</h3>
+<form class="nl-form ck-int-form" action="{e(nl_action) or '#'}" method="post"{' data-nl' if nl_action else ''} aria-labelledby="{hid}">
+<fieldset class="ck-plan-pick"><legend class="small">Which plan interests you?</legend>{plans}</fieldset>
+<label class="sr" for="{form_id}-email">Email address</label><input id="{form_id}-email" type="email" name="{e(nl_email_field)}" placeholder="you@example.com" autocomplete="email" required{dis}>{tag_in}
+<button class="btn" type="submit"{dis}>Join the interest list</button></form><p class="nl-status" role="status" aria-live="polite" hidden></p>
+<p class="small">No card, no payment and no checkout. Prices are a proposal, not an offer. Joining adds you to the free BotsDoThat Weekly through our email provider, Kit: you'll get a confirm email first, and you can unsubscribe any time. <a href="{privacy_url}">Privacy</a></p></div>"""
+
+
+def _compare(u, highlight="free"):
+    free_cls = "ck-plan-card" + (" ck-hl" if highlight == "free" else "")
+    watch_cls = "ck-plan-card" + (" ck-hl" if highlight == "watch" else "")
+    return f"""<div class="ck-plans ck-compare" role="list">
+<div class="{free_cls}" role="listitem"><h3>Free checkup</h3><p class="ck-price">$0</p><ul><li>Pick your assistants and what's connected</li><li>Vendor-documented settings to change</li><li>House rules you can paste into every assistant</li><li>Parent mode</li></ul><p class="small"><b>Available now.</b></p></div>
+<div class="{watch_cls}" role="listitem"><h3>Checkup Watch</h3><p class="ck-price">$5<small>/month</small></p><ul><li>Everything in Free</li><li>Save one person's setup</li><li>Email when news affects it, with the fix</li><li>A monthly 2-minute re-check</li></ul><p class="ck-soon">Coming soon · no charge today</p></div>
+<div class="ck-plan-card" role="listitem"><h3>Household</h3><p class="ck-price">$9<small>/month</small></p><ul><li>Up to 5 people's setups</li><li>Plain-language alerts for a parent</li><li>Export or delete any time</li></ul><p class="ck-soon">Coming soon · no charge today</p></div>
+</div>
+<p class="small muted">Paid plans aren't live. <a href="{u('/services/')}">See how Watch would work →</a></p>"""
+
+
+def _howto():
+    return """<ol class="ck-howto">
+<li><b>You give:</b> which assistants you use and what you've connected (email, calendar, card, etc.).</li>
+<li><b>The checkup does:</b> match those answers to settings each vendor documents on its own help page.</li>
+<li><b>You get:</b> a short list of settings to change, plus house rules you can copy into every assistant.</li>
+</ol>"""
+
+
+def _example(d, nice_checked):
+    a = d["assistants"][0]
+    f = next(x for x in a["fixes"] if x.get("path"))
+    rules = house_rules(d).strip().split("\n")
+    snippet = "\n".join(rules[:8])
+    return f"""<div class="glass ck-example" aria-labelledby="ck-ex-h">
+<p class="eyebrow" id="ck-ex-h">Example of what you get</p>
+<div class="ck-ex-grid">
+<div><p class="ck-ex-lab">A setting to change · {e(a["name"])}</p>
+<h3 class="ck-ex-title">{e(f["title"])}</h3>
+<p class="ck-path"><code>{e(f["path"])}</code></p>
+<p class="small ck-src">Source: {_src(d, f["source"])} · checked {e(nice_checked)}</p></div>
+<div><p class="ck-ex-lab">House rules (sample)</p>
+<pre class="ck-ex-rules">{e(snippet)}
+…</pre></div>
+</div>
+<p class="small muted">This sample uses the default “ask first” answers. Your list updates as you pick assistants and connections.</p>
+</div>"""
+
+
+def _faq_html():
+    return ("<section class=\"faq wrap block\" id=\"faq\" aria-labelledby=\"ck-faq-h\"><h2 id=\"ck-faq-h\">Questions</h2>"
+            + "".join(f"<details class='glass'><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in FAQ)
+            + "</section>")
+
+
 def render_page_inner(u, d, news, nice_date, watch_cfg, nl_action, nl_email_field, privacy_url):
     nice_checked = nice_date(d["checked_on"])
     A = d["assistants"]
@@ -157,7 +238,6 @@ def render_page_inner(u, d, news, nice_date, watch_cfg, nl_action, nl_email_fiel
         + "".join(f'<label><input type="radio" name="act-{e(a["id"])}" value="{c}"{" checked" if a["default"] == c else ""} data-default="{e(a["default"])}" data-parent="{e(a["parent"])}"><span>{lab}</span></label>'
                   for c, lab in (("fine", "Fine alone"), ("ask", "Ask first"), ("never", "Never")))
         + "</span></div>" for a in d["actions"])
-    # Full list (no-JS and search engines see every checked setting); the script narrows it to your picks.
     groups = "".join(
         f'<section class="ck-assistant glass" data-assistant="{e(a["id"])}" aria-labelledby="ck-h-{e(a["id"])}"><h3 id="ck-h-{e(a["id"])}">{e(a["name"])} <span class="muted small">by {e(a["maker"])}</span></h3>'
         f'<p class="muted">{e(a["summary"])}</p><ol class="ck-fixes">{"".join(_fix_html(d, a, f, nice_checked) for f in a["fixes"])}</ol></section>'
@@ -172,40 +252,59 @@ def render_page_inner(u, d, news, nice_date, watch_cfg, nl_action, nl_email_fiel
         + (f'<p class="ck-path"><code>{e(a["rules_home"]["path"])}</code></p>' if a["rules_home"].get("path") else '<p class="ck-path ck-unverified"><b>No settings screen documented for this.</b> Send the rules in chat.</p>')
         + f'<p class="small ck-src">Source: {_src(d, a["rules_home"]["source"])} · checked {e(nice_checked)}</p></div>' for i, a in enumerate(A))
     rules0 = house_rules(d)
-    field = (watch_cfg or {}).get("plan_field", "")
-    plans = "".join(
-        f'<label class="ck-plan"><input type="radio" name="{e("fields[" + field + "]") if field else "watch_plan"}" value="{e(code)}"{" checked" if code == "watch" else ""}><span><b>{e(name)}</b> ${price}/month · {e(desc)}</span></label>'
-        for code, name, price, desc in WATCH_PLANS)
-    dis = "" if nl_action else " disabled"
-    tag = (watch_cfg or {}).get("tag_id", "")
-    tag_in = f'<input type="hidden" name="tags[]" value="{e(tag)}">' if tag else ""
+    interest = _interest_form(watch_cfg, nl_action, nl_email_field, privacy_url)
     return f"""<section class="ck-hero"><div class="wrap">
-<p class="eyebrow">Bot Checkup · independent · free</p>
-<h1 class="kinetic-sm">Check what your AI assistant can do with your accounts.</h1>
-<p class="lead">A 3-minute checkup for Grok Bot, ChatGPT dots, Claude Duet, Meta Muse and Gemini Tasks. Pick what's connected, get the settings to change, and house rules you can paste into every assistant.</p>
-<div class="hero-ctas"><a class="btn" href="#checkup">Start the free checkup</a><a class="btn btn-ghost" href="#checkup" data-parent-mode>Checking for a parent?</a><a class="btn btn-ghost" href="{u('/bot-instructions/')}">Write rules for a plain chat</a></div>
-<p class="ck-trust small">Runs in your browser · nothing you pick is sent to us · every settings path links to the vendor's help page (checked {e(nice_checked)}).</p>
+<p class="eyebrow">Free · runs in your browser · nothing sent to us</p>
+<h1 class="kinetic-sm">A free 3-minute check of what your AI assistant can do with your accounts.</h1>
+<p class="lead ck-one-line">Pick what's connected. Get the settings to change. Copy house rules into every assistant.</p>
+{_howto()}
+<div class="hero-ctas"><a class="btn" href="#checkup">Start the free checkup</a>
+<a class="btn btn-ghost" href="#compare">Free vs Watch</a>
+<a class="btn btn-ghost" href="#checkup" data-parent-mode>Checking for a parent?</a></div>
+<p class="ck-trust small">Covers Grok Bot, ChatGPT dots, Claude Duet, Meta Muse and Gemini Tasks · every path links to the vendor's help page (checked {e(nice_checked)}).</p>
 </div></section>
 
-<section class="wrap block" id="checkup" aria-labelledby="ck-form-h"><h2 id="ck-form-h">The checkup</h2>
+<section class="wrap block" aria-labelledby="ck-ex-sec">{_example(d, nice_checked)}</section>
+
+<section class="wrap block" id="compare" aria-labelledby="ck-cmp-h"><h2 id="ck-cmp-h">Free vs paid</h2>
+<p class="muted">One clear split: the checkup is free. Watch would email you later when something changes — it isn't built yet.</p>
+{_compare(u, "free")}
+</section>
+
+<nav class="ck-progress" id="ck-progress" aria-label="Checkup steps" hidden>
+<ol>
+<li data-step="1"><a href="#ck-step-1"><span class="ck-pn">1</span> Assistants</a></li>
+<li data-step="2"><a href="#ck-step-2"><span class="ck-pn">2</span> Connected</a></li>
+<li data-step="3"><a href="#ck-step-3"><span class="ck-pn">3</span> Permissions</a></li>
+<li data-step="4"><a href="#result"><span class="ck-pn">4</span> Your settings</a></li>
+</ol>
+</nav>
+
+<section class="wrap block" id="checkup" aria-labelledby="ck-form-h">
+<h2 id="ck-form-h">The checkup</h2>
+<p class="muted ck-form-lead">Three short picks. Your settings list updates as you go.</p>
 <form class="ck-form glass" id="ck-form" onsubmit="return false">
 <label class="ck-parent"><input type="checkbox" id="ck-parent" name="parent"><span><b>Parent mode.</b> I'm setting this up for a parent or relative. Stricter starting answers, a do-it-together tip, and scam rules added to the house rules.</span></label>
 <div class="ck-helper" id="ck-helper-wrap" hidden><label for="ck-helper">Who should they check with before acting on an urgent message? <span class="muted small">(optional; stays in this tab)</span></label><input id="ck-helper" type="text" maxlength="60" placeholder="e.g. my daughter Sam" autocomplete="off"></div>
-<fieldset><legend><span class="ck-step">Step 1</span> Which assistants do you use?</legend><div class="ck-chips">{chk_a}</div></fieldset>
-<fieldset><legend><span class="ck-step">Step 2</span> What have you connected?</legend><div class="ck-chips">{chk_c}</div></fieldset>
-<fieldset><legend><span class="ck-step">Step 3</span> What may it do on its own?</legend><div class="ck-rows">{rows}</div></fieldset>
+<fieldset id="ck-step-1" data-ck-step="1"><legend><span class="ck-step">Step 1 of 3</span> Which assistants do you use?</legend><div class="ck-chips">{chk_a}</div>
+<p class="ck-next"><button type="button" class="btn btn-sm" data-ck-next="2">Next: what's connected →</button></p></fieldset>
+<fieldset id="ck-step-2" data-ck-step="2"><legend><span class="ck-step">Step 2 of 3</span> What have you connected?</legend><div class="ck-chips">{chk_c}</div>
+<p class="ck-next"><button type="button" class="btn btn-sm" data-ck-next="3">Next: what may it do →</button></p></fieldset>
+<fieldset id="ck-step-3" data-ck-step="3"><legend><span class="ck-step">Step 3 of 3</span> What may it do on its own?</legend><div class="ck-rows">{rows}</div>
+<p class="ck-next"><button type="button" class="btn" data-ck-next="result" id="ck-see">See your settings ↓</button></p></fieldset>
 <script type="application/json" id="ck-data">{_jsdata(d)}</script>
 <p class="small muted" id="ck-count" role="status" aria-live="polite">Pick at least one assistant to narrow the list below.</p>
 </form></section>
 
-<section class="wrap block" id="result" aria-labelledby="ck-res-h"><h2 id="ck-res-h">Settings to change</h2>
+<section class="wrap block" id="result" aria-labelledby="ck-res-h"><h2 id="ck-res-h">Your settings to change</h2>
 <p class="muted" id="ck-res-lead">Every setting we checked, for all five assistants. Each has the in-app path and a link to the vendor page we checked it on. Where a vendor doesn't document the exact steps, we say so instead of guessing.</p>
 <div class="ck-results">{groups}</div>
 <p class="small muted ck-none" id="ck-none" hidden>No settings match these answers yet. Add what you've connected in Step 2.</p>
-<p class="small muted">Menus change often and some features roll out by plan or country, so what you see may differ. If a path is wrong, <a href="mailto:hello@botsdothat.com">tell us</a>.</p></section>
+<p class="small muted">Menus change often and some features roll out by plan or country, so what you see may differ. If a path is wrong, <a href="mailto:hello@botsdothat.com">tell us</a>.</p>
+<p class="ck-next ck-next--after"><a class="btn btn-ghost" href="#house-rules">Next: copy your house rules →</a></p></section>
 
 <section class="wrap block" id="news" aria-labelledby="ck-news-h"><h2 id="ck-news-h">News that affects your setup</h2>
-<p class="muted">Dated items from our daily AI news feed, matched to the assistants you picked. Each links to its source. New ones show up on <a href="{u("/")}">Today</a> as a Checkup alert.</p>
+<p class="muted">Dated items from our daily AI news feed, matched to the assistants you picked. Each links to its source. New ones show up on <a href="{u("/today/")}">Today</a> as a Checkup alert.</p>
 <ul class="ck-newslist glass">{news_html or '<li>No recent items.</li>'}</ul></section>
 
 <section class="wrap block" id="house-rules" aria-labelledby="ck-rules-h"><h2 id="ck-rules-h">Your house rules, one set for every assistant</h2>
@@ -215,22 +314,62 @@ def render_page_inner(u, d, news, nice_date, watch_cfg, nl_action, nl_email_fiel
 <div class="hero-ctas"><button type="button" class="btn" id="ck-copy">Copy the rules</button><button type="button" class="btn btn-ghost" id="ck-dl">Download .txt</button><span class="small" id="ck-copied" role="status" aria-live="polite"></span></div>
 <p class="small muted">Rules are instructions the assistant tries to follow. They don't replace the settings above, and assistants can still make mistakes. Need rules for one job in a plain chat app? Use the free <a href="{u('/bot-instructions/')}">instruction writer</a>.</p></div></section>
 
-<section class="wrap block" id="watch" aria-labelledby="ck-watch-h"><h2 id="ck-watch-h">Checkup Watch <span class="ck-soon">Coming soon · no charge today</span></h2>
-<p class="muted">Assistants change every week. Watch would save your setup and email you when a vendor change or a reported problem affects it, with the setting to change. It isn't built yet. Join the interest list and we'll email you if it opens.</p>
-<div class="ck-plans">
-<div class="glass ck-plan-card"><h3>Free</h3><p class="ck-price">$0</p><ul><li>This checkup, any time</li><li>House rules for every assistant</li><li>Parent mode</li></ul><p class="small">Available now.</p></div>
-<div class="glass ck-plan-card ck-hl"><h3>Checkup Watch</h3><p class="ck-price">$5<small>/month</small></p><ul><li>One person's saved setup</li><li>An email when news affects it, with the fix</li><li>A monthly 2-minute re-check</li></ul><p class="ck-soon">Coming soon · no charge today</p></div>
-<div class="glass ck-plan-card"><h3>Household</h3><p class="ck-price">$9<small>/month</small></p><ul><li>Up to 5 people's setups</li><li>Plain-language alerts for a parent</li><li>Export or delete any time</li></ul><p class="ck-soon">Coming soon · no charge today</p></div>
-</div>
-<div class="glass ck-interest"><h3 id="ck-int-h">Join the interest list</h3>
-<form class="nl-form ck-int-form" action="{e(nl_action) or '#'}" method="post"{' data-nl' if nl_action else ''} aria-labelledby="ck-int-h">
-<fieldset class="ck-plan-pick"><legend class="small">Which plan interests you?</legend>{plans}</fieldset>
-<label class="sr" for="ck-int-email">Email address</label><input id="ck-int-email" type="email" name="{e(nl_email_field)}" placeholder="you@example.com" autocomplete="email" required{dis}>{tag_in}
-<button class="btn" type="submit"{dis}>Join the interest list</button></form><p class="nl-status" role="status" aria-live="polite" hidden></p>
-<p class="small">No card, no payment and no checkout. Prices are a proposal, not an offer. Joining adds you to the free BotsDoThat Weekly through our email provider, Kit: you'll get a confirm email first, and you can unsubscribe any time. <a href="{privacy_url}">Privacy</a></p></div></section>
+<section class="wrap block" id="watch" aria-labelledby="ck-watch-h"><h2 id="ck-watch-h">Want an email when this changes? <span class="ck-soon">Coming soon · no charge today</span></h2>
+<p class="muted">Checkup Watch would save your setup and email you when a vendor change affects it. It isn't built yet — join the interest list and we'll email you if it opens. Full detail on <a href="{u('/services/')}">Services</a>.</p>
+{_compare(u, "watch")}
+{interest}</section>
 
-<section class="wrap block" aria-labelledby="ck-about-h"><h2 id="ck-about-h">What this checkup is, and isn't</h2>
-<ul class="plain"><li>It's a guide to settings each vendor documents, with links. It doesn't connect to your accounts, and it can't see what your assistant has actually done.</li>
-<li>It isn't a security audit, and there are no scores or “safe” badges. Use the vendor's own activity log to check what happened.</li>
-<li>BotsDoThat isn't affiliated with SpaceXSI (xAI), OpenAI, Anthropic, Meta or Google, and doesn't sell an assistant. Our <a href="{u('/disclosure/')}">disclosure page</a> lists how we make money.</li></ul></section>
+{_faq_html()}
 """
+
+
+def render_services_inner(u, watch_cfg, nl_action, nl_email_field, privacy_url):
+    """Paid-services landing: free checkup vs Checkup Watch. Interest list only; no checkout."""
+    interest = _interest_form(watch_cfg, nl_action, nl_email_field, privacy_url, form_id="sv-int")
+    howto = """<ol class="ck-howto">
+<li><b>You give:</b> the free checkup answers (which assistants, what's connected).</li>
+<li><b>Watch would do:</b> save that setup and watch our daily AI news for changes that match it.</li>
+<li><b>You get:</b> a short email with the setting to change — not a feed of every AI headline.</li>
+</ol>"""
+    example = """<div class="glass ck-example" aria-labelledby="sv-ex-h">
+<p class="eyebrow" id="sv-ex-h">Example of a Watch alert (not live yet)</p>
+<div class="ck-ex-mail">
+<p class="ck-ex-lab">Subject</p>
+<p class="ck-ex-title">Grok Bot: set “send email” to Needs approval</p>
+<p class="ck-ex-lab">Body (plain English)</p>
+<p>xAI documented a new per-tool permission for email. For your saved setup, open Connect apps → Email → set send to Needs approval. Takes about 2 minutes. Source linked in the email.</p>
+<p class="small muted">This is a sample of the alert format. Watch is not shipping alerts yet.</p>
+</div></div>"""
+    faq = [
+        ("Is anything charged today?", "No. There is no checkout, no card form and no Stripe on this page. Prices are a proposal."),
+        ("How is this different from the free checkup?", "The free checkup is a one-time guide you run whenever you want. Watch would remember your answers and email you later when a change matters."),
+        ("Do I need Watch to use Bot Checkup?", "No. The checkup stays free. Watch is optional and not live yet."),
+        ("What happens when I join the interest list?", "We add your email and preferred plan to our free weekly newsletter list via Kit. You get a confirm email first. We email you if Watch opens."),
+    ]
+    faq_html = ("<section class=\"faq wrap block\" id=\"faq\" aria-labelledby=\"sv-faq-h\"><h2 id=\"sv-faq-h\">Questions</h2>"
+                + "".join(f"<details class='glass'><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in faq)
+                + "</section>")
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
+                  "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
+    body = f"""<section class="ck-hero"><div class="wrap">
+<p class="eyebrow">Services · interest list only · no checkout</p>
+<h1 class="kinetic-sm">Free checkup now. Watch later, if you want it.</h1>
+<p class="lead ck-one-line">Bot Checkup is free. Checkup Watch is a planned paid alert for when your assistant's settings change.</p>
+{howto}
+<div class="hero-ctas"><a class="btn" href="{u('/bot-checkup/')}">Run the free checkup</a>
+<a class="btn btn-ghost" href="#interest">Join the Watch interest list</a></div>
+</div></section>
+
+<section class="wrap block">{example}</section>
+
+<section class="wrap block" id="compare" aria-labelledby="sv-cmp-h"><h2 id="sv-cmp-h">Free vs paid</h2>
+{_compare(u, "watch")}
+</section>
+
+<section class="wrap block" id="interest" aria-labelledby="sv-int-sec"><h2 id="sv-int-sec">Join the interest list</h2>
+<p class="muted">Tell us which plan you'd want. No card. We'll email you only if Watch opens.</p>
+{interest}</section>
+
+{faq_html}
+"""
+    return body, faq_schema

@@ -104,6 +104,44 @@
       a.download = 'house-rules.txt'; d.body.appendChild(a); a.click();
       setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
     });
+    // Progress bar + next-step buttons (mobile clarity). Form still works without JS.
+    var progress = d.getElementById('ck-progress');
+    function setProgress(step) {
+      if (!progress) return;
+      progress.hidden = false;
+      $$('li', progress).forEach(function (li) {
+        var n = li.getAttribute('data-step');
+        li.classList.toggle('is-active', n === String(step));
+        li.classList.toggle('is-done', Number(n) < Number(step));
+      });
+    }
+    function goStep(target) {
+      var el = target === 'result' ? d.getElementById('result') : d.getElementById('ck-step-' + target);
+      if (!el) return;
+      setProgress(target === 'result' ? 4 : target);
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      var focusable = el.querySelector('input, button, a, textarea');
+      if (focusable) try { focusable.focus({ preventScroll: true }); } catch (err) {}
+    }
+    $$('[data-ck-next]', form).forEach(function (b) {
+      b.addEventListener('click', function () { goStep(b.getAttribute('data-ck-next')); });
+    });
+    if (progress) {
+      setProgress(1);
+      var observer = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          var s = en.target.getAttribute('data-ck-step') || (en.target.id === 'result' ? '4' : null);
+          if (s) setProgress(s);
+        });
+      }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 }) : null;
+      if (observer) {
+        $$('[data-ck-step]', form).forEach(function (fs) { observer.observe(fs); });
+        var res = d.getElementById('result');
+        if (res) observer.observe(res);
+      }
+    }
+
     if (location.hash === '#parent-mode' && parentBox) { parentBox.checked = true; parentBox.dispatchEvent(new Event('change')); }
     update();
   }

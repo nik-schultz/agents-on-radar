@@ -247,7 +247,7 @@ def page(path, title, desc, body, ld=None, noindex=False, lastmod=None, kind="pa
 <footer class="foot"><div class="wrap foot-grid">
 <div><p class="logo"><span class="logo-dot" aria-hidden="true"></span>{wordmark()}</p><p class="foot-tag">{e(TAGLINE)}</p><p class="small">{e(cfg.get('subtagline', ''))}</p>
 <p class="small">General information, not legal, medical or financial advice. Popularity numbers are real counts we measured, with the date. Unknown = not shown. Paid placements are labeled “Sponsored”; affiliate links are labeled “Affiliate link” (<a href="{u(DISCLOSE)}">disclosure</a>).</p></div>
-<div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/today/')}">Today in AI assistants</a></li><li><a href="{u('/today/archive/')}">All Today editions</a></li><li><a href="{u('/guides/')}">All guides</a></li><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">Use cases</a></li><li><a href="{u('/blueprints/')}">Build a bot</a></li><li><a href="{u('/bot-checkup/')}">Bot Checkup</a></li><li><a href="{u('/bot-instructions/')}">Write bot instructions</a></li><li><a href="{u(BUILD_GUIDE)}">Build an AI agent without coding</a></li><li><a href="{u(COST_GUIDE)}">What an AI agent costs</a></li><li><a href="{u(SAFE_GUIDE)}">Email and calendar safety</a></li><li><a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a></li><li><a href="{u('/what-can-bots-do/')}">What's an AI agent?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
+<div><h2 class="foot-h">Explore</h2><ul class="foot-links"><li><a href="{u('/today/')}">Today in AI assistants</a></li><li><a href="{u('/today/archive/')}">All Today editions</a></li><li><a href="{u('/guides/')}">All guides</a></li><li><a href="{u('/trending/')}">Trending now</a></li><li><a href="{u('/use-cases/')}">Use cases</a></li><li><a href="{u('/blueprints/')}">Build a bot</a></li><li><a href="{u('/bot-checkup/')}">Bot Checkup</a></li><li><a href="{u('/services/')}">Services</a></li><li><a href="{u('/bot-instructions/')}">Write bot instructions</a></li><li><a href="{u(BUILD_GUIDE)}">Build an AI agent without coding</a></li><li><a href="{u(COST_GUIDE)}">What an AI agent costs</a></li><li><a href="{u(SAFE_GUIDE)}">Email and calendar safety</a></li><li><a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a></li><li><a href="{u('/what-can-bots-do/')}">What's an AI agent?</a></li><li><a href="{u('/ai-agent-examples/')}">AI agent examples</a></li><li><a href="{u('/news/')}">Latest in AI</a></li><li><a href="{u(LESS)}">Run your bots for less</a></li><li><a href="{u(PRICING)}">AI price table</a></li></ul></div>
 <div><h2 class="foot-h">Site</h2><ul class="foot-links"><li><a href="{u('/about/')}">About & how we measure</a></li><li><a href="{u('/advertise/')}">Advertise</a></li><li><a href="{u(DISCLOSE)}">Affiliate & sponsor disclosure</a></li><li><a href="{u('/newsletter/')}">Newsletter</a></li><li><a href="{u(PRIVACY)}">Privacy</a></li><li><a href="{u(SPONSOR_TERMS)}">Sponsor terms</a></li><li><a href="{u('/feed.xml')}">RSS feed</a></li>{('<li><a href="' + e(X_URL) + '" rel="me noopener">Follow on X (@' + e(X_HANDLE) + ')</a></li>') if X_URL else ""}<li><a href="{e(CONTACT_HREF)}">Contact{(": " + e(CONTACT)) if CONTACT else ""}</a></li></ul></div>
 </div><div class="wrap small foot-note">Data as of {nice_date(BUILD_DATE)} · {len(ucs)} use cases · {len(bps)} blueprints</div></footer>
 <script src="{u('/assets/app.js')}?v={ASSET_V['app.js']}" defer></script><script src="{u('/assets/today.js')}?v={ASSET_V['today.js']}" defer></script>
@@ -292,7 +292,7 @@ def featured_slot(slot, cat=None):
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
     return newsletter_box(f"nl-{slot}", "card")  # no sponsor booked: show a newsletter signup instead of an empty ad box
 
-SHARE_PATHS = {GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/", "/bot-checkup/"}
+SHARE_PATHS = {GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/", "/bot-checkup/", "/services/"}
 def share_bar(title, url):
     """Share on X / Copy link / Email a friend. Plain links + one button; no third-party scripts."""
     q = urllib.parse.quote
@@ -904,15 +904,28 @@ if _ck_errs:
     raise SystemExit("bot-checkup data: " + "; ".join(_ck_errs))
 _ck_news = bot_checkup.match_news(NEWS, _ck, TODAY)
 _ck_bc, _ck_ld = crumbs([("Home", "/"), ("Bot Checkup", None)])
-_ck_desc = "Free Bot Checkup: the settings to change in Grok Bot, ChatGPT dots, Claude Duet, Meta Muse and Gemini Tasks, linked to each vendor's help page, plus house rules."
-page("/bot-checkup/", "Bot Checkup: what can your AI assistant do with your accounts?", mdesc(_ck_desc),
-     f'<div class="wrap">{_ck_bc}</div>' + bot_checkup.render_page_inner(u, _ck, _ck_news, nice_date, cfg.get("checkup_watch") or {},
-                                                                       cfg["newsletter"].get("form_action", ""), cfg["newsletter"].get("email_field", "email_address"), u(PRIVACY)),
-     [_ck_ld, {"@context": "https://schema.org", "@type": "WebApplication", "name": "BotsDoThat Bot Checkup", "url": absu(u("/bot-checkup/")), "applicationCategory": "UtilitiesApplication",
+_ck_desc = "Free 3-minute Bot Checkup: pick what's connected, get the settings to change in Grok Bot, ChatGPT dots, Claude Duet, Meta Muse or Gemini Tasks, and house rules to paste in."
+_ck_watch = cfg.get("checkup_watch") or {}
+_ck_nl_action = cfg["newsletter"].get("form_action", "")
+_ck_nl_email = cfg["newsletter"].get("email_field", "email_address")
+page("/bot-checkup/", "Bot Checkup: free 3-minute check of what your AI assistant can do", mdesc(_ck_desc),
+     f'<div class="wrap">{_ck_bc}</div>' + bot_checkup.render_page_inner(u, _ck, _ck_news, nice_date, _ck_watch,
+                                                                       _ck_nl_action, _ck_nl_email, u(PRIVACY)),
+     [_ck_ld, bot_checkup.faq_ld(),
+      {"@context": "https://schema.org", "@type": "WebApplication", "name": "BotsDoThat Bot Checkup", "url": absu(u("/bot-checkup/")), "applicationCategory": "UtilitiesApplication",
                "operatingSystem": "Any (runs in your web browser)", "isAccessibleForFree": True,
                "description": "Pick your AI assistants and what they can reach. Get the documented settings to change in each app, with the vendor source, and one set of house rules. Runs in the browser; nothing is sent to us.",
                "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}],
      head_extra=f'<script src="{u("/assets/bot-checkup.js")}?v={ASSET_V["bot-checkup.js"]}" defer></script>')
+
+# ---------- SERVICES (free checkup vs Checkup Watch interest; no checkout) ----------
+_sv_bc, _sv_ld = crumbs([("Home", "/"), ("Services", None)])
+_sv_body, _sv_faq = bot_checkup.render_services_inner(u, _ck_watch, _ck_nl_action, _ck_nl_email, u(PRIVACY))
+page("/services/", "Services: free Bot Checkup and Checkup Watch interest list",
+     mdesc("Free Bot Checkup now. Checkup Watch is a planned $5/$9 alert for when your assistant's settings change — interest list only, no checkout."),
+     f'<div class="wrap">{_sv_bc}</div>' + _sv_body,
+     [_sv_ld, _sv_faq],
+     lastmod="2026-11-21")
 
 # ---------- TODAY (the home page): the daily front page, /today/ archive, /today/<date>/ and /today/feed.xml ----------
 # One promise: what changed in AI assistants today, what it means for you, and one job to try. Picks come from
@@ -2834,6 +2847,7 @@ for _src, _dst, _ttl in (
     ("/jobs/", "/use-cases/", "Jobs to try"),
     ("/examples/", "/ai-agent-examples/", "AI agent examples"),
     ("/checkup/", "/bot-checkup/", "Bot Checkup"),
+    ("/watch/", "/services/", "Services"),
     ("/feed/", "/feed.xml", "RSS feed"),
     ("/rss/", "/feed.xml", "RSS feed"),
     ("/sitemap/", "/sitemap.xml", "Sitemap"),
