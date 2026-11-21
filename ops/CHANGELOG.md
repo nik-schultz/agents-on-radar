@@ -1289,3 +1289,4 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - Refreshed X numbers on 60 existing items dated Nov 12 or later (+8 new; 68 posts in one get_posts_by_ids call), measured 2026-11-20T20:32Z (raw research/x_news_measure_2026_11_20_pm.json.txt, local only; apply script research/news_x_2026_11_20_pm.py).
 - Today page: data/today.json untouched (no picks override for 2026-11-20). The automatic top 3 for Friday, Nov 20 now = grok-bot-quickbooks, tencent-hy4-open-weights, chatgpt-space-plus (new Nov 20 items outrank the Nov 19 fill-ins). /news/ header unchanged.
 - 4 BACKLOG notes + skips under "PM news 2026-11-20".
+- Deployed: local main `f4e2b055`, publish `c169a49f` (`c9426bd4..c169a49f`), Actions run 44812620181 succeeded; live /news/ and /today/ show the new items; scripts/check_today.py OK (Friday, Nov 20).

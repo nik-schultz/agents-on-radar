@@ -181,10 +181,10 @@ def render_page_inner(u, d, news, nice_date, watch_cfg, nl_action, nl_email_fiel
     tag_in = f'<input type="hidden" name="tags[]" value="{e(tag)}">' if tag else ""
     return f"""<section class="ck-hero"><div class="wrap">
 <p class="eyebrow">Bot Checkup · independent · free</p>
-<h1 class="kinetic-sm">Your AI assistant can read your email, pay and make calls for you. Check what you've let it do.</h1>
-<p class="lead">A 3-minute checkup for Grok Bot, ChatGPT dots, Claude Duet, Meta Muse and Gemini Tasks. Pick what's connected and get the settings to change in each app, the news that affects your setup, and one set of house rules you can paste into every assistant you use.</p>
+<h1 class="kinetic-sm">Check what your AI assistant can do with your accounts.</h1>
+<p class="lead">A 3-minute checkup for Grok Bot, ChatGPT dots, Claude Duet, Meta Muse and Gemini Tasks. Pick what's connected, get the settings to change, and house rules you can paste into every assistant.</p>
 <div class="hero-ctas"><a class="btn" href="#checkup">Start the free checkup</a><a class="btn btn-ghost" href="#checkup" data-parent-mode>Checking for a parent?</a><a class="btn btn-ghost" href="{u('/bot-instructions/')}">Write rules for a plain chat</a></div>
-<ul class="ck-trust small"><li>Runs in your browser. Nothing you pick is sent to us.</li><li>We don't sell an assistant.</li><li>Every settings path links to the vendor's own help page, checked {e(nice_checked)}.</li></ul>
+<p class="ck-trust small">Runs in your browser · nothing you pick is sent to us · every settings path links to the vendor's help page (checked {e(nice_checked)}).</p>
 </div></section>
 
 <section class="wrap block" id="checkup" aria-labelledby="ck-form-h"><h2 id="ck-form-h">The checkup</h2>

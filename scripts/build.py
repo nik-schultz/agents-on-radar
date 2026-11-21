@@ -180,7 +180,7 @@ def itemlist(name, items, base="/use-cases/"):
             "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": absu(u(base + x["slug"] + "/")), "name": x["title"]} for i, x in enumerate(items)]}
 def jsonld(obj): return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False).replace("</", "<\\/") + "</script>"
 
-INTRO_JS = """(function(){try{var d=document.documentElement;d.classList.add('js');if(d.dataset.page==='home'&&!sessionStorage.getItem('introSeen')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('intro-on');sessionStorage.setItem('introSeen','1')}}catch(e){}})();"""
+INTRO_JS = """(function(){try{document.documentElement.classList.add('js')}catch(e){}})();"""  # splash removed with the 2026-11-20 home overview; keep the .js class for progressive enhancement
 
 def mdesc(*parts, limit=155):
     """Meta description: join parts, cut at a word boundary so search results don't truncate mid-word."""
@@ -634,11 +634,11 @@ page("/trending/", "Trending AI agent use cases this week", "The AI agent use ca
 
 allcards = "".join(card(x) for x in TRENDING) + "".join(card(x) for x in NEWEST if x["_heat"] == 0)
 page("/use-cases/", "AI agent use cases you can copy and run, step by step", f"{len(ucs)} step-by-step AI agent use cases you can copy and run: what the bot does, setup, the tools that can do it today and a copy-paste prompt, each with sources.",
-     f"""<div class="wrap page-head"><p class="eyebrow">Jobs to try</p><h1 class="kinetic-sm">Jobs to hand to AI</h1><p class="lead">{len(ucs)} everyday jobs real people give AI assistants, each with a copy-paste prompt and sources. A new one is picked as the <a href="{u('/today/')}#job-h">job of the day</a> every weekday.</p>
-<p class="small">Want the most-talked-about first? <a href="{u('/trending/')}">Trending this week</a> · Want a whole bot? <a href="{u('/blueprints/')}">Ready-made setups</a></p>
-<p class="small hub-note">Each use case is a step-by-step page you can copy and run: what the bot does, setup, the tools and a prompt. Want a quick overview first? <a href="{u('/ai-agent-examples/')}">AI agent examples</a> puts everything agents can do on one page, grouped by part of life. Pages marked {CHAT_BADGE} are one-off prompts for a chat app, not bots that act for you.</p>
+     f"""<div class="wrap page-head uc-head"><p class="eyebrow">Jobs to try</p><h1 class="kinetic-sm">Jobs to hand to AI</h1>
+<p class="lead">{len(ucs)} everyday jobs with a copy-paste prompt and sources. Job of the day updates every weekday on <a href="{u('/today/')}#job-h">Today</a>.</p>
 {searchbox(id_="q2")}<div class="index-tools">{chips()}<label class="sort"><span>Sort</span><select id="sort"><option value="heat">Trending</option><option value="new">Newest</option><option value="easy">Easiest first</option></select></label></div>
-<p class="small muted" id="count" aria-live="polite"></p></div>
+<p class="small muted" id="count" aria-live="polite"></p>
+<p class="small">Trending first? <a href="{u('/trending/')}">This week</a> · Overview? <a href="{u('/ai-agent-examples/')}">AI agent examples</a> · Whole bot? <a href="{u('/blueprints/')}">Blueprints</a> · {CHAT_BADGE} = one-off chat prompt</p></div>
 <div class="wrap"><h2 class="sr">All {len(ucs)} use cases</h2><ul class="grid" id="cards">{allcards}</ul><p class="empty" hidden>No matches. Try a simpler word like “email” or “calendar”.</p></div>""",
      [itemlist(f"{len(ucs)} AI agent use cases", ucs)], kind="index")
 
@@ -888,7 +888,7 @@ _bb_bc, _bb_ld = crumbs([("Home", "/"), ("Write instructions", None)])
 _bb_faq = [{"@type": "Question", "name": item["q"], "acceptedAnswer": {"@type": "Answer", "text": item["a"]}} for item in _bb["faq"]]
 page("/bot-instructions/", "Free AI bot instructions builder: copy-paste templates",
      "Free builder for AI bot instructions you paste into ChatGPT, Claude, Gemini or Grok: a weekly plan, an email draft or a quote comparison. No sign-up.",
-     f'<div class="wrap">{_bb_bc}<p class="ck-upsell glass small"><b>Using Grok Bot, ChatGPT dots, Claude Duet, Meta Muse or Gemini Tasks?</b> Those assistants can act in your accounts. Run the free <a href="{u("/bot-checkup/")}">Bot Checkup</a> for the settings to change in each app and one set of house rules for all of them. This page stays free for plain chat apps.</p></div>' + bot_builder.render_page_inner(u),
+     f'<div class="wrap">{_bb_bc}<p class="ck-upsell glass small"><b>Connected assistants?</b> Run the free <a href="{u("/bot-checkup/")}">Bot Checkup</a> for settings and house rules. This page stays free for plain chat apps.</p></div>' + bot_builder.render_page_inner(u),
      [_bb_ld, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": _bb_faq},
       {"@context": "https://schema.org", "@type": "WebApplication", "name": "BotsDoThat bot instructions builder", "url": absu(u("/bot-instructions/")), "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (runs in your web browser)", "isAccessibleForFree": True,
        "description": "Fills a fixed template with the facts you type and gives you instructions to paste into your own AI chat app. It does not call an AI model and does not store what you type.",
@@ -1130,8 +1130,9 @@ ld_home = [{"@context": "https://schema.org", "@type": "WebSite", "name": NAME, 
 page("/", f"{NAME}: AI assistants, made useful for everyday life", _home_desc,
      f"""<section class="wrap page-head hm-hero"><p class="eyebrow">{e(NAME)} · free, plain English, independent</p>
 <h1 class="kinetic-sm hm-h1">Make AI assistants useful in your everyday life.</h1>
-<p class="lead hm-lead">Find jobs worth handing to AI, check what your assistant can do with your accounts, and keep up with what changed. Every item links to its source.</p></section>
+<p class="lead hm-lead">Jobs to hand to AI, a free checkup for your assistant's settings, and what changed today. Every item links to its source.</p></section>
 {_home_today_box()}
+<section class="wrap hm-search" aria-label="Search jobs">{searchbox(id_="qh", home=True, placeholder="Search jobs: email, calendar, phone call…")}</section>
 <section class="wrap block hm-feat" aria-labelledby="hf-h"><h2 id="hf-h" class="nb-label">Everything on {e(NAME)} <span class="nb-why">Free to use, no account needed</span></h2>
 <ul class="hf-grid">{_hf}</ul></section>
 {featured_slot('featured_home') if spons.get('featured_home') else ''}
@@ -1270,9 +1271,8 @@ ex_faq = [
 ]
 ex_body = f"""<article class="wrap narrow explainer">{crumbs([("Home", "/"), ("AI agent examples", None)])[0]}
 <p class="eyebrow">Examples</p><h1 class="kinetic-sm">{len(ex_items)} AI agent examples for personal use and everyday life</h1>
-<p class="lead">Short answer: the most useful AI agents for personal use today read your email and tell you what needs a reply, watch a web page and ping you when it changes, plan meals and build the grocery list, and make phone calls for you. An AI agent does a job for you instead of only answering questions. Here are {len(ex_items)} real, everyday examples, grouped by part of life. Each one links to a plain-English guide with a copy-paste prompt.</p>
-<p class="small muted">Updated <time datetime="{MOD_ISO}">{MOD_NICE}</time>. New to agents? Read <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>, or <a href="{u(BUILD_GUIDE)}">build one without coding</a>.</p>
-<p class="small hub-note">This page is the one-page overview of what AI agents can do, grouped by part of life. To set one up, open its step-by-step page, or search and filter all of them in <a href="{u('/use-cases/')}">use cases</a>. Items marked {CHAT_BADGE} are one-off prompts for a chat app, not bots that act for you.</p>
+<p class="lead">{len(ex_items)} everyday examples, grouped by part of life. Each links to a how-to with a copy-paste prompt. An AI agent does a job for you instead of only answering questions.</p>
+<p class="small muted">Updated <time datetime="{MOD_ISO}">{MOD_NICE}</time> · New to agents? <a href="{u('/what-can-bots-do/')}">What is an AI agent?</a> · Search and filter in <a href="{u('/use-cases/')}">Jobs to try</a> · {CHAT_BADGE} = one-off chat prompt</p>
 {ex_groups}
 <section><h2>Questions people ask</h2>{''.join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}{_faq_more(q)}</p></details>' for q, a in ex_faq)}</section>
 <section class="glass explain-card"><h2>Want it on autopilot?</h2><p>Turn any of these into a bot that runs on a schedule with a <a href="{u('/blueprints/')}">build-your-own-bot blueprint</a>. Never built one? Follow <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>. Use Gmail and Google Calendar? <a href="{u(GT_GUIDE)}">Tasks in Gemini</a> is free in six countries. Then write your bot's rules in the free <a href="{u('/bot-instructions/')}">instruction builder</a>.</p></section>
@@ -2503,7 +2503,7 @@ news_body = f"""<div class="nb nb--top" aria-label="Top story and trending">
 <section class="nb-main" aria-labelledby="ns-top"><h2 class="nb-label" id="ns-top"><span class="pulse" aria-hidden="true"></span> Top story <span class="nb-why">biggest-impact news of the last 2 weeks</span></h2>{news_tile(NEWS_TOP, "xl", art_on=True)}</section>
 <section class="nb-side" aria-labelledby="ns-hot"><h2 class="nb-label" id="ns-hot">🔥 Trending <span class="nb-why">most engagement on X, weighted toward newer posts</span></h2>{"".join(news_tile(n, "l", art_on=True, i=k + 1) for k, n in enumerate(NEWS_TREND))}</section></div>
 {f'<section class="nb-sec" aria-labelledby="ns-week"><h2 class="nb-label" id="ns-week">This week <span class="nb-why">{len(_week)} more stories</span></h2><div class="nt-grid">{_grid(_week, 4)}</div></section>' if _week else ''}
-<section class="nb-sec" aria-labelledby="ns-earlier"><h2 class="nb-label" id="ns-earlier">Earlier <span class="nb-why">the rest of the last month</span></h2><div class="nt-grid">{_grid(_earlier, 4 + len(_week))}</div></section>"""
+<details class="nb-sec nb-earlier" id="ns-earlier"><summary class="nb-label">Earlier <span class="nb-why">{len(_earlier)} more from the last month · tap to open</span></summary><div class="nt-grid">{_grid(_earlier, 4 + len(_week))}</div></details>"""
 cat_counts = " · ".join(f"{NEWS_CAT_ICON.get(c,'')} {e(c)}: {sum(1 for n in NEWS if n['category']==c)}" for c in NEWS_CATS if any(n['category']==c for n in NEWS))
 bc, bld = crumbs([("Home", "/"), ("Latest in AI", None)])
 news_ld = [bld, {"@context": "https://schema.org", "@type": "ItemList", "name": "Latest AI and AI agent news", "numberOfItems": len(NEWS),
@@ -2701,7 +2701,7 @@ page("/sponsor/", "Sponsor: moved to Advertise", "This page moved to Advertise."
      f'<div class="wrap narrow center"><p class="eyebrow">Moved</p><h1 class="kinetic-sm">This page moved</h1><p class="lead"><a class="btn" href="{u("/advertise/")}">Go to Advertise →</a></p></div>',
      noindex=True, head_extra=f'<meta http-equiv="refresh" content="0; url={u("/advertise/")}">')
 
-page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wrap narrow center"><p class="eyebrow">404</p><h1 class="kinetic-sm">Lost signal.</h1><p class="lead">That page isn\'t on our radar.</p>{searchbox(id_="q404")}<p><a class="btn" href="{u("/bot-checkup/")}">Start the free Bot Checkup</a> <a class="btn btn-ghost" href="{u("/use-cases/")}">Browse use cases</a> <a class="btn btn-ghost" href="{u("/")}">Back to the home page</a></p></div>', noindex=True)
+page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wrap narrow center"><p class="eyebrow">404</p><h1 class="kinetic-sm">Lost signal.</h1><p class="lead">That page isn\'t on our radar. Search for a job, or pick a starting point below.</p>{searchbox(id_="q404")}<p class="nf-links"><a class="btn" href="{u("/bot-checkup/")}">Free Bot Checkup</a> <a class="btn btn-ghost" href="{u("/today/")}">Today</a> <a class="btn btn-ghost" href="{u("/use-cases/")}">Jobs to try</a> <a class="btn btn-ghost" href="{u("/guides/")}">Guides</a> <a class="btn btn-ghost" href="{u("/")}">Home</a></p></div>', noindex=True)
 
 # ---------- MACHINE FILES ------------------------------------------------------------
 idx = [{"t": x["title"], "u": u("/use-cases/" + x["slug"] + "/"), "c": CAT[x["category"]]["name"], "i": CAT[x["category"]]["icon"], "d": x["difficulty"], "h": x["_heat"], "s": search_text(x)} for x in ucs]
@@ -2815,4 +2815,29 @@ make_og()
 _og_missing = sorted(set(OG_IMAGES) - OG_USED)
 if _og_missing: print("WARNING: og_images.json paths with no built page:", ", ".join(_og_missing))
 with open(_CD_PATH, "w") as fh: json.dump(dict(sorted(CONTENT_DATES.items())), fh, indent=1, ensure_ascii=False); fh.write("\n")
+
+# ---------- COMMON PATH REDIRECTS (guessed URLs that 404'd) --------------------------
+def write_redirect(path, dest, title):
+    """Static HTML redirect for GitHub Pages (no server rewrite rules)."""
+    dest_abs = absu(u(dest))
+    body = (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{e(title)}</title>'
+            f'<meta http-equiv="refresh" content="0;url={e(dest_abs)}">'
+            f'<link rel="canonical" href="{e(dest_abs)}"><meta name="robots" content="noindex">'
+            f'<script>location.replace({json.dumps(dest_abs)})</script></head>'
+            f'<body><p>Moved to <a href="{e(dest_abs)}">{e(dest_abs)}</a>.</p></body></html>')
+    fp = os.path.join(OUT, path.strip("/"), "index.html")
+    os.makedirs(os.path.dirname(fp), exist_ok=True)
+    open(fp, "w").write(body)
+
+for _src, _dst, _ttl in (
+    ("/pricing/", PRICING, "AI price table"),
+    ("/jobs/", "/use-cases/", "Jobs to try"),
+    ("/examples/", "/ai-agent-examples/", "AI agent examples"),
+    ("/checkup/", "/bot-checkup/", "Bot Checkup"),
+    ("/feed/", "/feed.xml", "RSS feed"),
+    ("/rss/", "/feed.xml", "RSS feed"),
+    ("/sitemap/", "/sitemap.xml", "Sitemap"),
+):
+    write_redirect(_src, _dst, _ttl)
+
 print(f"Built {len(SITEMAP)} indexed pages + 404 into {OUT} (name: {NAME}, base: {BASE}{BP}); trending={len(TRENDING)}")

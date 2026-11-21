@@ -2,7 +2,7 @@
 
 > What changed in AI assistants today, and one job to try. BotsDoThat Today: every weekday, the 3 changes in AI assistants that matter for everyday users, what each means for you, and one job to try with a copy-paste prompt. Plus a free Bot Checkup for your assistant's settings, a library of everyday jobs to hand to AI, and plain-English guides. Every item links to its source.
 
-Data as of 2026-11-20. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.
+Data as of 2026-11-21. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.
 
 ## Start here
 - [What is an AI agent? (in simple terms)](https://botsdothat.com/what-can-bots-do/): plain-English explainer, AI agent vs. chatbot, what agents can and can't do safely

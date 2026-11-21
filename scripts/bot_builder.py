@@ -955,8 +955,7 @@ def render_page_inner(url=None, saved_config=None):
     saved_json = embed_json(saved_config)
     demo = capacity_check(fictional_week())
     return f"""<div class="wrap narrow page-head"><p class="eyebrow">Free builder</p><h1 class="kinetic-sm">Make your AI weekly planner fit your real week.</h1>
-<p class="lead">Build instructions for the AI app you already use. Check what it gets wrong, then make one small improvement for next week.</p>
-<p>Instructions, not a hosted bot. Nothing runs or books automatically. Email drafts and quote comparisons are still on this page. Saving a setup so you can come back is not turned on. The guides on the rest of the site stay free.</p>
+<p class="lead">Build instructions for the AI app you already use. Check what it gets wrong, then improve next week. Instructions only — nothing runs or books on its own. Saving setups is not turned on.</p>
 <div class="glass bb-honest"><p><b>This page is a form and a template, not a live AI.</b> It does not call a model, does not review the chat's reply, and does not claim a test passed until you run one and say so yourself. That report stays in this tab. BotsDoThat has not checked it.</p>
 <p>{_e(catalog["storage_note"])}</p>
 <p class="small">Works with the text box in ChatGPT, Claude, Gemini, Copilot, Grok, and similar apps. No connected inbox, calendar, browser, or payment tool is part of this.</p></div></div>

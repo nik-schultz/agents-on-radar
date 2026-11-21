@@ -8,7 +8,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 MSG="${1:-Site update $(date +%F)}"
-G=(git -c user.name="CEO agent" -c user.email="ceo-agent@localhost")
+G=(git -c user.name="BotsDoThat CEO bot" -c user.email="hello@botsdothat.com")
 python3 scripts/validate.py
 python3 scripts/build.py
 python3 scripts/check_links.py

@@ -19,3 +19,4 @@ ops/drafts/
 # Private ops notes (published by accident; kept local only, 2026-11-20)
 ops/directory-submissions.md
 ops/community/
+.venv
