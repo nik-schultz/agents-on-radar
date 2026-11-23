@@ -1,0 +1,47 @@
+{
+ "slug": "have-your-bot-call-stores-to-check-if-something-is-in-stock",
+ "title": "Have your bot call stores to check if something is in stock",
+ "category": "shopping",
+ "source_date": "2026-11-20",
+ "summary": "Instead of driving around or sitting on hold, tell your bot what you're looking for. It phones a few nearby stores one by one, asks if they have it today, what sizes or models there are and the price, and gives you one short table so you know where to go.",
+ "what_the_bot_does": [
+  "Finds [3-4] nearby stores that might carry the item, with their official phone numbers.",
+  "Shows you the list and the short script it will use, and waits for your OK before it dials.",
+  "Calls each store, says it's an AI assistant calling for you, gets through the phone menu or hold, and asks: in stock today? which sizes or models? price? will you hold one?",
+  "Hangs up and moves on if it's stuck on hold too long or the store won't talk to an AI.",
+  "Sends you one table: store, yes/no, price, notes, and the time of each call, plus the call transcripts."
+ ],
+ "what_you_end_up_with": "A short table of which nearby stores have what you need today, so you make one trip instead of five calls.",
+ "difficulty": "Easy",
+ "tools": [
+  {"id": "grok-bot", "note": "Can phone US businesses for you after you approve; the viral Home Depot and Publix Christmas-tree calls were made with it"},
+  {"id": "gemini-spark", "note": "Tasks in Gemini can call Google-verified US businesses to check product availability; free in the US, with a daily call limit"},
+  {"id": "gemini", "note": "Google Search 'Let Google call': search a product plus 'near me' and Google rings several stores, then texts or emails a summary"}
+ ],
+ "prompt": "I'm looking for [a 6-7 ft fresh-cut Christmas tree / a specific item, brand and size]. Find [4] stores within [10 miles] of [my town or zip code] that might have it, with their official phone numbers.\n\nShow me the list and a one-line script first. After I say OK, call them one at a time. Say you're an AI assistant calling for [my name]. Ask:\n1. Do you have it in stock today?\n2. Which sizes or models, and the price?\n3. Can you hold one for me, and until when?\n\nIf you hit a phone menu, ask for a person. If you're on hold more than [5] minutes, or they don't want to talk to an AI, thank them, hang up and move on.\n\nDon't buy, pay, or give out any card details. Then give me one table: store, in stock (yes/no), price, notes, time of call. If you couldn't reach a store, say so instead of guessing.",
+ "setup": [
+  "Pick an assistant that can make phone calls: Grok Bot, Tasks in the Gemini app (switch the home screen from Chat to Task), or Google Search's 'Let Google call' button (search the item plus 'near me'). All three are US-only for calls right now.",
+  "Have the exact item ready: name, brand, size or model. The clearer it is, the shorter the call.",
+  "Paste the prompt, check the stores and numbers it found (they should be the store's own number), then approve the calls.",
+  "Read the table and the transcripts. If a store says it will hold one, call or go soon, because a hold on the phone isn't a guarantee.",
+  "Want it every morning (for example a restock you're waiting on)? Make it a routine, but keep it to one or two stores and stop once you've got the item."
+ ],
+ "watch_out": [
+  "Not every store will pick up. The person behind the viral Home Depot call said about half the places hung up or went to voicemail; Lowe's, Publix and Home Depot answered (X @theshaneemoret, Nov 21).",
+  "Gemini says it's an AI on a recorded line at the start of every call, has a daily call limit, and can't call businesses in Indiana, Louisiana, Minnesota or Montana (Gemini Apps Help). Google Search's 'Let Google call' also excludes Nebraska.",
+  "Calling the same stores every day is a lot for a small shop's phone line. Keep repeat calls short and stop once you've found it.",
+  "A 'yes, we have it' on the phone can change by the time you arrive. Ask them to hold one, and go soon."
+ ],
+ "sources": [
+  {"label": "X post by @theshaneemoret (2026-11-20): 'I had my Grok Bot call The Home Depot to ask if fresh-cut Christmas trees were in stock. It even asked about sizes and prices. Here's the call.' (995 likes / 53 reposts / 135 replies / 377 bookmarks / 384,514 views, measured 2026-11-23)", "url": "https://x.com/theshaneemoret/status/2123867445530349870", "kind": "x"},
+  {"label": "X post by @theshaneemoret (2026-11-21): her Grok Bot called Publix for live Christmas trees; 'It got through the phone menus, got cut off mid-question, got put on hold, and still got me my answer' (15 likes / 2 reposts / 2,158 views, measured 2026-11-23)", "url": "https://x.com/theshaneemoret/status/2124165840958304468", "kind": "x"},
+  {"label": "X post by @FlipFlip (2026-11-21): set up Grok Bot to call retailers every morning (Target, Walmart, Costco, Sam's Club) and ask if they're restocking Pokemon and One Piece cards that day (33 likes / 2 reposts / 18 bookmarks / 12,060 views, measured 2026-11-23)", "url": "https://x.com/FlipFlip/status/2124244937172766779", "kind": "x"},
+  {"label": "Google Shopping Help: Ask Google to call nearby stores for you ('Let Google call' on Search: Google calls several stores to confirm availability and price, then sends a summary by text or email; US, English, not in IN, LA, MN, MT or NE)", "url": "https://support.google.com/googleshopping/answer/16742225?hl=en", "kind": "official"},
+  {"label": "Gemini Apps Help: Ask Gemini to make phone calls to businesses (check product availability and holiday hours; discloses it's an AI on a recorded line; daily limits; no payments over the phone)", "url": "https://support.google.com/gemini/answer/18961634?hl=en", "kind": "official"},
+  {"label": "Google blog: How to ask Google to call local businesses for you using agentic calling (Nov 25, 2025, updated July 24, 2026)", "url": "https://blog.google/products-and-platforms/products/shopping/how-to-agentic-calling-let-google-call/", "kind": "official"},
+  {"label": "Digital Trends (2026-11-10): November Pixel Drop lets Gemini use your own number to ask a store to hold an item and check inventory (US, English)", "url": "https://www.digitaltrends.com/phones/googles-pixel-10-update-lets-gemini-order-groceries-book-cabs-and-make-calls-on-your-behalf/", "kind": "article"},
+  {"label": "Usecasy guide (updated 2026-11-22): 'Ring round shops for stock and prices' prompt: approve a short script, the bot calls shops one by one and returns one table", "url": "https://usecasy.com/use-case/grokbot-phone-company-for-you/", "kind": "article"}
+ ],
+ "popularity": {"platform": "x", "post_id": "2123867445530349870", "author": "@theshaneemoret", "url": "https://x.com/theshaneemoret/status/2123867445530349870", "posted_at": "2026-11-20", "likes": 995, "reposts": 53, "replies": 135, "bookmarks": 377, "views": 384514, "measured_at": "2026-11-23"},
+ "tags": ["phone call", "in stock", "christmas tree", "holiday shopping", "store", "hold an item", "grok bot", "gemini tasks", "let google call"]
+}
