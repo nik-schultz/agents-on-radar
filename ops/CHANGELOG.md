@@ -1320,3 +1320,13 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - Today page: data/today.json untouched; the AM override picks for 2026-11-23 stay (no item was wrong, no major item arrived). /news/ header unchanged.
 - 4 BACKLOG notes + skips under "PM news 2026-11-23".
 - Validate 0 errors; build 220 pages; check_links 19,911 links, 0 broken internal; test_today OK; check_today --site site OK (Monday, Nov 23).
+- Deployed: local main `81560492`, publish `df1f789b` (`c9134406..df1f789b`), Actions run 45259887773 succeeded; live check: scripts/check_today.py OK (Monday, Nov 23); /news/ shows the GPT-6.2 Chat tab item; /today/ 200.
+
+## 2026-11-24 AM news run (~6:30 AM CT; covers Mon Nov 23 ~2:30 PM CT through Tue Nov 24 ~6:30 AM CT)
+- Added 5 items: **meta-muse-uk** (2026-11-24, notable, agent launch; about.fb.com + Guardian + CMA statement + BBC; @Muse 2125111851654815995), **claude-plugins-one-page** (2026-11-23, notable, feature; Claude Help Center + Artificially Nerdy; @claudeai 2124970294523945328), **chatgpt-gpt-5-6-retiring-dec-23** (2026-11-23, notable, feature; 9to5Mac + API deprecations page; @ChatGPT 2124981905380569283), **openai-cisco-shirudo** (2026-11-23, minor, industry; openai.com + Cisco newsroom + GitHub; @OpenAI 2124980590717911527), **gemini-4-neon-workspace-app** (2026-11-23, minor, feature; @OfficialLoganK 2125018427790344654 + ORIENS).
+- No major item. Pricing: no ai-pricing.json change (GPT-5.6 retirement is ChatGPT-only; no API shutdown announced).
+- google-ai-mode-wallet-personal-intelligence: x block switched from @rmstein to the official @Google post 2124981145922146739 (113,688 views).
+- Refreshed X numbers on 71 existing items dated Nov 14 or later (+5 new; 82 posts in one get_posts_by_ids call), measured 2026-11-24T12:33Z (raw research/x_news_measure_2026_11_24_am.json.txt, local only; apply script research/news_x_2026_11_24_am.py).
+- Today page: data/today.json days["2026-11-24"].picks = meta-muse-uk, chatgpt-gpt-6-2-chat-tab, claude-plugins-one-page (the automatic #3 was claude-ship-pr-agents, a software-team tool; GPT-6.2 Chat tab never made a Today top 3 because the Nov 23 override was set in the AM run). /news/ header unchanged.
+- 3 BACKLOG notes + skips under "AM news 2026-11-24".
+- Validate 0 errors; build 220 pages; check_links 19,914 links, 0 broken internal; test_today OK; check_today --site site OK (Tuesday, Nov 24).

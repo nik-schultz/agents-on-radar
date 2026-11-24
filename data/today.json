@@ -9,6 +9,13 @@
         "google-connected-apps-groceries-taxes",
         "openai-perplexity-common-limits"
       ]
+    },
+    "2026-11-24": {
+      "picks": [
+        "meta-muse-uk",
+        "chatgpt-gpt-6-2-chat-tab",
+        "claude-plugins-one-page"
+      ]
     }
   }
 }
