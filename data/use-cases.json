@@ -1,5 +1,217 @@
 [
  {
+  "slug": "let-your-bot-project-manage-your-holiday-dinner",
+  "title": "Let your bot project-manage your holiday dinner",
+  "category": "family",
+  "source_date": "2026-11-22",
+  "summary": "Hosting Thanksgiving (or any big family meal)? Your bot interviews you, then builds one plan: the menu, who's bringing what, an oven schedule that works back from dinner time, a shopping list and a short text for each guest. On the day it can ping you when it's time to start each dish.",
+  "what_the_bot_does": [
+   "Asks you questions one at a time: how many guests, kids, allergies and diets, dishes people already claimed, what time you want to eat, and what your kitchen has (one oven? a smoker? a slow cooker?).",
+   "Builds a plan you can review: the menu, a 'who's bringing what' list with gaps flagged (three desserts and no vegetables), and a timeline that works back from dinner time, including when the turkey needs to start thawing.",
+   "Turns the plan into short things people will actually read: a shopping list by store section, a one-page timeline for the kitchen, and a two-line text for each guest with their dish and arrival time.",
+   "If you want, fills your grocery cart from the shopping list (you sign in and check out yourself) or calls a bakery to ask about pie orders, and reports back.",
+   "On the day, sends you reminders when it's time to start each dish, and redoes the timeline if something changes."
+  ],
+  "what_you_end_up_with": "One holiday plan everyone can follow: the menu, who brings what, a cooking timeline that fits your oven, a ready shopping list and reminders on the day, without the planning living only in your head.",
+  "difficulty": "Easy",
+  "tools": [
+   {
+    "id": "gemini-spark",
+    "note": "Tasks in Gemini (free in the US) put one tester's plan in a shareable Google Doc with sources; it can also call businesses and add your list to Instacart, where you check out yourself"
+   },
+   {
+    "id": "grok-bot",
+    "note": "Users are having it build the game plan, the cook times and timers, and share it as a doc"
+   },
+   {
+    "id": "meta-muse",
+    "note": "People are using it for the menu, the table and the Instacart order"
+   },
+   {
+    "id": "chatgpt-dots",
+    "note": "Made one tester an interactive to-do page with a progress bar"
+   },
+   {
+    "id": "claude",
+    "note": "Claude Duet made a very thorough plan you can filter by family member and date"
+   }
+  ],
+  "prompt": "Act as my [Thanksgiving / holiday dinner] project manager. Interview me one question at a time: how many guests (and kids), allergies or diets, what dishes people have already claimed, what time we want to eat, and what my kitchen has ([one oven, four burners, a smoker, a slow cooker]).\n\nThen give me, for my review:\n1. The menu and a 'who's bringing what' list. Flag any gaps and suggest who could cover them.\n2. A cooking timeline that works back from [4 p.m. Thursday] and fits my one oven, including when to move the turkey to the fridge to thaw.\n3. A shopping list sorted by store section.\n4. A two-line text for each guest with their dish and arrival time.\n\nKeep what you share short and in plain words. Don't send any texts, place any orders or buy anything without my OK. On the day, remind me when it's time to start each dish. If I tell you something changed, give me a new timeline and show only the lines that changed.",
+  "setup": [
+   "Pick an assistant that can keep a plan and remind you later: Tasks in the Gemini app (switch the home screen from Chat to Tasks), Grok Bot, Meta Muse, a ChatGPT dot or Claude Duet. A plain chat also works for the plan; set your own phone timers.",
+   "Paste the prompt and answer its questions. Have the guest list and any 'who's bringing what' messages handy (with Gemini in the US you can forward those emails to gemini@google.com).",
+   "Read the plan and fix anything off before you share it. Ask for the short version for the family: the list and the timeline, not the whole document.",
+   "Want the groceries done? Ask it to fill your Instacart (or other store) cart from the list. Sign in yourself, and check the cart before you pay.",
+   "On the day, tell it when you're starting and let it ping you for each step. If the turkey is still frozen on Tuesday, tell it and ask for a new timeline."
+  ],
+  "watch_out": [
+   "Most kitchens have one oven and too many dishes that want it. Tell the bot exactly what you have, or the timeline won't work.",
+   "Keep what you share short. One host shared the whole plan as a doc, and his wife skipped everything but the list 'because it was written by a clanker' (What People Do With AI, Nov 20).",
+   "A long, very detailed plan can add to your plate instead of lightening it. One tester felt that way about Claude Duet's thorough plan (AI-Empowered Mom, Nov 22). Ask for less if it's too much.",
+   "Never type your store password into the chat. Sign in to the store yourself, and stop the bot before checkout so you can check the cart.",
+   "Gemini can't make calls to businesses in Indiana, Louisiana, Minnesota, Montana or Nebraska, and it says it's an AI when it calls (The Weekend Queue)."
+  ],
+  "sources": [
+   {
+    "label": "AI-Empowered Mom newsletter (2026-11-22): 'I tested four AI agents with my Thanksgiving plan' with one project-manager prompt; Gemini Tasks best overall (plan in Google Docs, cited sources), ChatGPT Dot and Claude Duet each built an interactive to-do mini-site, Siri AI 'don't bother'",
+    "url": "https://www.aiempoweredmom.com/p/i-tested-four-ai-agents-with-my-thanksgiving-plan",
+    "kind": "article"
+   },
+   {
+    "label": "The Weekend Queue #6 (2026-11-20): 'Hand off one holiday errand to AI this weekend': a 30-minute Thanksgiving handoff with Gemini Tasks (meal plan and make-ahead schedule, call bakeries about pie orders, add the list to Instacart, forward 'who's bringing what' emails)",
+    "url": "https://weekendqueue.beehiiv.com/p/hand-off-one-holiday-errand-to-ai-this-weekend",
+    "kind": "article"
+   },
+   {
+    "label": "X post by @CatOrman1 (2026-11-23): 'san francisco thanksgiving prep means tasking your muse to do your instacart shopping for you' (32 likes / 3 replies / 2,197 views, measured 2026-11-24)",
+    "url": "https://x.com/CatOrman1/status/2124689497321574804",
+    "kind": "x"
+   },
+   {
+    "label": "X post by @ErinnFL (2026-11-24): planning Thanksgiving with her Grok Bot; 'It built my whole game plan and sets timers to tell me when to start everything' (11 likes / 3 replies / 307 views, measured 2026-11-24)",
+    "url": "https://x.com/ErinnFL/status/2125243075094102521",
+    "kind": "x"
+   },
+   {
+    "label": "X post by @WhatPeopleDoAI (2026-11-20): a host had Grok Bot work out who's bringing what and how to cook two turkeys between the smoker and the oven, shared as a Notion doc; his wife only read the list (1 like / 126 views, measured 2026-11-24)",
+    "url": "https://x.com/WhatPeopleDoAI/status/2123602264283603044",
+    "kind": "x"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2124689497321574804",
+   "author": "@CatOrman1",
+   "url": "https://x.com/CatOrman1/status/2124689497321574804",
+   "posted_at": "2026-11-23",
+   "likes": 32,
+   "reposts": 0,
+   "replies": 3,
+   "bookmarks": 0,
+   "views": 2197,
+   "measured_at": "2026-11-24"
+  },
+  "tags": [
+   "thanksgiving",
+   "holiday dinner",
+   "hosting",
+   "christmas dinner",
+   "friendsgiving",
+   "menu",
+   "cooking timeline",
+   "shopping list",
+   "who's bringing what",
+   "family"
+  ],
+  "date_added": "2026-11-24",
+  "origin": "pipeline",
+  "last_checked": "2026-11-24"
+ },
+ {
+  "slug": "have-your-bot-grab-an-earlier-appointment-when-one-opens",
+  "title": "Have your bot grab an earlier appointment when one opens up",
+  "category": "travel",
+  "source_date": "2026-11-22",
+  "summary": "Booked the earliest slot and it's still weeks away? Keep that booking, then tell your bot to keep checking for cancellations. When an earlier time opens that you can make, it moves you up (or asks you first), so you don't have to keep refreshing the page or calling back.",
+  "what_the_bot_does": [
+   "Starts from the appointment you already have, so you never end up with nothing.",
+   "Checks the booking page or app on a schedule you set (every 10 minutes, every hour) until a stop date.",
+   "When a slot opens that fits the days and times you said you can make, messages you with the time and a link, or takes it right away if you pre-approved that window.",
+   "Confirms the new booking before the old one is released, and adds it to your calendar.",
+   "Stops checking once you're booked at a time you're happy with, or at the stop date."
+  ],
+  "what_you_end_up_with": "An earlier appointment (a doctor, a tire change, a haircut, a tee time) without spending your week refreshing a booking page or calling to ask if anything opened up.",
+  "difficulty": "Medium",
+  "tools": [
+   {
+    "id": "chatgpt-dots",
+    "note": "One user had a dot check for Costco tire openings every 10 minutes; after five reschedules it got an appointment for the next day"
+   },
+   {
+    "id": "meta-muse",
+    "note": "Users report it watching for restaurant, barber and tee-time cancellations and booking the slot"
+   },
+   {
+    "id": "grok-bot",
+    "note": "Can run the check on a schedule and phone a clinic that only books by phone (US)"
+   },
+   {
+    "id": "gemini-spark",
+    "note": "Tasks in Gemini can call US businesses about openings for you"
+   }
+  ],
+  "prompt": "I have an appointment with [provider / business] on [date and time], booked through [website, app or phone number]. I want something earlier.\n\nCheck for openings every [10 minutes / hour] until [stop date]. I can make: [days and times, e.g. weekdays before 10 a.m. or after 4 p.m.].\n\nIf you find a slot in that window: [message me with the time and a link and wait for my yes / book it straight away]. Never cancel my current booking until the new one is confirmed, never pay a deposit or accept a fee, and don't touch any other booking. Once I'm moved up, add it to my calendar, tell me what changed and stop checking.",
+  "setup": [
+   "Book the earliest slot you can get first, so the bot can only make things better.",
+   "Pick an assistant that can run on a schedule and use websites for you: a ChatGPT dot, Meta Muse or Grok Bot. If the place only books by phone, use one that can make calls (Grok Bot, Tasks in Gemini) or a health-booking service such as August for US doctor visits.",
+   "Sign in to the booking site yourself through the bot's secure sign-in, so it sees the page as you do. Don't paste passwords into the chat.",
+   "Paste the prompt with the days and times you can really make, how often to check, and a stop date.",
+   "Decide whether it should ask you first or book straight away inside your window. Asking first is safer; booking straight away catches slots that go in minutes."
+  ],
+  "watch_out": [
+   "Keep your current booking until the new one is confirmed. August, which does this for doctor visits, asks before it books anything.",
+   "Openings can go in minutes, and an alert isn't a hold. Pre-approve the times it may take if you want it to grab one fast.",
+   "Checking often uses up your bot's allowance. One Muse user's restaurant watch used 1.48M tokens in total (Reddit r/MetaAI). Use a booking app's own connector if there is one, and set a stop date.",
+   "Some places fill cancellations from a phone waitlist that never shows online. Ask the business to put you on its list too.",
+   "If you end up with two bookings, cancel the one you don't need yourself, inside the cancellation window, so someone else can have it."
+  ],
+  "sources": [
+   {
+    "label": "X post by @LaiskyCai (2026-11-22): Costco's first tire slot was in early January; 'I told ChatGPT Dots check for openings every 10 min, and after five reschedules, it got me an appointment for tomorrow!' (5 likes / 1 bookmark / 552 views, measured 2026-11-24)",
+    "url": "https://x.com/LaiskyCai/status/2124362059446153716",
+    "kind": "x"
+   },
+   {
+    "label": "August (updated 2026-11-20): 'August can now book your doctor's appointment': calls offices to find in-network openings, books the one you pick, and 'If an earlier slot opens up later, August can offer it to you'; asks before it books anything and says it's an AI if asked (US, free in beta)",
+    "url": "https://www.meetaugust.ai/en/articles/august-ai-books-doctor-appointments-disputes-bills",
+    "kind": "official"
+   },
+   {
+    "label": "X post by August founder @anuruddh_m (2026-11-16): launch video ('if something opens up sooner, it can move you up'); August spent 24,286 minutes on hold finding the earliest in-network appointments for early users (2,075 likes / 508 reposts / 637 replies / 3,658,368 views, measured 2026-11-24)",
+    "url": "https://x.com/anuruddh_m/status/2122374778074038613",
+    "kind": "x"
+   },
+   {
+    "label": "Reddit r/MetaAI, 'Muse successfully scanned for restaurant cancelations and booked a table for 3' by u/FloppyDX (2026-09-17): checked every 10 minutes, the OpenTable connector cut token use, booked the slot when it opened; 1.48M tokens used (6 points / 4 comments as shown)",
+    "url": "https://www.reddit.com/r/MetaAI/comments/1wj7ejv/muse_successfully_scanned_for_restaurant/",
+    "kind": "reddit"
+   },
+   {
+    "label": "Muse Task Hub, 'Watch for an appointment cancellation': two user reports (hourly checks for an earlier barber slot; tee-time cancellations at 4 courses booked within 30 minutes) plus a book-first, keep-your-booking checklist",
+    "url": "https://musetaskhub.com/tasks/watch-for-cancellations/",
+    "kind": "article"
+   }
+  ],
+  "popularity": {
+   "platform": "x",
+   "post_id": "2122374778074038613",
+   "author": "@anuruddh_m",
+   "url": "https://x.com/anuruddh_m/status/2122374778074038613",
+   "posted_at": "2026-11-16",
+   "likes": 2075,
+   "reposts": 508,
+   "replies": 637,
+   "bookmarks": 771,
+   "views": 3658368,
+   "measured_at": "2026-11-24"
+  },
+  "tags": [
+   "appointment",
+   "cancellation",
+   "earlier slot",
+   "waitlist",
+   "doctor",
+   "reschedule",
+   "booking",
+   "chatgpt dots",
+   "muse",
+   "august"
+  ],
+  "date_added": "2026-11-24",
+  "origin": "pipeline",
+  "last_checked": "2026-11-24"
+ },
+ {
   "slug": "run-the-family-secret-santa-with-your-bot",
   "title": "Run the family Secret Santa with your bot",
   "category": "family",
@@ -82,8 +294,8 @@
    "reposts": 0,
    "replies": 3,
    "bookmarks": 0,
-   "views": 114,
-   "measured_at": "2026-11-23"
+   "views": 117,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "secret santa",
@@ -190,12 +402,12 @@
    "author": "@theshaneemoret",
    "url": "https://x.com/theshaneemoret/status/2123867445530349870",
    "posted_at": "2026-11-20",
-   "likes": 995,
+   "likes": 996,
    "reposts": 53,
-   "replies": 135,
-   "bookmarks": 377,
-   "views": 384514,
-   "measured_at": "2026-11-23"
+   "replies": 137,
+   "bookmarks": 373,
+   "views": 385306,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "phone call",
@@ -285,8 +497,8 @@
    "reposts": 1,
    "replies": 3,
    "bookmarks": 1,
-   "views": 68,
-   "measured_at": "2026-11-23"
+   "views": 70,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "reschedule",
@@ -474,8 +686,8 @@
    "reposts": 1,
    "replies": 1,
    "bookmarks": 30,
-   "views": 1146,
-   "measured_at": "2026-11-23"
+   "views": 1160,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "packages",
@@ -572,12 +784,12 @@
    "author": "@poteto",
    "url": "https://x.com/poteto/status/2122774297840398639",
    "posted_at": "2026-11-17",
-   "likes": 1761,
+   "likes": 1764,
    "reposts": 78,
    "replies": 148,
-   "bookmarks": 646,
-   "views": 131638,
-   "measured_at": "2026-11-23"
+   "bookmarks": 650,
+   "views": 133549,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "set up a bot",
@@ -648,13 +860,13 @@
     "kind": "official"
    },
    {
-    "label": "GitHub: vannet/gotfreefax-mcp, send a free fax to US/Canada numbers from Claude, ChatGPT and other agents (3 pages, 2 a day, email confirmation required; 0 stars, measured 2026-11-23)",
+    "label": "GitHub: vannet/gotfreefax-mcp, send a free fax to US/Canada numbers from Claude, ChatGPT and other agents (3 pages, 2 a day, email confirmation required; 0 stars, measured 2026-11-24)",
     "url": "https://github.com/vannet/gotfreefax-mcp",
     "kind": "github",
     "stats": {
      "stars": 0
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Faxify MCP: ChatGPT, Claude and Cursor can send and track faxes (included on every Faxify plan)",
@@ -844,8 +1056,8 @@
    "reposts": 0,
    "replies": 5,
    "bookmarks": 5,
-   "views": 2601,
-   "measured_at": "2026-11-23"
+   "views": 2617,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "meeting prep",
@@ -939,12 +1151,12 @@
    "author": "@GeminiApp",
    "url": "https://x.com/GeminiApp/status/2122737596971503885",
    "posted_at": "2026-11-17",
-   "likes": 3382,
-   "reposts": 297,
-   "replies": 242,
-   "bookmarks": 1126,
-   "views": 1284038,
-   "measured_at": "2026-11-23"
+   "likes": 3399,
+   "reposts": 300,
+   "replies": 246,
+   "bookmarks": 1129,
+   "views": 1415051,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "car service",
@@ -1034,7 +1246,7 @@
     "kind": "reddit"
    },
    {
-    "label": "Hacker News 50081045: 'Creating a Garmin \"MCP\"' (61 points / 74 comments, measured 2026-11-23)",
+    "label": "Hacker News 50081045: 'Creating a Garmin \"MCP\"' (61 points / 74 comments, measured 2026-11-24)",
     "url": "https://news.ycombinator.com/item?id=50081045",
     "kind": "hn",
     "stats": {
@@ -1042,16 +1254,16 @@
      "comments": 74
     },
     "posted_at": "2026-10-14",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
-    "label": "GitHub: Taxuspt/garmin_mcp, open-source MCP server to access Garmin data (MIT; 1,543 stars, measured 2026-11-23)",
+    "label": "GitHub: Taxuspt/garmin_mcp, open-source MCP server to access Garmin data (MIT; 1,547 stars, measured 2026-11-24)",
     "url": "https://github.com/Taxuspt/garmin_mcp",
     "kind": "github",
     "stats": {
-     "stars": 1543
+     "stars": 1547
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Daash guide (updated 2026-11-13): connect Garmin to Grok as a custom connector; read runs, sleep and HRV or put a workout on your watch; deleting always asks first",
@@ -1078,9 +1290,9 @@
    "likes": 52,
    "reposts": 1,
    "replies": 14,
-   "bookmarks": 63,
-   "views": 13174,
-   "measured_at": "2026-11-23"
+   "bookmarks": 64,
+   "views": 13193,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "fitness",
@@ -1195,7 +1407,7 @@
    "replies": 11,
    "bookmarks": 17,
    "views": 2385,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "travel",
@@ -1291,8 +1503,8 @@
    "reposts": 10,
    "replies": 19,
    "bookmarks": 192,
-   "views": 35638,
-   "measured_at": "2026-11-23"
+   "views": 35642,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "scams",
@@ -1360,17 +1572,17 @@
      "comments": 260
     },
     "posted_at": "2026-11-12",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
-    "label": "GitHub: simpsoka/zigzag, free open-source embroidery editor with a built-in MCP server for AI agents (Apache-2.0; 1,102 stars, measured 2026-11-23)",
+    "label": "GitHub: simpsoka/zigzag, free open-source embroidery editor with a built-in MCP server for AI agents (Apache-2.0; 1,126 stars, measured 2026-11-24)",
     "url": "https://github.com/simpsoka/zigzag",
     "kind": "github",
     "stats": {
-     "stars": 1102
+     "stars": 1126
     },
     "posted_at": "2026-11-11",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "It's FOSS (2026-11-13): 'Someone Made a Free Embroidery Editor': SVG to stitches, five file formats, Bluetooth to the Brother Skitch, and an MCP server so agents can draw and edit",
@@ -1441,34 +1653,34 @@
   ],
   "sources": [
    {
-    "label": "GitHub: DIYgod/pinky, 'Let AI agents use your phone, with you in the loop' (iPhone and Android, Apache-2.0, pre-alpha; 2,713 stars, measured 2026-11-23)",
+    "label": "GitHub: DIYgod/pinky, 'Let AI agents use your phone, with you in the loop' (iPhone and Android, Apache-2.0, pre-alpha; 2,752 stars, measured 2026-11-24)",
     "url": "https://github.com/DIYgod/pinky",
     "kind": "github",
     "stats": {
-     "stars": 2713
+     "stars": 2752
     },
     "posted_at": "2026-11-06",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
-    "label": "GitHub: JosssphZhou/poki, 'Poki uses your iPhone like you do' (local MCP server for Claude Code or Codex, AGPL-3.0; 1,889 stars, measured 2026-11-23)",
+    "label": "GitHub: JosssphZhou/poki, 'Poki uses your iPhone like you do' (local MCP server for Claude Code or Codex, AGPL-3.0; 1,911 stars, measured 2026-11-24)",
     "url": "https://github.com/JosssphZhou/poki",
     "kind": "github",
     "stats": {
-     "stars": 1889
+     "stars": 1911
     },
     "posted_at": "2026-11-05",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
-    "label": "GitHub: lxe/phoneuse, see and operate an unmodified iPhone from a Linux PC (MIT; 711 stars, measured 2026-11-23)",
+    "label": "GitHub: lxe/phoneuse, see and operate an unmodified iPhone from a Linux PC (MIT; 715 stars, measured 2026-11-24)",
     "url": "https://github.com/lxe/phoneuse",
     "kind": "github",
     "stats": {
-     "stars": 711
+     "stars": 715
     },
     "posted_at": "2026-11-07",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Poki website (checked 2026-11-12)",
@@ -1563,8 +1775,8 @@
    "reposts": 4,
    "replies": 17,
    "bookmarks": 26,
-   "views": 3598,
-   "measured_at": "2026-11-23"
+   "views": 3599,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "backup",
@@ -1639,7 +1851,7 @@
      "comments": 393
     },
     "posted_at": "2026-11-11",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "NASA ExoFOP: TIC 4206066 is now TOI 7930, both signals listed as planet candidates (checked 2026-11-11)",
@@ -1664,11 +1876,11 @@
    "url": "https://x.com/p_rabtsevich/status/2107803696058822742",
    "posted_at": "2026-10-07",
    "likes": 8720,
-   "reposts": 836,
+   "reposts": 834,
    "replies": 306,
-   "bookmarks": 2421,
-   "views": 1220754,
-   "measured_at": "2026-11-23"
+   "bookmarks": 2419,
+   "views": 1221017,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "research",
@@ -1758,12 +1970,12 @@
    "author": "@Muse",
    "url": "https://x.com/Muse/status/2119919277692383330",
    "posted_at": "2026-11-09",
-   "likes": 4978,
+   "likes": 4977,
    "reposts": 676,
-   "replies": 242,
-   "bookmarks": 611,
-   "views": 480745,
-   "measured_at": "2026-11-23"
+   "replies": 241,
+   "bookmarks": 613,
+   "views": 481327,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "smartwatch",
@@ -1822,7 +2034,7 @@
     "kind": "official"
    },
    {
-    "label": "Hacker News: The Components of Agent Memory (190 points / 105 comments, measured 2026-11-23)",
+    "label": "Hacker News: The Components of Agent Memory (190 points / 105 comments, measured 2026-11-24)",
     "url": "https://news.ycombinator.com/item?id=50402212",
     "kind": "hn",
     "stats": {
@@ -1830,10 +2042,10 @@
      "comments": 105
     },
     "posted_at": "2026-11-07",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
-    "label": "Hacker News: Agent memory needs its OpenTelemetry moment (191 points / 112 comments, measured 2026-11-23)",
+    "label": "Hacker News: Agent memory needs its OpenTelemetry moment (191 points / 112 comments, measured 2026-11-24)",
     "url": "https://news.ycombinator.com/item?id=50411467",
     "kind": "hn",
     "stats": {
@@ -1841,7 +2053,7 @@
      "comments": 112
     },
     "posted_at": "2026-11-08",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "LoreKit blog (2026-11-07): every agent tool keeps memory in its own format",
@@ -1942,7 +2154,7 @@
     "kind": "article"
    },
    {
-    "label": "Hacker News: Personal Finance in Claude (12 points / 13 comments, measured 2026-11-23)",
+    "label": "Hacker News: Personal Finance in Claude (12 points / 13 comments, measured 2026-11-24)",
     "url": "https://news.ycombinator.com/item?id=50382192",
     "kind": "hn",
     "stats": {
@@ -1950,7 +2162,7 @@
      "comments": 13
     },
     "posted_at": "2026-11-05",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "popularity": null,
@@ -2052,8 +2264,8 @@
    "reposts": 5,
    "replies": 2,
    "bookmarks": 1,
-   "views": 520,
-   "measured_at": "2026-11-23"
+   "views": 522,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "family history",
@@ -2151,7 +2363,7 @@
      "comments": 149
     },
     "posted_at": "2026-11-09",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Gemini Apps Help: About personalization with Connected Apps (human review of a subset of connected Gmail/Drive data; checked 2026-11-11)",
@@ -2693,11 +2905,11 @@
     "url": "https://news.ycombinator.com/item?id=50458900",
     "kind": "hn",
     "stats": {
-     "points": 683,
-     "comments": 711
+     "points": 684,
+     "comments": 710
     },
     "posted_at": "2026-11-11",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Google blog: How to book travel with AI Mode in Google Search (flight options from 300+ airlines and sites, price tracking, buy on the airline's site)",
@@ -3307,8 +3519,8 @@
    "reposts": 5,
    "replies": 21,
    "bookmarks": 2,
-   "views": 5164,
-   "measured_at": "2026-11-23"
+   "views": 5170,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "IFTTT",
@@ -3410,12 +3622,12 @@
    "author": "@ChatGPT",
    "url": "https://x.com/ChatGPT/status/2115139248458191070",
    "posted_at": "2026-10-27",
-   "likes": 5811,
+   "likes": 5809,
    "reposts": 390,
    "replies": 402,
    "bookmarks": 1043,
-   "views": 2136082,
-   "measured_at": "2026-11-23"
+   "views": 2136865,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "iCloud",
@@ -3603,8 +3815,8 @@
    "reposts": 7,
    "replies": 25,
    "bookmarks": 65,
-   "views": 39674,
-   "measured_at": "2026-11-23"
+   "views": 39703,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "online shopping",
@@ -3686,12 +3898,12 @@
    "author": "@noahrshinn",
    "url": "https://x.com/noahrshinn/status/2115143830924341534",
    "posted_at": "2026-10-27",
-   "likes": 1076,
+   "likes": 1074,
    "reposts": 35,
    "replies": 98,
    "bookmarks": 312,
-   "views": 374423,
-   "measured_at": "2026-11-23"
+   "views": 374522,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "group chat",
@@ -3816,7 +4028,7 @@
      "points": 4,
      "comments": 6
     },
-    "measured_at": "2026-11-23",
+    "measured_at": "2026-11-24",
     "posted_at": "2026-10-22"
    },
    {
@@ -3830,7 +4042,7 @@
     "kind": "article"
    },
    {
-    "label": "Hacker News: Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files (629 points / 433 comments, measured 2026-11-23)",
+    "label": "Hacker News: Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files (629 points / 433 comments, measured 2026-11-24)",
     "url": "https://news.ycombinator.com/item?id=50407882",
     "kind": "hn",
     "stats": {
@@ -3838,7 +4050,7 @@
      "comments": 433
     },
     "posted_at": "2026-11-07",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "LATENT (2026-11-08): inside the 1,122 files, and steps to check your own folders",
@@ -4128,16 +4340,16 @@
      "comments": 44
     },
     "posted_at": "2026-10-26",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "GitHub: FrigadeHQ/hob (free MIT-licensed desktop app that runs open models like Gemma and gpt-oss on your own computer)",
     "url": "https://github.com/FrigadeHQ/hob",
     "kind": "github",
     "stats": {
-     "stars": 559
+     "stars": 563
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "FounderMag (Oct 26, 2026): Hob reads and edits files you allow, fills in PDFs, asks before changing anything; needs 8 GB RAM, 16 GB better",
@@ -4254,8 +4466,8 @@
    "reposts": 86,
    "replies": 175,
    "bookmarks": 812,
-   "views": 1047431,
-   "measured_at": "2026-11-23"
+   "views": 1047549,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "podcast",
@@ -4579,7 +4791,7 @@
      "comments": 1
     },
     "posted_at": "2026-10-23",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Grok Bot on X (Oct 22, 2026): “Approve the logins you want to share, and your Bot signs in for you” (9,929 likes, 702 reposts on Oct 26)",
@@ -4697,7 +4909,7 @@
    "replies": 0,
    "bookmarks": 1,
    "views": 163,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "phone calls",
@@ -4903,7 +5115,7 @@
      "comments": 143
     },
     "posted_at": "2026-10-29",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "popularity": {
@@ -4916,8 +5128,8 @@
    "reposts": 5,
    "replies": 13,
    "bookmarks": 26,
-   "views": 5903,
-   "measured_at": "2026-11-23"
+   "views": 5904,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "proactive",
@@ -5109,7 +5321,7 @@
    "replies": 12,
    "bookmarks": 0,
    "views": 1107,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "fact check",
@@ -5201,9 +5413,9 @@
     "url": "https://github.com/khoj-ai/khoj",
     "kind": "github",
     "stats": {
-     "stars": 38219
+     "stars": 38230
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "popularity": {
@@ -5212,12 +5424,12 @@
    "author": "@vinayp10",
    "url": "https://x.com/vinayp10/status/2113263397491855821",
    "posted_at": "2026-10-22",
-   "likes": 323,
+   "likes": 324,
    "reposts": 15,
    "replies": 34,
    "bookmarks": 174,
-   "views": 179024,
-   "measured_at": "2026-11-23"
+   "views": 179034,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "second brain",
@@ -5336,7 +5548,7 @@
      "comments": 0
     },
     "posted_at": "2025-04-14",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "popularity": null,
@@ -5425,7 +5637,7 @@
    "replies": 20,
    "bookmarks": 30,
    "views": 5451,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "read later",
@@ -5511,7 +5723,7 @@
    "replies": 4,
    "bookmarks": 6,
    "views": 1782,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "contact form",
@@ -5620,13 +5832,19 @@
   "watch_out": [
    "Tools aren't free. Anthropic says its browser toolset adds about 6,600 input tokens per request and computer use about 4,500, before any screenshots.",
    "Pages add up: Anthropic estimates an average 10 kB web page at about 2,500 tokens and a 500 kB PDF at about 125,000.",
-   "Don't cut safety rules (like 'ask before sending') to save tokens."
+   "Don't cut safety rules (like 'ask before sending') to save tokens.",
+   "Long-running bots re-read their whole chat every time. If you keep hitting your limit, have each bot keep a short note of its job and your decisions, and start it a fresh chat that reads the note (X @DaveMiz, Nov 24)."
   ],
   "sources": [
    {
     "label": "Anthropic pricing docs: tool overhead, web fetch token examples, tokenizer note",
     "url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
     "kind": "docs"
+   },
+   {
+    "label": "X post by @DaveMiz (2026-11-24): hit his Grok Bot weekly limit 3 weeks running; the usage CSV showed the average call re-read 95k tokens of chat history. Fix: each bot keeps a 300-word note (its job, his decisions, open work), and a bot whose chat passes 100k is restarted with an empty chat that reads the note (1 like / 85 views, measured 2026-11-24)",
+    "url": "https://x.com/DaveMiz/status/2125052646499156293",
+    "kind": "x"
    }
   ],
   "tags": [
@@ -5637,7 +5855,7 @@
   ],
   "category": "run-for-less",
   "date_added": "2026-10-21",
-  "last_checked": "2026-10-21",
+  "last_checked": "2026-11-24",
   "origin": "run-for-less-2026-10-21",
   "setup": [],
   "source_date": "2026-10-21",
@@ -5720,7 +5938,7 @@
    "replies": 3,
    "bookmarks": 5,
    "views": 586,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "schedule",
@@ -6105,8 +6323,8 @@
    "reposts": 15,
    "replies": 26,
    "bookmarks": 504,
-   "views": 25589,
-   "measured_at": "2026-11-23"
+   "views": 25596,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "multi-agent",
@@ -6153,7 +6371,8 @@
   "watch_out": [
    "The source post promotes a specific product (Teamily); treat it as a pitch, not an independent review.",
    "Keep a plain log of which agent decided what, so you can tell where a mistake came from.",
-   "Keep business and personal agents separate so private details don't flow into the wrong place."
+   "Keep business and personal agents separate so private details don't flow into the wrong place.",
+   "Handoffs get lost. Make it a rule that a job only moves when the receiving agent says it got it, and have one agent check the others' instructions for old tasks and wrong dates (X @michaelhyunkim, Nov 23)."
   ],
   "sources": [
    {
@@ -6184,9 +6403,14 @@
     "url": "https://github.com/crewAIInc/crewAI",
     "kind": "github",
     "stats": {
-     "stars": 61202
+     "stars": 61229
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
+   },
+   {
+    "label": "X post by @michaelhyunkim (2026-11-23): a user connected three personal agents from three different products and let them coordinate over email; one audited another's backup instructions and caught outdated tasks and a wrong date, and they agreed 'a handoff doesn't count until the receiving agent explicitly acknowledges it' (30 likes / 8 replies / 14 bookmarks / 714 views, measured 2026-11-24)",
+    "url": "https://x.com/michaelhyunkim/status/2124914421549949292",
+    "kind": "x"
    }
   ],
   "popularity": {
@@ -6199,8 +6423,8 @@
    "reposts": 28,
    "replies": 38,
    "bookmarks": 71,
-   "views": 46460,
-   "measured_at": "2026-11-23"
+   "views": 46461,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "multi-agent",
@@ -6210,7 +6434,7 @@
    "workflow"
   ],
   "date_added": "2026-10-21",
-  "last_checked": "2026-10-21",
+  "last_checked": "2026-11-24",
   "origin": "refocus-2026-10-21",
   "setup": []
  },
@@ -6291,7 +6515,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 25,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "voice",
@@ -6365,7 +6589,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 50,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "roadside assistance",
@@ -6425,16 +6649,16 @@
      "comments": 100
     },
     "posted_at": "2025-02-25",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "GitHub: browser-use/browser-use (open-source agent that operates a web browser)",
     "url": "https://github.com/browser-use/browser-use",
     "kind": "github",
     "stats": {
-     "stars": 121846
+     "stars": 121928
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "YouTube: “Browser Use: This New AI Agent Can Do Anything (Full AI Scraping Tutorial)” by Tech With Tim",
@@ -6462,7 +6686,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 402,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "computer use",
@@ -6545,8 +6769,8 @@
    "reposts": 1,
    "replies": 7,
    "bookmarks": 7,
-   "views": 9684,
-   "measured_at": "2026-11-23"
+   "views": 9689,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "contractors",
@@ -6622,7 +6846,7 @@
    "replies": 5,
    "bookmarks": 0,
    "views": 136,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "used car",
@@ -6696,8 +6920,8 @@
    "reposts": 0,
    "replies": 18,
    "bookmarks": 29,
-   "views": 7560,
-   "measured_at": "2026-11-23"
+   "views": 7562,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "pharmacy",
@@ -6780,8 +7004,8 @@
    "reposts": 24,
    "replies": 29,
    "bookmarks": 229,
-   "views": 327328,
-   "measured_at": "2026-11-23"
+   "views": 327351,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "newsletters",
@@ -6852,7 +7076,7 @@
      "comments": 176
     },
     "posted_at": "2025-07-28",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Hacker News: “Show HN: PlaceCall (YC W26) – agentic API to call businesses and get things done”",
@@ -6863,7 +7087,7 @@
      "comments": 4
     },
     "posted_at": "2026-09-24",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "TeslaNorth (2026-11-04): Grok Bot phone calls go live — Phone call card, live transcript, take-over, summary after",
@@ -6896,8 +7120,8 @@
    "reposts": 91,
    "replies": 190,
    "bookmarks": 994,
-   "views": 1230123,
-   "measured_at": "2026-11-23"
+   "views": 1230299,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "phone call",
@@ -7064,7 +7288,7 @@
    "replies": 2,
    "bookmarks": 4,
    "views": 572,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "spam calls",
@@ -7138,7 +7362,7 @@
    "replies": 8,
    "bookmarks": 36,
    "views": 5464,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "food log",
@@ -7213,7 +7437,7 @@
      "comments": 176
     },
     "posted_at": "2025-07-28",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "TeslaNorth (2026-11-04): Grok Bot phone calls go live — Phone call card, live transcript, take-over, summary after",
@@ -7264,12 +7488,12 @@
    "author": "@alexandr_wang",
    "url": "https://x.com/alexandr_wang/status/2120930586827391350",
    "posted_at": "2026-11-12",
-   "likes": 1482,
+   "likes": 1480,
    "reposts": 119,
    "replies": 194,
    "bookmarks": 162,
-   "views": 122976,
-   "measured_at": "2026-11-23"
+   "views": 124034,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "phone call",
@@ -7462,9 +7686,9 @@
    "likes": 1011,
    "reposts": 29,
    "replies": 82,
-   "bookmarks": 2879,
-   "views": 312425,
-   "measured_at": "2026-11-23"
+   "bookmarks": 2878,
+   "views": 312445,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "meal plan",
@@ -7525,9 +7749,9 @@
     "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/family-calendar-household-assistant.md",
     "kind": "github",
     "stats": {
-     "stars": 31637
+     "stars": 31634
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "popularity": {
@@ -7539,9 +7763,9 @@
    "likes": 509,
    "reposts": 35,
    "replies": 37,
-   "bookmarks": 1159,
-   "views": 67701,
-   "measured_at": "2026-11-23"
+   "bookmarks": 1160,
+   "views": 67712,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "calendar",
@@ -7645,13 +7869,13 @@
     "posted_at": "2026-11-11"
    },
    {
-    "label": "GitHub: n8n-io/nod (Apache-2.0; 3,237 stars, measured 2026-11-23)",
+    "label": "GitHub: n8n-io/nod (Apache-2.0; 3,366 stars, measured 2026-11-24)",
     "url": "https://github.com/n8n-io/nod",
     "kind": "github",
     "stats": {
-     "stars": 3237
+     "stars": 3366
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "popularity": {
@@ -7664,8 +7888,8 @@
    "reposts": 35,
    "replies": 156,
    "bookmarks": 720,
-   "views": 83878,
-   "measured_at": "2026-11-23"
+   "views": 83904,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "personal agent",
@@ -7745,8 +7969,8 @@
    "reposts": 18,
    "replies": 24,
    "bookmarks": 209,
-   "views": 41541,
-   "measured_at": "2026-11-23"
+   "views": 41543,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "scams",
@@ -7829,8 +8053,8 @@
    "reposts": 14,
    "replies": 29,
    "bookmarks": 118,
-   "views": 25554,
-   "measured_at": "2026-11-23"
+   "views": 25558,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "family chat",
@@ -7929,8 +8153,8 @@
    "reposts": 4,
    "replies": 10,
    "bookmarks": 15,
-   "views": 4107,
-   "measured_at": "2026-11-23"
+   "views": 4108,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "groceries",
@@ -8009,8 +8233,8 @@
    "reposts": 11,
    "replies": 12,
    "bookmarks": 11,
-   "views": 9696,
-   "measured_at": "2026-11-23"
+   "views": 9697,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "travel",
@@ -8084,8 +8308,8 @@
    "reposts": 1,
    "replies": 6,
    "bookmarks": 0,
-   "views": 2364,
-   "measured_at": "2026-11-23"
+   "views": 2365,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "flights",
@@ -8215,7 +8439,7 @@
      "comments": 1
     },
     "posted_at": "2025-08-21",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "The Straits Times (Oct 28, 2026): Meta's Muse booked a restaurant table easily but failed to cancel it, and once suggested a restaurant that had recently closed",
@@ -8234,8 +8458,8 @@
    "reposts": 22,
    "replies": 63,
    "bookmarks": 241,
-   "views": 93827,
-   "measured_at": "2026-11-23"
+   "views": 93831,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "restaurant",
@@ -8322,7 +8546,7 @@
    "replies": 9,
    "bookmarks": 27,
    "views": 4073,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "appointment",
@@ -8385,7 +8609,7 @@
      "comments": 8
     },
     "posted_at": "2025-08-27",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "YouTube: “Process Receipts with AI (Claude Cowork)” by Hector Garcia CPA",
@@ -8417,7 +8641,7 @@
    "replies": 14,
    "bookmarks": 37,
    "views": 9230,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "receipts",
@@ -8504,12 +8728,12 @@
    "author": "@coreyganim",
    "url": "https://x.com/coreyganim/status/2099808193178485185",
    "posted_at": "2026-09-15",
-   "likes": 104,
+   "likes": 105,
    "reposts": 6,
    "replies": 12,
    "bookmarks": 274,
-   "views": 9985,
-   "measured_at": "2026-11-23"
+   "views": 9992,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "chief of staff",
@@ -8573,8 +8797,8 @@
    "reposts": 7,
    "replies": 48,
    "bookmarks": 14,
-   "views": 1904,
-   "measured_at": "2026-11-23"
+   "views": 1905,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "multiple brands",
@@ -8648,7 +8872,7 @@
    "replies": 12,
    "bookmarks": 27,
    "views": 3261,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "real estate",
@@ -8724,18 +8948,18 @@
     "url": "https://github.com/paperless-ngx/paperless-ngx",
     "kind": "github",
     "stats": {
-     "stars": 48532
+     "stars": 48572
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "GitHub: clusterzx/paperless-ai (adds AI tagging and sorting to Paperless-ngx)",
     "url": "https://github.com/clusterzx/paperless-ai",
     "kind": "github",
     "stats": {
-     "stars": 6158
+     "stars": 6162
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "popularity": {
@@ -8749,7 +8973,7 @@
    "replies": 0,
    "bookmarks": 0,
    "views": 84,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "paper mail",
@@ -8813,9 +9037,9 @@
     "url": "https://github.com/dgtlmoon/changedetection.io",
     "kind": "github",
     "stats": {
-     "stars": 35981
+     "stars": 36007
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "YouTube: “Monitor Websites for Changes with Browse AI” by Browse AI",
@@ -8838,7 +9062,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 79,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "monitoring",
@@ -8909,7 +9133,7 @@
    "replies": 6,
    "bookmarks": 1,
    "views": 1466,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "follow up",
@@ -8983,7 +9207,7 @@
    "replies": 7,
    "bookmarks": 54,
    "views": 4946,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "leads",
@@ -9065,7 +9289,7 @@
      "comments": 5
     },
     "posted_at": "2026-03-15",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "popularity": {
@@ -9079,7 +9303,7 @@
    "replies": 2,
    "bookmarks": 19,
    "views": 2168,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "email",
@@ -9739,7 +9963,7 @@
    "replies": 1,
    "bookmarks": 0,
    "views": 814,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "marketplace",
@@ -9795,9 +10019,9 @@
     "url": "https://github.com/hesamsheikh/awesome-openclaw-usecases/blob/main/usecases/family-calendar-household-assistant.md",
     "kind": "github",
     "stats": {
-     "stars": 31637
+     "stars": 31634
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "popularity": null,
@@ -10031,7 +10255,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1507,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "payments",
@@ -10105,8 +10329,8 @@
    "reposts": 0,
    "replies": 4,
    "bookmarks": 3,
-   "views": 913,
-   "measured_at": "2026-11-23"
+   "views": 915,
+   "measured_at": "2026-11-24"
   },
   "tags": [
    "ads",
@@ -10629,7 +10853,7 @@
      "comments": 4
     },
     "posted_at": "2026-09-24",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Google blog (2026-11-16): New Ask Maps features for the holidays: find beauty, pet care, auto and home repair appointments online and call local businesses for you (US first)",
@@ -11147,7 +11371,7 @@
    "replies": 3,
    "bookmarks": 3,
    "views": 1374,
-   "measured_at": "2026-11-23"
+   "measured_at": "2026-11-24"
   },
   "origin": "migrated-2026-10-19"
  },
@@ -11836,7 +12060,7 @@
      "comments": 5
     },
     "posted_at": "2025-02-10",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "tags": [
@@ -12212,7 +12436,7 @@
      "comments": 0
     },
     "posted_at": "2025-11-04",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "tags": [
@@ -12289,7 +12513,7 @@
      "comments": 418
     },
     "posted_at": "2025-02-03",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Hacker News: “Perplexity Deep Research”",
@@ -12300,7 +12524,7 @@
      "comments": 168
     },
     "posted_at": "2025-02-15",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "YouTube: “How to Use ChatGPT’s Deep Research to Save HOURS on Research” by Andy Stapleton",
@@ -12378,7 +12602,7 @@
      "comments": 490
     },
     "posted_at": "2024-09-30",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Hacker News: “NotebookLM Audio Overviews are now available in over 50 languages”",
@@ -12389,7 +12613,7 @@
      "comments": 96
     },
     "posted_at": "2025-04-30",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "YouTube: “Use NotebookLM to generate audio discussions #Google #Gemini #NotebookLM” by Google (from Google's own channel)",
@@ -12490,16 +12714,16 @@
      "comments": 186
     },
     "posted_at": "2024-01-13",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "GitHub: acon96/home-llm (local AI models tuned for Home Assistant control)",
     "url": "https://github.com/acon96/home-llm",
     "kind": "github",
     "stats": {
-     "stars": 1497
+     "stars": 1499
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "YouTube: “my local, AI Voice Assistant (I replaced Alexa!!)” by NetworkChuck",
@@ -12531,23 +12755,23 @@
     "posted_at": "2026-09-30"
    },
    {
-    "label": "GitHub: homeassistant-ai/ha-mcp, configure and automate Home Assistant by asking Claude, ChatGPT and other assistants (v9.2.0 released 2026-11-11; 8,087 stars, measured 2026-11-23)",
+    "label": "GitHub: homeassistant-ai/ha-mcp, configure and automate Home Assistant by asking Claude, ChatGPT and other assistants (v9.2.0 released 2026-11-11; 8,107 stars, measured 2026-11-24)",
     "url": "https://github.com/homeassistant-ai/ha-mcp",
     "kind": "github",
     "stats": {
-     "stars": 8087
+     "stars": 8107
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
-    "label": "GitHub: majorminorlabs/hermes-voice, talk to a Hermes Agent profile out loud through Home Assistant Assist on an old Amazon Echo (MIT; 740 stars, measured 2026-11-23)",
+    "label": "GitHub: majorminorlabs/hermes-voice, talk to a Hermes Agent profile out loud through Home Assistant Assist on an old Amazon Echo (MIT; 746 stars, measured 2026-11-24)",
     "url": "https://github.com/majorminorlabs/hermes-voice",
     "kind": "github",
     "stats": {
-     "stars": 740
+     "stars": 746
     },
     "posted_at": "2026-11-05",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Scott J. Goldman's blog (2026-11-11): 'Reverse Engineering My Coway Air Purifier to Ditch the Cloud': used ChatGPT to set up the network test rig so the purifier could be run locally and tied to an Apple Home 'Good Night' button via Home Assistant (Claude declined that step)",
@@ -12560,11 +12784,11 @@
     "url": "https://news.ycombinator.com/item?id=50474959",
     "kind": "hn",
     "stats": {
-     "points": 805,
+     "points": 806,
      "comments": 225
     },
     "posted_at": "2026-11-12",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "tags": [
@@ -12622,7 +12846,7 @@
      "comments": 99
     },
     "posted_at": "2025-04-07",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "YouTube: “How To Share Screen With Gemini (Updated 2026)” by AI Mastery",
@@ -12709,17 +12933,17 @@
      "comments": 119
     },
     "posted_at": "2026-11-11",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
-    "label": "GitHub: FrigadeHQ/yogurt, private AI meeting notes that record without adding a bot to the call (Mac, Windows, Linux; MIT; 3,057 stars, measured 2026-11-23)",
+    "label": "GitHub: FrigadeHQ/yogurt, private AI meeting notes that record without adding a bot to the call (Mac, Windows, Linux; MIT; 3,178 stars, measured 2026-11-24)",
     "url": "https://github.com/FrigadeHQ/yogurt",
     "kind": "github",
     "stats": {
-     "stars": 3057
+     "stars": 3178
     },
     "posted_at": "2026-11-10",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Hacker News: “Launch HN: Hyprnote (YC S25) – An open-source AI meeting notetaker”",
@@ -12730,16 +12954,16 @@
      "comments": 180
     },
     "posted_at": "2025-07-29",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "GitHub: Zackriya-Solutions/meetily (open-source meeting note taker that runs on your computer)",
     "url": "https://github.com/Zackriya-Solutions/meetily",
     "kind": "github",
     "stats": {
-     "stars": 32987
+     "stars": 33017
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "YouTube: “How to Automate Meeting Notes in Microsoft Teams with AI!” by Scott Brant",
@@ -12817,7 +13041,7 @@
      "comments": 35
     },
     "posted_at": "2025-05-28",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Hacker News: “Show HN: I built an AI conversation partner to practice speaking languages”",
@@ -12828,7 +13052,7 @@
      "comments": 56
     },
     "posted_at": "2026-01-30",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Hacker News: “Show HN: Learn a language quickly by practising speaking with AI”",
@@ -12839,7 +13063,7 @@
      "comments": 253
     },
     "posted_at": "2023-08-02",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "YouTube: “ChatGPT's new update is HUGE for language learners” by Corinna Languages",
@@ -12957,7 +13181,7 @@
      "comments": 191
     },
     "posted_at": "2022-06-03",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Gemini Apps Help: Talk naturally with Gemini Live (“Practice aloud: rehearse for important moments”; checked 2026-10-24)",
@@ -13034,7 +13258,7 @@
      "comments": 465
     },
     "posted_at": "2024-10-23",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "YouTube: “How to Use Claude Artifacts (Beginner Tutorial)” by Kevin Stratvert",
@@ -13157,16 +13381,16 @@
      "comments": 5
     },
     "posted_at": "2024-10-01",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "GitHub: QiuYannnn/Local-File-Organizer (open-source organizer that runs on your computer)",
     "url": "https://github.com/QiuYannnn/Local-File-Organizer",
     "kind": "github",
     "stats": {
-     "stars": 3380
+     "stars": 3382
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "tags": [
@@ -13247,7 +13471,7 @@
      "comments": 1
     },
     "posted_at": "2024-01-05",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "GitHub: Thimm/transcribe_apple_voice_memos (local transcription and summaries of Apple Voice Memos)",
@@ -13256,7 +13480,7 @@
     "stats": {
      "stars": 10
     },
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "tags": [
@@ -13417,7 +13641,7 @@
      "comments": 61
     },
     "posted_at": "2024-11-06",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    },
    {
     "label": "Hacker News: “Show HN: Open-Source Document Extraction Tool”",
@@ -13428,7 +13652,7 @@
      "comments": 2
     },
     "posted_at": "2025-01-15",
-    "measured_at": "2026-11-23"
+    "measured_at": "2026-11-24"
    }
   ],
   "tags": [

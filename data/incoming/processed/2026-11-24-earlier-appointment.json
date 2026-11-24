@@ -1,0 +1,46 @@
+{
+ "slug": "have-your-bot-grab-an-earlier-appointment-when-one-opens",
+ "title": "Have your bot grab an earlier appointment when one opens up",
+ "category": "travel",
+ "source_date": "2026-11-22",
+ "summary": "Booked the earliest slot and it's still weeks away? Keep that booking, then tell your bot to keep checking for cancellations. When an earlier time opens that you can make, it moves you up (or asks you first), so you don't have to keep refreshing the page or calling back.",
+ "what_the_bot_does": [
+  "Starts from the appointment you already have, so you never end up with nothing.",
+  "Checks the booking page or app on a schedule you set (every 10 minutes, every hour) until a stop date.",
+  "When a slot opens that fits the days and times you said you can make, messages you with the time and a link, or takes it right away if you pre-approved that window.",
+  "Confirms the new booking before the old one is released, and adds it to your calendar.",
+  "Stops checking once you're booked at a time you're happy with, or at the stop date."
+ ],
+ "what_you_end_up_with": "An earlier appointment (a doctor, a tire change, a haircut, a tee time) without spending your week refreshing a booking page or calling to ask if anything opened up.",
+ "difficulty": "Medium",
+ "tools": [
+  {"id": "chatgpt-dots", "note": "One user had a dot check for Costco tire openings every 10 minutes; after five reschedules it got an appointment for the next day"},
+  {"id": "meta-muse", "note": "Users report it watching for restaurant, barber and tee-time cancellations and booking the slot"},
+  {"id": "grok-bot", "note": "Can run the check on a schedule and phone a clinic that only books by phone (US)"},
+  {"id": "gemini-spark", "note": "Tasks in Gemini can call US businesses about openings for you"}
+ ],
+ "prompt": "I have an appointment with [provider / business] on [date and time], booked through [website, app or phone number]. I want something earlier.\n\nCheck for openings every [10 minutes / hour] until [stop date]. I can make: [days and times, e.g. weekdays before 10 a.m. or after 4 p.m.].\n\nIf you find a slot in that window: [message me with the time and a link and wait for my yes / book it straight away]. Never cancel my current booking until the new one is confirmed, never pay a deposit or accept a fee, and don't touch any other booking. Once I'm moved up, add it to my calendar, tell me what changed and stop checking.",
+ "setup": [
+  "Book the earliest slot you can get first, so the bot can only make things better.",
+  "Pick an assistant that can run on a schedule and use websites for you: a ChatGPT dot, Meta Muse or Grok Bot. If the place only books by phone, use one that can make calls (Grok Bot, Tasks in Gemini) or a health-booking service such as August for US doctor visits.",
+  "Sign in to the booking site yourself through the bot's secure sign-in, so it sees the page as you do. Don't paste passwords into the chat.",
+  "Paste the prompt with the days and times you can really make, how often to check, and a stop date.",
+  "Decide whether it should ask you first or book straight away inside your window. Asking first is safer; booking straight away catches slots that go in minutes."
+ ],
+ "watch_out": [
+  "Keep your current booking until the new one is confirmed. August, which does this for doctor visits, asks before it books anything.",
+  "Openings can go in minutes, and an alert isn't a hold. Pre-approve the times it may take if you want it to grab one fast.",
+  "Checking often uses up your bot's allowance. One Muse user's restaurant watch used 1.48M tokens in total (Reddit r/MetaAI). Use a booking app's own connector if there is one, and set a stop date.",
+  "Some places fill cancellations from a phone waitlist that never shows online. Ask the business to put you on its list too.",
+  "If you end up with two bookings, cancel the one you don't need yourself, inside the cancellation window, so someone else can have it."
+ ],
+ "sources": [
+  {"label": "X post by @LaiskyCai (2026-11-22): Costco's first tire slot was in early January; 'I told ChatGPT Dots check for openings every 10 min, and after five reschedules, it got me an appointment for tomorrow!' (5 likes / 1 bookmark / 552 views, measured 2026-11-24)", "url": "https://x.com/LaiskyCai/status/2124362059446153716", "kind": "x"},
+  {"label": "August (updated 2026-11-20): 'August can now book your doctor's appointment': calls offices to find in-network openings, books the one you pick, and 'If an earlier slot opens up later, August can offer it to you'; asks before it books anything and says it's an AI if asked (US, free in beta)", "url": "https://www.meetaugust.ai/en/articles/august-ai-books-doctor-appointments-disputes-bills", "kind": "official"},
+  {"label": "X post by August founder @anuruddh_m (2026-11-16): launch video ('if something opens up sooner, it can move you up'); August spent 24,286 minutes on hold finding the earliest in-network appointments for early users (2,075 likes / 508 reposts / 637 replies / 3,658,368 views, measured 2026-11-24)", "url": "https://x.com/anuruddh_m/status/2122374778074038613", "kind": "x"},
+  {"label": "Reddit r/MetaAI, 'Muse successfully scanned for restaurant cancelations and booked a table for 3' by u/FloppyDX (2026-09-17): checked every 10 minutes, the OpenTable connector cut token use, booked the slot when it opened; 1.48M tokens used (6 points / 4 comments as shown)", "url": "https://www.reddit.com/r/MetaAI/comments/1wj7ejv/muse_successfully_scanned_for_restaurant/", "kind": "reddit"},
+  {"label": "Muse Task Hub, 'Watch for an appointment cancellation': two user reports (hourly checks for an earlier barber slot; tee-time cancellations at 4 courses booked within 30 minutes) plus a book-first, keep-your-booking checklist", "url": "https://musetaskhub.com/tasks/watch-for-cancellations/", "kind": "article"}
+ ],
+ "popularity": {"platform": "x", "post_id": "2122374778074038613", "author": "@anuruddh_m", "url": "https://x.com/anuruddh_m/status/2122374778074038613", "posted_at": "2026-11-16", "likes": 2075, "reposts": 508, "replies": 637, "bookmarks": 771, "views": 3658368, "measured_at": "2026-11-24"},
+ "tags": ["appointment", "cancellation", "earlier slot", "waitlist", "doctor", "reschedule", "booking", "chatgpt dots", "muse", "august"]
+}

@@ -1,0 +1,47 @@
+{
+ "slug": "let-your-bot-project-manage-your-holiday-dinner",
+ "title": "Let your bot project-manage your holiday dinner",
+ "category": "family",
+ "source_date": "2026-11-22",
+ "summary": "Hosting Thanksgiving (or any big family meal)? Your bot interviews you, then builds one plan: the menu, who's bringing what, an oven schedule that works back from dinner time, a shopping list and a short text for each guest. On the day it can ping you when it's time to start each dish.",
+ "what_the_bot_does": [
+  "Asks you questions one at a time: how many guests, kids, allergies and diets, dishes people already claimed, what time you want to eat, and what your kitchen has (one oven? a smoker? a slow cooker?).",
+  "Builds a plan you can review: the menu, a 'who's bringing what' list with gaps flagged (three desserts and no vegetables), and a timeline that works back from dinner time, including when the turkey needs to start thawing.",
+  "Turns the plan into short things people will actually read: a shopping list by store section, a one-page timeline for the kitchen, and a two-line text for each guest with their dish and arrival time.",
+  "If you want, fills your grocery cart from the shopping list (you sign in and check out yourself) or calls a bakery to ask about pie orders, and reports back.",
+  "On the day, sends you reminders when it's time to start each dish, and redoes the timeline if something changes."
+ ],
+ "what_you_end_up_with": "One holiday plan everyone can follow: the menu, who brings what, a cooking timeline that fits your oven, a ready shopping list and reminders on the day, without the planning living only in your head.",
+ "difficulty": "Easy",
+ "tools": [
+  {"id": "gemini-spark", "note": "Tasks in Gemini (free in the US) put one tester's plan in a shareable Google Doc with sources; it can also call businesses and add your list to Instacart, where you check out yourself"},
+  {"id": "grok-bot", "note": "Users are having it build the game plan, the cook times and timers, and share it as a doc"},
+  {"id": "meta-muse", "note": "People are using it for the menu, the table and the Instacart order"},
+  {"id": "chatgpt-dots", "note": "Made one tester an interactive to-do page with a progress bar"},
+  {"id": "claude", "note": "Claude Duet made a very thorough plan you can filter by family member and date"}
+ ],
+ "prompt": "Act as my [Thanksgiving / holiday dinner] project manager. Interview me one question at a time: how many guests (and kids), allergies or diets, what dishes people have already claimed, what time we want to eat, and what my kitchen has ([one oven, four burners, a smoker, a slow cooker]).\n\nThen give me, for my review:\n1. The menu and a 'who's bringing what' list. Flag any gaps and suggest who could cover them.\n2. A cooking timeline that works back from [4 p.m. Thursday] and fits my one oven, including when to move the turkey to the fridge to thaw.\n3. A shopping list sorted by store section.\n4. A two-line text for each guest with their dish and arrival time.\n\nKeep what you share short and in plain words. Don't send any texts, place any orders or buy anything without my OK. On the day, remind me when it's time to start each dish. If I tell you something changed, give me a new timeline and show only the lines that changed.",
+ "setup": [
+  "Pick an assistant that can keep a plan and remind you later: Tasks in the Gemini app (switch the home screen from Chat to Tasks), Grok Bot, Meta Muse, a ChatGPT dot or Claude Duet. A plain chat also works for the plan; set your own phone timers.",
+  "Paste the prompt and answer its questions. Have the guest list and any 'who's bringing what' messages handy (with Gemini in the US you can forward those emails to gemini@google.com).",
+  "Read the plan and fix anything off before you share it. Ask for the short version for the family: the list and the timeline, not the whole document.",
+  "Want the groceries done? Ask it to fill your Instacart (or other store) cart from the list. Sign in yourself, and check the cart before you pay.",
+  "On the day, tell it when you're starting and let it ping you for each step. If the turkey is still frozen on Tuesday, tell it and ask for a new timeline."
+ ],
+ "watch_out": [
+  "Most kitchens have one oven and too many dishes that want it. Tell the bot exactly what you have, or the timeline won't work.",
+  "Keep what you share short. One host shared the whole plan as a doc, and his wife skipped everything but the list 'because it was written by a clanker' (What People Do With AI, Nov 20).",
+  "A long, very detailed plan can add to your plate instead of lightening it. One tester felt that way about Claude Duet's thorough plan (AI-Empowered Mom, Nov 22). Ask for less if it's too much.",
+  "Never type your store password into the chat. Sign in to the store yourself, and stop the bot before checkout so you can check the cart.",
+  "Gemini can't make calls to businesses in Indiana, Louisiana, Minnesota, Montana or Nebraska, and it says it's an AI when it calls (The Weekend Queue)."
+ ],
+ "sources": [
+  {"label": "AI-Empowered Mom newsletter (2026-11-22): 'I tested four AI agents with my Thanksgiving plan' with one project-manager prompt; Gemini Tasks best overall (plan in Google Docs, cited sources), ChatGPT Dot and Claude Duet each built an interactive to-do mini-site, Siri AI 'don't bother'", "url": "https://www.aiempoweredmom.com/p/i-tested-four-ai-agents-with-my-thanksgiving-plan", "kind": "article"},
+  {"label": "The Weekend Queue #6 (2026-11-20): 'Hand off one holiday errand to AI this weekend': a 30-minute Thanksgiving handoff with Gemini Tasks (meal plan and make-ahead schedule, call bakeries about pie orders, add the list to Instacart, forward 'who's bringing what' emails)", "url": "https://weekendqueue.beehiiv.com/p/hand-off-one-holiday-errand-to-ai-this-weekend", "kind": "article"},
+  {"label": "X post by @CatOrman1 (2026-11-23): 'san francisco thanksgiving prep means tasking your muse to do your instacart shopping for you' (32 likes / 3 replies / 2,197 views, measured 2026-11-24)", "url": "https://x.com/CatOrman1/status/2124689497321574804", "kind": "x"},
+  {"label": "X post by @ErinnFL (2026-11-24): planning Thanksgiving with her Grok Bot; 'It built my whole game plan and sets timers to tell me when to start everything' (11 likes / 3 replies / 307 views, measured 2026-11-24)", "url": "https://x.com/ErinnFL/status/2125243075094102521", "kind": "x"},
+  {"label": "X post by @WhatPeopleDoAI (2026-11-20): a host had Grok Bot work out who's bringing what and how to cook two turkeys between the smoker and the oven, shared as a Notion doc; his wife only read the list (1 like / 126 views, measured 2026-11-24)", "url": "https://x.com/WhatPeopleDoAI/status/2123602264283603044", "kind": "x"}
+ ],
+ "popularity": {"platform": "x", "post_id": "2124689497321574804", "author": "@CatOrman1", "url": "https://x.com/CatOrman1/status/2124689497321574804", "posted_at": "2026-11-23", "likes": 32, "reposts": 0, "replies": 3, "bookmarks": 0, "views": 2197, "measured_at": "2026-11-24"},
+ "tags": ["thanksgiving", "holiday dinner", "hosting", "christmas dinner", "friendsgiving", "menu", "cooking timeline", "shopping list", "who's bringing what", "family"]
+}
