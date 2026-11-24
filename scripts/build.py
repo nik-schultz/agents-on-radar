@@ -18,6 +18,7 @@ INSTR_GUIDE = "/how-to-write-instructions-for-an-ai-agent/"  # added 2026-11-10
 HMI_GUIDE = "/how-to-install-hermes-agent/"; ALT_GUIDE = "/openclaw-alternatives/"  # added 2026-11-11
 PA_GUIDE = "/chatgpt-dots-vs-grok-bot-vs-meta-muse/"  # added 2026-11-17 (personal agents compared)
 GT_GUIDE = "/how-to-use-tasks-in-gemini/"  # added 2026-11-18 (weekly SEO run: Tasks in Gemini how-to)
+MUSE_GUIDE = "/how-to-use-meta-muse/"  # added 2026-11-24 (weekly SEO run: Meta Muse how-to)
 PHONE_UCS = {"call-and-book-by-phone", "make-a-customer-service-call", "let-a-bot-answer-and-screen-your-calls", "restaurant-reservations-by-agent"}
 CAT = {c["slug"]: c for c in cats}
 UC = {x["slug"]: x for x in ucs}
@@ -292,7 +293,7 @@ def featured_slot(slot, cat=None):
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
     return newsletter_box(f"nl-{slot}", "card")  # no sponsor booked: show a newsletter signup instead of an empty ad box
 
-SHARE_PATHS = {GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/", "/bot-checkup/", "/services/"}
+SHARE_PATHS = {MUSE_GUIDE, GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/", "/bot-checkup/", "/services/"}
 def share_bar(title, url):
     """Share on X / Copy link / Email a friend. Plain links + one button; no third-party scripts."""
     q = urllib.parse.quote
@@ -307,7 +308,7 @@ def share_bar(title, url):
 <label class="share-nojs"><span class="sr">Link to this page</span><input type="text" readonly value="{e(url)}" size="34"></label>
 <a class="share-btn" href="{e(mh)}" aria-label="Email this page to a friend">{msvg}<span>Email a friend</span></a>
 </div><p class="share-status small" role="status" aria-live="polite"></p></section>"""
-NL_END_PATHS = {"/trending/", "/news/", GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", "/bot-instructions/", PRICING, LESS, "/about/"}
+NL_END_PATHS = {"/trending/", "/news/", MUSE_GUIDE, GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", "/bot-instructions/", PRICING, LESS, "/about/"}
 # Long guides also get a signup after their 3rd top-level section (mid-article), not only at the end.
 NL_MID_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/"}
 def _insert_mid(body, snippet, after=3):
@@ -1028,10 +1029,10 @@ _today_head = f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)
 _today_desc = mdesc(f"Today in AI assistants, {_dow(TODAY_ED)}: the 3 changes that matter for ChatGPT, Claude, Gemini, Grok and Meta AI users, what each means for you, and one job to try with a copy-paste prompt.")
 # /today/ is the stable URL of the latest edition (the routines check its <h1 class="td-date">); "/" is the site overview built after the guides hub.
 _tbc, _tbld = crumbs([("Home", "/"), ("Today", None)])
-page("/today/", f"{NAME} Today: what changed in AI assistants, and one job to try", _today_desc, f'<div class="wrap td-crumbs">{_tbc}</div>' + today_body(TODAY_ED), [_tbld], kind="today", lastmod=TODAY_ED.isoformat(), head_extra=_today_head)
+page("/today/", f"{NAME} Today: AI assistant changes and one job to try", _today_desc, f'<div class="wrap td-crumbs">{_tbc}</div>' + today_body(TODAY_ED), [_tbld], kind="today", lastmod=TODAY_ED.isoformat(), head_extra=_today_head)
 for _ed in TODAY_EDS:
     _bc, _bld = crumbs([("Home", "/"), ("Today", "/today/"), ("All editions", "/today/archive/"), (_dow(_ed), None)])
-    page(_ed_path(_ed), f"AI assistants today, {_dow(_ed)}: 3 changes and a job to try", mdesc(f"The {_dow(_ed)} edition of {NAME} Today: the 3 changes in AI assistants that day, what each means for you, and one job to try."),
+    page(_ed_path(_ed), f"AI assistants today, {_dow(_ed)}: 3 changes, 1 job to try", mdesc(f"The {_dow(_ed)} edition of {NAME} Today: the 3 changes in AI assistants that day, what each means for you, and one job to try."),
          f'<div class="wrap">{_bc}</div>' + today_body(_ed, archive=True), [_bld], kind="today", lastmod=_ed.isoformat(), head_extra=_today_head,
          canonical=(u("/today/") if _ed == TODAY_ED else None))
 _arch = ""
@@ -1077,6 +1078,7 @@ GUIDE_GROUPS = [
     ("Compare", "Which assistant for which job", [
         (PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse", "Personal AI agents compared, with Claude and Gemini."),
         (GT_GUIDE, "How to use Tasks in Gemini", "Free from Nov 17, 2026: what it does and a first task to try."),
+        (MUSE_GUIDE, "How to use Meta Muse", "Free with a usage limit: safe settings and a first job to copy."),
         (PHONE_GUIDE, "Can AI make phone calls for you?", "Which assistants can call a business, and how."),
         (AGENTMODE_GUIDE, "ChatGPT agent mode is gone. What now?", "Where the features went."),
         (CLAW_GUIDE, "OpenClaw vs Hermes Agent", "Two self-hosted agents for tinkerers, compared."),
@@ -1241,7 +1243,7 @@ explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 <li><b>Get in everywhere.</b> Some sites block agents. One user says Amazon blocked his ({S('X post', 'https://x.com/NickADobos/status/2110749518518235276')}).</li>
 <li><b>Replace a professional.</b> Use bots to organize and draft. Medical, legal and money decisions stay with you and a qualified person. Be wary of anyone promising AI miracles; the U.S. FTC has acted against deceptive AI claims ({S('FTC Operation AI Comply', 'https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes')}).</li></ul></section>
 
-<p class="small">Go deeper: <a href="{u(GT_GUIDE)}">how to use Tasks in Gemini (free)</a> · <a href="{u(PA_GUIDE)}">ChatGPT dots vs Grok Bot vs Meta Muse</a> · <a href="{u(INSTR_GUIDE)}">how to write instructions for an AI agent</a> · <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a> · <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> · <a href="{u(ALT_GUIDE)}">OpenClaw alternatives</a> · <a href="{u(HMI_GUIDE)}">how to install Hermes Agent</a> · <a href="{u(AGENTMODE_GUIDE)}">ChatGPT agent mode is gone</a></p>
+<p class="small">Go deeper: <a href="{u(GT_GUIDE)}">how to use Tasks in Gemini (free)</a> · <a href="{u(MUSE_GUIDE)}">how to use Meta Muse</a> · <a href="{u(PA_GUIDE)}">ChatGPT dots vs Grok Bot vs Meta Muse</a> · <a href="{u(INSTR_GUIDE)}">how to write instructions for an AI agent</a> · <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a> · <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> · <a href="{u(ALT_GUIDE)}">OpenClaw alternatives</a> · <a href="{u(HMI_GUIDE)}">how to install Hermes Agent</a> · <a href="{u(AGENTMODE_GUIDE)}">ChatGPT agent mode is gone</a></p>
 <section class="reveal"><h2>7 rules that keep you safe</h2><ol class="rules">
 <li>Start <b>read-only</b>. Let it look before it does anything.</li>
 <li>Make it <b>ask before</b> it sends, buys, books, cancels or deletes.</li>
@@ -1623,10 +1625,11 @@ cost_body = f"""<article class="wrap narrow explainer">{cbc}
 {_byline()}</header>
 
 <section class="glass explain-card reveal" id="at-a-glance"><h2>AI agent cost at a glance</h2><ul class="big-list">
-<li><b>The agent software:</b> often free. OpenClaw and Hermes Agent are free and open source; agent apps like Claude Cowork, ChatGPT dots and Grok Bot run inside a plan, and tasks in Gemini is free in six countries (<a href="#plans">plan prices</a>; <a href="{u(PA_GUIDE)}">which plan includes which agent</a>).</li>
+<li><b>The agent software:</b> often free. OpenClaw and Hermes Agent are free and open source; agent apps like Claude Cowork, ChatGPT dots and Grok Bot run inside a plan, Meta Muse is free with a usage limit (<a href="{u(MUSE_GUIDE)}">how to use Meta Muse</a>), and tasks in Gemini is free in six countries (<a href="#plans">plan prices</a>; <a href="{u(PA_GUIDE)}">which plan includes which agent</a>).</li>
 <li><b>The AI model, pay-per-use:</b> {money(_lo_all)} to {money(_hi_all)} a month for each of our {len(_cost_rows)} everyday bots, depending on the bot and the model (<a href="#examples">full table</a>).</li>
 <li><b>Phone and voice bots:</b> billed per minute, not per token: {_pz(_vp_lo)} to {_pz(_vp_hi)} a minute on the platforms we checked ({_vp_note}), so about {_vp_rate({"price_min": _vp_lo, "price_max": _vp_hi}, _pmo)} for {_pmo} minutes of calls a month before extras (<a href="#voice">voice agent costs</a>).</li>
-<li><b>The biggest lever:</b> model choice. Within one company, the small model can cost up to {LESS_RATIO}× less than the flagship (<a href="#cut">how to pay less</a>).</li></ul>
+<li><b>The biggest lever:</b> model choice. Within one company, the small model can cost up to {LESS_RATIO}× less than the flagship (<a href="#cut">how to pay less</a>).</li>
+<li><b>Price changes coming:</b> Google's Gemini 4 Carbon and Argon go from $2 / $10 to $4 / $20 per 1M input / output tokens on Dec 1, 2026, and calls to the old Gemini 2.5 Flash are billed as Gemini 3.5 Flash-Lite from that day; Gemini 3.8 Flash doubles to $1.50 / $7.50 on Jan 1, 2027 (<a href="https://aistudio.google.com/docs/pricing" rel="noopener">Google's pricing page</a>, checked {nice_date(PR['checked_on'])}). If your bot uses one of these, re-check its cost after the change.</li></ul>
 <p><a class="btn btn-sm" href="{u(LESS)}#calculator">Work out your own bot's cost</a> <a class="btn btn-sm btn-ghost" href="{u(BUILD_GUIDE)}">Build one without coding</a></p></section>
 
 <section class="reveal"><h2>What sets the price</h2><ol class="rules">
@@ -2299,6 +2302,8 @@ SRC.update({
  "gb_start": ("Grok Bot docs: Get started (which plans include Grok Bot)", "https://docs.x.ai/grok-bot/get-started"),
  "gb_faq": ("Grok Bot docs: FAQ", "https://docs.x.ai/grok-bot/faq"),
  "muse_help": ("Meta Help Center: How to get started with Muse", "https://www.meta.com/help/superintelligence/1331373868832401/"),
+ "muse_subs": ("Meta Help Center: About Muse subscriptions (Power and Maximum plans)", "https://www.meta.com/help/subscriptions/1021145227643680/"),
+ "muse_uk": ("Meta (Nov 24, 2026): Introducing Muse in the UK", "https://about.fb.com/news/2026/11/introducing-muse-in-the-uk-a-personal-ai-agent-you-control/"),
  "cw_help": ("Claude Help Center: Get started with Claude Cowork", "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork"),
  "g_tasks": ("Gemini Apps Help: Manage your tasks & workflows in Gemini Apps", "https://support.google.com/gemini/answer/17094507"),
  "cl_price": ("Claude pricing", "https://claude.com/pricing"),
@@ -2316,10 +2321,10 @@ PA_ROWS = [
   "Desktop app (Mac, Windows, Linux), iPhone and Android app, X Chat, @bot on X, Slack, Teams",
   "Yes. Bots share one cloud computer; closing your laptop doesn't stop a routine",
   "Approval cards and narrow “Ask first” rules; signs in from Vault without seeing your passwords"),
- ("Meta Muse", f"Meta · free with a usage limit; paid subscription for more ({C('muse_help', 'Meta')})",
-  "Muse app and web, signed in with a Meta account (Facebook, Instagram, email or phone)",
-  "Meta's help page doesn't say; it can set reminders and keeps context across chats",
-  "Meta says Muse may take unexpected actions: monitor it and tell it its limits (“only search my email”)"),
+ ("Meta Muse", f"Meta · free with a usage limit; Power $20/month, Maximum $100/month ({C('muse_subs', 'Meta')}; <a href=\"{u(MUSE_GUIDE)}\">how to use it</a>)",
+  "Muse app, muse.ai, Mac app, and WhatsApp in the UK; signed in with a Meta account (Facebook, Instagram, email or phone)",
+  "Yes. Meta says it keeps working after you close the app and comes back when it needs approval, on its own cloud computer",
+  "Settings → Permissions: Always ask or Ask for some actions; approval options include Allow once and Always allow; asks before sending email or buying"),
  ("Claude Cowork", f"Anthropic · paid Claude plans only (Pro, Max, Ultra, Team, Enterprise); Pro is {_cp('Anthropic', 'Claude Pro')} ({C('cw_help', 'Claude Help')})",
   "Claude desktop app (Mac, Windows, Linux beta), web and mobile",
   "Scheduled tasks run in the cloud with no device online; local files and your browser need the desktop app open",
@@ -2349,8 +2354,12 @@ PA_FAQ = [
   "Start with the one your current plan already includes, because the job matters more than the brand. If you pay for ChatGPT Pro, try a dot; if you pay for Claude, try Cowork; with an X Premium, Super or Ultra subscription, try Grok Bot. If you pay for none, tasks in Gemini is free in the US, Canada, India, Japan, South Korea and Australia, and Meta Muse has a free tier with a usage limit.", None),
  ("Is there a free personal AI agent?",
   "Yes. Tasks in Gemini became free on Nov 17, 2026 in the US, Canada, India, Japan, South Korea and Australia (Google AI Pro or Ultra elsewhere), and Meta Muse is free with a usage limit. ChatGPT dots, Claude Cowork and Grok Bot need a paid plan. Open-source agents such as Hermes Agent and OpenClaw are free to download, but you pay for the AI model and the computer they run on.", None),
+ ("ChatGPT dots vs Grok Bot: what's the difference?",
+  "A ChatGPT dot is one always-on agent with its own cloud computer and browser, included with ChatGPT Pro or Business Premium in eligible markets. Grok Bot lets you run several named bots that share one cloud computer, included with Premium, Super or Ultra on The X Subscription (or a linked SuperGrok / X Premium+ plan). Both keep working after you close your laptop.", None),
+ ("Is Meta Muse free?",
+  "Yes. Muse is free with a usage limit. When you reach it you can wait for it to refresh, buy extra Muse tokens, or subscribe: Power is $20 a month (500 million Muse tokens a week and 10 phone calls a day) and Maximum is $100 a month (3 billion tokens a week and 20 calls a day), on Meta's help page.", None),
  ("Do personal AI agents keep working when my computer is off?",
-  "ChatGPT dots and Grok Bot work on their own cloud computers, so yes. Claude Cowork's scheduled tasks run in the cloud with no device online, but jobs that use your local files or browser need the desktop app open. Tasks in Gemini that use your own Chrome need your computer awake; otherwise Gemini may use a remote browser.", None),
+  "ChatGPT dots and Grok Bot work on their own cloud computers, so yes. Meta says Muse keeps working after you close the app and comes back when it needs approval, on its own virtual computer in the cloud. Claude Cowork's scheduled tasks run in the cloud with no device online, but jobs that use your local files or browser need the desktop app open. Tasks in Gemini that use your own Chrome need your computer awake; otherwise Gemini may use a remote browser.", None),
  ("Is it safe to let a personal agent read my email?",
   "It can be, with limits: connect only what the job needs, start read-only, and keep approvals on for sending, buying and deleting. Emails can contain hidden instructions aimed at agents, so treat what it reads as untrusted. All five agents here have approval settings, and Meta and Google both warn their agents can make mistakes.", None),
  ("What is the difference between ChatGPT and ChatGPT dots?",
@@ -2363,7 +2372,8 @@ pab, pald = crumbs([("Home", "/"), ("What is an AI agent?", "/what-can-bots-do/"
 _pa_desc = mdesc("ChatGPT dots vs Grok Bot vs Meta Muse, plus Claude Cowork and Gemini tasks: which plans include them, what runs while you're away, how each asks first.")
 pa_body = f"""<article class="wrap narrow explainer">{pab}
 <header class="page-head"><p class="eyebrow">Beginner guide · Personal AI agents</p><h1 class="kinetic-sm">ChatGPT dots vs Grok Bot vs Meta Muse (plus Claude Cowork and Gemini)</h1>
-<p class="lead">Short answer: use the personal agent your plan already includes. <b>ChatGPT dots</b> come with ChatGPT Pro, <b>Grok Bot</b> with X Premium, Super or Ultra, <b>Claude Cowork</b> with any paid Claude plan. <b>Tasks in Gemini</b> is free in the US, Canada, India, Japan, South Korea and Australia (Google AI Pro or Ultra elsewhere), and <b>Meta Muse</b> has a free tier. All five can work on jobs for you, not just chat, and all five let you require your OK before they act.</p>
+<p class="lead">Short answer: use the personal agent your plan already includes. <b>ChatGPT dots</b> come with ChatGPT Pro, <b>Grok Bot</b> with X Premium, Super or Ultra, <b>Claude Cowork</b> with any paid Claude plan. <b>Tasks in Gemini</b> is free in the US, Canada, India, Japan, South Korea and Australia (Google AI Pro or Ultra elsewhere), and <b>Meta Muse</b> has a free tier (Power $20 a month, Maximum $100). All five can work on jobs for you, not just chat, and all five let you require your OK before they act.</p>
+<p><b>ChatGPT dots vs Grok Bot in one line:</b> each ChatGPT dot is one always-on agent with its own cloud computer and browser, on ChatGPT Pro or Business Premium; Grok Bot runs several bots that share one cloud computer, included with X Premium, Super or Ultra. <b>Meta Muse</b> is a free option: it keeps working after you close the app and asks before it sends an email or buys anything (<a href="{u(MUSE_GUIDE)}">how to use Meta Muse</a>).</p>
 {_byline()}<p class="small muted">Every fact comes from each company's own announcement or help pages, linked inline and checked {MOD_NICE}. We don't rank them; features and plans change often.</p></header>
 <section class="reveal" id="compare"><h2>Personal AI agents side by side</h2>
 <div class="table-wrap glass"><table class="rank-table cmp-table"><thead><tr><th scope="col">Agent</th><th scope="col">Who makes it · which plans</th><th scope="col">Where you use it</th><th scope="col">Works while you're away?</th><th scope="col">How it asks first</th></tr></thead><tbody>{_pa_tbl}</tbody></table></div>
@@ -2386,7 +2396,7 @@ pa_body = f"""<article class="wrap narrow explainer">{pab}
 <li>Treat emails and web pages it reads as untrusted: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email?</a></li></ol></section>
 <section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(PA_FAQ)}</section>
 <section class="glass explain-card"><h2>Next step</h2><p>New to agents? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is</a>, browse <a href="{u('/ai-agent-examples/')}">{len(ucs)} AI agent examples</a>, or follow a <a href="{u('/blueprints/')}">blueprint</a> step by step.</p></section>
-<section class="reveal"><h2>Sources</h2>{_src_list(['dots_intro','gb_over','gb_start','gb_faq','muse_help','cw_help','g_tasks','cl_price','g_subs'])}</section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['dots_intro','gb_over','gb_start','gb_faq','muse_help','muse_subs','muse_uk','cw_help','g_tasks','cl_price','g_subs'])}</section>
 </article>"""
 page(PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse: which personal agent?", _pa_desc, pa_body,
      [pald, _art_ld(PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse (plus Claude Cowork and Gemini)", _pa_desc, published="2026-11-17"), _faq_ld(PA_FAQ),
@@ -2489,6 +2499,111 @@ page(GT_GUIDE, "How to use Gemini Tasks (free): set up your first task", _gt_des
       {"@context": "https://schema.org", "@type": "HowTo", "name": "How to set up your first task in Gemini", "description": _gt_desc,
        "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(GT_STEPS)]}], og_type="article")
 
+# ----- 14. How to use Meta Muse (2026-11-24, weekly SEO run) -----
+SRC.update({
+ "muse_perm": ("Meta Help Center: How Muse works with your guidance and approval", "https://www.meta.com/help/superintelligence/1385290430137537/"),
+ "muse_conn": ("Meta Help Center: How Muse works with Connectors", "https://www.meta.com/help/superintelligence/1687253048996149/"),
+ "muse_pay": ("Meta Help Center: How Muse works with payments", "https://www.meta.com/help/superintelligence/1436362127544482/"),
+ "muse_subs": ("Meta Help Center: About Muse subscriptions (Power and Maximum plans)", "https://www.meta.com/help/subscriptions/1021145227643680/"),
+ "muse_tokens": ("Meta Help Center: How to buy additional Muse tokens", "https://www.meta.com/help/subscriptions/28153473374286914/"),
+ "muse_hc": ("Meta Help Center: Muse Help Center (availability)", "https://www.meta.com/help/superintelligence/1303670544995562/"),
+ "muse_uk": ("Meta (Nov 24, 2026): Introducing Muse in the UK", "https://about.fb.com/news/2026/11/introducing-muse-in-the-uk-a-personal-ai-agent-you-control/"),
+ "muse_au": ("Meta (Nov 17, 2026): Muse is now available in Australia", "https://about.fb.com/news/2026/11/muse-is-now-available-in-australia/"),
+ "muse_sg": ("Meta (Oct 27, 2026): Muse is now available in Singapore", "https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/"),
+})
+MU_STEPS = [
+ ("Check you can use it", "Muse isn't available everywhere yet, and some features vary by country. Meta's launch posts include the UK (Nov 24, 2026), Australia (Nov 17) and Singapore (Oct 27). In the UK it's for anyone 18 or over, and you must be 18 or the age of majority to subscribe."),
+ ("Open Muse and sign in", "Use the Muse app on iPhone or Android, or muse.ai in a browser (there's also a Mac app, and in the UK you can chat with Muse in WhatsApp). Sign in with a Meta account; if you don't have one, create it with Facebook, Instagram, an email address or a phone number."),
+ ("Set it to ask first", "Before you connect anything, go to Settings, then Permissions. Set Connectors to Always ask and Web access defaults to Always ask while you learn. Muse will then ask before any action and before opening any website."),
+ ("Give it one low-risk job", "Describe what you need clearly, say what it may use, and say what it must not do (Meta's own example: “Only search my email, not my text messages”). Start with a job that only reads and reports back. Copy the prompt below."),
+ ("Connect only the app that job needs", "Ask “Connect my Gmail”, or go to Settings, then Connectors, tap Connect and follow the sign-in steps. Note that Facebook, Instagram and Threads connect automatically if they're in the same Accounts Center."),
+ ("Answer approvals with Allow once", "When Muse asks, you can pick Allow once, Allow for this task, Allow for this site, Always allow or Deny. Use Allow once until you've seen it do the job right a few times. Tap See task details if you're not sure what it's about to do."),
+ ("Check what it did", "Tap your assistant icon for the Activity log (every action and every permission you gave) and Upcoming (scheduled tasks and reminders). If something is wrong, tell it to stop or undo, or disconnect the app."),
+]
+MU_PROMPT = """Job: each weekday morning, look at my calendar for today and my email from the last 24 hours.
+Tell me: 1) what's on today and when to leave, 2) emails that need a reply today, 3) anything that looks like a scam.
+Use only: my calendar and email, read-only.
+Never: send, reply, delete, archive, book, buy or sign up for anything.
+Ask me first: before any step that changes something or contacts anyone.
+If unsure: say what you're unsure about instead of guessing.
+Result: at most 10 short bullets, most important first."""
+MU_PLANS = [
+ ("Free", "$0", "Free usage limit; when you reach it, wait for it to refresh, subscribe, or buy extra tokens"),
+ ("Power", "$20 a month", "500M Muse tokens a week, 10 phone calls a day"),
+ ("Maximum", "$100 a month", "3B Muse tokens a week, 20 phone calls a day"),
+]
+MU_FAQ = [
+ ("Is Meta Muse free?",
+  "Yes. Muse is free with a usage limit. When you hit it, you can wait for it to refresh, buy a one-time pack of extra Muse tokens (they never expire), or subscribe: Power is $20 a month and Maximum is $100 a month on Meta's help page. Meta doesn't publish the free allowance as a number on its help pages.", None),
+ ("How much does Meta Muse cost?",
+  "Nothing to start. Paid plans on Meta's help page: Power at $20 a month (500 million Muse tokens a week and 10 phone calls a day) and Maximum at $100 a month (3 billion tokens a week and 20 phone calls a day). Plans renew monthly until you cancel, and benefits can vary by region.", None),
+ ("Is Meta Muse safe?",
+  "It's built to ask before important actions, such as sending an email or making a purchase, and Meta says it can't see your passwords or card details. But Meta's own help page warns that Muse can make mistakes or take unexpected actions, and that you're responsible for what it does for you. Start with low-risk jobs, set permissions to Always ask, and check the Activity log.", None),
+ ("Is Meta Muse available in the UK?",
+  "Yes, from Nov 24, 2026, for anyone 18 or over, on iOS, Android, muse.ai and WhatsApp. It launched with UK partners such as Marks & Spencer, ASOS, Currys, easyJet and Jet2.", None),
+ ("Can I use Muse in WhatsApp?",
+  "In the UK, yes: Meta says you can chat with Muse in the Muse app or directly in WhatsApp, with the same memory in both. Meta's Australia and Singapore announcements list iOS, Android and muse.ai, not WhatsApp.", None),
+ ("Can Muse buy things for me?",
+  "Yes, with your approval every time. Meta recommends paying with Link by Stripe, which issues a one-time card number for each purchase so your real card stays private. Muse can also log in to a shop with credentials saved in its Secure Credential Store and pay with your saved card. Check the total and the shop's terms before you approve; you're responsible for the purchase.", None),
+ ("Does Muse keep working after I close the app?",
+  "Yes, for longer tasks. Meta says Muse keeps working after you close the app and comes back when something changes or when it needs your approval, for example before it sends an email or makes a purchase. Each Muse has its own virtual computer in the cloud.", None),
+ ("How do I stop Muse or delete what it knows?",
+  "Ask it to stop or undo in chat (some actions, like a sent email, can't be undone). Disconnect any app in Settings, then Connectors; what it learned may stay in its memory, so also ask it to forget. Resetting Muse permanently deletes all its information, chats, files and active tasks.", None),
+]
+_mu_tbl = "".join(f'<tr><th scope="row">{e(a)}</th><td>{e(b)}</td><td class="small">{e(c)}</td></tr>' for a, b, c in MU_PLANS)
+mub, muld = crumbs([("Home", "/"), ("What is an AI agent?", "/what-can-bots-do/"), ("How to use Meta Muse", None)])
+_mu_desc = mdesc("How to use Meta Muse, step by step: sign in, set it to ask first, give it a safe first job, and what Free, Power ($20) and Maximum ($100) include.")
+mu_body = f"""<article class="wrap narrow explainer">{mub}
+<header class="page-head"><p class="eyebrow">Beginner guide · Meta Muse</p><h1 class="kinetic-sm">How to use Meta Muse: your first job, step by step</h1>
+<p class="lead"><b>Short answer:</b> open the Muse app or muse.ai, sign in with a Meta account, set Settings → Permissions to <b>Always ask</b>, then type one clear, low-risk job in the Chat tab. Muse plans it, works across the apps you connect and the web, and asks before important actions like sending an email or buying something. It's free with a usage limit; Power is $20 a month and Maximum $100 a month ({C('muse_help', 'Meta Help Center')}; {C('muse_subs', 'Muse subscriptions')}). It launched in the UK on Nov 24, 2026 ({C('muse_uk', 'Meta')}).</p>
+{_byline()}<p class="small muted">Every fact comes from Meta's own Help Center and announcements, linked inline and checked {MOD_NICE}. Muse is changing fast and features vary by country.</p></header>
+<section class="glass explain-card reveal" id="what-it-is"><h2>What Meta Muse is</h2><ul class="big-list">
+<li><b>A personal AI agent, not just a chatbot.</b> You give it a job; it turns it into a plan and works through it across connected apps and websites, opening a browser and filling in forms when needed ({C('muse_uk', 'Meta')}).</li>
+<li><b>It keeps working when you close the app.</b> For longer jobs it comes back when something changes or when it needs your approval ({C('muse_uk', 'Meta')}).</li>
+<li><b>Its own computer in the cloud.</b> Each Muse gets a virtual computer that stores the logins for the services you connect; Meta says Muse can't see your passwords or card details ({C('muse_uk', 'Meta')}; {C('muse_au', 'Meta')}).</li>
+<li><b>Connectors give it abilities.</b> Connect Gmail or a calendar and it can read new emails and see schedule changes; it won't download your whole inbox unless you ask ({C('muse_conn', 'Meta Help Center')}).</li></ul>
+<p class="small">New to agents? Read <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>.</p></section>
+<section class="reveal" id="steps"><h2>How to start with Meta Muse: {len(MU_STEPS)} steps</h2><ol class="rules">{''.join(f'<li><b>{e(t)}.</b> {e(d)}</li>' for t, d in MU_STEPS)}</ol>
+<p>Paste this as your first job. It only reads, so it's a safe test:</p>
+{copybox(MU_PROMPT, "First job for Meta Muse (read-only)", "mu-prompt")}
+<p class="small">Want a different job? Build it in the free <a href="{u('/bot-instructions/')}">instruction builder</a> and paste the result into Muse, or use the <a href="{u(INSTR_GUIDE)}">6-part instructions template</a>. Sources: {C('muse_help', 'Get started with Muse')}, {C('muse_perm', 'Guidance and approval')}, {C('muse_conn', 'Connectors')}.</p></section>
+<section class="reveal" id="plans"><h2>Is Meta Muse free? Free vs Power vs Maximum</h2>
+<div class="table-wrap glass"><table class="rank-table cmp-table"><thead><tr><th scope="col">Plan</th><th scope="col">Price</th><th scope="col">What you get</th></tr></thead><tbody>{_mu_tbl}</tbody></table></div>
+<p class="small">From {C('muse_subs', 'About Muse subscriptions')} and {C('muse_tokens', 'How to buy additional Muse tokens')}. Prices are in US dollars on Meta's help page; benefits can vary by region and are shown before you subscribe. Unused weekly allowance doesn't roll over, but extra tokens you buy never expire. To buy more: Menu, then Settings, then Upgrade (or Manage subscription), then Buy additional tokens. Other assistants' prices: <a href="{u(PRICING)}">AI price table</a>.</p></section>
+<section class="reveal" id="permissions"><h2>Permissions: what “Always ask” and “Allow once” mean</h2><ul class="big-list">
+<li><b>Read vs write.</b> Reading is looking (your calendar, an email). Writing is changing or sending (a message, a purchase). Keep writing on approval ({C('muse_perm', 'Meta Help Center')}).</li>
+<li><b>Ask for some actions</b> (Connectors): Muse asks before every write action and important read actions. <b>Always ask</b>: before any action.</li>
+<li><b>Web access defaults:</b> Ask for some actions = asks when your information may be shared or a site is unfamiliar; Always ask = asks before visiting any website.</li>
+<li><b>Per-app and per-task:</b> under Manage permissions you can set each Connector, approvals for each scheduled task and artifact, and revoke allowed websites.</li>
+<li><b>“Always allow” is sticky.</b> It lets Muse take that kind of action for that Connector from now on without asking. Save it for read-only jobs you've watched work.</li></ul></section>
+<section class="reveal" id="payments"><h2>Letting Muse pay for things</h2>
+<p>Muse always asks for your approval before it completes a purchase. Meta recommends <b>Link by Stripe</b>, which makes a one-time card number for each purchase so your real card number stays private; Muse can also log in to a shop with saved credentials and use your saved card. Check the total and the shop's terms first: you're responsible for what Muse buys, and it varies by country, shop and checkout ({C('muse_pay', 'Meta Help Center')}). Related: {_ua('pay-with-a-single-use-virtual-card')} and {_ua('let-your-ai-shop-for-you-with-shop-pay')}.</p></section>
+<section class="reveal" id="first-jobs"><h2>Good first jobs for Muse</h2><ul class="big-list">
+<li><b>Chores:</b> {_ua('hand-your-most-hated-chores-to-a-personal-agent')}.</li>
+<li><b>Family:</b> {_ua('sunday-family-calendar-check')}, {_ua('school-email-digest')} or {_ua('medication-reminders-for-a-parent')} (reminders are built in).</li>
+<li><b>Inbox and news:</b> {_ua('morning-news-digest')} or {_ua('catch-calendar-clashes-hiding-in-your-email')}.</li>
+<li><b>Shopping:</b> {_ua('check-on-every-package-and-chase-the-late-ones')} or {_ua('reorder-your-regular-groceries')}.</li>
+<li><b>Phone calls (a paid-plan allowance on Meta's help page):</b> {_ua('make-a-customer-service-call')}. More: <a href="{u(PHONE_GUIDE)}">can AI make phone calls for you?</a></li></ul>
+<p>More ideas: <a href="{u('/ai-agent-examples/')}">{len(ucs)} AI agent examples</a>.</p></section>
+<section class="reveal warn glass" id="safety"><h2>Before you let it act: 6 rules</h2><ol class="rules">
+<li><b>Start with low-risk jobs.</b> Meta's own advice while you're learning ({C('muse_perm', 'Meta Help Center')}).</li>
+<li><b>Never paste passwords or card numbers into the chat.</b> Let Muse use its own sign-in store and Link by Stripe, or do that step yourself.</li>
+<li><b>Remember a sent email can't be unsent.</b> Muse can stop or undo some actions, like reading a site or comparing prices, but not others.</li>
+<li><b>Be careful with custom connectors.</b> Muse can build one for a service that isn't listed, but Meta doesn't review custom connectors ({C('muse_conn', 'Meta Help Center')}).</li>
+<li><b>Treat what it reads as untrusted.</b> Emails and web pages can hide instructions meant for the agent (prompt injection): {_ua('keep-hidden-instructions-in-email-from-steering-your-bot')}.</li>
+<li><b>Disconnecting isn't forgetting.</b> After you disconnect an app, what Muse learned can stay in its memory and chat history, so ask it to forget too. Reset deletes everything, permanently.</li></ol>
+<p class="small">More: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email?</a></p></section>
+<section class="reveal" id="compare"><h2>Meta Muse vs other personal agents</h2>
+<p>Of the big personal agents, Muse and Tasks in Gemini can be used free: Gemini in six countries (<a href="{u(GT_GUIDE)}">how to use Tasks in Gemini</a>). ChatGPT dots, Grok Bot and Claude Cowork need a paid plan. Side by side: <a href="{u(PA_GUIDE)}">ChatGPT dots vs Grok Bot vs Meta Muse</a>.</p></section>
+<section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(MU_FAQ)}</section>
+<section class="glass explain-card"><h2>Next step</h2><p>Before you connect email or a card, run the free <a href="{u('/bot-checkup/')}">Bot Checkup</a> for the Muse settings worth changing. Then write your first job's rules in the free <a href="{u('/bot-instructions/')}">bot instruction builder</a> (no sign-up, nothing stored) and paste them into Muse. Or follow a <a href="{u('/blueprints/')}">blueprint</a> step by step.</p></section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['muse_help','muse_perm','muse_conn','muse_pay','muse_subs','muse_tokens','muse_hc','muse_uk','muse_au','muse_sg'])}</section>
+</article>"""
+page(MUSE_GUIDE, "How to use Meta Muse: free plan, first job, safe settings", _mu_desc, mu_body,
+     [muld, _art_ld(MUSE_GUIDE, "How to use Meta Muse: your first job, step by step", _mu_desc, published="2026-11-24"), _faq_ld(MU_FAQ),
+      {"@context": "https://schema.org", "@type": "HowTo", "name": "How to start with Meta Muse", "description": _mu_desc,
+       "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(MU_STEPS)]}], og_type="article")
+
 NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner guide: pick one job, write it in four lines, paste instructions into an agent app, test once, schedule it safely."),
               (COST_GUIDE, "How much does it cost to run an AI agent?", f"Monthly estimates for {len(_cost_rows)} everyday bots at official API prices, with the math shown."),
               (CLAW_GUIDE, "OpenClaw vs Hermes Agent: a beginner's guide", "What each open-source agent is, side-by-side comparison, how to pick, cost and safety tips."),
@@ -2501,6 +2616,7 @@ NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner
               (HMI_GUIDE, "How to install Hermes Agent (Mac, Windows, Linux)", "Desktop app or one-line installer, connect a model with hermes setup, one test chat, safe settings before you connect apps, and fixes when the install fails."),
               (ALT_GUIDE, "OpenClaw alternatives for beginners", "Hermes Agent, n8n's Nod, nanobot, NanoClaw, ZeroClaw and IronClaw compared on setup, safety and cost, plus no-install options."),
               (PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse: personal AI agents compared", "ChatGPT dots, Grok Bot, Meta Muse, Claude Cowork and tasks in Gemini compared: which plans include them, where they work, what runs while you're away, how each asks first, and a safe first job to copy."),
+              (MUSE_GUIDE, "How to use Meta Muse: free plan, first job, safe settings", "Meta Muse step by step: sign in, set Permissions to Always ask, a read-only first job to copy, Free vs Power ($20) vs Maximum ($100), paying with Link by Stripe, UK and WhatsApp, and 6 safety rules."),
               (GT_GUIDE, "How to use Tasks in Gemini (free): your first task", "Tasks in Gemini (formerly Gemini Spark), free since Nov 17, 2026 in the US, Canada, India, Japan, South Korea and Australia: switch from Chat to Task, a read-only first task, schedules (free vs Pro/Ultra), emailing or texting Gemini, and 6 safety rules.")]
 
 # ---------- LATEST IN AI (/news/ + /news/feed.xml) -------------------------------------
@@ -2587,7 +2703,7 @@ def nl_issue_html(iss):
     return "".join(parts)
 for iss in NL:
     cr, crld = crumbs([("Home", "/"), ("Newsletter", "/newsletter/"), (f"Issue {iss['number']}", None)])
-    page(nl_path(iss), f"{iss['subject']} (Weekly #{iss['number']})", mdesc(iss["intro"]),
+    page(nl_path(iss), (f"{iss['subject']} (Weekly #{iss['number']})" if len(iss['subject']) <= 50 else iss['subject']), mdesc(iss["intro"]),
          f'<div class="wrap narrow prose">{cr}<p class="eyebrow">{e(NAME)} Weekly · Issue {iss["number"]} · {nice_date(iss["date"])}</p><h1 class="kinetic-sm">{e(iss["subject"])}</h1>{nl_issue_html(iss)}{newsletter_box()}<p><a href="{u("/newsletter/")}">← All issues</a> · <a href="{u("/newsletter/feed.xml")}">RSS feed of issues</a></p></div>',
          [crld, {"@context": "https://schema.org", "@type": "Article", "headline": iss["subject"], "datePublished": iss["date"], "author": {"@type": "Organization", "name": NAME}, "publisher": {"@type": "Organization", "name": NAME}, "mainEntityOfPage": absu(u(nl_path(iss)))}],
          lastmod=iss["date"], og_type="article", head_extra=f'<link rel="alternate" type="application/rss+xml" title="{e(NAME)} Weekly" href="{u("/newsletter/feed.xml")}">')
@@ -2719,7 +2835,7 @@ page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wr
 # ---------- MACHINE FILES ------------------------------------------------------------
 idx = [{"t": x["title"], "u": u("/use-cases/" + x["slug"] + "/"), "c": CAT[x["category"]]["name"], "i": CAT[x["category"]]["icon"], "d": x["difficulty"], "h": x["_heat"], "s": search_text(x)} for x in ucs]
 idx += [{"t": "Blueprint: " + b["title"], "u": u("/blueprints/" + b["slug"] + "/"), "c": "Blueprint", "i": "⚙", "d": b["difficulty"], "h": 0, "s": norm(b["title"] + " " + b["goal"] + " " + b["watches"])} for b in bps]
-idx += [{"t": t, "u": u(pth), "c": "Guide", "i": "📘", "d": "Easy", "h": 0, "s": norm(t + " " + d + (" openclaw hermes agent nous research self-hosted open source" if pth in (CLAW_GUIDE, ALT_GUIDE, HMI_GUIDE) else "") + (" nod nanobot nanoclaw zeroclaw ironclaw alternative" if pth == ALT_GUIDE else "") + (" install setup windows mac linux desktop" if pth == HMI_GUIDE else "") + (" personal ai agent always-on dots grok bot muse cowork gemini tasks spark compare best free" if pth == PA_GUIDE else "") + (" gemini tasks task mode spark schedule scheduled free google gmail calendar email text gemini@google.com" if pth == GT_GUIDE else ""))} for pth, t, d in NEW_GUIDES]
+idx += [{"t": t, "u": u(pth), "c": "Guide", "i": "📘", "d": "Easy", "h": 0, "s": norm(t + " " + d + (" openclaw hermes agent nous research self-hosted open source" if pth in (CLAW_GUIDE, ALT_GUIDE, HMI_GUIDE) else "") + (" nod nanobot nanoclaw zeroclaw ironclaw alternative" if pth == ALT_GUIDE else "") + (" install setup windows mac linux desktop" if pth == HMI_GUIDE else "") + (" personal ai agent always-on dots grok bot muse cowork gemini tasks spark compare best free" if pth == PA_GUIDE else "") + (" gemini tasks task mode spark schedule scheduled free google gmail calendar email text gemini@google.com" if pth == GT_GUIDE else "") + (" meta muse muse.ai personal agent free power maximum whatsapp uk connectors permissions" if pth == MUSE_GUIDE else ""))} for pth, t, d in NEW_GUIDES]
 idx.append({"t": "Bot Checkup: settings to change in your AI assistant", "u": u("/bot-checkup/"), "c": "Guide", "i": "✓", "d": "Easy", "h": 0, "s": norm("bot checkup ai assistant settings permissions approvals grok bot chatgpt dots claude duet meta muse gemini tasks house rules parent scam safety")})
 idx.append({"t": "Write bot instructions", "u": u("/bot-instructions/"), "c": "Guide", "i": "✎", "d": "Easy", "h": 0, "s": norm("write bot instructions text only chat weekly planning email draft compare quotes troubleshooting template pilot")})
 json.dump(idx, open(os.path.join(OUT, "assets", "search-index.json"), "w"), ensure_ascii=False, separators=(",", ":"))
@@ -2746,7 +2862,7 @@ open(os.path.join(OUT, "newsletter", "feed.xml"), "w").write(f"""<?xml version="
 <lastBuildDate>{rfc822(NL[0]['date'] if NL else BUILD_DATE)}</lastBuildDate>{nlitems}</channel></rss>""")
 open(os.path.join(OUT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
     "".join(f"<url><loc>{e(l)}</loc><lastmod>{m}</lastmod></url>" for l, m in SITEMAP) + "</urlset>\n")
-bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "PerplexityBot", "Google-Extended", "Applebot-Extended", "CCBot"]
+bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-User", "Claude-SearchBot", "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot-Extended", "meta-externalagent", "DuckAssistBot", "CCBot"]
 open(os.path.join(OUT, "robots.txt"), "w").write("User-agent: *\nAllow: /\n\n" + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots) + f"Sitemap: {absu(u('/sitemap.xml'))}\n")
 
 L1 = [f"# {NAME}", "", f"> {TAGLINE} {cfg['description']}", "", f"Data as of {BUILD_DATE}. Popularity numbers are real counts (X likes/reposts, Reddit upvotes) with the date measured; unknown values are omitted.", "",
@@ -2779,6 +2895,7 @@ F += ["## How to install Hermes Agent (Mac, Windows, Linux)", f"URL: {absu(u(HMI
 F += ["## OpenClaw alternatives for beginners", f"URL: {absu(u(ALT_GUIDE))}"] + [f"- {k}: {re.sub('<[^>]+>', '', a)} | Install: {re.sub('<[^>]+>', '', b)} | Stands out: {re.sub('<[^>]+>', '', c)}" for k, a, b, c in ALT_ROWS] + [f"Q: {q} A: {a}" for q, a, _ in ALT_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('hm_readme', 'hm_mig', 'hm_vs', 'nod_gh', 'nod_blog', 'nb_gh', 'nb_start', 'nc_gh', 'zc_gh', 'ic_gh')] + [""]
 F += ["## ChatGPT dots vs Grok Bot vs Meta Muse: personal AI agents compared", f"URL: {absu(u(PA_GUIDE))}"] + [f"- {k}: {re.sub('<[^>]+>', '', a)} | Where: {b} | Works while you're away: {c} | Asks first: {d}" for k, a, b, c, d in PA_ROWS] + ["Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(PA_STEPS)] + ["First-job prompt:", PA_PROMPT] + [f"Q: {q} A: {a}" for q, a, _ in PA_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('dots_intro', 'gb_over', 'gb_start', 'gb_faq', 'muse_help', 'cw_help', 'g_tasks')] + [""]
 F += ["## How to use Tasks in Gemini (free): your first task", f"URL: {absu(u(GT_GUIDE))}", "Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(GT_STEPS)] + ["First task prompt:", GT_PROMPT, "Free vs Google AI Pro/Ultra:"] + [f"- {a}: free {b} | Pro/Ultra {c}" for a, b, c in GT_PLANS] + [f"Q: {q} A: {a}" for q, a, _ in GT_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('g_blog_tasks', 'g_tasks', 'g_sched', 'g_9to5_chan', 'hm_cron')] + [""]
+F += ["## How to use Meta Muse: your first job, step by step", f"URL: {absu(u(MUSE_GUIDE))}", "Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(MU_STEPS)] + ["First job prompt:", MU_PROMPT, "Plans:"] + [f"- {a}: {b} — {c}" for a, b, c in MU_PLANS] + [f"Q: {q} A: {a}" for q, a, _ in MU_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('muse_help', 'muse_perm', 'muse_conn', 'muse_pay', 'muse_subs', 'muse_tokens', 'muse_uk', 'muse_au', 'muse_sg')] + [""]
 F += ["## How to switch OpenClaw or Hermes to a cheaper model", f"URL: {absu(u(CHEAPMODEL_GUIDE))}"] + [f"Q: {q} A: {a}" for q, a, _ in CHEAP_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('oc_models', 'hm_models', 'hm_prov')] + [""]
 F += ["## What is an AI agent? (in simple terms)", f"URL: {absu(u('/what-can-bots-do/'))}"] + [f"- {q} {a}" for q, a in EXPLAIN_FAQ] + [""]
 F += ["## AI agent cost calculator", f"URL: {absu(u(LESS))}#calculator", "Monthly cost = runs per month x (input tokens x input price + output tokens x output price) / 1,000,000. Months use 30 days, 22 weekdays or 4 weeks. Batch halves the price at " + ", ".join(BATCH_PROVS) + ". Not included: caching, tool fees, voice, taxes, free tiers. Worked examples (cheapest vs priciest fitting model):"] + [f"- {c['title']}: {c['n']} run(s) per {c['unit']}, about {c['in']:,} tokens in and {c['out']:,} out per run; " + (lambda r: f"{r[0][1]['p']} {r[0][1]['m']} {money(r[0][0])}/month vs {r[-1][1]['p']} {r[-1][1]['m']} {money(r[-1][0])}/month")(calc_rows(c['n']*dict((k, m) for k, _, m in CALC_UNITS)[c['unit']], c['in'], c['out'], 'small', False)) for c in CALC_PRESETS] + [""]

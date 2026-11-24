@@ -211,7 +211,7 @@ def _example(d, nice_checked):
 <p class="eyebrow" id="ck-ex-h">Example of what you get</p>
 <div class="ck-ex-grid">
 <div><p class="ck-ex-lab">A setting to change · {e(a["name"])}</p>
-<h3 class="ck-ex-title">{e(f["title"])}</h3>
+<p class="ck-ex-title">{e(f["title"])}</p>
 <p class="ck-path"><code>{e(f["path"])}</code></p>
 <p class="small ck-src">Source: {_src(d, f["source"])} · checked {e(nice_checked)}</p></div>
 <div><p class="ck-ex-lab">House rules (sample)</p>

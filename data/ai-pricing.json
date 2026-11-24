@@ -1,6 +1,6 @@
 {
  "_help": "Refresh weekly: re-open each source_url, update numbers and checked_on. Only official pricing pages. If a price can't be verified, remove it (don't guess). Prices in USD per 1M tokens, standard (non-batch) tier, short prompts.",
- "checked_on": "2026-11-17",
+ "checked_on": "2026-11-24",
  "currency": "USD",
  "unit": "per 1M tokens",
  "api": [
@@ -12,8 +12,8 @@
    "output": 40.0,
    "cached_input": 0.4,
    "note": "New Nov 17, 2026 (20% below GPT-6 Astra; cached input 60% lower). Short context (≤272K input tokens).",
-   "source_url": "https://platform.openai.com/docs/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://developers.openai.com/api/docs/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "OpenAI",
@@ -23,8 +23,8 @@
    "output": 50.0,
    "cached_input": 1.0,
    "note": "Previous flagship; GPT-6.2 Astra is cheaper. Short context (≤272K input tokens).",
-   "source_url": "https://platform.openai.com/docs/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://developers.openai.com/api/docs/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "OpenAI",
@@ -34,8 +34,8 @@
    "output": 10.0,
    "cached_input": 0.1,
    "note": "New Nov 17, 2026; same prices as GPT-6.1 Sol. Short context (≤272K input tokens).",
-   "source_url": "https://platform.openai.com/docs/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://developers.openai.com/api/docs/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "OpenAI",
@@ -45,8 +45,8 @@
    "output": 5.0,
    "cached_input": 0.05,
    "note": "New Oct 26, 2026. Short context (≤272K input tokens).",
-   "source_url": "https://platform.openai.com/docs/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://developers.openai.com/api/docs/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "OpenAI",
@@ -56,8 +56,8 @@
    "output": 0.5,
    "cached_input": 0.01,
    "note": "Short context (≤272K input tokens).",
-   "source_url": "https://platform.openai.com/docs/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://developers.openai.com/api/docs/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Anthropic",
@@ -67,8 +67,8 @@
    "output": 40.0,
    "cached_input": 0.2,
    "note": "New Nov 9, 2026 (was $10 / $50 on Fable 5.1). Optional fast mode $16 / $80.",
-   "source_url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Anthropic",
@@ -78,8 +78,8 @@
    "output": 20.0,
    "cached_input": 0.2,
    "note": "",
-   "source_url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Anthropic",
@@ -89,8 +89,8 @@
    "output": 10.0,
    "cached_input": 0.1,
    "note": "",
-   "source_url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Anthropic",
@@ -100,8 +100,8 @@
    "output": 0.5,
    "cached_input": 0.01,
    "note": "Prompts up to 100,000 tokens; longer prompts cost $0.50 / $2.50.",
-   "source_url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Google",
@@ -111,8 +111,8 @@
    "output": 10.0,
    "cached_input": 0.1,
    "note": "Google's strongest model, generally available Nov 10, 2026; uses more thinking tokens than Argon. Price through Nov 30, 2026; $4.00 / $20.00 (cached $0.20) from Dec 1, 2026. Not on the free tier.",
-   "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://aistudio.google.com/docs/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Google",
@@ -122,8 +122,8 @@
    "output": 10.0,
    "cached_input": 0.1,
    "note": "Price through Nov 30, 2026; $4.00 / $20.00 (cached $0.20) from Dec 1, 2026. Not on the free tier.",
-   "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://aistudio.google.com/docs/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Google",
@@ -133,8 +133,8 @@
    "output": 15.0,
    "cached_input": 0.15,
    "note": "New Nov 18, 2026; sits between Carbon and Hydrogen. Same price across the full 1M-token context; cached input is implicit caching only. Not on the free tier.",
-   "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
-   "checked_on": "2026-11-19"
+   "source_url": "https://aistudio.google.com/docs/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Google",
@@ -144,8 +144,8 @@
    "output": 7.5,
    "cached_input": 0.075,
    "note": "Fast Gemini 4 model for everyday and agent work, released Nov 12, 2026; same price across the full 1M-token context. Free tier available.",
-   "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://aistudio.google.com/docs/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Google",
@@ -155,8 +155,8 @@
    "output": 3.75,
    "cached_input": 0.075,
    "note": "Price through Dec 31, 2026; $1.50 / $7.50 (cached $0.15) from Jan 1, 2027. Free tier available.",
-   "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://aistudio.google.com/docs/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Google",
@@ -166,8 +166,8 @@
    "output": 2.5,
    "cached_input": 0.03,
    "note": "Newer Flash-Lite. From Dec 1, 2026, API calls to the deprecated Gemini 2.5 Flash are routed here and billed at this price (Gemini 2.5 Flash-Lite stays available). Free tier available.",
-   "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://aistudio.google.com/docs/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Google",
@@ -177,8 +177,8 @@
    "output": 1.5,
    "cached_input": 0.025,
    "note": "Text/image/video input. Free tier available.",
-   "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://aistudio.google.com/docs/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "xAI",
@@ -189,7 +189,7 @@
    "cached_input": 0.5,
    "note": "Prompts under 200K tokens; $4.00 / $12.00 above.",
    "source_url": "https://docs.x.ai/docs/models",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "xAI",
@@ -200,7 +200,7 @@
    "cached_input": 0.2,
    "note": "Prompts under 200K tokens; $2.50 / $5.00 above.",
    "source_url": "https://docs.x.ai/docs/models",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Groq",
@@ -211,7 +211,7 @@
    "cached_input": null,
    "note": "Open-weight model hosted by Groq (Developer plan).",
    "source_url": "https://console.groq.com/docs/models",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Groq",
@@ -222,7 +222,7 @@
    "cached_input": null,
    "note": "Open-weight model hosted by Groq (Developer plan).",
    "source_url": "https://console.groq.com/docs/models",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Mistral",
@@ -233,7 +233,7 @@
    "cached_input": null,
    "note": "As quoted in the FAQ on Mistral's pricing page.",
    "source_url": "https://mistral.ai/pricing",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Mistral",
@@ -244,7 +244,7 @@
    "cached_input": 0.07,
    "note": "Open-weight ('Le Chonk'), weights released Oct 29, 2026. Price from Mistral's launch post; the pricing page FAQ still quotes Mistral Large at $0.50 / $1.50.",
    "source_url": "https://mistral.ai/news/mistral-large-4-oss/",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Meta",
@@ -255,7 +255,7 @@
    "cached_input": 0.2,
    "note": "Meta Model API. Price from Meta's launch post (Oct 12, 2026), which now also lists cached input at $0.20.",
    "source_url": "https://dev.meta.ai/resources/blog/build-with-muse-wonder",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Meta",
@@ -266,7 +266,7 @@
    "cached_input": 0.004,
    "note": "New Nov 9, 2026 (muse-ember-1.0). Meta Model API; price from Meta's launch post, for prompts up to 200K tokens ($0.30 / $1.50 above).",
    "source_url": "https://research.meta.ai/blog/muse-ember",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "DeepSeek",
@@ -277,7 +277,7 @@
    "cached_input": 0.006,
    "note": "Peak-hour price; off-peak (most hours and weekends) is half.",
    "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "DeepSeek",
@@ -288,7 +288,7 @@
    "cached_input": 0.044,
    "note": "Peak-hour price; off-peak is half.",
    "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   }
  ],
  "discounts": [
@@ -296,37 +296,37 @@
    "provider": "OpenAI",
    "what": "Batch API: 50% off, results within 24 hours",
    "source_url": "https://platform.openai.com/docs/guides/batch",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "OpenAI",
    "what": "12-hour prompt caching (added Oct 20, 2026): keeps shared instructions cached for hours at the cached-input price; 12-hour cache writes cost 2.5x the input price",
    "source_url": "https://developers.openai.com/api/docs/changelog",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Anthropic",
    "what": "Batch API: 50% off input and output. Prompt cache reads cost 0.1x the input price (0.05x on Opus/Sonnet 5.5, 0.025x on Fable 5.2 and 5.1); 5-minute cache writes cost 1.25x.",
-   "source_url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Google",
    "what": "Batch API: 50% cost reduction (paid tier). Free tier: free input and output tokens on some models, and your content is used to improve Google's products.",
-   "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
-   "checked_on": "2026-11-17"
+   "source_url": "https://aistudio.google.com/docs/pricing",
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Mistral",
    "what": "Batch processing: 50% off. Cached input tokens: up to 90% off for repeated prompts.",
    "source_url": "https://mistral.ai/pricing",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "DeepSeek",
    "what": "Off-peak discount: prices are half outside peak hours (01:00-04:00 and 06:00-10:00 UTC on weekdays). Cache hits are far cheaper than misses.",
    "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   }
  ],
  "consumer": [
@@ -337,7 +337,7 @@
    "period": "",
    "note": "",
    "source_url": "https://claude.com/pricing",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Anthropic",
@@ -346,7 +346,7 @@
    "period": "per month billed monthly ($17/month billed annually, $200 up front)",
    "note": "Excludes tax. Includes \"Hand off and schedule tasks\". Usage limits apply.",
    "source_url": "https://claude.com/pricing",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Anthropic",
@@ -355,7 +355,7 @@
    "period": "per month",
    "note": "5x Pro usage every 5 hours and every week; includes $100 a month in API credits.",
    "source_url": "https://claude.com/pricing",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Anthropic",
@@ -364,7 +364,7 @@
    "period": "per month",
    "note": "Was the Max 20x tier. 10x Pro usage every week, no 5-hour limit; includes $200 a month in API credits.",
    "source_url": "https://claude.com/pricing",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Mistral",
@@ -373,7 +373,7 @@
    "period": "",
    "note": "Limited access.",
    "source_url": "https://mistral.ai/pricing",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Mistral",
@@ -382,7 +382,7 @@
    "period": "per month",
    "note": "Excluding taxes. Students: $5.99/month.",
    "source_url": "https://mistral.ai/pricing",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "OpenAI",
@@ -391,7 +391,7 @@
    "period": "",
    "note": "",
    "source_url": "https://chatgpt.com/pricing",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Google",
@@ -400,7 +400,7 @@
    "period": "",
    "note": "With a Google Account.",
    "source_url": "https://gemini.google/subscriptions/",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Google",
@@ -409,7 +409,7 @@
    "period": "per month",
    "note": "2x the Free usage limits.",
    "source_url": "https://gemini.google/subscriptions/",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Google",
@@ -418,7 +418,7 @@
    "period": "per month",
    "note": "4x the Free usage limits.",
    "source_url": "https://gemini.google/subscriptions/",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Google",
@@ -427,7 +427,34 @@
    "period": "per month",
    "note": "US price. $99.99/month for 5x the AI Pro usage limits, $199.99/month for 20x.",
    "source_url": "https://gemini.google/subscriptions/",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
+  },
+  {
+   "provider": "Meta",
+   "plan": "Muse (free)",
+   "price": "$0",
+   "period": "",
+   "note": "Free with a usage limit; when you reach it, wait for it to refresh, subscribe, or buy extra Muse tokens.",
+   "source_url": "https://www.meta.com/help/subscriptions/1021145227643680/",
+   "checked_on": "2026-11-24"
+  },
+  {
+   "provider": "Meta",
+   "plan": "Muse Power",
+   "price": "$20",
+   "period": "per month",
+   "note": "500M Muse tokens a week and 10 phone calls a day. 18+; benefits can vary by region.",
+   "source_url": "https://www.meta.com/help/subscriptions/1021145227643680/",
+   "checked_on": "2026-11-24"
+  },
+  {
+   "provider": "Meta",
+   "plan": "Muse Maximum",
+   "price": "$100",
+   "period": "per month",
+   "note": "3B Muse tokens a week and 20 phone calls a day.",
+   "source_url": "https://www.meta.com/help/subscriptions/1021145227643680/",
+   "checked_on": "2026-11-24"
   }
  ],
  "not_verified": [
@@ -459,21 +486,21 @@
    "what": "Grok Voice speech to speech (grok-voice-3.0)",
    "price_per_min": 0.08,
    "source_url": "https://docs.x.ai/docs/models",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "OpenAI",
    "what": "GPT-Live 1 and 1.1 voice sessions (active talk; idle standby on WebRTC is $0.02 a minute)",
    "price_per_min": 0.05,
    "source_url": "https://developers.openai.com/api/docs/models/gpt-live-1.1",
-   "checked_on": "2026-11-20"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Mistral",
    "what": "Voxtral 3 voice agent API with Mistral Small 4",
    "price_per_min": 0.04,
    "source_url": "https://mistral.ai/news/voxtral-3/",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   }
  ],
  "voice_platforms": [
@@ -483,9 +510,9 @@
    "price_min": 0.07,
    "price_max": 0.31,
    "includes": "Retell's voice engine ($0.055/min) plus the AI model and voice you pick",
-   "extras": "US calls via Twilio $0.015/min; a Retell phone number $2.00/month",
+   "extras": "US calls via Twilio $0.015/min; a Retell phone number $2.00/month; $10 in free credits to start",
    "source_url": "https://www.retellai.com/pricing",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Bland",
@@ -495,7 +522,7 @@
    "includes": "the AI model, speech-to-text and voices, with a $0 platform fee",
    "extras": "transfer time $0.05/min; phone carrier billed separately at pass-through cost",
    "source_url": "https://www.bland.ai/pricing",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   },
   {
    "provider": "Vapi",
@@ -505,7 +532,7 @@
    "includes": "Vapi's hosting fee only; speech-to-text, the AI model and the voice are charged on top at the providers' cost",
    "extras": "1 Vapi phone number included; $5 free credits to start; Vapi's own calculator shows $82–$129 for 1,000 minutes with Deepgram, OpenAI and ElevenLabs",
    "source_url": "https://vapi.ai/pricing",
-   "checked_on": "2026-11-17"
+   "checked_on": "2026-11-24"
   }
  ]
 }

@@ -388,7 +388,8 @@
   ],
   "date_added": "2026-11-20",
   "origin": "pipeline",
-  "last_checked": "2026-11-20"
+  "last_checked": "2026-11-20",
+  "seo_title": "Stop hidden instructions in email from steering your bot"
  },
  {
   "slug": "check-on-every-package-and-chase-the-late-ones",
@@ -859,7 +860,8 @@
   ],
   "date_added": "2026-11-18",
   "origin": "pipeline",
-  "last_checked": "2026-11-18"
+  "last_checked": "2026-11-18",
+  "seo_title": "Get a morning meeting-prep brief from your email"
  },
  {
   "slug": "book-a-car-service-by-letting-ai-call-the-shops",
@@ -957,7 +959,8 @@
   ],
   "date_added": "2026-11-18",
   "origin": "pipeline",
-  "last_checked": "2026-11-18"
+  "last_checked": "2026-11-18",
+  "seo_title": "Book a car service by letting AI call the shops"
  },
  {
   "slug": "get-a-daily-training-check-in-from-your-fitness-watch",
@@ -1095,7 +1098,8 @@
   ],
   "date_added": "2026-11-17",
   "origin": "pipeline",
-  "last_checked": "2026-11-17"
+  "last_checked": "2026-11-17",
+  "seo_title": "Get a daily training check-in from your fitness watch"
  },
  {
   "slug": "turn-your-booking-emails-into-one-trip-sheet",
@@ -7554,7 +7558,7 @@
   "category": "inbox",
   "date_added": "2026-10-20",
   "source_date": "2026-10-05",
-  "summary": "Personal agents like Meta Muse, Grok Bot and Gemini Spark work in the background on a schedule. Prefer something free that runs on your own computer? n8n's open-source Nod (Nov 2026) has its own private browser and asks before it sends, pays or deletes. Start with the chore you hate most.",
+  "summary": "Personal agents like Meta Muse, Grok Bot and Tasks in Gemini (formerly Spark) work in the background on a schedule. Prefer something free that runs on your own computer? n8n's open-source Nod (Nov 2026) has its own private browser and asks before it sends, pays or deletes. Start with the chore you hate most.",
   "what_the_bot_does": [
    "Asks what you'd like help with and which apps it may use.",
    "Works through the task in the background on its own computer and browser.",
@@ -7589,7 +7593,7 @@
   "prompt": "I want to hand you one boring chore. Here it is: [describe the chore, e.g. 'every Friday, check my email for school forms and deadlines due next week and list them']. Before you start, ask me any questions you need answered. Show me the first result before you set it to repeat. Never send, buy, delete or book anything without asking me first.",
   "setup": [
    "Pick the one weekly chore you hate most and write down exactly what 'done' looks like.",
-   "Choose a hosted agent (Muse, Grok Bot, Gemini Spark, Dots) for the easiest start, or Nod if you want it free and on your own computer: download it for Mac or Windows, connect your AI provider (API key or ChatGPT plan) and the apps it needs.",
+   "Choose a hosted agent (Muse, Grok Bot, Tasks in Gemini, Dots) for the easiest start, or Nod if you want it free and on your own computer: download it for Mac or Windows, connect your AI provider (API key or ChatGPT plan) and the apps it needs.",
    "Run the chore once while you watch, then put it on a schedule."
   ],
   "watch_out": [

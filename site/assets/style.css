@@ -644,7 +644,7 @@ html.js .bb-app{display:block}
 .ck-ex-grid{display:grid;gap:16px}
 @media(min-width:800px){.ck-ex-grid{grid-template-columns:1fr 1fr}}
 .ck-ex-lab{margin:0 0 4px;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.ck-ex-title{margin:.2em 0 .4em;font-size:1.05rem}
+.ck-ex-title{margin:.2em 0 .4em;font-size:1.05rem;font-weight:700}
 .ck-ex-rules{margin:0;padding:12px;border-radius:10px;background:rgba(0,0,0,.35);border:1px solid var(--line);font:0.82rem/1.45 var(--mono);color:#d9defa;white-space:pre-wrap;overflow:auto;max-height:220px}
 .ck-ex-mail{display:grid;gap:6px}
 .ck-compare{margin-top:8px}
