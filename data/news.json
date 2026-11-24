@@ -9,6 +9,148 @@
  ],
  "items": [
   {
+   "id": "claude-install-artifacts-as-apps",
+   "date": "2026-11-24",
+   "category": "feature",
+   "company": "Anthropic",
+   "impact": "notable",
+   "headline": "Claude can turn an artifact it builds for you into a real Mac or Windows app",
+   "explainer": "If you use Claude for Mac or Windows, you can ask it to build a small tool (say, a tracker or a meeting-prep page), click \"Install as app\" in the Share menu, and it opens in its own window with its own icon, can use your connectors and, if you allow it, send notifications or sit in your menu bar. It's a beta on all plans and uses your normal Claude usage; Claude asks for permission again after every update, only apps you (or your company) made can get full computer access, and Anthropic doesn't review apps, so only install ones you trust.",
+   "source_url": "https://claude.com/resources/articles/install-as-app",
+   "source_name": "Claude",
+   "more_sources": [
+    {
+     "label": "Claude release notes",
+     "url": "https://support.claude.com/en/articles/12138966-release-notes"
+    },
+    {
+     "label": "9to5Mac",
+     "url": "https://9to5mac.com/2026/11/24/anthropic-just-gave-claude-users-a-new-way-to-make-mac-apps/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/ClaudeDevs/status/2125315491522650299",
+    "author": "@ClaudeDevs",
+    "kind": "official",
+    "likes": 4929,
+    "reposts": 273,
+    "views": 160940,
+    "posted_at": "2026-11-24",
+    "measured_at": "2026-11-24T20:31:00Z"
+   }
+  },
+  {
+   "id": "meta-muse-instagram-dms",
+   "date": "2026-11-24",
+   "category": "feature",
+   "company": "Meta",
+   "impact": "notable",
+   "headline": "Meta's Muse agent arrives in Instagram DMs and can turn your saved posts into plans",
+   "explainer": "If you use Instagram in the US, Canada, Mexico, Japan or Singapore, you can now DM Muse to ask about a post, place or product, catch up on chats you missed, or have it turn saved reels into a trip itinerary, a grocery list from a recipe video, or tidy collections. Meta says nothing is shared, posted or sent without your OK and you can ask Muse to forget or undo things; the save-to-Muse prompt is US and Canada only for now.",
+   "source_url": "https://techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms/",
+   "source_name": "TechCrunch",
+   "more_sources": [
+    {
+     "label": "The Verge",
+     "url": "https://www.theverge.com/tech/1041374/you-can-now-dm-your-muse-ai-agent-on-instagram"
+    },
+    {
+     "label": "Adam Mosseri on Threads",
+     "url": "https://www.threads.com/@mosseri/post/DgIelvvmi00/we-recently-rolled-out-a-new-muse-feature-thats-pretty-useful-for-instagram/"
+    },
+    {
+     "label": "@instagram on X",
+     "url": "https://x.com/instagram/status/2125295853816692960"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/Muse/status/2125284171417637002",
+    "author": "@Muse",
+    "kind": "official",
+    "likes": 554,
+    "reposts": 34,
+    "views": 25651,
+    "posted_at": "2026-11-24",
+    "measured_at": "2026-11-24T20:31:00Z"
+   }
+  },
+  {
+   "id": "claude-skills-over-mcp-tasks",
+   "date": "2026-11-24",
+   "category": "feature",
+   "company": "Anthropic",
+   "impact": "notable",
+   "headline": "Claude's connected apps can now bring their own skills, run long jobs, and stop to ask you first",
+   "explainer": "If you connect apps to Claude on Pro, Max or Ultra, those apps can now ship built-in know-how (\"skills\") that Claude loads only when needed, hand off long jobs that finish in the background, and pause mid-task to ask you for a sign-off through a form, for example before spending money or deleting something. Skills over MCP is a beta that's on by default for Pro, Max and Ultra (Team needs an admin); Tasks and the ask-first step are generally available, and file passing is coming soon.",
+   "source_url": "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more",
+   "source_name": "Claude",
+   "x": {
+    "url": "https://x.com/ClaudeDevs/status/2125289794871963935",
+    "author": "@ClaudeDevs",
+    "kind": "official",
+    "likes": 5237,
+    "reposts": 280,
+    "views": 365830,
+    "posted_at": "2026-11-24",
+    "measured_at": "2026-11-24T20:31:00Z"
+   }
+  },
+  {
+   "id": "claude-monthly-recap-out-of-beta",
+   "date": "2026-11-24",
+   "category": "feature",
+   "company": "Anthropic",
+   "impact": "minor",
+   "headline": "Claude's monthly recap is out of beta, and you can now delete stored recaps",
+   "explainer": "If you use Claude on Free, Pro, Max or Ultra with memory on, the monthly recap (Settings, Reflect) is now a regular feature on web, desktop and mobile, can include your cloud Claude Code sessions and Cowork tasks, and you can delete stored recaps from that page. It isn't available on Team or Enterprise plans.",
+   "source_url": "https://support.claude.com/en/articles/12138966-release-notes",
+   "source_name": "Claude Help Center",
+   "more_sources": [
+    {
+     "label": "See your monthly recap (Claude Help Center)",
+     "url": "https://support.claude.com/en/articles/15672559-see-your-monthly-recap"
+    }
+   ]
+  },
+  {
+   "id": "openai-healthcare-responses-api",
+   "date": "2026-11-24",
+   "category": "feature",
+   "company": "OpenAI",
+   "impact": "minor",
+   "headline": "OpenAI's API gets healthcare versions of its GPT-6.2 models that search only medical sources",
+   "explainer": "Nothing changes in ChatGPT; this is for apps built on OpenAI's API: developers can now pick healthcare configurations of GPT-6.2 Astra, GPT-6.2 Sol and two older models that pair the model with a setup tuned for clinical questions, and when it searches the web it uses a dedicated index of medical sources. A health app you use may get more careful answers, but it's still not a doctor.",
+   "source_url": "https://developers.openai.com/api/docs/changelog",
+   "source_name": "OpenAI API changelog"
+  },
+  {
+   "id": "deepmind-humanitys-first-exam",
+   "date": "2026-11-24",
+   "category": "industry",
+   "company": "Google",
+   "impact": "minor",
+   "headline": "Google DeepMind's new test checks whether AI gets simple everyday questions right every time",
+   "explainer": "It's a reminder that today's best chatbots still slip on easy things: on Humanity's First Exam, 544 simple text and picture questions, top models score 96-98% on a first try but only about 86% when asked the same thing four slightly different ways, and most mistakes come from reading images, like counting objects. So double-check counts, colours and details from photos; the leaderboard is led by GPT-6.2 Astra (90.7%), and anyone can submit questions AI gets wrong on Kaggle until December 15.",
+   "source_url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/humanitys-first-exam/",
+   "source_name": "Google",
+   "more_sources": [
+    {
+     "label": "Kaggle leaderboard",
+     "url": "https://www.kaggle.com/benchmarks/deepmind/hfe/leaderboard"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/kaggle/status/2125313430303244739",
+    "author": "@kaggle",
+    "kind": "official",
+    "likes": 77,
+    "reposts": 6,
+    "views": 3967,
+    "posted_at": "2026-11-24",
+    "measured_at": "2026-11-24T20:31:00Z"
+   }
+  },
+  {
    "id": "meta-muse-uk",
    "date": "2026-11-24",
    "category": "agent launch",
@@ -36,11 +178,84 @@
     "url": "https://x.com/Muse/status/2125111851654815995",
     "author": "@Muse",
     "kind": "official",
-    "likes": 1163,
-    "reposts": 109,
-    "views": 71209,
+    "likes": 1628,
+    "reposts": 141,
+    "views": 108194,
     "posted_at": "2026-11-24",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
+   }
+  },
+  {
+   "id": "claude-vp-vnp-proof-claim",
+   "date": "2026-11-23",
+   "category": "industry",
+   "company": "Anthropic",
+   "impact": "notable",
+   "headline": "Anthropic posts a Claude-written proof that VP is not equal to VNP, a decades-old maths question; no human has checked it",
+   "explainer": "Nothing changes in the Claude app; it's another sign that AI models are starting to produce serious maths, with a big caveat: Anthropic says an internal research Claude model found and wrote up a proof that two classes of algebraic circuits differ (an algebraic cousin of P vs NP, which it does not settle), and the Lean proof passes two independent proof checkers. Anthropic itself says no human mathematician has checked the proof and no machine checks that the Lean statement says what's claimed, so treat headlines about it as unconfirmed.",
+   "source_url": "https://github.com/anthropics/formal-math/blob/main/vp-vnp/README.md",
+   "source_name": "Anthropic on GitHub",
+   "more_sources": [
+    {
+     "label": "Paper (PDF)",
+     "url": "https://raw.githubusercontent.com/anthropics/formal-math/main/vp-vnp/paper.pdf"
+    },
+    {
+     "label": "GitHub pull request #51",
+     "url": "https://github.com/anthropics/formal-math/pull/51"
+    }
+   ]
+  },
+  {
+   "id": "canva-mcp-open-to-every-agent",
+   "date": "2026-11-23",
+   "category": "agent launch",
+   "company": "Canva",
+   "impact": "minor",
+   "headline": "Canva opens its design tools to any AI agent, so chat apps can hand back editable designs and videos",
+   "explainer": "If you ask ChatGPT, Claude, Gemini or Muse for something like an Instagram post or a short product video, the Canva connector can now return a real, editable Canva design (with your brand kit) instead of a flat image, and you fix details by hand beside the chat. The bigger change is for developers: Canva MCP is out of waitlist for any agent, with new APIs and access to Canva's own Craft image model.",
+   "source_url": "https://www.canva.com/newsroom/news/canva-mcp-update/",
+   "source_name": "Canva",
+   "more_sources": [
+    {
+     "label": "The Next Web",
+     "url": "https://thenextweb.com/news/canva-mcp-ai-agents-developers"
+    },
+    {
+     "label": "Canva Developers blog",
+     "url": "https://www.canva.dev/blog/developers/canva-mcp-ga/"
+    }
+   ],
+   "x": {
+    "url": "https://x.com/canva/status/2124926205313081394",
+    "author": "@canva",
+    "kind": "official",
+    "likes": 2120,
+    "reposts": 217,
+    "views": 296913,
+    "posted_at": "2026-11-23",
+    "measured_at": "2026-11-24T20:31:00Z"
+   }
+  },
+  {
+   "id": "google-antigravity-carbon-ai-pro",
+   "date": "2026-11-23",
+   "category": "feature",
+   "company": "Google",
+   "impact": "minor",
+   "headline": "Google's Antigravity coding agent gives AI Pro subscribers Gemini 4 Carbon and resets everyone's quotas",
+   "explainer": "If you pay for Google AI Pro ($19.99 a month) and build things with the Antigravity agent, you now get Google's top Gemini 4 Carbon model there, which used to need the $99.99 Ultra plan, and Google reset Gemini quotas for all Antigravity users. Google also says the fast Gemini 4 Hydrogen model is coming to all Antigravity users, and Gemini 4 Argon and 3.8 Flash leave Antigravity on November 30.",
+   "source_url": "https://9to5google.com/2026/11/23/antigravity-gemini-4-carbon/",
+   "source_name": "9to5Google",
+   "x": {
+    "url": "https://x.com/_mohansolo/status/2124960419429458207",
+    "author": "@_mohansolo",
+    "kind": "official",
+    "likes": 19445,
+    "reposts": 1074,
+    "views": 1483795,
+    "posted_at": "2026-11-23",
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -63,11 +278,11 @@
     "url": "https://x.com/claudeai/status/2124970294523945328",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 7925,
-    "reposts": 442,
-    "views": 726979,
+    "likes": 8917,
+    "reposts": 516,
+    "views": 890104,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -90,11 +305,11 @@
     "url": "https://x.com/ChatGPT/status/2124981905380569283",
     "author": "@ChatGPT",
     "kind": "official",
-    "likes": 12998,
-    "reposts": 600,
-    "views": 1433622,
+    "likes": 15023,
+    "reposts": 672,
+    "views": 1905715,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -121,11 +336,11 @@
     "url": "https://x.com/OpenAI/status/2124980590717911527",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 17759,
-    "reposts": 2193,
-    "views": 2026873,
+    "likes": 20025,
+    "reposts": 2510,
+    "views": 2595033,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -148,11 +363,11 @@
     "url": "https://x.com/OfficialLoganK/status/2125018427790344654",
     "author": "@OfficialLoganK",
     "kind": "official",
-    "likes": 2673,
-    "reposts": 78,
-    "views": 103422,
+    "likes": 3138,
+    "reposts": 94,
+    "views": 134125,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -179,11 +394,11 @@
     "url": "https://x.com/ChatGPT/status/2124942186425069836",
     "author": "@ChatGPT",
     "kind": "official",
-    "likes": 7529,
-    "reposts": 537,
-    "views": 1117512,
+    "likes": 7926,
+    "reposts": 566,
+    "views": 1333075,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -210,11 +425,11 @@
     "url": "https://x.com/verge/status/2124821529750032710",
     "author": "@verge",
     "kind": "coverage",
-    "likes": 254,
+    "likes": 261,
     "reposts": 20,
-    "views": 69925,
+    "views": 75226,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -241,11 +456,11 @@
     "url": "https://x.com/ClaudeDevs/status/2124959436640858475",
     "author": "@ClaudeDevs",
     "kind": "official",
-    "likes": 22369,
-    "reposts": 1318,
-    "views": 2732000,
+    "likes": 25180,
+    "reposts": 1498,
+    "views": 3566725,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -262,11 +477,11 @@
     "url": "https://x.com/Google/status/2124981145922146739",
     "author": "@Google",
     "kind": "official",
-    "likes": 653,
-    "reposts": 60,
-    "views": 113688,
+    "likes": 802,
+    "reposts": 72,
+    "views": 134127,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -289,11 +504,11 @@
     "url": "https://x.com/OpenAI/status/2124922133545714160",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 7135,
-    "reposts": 520,
-    "views": 1456551,
+    "likes": 7740,
+    "reposts": 562,
+    "views": 1719667,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -324,11 +539,11 @@
     "url": "https://x.com/CNBC/status/2124846393089012085",
     "author": "@CNBC",
     "kind": "coverage",
-    "likes": 80,
+    "likes": 82,
     "reposts": 15,
-    "views": 34933,
+    "views": 35414,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -351,11 +566,11 @@
     "url": "https://x.com/MistralAI/status/2124905610386780451",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 2943,
-    "reposts": 313,
-    "views": 169700,
+    "likes": 3049,
+    "reposts": 323,
+    "views": 185145,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -372,11 +587,11 @@
     "url": "https://x.com/claudeai/status/2124929944530587712",
     "author": "@claudeai",
     "kind": "official",
-    "likes": 5610,
-    "reposts": 322,
-    "views": 806306,
+    "likes": 6038,
+    "reposts": 351,
+    "views": 944597,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -393,11 +608,11 @@
     "url": "https://x.com/GoogleAIStudio/status/2124928707529674979",
     "author": "@GoogleAIStudio",
     "kind": "official",
-    "likes": 995,
-    "reposts": 67,
-    "views": 72453,
+    "likes": 1078,
+    "reposts": 79,
+    "views": 81180,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -420,11 +635,11 @@
     "url": "https://x.com/Zai_org/status/2124811995912286352",
     "author": "@Zai_org",
     "kind": "official",
-    "likes": 11660,
-    "reposts": 1091,
-    "views": 1054225,
+    "likes": 11923,
+    "reposts": 1115,
+    "views": 1096118,
     "posted_at": "2026-11-23",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -451,11 +666,11 @@
     "url": "https://x.com/merettm/status/2124549218995949967",
     "author": "@merettm",
     "kind": "official",
-    "likes": 13807,
-    "reposts": 1538,
-    "views": 10073695,
+    "likes": 13888,
+    "reposts": 1543,
+    "views": 10175597,
     "posted_at": "2026-11-22",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -478,11 +693,11 @@
     "url": "https://x.com/alexandr_wang/status/2124636606959345776",
     "author": "@alexandr_wang",
     "kind": "official",
-    "likes": 62040,
-    "reposts": 11157,
-    "views": 21824031,
+    "likes": 62909,
+    "reposts": 11312,
+    "views": 22432952,
     "posted_at": "2026-11-22",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -505,11 +720,11 @@
     "url": "https://x.com/leanprover/status/2124159121645801562",
     "author": "@leanprover",
     "kind": "official",
-    "likes": 29502,
-    "reposts": 5473,
-    "views": 3745084,
+    "likes": 29522,
+    "reposts": 5474,
+    "views": 3758446,
     "posted_at": "2026-11-21",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -545,9 +760,9 @@
     "kind": "official",
     "likes": 171,
     "reposts": 14,
-    "views": 11249,
+    "views": 11270,
     "posted_at": "2026-11-20",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -570,11 +785,11 @@
     "url": "https://x.com/Muse/status/2123885256596193297",
     "author": "@Muse",
     "kind": "official",
-    "likes": 894,
+    "likes": 896,
     "reposts": 46,
-    "views": 189552,
+    "views": 190232,
     "posted_at": "2026-11-20",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -591,11 +806,11 @@
     "url": "https://x.com/perplexity_ai/status/2123896048510996827",
     "author": "@perplexity_ai",
     "kind": "official",
-    "likes": 272,
+    "likes": 276,
     "reposts": 27,
-    "views": 156581,
+    "views": 157166,
     "posted_at": "2026-11-20",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -622,11 +837,11 @@
     "url": "https://x.com/daniel__designs/status/2123860186951516287",
     "author": "@daniel__designs",
     "kind": "official",
-    "likes": 4231,
+    "likes": 4229,
     "reposts": 179,
-    "views": 476515,
+    "views": 477708,
     "posted_at": "2026-11-20",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -664,11 +879,11 @@
     "url": "https://x.com/bot/status/2123840024747946383",
     "author": "@bot",
     "kind": "official",
-    "likes": 3463,
+    "likes": 3467,
     "reposts": 196,
-    "views": 247099,
+    "views": 249811,
     "posted_at": "2026-11-20",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -695,11 +910,11 @@
     "url": "https://x.com/ChatGPT/status/2123850912867471807",
     "author": "@ChatGPT",
     "kind": "official",
-    "likes": 3266,
+    "likes": 3269,
     "reposts": 236,
-    "views": 453654,
+    "views": 456820,
     "posted_at": "2026-11-20",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -728,9 +943,9 @@
     "kind": "coverage",
     "likes": 162,
     "reposts": 54,
-    "views": 53093,
+    "views": 53216,
     "posted_at": "2026-11-20",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -759,9 +974,9 @@
     "kind": "official",
     "likes": 135,
     "reposts": 13,
-    "views": 24032,
+    "views": 24081,
     "posted_at": "2026-11-20",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -788,11 +1003,11 @@
     "url": "https://x.com/GeminiApp/status/2123813017855103449",
     "author": "@GeminiApp",
     "kind": "official",
-    "likes": 3170,
+    "likes": 3176,
     "reposts": 272,
-    "views": 562409,
+    "views": 612802,
     "posted_at": "2026-11-20",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -819,11 +1034,11 @@
     "url": "https://x.com/thinkymachines/status/2123871643797995872",
     "author": "@thinkymachines",
     "kind": "official",
-    "likes": 19893,
-    "reposts": 1831,
-    "views": 4022875,
+    "likes": 19941,
+    "reposts": 1835,
+    "views": 4057230,
     "posted_at": "2026-11-20",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -852,9 +1067,9 @@
     "kind": "coverage",
     "likes": 44,
     "reposts": 9,
-    "views": 15154,
+    "views": 15185,
     "posted_at": "2026-11-20",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -877,11 +1092,11 @@
     "url": "https://x.com/TencentHunyuan/status/2123625549147070538",
     "author": "@TencentHunyuan",
     "kind": "official",
-    "likes": 1803,
-    "reposts": 193,
-    "views": 137642,
+    "likes": 1805,
+    "reposts": 195,
+    "views": 138391,
     "posted_at": "2026-11-20",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -906,9 +1121,9 @@
     "kind": "official",
     "likes": 5953,
     "reposts": 334,
-    "views": 329471,
+    "views": 330041,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -927,9 +1142,9 @@
     "kind": "official",
     "likes": 1913,
     "reposts": 144,
-    "views": 179536,
+    "views": 180731,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -952,11 +1167,11 @@
     "url": "https://x.com/thsottiaux/status/2123556256392847657",
     "author": "@thsottiaux",
     "kind": "official",
-    "likes": 10714,
-    "reposts": 699,
-    "views": 1945223,
+    "likes": 10726,
+    "reposts": 698,
+    "views": 1957011,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -979,11 +1194,11 @@
     "url": "https://x.com/alexandr_wang/status/2123591819300934128",
     "author": "@alexandr_wang",
     "kind": "official",
-    "likes": 1822,
+    "likes": 1823,
     "reposts": 95,
-    "views": 168744,
+    "views": 170069,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1006,11 +1221,11 @@
     "url": "https://x.com/Muse/status/2123602791356883032",
     "author": "@Muse",
     "kind": "official",
-    "likes": 3632,
+    "likes": 3631,
     "reposts": 310,
-    "views": 521635,
+    "views": 523047,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1035,9 +1250,9 @@
     "kind": "coverage",
     "likes": 35,
     "reposts": 5,
-    "views": 7139,
+    "views": 7219,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1060,11 +1275,11 @@
     "url": "https://x.com/OpenAIDevs/status/2123506733524136446",
     "author": "@OpenAIDevs",
     "kind": "official",
-    "likes": 5438,
+    "likes": 5439,
     "reposts": 409,
-    "views": 618089,
+    "views": 619038,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1089,9 +1304,9 @@
     "kind": "official",
     "likes": 1066,
     "reposts": 113,
-    "views": 194920,
+    "views": 195368,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1116,9 +1331,9 @@
     "kind": "official",
     "likes": 119,
     "reposts": 21,
-    "views": 11021,
+    "views": 11146,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1143,9 +1358,9 @@
     "kind": "coverage",
     "likes": 50,
     "reposts": 8,
-    "views": 12913,
+    "views": 12919,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1162,11 +1377,11 @@
     "url": "https://x.com/GoogleAIStudio/status/2123479057996116143",
     "author": "@GoogleAIStudio",
     "kind": "official",
-    "likes": 751,
+    "likes": 752,
     "reposts": 64,
-    "views": 60029,
+    "views": 60232,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1189,11 +1404,11 @@
     "url": "https://x.com/GeminiApp/status/2123513203745538423",
     "author": "@GeminiApp",
     "kind": "official",
-    "likes": 2610,
+    "likes": 2611,
     "reposts": 235,
-    "views": 689954,
+    "views": 755806,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1212,9 +1427,9 @@
     "kind": "coverage",
     "likes": 148,
     "reposts": 20,
-    "views": 45145,
+    "views": 45245,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1233,9 +1448,9 @@
     "kind": "official",
     "likes": 69,
     "reposts": 6,
-    "views": 6892,
+    "views": 6911,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1252,11 +1467,11 @@
     "url": "https://x.com/GoogleAIStudio/status/2123489911684866251",
     "author": "@GoogleAIStudio",
     "kind": "official",
-    "likes": 736,
+    "likes": 737,
     "reposts": 54,
-    "views": 54321,
+    "views": 54486,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1279,11 +1494,11 @@
     "url": "https://x.com/NousResearch/status/2123535954946257096",
     "author": "@NousResearch",
     "kind": "official",
-    "likes": 8859,
-    "reposts": 824,
-    "views": 848989,
+    "likes": 8867,
+    "reposts": 827,
+    "views": 851787,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1310,11 +1525,11 @@
     "url": "https://x.com/perplexity_ai/status/2123449395882701224",
     "author": "@perplexity_ai",
     "kind": "official",
-    "likes": 436,
+    "likes": 437,
     "reposts": 28,
-    "views": 57244,
+    "views": 57442,
     "posted_at": "2026-11-19",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1341,11 +1556,11 @@
     "url": "https://x.com/sundarpichai/status/2123167780988125621",
     "author": "@sundarpichai",
     "kind": "official",
-    "likes": 18785,
-    "reposts": 1500,
-    "views": 2198099,
+    "likes": 18795,
+    "reposts": 1496,
+    "views": 2201677,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1370,9 +1585,9 @@
     "kind": "official",
     "likes": 5022,
     "reposts": 272,
-    "views": 654151,
+    "views": 655206,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1399,11 +1614,11 @@
     "url": "https://x.com/ChatGPT/status/2123159134963196357",
     "author": "@ChatGPT",
     "kind": "official",
-    "likes": 20989,
-    "reposts": 2014,
-    "views": 9154302,
+    "likes": 20998,
+    "reposts": 2013,
+    "views": 9160665,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1426,11 +1641,11 @@
     "url": "https://x.com/AnthropicAI/status/2123196808675405860",
     "author": "@AnthropicAI",
     "kind": "official",
-    "likes": 16998,
+    "likes": 17000,
     "reposts": 2196,
-    "views": 3501694,
+    "views": 3510911,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1453,11 +1668,11 @@
     "url": "https://x.com/bot/status/2123121401762918718",
     "author": "@bot",
     "kind": "official",
-    "likes": 3749,
-    "reposts": 377,
-    "views": 592045,
+    "likes": 3750,
+    "reposts": 378,
+    "views": 594127,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1504,9 +1719,9 @@
     "kind": "coverage",
     "likes": 38,
     "reposts": 11,
-    "views": 19945,
+    "views": 19969,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1525,9 +1740,9 @@
     "kind": "official",
     "likes": 2544,
     "reposts": 247,
-    "views": 257773,
+    "views": 259123,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1546,9 +1761,9 @@
     "kind": "official",
     "likes": 1174,
     "reposts": 67,
-    "views": 108848,
+    "views": 109204,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1567,9 +1782,9 @@
     "kind": "official",
     "likes": 1714,
     "reposts": 126,
-    "views": 228515,
+    "views": 228735,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1586,11 +1801,11 @@
     "url": "https://x.com/MistralAI/status/2123073168659141119",
     "author": "@MistralAI",
     "kind": "official",
-    "likes": 2554,
-    "reposts": 215,
-    "views": 235675,
+    "likes": 2560,
+    "reposts": 216,
+    "views": 237592,
     "posted_at": "2026-11-18",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1619,9 +1834,9 @@
     "kind": "coverage",
     "likes": 47,
     "reposts": 2,
-    "views": 4369,
+    "views": 4370,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1648,7 +1863,7 @@
     "reposts": 24,
     "views": 6507,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1671,11 +1886,11 @@
     "url": "https://x.com/elonmusk/status/2122758986483269956",
     "author": "@elonmusk",
     "kind": "official",
-    "likes": 4611,
-    "reposts": 194,
-    "views": 219030,
+    "likes": 4612,
+    "reposts": 193,
+    "views": 219163,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1700,9 +1915,9 @@
     "kind": "official",
     "likes": 383,
     "reposts": 39,
-    "views": 268491,
+    "views": 268582,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1727,9 +1942,9 @@
     "kind": "official",
     "likes": 5404,
     "reposts": 352,
-    "views": 1054635,
+    "views": 1055829,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1752,11 +1967,11 @@
     "url": "https://x.com/MicrosoftAI/status/2122762037927322044",
     "author": "@MicrosoftAI",
     "kind": "official",
-    "likes": 1345,
+    "likes": 1344,
     "reposts": 112,
-    "views": 147480,
+    "views": 147639,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1779,11 +1994,11 @@
     "url": "https://x.com/bot/status/2122771386456551516",
     "author": "@bot",
     "kind": "official",
-    "likes": 11209,
-    "reposts": 819,
-    "views": 4264289,
+    "likes": 11210,
+    "reposts": 820,
+    "views": 4267386,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1812,9 +2027,9 @@
     "kind": "coverage",
     "likes": 71,
     "reposts": 14,
-    "views": 16269,
+    "views": 16282,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1831,11 +2046,11 @@
     "url": "https://x.com/ProtonPrivacy/status/2122725988329226420",
     "author": "@ProtonPrivacy",
     "kind": "official",
-    "likes": 733,
+    "likes": 735,
     "reposts": 44,
-    "views": 37365,
+    "views": 37560,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1854,9 +2069,9 @@
     "kind": "coverage",
     "likes": 21,
     "reposts": 4,
-    "views": 17742,
+    "views": 17766,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1894,11 +2109,11 @@
     "url": "https://x.com/OpenAI/status/2122750124543926515",
     "author": "@OpenAI",
     "kind": "official",
-    "likes": 36144,
-    "reposts": 3618,
-    "views": 15915639,
+    "likes": 36157,
+    "reposts": 3621,
+    "views": 16342385,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1931,9 +2146,9 @@
     "kind": "official",
     "likes": 5553,
     "reposts": 438,
-    "views": 406635,
+    "views": 407030,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1956,11 +2171,11 @@
     "url": "https://x.com/cognition/status/2122737511684587551",
     "author": "@cognition",
     "kind": "official",
-    "likes": 3745,
-    "reposts": 383,
-    "views": 1686971,
+    "likes": 3747,
+    "reposts": 382,
+    "views": 1691994,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -1983,11 +2198,11 @@
     "url": "https://x.com/ClaudeDevs/status/2122751844455956760",
     "author": "@ClaudeDevs",
     "kind": "official",
-    "likes": 2620,
+    "likes": 2621,
     "reposts": 93,
-    "views": 377342,
+    "views": 378589,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -2004,11 +2219,11 @@
     "url": "https://x.com/alexandr_wang/status/2122762964419870792",
     "author": "@alexandr_wang",
     "kind": "official",
-    "likes": 3860,
+    "likes": 3862,
     "reposts": 187,
-    "views": 299393,
+    "views": 299956,
     "posted_at": "2026-11-17",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -2033,9 +2248,9 @@
     "kind": "coverage",
     "likes": 9,
     "reposts": 3,
-    "views": 942,
+    "views": 947,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -2064,9 +2279,9 @@
     "kind": "coverage",
     "likes": 71,
     "reposts": 16,
-    "views": 36925,
+    "views": 36968,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -2093,11 +2308,11 @@
     "url": "https://x.com/TencentHunyuan/status/2122217770314301469",
     "author": "@TencentHunyuan",
     "kind": "official",
-    "likes": 2802,
+    "likes": 2801,
     "reposts": 249,
-    "views": 839926,
+    "views": 840446,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -2126,9 +2341,9 @@
     "kind": "official",
     "likes": 1886,
     "reposts": 224,
-    "views": 315047,
+    "views": 315256,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -2147,9 +2362,9 @@
     "kind": "coverage",
     "likes": 227,
     "reposts": 75,
-    "views": 24199,
+    "views": 24202,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -2176,11 +2391,11 @@
     "url": "https://x.com/Alibaba_Qwen/status/2122148127520289151",
     "author": "@Alibaba_Qwen",
     "kind": "official",
-    "likes": 14930,
-    "reposts": 1614,
-    "views": 2613371,
+    "likes": 14929,
+    "reposts": 1615,
+    "views": 2619330,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -2199,9 +2414,9 @@
     "kind": "official",
     "likes": 2982,
     "reposts": 235,
-    "views": 503920,
+    "views": 504648,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -2226,9 +2441,9 @@
     "kind": "official",
     "likes": 380,
     "reposts": 44,
-    "views": 30513,
+    "views": 30597,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
@@ -2247,9 +2462,9 @@
     "kind": "official",
     "likes": 3822,
     "reposts": 372,
-    "views": 875325,
+    "views": 875868,
     "posted_at": "2026-11-16",
-    "measured_at": "2026-11-24T12:33:00Z"
+    "measured_at": "2026-11-24T20:31:00Z"
    }
   },
   {
