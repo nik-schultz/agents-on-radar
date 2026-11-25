@@ -5751,6 +5751,8 @@ Sources:
 - Hermes docs: Installation: https://hermes-agent.nousresearch.com/docs/getting-started/installation/
 - Hermes docs: Quickstart: https://hermes-agent.nousresearch.com/docs/getting-started/quickstart/
 - Hermes docs: Updating and uninstalling: https://hermes-agent.nousresearch.com/docs/getting-started/updating/
+- Hermes docs: Telegram setup (checked Nov 25, 2026): https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram
+- Hermes docs: Messaging gateway: https://hermes-agent.nousresearch.com/docs/user-guide/messaging
 
 ## Is it safe to give an AI agent your email and calendar?
 URL: https://botsdothat.com/is-it-safe-to-give-an-ai-agent-your-email/
@@ -5890,7 +5892,7 @@ Sources:
 
 ## ChatGPT dots vs Grok Bot vs Meta Muse: personal AI agents compared
 URL: https://botsdothat.com/chatgpt-dots-vs-grok-bot-vs-meta-muse/
-- ChatGPT dots: OpenAI · ChatGPT Pro and Business Premium in eligible markets; your first dot is included; Enterprise beta (OpenAI) | Where: ChatGPT on desktop, web and mobile (set up on desktop first), Slack, Teams, voice calls | Works while you're away: Yes. Each dot has its own cloud computer and browser and works 24/7 | Asks first: Built-in rules plus your Custom Rules (allow, ask, block); auto-review checks risky actions; changing a password always stays with you
+- ChatGPT dots: OpenAI · ChatGPT Pro; rolling out gradually to selected Plus users; Business Standard and Premium; eligible Enterprise, Edu and Healthcare workspaces. 18+, not in the EU/EEA, UK or Switzerland (OpenAI Help Center; how to use dots) | Where: ChatGPT on desktop, web and mobile (set up on desktop first), Slack, Teams, voice calls | Works while you're away: Yes. Each dot has its own cloud computer and browser and works 24/7 | Asks first: Built-in rules plus your Custom Rules (allow, ask, block); auto-review checks risky actions; changing a password always stays with you
 - Grok Bot: SpaceXSI · included with Premium, Super and Ultra on The X Subscription, or a linked SuperGrok / X Premium+ plan (docs) | Where: Desktop app (Mac, Windows, Linux), iPhone and Android app, X Chat, @bot on X, Slack, Teams | Works while you're away: Yes. Bots share one cloud computer; closing your laptop doesn't stop a routine | Asks first: Approval cards and narrow “Ask first” rules; signs in from Vault without seeing your passwords
 - Meta Muse: Meta · free with a usage limit; Power $20/month, Maximum $100/month (Meta; how to use it) | Where: Muse app, muse.ai, Mac app, and WhatsApp in the UK; signed in with a Meta account (Facebook, Instagram, email or phone) | Works while you're away: Yes. Meta says it keeps working after you close the app and comes back when it needs approval, on its own cloud computer | Asks first: Settings → Permissions: Always ask or Ask for some actions; approval options include Allow once and Always allow; asks before sending email or buying
 - Claude Cowork: Anthropic · paid Claude plans only (Pro, Max, Ultra, Team, Enterprise); Pro is $20 per month billed monthly (Claude Help) | Where: Claude desktop app (Mac, Windows, Linux beta), web and mobile | Works while you're away: Scheduled tasks run in the cloud with no device online; local files and your browser need the desktop app open | Asks first: Three permission modes; each connector can be Always allow, Needs approval or Blocked; asks before permanently deleting files
@@ -5910,13 +5912,13 @@ Never: send, delete, archive, buy, sign up or post anything.
 Ask me first: before any action that changes something or contacts anyone.
 If unsure: say what you're unsure about instead of guessing.
 Result: at most 10 bullets, most important first, each with the sender and one line on why.
-Q: Which personal AI agent is best for beginners? A: Start with the one your current plan already includes, because the job matters more than the brand. If you pay for ChatGPT Pro, try a dot; if you pay for Claude, try Cowork; with an X Premium, Super or Ultra subscription, try Grok Bot. If you pay for none, tasks in Gemini is free in the US, Canada, India, Japan, South Korea and Australia, and Meta Muse has a free tier with a usage limit.
-Q: Is there a free personal AI agent? A: Yes. Tasks in Gemini became free on Nov 17, 2026 in the US, Canada, India, Japan, South Korea and Australia (Google AI Pro or Ultra elsewhere), and Meta Muse is free with a usage limit. ChatGPT dots, Claude Cowork and Grok Bot need a paid plan. Open-source agents such as Hermes Agent and OpenClaw are free to download, but you pay for the AI model and the computer they run on.
-Q: ChatGPT dots vs Grok Bot: what's the difference? A: A ChatGPT dot is one always-on agent with its own cloud computer and browser, included with ChatGPT Pro or Business Premium in eligible markets. Grok Bot lets you run several named bots that share one cloud computer, included with Premium, Super or Ultra on The X Subscription (or a linked SuperGrok / X Premium+ plan). Both keep working after you close your laptop.
+Q: Which personal AI agent is best for beginners? A: Start with the one your current plan already includes, because the job matters more than the brand. If you pay for ChatGPT Pro (or you're one of the Plus users dots are rolling out to), try a dot; if you pay for Claude, try Cowork; with an X Premium, Super or Ultra subscription, try Grok Bot. If you pay for none, tasks in Gemini is free in the US, Canada, India, Japan, South Korea and Australia, and Meta Muse has a free tier with a usage limit.
+Q: Is there a free personal AI agent? A: Yes. Tasks in Gemini became free on Nov 17, 2026 in the US, Canada, India, Japan, South Korea and Australia (Google AI Pro or Ultra elsewhere), and Meta Muse is free with a usage limit. ChatGPT dots, Claude Cowork and Grok Bot need a paid plan. Open-source agents such as Hermes Agent and OpenClaw are free to download (Hermes can chat with you on Telegram), but you pay for the AI model and the computer they run on.
+Q: ChatGPT dots vs Grok Bot: what's the difference? A: A ChatGPT dot is one always-on agent with its own cloud computer and browser, included with ChatGPT Pro, rolling out to selected Plus users, and on Business Standard and Premium in eligible markets. Grok Bot lets you run several named bots that share one cloud computer, included with Premium, Super or Ultra on The X Subscription (or a linked SuperGrok / X Premium+ plan). Both keep working after you close your laptop.
 Q: Is Meta Muse free? A: Yes. Muse is free with a usage limit. When you reach it you can wait for it to refresh, buy extra Muse tokens, or subscribe: Power is $20 a month (500 million Muse tokens a week and 10 phone calls a day) and Maximum is $100 a month (3 billion tokens a week and 20 calls a day), on Meta's help page.
 Q: Do personal AI agents keep working when my computer is off? A: ChatGPT dots and Grok Bot work on their own cloud computers, so yes. Meta says Muse keeps working after you close the app and comes back when it needs approval, on its own virtual computer in the cloud. Claude Cowork's scheduled tasks run in the cloud with no device online, but jobs that use your local files or browser need the desktop app open. Tasks in Gemini that use your own Chrome need your computer awake; otherwise Gemini may use a remote browser.
 Q: Is it safe to let a personal agent read my email? A: It can be, with limits: connect only what the job needs, start read-only, and keep approvals on for sending, buying and deleting. Emails can contain hidden instructions aimed at agents, so treat what it reads as untrusted. All five agents here have approval settings, and Meta and Google both warn their agents can make mistakes.
-Q: What is the difference between ChatGPT and ChatGPT dots? A: ChatGPT answers when you ask. A dot is an always-on agent inside ChatGPT with its own cloud computer and browser: it works on tasks in the background, connects to your apps and messages you with progress or questions. Dots are on ChatGPT Pro and Business Premium in eligible markets.
+Q: What is the difference between ChatGPT and ChatGPT dots? A: ChatGPT answers when you ask. A dot is an always-on agent inside ChatGPT with its own cloud computer and browser: it works on tasks in the background, connects to your apps and messages you with progress or questions. Dots are on ChatGPT Pro, rolling out gradually to selected Plus users, and on Business Standard and Premium, for people 18+ outside the EU/EEA, UK and Switzerland.
 Q: Can I use more than one personal agent? A: Yes, but give each one a different job and don't connect the same accounts to all of them. Two agents watching one inbox means twice the access and twice the chance of a mistake.
 Sources:
 - OpenAI: Introducing dots (Sep 29, 2026; updated Nov 3, 2026): https://openai.com/index/introducing-dots/
@@ -6007,6 +6009,85 @@ Sources:
 - Meta (Nov 24, 2026): Introducing Muse in the UK: https://about.fb.com/news/2026/11/introducing-muse-in-the-uk-a-personal-ai-agent-you-control/
 - Meta (Nov 17, 2026): Muse is now available in Australia: https://about.fb.com/news/2026/11/muse-is-now-available-in-australia/
 - Meta (Oct 27, 2026): Muse is now available in Singapore: https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/
+
+## How to use ChatGPT dots: setup, first job and safe settings
+URL: https://botsdothat.com/how-to-use-chatgpt-dots/
+Steps:
+1. Check your plan and country: Dots are on ChatGPT Pro and rolling out gradually to selected Plus users, for people 18 or older outside the EU/EEA, the UK and Switzerland. Business Standard and Premium seats and eligible Enterprise, Edu and Healthcare workspaces also get them. If you're on Plus and don't see dots, the rollout hasn't reached you: OpenAI Support can't turn it on and restarting the app won't help.
+2. Open Dots: Use the latest ChatGPT app on iPhone or Android, the desktop app (Mac or Windows) or chatgpt.com/dots in a desktop browser. Mobile web isn't supported. On the phone there's a Dot tab once you have one; on desktop, open Dots from the sidebar.
+3. Create and name your dot: Follow the onboarding prompts. Its handle starts as @yourname-dot and changes when you name it (a dot named Alfred becomes @yourname-alfred). It starts with context from your ChatGPT memory.
+4. Set your rules before you connect anything: On mobile, open your dot's profile, then Customize, then Custom rules. For sending, buying and sharing, pick Ask before taking action or Hand off to you. Also tell it in plain words: “Show me drafts before you send anything.”
+5. Give it one read-only job: Describe the job, what it may use and what it must not do. Attach a file with +. Start with something that only reads and reports back, like the prompt below, and check the first result before you give it more.
+6. Connect only the app that job needs: Profile, then Customize, then Plugins (for example Gmail or Google Drive). Read each app's permissions first: permission to read isn't permission to send. Leave access to your own computer off unless the job needs local files; it starts turned off.
+7. Check its work and know the off switch: In the desktop app, open its profile to see In progress, Scheduled and Completed. Pause it from the ••• menu. Pausing doesn't stop separate Work or Codex tasks or scheduled tasks, so stop those in Activity and Scheduled too.
+First job prompt:
+Job: each weekday at 8 AM [your time zone], check my email from the last 24 hours and my calendar for today.
+Tell me: 1) what's on today, 2) emails that need a reply today, 3) anything that looks like a scam or a bill due this week.
+Use only: my connected email and calendar, read-only.
+Never: send, reply, delete, archive, book, buy or sign up for anything.
+Ask me first: before any step that changes something or contacts anyone. Asking for a draft is not permission to send it.
+If unsure: say what you're unsure about instead of guessing.
+Result: at most 10 short bullets, most important first. Confirm the schedule and an end date (4 weeks from today).
+Who gets dots:
+- ChatGPT Plus: Rolling out gradually to selected users (18+, outside the EU/EEA, UK and Switzerland) — Plus is $20 a month (The Verge). No separate dots price is listed. Moving from Pro to Plus loses your dot.
+- ChatGPT Pro (Pro 100, 200, 500): Yes, 18+ outside the EU/EEA, UK and Switzerland — Pro starts at $100 a month (The Verge). Talking to your dot doesn't count toward ChatGPT usage limits; work it hands to Work or Codex does.
+- Business Standard: Yes, in supported regions: one personal dot per member — Usage limits apply (OpenAI doesn't give a number).
+- Business Premium: Yes, in supported regions, subject to workspace eligibility — Dot conversations don't count toward usage limits.
+- Enterprise, Edu, Healthcare: Generally available in eligible workspaces; on by default from Nov 18, 2026 unless the admin opts out — No fee for your Enterprise dot through Jan 13, 2027; billing starts Jan 14, 2027.
+Q: Can I use ChatGPT dots for free? A: No. Dots aren't on the free ChatGPT plan. They're on ChatGPT Pro, rolling out to selected Plus users, and on Business Standard, Business Premium and eligible Enterprise, Edu and Healthcare workspaces. Free personal agents you can try instead: Tasks in Gemini (free in six countries) and Meta Muse (free with a usage limit).
+Q: Do ChatGPT Plus users get dots? A: Some do. The Verge reported on Nov 20, 2026 that a small number of Plus users are getting dots, and OpenAI's help page says the Plus rollout is gradual. If you don't see Dots in the sidebar or at chatgpt.com/dots, it hasn't reached your account; OpenAI Support can't enable it for you.
+Q: How much do ChatGPT dots cost? A: There's no separate price for individuals: a dot comes with your plan. The Verge reports Plus at $20 a month and Pro from $100. For Enterprise, OpenAI says there's no fee for your dot through Jan 13, 2027, then flat-rate billing from Jan 14, 2027, and work a dot hands to ChatGPT Work or Codex is billed separately.
+Q: Why don't I see dots in ChatGPT? A: Check that you're on the right account and workspace, then open chatgpt.com/dots. Common reasons: you're on Plus and the gradual rollout hasn't reached you, you're in the EU/EEA, UK or Switzerland, you're under 18, you're on mobile web (not supported), or your work admin hasn't enabled dots for your role.
+Q: Is ChatGPT dots available in the UK or EU? A: Not yet. OpenAI's help page says dots aren't currently available in the European Economic Area (including the EU), the UK or Switzerland. Meta Muse launched in the UK on Nov 24, 2026 if you want a personal agent there.
+Q: What's the difference between ChatGPT and a dot? A: ChatGPT answers when you ask. A dot is an always-on agent with its own cloud computer and browser: it keeps working between conversations, follows up as things change, runs scheduled checks and comes back to you for decisions. For a one-off task, ChatGPT Work is still the tool.
+Q: Can my dot text me, call me or have its own email? A: You can call your dot with the phone button in its conversation, but it can't call you. Texting is a beta for a limited number of Pro users in the US, Canada and Mexico (iMessage or RCS, not SMS), and OpenAI says those texts aren't end-to-end encrypted because a provider, Linq, relays them. At launch a dot can use your personal email if you connect it, but it can't have its own address.
+Q: How do I stop or delete my dot? A: Pause it from the ••• menu in its profile; that keeps its information. Delete (same menu) ends that dot and starts deleting its saved memories, and it can't be undone. Either way, stop scheduled tasks and Work or Codex tasks it started separately. Disconnecting an app doesn't delete what the dot already learned from it.
+Sources:
+- OpenAI Help Center: Getting started with your dot (checked Nov 25, 2026): https://help.openai.com/en/articles/20001530-getting-started-with-your-dot
+- ChatGPT Learn: Meet dots: https://learn.chatgpt.com/docs/dots
+- The Verge (Nov 20, 2026): OpenAI is starting to bring Dots to Plus tier subscribers: https://www.theverge.com/ai-artificial-intelligence/1038370/openai-is-starting-to-bring-dots-to-plus-tier-subscribers
+- OpenAI: Introducing dots (Sep 29, 2026; updated Nov 3, 2026): https://openai.com/index/introducing-dots/
+
+## Hermes Agent Telegram setup: chat with your agent from your phone
+URL: https://botsdothat.com/hermes-agent-telegram-setup/
+Steps:
+1. Make sure Hermes works first: Install Hermes and get one normal chat working on your computer before you add Telegram (the docs' quickstart order is: hermes setup, then hermes gateway setup). New to it? Start with how to install Hermes Agent.
+2. Easiest: use Create with QR: In the Hermes dashboard or desktop app, open Messaging, then Telegram, and choose Create with QR. Scan the code in Telegram: Hermes creates the bot, finds your Telegram user ID, saves both and restarts the gateway. If that works, skip to step 6.
+3. Or create the bot yourself with @BotFather: In Telegram, open @BotFather and send /newbot. Pick a display name, then a unique username that ends in bot (like my_hermes_bot). BotFather replies with a token. Treat it like a password: anyone with it controls your bot.
+4. Get your numeric Telegram user ID: Message @userinfobot and it replies with a number like 123456789. That number, not your @username, is what Hermes uses to decide who's allowed to talk to it.
+5. Run hermes gateway setup: In a terminal, run hermes gateway setup, choose Telegram, and paste the token and your user ID. (Manual option: put TELEGRAM_BOT_TOKEN and TELEGRAM_ALLOWED_USERS in ~/.hermes/.env.)
+6. Start the gateway and say hi: Run hermes gateway. The docs say the bot comes online within seconds; open your bot in Telegram and send a message. To keep it running after you close the terminal, run hermes gateway install (a background service on Mac and Linux).
+7. Pick where scheduled results land: Send /sethome in the chat you want, usually your private chat with the bot. Hermes's scheduled tasks deliver their results there.
+First job prompt:
+Job: every morning at 7:30 AM [your time zone], send me a short brief here in Telegram.
+Include: 1) today's weather for [city], 2) the 3 most important items on my list in [file or note name], 3) one reminder I set yesterday.
+Use only: the web for weather and the file or note I named. Read-only.
+Never: run commands that change or delete files, send messages to anyone else, buy or sign up for anything.
+Ask me first: before any step that changes something or contacts anyone.
+If unsure: say what you're unsure about instead of guessing.
+Result: at most 8 short lines. Schedule it, then show me the schedule so I can confirm.
+Telegram commands:
+- /new: Start a fresh conversation (also /reset)
+- /stop: Stop the running agent
+- /approve, /deny: Approve or reject a pending dangerous command
+- /model: Show or change the model
+- /sethome: Make this chat the home channel for scheduled results
+- /usage: Show token use for this session
+Q: How do I connect Hermes Agent to Telegram? A: Fastest: in the Hermes dashboard or desktop app, go to Messaging, then Telegram, and use Create with QR. Manual: create a bot with @BotFather (/newbot), get your numeric user ID from @userinfobot, run hermes gateway setup, choose Telegram, paste both, then run hermes gateway and message your bot.
+Q: Why isn't my Hermes Telegram bot replying? A: Check that hermes gateway is running, the token has no typo, and your numeric user ID (not your @username) is in TELEGRAM_ALLOWED_USERS. Without an allowlist the gateway denies everyone by default. In a group, see the next question.
+Q: Why does my Hermes bot work in private chat but not in a group? A: Telegram bots have privacy mode on by default, so in groups they only see /commands and replies to them. Either turn it off in @BotFather (/mybots, Bot Settings, Group Privacy, Turn off) and then remove and re-add the bot to the group, or make the bot a group admin. Each sender also has to be allowed in Hermes.
+Q: Is it safe to run Hermes on Telegram? A: It can be if you keep it locked down: allow only your own user ID, never post the bot token (revoke it with /revoke in BotFather if it leaks), and don't use the allow-all-users setting on a bot that can run terminal commands; the Hermes docs say that's not recommended. Keep approvals on so risky commands wait for /approve.
+Q: Can I send Hermes voice messages on Telegram? A: Yes. Voice messages are transcribed automatically by the speech-to-text provider you configure. The local option uses faster-whisper on your own machine and needs no API key; Groq and OpenAI options need their keys.
+Q: Do I need to keep my computer on? A: Yes, Hermes answers only while the gateway is running on that computer or server. hermes gateway install runs it as a background service on Mac and Linux. On Hermes Cloud with Team Gateway, you link your Telegram account to a shared Hermes bot instead of running your own.
+Q: Is Hermes Agent free to use on Telegram? A: Hermes Agent and Telegram are free, but Hermes needs an AI model, and you pay that provider unless you run a local model. The docs note bots also need tool providers (like voice and web), and a Nous Portal subscription bundles them. To cut the model bill, see how to switch Hermes to a cheaper model.
+Q: Can other people use my Hermes bot? A: Only if you allow them: add their numeric IDs to TELEGRAM_ALLOWED_USERS, or use DM pairing, where a stranger gets a one-time code and you run hermes pairing approve telegram CODE. Codes expire after an hour. Remember your bot can act on your computer, so think twice.
+Sources:
+- Hermes docs: Telegram setup (checked Nov 25, 2026): https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram
+- Hermes docs: Messaging gateway: https://hermes-agent.nousresearch.com/docs/user-guide/messaging
+- Hermes docs: Quickstart: https://hermes-agent.nousresearch.com/docs/getting-started/quickstart/
+- Hermes docs: Scheduled tasks: https://hermes-agent.nousresearch.com/docs/user-guide/features/cron/
+- Hermes docs: Security: https://hermes-agent.nousresearch.com/docs/user-guide/security/
+- Hermes docs: Nous Portal: https://hermes-agent.nousresearch.com/docs/integrations/nous-portal/
 
 ## How to switch OpenClaw or Hermes to a cheaper model
 URL: https://botsdothat.com/switch-openclaw-or-hermes-to-a-cheaper-model/

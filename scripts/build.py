@@ -19,6 +19,7 @@ HMI_GUIDE = "/how-to-install-hermes-agent/"; ALT_GUIDE = "/openclaw-alternatives
 PA_GUIDE = "/chatgpt-dots-vs-grok-bot-vs-meta-muse/"  # added 2026-11-17 (personal agents compared)
 GT_GUIDE = "/how-to-use-tasks-in-gemini/"  # added 2026-11-18 (weekly SEO run: Tasks in Gemini how-to)
 MUSE_GUIDE = "/how-to-use-meta-muse/"  # added 2026-11-24 (weekly SEO run: Meta Muse how-to)
+DOTS_GUIDE = "/how-to-use-chatgpt-dots/"; TG_GUIDE = "/hermes-agent-telegram-setup/"  # added 2026-11-25 (weekly SEO run)
 PHONE_UCS = {"call-and-book-by-phone", "make-a-customer-service-call", "let-a-bot-answer-and-screen-your-calls", "restaurant-reservations-by-agent"}
 CAT = {c["slug"]: c for c in cats}
 UC = {x["slug"]: x for x in ucs}
@@ -293,7 +294,7 @@ def featured_slot(slot, cat=None):
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change our rankings.</p></aside>"""
     return newsletter_box(f"nl-{slot}", "card")  # no sponsor booked: show a newsletter signup instead of an empty ad box
 
-SHARE_PATHS = {MUSE_GUIDE, GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/", "/bot-checkup/", "/services/"}
+SHARE_PATHS = {DOTS_GUIDE, TG_GUIDE, MUSE_GUIDE, GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", LESS, "/bot-instructions/", "/bot-checkup/", "/services/"}
 def share_bar(title, url):
     """Share on X / Copy link / Email a friend. Plain links + one button; no third-party scripts."""
     q = urllib.parse.quote
@@ -308,7 +309,7 @@ def share_bar(title, url):
 <label class="share-nojs"><span class="sr">Link to this page</span><input type="text" readonly value="{e(url)}" size="34"></label>
 <a class="share-btn" href="{e(mh)}" aria-label="Email this page to a friend">{msvg}<span>Email a friend</span></a>
 </div><p class="share-status small" role="status" aria-live="polite"></p></section>"""
-NL_END_PATHS = {"/trending/", "/news/", MUSE_GUIDE, GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", "/bot-instructions/", PRICING, LESS, "/about/"}
+NL_END_PATHS = {"/trending/", "/news/", DOTS_GUIDE, TG_GUIDE, MUSE_GUIDE, GT_GUIDE, PA_GUIDE, HMI_GUIDE, ALT_GUIDE, INSTR_GUIDE, OCSAFE_GUIDE, AGENTMODE_GUIDE, CHEAPMODEL_GUIDE, BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/", "/use-cases/", "/blueprints/", "/bot-instructions/", PRICING, LESS, "/about/"}
 # Long guides also get a signup after their 3rd top-level section (mid-article), not only at the end.
 NL_MID_PATHS = {BUILD_GUIDE, COST_GUIDE, CLAW_GUIDE, SAFE_GUIDE, "/what-can-bots-do/", "/ai-agent-examples/"}
 def _insert_mid(body, snippet, after=3):
@@ -639,7 +640,8 @@ page("/use-cases/", "AI agent use cases you can copy and run, step by step", f"{
 <p class="lead">{len(ucs)} everyday jobs with a copy-paste prompt and sources. Job of the day updates every weekday on <a href="{u('/today/')}#job-h">Today</a>.</p>
 {searchbox(id_="q2")}<div class="index-tools">{chips()}<label class="sort"><span>Sort</span><select id="sort"><option value="heat">Trending</option><option value="new">Newest</option><option value="easy">Easiest first</option></select></label></div>
 <p class="small muted" id="count" aria-live="polite"></p>
-<p class="small">Trending first? <a href="{u('/trending/')}">This week</a> · Overview? <a href="{u('/ai-agent-examples/')}">AI agent examples</a> · Whole bot? <a href="{u('/blueprints/')}">Blueprints</a> · {CHAT_BADGE} = one-off chat prompt</p></div>
+<p class="small">Trending first? <a href="{u('/trending/')}">This week</a> · Overview? <a href="{u('/ai-agent-examples/')}">AI agent examples</a> · Whole bot? <a href="{u('/blueprints/')}">Blueprints</a> · {CHAT_BADGE} = one-off chat prompt</p>
+<p class="small muted">This page is for searching and filtering every job. Want them all on one page, grouped by part of life (inbox, calls, shopping, family, work)? Read <a href="{u('/ai-agent-examples/')}">{len(ucs)} AI agent examples for everyday life</a>. Setting up an agent app first? <a href="{u(DOTS_GUIDE)}">ChatGPT dots</a> · <a href="{u(MUSE_GUIDE)}">Meta Muse</a> · <a href="{u(GT_GUIDE)}">Tasks in Gemini</a> · <a href="{u(TG_GUIDE)}">Hermes on Telegram</a>.</p></div>
 <div class="wrap"><h2 class="sr">All {len(ucs)} use cases</h2><ul class="grid" id="cards">{allcards}</ul><p class="empty" hidden>No matches. Try a simpler word like “email” or “calendar”.</p></div>""",
      [itemlist(f"{len(ucs)} AI agent use cases", ucs)], kind="index")
 
@@ -782,6 +784,10 @@ for x in ucs:
     phone_note = (f'<p class="small">The big picture: <a href="{u(PHONE_GUIDE)}">can AI make phone calls for you?</a> Which agents can call today, what it costs per minute and what goes wrong.</p>') if x["slug"] in PHONE_UCS else ""
     if any(t.get("id") == "gemini-spark" for t in x.get("tools", [])):  # 2026-11-18: link the Tasks in Gemini how-to from every use case that lists it
         phone_note += f'<p class="small">Using Gemini for this? <a href="{u(GT_GUIDE)}">How to use Tasks in Gemini</a>: free in six countries, with a safe first task and schedule limits.</p>'
+    if any(t.get("id") == "chatgpt-dots" for t in x.get("tools", [])):  # 2026-11-25: link the ChatGPT dots how-to
+        phone_note += f'<p class="small">Using a ChatGPT dot? <a href="{u(DOTS_GUIDE)}">How to use ChatGPT dots</a>: who gets them, the Custom rules to set first, and a safe first job.</p>'
+    if any(t.get("id") == "hermes-agent" for t in x.get("tools", [])):  # 2026-11-25: link the Hermes Telegram guide
+        phone_note += f'<p class="small">Running Hermes Agent? <a href="{u(TG_GUIDE)}">Connect it to Telegram</a> so results reach your phone, with the safety settings to keep.</p>'
     _mod = x.get("last_checked") or x["date_added"]  # same value as the HowTo dateModified below
     relx = REL_X.get(x["slug"], [])
     relx_html = ('<section class="related-x"><h2>Related</h2><ul class="ex-list">' + "".join(
@@ -887,14 +893,14 @@ if _bb_errs:
     raise SystemExit("bot-builder catalog: " + "; ".join(_bb_errs))
 _bb_bc, _bb_ld = crumbs([("Home", "/"), ("Write instructions", None)])
 _bb_faq = [{"@type": "Question", "name": item["q"], "acceptedAnswer": {"@type": "Answer", "text": item["a"]}} for item in _bb["faq"]]
-page("/bot-instructions/", "Free AI bot instructions builder: copy-paste templates",
-     "Free builder for AI bot instructions you paste into ChatGPT, Claude, Gemini or Grok: a weekly plan, an email draft or a quote comparison. No sign-up.",
-     f'<div class="wrap">{_bb_bc}<p class="ck-upsell glass small"><b>Connected assistants?</b> Run the free <a href="{u("/bot-checkup/")}">Bot Checkup</a> for settings and house rules. This page stays free for plain chat apps.</p></div>' + bot_builder.render_page_inner(u),
+page("/bot-instructions/", "Bot instructions: free AI agent instructions builder",
+     "Free bot instructions builder: fill in a few blanks, copy AI agent instructions for ChatGPT, Claude, Gemini or Grok with ask-first rules. No sign-up.",
+     f'<div class="wrap">{_bb_bc}<p class="small"><b>Bot instructions</b> (also called AI agent instructions or a system prompt) are the standing rules you give an AI: the job, what it may use, what it must never do, when to ask you first and what to hand back. Fill in the builder below and copy the result into your chat app or agent. Writing your own? Use the <a href="{u(INSTR_GUIDE)}">6-part AI agent instructions template</a>. Setting up an agent: <a href="{u(DOTS_GUIDE)}">ChatGPT dots</a> · <a href="{u(MUSE_GUIDE)}">Meta Muse</a> · <a href="{u(GT_GUIDE)}">Tasks in Gemini</a> · <a href="{u(TG_GUIDE)}">Hermes Agent on Telegram</a>.</p><p class="ck-upsell glass small"><b>Connected assistants?</b> Run the free <a href="{u("/bot-checkup/")}">Bot Checkup</a> for settings and house rules. This page stays free for plain chat apps.</p></div>' + bot_builder.render_page_inner(u),
      [_bb_ld, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": _bb_faq},
       {"@context": "https://schema.org", "@type": "WebApplication", "name": "BotsDoThat bot instructions builder", "url": absu(u("/bot-instructions/")), "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (runs in your web browser)", "isAccessibleForFree": True,
        "description": "Fills a fixed template with the facts you type and gives you instructions to paste into your own AI chat app. It does not call an AI model and does not store what you type.",
        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}],
-     lastmod="2026-11-08",
+     lastmod="2026-11-25",
      head_extra=f'<script src="{u("/assets/bot-builder.js")}?v={ASSET_V["bot-builder.js"]}" defer></script><script src="{u("/assets/accounts.js")}?v={ASSET_V["accounts.js"]}" defer></script>')
 
 # ---------- BOT CHECKUP (independent settings checkup; replaces the builder as the top site action) ----------
@@ -1081,11 +1087,13 @@ GUIDE_GROUPS = [
         (PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse", "Personal AI agents compared, with Claude and Gemini."),
         (GT_GUIDE, "How to use Tasks in Gemini", "Free from Nov 17, 2026: what it does and a first task to try."),
         (MUSE_GUIDE, "How to use Meta Muse", "Free with a usage limit: safe settings and a first job to copy."),
+        (DOTS_GUIDE, "How to use ChatGPT dots", "Who gets dots (Pro, some Plus users, Business), setup and the rules to set first."),
         (PHONE_GUIDE, "Can AI make phone calls for you?", "Which assistants can call a business, and how."),
         (AGENTMODE_GUIDE, "ChatGPT agent mode is gone. What now?", "Where the features went."),
         (CLAW_GUIDE, "OpenClaw vs Hermes Agent", "Two self-hosted agents for tinkerers, compared."),
         (ALT_GUIDE, "OpenClaw alternatives for beginners", "Easier options that don't need a server."),
-        (HMI_GUIDE, "How to install Hermes Agent", "For people comfortable with a terminal.")]),
+        (HMI_GUIDE, "How to install Hermes Agent", "For people comfortable with a terminal."),
+        (TG_GUIDE, "Hermes Agent Telegram setup", "Chat with your Hermes agent from your phone, safely.")]),
     ("Costs", "What it costs, and how to pay less", [
         (COST_GUIDE, "How much does it cost to run an AI agent?", "Worked examples with official prices."),
         (LESS, "Run your bots for less", "A cost calculator and 8 rules that cut the bill."),
@@ -1245,7 +1253,7 @@ explainer = f"""<article class="wrap narrow explainer">{EXPLAIN_BC[0]}
 <li><b>Get in everywhere.</b> Some sites block agents. One user says Amazon blocked his ({S('X post', 'https://x.com/NickADobos/status/2110749518518235276')}).</li>
 <li><b>Replace a professional.</b> Use bots to organize and draft. Medical, legal and money decisions stay with you and a qualified person. Be wary of anyone promising AI miracles; the U.S. FTC has acted against deceptive AI claims ({S('FTC Operation AI Comply', 'https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes')}).</li></ul></section>
 
-<p class="small">Go deeper: <a href="{u(GT_GUIDE)}">how to use Tasks in Gemini (free)</a> · <a href="{u(MUSE_GUIDE)}">how to use Meta Muse</a> · <a href="{u(PA_GUIDE)}">ChatGPT dots vs Grok Bot vs Meta Muse</a> · <a href="{u(INSTR_GUIDE)}">how to write instructions for an AI agent</a> · <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a> · <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> · <a href="{u(ALT_GUIDE)}">OpenClaw alternatives</a> · <a href="{u(HMI_GUIDE)}">how to install Hermes Agent</a> · <a href="{u(AGENTMODE_GUIDE)}">ChatGPT agent mode is gone</a></p>
+<p class="small">Go deeper: <a href="{u(GT_GUIDE)}">how to use Tasks in Gemini (free)</a> · <a href="{u(MUSE_GUIDE)}">how to use Meta Muse</a> · <a href="{u(DOTS_GUIDE)}">how to use ChatGPT dots</a> · <a href="{u(TG_GUIDE)}">Hermes Agent on Telegram</a> · <a href="{u(PA_GUIDE)}">ChatGPT dots vs Grok Bot vs Meta Muse</a> · <a href="{u(INSTR_GUIDE)}">how to write instructions for an AI agent</a> · <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email and calendar?</a> · <a href="{u(COST_GUIDE)}">how much an AI agent costs</a> · <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent for beginners</a> · <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> · <a href="{u(ALT_GUIDE)}">OpenClaw alternatives</a> · <a href="{u(HMI_GUIDE)}">how to install Hermes Agent</a> · <a href="{u(AGENTMODE_GUIDE)}">ChatGPT agent mode is gone</a></p>
 <section class="reveal"><h2>7 rules that keep you safe</h2><ol class="rules">
 <li>Start <b>read-only</b>. Let it look before it does anything.</li>
 <li>Make it <b>ask before</b> it sends, buys, books, cancels or deletes.</li>
@@ -1283,13 +1291,14 @@ ex_faq = [
     ("What are examples of AI agents for personal use?", "Popular personal uses: a morning inbox summary, a bot that adds calendar events and reminders when you ask, a weekly meal plan with the grocery list, a watcher that pings you when a price or web page changes, and a bot that phones a business to book or cancel something for you. Every example on this page links to a how-to with a prompt to copy."),
     ("What is an example of an AI agent in everyday life?", "A common one is an inbox agent that reads your new email each morning and sends you a short summary of what needs a reply, without sending anything itself. Others watch a web page and ping you when it changes, plan a week of meals and build the grocery list, or make a customer-service phone call for you."),
     ("What's the difference between an AI agent and a chatbot?", "A chatbot answers when you ask, and you do the clicking. An agent can take steps for you, like reading your inbox on a schedule, filling a form or watching a page, and it should ask before it sends, buys or deletes anything."),
-    ("What's the best AI agent for everyday use?", "The one that works with apps you already use. If you live in Gmail and Google Calendar, try tasks in Gemini (free in the US, Canada, India, Japan, South Korea and Australia). If you want to text your bot, try Meta Muse or Instinct. For routines on a schedule, try Grok Bot, Claude Cowork scheduled tasks or ChatGPT dots. No agent yet? Paste a prompt from this page into ChatGPT, Claude, Gemini or Grok."),
+    ("What's the best AI agent for everyday use?", "The one that works with apps you already use. If you live in Gmail and Google Calendar, try tasks in Gemini (free in the US, Canada, India, Japan, South Korea and Australia). If you want to text your bot, try Meta Muse or Instinct. For routines on a schedule, try Grok Bot, Claude Cowork scheduled tasks or ChatGPT dots (Pro, and rolling out to some Plus users). If you run your own agent, Hermes Agent can message you on Telegram. No agent yet? Paste a prompt from this page into ChatGPT, Claude, Gemini or Grok."),
     ("Are AI agents safe to use?", "They're good at reading, watching, sorting and drafting. Don't trust them yet with your money, your address or anything you can't undo. Start with read-only jobs and have the agent ask before it sends or buys."),
 ]
 ex_body = f"""<article class="wrap narrow explainer">{crumbs([("Home", "/"), ("AI agent examples", None)])[0]}
 <p class="eyebrow">Examples</p><h1 class="kinetic-sm">{len(ex_items)} AI agent examples for personal use and everyday life</h1>
 <p class="lead">{len(ex_items)} everyday examples, grouped by part of life. Each links to a how-to with a copy-paste prompt. An AI agent does a job for you instead of only answering questions.</p>
 <p class="small muted">Updated <time datetime="{MOD_ISO}">{MOD_NICE}</time> · New to agents? <a href="{u('/what-can-bots-do/')}">What is an AI agent?</a> · Search and filter in <a href="{u('/use-cases/')}">Jobs to try</a> · {CHAT_BADGE} = one-off chat prompt</p>
+<p class="small">This page is the overview. To search, filter by category or sort by what's trending, use <a href="{u('/use-cases/')}">all {len(ucs)} AI agent use cases</a>; each one has steps, sources and a prompt to copy. Need the agent itself? <a href="{u(DOTS_GUIDE)}">How to use ChatGPT dots</a>, <a href="{u(MUSE_GUIDE)}">Meta Muse</a>, <a href="{u(GT_GUIDE)}">Tasks in Gemini (free)</a> or <a href="{u(TG_GUIDE)}">Hermes Agent on Telegram</a>.</p>
 {ex_groups}
 <section><h2>Questions people ask</h2>{''.join(f'<details class="faq glass"><summary>{e(q)}</summary><p>{e(a)}{_faq_more(q)}</p></details>' for q, a in ex_faq)}</section>
 <section class="glass explain-card"><h2>Want it on autopilot?</h2><p>Turn any of these into a bot that runs on a schedule with a <a href="{u('/blueprints/')}">build-your-own-bot blueprint</a>. Never built one? Follow <a href="{u(BUILD_GUIDE)}">how to build an AI agent without coding</a>. Use Gmail and Google Calendar? <a href="{u(GT_GUIDE)}">Tasks in Gemini</a> is free in six countries. Then write your bot's rules in the free <a href="{u('/bot-instructions/')}">instruction builder</a>.</p></section>
@@ -2207,7 +2216,7 @@ hmi_body = f"""<article class="wrap narrow explainer">{hib}
 <section class="reveal warn glass" id="safe"><h2>Step 4: Make it safe before you connect anything</h2><ol class="rules">
 <li><b>Keep approvals on.</b> The default “smart” mode lets a helper model approve low-risk commands, deny dangerous ones and ask you when unsure; “manual” always asks. Don't set approvals to off or start with <code>--yolo</code>, which skip the prompts ({C('hm_sec', 'Hermes security')}).</li>
 <li><b>Use the sandbox.</b> <code>hermes config set terminal.backend docker</code> runs the agent's commands in a container instead of on your computer ({C('hm_qs', 'quickstart')}).</li>
-<li><b>Add chat apps last.</b> <code>hermes gateway setup</code> connects Telegram, Discord, Slack, WhatsApp, Signal or email. Unknown people are denied unless you allowlist them or approve a pairing code with <code>hermes pairing approve</code>; never set <code>GATEWAY_ALLOW_ALL_USERS=true</code> ({C('hm_sec', 'Hermes security')}).</li>
+<li><b>Add chat apps last.</b> <code>hermes gateway setup</code> connects Telegram, Discord, Slack, WhatsApp, Signal or email. Unknown people are denied unless you allowlist them or approve a pairing code with <code>hermes pairing approve</code>; never set <code>GATEWAY_ALLOW_ALL_USERS=true</code> ({C('hm_sec', 'Hermes security')}). Step by step for Telegram: <a href="{u(TG_GUIDE)}">Hermes Agent Telegram setup</a>.</li>
 <li><b>Protect your keys:</b> <code>chmod 600 ~/.hermes/.env</code>, and set a spend limit at your AI provider: {_ua('set-ai-spend-limits-and-alerts')}.</li>
 <li><b>Start with read-only jobs.</b> A summary or a watcher before anything that sends, buys or deletes. More: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email?</a> and how to {_ua('keep-an-ai-agent-from-deleting-your-files')}.</li></ol></section>
 <section class="reveal" id="fix"><h2>If the install fails</h2>
@@ -2314,8 +2323,13 @@ SRC.update({
 def _cp(prov, plan):
     r = next((c for c in PR["consumer"] if c["provider"] == prov and c["plan"] == plan), None)
     return f'{r["price"]} {r["period"].split(" (")[0]}'.strip() if r else ""
+SRC.update({
+ "dots_help": ("OpenAI Help Center: Getting started with your dot (checked Nov 25, 2026)", "https://help.openai.com/en/articles/20001530-getting-started-with-your-dot"),
+ "dots_learn": ("ChatGPT Learn: Meet dots", "https://learn.chatgpt.com/docs/dots"),
+ "verge_dots_plus": ("The Verge (Nov 20, 2026): OpenAI is starting to bring Dots to Plus tier subscribers", "https://www.theverge.com/ai-artificial-intelligence/1038370/openai-is-starting-to-bring-dots-to-plus-tier-subscribers"),
+})
 PA_ROWS = [
- ("ChatGPT dots", f"OpenAI · ChatGPT Pro and Business Premium in eligible markets; your first dot is included; Enterprise beta ({C('dots_intro', 'OpenAI')})",
+ ("ChatGPT dots", f"OpenAI · ChatGPT Pro; rolling out gradually to selected Plus users; Business Standard and Premium; eligible Enterprise, Edu and Healthcare workspaces. 18+, not in the EU/EEA, UK or Switzerland ({C('dots_help', 'OpenAI Help Center')}; <a href=\"{u(DOTS_GUIDE)}\">how to use dots</a>)",
   "ChatGPT on desktop, web and mobile (set up on desktop first), Slack, Teams, voice calls",
   "Yes. Each dot has its own cloud computer and browser and works 24/7",
   "Built-in rules plus your Custom Rules (allow, ask, block); auto-review checks risky actions; changing a password always stays with you"),
@@ -2353,11 +2367,11 @@ If unsure: say what you're unsure about instead of guessing.
 Result: at most 10 bullets, most important first, each with the sender and one line on why."""
 PA_FAQ = [
  ("Which personal AI agent is best for beginners?",
-  "Start with the one your current plan already includes, because the job matters more than the brand. If you pay for ChatGPT Pro, try a dot; if you pay for Claude, try Cowork; with an X Premium, Super or Ultra subscription, try Grok Bot. If you pay for none, tasks in Gemini is free in the US, Canada, India, Japan, South Korea and Australia, and Meta Muse has a free tier with a usage limit.", None),
+  "Start with the one your current plan already includes, because the job matters more than the brand. If you pay for ChatGPT Pro (or you're one of the Plus users dots are rolling out to), try a dot; if you pay for Claude, try Cowork; with an X Premium, Super or Ultra subscription, try Grok Bot. If you pay for none, tasks in Gemini is free in the US, Canada, India, Japan, South Korea and Australia, and Meta Muse has a free tier with a usage limit.", None),
  ("Is there a free personal AI agent?",
-  "Yes. Tasks in Gemini became free on Nov 17, 2026 in the US, Canada, India, Japan, South Korea and Australia (Google AI Pro or Ultra elsewhere), and Meta Muse is free with a usage limit. ChatGPT dots, Claude Cowork and Grok Bot need a paid plan. Open-source agents such as Hermes Agent and OpenClaw are free to download, but you pay for the AI model and the computer they run on.", None),
+  "Yes. Tasks in Gemini became free on Nov 17, 2026 in the US, Canada, India, Japan, South Korea and Australia (Google AI Pro or Ultra elsewhere), and Meta Muse is free with a usage limit. ChatGPT dots, Claude Cowork and Grok Bot need a paid plan. Open-source agents such as Hermes Agent and OpenClaw are free to download (Hermes can chat with you on Telegram), but you pay for the AI model and the computer they run on.", None),
  ("ChatGPT dots vs Grok Bot: what's the difference?",
-  "A ChatGPT dot is one always-on agent with its own cloud computer and browser, included with ChatGPT Pro or Business Premium in eligible markets. Grok Bot lets you run several named bots that share one cloud computer, included with Premium, Super or Ultra on The X Subscription (or a linked SuperGrok / X Premium+ plan). Both keep working after you close your laptop.", None),
+  "A ChatGPT dot is one always-on agent with its own cloud computer and browser, included with ChatGPT Pro, rolling out to selected Plus users, and on Business Standard and Premium in eligible markets. Grok Bot lets you run several named bots that share one cloud computer, included with Premium, Super or Ultra on The X Subscription (or a linked SuperGrok / X Premium+ plan). Both keep working after you close your laptop.", None),
  ("Is Meta Muse free?",
   "Yes. Muse is free with a usage limit. When you reach it you can wait for it to refresh, buy extra Muse tokens, or subscribe: Power is $20 a month (500 million Muse tokens a week and 10 phone calls a day) and Maximum is $100 a month (3 billion tokens a week and 20 calls a day), on Meta's help page.", None),
  ("Do personal AI agents keep working when my computer is off?",
@@ -2365,7 +2379,7 @@ PA_FAQ = [
  ("Is it safe to let a personal agent read my email?",
   "It can be, with limits: connect only what the job needs, start read-only, and keep approvals on for sending, buying and deleting. Emails can contain hidden instructions aimed at agents, so treat what it reads as untrusted. All five agents here have approval settings, and Meta and Google both warn their agents can make mistakes.", None),
  ("What is the difference between ChatGPT and ChatGPT dots?",
-  "ChatGPT answers when you ask. A dot is an always-on agent inside ChatGPT with its own cloud computer and browser: it works on tasks in the background, connects to your apps and messages you with progress or questions. Dots are on ChatGPT Pro and Business Premium in eligible markets.", None),
+  "ChatGPT answers when you ask. A dot is an always-on agent inside ChatGPT with its own cloud computer and browser: it works on tasks in the background, connects to your apps and messages you with progress or questions. Dots are on ChatGPT Pro, rolling out gradually to selected Plus users, and on Business Standard and Premium, for people 18+ outside the EU/EEA, UK and Switzerland.", None),
  ("Can I use more than one personal agent?",
   "Yes, but give each one a different job and don't connect the same accounts to all of them. Two agents watching one inbox means twice the access and twice the chance of a mistake.", None),
 ]
@@ -2374,8 +2388,8 @@ pab, pald = crumbs([("Home", "/"), ("What is an AI agent?", "/what-can-bots-do/"
 _pa_desc = mdesc("ChatGPT dots vs Grok Bot vs Meta Muse, plus Claude Cowork and Gemini tasks: which plans include them, what runs while you're away, how each asks first.")
 pa_body = f"""<article class="wrap narrow explainer">{pab}
 <header class="page-head"><p class="eyebrow">Beginner guide · Personal AI agents</p><h1 class="kinetic-sm">ChatGPT dots vs Grok Bot vs Meta Muse (plus Claude Cowork and Gemini)</h1>
-<p class="lead">Short answer: use the personal agent your plan already includes. <b>ChatGPT dots</b> come with ChatGPT Pro, <b>Grok Bot</b> with X Premium, Super or Ultra, <b>Claude Cowork</b> with any paid Claude plan. <b>Tasks in Gemini</b> is free in the US, Canada, India, Japan, South Korea and Australia (Google AI Pro or Ultra elsewhere), and <b>Meta Muse</b> has a free tier (Power $20 a month, Maximum $100). All five can work on jobs for you, not just chat, and all five let you require your OK before they act.</p>
-<p><b>ChatGPT dots vs Grok Bot in one line:</b> each ChatGPT dot is one always-on agent with its own cloud computer and browser, on ChatGPT Pro or Business Premium; Grok Bot runs several bots that share one cloud computer, included with X Premium, Super or Ultra. <b>Meta Muse</b> is a free option: it keeps working after you close the app and asks before it sends an email or buys anything (<a href="{u(MUSE_GUIDE)}">how to use Meta Muse</a>).</p>
+<p class="lead">Short answer: use the personal agent your plan already includes. <b>ChatGPT dots</b> come with ChatGPT Pro (and are rolling out to some Plus users), <b>Grok Bot</b> with X Premium, Super or Ultra, <b>Claude Cowork</b> with any paid Claude plan. <b>Tasks in Gemini</b> is free in the US, Canada, India, Japan, South Korea and Australia (Google AI Pro or Ultra elsewhere), and <b>Meta Muse</b> has a free tier (Power $20 a month, Maximum $100). All five can work on jobs for you, not just chat, and all five let you require your OK before they act.</p>
+<p><b>ChatGPT dots vs Grok Bot in one line:</b> each ChatGPT dot is one always-on agent with its own cloud computer and browser, on ChatGPT Pro, some Plus accounts and Business plans (<a href="{u(DOTS_GUIDE)}">how to use ChatGPT dots</a>); Grok Bot runs several bots that share one cloud computer, included with X Premium, Super or Ultra. <b>Meta Muse</b> is a free option: it keeps working after you close the app and asks before it sends an email or buys anything (<a href="{u(MUSE_GUIDE)}">how to use Meta Muse</a>).</p>
 {_byline()}<p class="small muted">Every fact comes from each company's own announcement or help pages, linked inline and checked {MOD_NICE}. We don't rank them; features and plans change often.</p></header>
 <section class="reveal" id="compare"><h2>Personal AI agents side by side</h2>
 <div class="table-wrap glass"><table class="rank-table cmp-table"><thead><tr><th scope="col">Agent</th><th scope="col">Who makes it · which plans</th><th scope="col">Where you use it</th><th scope="col">Works while you're away?</th><th scope="col">How it asks first</th></tr></thead><tbody>{_pa_tbl}</tbody></table></div>
@@ -2398,7 +2412,7 @@ pa_body = f"""<article class="wrap narrow explainer">{pab}
 <li>Treat emails and web pages it reads as untrusted: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email?</a></li></ol></section>
 <section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(PA_FAQ)}</section>
 <section class="glass explain-card"><h2>Next step</h2><p>New to agents? Start with <a href="{u('/what-can-bots-do/')}">what an AI agent is</a>, browse <a href="{u('/ai-agent-examples/')}">{len(ucs)} AI agent examples</a>, or follow a <a href="{u('/blueprints/')}">blueprint</a> step by step.</p></section>
-<section class="reveal"><h2>Sources</h2>{_src_list(['dots_intro','gb_over','gb_start','gb_faq','muse_help','muse_subs','muse_uk','cw_help','g_tasks','cl_price','g_subs'])}</section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['dots_intro','dots_help','gb_over','gb_start','gb_faq','muse_help','muse_subs','muse_uk','cw_help','g_tasks','cl_price','g_subs'])}</section>
 </article>"""
 page(PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse: which personal agent?", _pa_desc, pa_body,
      [pald, _art_ld(PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse (plus Claude Cowork and Gemini)", _pa_desc, published="2026-11-17"), _faq_ld(PA_FAQ),
@@ -2596,7 +2610,7 @@ mu_body = f"""<article class="wrap narrow explainer">{mub}
 <li><b>Disconnecting isn't forgetting.</b> After you disconnect an app, what Muse learned can stay in its memory and chat history, so ask it to forget too. Reset deletes everything, permanently.</li></ol>
 <p class="small">More: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email?</a></p></section>
 <section class="reveal" id="compare"><h2>Meta Muse vs other personal agents</h2>
-<p>Of the big personal agents, Muse and Tasks in Gemini can be used free: Gemini in six countries (<a href="{u(GT_GUIDE)}">how to use Tasks in Gemini</a>). ChatGPT dots, Grok Bot and Claude Cowork need a paid plan. Side by side: <a href="{u(PA_GUIDE)}">ChatGPT dots vs Grok Bot vs Meta Muse</a>.</p></section>
+<p>Of the big personal agents, Muse and Tasks in Gemini can be used free: Gemini in six countries (<a href="{u(GT_GUIDE)}">how to use Tasks in Gemini</a>). ChatGPT dots (<a href="{u(DOTS_GUIDE)}">how to use them</a>), Grok Bot and Claude Cowork need a paid plan. Side by side: <a href="{u(PA_GUIDE)}">ChatGPT dots vs Grok Bot vs Meta Muse</a>.</p></section>
 <section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(MU_FAQ)}</section>
 <section class="glass explain-card"><h2>Next step</h2><p>Before you connect email or a card, run the free <a href="{u('/bot-checkup/')}">Bot Checkup</a> for the Muse settings worth changing. Then write your first job's rules in the free <a href="{u('/bot-instructions/')}">bot instruction builder</a> (no sign-up, nothing stored) and paste them into Muse. Or follow a <a href="{u('/blueprints/')}">blueprint</a> step by step.</p></section>
 <section class="reveal"><h2>Sources</h2>{_src_list(['muse_help','muse_perm','muse_conn','muse_pay','muse_subs','muse_tokens','muse_hc','muse_uk','muse_au','muse_sg'])}</section>
@@ -2605,6 +2619,195 @@ page(MUSE_GUIDE, "How to use Meta Muse: free plan, first job, safe settings", _m
      [muld, _art_ld(MUSE_GUIDE, "How to use Meta Muse: your first job, step by step", _mu_desc, published="2026-11-24"), _faq_ld(MU_FAQ),
       {"@context": "https://schema.org", "@type": "HowTo", "name": "How to start with Meta Muse", "description": _mu_desc,
        "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(MU_STEPS)]}], og_type="article")
+
+# ----- 15. How to use ChatGPT dots (2026-11-25, weekly SEO run) -----
+DOT_STEPS = [
+ ("Check your plan and country", "Dots are on ChatGPT Pro and rolling out gradually to selected Plus users, for people 18 or older outside the EU/EEA, the UK and Switzerland. Business Standard and Premium seats and eligible Enterprise, Edu and Healthcare workspaces also get them. If you're on Plus and don't see dots, the rollout hasn't reached you: OpenAI Support can't turn it on and restarting the app won't help."),
+ ("Open Dots", "Use the latest ChatGPT app on iPhone or Android, the desktop app (Mac or Windows) or chatgpt.com/dots in a desktop browser. Mobile web isn't supported. On the phone there's a Dot tab once you have one; on desktop, open Dots from the sidebar."),
+ ("Create and name your dot", "Follow the onboarding prompts. Its handle starts as @yourname-dot and changes when you name it (a dot named Alfred becomes @yourname-alfred). It starts with context from your ChatGPT memory."),
+ ("Set your rules before you connect anything", "On mobile, open your dot's profile, then Customize, then Custom rules. For sending, buying and sharing, pick Ask before taking action or Hand off to you. Also tell it in plain words: “Show me drafts before you send anything.”"),
+ ("Give it one read-only job", "Describe the job, what it may use and what it must not do. Attach a file with +. Start with something that only reads and reports back, like the prompt below, and check the first result before you give it more."),
+ ("Connect only the app that job needs", "Profile, then Customize, then Plugins (for example Gmail or Google Drive). Read each app's permissions first: permission to read isn't permission to send. Leave access to your own computer off unless the job needs local files; it starts turned off."),
+ ("Check its work and know the off switch", "In the desktop app, open its profile to see In progress, Scheduled and Completed. Pause it from the ••• menu. Pausing doesn't stop separate Work or Codex tasks or scheduled tasks, so stop those in Activity and Scheduled too."),
+]
+DOT_PROMPT = """Job: each weekday at 8 AM [your time zone], check my email from the last 24 hours and my calendar for today.
+Tell me: 1) what's on today, 2) emails that need a reply today, 3) anything that looks like a scam or a bill due this week.
+Use only: my connected email and calendar, read-only.
+Never: send, reply, delete, archive, book, buy or sign up for anything.
+Ask me first: before any step that changes something or contacts anyone. Asking for a draft is not permission to send it.
+If unsure: say what you're unsure about instead of guessing.
+Result: at most 10 short bullets, most important first. Confirm the schedule and an end date (4 weeks from today)."""
+DOT_PLANS = [
+ ("ChatGPT Plus", "Rolling out gradually to selected users (18+, outside the EU/EEA, UK and Switzerland)", "Plus is $20 a month (The Verge). No separate dots price is listed. Moving from Pro to Plus loses your dot."),
+ ("ChatGPT Pro (Pro 100, 200, 500)", "Yes, 18+ outside the EU/EEA, UK and Switzerland", "Pro starts at $100 a month (The Verge). Talking to your dot doesn't count toward ChatGPT usage limits; work it hands to Work or Codex does."),
+ ("Business Standard", "Yes, in supported regions: one personal dot per member", "Usage limits apply (OpenAI doesn't give a number)."),
+ ("Business Premium", "Yes, in supported regions, subject to workspace eligibility", "Dot conversations don't count toward usage limits."),
+ ("Enterprise, Edu, Healthcare", "Generally available in eligible workspaces; on by default from Nov 18, 2026 unless the admin opts out", "No fee for your Enterprise dot through Jan 13, 2027; billing starts Jan 14, 2027."),
+]
+DOT_FAQ = [
+ ("Can I use ChatGPT dots for free?",
+  "No. Dots aren't on the free ChatGPT plan. They're on ChatGPT Pro, rolling out to selected Plus users, and on Business Standard, Business Premium and eligible Enterprise, Edu and Healthcare workspaces. Free personal agents you can try instead: Tasks in Gemini (free in six countries) and Meta Muse (free with a usage limit).", None),
+ ("Do ChatGPT Plus users get dots?",
+  "Some do. The Verge reported on Nov 20, 2026 that a small number of Plus users are getting dots, and OpenAI's help page says the Plus rollout is gradual. If you don't see Dots in the sidebar or at chatgpt.com/dots, it hasn't reached your account; OpenAI Support can't enable it for you.", None),
+ ("How much do ChatGPT dots cost?",
+  "There's no separate price for individuals: a dot comes with your plan. The Verge reports Plus at $20 a month and Pro from $100. For Enterprise, OpenAI says there's no fee for your dot through Jan 13, 2027, then flat-rate billing from Jan 14, 2027, and work a dot hands to ChatGPT Work or Codex is billed separately.", None),
+ ("Why don't I see dots in ChatGPT?",
+  "Check that you're on the right account and workspace, then open chatgpt.com/dots. Common reasons: you're on Plus and the gradual rollout hasn't reached you, you're in the EU/EEA, UK or Switzerland, you're under 18, you're on mobile web (not supported), or your work admin hasn't enabled dots for your role.", None),
+ ("Is ChatGPT dots available in the UK or EU?",
+  "Not yet. OpenAI's help page says dots aren't currently available in the European Economic Area (including the EU), the UK or Switzerland. Meta Muse launched in the UK on Nov 24, 2026 if you want a personal agent there.", None),
+ ("What's the difference between ChatGPT and a dot?",
+  "ChatGPT answers when you ask. A dot is an always-on agent with its own cloud computer and browser: it keeps working between conversations, follows up as things change, runs scheduled checks and comes back to you for decisions. For a one-off task, ChatGPT Work is still the tool.", None),
+ ("Can my dot text me, call me or have its own email?",
+  "You can call your dot with the phone button in its conversation, but it can't call you. Texting is a beta for a limited number of Pro users in the US, Canada and Mexico (iMessage or RCS, not SMS), and OpenAI says those texts aren't end-to-end encrypted because a provider, Linq, relays them. At launch a dot can use your personal email if you connect it, but it can't have its own address.", None),
+ ("How do I stop or delete my dot?",
+  "Pause it from the ••• menu in its profile; that keeps its information. Delete (same menu) ends that dot and starts deleting its saved memories, and it can't be undone. Either way, stop scheduled tasks and Work or Codex tasks it started separately. Disconnecting an app doesn't delete what the dot already learned from it.", None),
+]
+_dot_tbl = "".join(f'<tr><th scope="row">{e(a)}</th><td class="small">{e(b)}</td><td class="small">{e(c)}</td></tr>' for a, b, c in DOT_PLANS)
+dotb, dotld = crumbs([("Home", "/"), ("What is an AI agent?", "/what-can-bots-do/"), ("How to use ChatGPT dots", None)])
+_dot_desc = mdesc("How to use ChatGPT dots: who gets them (Pro, some Plus users, Business), how to set one up, the rules to set first, and a safe first job to copy.")
+dot_body = f"""<article class="wrap narrow explainer">{dotb}
+<header class="page-head"><p class="eyebrow">Beginner guide · ChatGPT dots</p><h1 class="kinetic-sm">How to use ChatGPT dots: setup, first job and safe settings</h1>
+<p class="lead"><b>Short answer:</b> open <b>chatgpt.com/dots</b> (or Dots in the ChatGPT sidebar or app), follow the setup, set <b>Custom rules</b> so it asks before sending, buying or sharing, then give it one read-only job. A dot is an always-on agent with its own cloud computer that keeps working between conversations. It's included with ChatGPT Pro and is <b>rolling out gradually to selected Plus users</b> (18+, not in the EU/EEA, UK or Switzerland), plus Business and eligible Enterprise workspaces ({C('dots_help', 'OpenAI Help Center')}; {C('dots_learn', 'ChatGPT Learn')}). It isn't on the free plan.</p>
+{_byline()}<p class="small muted">Facts come from OpenAI's help pages, linked inline and checked {MOD_NICE}; plan prices are as reported by The Verge. Dots are changing fast.</p></header>
+<section class="glass explain-card reveal" id="what-it-is"><h2>What a ChatGPT dot is</h2><ul class="big-list">
+<li><b>An agent that keeps going.</b> Give it a goal and context; it tracks progress, works out the next step and comes back with results or a decision for you ({C('dots_learn', 'ChatGPT Learn')}).</li>
+<li><b>Its own computer and browser in the cloud.</b> Work continues while your devices are off. You can open its computer and select Take over to do a step yourself, such as a sign-in ({C('dots_learn', 'ChatGPT Learn')}).</li>
+<li><b>It can look at connected apps on its own.</b> OpenAI says a dot can review connected information proactively and form memories from it, even when you haven't asked ({C('dots_help', 'OpenAI Help Center')}). That's why you connect only what a job needs.</li>
+<li><b>One dot, many places.</b> The same dot answers in ChatGPT, Slack or a call, with the same memory ({C('dots_learn', 'ChatGPT Learn')}).</li></ul>
+<p class="small">New to agents? Read <a href="{u('/what-can-bots-do/')}">what an AI agent is, in simple terms</a>.</p></section>
+<section class="reveal" id="steps"><h2>How to set up ChatGPT dots: {len(DOT_STEPS)} steps</h2><ol class="rules">{''.join(f'<li><b>{e(t)}.</b> {e(d)}</li>' for t, d in DOT_STEPS)}</ol>
+<p>Paste this as your first job. It only reads, so it's a safe test:</p>
+{copybox(DOT_PROMPT, "First job for your dot (read-only)", "dot-prompt")}
+<p class="small">Want a different job? Write it in the free <a href="{u('/bot-instructions/')}">bot instructions builder</a> or the <a href="{u(INSTR_GUIDE)}">6-part AI agent instructions template</a>. Asking for a fixed time? OpenAI suggests including a time zone and an end date and asking the dot to confirm the schedule ({C('dots_learn', 'ChatGPT Learn')}).</p></section>
+<section class="reveal" id="plans"><h2>Who gets ChatGPT dots, and what it costs</h2>
+<div class="table-wrap glass"><table class="rank-table cmp-table"><thead><tr><th scope="col">Plan</th><th scope="col">Dots?</th><th scope="col">Notes</th></tr></thead><tbody>{_dot_tbl}</tbody></table></div>
+<p class="small">From {C('dots_help', 'Getting started with your dot')} and {C('dots_learn', 'Meet dots')}; Plus and Pro prices from {C('verge_dots_plus', 'The Verge (Nov 20, 2026)')}. Not available in the EU/EEA, UK or Switzerland. Other assistants' prices: <a href="{u(PRICING)}">AI price table</a>.</p></section>
+<section class="reveal" id="rules"><h2>Custom rules: the four choices</h2>
+<p>On mobile: your dot's profile → Customize → Custom rules. Describe the action, then pick one ({C('dots_help', 'OpenAI Help Center')}):</p><ul class="big-list">
+<li><b>Take action without asking.</b> Only for read-only things you've watched it do right.</li>
+<li><b>Take action if pre-approved.</b> “Pre-approved” means you asked for that exact action in your message.</li>
+<li><b>Ask before taking action.</b> The safe default for sending, sharing and changing things.</li>
+<li><b>Hand off to you.</b> Best for payments and anything you can't undo.</li></ul>
+<p class="small">Rules don't override OpenAI's built-in safeguards, and OpenAI warns a dot can still make mistakes when following them. Some steps, like changing a password, you always do yourself.</p></section>
+<section class="reveal" id="first-jobs"><h2>Good first jobs for a dot</h2><ul class="big-list">
+<li><b>Ongoing watching:</b> {_ua('have-your-bot-grab-an-earlier-appointment-when-one-opens')} or {_ua('check-on-every-package-and-chase-the-late-ones')}.</li>
+<li><b>Mornings:</b> {_ua('get-a-meeting-prep-brief-every-morning')} or {_ua('catch-calendar-clashes-hiding-in-your-email')}.</li>
+<li><b>Holidays:</b> {_ua('let-your-bot-project-manage-your-holiday-dinner')} or {_ua('run-the-family-secret-santa-with-your-bot')}.</li>
+<li><b>Work:</b> {_ua('rebook-your-clients-after-a-surprise-schedule-change')}.</li>
+<li><b>Make it better over time:</b> {_ua('teach-your-bot-to-remember-what-works')}.</li></ul>
+<p>More ideas: <a href="{u('/ai-agent-examples/')}">{len(ucs)} AI agent examples</a>.</p></section>
+<section class="reveal warn glass" id="safety"><h2>Before you let it act: 6 rules</h2><ol class="rules">
+<li><b>Connect one app at a time.</b> A connected app can be read proactively, and disconnecting it doesn't delete what the dot already learned.</li>
+<li><b>Keep sending and buying on “Ask before taking action”.</b> OpenAI: asking for a draft doesn't authorize sending it.</li>
+<li><b>Never paste passwords into the chat.</b> Use the private sign-in request or Take over to sign in yourself.</li>
+<li><b>Leave “your computer” access off</b> unless a job needs local files. If you turn it on, Revoke access when you're done.</li>
+<li><b>Treat what it reads as untrusted.</b> Emails and web pages can hide instructions meant for agents: {_ua('keep-hidden-instructions-in-email-from-steering-your-bot')}.</li>
+<li><b>Know that Pause isn't everything.</b> Stop scheduled and delegated tasks separately, and remember stopping doesn't undo what's already done.</li></ol>
+<p class="small">More: <a href="{u(SAFE_GUIDE)}">is it safe to give an AI agent your email?</a> · free <a href="{u('/bot-checkup/')}">Bot Checkup</a> for the dots settings worth changing.</p></section>
+<section class="reveal" id="compare"><h2>ChatGPT dots vs other agents</h2>
+<p>No dot yet? Free options: <a href="{u(GT_GUIDE)}">Tasks in Gemini</a> (free in six countries) and <a href="{u(MUSE_GUIDE)}">Meta Muse</a> (free with a usage limit). For one-off tasks inside ChatGPT, use ChatGPT Work (<a href="{u(AGENTMODE_GUIDE)}">what replaced agent mode</a>). Prefer an agent you run yourself and chat with on your phone? <a href="{u(TG_GUIDE)}">Connect Hermes Agent to Telegram</a>. Side by side: <a href="{u(PA_GUIDE)}">ChatGPT dots vs Grok Bot vs Meta Muse</a>.</p></section>
+<section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(DOT_FAQ)}</section>
+<section class="glass explain-card"><h2>Next step</h2><p>Write your dot's first job in the free <a href="{u('/bot-instructions/')}">bot instructions builder</a> (no sign-up, nothing stored), or follow a <a href="{u('/blueprints/')}">blueprint</a> step by step.</p></section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['dots_help','dots_learn','verge_dots_plus','dots_intro'])}</section>
+</article>"""
+page(DOTS_GUIDE, "How to use ChatGPT dots: who gets it, setup, first job", _dot_desc, dot_body,
+     [dotld, _art_ld(DOTS_GUIDE, "How to use ChatGPT dots: setup, first job and safe settings", _dot_desc, published="2026-11-25"), _faq_ld(DOT_FAQ),
+      {"@context": "https://schema.org", "@type": "HowTo", "name": "How to set up a ChatGPT dot", "description": _dot_desc,
+       "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(DOT_STEPS)]}], og_type="article")
+
+# ----- 16. Hermes Agent Telegram setup (2026-11-25, weekly SEO run) -----
+SRC.update({
+ "hm_tg": ("Hermes docs: Telegram setup (checked Nov 25, 2026)", "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram"),
+ "hm_gw": ("Hermes docs: Messaging gateway", "https://hermes-agent.nousresearch.com/docs/user-guide/messaging"),
+})
+TG_STEPS = [
+ ("Make sure Hermes works first", "Install Hermes and get one normal chat working on your computer before you add Telegram (the docs' quickstart order is: hermes setup, then hermes gateway setup). New to it? Start with how to install Hermes Agent."),
+ ("Easiest: use Create with QR", "In the Hermes dashboard or desktop app, open Messaging, then Telegram, and choose Create with QR. Scan the code in Telegram: Hermes creates the bot, finds your Telegram user ID, saves both and restarts the gateway. If that works, skip to step 6."),
+ ("Or create the bot yourself with @BotFather", "In Telegram, open @BotFather and send /newbot. Pick a display name, then a unique username that ends in bot (like my_hermes_bot). BotFather replies with a token. Treat it like a password: anyone with it controls your bot."),
+ ("Get your numeric Telegram user ID", "Message @userinfobot and it replies with a number like 123456789. That number, not your @username, is what Hermes uses to decide who's allowed to talk to it."),
+ ("Run hermes gateway setup", "In a terminal, run hermes gateway setup, choose Telegram, and paste the token and your user ID. (Manual option: put TELEGRAM_BOT_TOKEN and TELEGRAM_ALLOWED_USERS in ~/.hermes/.env.)"),
+ ("Start the gateway and say hi", "Run hermes gateway. The docs say the bot comes online within seconds; open your bot in Telegram and send a message. To keep it running after you close the terminal, run hermes gateway install (a background service on Mac and Linux)."),
+ ("Pick where scheduled results land", "Send /sethome in the chat you want, usually your private chat with the bot. Hermes's scheduled tasks deliver their results there."),
+]
+TG_PROMPT = """Job: every morning at 7:30 AM [your time zone], send me a short brief here in Telegram.
+Include: 1) today's weather for [city], 2) the 3 most important items on my list in [file or note name], 3) one reminder I set yesterday.
+Use only: the web for weather and the file or note I named. Read-only.
+Never: run commands that change or delete files, send messages to anyone else, buy or sign up for anything.
+Ask me first: before any step that changes something or contacts anyone.
+If unsure: say what you're unsure about instead of guessing.
+Result: at most 8 short lines. Schedule it, then show me the schedule so I can confirm."""
+TG_CMDS = [
+ ("/new", "Start a fresh conversation (also /reset)"),
+ ("/stop", "Stop the running agent"),
+ ("/approve, /deny", "Approve or reject a pending dangerous command"),
+ ("/model", "Show or change the model"),
+ ("/sethome", "Make this chat the home channel for scheduled results"),
+ ("/usage", "Show token use for this session"),
+]
+TG_FAQ = [
+ ("How do I connect Hermes Agent to Telegram?",
+  "Fastest: in the Hermes dashboard or desktop app, go to Messaging, then Telegram, and use Create with QR. Manual: create a bot with @BotFather (/newbot), get your numeric user ID from @userinfobot, run hermes gateway setup, choose Telegram, paste both, then run hermes gateway and message your bot.", None),
+ ("Why isn't my Hermes Telegram bot replying?",
+  "Check that hermes gateway is running, the token has no typo, and your numeric user ID (not your @username) is in TELEGRAM_ALLOWED_USERS. Without an allowlist the gateway denies everyone by default. In a group, see the next question.", None),
+ ("Why does my Hermes bot work in private chat but not in a group?",
+  "Telegram bots have privacy mode on by default, so in groups they only see /commands and replies to them. Either turn it off in @BotFather (/mybots, Bot Settings, Group Privacy, Turn off) and then remove and re-add the bot to the group, or make the bot a group admin. Each sender also has to be allowed in Hermes.", None),
+ ("Is it safe to run Hermes on Telegram?",
+  "It can be if you keep it locked down: allow only your own user ID, never post the bot token (revoke it with /revoke in BotFather if it leaks), and don't use the allow-all-users setting on a bot that can run terminal commands; the Hermes docs say that's not recommended. Keep approvals on so risky commands wait for /approve.", None),
+ ("Can I send Hermes voice messages on Telegram?",
+  "Yes. Voice messages are transcribed automatically by the speech-to-text provider you configure. The local option uses faster-whisper on your own machine and needs no API key; Groq and OpenAI options need their keys.", None),
+ ("Do I need to keep my computer on?",
+  "Yes, Hermes answers only while the gateway is running on that computer or server. hermes gateway install runs it as a background service on Mac and Linux. On Hermes Cloud with Team Gateway, you link your Telegram account to a shared Hermes bot instead of running your own.", None),
+ ("Is Hermes Agent free to use on Telegram?",
+  "Hermes Agent and Telegram are free, but Hermes needs an AI model, and you pay that provider unless you run a local model. The docs note bots also need tool providers (like voice and web), and a Nous Portal subscription bundles them. To cut the model bill, see how to switch Hermes to a cheaper model.", None),
+ ("Can other people use my Hermes bot?",
+  "Only if you allow them: add their numeric IDs to TELEGRAM_ALLOWED_USERS, or use DM pairing, where a stranger gets a one-time code and you run hermes pairing approve telegram CODE. Codes expire after an hour. Remember your bot can act on your computer, so think twice.", None),
+]
+_tg_cmds = "".join(f'<tr><th scope="row"><code>{e(a)}</code></th><td class="small">{e(b)}</td></tr>' for a, b in TG_CMDS)
+tgb, tgld = crumbs([("Home", "/"), ("Guides", "/guides/"), ("Hermes Agent Telegram setup", None)])
+_tg_desc = mdesc("Connect Hermes Agent to Telegram: Create with QR or @BotFather, your user ID, hermes gateway setup, groups and privacy mode, and the safety settings to keep.")
+tg_body = f"""<article class="wrap narrow explainer">{tgb}
+<header class="page-head"><p class="eyebrow">Beginner guide · Hermes Agent</p><h1 class="kinetic-sm">Hermes Agent Telegram setup: chat with your agent from your phone</h1>
+<p class="lead"><b>Short answer:</b> in the Hermes dashboard or desktop app, open <b>Messaging → Telegram → Create with QR</b> and scan it in Telegram. Or do it by hand: create a bot with <b>@BotFather</b> (<code>/newbot</code>), get your numeric user ID from <b>@userinfobot</b>, run <code>hermes gateway setup</code>, choose Telegram, paste both, then run <code>hermes gateway</code> and message your bot. Only the user IDs you allow can talk to it ({C('hm_tg', 'Hermes docs')}).</p>
+{_byline()}<p class="small muted">Every step comes from the official Hermes Agent docs, linked inline and checked {MOD_NICE}. Commands can change between versions; check the docs if one fails.</p></header>
+<section class="glass explain-card reveal" id="why"><h2>Why connect Hermes to Telegram</h2><ul class="big-list">
+<li><b>Your agent in your pocket.</b> Chat with Hermes from any device; send text, voice memos (transcribed automatically), photos and files ({C('hm_tg', 'Hermes docs')}).</li>
+<li><b>Scheduled results arrive as messages.</b> A morning brief or a price check lands in your Telegram chat instead of a terminal ({C('hm_cron', 'Hermes docs: scheduled tasks')}).</li>
+<li><b>One gateway, many apps.</b> The same background process also serves Discord, Slack, WhatsApp, Signal, email and more ({C('hm_gw', 'Hermes docs')}).</li></ul></section>
+<section class="reveal" id="steps"><h2>How to set up Hermes Agent on Telegram: {len(TG_STEPS)} steps</h2><ol class="rules">{''.join(f'<li><b>{e(t)}.</b> {e(d)}</li>' for t, d in TG_STEPS)}</ol>
+<p class="small">Step 1 help: <a href="{u(HMI_GUIDE)}">how to install Hermes Agent (Mac, Windows, Linux)</a>.</p>
+{copybox("hermes gateway setup     # choose Telegram, paste token + your user ID" + chr(10) + "hermes gateway           # start it, then message your bot" + chr(10) + "hermes gateway install   # optional: keep it running in the background", "Terminal commands", "tg-cmds")}
+<p>Then send this to your bot as a first scheduled job. It only reads and reports:</p>
+{copybox(TG_PROMPT, "First Telegram job for Hermes (read-only)", "tg-prompt")}
+<p class="small">Want a different job? Write the rules in the free <a href="{u('/bot-instructions/')}">bot instructions builder</a> or the <a href="{u(INSTR_GUIDE)}">AI agent instructions template</a>.</p></section>
+<section class="reveal" id="commands"><h2>Handy commands in the Telegram chat</h2>
+<div class="table-wrap glass"><table class="rank-table cmp-table"><thead><tr><th scope="col">Command</th><th scope="col">What it does</th></tr></thead><tbody>{_tg_cmds}</tbody></table></div>
+<p class="small">From the command list in {C('hm_gw', 'Hermes docs: messaging gateway')}.</p></section>
+<section class="reveal" id="groups"><h2>Using Hermes in a Telegram group</h2>
+<p>Telegram turns on <b>privacy mode</b> for every bot, so in a group your bot only sees /commands and replies to its own messages. To let it see the conversation, message @BotFather, send <code>/mybots</code>, pick your bot, then Bot Settings → Group Privacy → Turn off. Then <b>remove the bot from the group and add it back</b>, because Telegram remembers the old setting. Making the bot a group admin works too. To keep it quiet unless someone @mentions it, set <code>require_mention: true</code> under <code>telegram</code> in Hermes's config ({C('hm_tg', 'Hermes docs')}). For a family group, see {_ua('add-an-ai-to-your-friends-group-chat-to-make-plans')}.</p></section>
+<section class="reveal" id="first-jobs"><h2>Good first jobs to run from Telegram</h2><ul class="big-list">
+<li><b>Voice notes:</b> {_ua('turn-voice-memos-into-notes-and-tasks')}.</li>
+<li><b>Travel:</b> {_ua('turn-your-booking-emails-into-one-trip-sheet')}.</li>
+<li><b>Hobbies:</b> {_ua('let-ai-agents-dig-through-public-data-for-your-hobby')}.</li>
+<li><b>Memory:</b> {_ua('teach-your-bot-to-remember-what-works')}.</li>
+<li><b>Before you rely on it:</b> {_ua('back-up-your-ai-agent-and-move-it-to-a-new-computer')}.</li></ul></section>
+<section class="reveal warn glass" id="safety"><h2>Keep it safe: 6 rules</h2><ol class="rules">
+<li><b>Allow only your own user ID.</b> The gateway denies everyone when no allowlist is set; don't switch on allow-all on a bot with terminal access ({C('hm_gw', 'Hermes docs')}).</li>
+<li><b>Guard the bot token.</b> Never paste it in a chat or a screenshot. If it leaks, send <code>/revoke</code> to @BotFather and set the new one.</li>
+<li><b>Keep approvals on.</b> Risky commands should wait for your <code>/approve</code>; read what it wants to run first ({C('hm_gw', 'Hermes docs')}; {C('hm_sec', 'security')}).</li>
+<li><b>Treat forwarded messages and links as untrusted.</b> Text in them can carry hidden instructions: {_ua('keep-hidden-instructions-in-email-from-steering-your-bot')}.</li>
+<li><b>Be careful in groups.</b> Every allowed group member can steer an agent that can touch your computer. Use require_mention and allow only people you trust.</li>
+<li><b>Know the off switch.</b> <code>/stop</code> stops the current job; <code>hermes gateway stop</code> stops the service.</li></ol>
+<p class="small">More: <a href="{u(OCSAFE_GUIDE)}">is OpenClaw safe?</a> (the same rules apply to any self-hosted agent).</p></section>
+<section class="reveal" id="compare"><h2>Hermes on Telegram vs an agent app</h2>
+<p>Hermes is free and runs on your machine, but you set it up and pay for the AI model (<a href="{u(CHEAPMODEL_GUIDE)}">switch Hermes to a cheaper model</a>, <a href="{u(COST_GUIDE)}">what agents cost</a>). If you'd rather not run anything, a hosted agent app does similar jobs: <a href="{u(DOTS_GUIDE)}">ChatGPT dots</a>, <a href="{u(MUSE_GUIDE)}">Meta Muse</a> or <a href="{u(GT_GUIDE)}">Tasks in Gemini</a>. Comparing self-hosted agents? <a href="{u(CLAW_GUIDE)}">OpenClaw vs Hermes Agent</a> · <a href="{u(ALT_GUIDE)}">OpenClaw alternatives</a>.</p></section>
+<section class="block narrow" id="faq"><h2>Questions</h2>{_faq_html(TG_FAQ)}</section>
+<section class="glass explain-card"><h2>Next step</h2><p>Write your agent's standing rules in the free <a href="{u('/bot-instructions/')}">bot instructions builder</a> and send them as your first message, or copy a <a href="{u('/blueprints/')}">blueprint</a>.</p></section>
+<section class="reveal"><h2>Sources</h2>{_src_list(['hm_tg','hm_gw','hm_qs','hm_cron','hm_sec','hm_portal'])}</section>
+</article>"""
+page(TG_GUIDE, "Hermes Agent Telegram setup: step by step, safely", _tg_desc, tg_body,
+     [tgld, _art_ld(TG_GUIDE, "Hermes Agent Telegram setup: chat with your agent from your phone", _tg_desc, published="2026-11-25"), _faq_ld(TG_FAQ),
+      {"@context": "https://schema.org", "@type": "HowTo", "name": "How to connect Hermes Agent to Telegram", "description": _tg_desc,
+       "step": [{"@type": "HowToStep", "position": i + 1, "name": t, "text": d} for i, (t, d) in enumerate(TG_STEPS)]}], og_type="article")
 
 NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner guide: pick one job, write it in four lines, paste instructions into an agent app, test once, schedule it safely."),
               (COST_GUIDE, "How much does it cost to run an AI agent?", f"Monthly estimates for {len(_cost_rows)} everyday bots at official API prices, with the math shown."),
@@ -2619,6 +2822,8 @@ NEW_GUIDES = [(BUILD_GUIDE, "How to build an AI agent without coding", "Beginner
               (ALT_GUIDE, "OpenClaw alternatives for beginners", "Hermes Agent, n8n's Nod, nanobot, NanoClaw, ZeroClaw and IronClaw compared on setup, safety and cost, plus no-install options."),
               (PA_GUIDE, "ChatGPT dots vs Grok Bot vs Meta Muse: personal AI agents compared", "ChatGPT dots, Grok Bot, Meta Muse, Claude Cowork and tasks in Gemini compared: which plans include them, where they work, what runs while you're away, how each asks first, and a safe first job to copy."),
               (MUSE_GUIDE, "How to use Meta Muse: free plan, first job, safe settings", "Meta Muse step by step: sign in, set Permissions to Always ask, a read-only first job to copy, Free vs Power ($20) vs Maximum ($100), paying with Link by Stripe, UK and WhatsApp, and 6 safety rules."),
+              (DOTS_GUIDE, "How to use ChatGPT dots: who gets it, setup, first job", "ChatGPT dots step by step: Pro, gradual Plus rollout (18+, not EU/EEA/UK/Switzerland), Business and Enterprise; open chatgpt.com/dots, set Custom rules, a read-only first job to copy, pause vs delete, and 6 safety rules."),
+              (TG_GUIDE, "Hermes Agent Telegram setup: step by step, safely", "Connect Hermes Agent to Telegram: Create with QR or @BotFather + @userinfobot, hermes gateway setup, /sethome for scheduled results, group privacy mode, voice notes, and 6 safety rules."),
               (GT_GUIDE, "How to use Tasks in Gemini (free): your first task", "Tasks in Gemini (formerly Gemini Spark), free since Nov 17, 2026 in the US, Canada, India, Japan, South Korea and Australia: switch from Chat to Task, a read-only first task, schedules (free vs Pro/Ultra), emailing or texting Gemini, and 6 safety rules.")]
 
 # ---------- LATEST IN AI (/news/ + /news/feed.xml) -------------------------------------
@@ -2837,7 +3042,7 @@ page("/404.html", "Page not found", "This page doesn't exist.", f'<div class="wr
 # ---------- MACHINE FILES ------------------------------------------------------------
 idx = [{"t": x["title"], "u": u("/use-cases/" + x["slug"] + "/"), "c": CAT[x["category"]]["name"], "i": CAT[x["category"]]["icon"], "d": x["difficulty"], "h": x["_heat"], "s": search_text(x)} for x in ucs]
 idx += [{"t": "Blueprint: " + b["title"], "u": u("/blueprints/" + b["slug"] + "/"), "c": "Blueprint", "i": "⚙", "d": b["difficulty"], "h": 0, "s": norm(b["title"] + " " + b["goal"] + " " + b["watches"])} for b in bps]
-idx += [{"t": t, "u": u(pth), "c": "Guide", "i": "📘", "d": "Easy", "h": 0, "s": norm(t + " " + d + (" openclaw hermes agent nous research self-hosted open source" if pth in (CLAW_GUIDE, ALT_GUIDE, HMI_GUIDE) else "") + (" nod nanobot nanoclaw zeroclaw ironclaw alternative" if pth == ALT_GUIDE else "") + (" install setup windows mac linux desktop" if pth == HMI_GUIDE else "") + (" personal ai agent always-on dots grok bot muse cowork gemini tasks spark compare best free" if pth == PA_GUIDE else "") + (" gemini tasks task mode spark schedule scheduled free google gmail calendar email text gemini@google.com" if pth == GT_GUIDE else "") + (" meta muse muse.ai personal agent free power maximum whatsapp uk connectors permissions" if pth == MUSE_GUIDE else ""))} for pth, t, d in NEW_GUIDES]
+idx += [{"t": t, "u": u(pth), "c": "Guide", "i": "📘", "d": "Easy", "h": 0, "s": norm(t + " " + d + (" openclaw hermes agent nous research self-hosted open source" if pth in (CLAW_GUIDE, ALT_GUIDE, HMI_GUIDE) else "") + (" nod nanobot nanoclaw zeroclaw ironclaw alternative" if pth == ALT_GUIDE else "") + (" install setup windows mac linux desktop" if pth == HMI_GUIDE else "") + (" personal ai agent always-on dots grok bot muse cowork gemini tasks spark compare best free" if pth == PA_GUIDE else "") + (" gemini tasks task mode spark schedule scheduled free google gmail calendar email text gemini@google.com" if pth == GT_GUIDE else "") + (" meta muse muse.ai personal agent free power maximum whatsapp uk connectors permissions" if pth == MUSE_GUIDE else "") + (" chatgpt dots dot openai always-on agent plus pro business free price setup custom rules" if pth == DOTS_GUIDE else "") + (" hermes agent telegram botfather bot token gateway setup user id group privacy voice nous research" if pth == TG_GUIDE else ""))} for pth, t, d in NEW_GUIDES]
 idx.append({"t": "Bot Checkup: settings to change in your AI assistant", "u": u("/bot-checkup/"), "c": "Guide", "i": "✓", "d": "Easy", "h": 0, "s": norm("bot checkup ai assistant settings permissions approvals grok bot chatgpt dots claude duet meta muse gemini tasks house rules parent scam safety")})
 idx.append({"t": "Write bot instructions", "u": u("/bot-instructions/"), "c": "Guide", "i": "✎", "d": "Easy", "h": 0, "s": norm("write bot instructions text only chat weekly planning email draft compare quotes troubleshooting template pilot")})
 json.dump(idx, open(os.path.join(OUT, "assets", "search-index.json"), "w"), ensure_ascii=False, separators=(",", ":"))
@@ -2898,6 +3103,8 @@ F += ["## OpenClaw alternatives for beginners", f"URL: {absu(u(ALT_GUIDE))}"] + 
 F += ["## ChatGPT dots vs Grok Bot vs Meta Muse: personal AI agents compared", f"URL: {absu(u(PA_GUIDE))}"] + [f"- {k}: {re.sub('<[^>]+>', '', a)} | Where: {b} | Works while you're away: {c} | Asks first: {d}" for k, a, b, c, d in PA_ROWS] + ["Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(PA_STEPS)] + ["First-job prompt:", PA_PROMPT] + [f"Q: {q} A: {a}" for q, a, _ in PA_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('dots_intro', 'gb_over', 'gb_start', 'gb_faq', 'muse_help', 'cw_help', 'g_tasks')] + [""]
 F += ["## How to use Tasks in Gemini (free): your first task", f"URL: {absu(u(GT_GUIDE))}", "Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(GT_STEPS)] + ["First task prompt:", GT_PROMPT, "Free vs Google AI Pro/Ultra:"] + [f"- {a}: free {b} | Pro/Ultra {c}" for a, b, c in GT_PLANS] + [f"Q: {q} A: {a}" for q, a, _ in GT_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('g_blog_tasks', 'g_tasks', 'g_sched', 'g_9to5_chan', 'hm_cron')] + [""]
 F += ["## How to use Meta Muse: your first job, step by step", f"URL: {absu(u(MUSE_GUIDE))}", "Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(MU_STEPS)] + ["First job prompt:", MU_PROMPT, "Plans:"] + [f"- {a}: {b} — {c}" for a, b, c in MU_PLANS] + [f"Q: {q} A: {a}" for q, a, _ in MU_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('muse_help', 'muse_perm', 'muse_conn', 'muse_pay', 'muse_subs', 'muse_tokens', 'muse_uk', 'muse_au', 'muse_sg')] + [""]
+F += ["## How to use ChatGPT dots: setup, first job and safe settings", f"URL: {absu(u(DOTS_GUIDE))}", "Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(DOT_STEPS)] + ["First job prompt:", DOT_PROMPT, "Who gets dots:"] + [f"- {a}: {b} — {c}" for a, b, c in DOT_PLANS] + [f"Q: {q} A: {a}" for q, a, _ in DOT_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('dots_help', 'dots_learn', 'verge_dots_plus', 'dots_intro')] + [""]
+F += ["## Hermes Agent Telegram setup: chat with your agent from your phone", f"URL: {absu(u(TG_GUIDE))}", "Steps:"] + [f"{i+1}. {t}: {d}" for i, (t, d) in enumerate(TG_STEPS)] + ["First job prompt:", TG_PROMPT, "Telegram commands:"] + [f"- {a}: {b}" for a, b in TG_CMDS] + [f"Q: {q} A: {a}" for q, a, _ in TG_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('hm_tg', 'hm_gw', 'hm_qs', 'hm_cron', 'hm_sec', 'hm_portal')] + [""]
 F += ["## How to switch OpenClaw or Hermes to a cheaper model", f"URL: {absu(u(CHEAPMODEL_GUIDE))}"] + [f"Q: {q} A: {a}" for q, a, _ in CHEAP_FAQ] + ["Sources:"] + [f"- {SRC[k][0]}: {SRC[k][1]}" for k in ('oc_models', 'hm_models', 'hm_prov')] + [""]
 F += ["## What is an AI agent? (in simple terms)", f"URL: {absu(u('/what-can-bots-do/'))}"] + [f"- {q} {a}" for q, a in EXPLAIN_FAQ] + [""]
 F += ["## AI agent cost calculator", f"URL: {absu(u(LESS))}#calculator", "Monthly cost = runs per month x (input tokens x input price + output tokens x output price) / 1,000,000. Months use 30 days, 22 weekdays or 4 weeks. Batch halves the price at " + ", ".join(BATCH_PROVS) + ". Not included: caching, tool fees, voice, taxes, free tiers. Worked examples (cheapest vs priciest fitting model):"] + [f"- {c['title']}: {c['n']} run(s) per {c['unit']}, about {c['in']:,} tokens in and {c['out']:,} out per run; " + (lambda r: f"{r[0][1]['p']} {r[0][1]['m']} {money(r[0][0])}/month vs {r[-1][1]['p']} {r[-1][1]['m']} {money(r[-1][0])}/month")(calc_rows(c['n']*dict((k, m) for k, _, m in CALC_UNITS)[c['unit']], c['in'], c['out'], 'small', False)) for c in CALC_PRESETS] + [""]

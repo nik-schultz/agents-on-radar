@@ -32,7 +32,7 @@
  "chatgpt-dots": {
   "name": "ChatGPT dots (always-on agents)",
   "url": "https://openai.com/index/introducing-dots/",
-  "cost": "ChatGPT Pro and Business Premium in eligible markets (first dot included); Enterprise beta",
+  "cost": "ChatGPT Pro; rolling out gradually to selected Plus users; Business Standard and Premium; eligible Enterprise workspaces (18+, not in the EU/EEA, UK or Switzerland)",
   "kind": "agent"
  },
  "claude-cowork": {
