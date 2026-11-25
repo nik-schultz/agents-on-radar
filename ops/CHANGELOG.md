@@ -1362,3 +1362,14 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - Today page: data/today.json untouched; AM override picks for 2026-11-24 stay (meta-muse-uk, chatgpt-gpt-6-2-chat-tab, claude-plugins-one-page; nothing wrong, no major item). /news/ header unchanged.
 - 4 BACKLOG notes + skips under "PM news 2026-11-24".
 - Validate 0 errors; build 223 pages; check_links 20,264 links, 0 broken internal; test_today OK; check_today --site site OK (Tuesday, Nov 24).
+- Deployed: local main `a9292565`, publish `636fa0df` (`894bdd02..636fa0df`), Actions run 45482196316 succeeded; live check: scripts/check_today.py OK (Tuesday, Nov 24); live /news/ shows claude-install-artifacts-as-apps.
+
+## 2026-11-25 AM news run (~6:30 AM CT; covers Tue Nov 24 ~2:30 PM CT through Wed Nov 25 ~6:40 AM CT)
+- Added 6 items, all dated 2026-11-24 (no Nov 25 item verified yet): **shellbench-agents-fail-everyday-tasks** (notable, industry; TechCrunch + OpenClaw blog + arXiv; @openclaw 2125326970976366734), **character-ai-chat-sale-ags-object** (notable, industry; California AG + Oregon DOJ + Connecticut AG; no X block, no credible post found), **openai-gpt-6-protein-design** (notable, industry; openai.com; @OpenAI 2125334383490105601), **openai-matrix-exponent-nine-fourths** (notable, industry; openai/math GitHub README + paper + Lean scope; no official X post, so no X block), **uk-cma-ai-agent-problem-reports** (minor, industry; GOV.UK CMA), **bytedance-xiaodou-personal-agent-beta** (minor, agent launch; Caixin Global). New NEWS_CO entries: OpenClaw, Character.AI, UK CMA.
+- Updated 2 items: `gemini-history-training-controls` (Nov 24 wide rollout, where the switch is, training on by default; + 9to5Google source), `claude-skills-over-mcp-tasks` (file send/save with connectors now rolling out in beta per Nov 24 release notes; + release notes source).
+- No major item. Pricing: no ai-pricing.json change (no official price change found; DeepSeek V4.1 Flash move is an OpenRouter route price, not DeepSeek's list price).
+- Refreshed X numbers on 87 existing items dated Nov 14 or later (+2 new; 89 posts in one get_posts_by_ids call), measured 2026-11-25T12:30Z (raw research/x_news_measure_2026_11_25_am.json.txt, local only; apply script research/news_x_2026_11_25_am.py). claude-install-artifacts-as-apps @ClaudeDevs is now 59.5K likes / 7.1M views.
+- Today page: data/today.json untouched. Blocker: there are no news items dated 2026-11-25 yet, so the build has no Nov 25 edition and /today/ + the home Today box keep showing Tuesday, Nov 24 (with the "isn't in yet" note); check_today --site site reported STALE. The PM run should add Nov 25 items, which creates the edition automatically. /news/ header unchanged.
+- 4 BACKLOG notes + skips under "AM news 2026-11-25".
+- Validate 0 errors; build 223 pages; check_links 20,293 links, 0 broken internal; test_today OK.
+
