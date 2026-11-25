@@ -41,9 +41,39 @@ class EditionDates(unittest.TestCase):
         self.assertEqual(T.edition_number(D(2026, 11, 23), "2026-11-20"), 2)    # weekend skipped
         self.assertEqual(T.edition_number(D(2026, 11, 27), "2026-11-20"), 6)
 
-    def test_edition_list_skips_future_and_empty_days(self):
+    def test_edition_list_includes_today_skips_future_and_past_quiet_days(self):
         news = [item("a", "2026-11-19"), item("b", "2026-11-21"), item("c", "2026-11-17")]
-        self.assertEqual(T.edition_dates(news, D(2026, 11, 20)), [D(2026, 11, 19), D(2026, 11, 17)])
+        # Fri Nov 20 has no items but is still today's edition; Sat Nov 21 rolls to Mon Nov 23 (future);
+        # Wed Nov 18 has no items and is not invented after the fact.
+        self.assertEqual(T.edition_dates(news, D(2026, 11, 20)), [D(2026, 11, 20), D(2026, 11, 19), D(2026, 11, 17)])
+
+    def test_quiet_weekday_still_gets_an_edition_filled_from_earlier_items(self):
+        news = [item("tue", "2026-11-24", "major"), item("mon", "2026-11-23"), item("fri", "2026-11-20")]
+        eds = T.edition_dates(news, D(2026, 11, 25))  # Wed, no items dated today
+        self.assertEqual(eds[0], D(2026, 11, 25))
+        self.assertEqual(eds[1:], [D(2026, 11, 24), D(2026, 11, 23), D(2026, 11, 20)])
+        top, also = T.pick_three(news, D(2026, 11, 25))
+        self.assertEqual([n["id"] for n in top], ["tue", "mon", "fri"])
+        self.assertEqual([n["date"] for n in top], ["2026-11-24", "2026-11-23", "2026-11-20"])
+        self.assertEqual(also, [])
+
+    def test_weekend_uses_friday_even_when_friday_had_no_items(self):
+        news = [item("thu", "2026-11-19")]
+        self.assertEqual(T.edition_dates(news, D(2026, 11, 21))[0], D(2026, 11, 20))  # Sat -> Fri
+        self.assertEqual(T.edition_dates(news, D(2026, 11, 22))[0], D(2026, 11, 20))  # Sun -> Fri
+        top, _ = T.pick_three(news, D(2026, 11, 20))
+        self.assertEqual(top[0]["id"], "thu")
+        self.assertEqual(top[0]["date"], "2026-11-19")
+
+    def test_override_day_is_kept_even_without_news(self):
+        news = [item("a", "2026-11-17")]
+        eds = T.edition_dates(news, D(2026, 11, 20), days={"2026-11-19": {"picks": ["a"]}})
+        self.assertEqual(eds, [D(2026, 11, 20), D(2026, 11, 19), D(2026, 11, 17)])
+
+    def test_first_edition_fills_quiet_weekdays_from_launch(self):
+        news = [item("a", "2026-11-20")]
+        eds = T.edition_dates(news, D(2026, 11, 25), first_edition="2026-11-20")
+        self.assertEqual(eds, [D(2026, 11, 25), D(2026, 11, 24), D(2026, 11, 23), D(2026, 11, 20)])
 
 
 class Picks(unittest.TestCase):
@@ -152,6 +182,21 @@ class Pages(unittest.TestCase):
         ed = datetime.date.fromisoformat(re.search(r'<div class="td" data-edition="([\d-]+)"', built("/today/")).group(1))
         self.assertEqual(check_today.check(SITE, ed, local=True), [])
         self.assertEqual(len(check_today.check(SITE, ed - datetime.timedelta(days=7), local=True)), 3)
+
+    def test_built_today_is_the_current_weekday_edition(self):
+        cfg = json.load(open(os.path.join(ROOT, "config.json")))
+        build_day = datetime.date.fromisoformat(cfg.get("as_of") or datetime.date.today().isoformat())
+        want = T.latest_edition(build_day)
+        h = built("/today/")
+        self.assertIn(f'data-edition="{want.isoformat()}"', h)
+        self.assertIn(f'<h1 class="td-date">{want.strftime("%A, %b %-d")}</h1>', h)
+        self.assertNotIn("isn't in yet", h)
+        self.assertTrue(os.path.isdir(os.path.join(SITE, "today", want.isoformat())))
+        box = built("/")
+        self.assertIn(f'data-edition="{want.isoformat()}"', box)
+        news_dates = {n["date"][:10] for n in json.load(open(os.path.join(ROOT, "data", "news.json")))["items"]}
+        if want.isoformat() not in news_dates:  # quiet day: fill-ins keep their own date labels
+            self.assertIn("td-older", h)
 
     def test_nav_is_five_items_in_order(self):
         h = built("/news/")

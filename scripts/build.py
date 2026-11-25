@@ -936,7 +936,9 @@ _tcfg = T.load(ROOT)
 _t_errs = T.validate(_tcfg, NEWS, ucs)
 if _t_errs:
     raise SystemExit("today.json: " + "; ".join(_t_errs))
-TODAY_EDS = T.edition_dates(NEWS, TODAY, limit=int(_tcfg.get("archive_days") or 20))
+# Every weekday gets an edition (quiet days fill from earlier items). Weekends use Friday.
+TODAY_EDS = T.edition_dates(NEWS, TODAY, limit=int(_tcfg.get("archive_days") or 20),
+                            first_edition=_tcfg.get("first_edition"), days=_tcfg.get("days"))
 TODAY_ED = TODAY_EDS[0]
 _CK_NAMES = {a["id"]: a["name"] for a in _ck["assistants"]}
 APP_NAMES = dict(T.APPS)

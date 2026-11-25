@@ -1373,3 +1373,4 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - 4 BACKLOG notes + skips under "AM news 2026-11-25".
 - Validate 0 errors; build 223 pages; check_links 20,293 links, 0 broken internal; test_today OK.
 
+- Deployed: local main `610a5308`, publish `af9d6231` (`636fa0df..af9d6231`), Actions run 45614919100 succeeded; live /news/ shows shellbench-agents-fail-everyday-tasks. Live scripts/check_today.py: STALE (still Tuesday, Nov 24) on first check and again after a 2-minute wait — blocker, expected until a Nov 25 item exists (see Today page note above).

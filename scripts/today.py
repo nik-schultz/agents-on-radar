@@ -4,7 +4,8 @@
 Everything here is chosen from data the routines already write, so the page fills itself:
   * "3 things that changed": data/news.json items for the edition date, ranked by importance (impact), then by
     whether they touch an assistant people use (Bot Checkup match), then by measured X views. Weekend items roll
-    into Monday's edition. If a weekday has fewer than 3 items, the newest older items fill in and keep their own date.
+    into Monday's edition. Each weekday still gets its own edition when no news is dated that day: the newest
+    older items fill in and keep their own date. Never invent items. Weekends show Friday's edition.
   * "Job of the day": a use case added on the previous weekday (easiest first), so the job is fixed from the morning
     build and doesn't change when the midday routine adds new ones; otherwise a fixed rotation through the Easy use
     cases, so every date always gets the same job.
@@ -99,11 +100,40 @@ def edition_number(day, first_edition):
     return n
 
 
-def edition_dates(news, today, limit=20):
-    """Weekday editions that have at least one news item, newest first, up to `today`'s edition."""
+def edition_dates(news, today, limit=20, first_edition=None, days=None):
+    """Weekday editions, newest first, up to `today`'s edition (weekends use Friday).
+
+    The current weekday always gets an edition, even when no news is dated that day
+    (pick_three fills in from earlier items; those items keep their own dates). Past
+    editions are weekdays that have news, or a days[] override. Quiet weekdays before
+    today are not created retroactively, unless first_edition is set, in which case
+    every weekday from first_edition through today is included.
+    """
     top = latest_edition(today)
-    seen = sorted({edition_date_for(d(n["date"])) for n in news if d(n["date"]) <= today}, reverse=True)
-    return [x for x in seen if x <= top][:limit]
+    seen = {top}
+    for n in news:
+        nd = d(n["date"])
+        if nd <= today:
+            ed = edition_date_for(nd)
+            if ed <= top:
+                seen.add(ed)
+    for key in (days or {}):
+        try:
+            nd = datetime.date.fromisoformat(key)
+        except ValueError:
+            continue
+        if nd <= today and nd.weekday() <= 4:
+            ed = edition_date_for(nd)
+            if ed <= top:
+                seen.add(ed)
+    if first_edition:
+        start = d(first_edition) if isinstance(first_edition, str) else first_edition
+        cur = start
+        while cur <= top:
+            if cur.weekday() <= 4:
+                seen.add(cur)
+            cur += datetime.timedelta(days=1)
+    return sorted(seen, reverse=True)[:limit]
 
 
 def _assistant_hits(n, checkup):
