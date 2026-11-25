@@ -1,0 +1,46 @@
+{
+ "slug": "plan-gifts-for-everyone-on-your-list-and-hit-the-order-by-dates",
+ "title": "Plan gifts for everyone on your list and hit every order-by date",
+ "category": "shopping",
+ "source_date": "2026-11-24",
+ "summary": "Tell your bot who's on your list, what each person is into and what you want to spend. It suggests a few ideas per person, keeps one tracker of what's picked, ordered, arrived and wrapped, and nudges you each week before the shipping cut-offs, so nobody gets missed and nothing arrives after the holiday.",
+ "what_the_bot_does": [
+  "Asks for each person's name, age, interests and your budget for them (or splits one total for you).",
+  "Suggests 2 or 3 ideas per person (something useful, something fun, an experience) with a link to look at each one.",
+  "Builds one tracker: person, idea, link, price, ordered, arrived, wrapped, given, with a running total against your budget.",
+  "Notes the latest order date for each item so it arrives in time, and sets reminders a few days before each one.",
+  "Checks in once a week until your last shopping day with who still needs a gift and anything over budget. You buy everything yourself."
+ ],
+ "what_you_end_up_with": "One list with ideas for everyone, a running total, and a weekly 'still to buy' note, instead of ideas scattered across screenshots, notes and open tabs, and a gift that turns up on December 27.",
+ "difficulty": "Easy",
+ "tools": [
+  {"id": "grok-bot", "note": "Free gift-list templates exist (ideas per person, budget, shipping cut-offs); one user's first bot built a 10-ideas-per-person dashboard with order-by dates"},
+  {"id": "gemini-spark", "note": "Tasks in Gemini can compare products and set reminders; in the US it can also check out with Google Pay, but ask it not to"},
+  {"id": "chatgpt-dots", "note": "A dot can keep the tracker and check in on a schedule"},
+  {"id": "chatgpt", "note": "Any chat assistant can do the ideas and the table; you keep the list up to date yourself"}
+ ],
+ "prompt": "Help me plan holiday gifts. Here's my list: [name, age, what they're into, budget each, e.g. Mum, 67, gardening and crime novels, $60]. My total is [total budget] and I live in [country].\n\nFor each person suggest 3 ideas (one useful, one fun, one experience) with a link and a rough price, and the latest date to order so it arrives by [date]. Add a few small extras for [teachers / neighbours / hosts].\n\nKeep one tracker with: person, idea, link, price, ordered, arrived, wrapped, given, and a running total against my budget. Every [Saturday at 10 a.m.] until [last shopping date], send me who still needs a gift, what's late and anything over budget. Remind me 3 days before each order-by date.\n\nDon't buy anything, don't sign in to any store, and don't share anyone's details. I'll order myself from the links and tell you when something is bought.",
+ "setup": [
+  "Pick one assistant that can run on a schedule and send you reminders: a Grok Bot, a ChatGPT dot or Tasks in Gemini. A plain chat works too if you only want the ideas and the table.",
+  "Write your list first: first names, ages, a few words on what each person likes, and what you want to spend. Set your total yourself before you ask for ideas.",
+  "Paste the prompt with your list, your country (for shops and delivery dates) and the day you want to be finished.",
+  "Push back on ideas that miss ('she already has every kitchen gadget, try experiences') and pick one per person.",
+  "Each time you order something, tell the bot ('bought Mum's book, $24'), so the total and the weekly check-in stay right."
+ ],
+ "watch_out": [
+  "Order-by dates and prices from a bot are a guide. Check the shop's own delivery cut-off and price before you order (BAARP; the todo.is prompt says the same).",
+  "Keep it to first names and interests. Don't paste anyone's home address, card numbers or account logins into the chat (BAARP).",
+  "Some gift bots also watch for price drops or fill carts. If yours does, keep the 'never buy without my yes' rule and a spending cap.",
+  "AI ideas can be generic. You know the nephew who collects old maps; use the list as a starting point, not the final word."
+ ],
+ "sources": [
+  {"label": "X post by @ShannonMFHill (2026-11-24): 'Made my first Grok Bot! This bot organizes your holiday gift list' and checks daily for price drops; shared for others to use (15 likes / 6 reposts / 4 replies / 400 views, measured 2026-11-25)", "url": "https://x.com/ShannonMFHill/status/2125270546728485229", "kind": "x"},
+  {"label": "BAARP, 'Plan Your Holiday Gift List and Budget With AI' by Carla Jennings (2026-11-09): split one total per person, three ideas each in budget, a Name / Budget / Gift idea / Where to buy / Actual price / Bought tracker, and check prices, shipping and returns on the store's own site", "url": "https://baarp.com/ai-at-home/362/ai-holiday-gift-list-budget/", "kind": "article"},
+  {"label": "todo.is prompt page, 'Christmas gift list with ideas, links and a budget for everyone': 3 ideas per person with the latest order date for Christmas delivery, an ordered / arrived / wrapped tracker, a Saturday reminder until your last shopping date, and 'Don't buy anything for me'", "url": "https://todo.is/prompts/christmas-gift-list", "kind": "article"},
+  {"label": "Grokbot Agents directory, 'Holiday Gift List & Secret Santa Shopper' free Grok Bot template (updated 2026-11-10): one budget split across the list, good / better / best ideas, shipping cut-offs with reminders 3 days before, delivery and returns-by tracking; you approve every purchase", "url": "https://grokbotagents.co/bots/holiday-gift-list-secret-santa-shopper", "kind": "article"},
+  {"label": "X post by @BurnsZA (2026-11-24): a Grok Bot that finds 10 gift ideas for everyone on the list, all within budget, on one dashboard with photos and order-by dates (0 likes / 29 views, measured 2026-11-25)", "url": "https://x.com/BurnsZA/status/2125192612848275888", "kind": "x"},
+  {"label": "Reddit r/Gifts, 'How do you keep track of gift ideas for people throughout the year?' (2026-04-18): ideas get forgotten between March and July; top answer is a sheet with name, occasion, ideas, purchased and total (1 point / 54 comments as shown)", "url": "https://www.reddit.com/r/Gifts/comments/1sp2pz3/how_do_you_keep_track_of_gift_ideas_for_people/", "kind": "reddit"}
+ ],
+ "popularity": {"platform": "x", "post_id": "2125270546728485229", "author": "@ShannonMFHill", "url": "https://x.com/ShannonMFHill/status/2125270546728485229", "posted_at": "2026-11-24", "likes": 15, "reposts": 6, "replies": 4, "bookmarks": 0, "views": 400, "measured_at": "2026-11-25"},
+ "tags": ["gifts", "gift list", "christmas", "holiday", "budget", "order by", "shipping cut-off", "tracker", "family"]
+}

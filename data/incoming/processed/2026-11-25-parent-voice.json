@@ -1,0 +1,96 @@
+{
+ "slug": "set-up-a-talk-to-it-bot-for-a-parent-who-finds-typing-hard",
+ "title": "Set up a talk-to-it bot for a parent who finds typing hard",
+ "category": "family",
+ "source_date": "2026-11-24",
+ "summary": "If your mom or dad struggles with small keyboards (arthritis, a tremor, poor eyesight), set them up with an assistant they can just talk to. While you're home for the holidays, put it on their phone, turn on voice, and practise their real to-do list together: a letter to understand, an item to sell, a form to fill in. They stay in charge of anything that sends, pays or signs.",
+ "what_the_bot_does": [
+  "Listens and answers out loud, so your parent can ask for help without typing.",
+  "Explains letters, bills and forms they photograph, in short, plain sentences with numbered steps.",
+  "Works through their backlog one job at a time: drafting a reply, writing a listing for furniture they don't need, putting appointments in the calendar.",
+  "Reminds them of the house rules: no passwords or card numbers in the chat, and check health, money and legal answers with a person.",
+  "Asks before anything gets sent, posted, bought or signed."
+ ],
+ "what_you_end_up_with": "A patient helper on their own phone that they can use by voice on any ordinary Tuesday, set up in about 15 minutes during one visit, with clear rules they agreed to.",
+ "difficulty": "Easy",
+ "tools": [
+  {
+   "id": "meta-muse",
+   "note": "Has a real-time voice mode (US); one user set it up on his dad's phone for exactly this, after his mom used it for a non-profit's budget report"
+  },
+  {
+   "id": "chatgpt",
+   "note": "Free app with ChatGPT Voice on iPhone and Android"
+  },
+  {
+   "id": "gemini",
+   "note": "Often already on Android phones; Gemini Live is the talk-to-it mode"
+  }
+ ],
+ "prompt": "Hi! I'm [parent's first name]. Typing is hard for me because of [arthritis / my eyesight], so I'll mostly talk to you.\n\nPlease always answer in plain, simple English, in short sentences, and number any steps. Ask me one question at a time.\n\nHelp me with my list, one job at a time: [e.g. explain the letter I'll show you, write a listing for the armchair I want to sell, put my eye appointment on my calendar].\n\nRules: never ask me for passwords, bank or card numbers or my Social Security number. Never send, post, buy, pay or sign anything until I say yes out loud. If something is about my health, money or a legal matter, remind me to check with [my doctor / my son or daughter / a professional].",
+ "setup": [
+  "Pick one app that fits their phone: Muse (voice mode, US), ChatGPT, or Gemini on Android. One app is plenty.",
+  "Install the official app (check the maker is Meta, OpenAI or Google) and sign them in with their own account, not yours, so their chats stay private.",
+  "Make the text bigger, put the app next to Phone and Messages on the home screen, and show them the voice button.",
+  "Let them hold the phone. Paste the prompt above (with their name and their real list) and practise two or three real jobs together.",
+  "Write the three rules on a card by the phone: no passwords or card numbers, check health and money answers with a person, and 'if it says act now, call family first'. Call a week later and ask what they used it for."
+ ],
+ "watch_out": [
+  "Scammers target older adults; the FBI reports people 60+ lost nearly $7.7 billion to fraud in 2025 (Future Leaders in AI). Agree on a family code word for urgent calls in the same visit.",
+  "AI can be confidently wrong. Health, money and legal answers are a starting point to check with a doctor, a professional or family (Ask It Simply, Future Leaders in AI).",
+  "Don't let the bot pay, sign or move money on their behalf. Keep 'ask me first' for every send, post and purchase.",
+  "Use their own account, not yours, and close any upgrade offers. The free version is enough to start (Ask It Simply)."
+ ],
+ "sources": [
+  {
+   "label": "X post by @evrgn11112231 (2026-11-24): after his mom watched Muse 'one shot her budget and receipt reporting process for her non-profit' (a Sunday's work done in 20 minutes), he set Muse up on his dad's phone because of arthritis in his hands and showed him voice mode and voice-to-text for his backlog, like selling furniture on Facebook Marketplace (262 likes / 9 reposts / 8 replies / 52 bookmarks / 16,156 views, measured 2026-11-25)",
+   "url": "https://x.com/evrgn11112231/status/2125399400427962776",
+   "kind": "x"
+  },
+  {
+   "label": "Ask It Simply, 'How to set up AI on a parent's or grandparent's phone, in one visit' (updated 2026-10-17): a 15-minute plan (own account, bigger text, home screen, microphone button, practise three real questions), a plain-English starter prompt and three sticky-note safety rules",
+   "url": "https://askitsimply.com/guides/set-up-ai-on-a-parents-phone/",
+   "kind": "article"
+  },
+  {
+   "label": "Future Leaders in AI, 'How to Teach a Parent or Grandparent to Use ChatGPT (Safely)' (updated 2026-10-19): voice mode first because typing is the main friction for older hands; 'genuinely useful for someone with arthritis, low vision, or a tremor'; AARP: generative AI use among adults 50+ rose from 18% (2024) to 30% (2025); FBI family code-word advice",
+   "url": "https://futureleadersinai.com/guides/teaching-a-parent-to-use-chatgpt/",
+   "kind": "article"
+  },
+  {
+   "label": "Meta newsroom (2026-11-05): Give Your Muse a Voice, real-time voice chat in Muse",
+   "url": "https://about.fb.com/news/2026/11/introducing-muse-ai-voice-expressive-avatars/",
+   "kind": "official"
+  },
+  {
+   "label": "OpenAI Help Center: ChatGPT Voice (speak with ChatGPT and hear a spoken reply; type when you can't speak; the Live option can listen and speak at the same time)",
+   "url": "https://help.openai.com/en/articles/20001274-chatgpt-voice",
+   "kind": "official"
+  }
+ ],
+ "popularity": {
+  "platform": "x",
+  "post_id": "2125399400427962776",
+  "author": "@evrgn11112231",
+  "url": "https://x.com/evrgn11112231/status/2125399400427962776",
+  "posted_at": "2026-11-24",
+  "likes": 262,
+  "reposts": 9,
+  "replies": 8,
+  "bookmarks": 52,
+  "views": 16156,
+  "measured_at": "2026-11-25"
+ },
+ "tags": [
+  "parent",
+  "older adults",
+  "arthritis",
+  "voice",
+  "accessibility",
+  "set up",
+  "holiday visit",
+  "muse",
+  "chatgpt voice",
+  "gemini live"
+ ]
+}
