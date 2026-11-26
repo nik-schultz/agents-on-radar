@@ -2892,8 +2892,24 @@ def nl_sponsor(iss):
 <a class="btn" rel="sponsored noopener" href="{e(s['url'])}">{e(s.get('cta','Learn more'))}</a><p class="small">Paid placement by {e(s['name'])}. It doesn't change what we pick.</p></aside>"""
     return f"""<aside class="featured glass house"><span class="label">Your spot here</span><h3>Sponsor the {e(NAME)} Weekly</h3>
 <p>One short, clearly labeled sponsor block that matches the week's topic. {('The first 2 newsletter slots are free: use code <b>' + e(NL_PROMO_CODE) + '</b> at checkout.') if NL_PROMO_CODE else 'Your first 2 issues are free.'}</p><a class="btn btn-ghost" href="{u('/advertise/')}">See sponsor options</a></aside>"""
+NL_CH_LABEL, NL_JOBS_LABEL = "This week's biggest changes", "This week's jobs of the day"
+def nl_week_html(iss):
+    """Optional 'this week on Today' blocks (issue 6+): today_line, changes (news ids + note) and jobs_of_day (date + use-case slug + note)."""
+    parts = []
+    if iss.get("today_line"):
+        parts.append(f'<p class="nl-today"><b>Every weekday:</b> {e(iss["today_line"])} <a href="{u("/today/")}">Read BotsDoThat Today</a></p>')
+    ch = [(NEWS_BY_ID[c["id"]], c) for c in iss.get("changes", []) if c.get("id") in NEWS_BY_ID]
+    if ch:
+        lis = "".join(f'<li><b>{e(n["headline"])}</b> {e(c.get("note") or n["explainer"])} <span class="small muted">Source: <a href="{e(n["source_url"])}" rel="noopener">{e(n["source_name"])}</a>, {nice_date(n["date"])}</span></li>' for n, c in ch)
+        parts.append(f'<section class="nl-item" id="changes"><p class="eyebrow">{e(iss.get("changes_label") or NL_CH_LABEL)}</p><ul class="nl-list">{lis}</ul><p class="small muted">More every day on <a href="{u("/news/")}">Latest in AI</a>.</p></section>')
+    jobs = [(UC[j["slug"]], j) for j in iss.get("jobs_of_day", []) if j.get("slug") in UC]
+    if jobs:
+        lis = "".join(f'<li><span class="small muted">{e(datetime.date.fromisoformat(j["date"]).strftime("%A"))}</span> <a href="{u("/use-cases/"+x["slug"]+"/")}"><b>{e(x["title"])}</b></a>{(" " + e(j["note"])) if j.get("note") else ""}</li>' for x, j in jobs)
+        parts.append(f'<section class="nl-item" id="jobs-of-the-day"><p class="eyebrow">{e(iss.get("jobs_label") or NL_JOBS_LABEL)}</p><ul class="nl-list">{lis}</ul><p class="small muted">Each one has a prompt to copy on its page, and a new one is on <a href="{u("/today/")}">Today</a> every weekday.</p></section>')
+    return "".join(parts)
 def nl_issue_html(iss):
-    parts = [f'<p class="lead">{e(iss["intro"])}</p>']
+    parts = [f'<p class="lead">{e(iss["intro"])}</p>', nl_week_html(iss)]
+    if iss.get("items_label"): parts.append(f'<p class="eyebrow nl-items-label" id="jobs">{e(iss["items_label"])}</p>')
     for k, it in enumerate(iss["items"], 1):
         x = UC[it["slug"]]; src = x["sources"][0]
         parts.append(f"""<section class="nl-item" id="item-{k}"><h2>{k}. <a href="{u('/use-cases/'+x['slug']+'/')}">{e(x['title'])}</a></h2>

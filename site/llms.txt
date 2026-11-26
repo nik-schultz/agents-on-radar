@@ -224,6 +224,7 @@ All Small business & side hustles use cases: https://botsdothat.com/category/bus
 - 2026-11-24 [industry] The UK competition watchdog asks people to report problems they've had with AI agents: If you live in the UK and an AI agent like Muse, ChatGPT dots or Claude Duet bought the wrong thing, misled you or was hard to cancel, you can now tell the CMA through an online form, anonymously if you like, with screenshots or other evidence. The CMA can't sort out individual complaints or give legal advice (go to a consumer advice service for that), but reports feed its oversight of the agents now launching in the UK. Source: https://www.gov.uk/guidance/tell-us-your-views-on-personal-ai-agents
 
 ## BotsDoThat Weekly (past issues)
+- [Secret Santa, gift lists and a ChatGPT limits change](https://botsdothat.com/newsletter/2026-11-26/) (2026-11-26)
 - [A scam-check bot for your parent, plus 3 AI jobs](https://botsdothat.com/newsletter/2026-11-19/) (2026-11-19)
 - [Let AI book your flight and take errands from your car or watch](https://botsdothat.com/newsletter/2026-11-12/) (2026-11-12)
 - [Hand AI your shopping list, your raise talk and your day plan](https://botsdothat.com/newsletter/2026-11-05/) (2026-11-05)

@@ -143,6 +143,16 @@ def main():
             for k in ("name", "url", "headline"):
                 if not it.get(k): errs.append(f"sponsors {slot}: missing {k}")
             if it.get("url") and not str(it["url"]).startswith("https://"): errs.append(f"sponsors {slot}: url must be https")
+    _slugs = {x["slug"] for x in ucs}; _nids = {n["id"] for n in nw["items"]}
+    for iss in J("data", "newsletter.json")["issues"]:
+        tag = f"newsletter #{iss.get('number')}"
+        for it in iss.get("items", []):
+            if it.get("slug") not in _slugs: errs.append(f"{tag}: unknown use case {it.get('slug')!r}")
+        for c in iss.get("changes", []):
+            if c.get("id") not in _nids: errs.append(f"{tag}: changes has unknown news id {c.get('id')!r}")
+        for j in iss.get("jobs_of_day", []):
+            if j.get("slug") not in _slugs or not is_date(j.get("date")): errs.append(f"{tag}: jobs_of_day needs a known slug and an ISO date ({j.get('slug')!r})")
+        if iss.get("watch_out") and iss["watch_out"] not in _nids: errs.append(f"{tag}: unknown watch_out news id {iss['watch_out']!r}")
     for e in errs: print("ERROR", e)
     print(f"validate: {len(ucs)} use cases, {len(J('data','blueprints.json'))} blueprints, {len(errs)} errors")
     return 1 if errs else 0

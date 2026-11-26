@@ -1,5 +1,5 @@
 {
- "_help": "Web issues of the BotsDoThat Weekly. Each issue lists 3-5 use-case slugs (outcome, prompt and sources are pulled from data/use-cases.json at build time), one new or improved page, an optional watch-out (news id from data/news.json) and a sponsor (null = house ad). Optional: preview (email preview text) and watch_out_label (heading for the watch-out, default \"One thing that went wrong\"). sent_on stays null until the issue is emailed to subscribers.",
+ "_help": "Web issues of the BotsDoThat Weekly. Each issue lists 3-5 use-case slugs (outcome, prompt and sources are pulled from data/use-cases.json at build time), one new or improved page, an optional watch-out (news id from data/news.json) and a sponsor (null = house ad). Optional: preview (email preview text) and watch_out_label (heading for the watch-out, default \"One thing that went wrong\"). sent_on stays null until the issue is emailed to subscribers. Optional (issue 6+): today_line (one sentence pointing to /today/), changes (list of {id: news id, note: one plain line}; label via changes_label), jobs_of_day (list of {date, slug, note} from that week's Today editions; label via jobs_label) and items_label (heading above the numbered items). Old issues without them render as before.",
  "issues": [
   {
    "number": 1,
@@ -168,6 +168,88 @@
    },
    "watch_out": "banks-ai-agent-liability-citi-pnc",
    "watch_out_label": "One rule change to know",
+   "sponsor": null,
+   "sent_on": null
+  },
+  {
+   "number": 6,
+   "slug": "2026-11-26",
+   "date": "2026-11-26",
+   "subject": "Secret Santa, gift lists and a ChatGPT limits change",
+   "preview": "This week's biggest AI changes in plain words, the four jobs of the day, and four more problems to hand to AI, each with a prompt to copy.",
+   "intro": "Happy Thanksgiving. This week's Today editions leaned toward the holidays: a dinner plan, a gift list that tracks order-by dates, store calls to check what's in stock and a package check. Below are the week's biggest changes in plain words, those four jobs of the day, and four more problems you can hand to AI, each with a prompt to copy. Every prompt spells out what the AI must not do without your OK.",
+   "today_line": "BotsDoThat Today is a short daily edition (about 3 minutes): the 3 changes in AI assistants that day, what each means for you, and one job to try.",
+   "changes": [
+    {
+     "id": "chatgpt-gpt-6-2-billing-fix-banked-reset",
+     "note": "If you pay for ChatGPT and use GPT-6.2 Astra or Sol, the same work now uses more of your allowance (OpenAI says limits come 40% sooner on Astra and 25% on Sol after it fixed a launch undercount). Every Go, Plus, Pro and Business account gets one banked reset: redeem it in Usage settings on the web or desktop app once an allowance is below 80%."
+    },
+    {
+     "id": "chatgpt-codex-shared-usage-limits",
+     "note": "From December, chats, agent work and Codex coding on Plus, Pro and Business draw from one allowance. Quick chats with the Instant model stay unlimited; check the combined total in Settings, then Usage."
+    },
+    {
+     "id": "chatgpt-gpt-6-2-chat-tab",
+     "note": "Paid ChatGPT plans get GPT-6.2 Sol in the normal Chat tab over the coming days, with nothing to turn on. Free and Go plans aren't part of this update."
+    },
+    {
+     "id": "google-connected-apps-groceries-taxes",
+     "note": "In the US you can now fill a Target, Albertsons, Safeway or Shaw's grocery order inside Google Search or the Gemini app. You link each account yourself, so connect only the stores you want Google to use."
+    },
+    {
+     "id": "gemini-guided-vision-ios",
+     "note": "On iPhone, share your camera in Gemini Live and it describes what it sees and tells you how to aim, for things like a nutrition label or a washing-machine dial. Google says it can make mistakes and isn't a mobility aid."
+    }
+   ],
+   "jobs_of_day": [
+    {
+     "date": "2026-11-23",
+     "slug": "check-on-every-package-and-chase-the-late-ones",
+     "note": "One list of every package and where it really is, plus a drafted note to the store for any that went wrong."
+    },
+    {
+     "date": "2026-11-24",
+     "slug": "have-your-bot-call-stores-to-check-if-something-is-in-stock",
+     "note": "A short table of which nearby stores have it today, so you make one trip instead of five calls."
+    },
+    {
+     "date": "2026-11-25",
+     "slug": "let-your-bot-project-manage-your-holiday-dinner",
+     "note": "The menu, who brings what, an oven timeline that works back from dinner time and a shopping list."
+    },
+    {
+     "date": "2026-11-26",
+     "slug": "plan-gifts-for-everyone-on-your-list-and-hit-the-order-by-dates",
+     "note": "Ideas for everyone on your list, a running total and a weekly 'still to buy' note before shipping cut-offs."
+    }
+   ],
+   "items_label": "Four more problems to hand to AI this week",
+   "items": [
+    {
+     "slug": "run-the-family-secret-santa-with-your-bot",
+     "why": "Your bot does the busywork of a family or office Secret Santa: the kick-off email, passing each wish list to the right gift-giver and nudging late ones. A proper draw tool picks the names, not the chatbot, so nobody (you included) sees the matches. You approve every email, and it's worth asking the bot what's still waiting for your OK so nobody gets missed."
+    },
+    {
+     "slug": "set-up-a-talk-to-it-bot-for-a-parent-who-finds-typing-hard",
+     "why": "If you're home for the holiday and your mom or dad struggles with small keyboards, set up a free assistant they can talk to (ChatGPT Voice, Gemini Live or Meta Muse) on their own phone. Practise with their real to-do list together. The prompt keeps them in charge: nothing is sent, paid or signed until they say yes out loud."
+    },
+    {
+     "slug": "have-your-bot-grab-an-earlier-appointment-when-one-opens",
+     "why": "Keep the booking you have, then have your bot watch for cancellations at the doctor, tire shop or barber and move you up when a time you can make opens. You choose whether it asks first or books straight away. It never cancels the old booking until the new one is confirmed, and it never pays a deposit."
+    },
+    {
+     "slug": "keep-hidden-instructions-in-email-from-steering-your-bot",
+     "why": "If your bot reads your email or browses for you, a stranger can hide instructions in a message or web page. No company says this is solved. Paste this standing rule into your bot's instructions so anything it reads is treated as information, not orders, and it comes back to you before it sends, shares or spends anything."
+    }
+   ],
+   "new_page": {
+    "slug": "how-to-use-chatgpt-dots",
+    "path": "/how-to-use-chatgpt-dots/",
+    "title": "How to use ChatGPT dots: who gets it, setup, first job",
+    "note": "ChatGPT dots, OpenAI's personal agents, are on Pro, rolling out to selected Plus users, and on Business and eligible Enterprise workspaces (18+, not in the EU, EEA, UK or Switzerland, and not on the free plan). The new guide has a who-gets-it table, 7 setup steps with a read-only first job to copy, the 4 Custom rules choices, good first jobs and 6 rules to set before it acts."
+   },
+   "watch_out": "shellbench-agents-fail-everyday-tasks",
+   "watch_out_label": "One thing to keep in mind",
    "sponsor": null,
    "sent_on": null
   }

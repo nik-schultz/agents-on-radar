@@ -40,6 +40,21 @@ rows.append(f'<tr><td style="padding:14px 24px 0;text-align:right;"><a href="{e(
 rows.append(f'<tr><td style="padding:12px 24px 6px;">{eyebrow(f"BotsDoThat Weekly · Issue {NUM} · {nice(iss[chr(100)+"ate"])}")}'
             f'<h1 style="margin:0 0 14px;font-family:{FONT};font-size:28px;line-height:1.2;font-weight:800;letter-spacing:-0.5px;color:#ffffff;">{e(iss["subject"])}</h1>'
             f'<p style="{P}color:#cfd6f3;font-size:17px;">{e(iss["intro"])}</p></td></tr>')
+# optional "this week on Today" blocks (issue 6+): today_line, changes (news ids + note), jobs_of_day (date + use-case slug + note)
+if iss.get("today_line"):
+    rows.append(f'<tr><td style="padding:0 24px 18px;"><p style="{P}margin:0;border-left:3px solid {C1};padding:4px 0 4px 14px;"><strong style="color:{C1};">Every weekday:</strong> {e(iss["today_line"])} <a href="{e(link("/today/", "today-line"))}" style="color:{C1};font-weight:700;">Read BotsDoThat Today</a></p></td></tr>')
+LI = f"font-family:{FONT};font-size:15px;line-height:1.55;color:{INK};margin:0 0 14px;"
+ch = [(NEWS[c["id"]], c) for c in iss.get("changes", []) if c.get("id") in NEWS]
+if ch:
+    lis = "".join(f'<p style="{LI}"><strong style="color:#ffffff;">{e(n["headline"])}</strong><br>{e(c.get("note") or n["explainer"])}<br><span style="font-size:13px;color:{MUTED};">Source: <a href="{e(n["source_url"])}" style="color:{C1};">{e(n["source_name"])}</a>, {nice(n["date"])}</span></p>' for n, c in ch)
+    rows.append(card(eyebrow(iss.get("changes_label") or "This week's biggest changes", C1) + lis + f'<p style="{PM}">More every day on <a href="{e(link("/news/", "changes"))}" style="color:{C1};">Latest in AI</a>.</p>'))
+jobs = [(UC[j["slug"]], j) for j in iss.get("jobs_of_day", []) if j.get("slug") in UC]
+if jobs:
+    import datetime as _dt
+    lis = "".join(f'<p style="{LI}"><span style="font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:{MUTED};">{_dt.date.fromisoformat(j["date"]).strftime("%A")}</span><br><a href="{e(link("/use-cases/" + x["slug"] + "/", "job-of-day-" + str(k)))}" style="color:#ffffff;font-weight:700;">{e(x["title"])}</a>{("<br>" + e(j["note"])) if j.get("note") else ""}</p>' for k, (x, j) in enumerate(jobs, 1))
+    rows.append(card(eyebrow(iss.get("jobs_label") or "This week's jobs of the day", C2) + lis + f'<p style="{PM}">Each one has a prompt to copy on its page, and a new one is on <a href="{e(link("/today/", "jobs-of-day"))}" style="color:{C1};">Today</a> every weekday.</p>'))
+if iss.get("items_label"):
+    rows.append(f'<tr><td style="padding:8px 24px 12px;">{eyebrow(iss["items_label"], C2)}</td></tr>')
 for k, it in enumerate(iss["items"], 1):
     x = UC[it["slug"]]; href = link(f"/use-cases/{x['slug']}/", f"item-{k}")
     prompt = e(x["prompt"]).replace("\n", "<br>")
