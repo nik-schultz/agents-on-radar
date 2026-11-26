@@ -1,0 +1,46 @@
+{
+ "slug": "get-a-leave-time-check-before-a-long-holiday-drive",
+ "title": "Get a leave-time check before a long holiday drive",
+ "category": "travel",
+ "source_date": "2026-11-25",
+ "summary": "Before a long drive (like the trip home after Thanksgiving), your bot can compare departure times against typical holiday traffic, the weather along the way and official road reports, then check again the morning you leave and tell you: go, shift, or wait. It plans and reminds; you still check the live road report and drive.",
+ "what_the_bot_does": [
+  "Takes your route, the days and times you could leave, and when you need to arrive.",
+  "Weighs typical holiday traffic (for example, Google Maps says to start the trip home before noon or after 3 p.m. on Sunday) and suggests a best window, a backup window and a leave-by time.",
+  "Looks up the weather forecast for the hours you'll be on each stretch, and lists any mountain passes or closures to check on your state's 511 or DOT site.",
+  "Plans a stop every 2 hours or so for food, fuel or charging.",
+  "On the morning you leave, checks again and messages you: go, shift, or wait, with what it couldn't confirm."
+ ],
+ "what_you_end_up_with": "A one-page drive plan with a best and backup departure time, the stretches to watch, planned stops, and a morning-of message telling you whether to leave on time.",
+ "difficulty": "Easy",
+ "tools": [
+  {"id": "grok-bot", "note": "Brian Roemmele's free 'Drive Window' bot does this: route legs, National Weather Service forecasts, state DOT/511 checks, a morning-of recheck"},
+  {"id": "gemini-spark", "note": "Can run it as a scheduled task; Google warns scheduled answers are prepared in advance, so check live conditions yourself"},
+  {"id": "chatgpt", "note": "Scheduled tasks can send the morning-of reminder"},
+  {"id": "meta-muse"}
+ ],
+ "prompt": "I'm driving from [starting city] to [destination city] and need to arrive by [time / 'no deadline']. I could leave [days and time windows]. Riders: [adults, kids, pets]. Car: [gas / hybrid / EV].\n\n1. Suggest a best and a backup departure window and a leave-by time. Use typical holiday traffic patterns and say where your info comes from.\n2. List the weather you expect for the hours I'll be on each part of the route, and any mountain passes or stretches I should check on my state's 511 or DOT site. Don't guess at current closures or chain rules; tell me where to check.\n3. Plan a stop about every 2 hours ([food / fuel / EV charging / dog walk]).\n4. Give me a one-page plan I can share with my passengers.\n5. On [departure day] at [7 AM], check the forecast and road reports again and message me: go, shift (to when), or wait, plus anything you couldn't confirm.\n\nDon't book, buy or send anything for me.",
+ "setup": [
+  "Pick the assistant you already use. For the morning-of check, it needs to run on a schedule (Grok Bot, Tasks in Gemini, ChatGPT scheduled tasks or Muse).",
+  "Use cities, not your home address, and don't post when your house will be empty.",
+  "Paste the prompt with your trip details and read the plan with a map open. Note the passes or stretches it tells you to check.",
+  "Confirm the morning-of check is scheduled, with the time and an end date (the day after your trip).",
+  "Before you leave, open your state's 511 / DOT road report yourself. If the bot and the road report disagree, go with the road report and the signs."
+ ],
+ "watch_out": [
+  "A chatbot isn't a road report. Scheduled answers can be prepared in advance, and AI tools may not know live closures or chain requirements; check 511 or your state DOT before you leave (Willamette News, citing ODOT and Google).",
+  "Don't let a 'faster' back road talk you off main highways in winter weather if you don't know the area (ODOT advice via Willamette News).",
+  "Pull over before reading the bot's updates. Set it to message before you leave, not while you're driving.",
+  "Crossing a time zone? Say so in your prompt and check the arrival time yourself."
+ ],
+ "sources": [
+  {"label": "X post by @BrianRoemmele (2026-11-25): 'Drive Window', a free Grok Bot for holiday drivers: splits the route into 1-2 hour legs, pulls the National Weather Service forecast for each hour, checks state DOT and 511 for closures and chain controls, gives a best window, backup window and leave-by time, rechecks the morning you leave ('go, shift, or wait'), and won't book, buy or send anything (13 likes / 3 reposts / 2 replies / 9 bookmarks / 4,645 views, measured 2026-11-26)", "url": "https://x.com/BrianRoemmele/status/2125656949043913179", "kind": "x"},
+  {"label": "Google blog, 'Navigate holiday traffic and crowds with Google Maps trends' (2026-11-16): returning home, start before noon or after 3 p.m. on Sunday; for long drives, depart early on Sunday or Monday; Black Friday traffic heaviest 11 a.m.-3 p.m.", "url": "https://blog.google/products-and-platforms/products/maps/holiday-thanksgiving-travel-trends-2026/", "kind": "official"},
+  {"label": "Willamette News, 'Practical AI: Use a free AI assistant to plan your Thanksgiving drive, then check it against TripCheck' by Phil Harpster (2026-11-16): a copy-paste prompt for best and backup departure times, a scheduled morning reminder in ChatGPT or Gemini to check TripCheck and 511, and why a chatbot is 'never the final word on whether a pass is open'", "url": "https://www.willamettenews.com/post/practical-ai-use-a-free-ai-assistant-to-plan-your-thanksgiving-drive-then-check-it-against-tripche", "kind": "article"},
+  {"label": "Navi (text-message navigation assistant): you text where you're going and when you need to arrive; it watches traffic, transit and weather on your route and texts you when to get ready and when to leave", "url": "https://www.textnavi.com/", "kind": "article"},
+  {"label": "Musecases, 'Find the best time to leave for a holiday road trip' (shared Muse prompt): suggest the 2-3 best departure windows each way, flag times to avoid, plan stops every 2-3 hours, and offer a night-before traffic and weather recheck", "url": "https://musecases.app/c/2nukijayjsjs", "kind": "article"},
+  {"label": "GitHub nicglazkov/commutescout: live road conditions from 55 official state DOT/511 and NWS feeds in 37 US states, with a 'best_time_to_go' tool exposed as an MCP server for Claude and ChatGPT (6 stars, measured 2026-11-26)", "url": "https://github.com/nicglazkov/commutescout", "kind": "github", "stats": {"stars": 6}, "measured_at": "2026-11-26"}
+ ],
+ "popularity": {"platform": "x", "post_id": "2125656949043913179", "author": "@BrianRoemmele", "url": "https://x.com/BrianRoemmele/status/2125656949043913179", "posted_at": "2026-11-25", "likes": 13, "reposts": 3, "replies": 2, "bookmarks": 9, "views": 4645, "measured_at": "2026-11-26"},
+ "tags": ["thanksgiving", "holiday travel", "road trip", "traffic", "weather", "leave time", "scheduled", "drive"]
+}
