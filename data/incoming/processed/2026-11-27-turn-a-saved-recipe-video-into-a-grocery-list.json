@@ -1,0 +1,116 @@
+{
+ "slug": "turn-a-saved-recipe-video-into-a-grocery-list",
+ "title": "Turn a saved recipe video into a grocery list",
+ "category": "shopping",
+ "source_date": "2026-11-24",
+ "summary": "Saved a recipe reel or a cooking video you actually want to make? Your bot can pull out the ingredients and steps, leave out what you already have, and save a shopping list sorted by aisle to your notes. It reads and writes the list; it doesn't order anything unless you say so.",
+ "what_the_bot_does": [
+  "Opens the recipe video you point it to (a reel you saved on Instagram, a YouTube link, or a page) and lists the ingredients with amounts.",
+  "Scales the amounts to the number of people you're cooking for and drops anything you say you already have.",
+  "Sorts what's left into a shopping list by store section (produce, dairy, pantry...).",
+  "Saves the list where you'll see it in the store, for example a Google Keep note, your phone's notes or your usual grocery list.",
+  "Writes the steps as a short numbered recipe with a link back to the creator, and marks any amount it couldn't hear or see as 'check video'."
+ ],
+ "what_you_end_up_with": "A ready shopping list on your phone and a short written recipe, both made from the video you saved, with any unclear amounts flagged instead of guessed.",
+ "difficulty": "Easy",
+ "tools": [
+  {
+   "id": "meta-muse",
+   "note": "Turns a recipe reel you saved on Instagram into a shopping list once Instagram and Muse share the same Accounts Center (Meta, Nov 2026)"
+  },
+  {
+   "id": "gemini",
+   "note": "Can list the ingredients from a YouTube cooking video and save a checklist to Google Keep (Google Workspace must be connected)"
+  },
+  {
+   "id": "claude",
+   "note": "One tester had Claude drive a cloud iPhone: find the recipe on YouTube, write it into Notes, build the list"
+  },
+  {
+   "id": "grok-bot"
+  },
+  {
+   "id": "chatgpt"
+  }
+ ],
+ "prompt": "Here's a recipe video I want to make: [paste the link, or say 'the recipe reel I saved most recently'].\n\n1. List every ingredient with its amount, scaled for [number] people.\n2. Leave out what I already have: [salt, olive oil, eggs...].\n3. Sort the rest into a shopping list by store section (produce, meat, dairy, pantry, frozen).\n4. Save the list as [a new Google Keep note called '[dish] shopping' / a note on my phone / my grocery list].\n5. Write the steps as a short numbered recipe in my notes, with the creator's name and a link to the video.\n\nIf an amount isn't said or shown in the video, write 'check video' instead of guessing. Flag anything that contains [allergies, e.g. nuts]. Don't order or buy anything for me.",
+ "setup": [
+  "Pick the app you already use. Muse works with your Instagram saves; Gemini works with YouTube links and Google Keep; any bot with a browser can read a link you paste.",
+  "Muse: Instagram connects automatically if both are in the same Meta Accounts Center. Gemini: connect Google Workspace and keep Gemini Apps history on so it can save to Keep.",
+  "Paste the prompt with your recipe link, serving size and what's already in your kitchen.",
+  "Open the saved list and check it against the video once, especially amounts for baking.",
+  "Happy with it? Ask the bot to do the same every time you save a recipe, or each Sunday for the recipes you saved that week."
+ ],
+ "watch_out": [
+  "Say 'save a new note in Google Keep called...' to Gemini. In one test the plain wording only showed a checklist in the chat and saved nothing (TheNextGenAI, Nov 19).",
+  "Watch the video before relying on the quantities. Bots can mishear amounts or miss ones only shown on screen (TheNextGenAI), and Google's Gemini help says Gemini can hallucinate or give outdated information.",
+  "Muse can use what you can see on Facebook, Instagram and Threads once they share an Accounts Center (Meta). Check what's connected there, and leave out accounts you don't need, such as a business account.",
+  "Keep 'don't order anything' in the prompt unless you want the bot to fill a cart, and check the cart yourself before you pay."
+ ],
+ "sources": [
+  {
+   "label": "Meta, 'Introducing Muse in the UK: A Personal AI Agent You Control' (2026-11-23, updated 2026-11-24): connect your Instagram and Muse can help you turn a recipe Reel you've saved into a shopping list; Facebook, Instagram and Threads connect automatically when they share an Accounts Center",
+   "url": "https://about.fb.com/news/2026/11/introducing-muse-in-the-uk-a-personal-ai-agent-you-control/",
+   "kind": "official"
+  },
+  {
+   "label": "TechCrunch, 'Meta brings its Muse AI assistant directly into Instagram DMs' (2026-11-24): ask Muse to turn a recipe video into a grocery list or saved travel posts into an itinerary; nothing is shared, published or sent without your approval; rolling out in the U.S., Canada, Mexico, Japan and Singapore",
+   "url": "https://techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms/",
+   "kind": "article"
+  },
+  {
+   "label": "Instagram on Threads (2026-11-24): Muse can organize your saves into collections, find a reel you saved months ago, and turn saved recipes into grocery lists",
+   "url": "https://www.threads.com/@instagram/post/DgImXXIFp0g/muse-can-now-help-you-get-more-out-of-your-instagram-saves-here-are-a-few-ways/",
+   "kind": "official"
+  },
+  {
+   "label": "MediaPost, 'Meta Tests How Muse Drives Post-Ad Actions' (2026-11-24): Muse can turn recipe reels into saved grocery lists or a cookbook",
+   "url": "https://www.mediapost.com/publications/article/419654/meta-tests-how-muse-drives-post-ad-actions.html",
+   "kind": "article"
+  },
+  {
+   "label": "Google, Gemini on Android feature list: 'List the ingredients from this cooking video' (YouTube) and 'Create a grocery list in Keep with the ingredients for guacamole'",
+   "url": "https://gemini.google/assistant/",
+   "kind": "official"
+  },
+  {
+   "label": "Gemini Apps Help, 'Capture your ideas & notes with Gemini Apps': 'Find a recipe for [dish] and create a list of the ingredients in Keep'; needs Google Workspace connected and History on; Undo is in the confirmation",
+   "url": "https://support.google.com/gemini/answer/15230597?co=GENIE.Platform%3DDesktop&hl=en",
+   "kind": "official"
+  },
+  {
+   "label": "TheNextGenAI, 'Gemini Prompts: 25 Best Tested for Gmail, Maps and YouTube' (tested 2026-11-19): 'Save a new note in Google Keep called...' created a real Keep checklist, while a looser wording only showed a list in the chat; watch the video before relying on quantities",
+   "url": "https://thenextgenai.com/gemini-prompts/",
+   "kind": "article"
+  },
+  {
+   "label": "X post by @HamonPaulm (2026-11-27): one sentence to Claude driving a real iPhone in the cloud: it opened YouTube, found a recipe, wrote the full recipe in Notes, built the shopping list and found the closest supermarket (17 likes / 3 replies / 15 bookmarks / 943 views, measured 2026-11-27)",
+   "url": "https://x.com/HamonPaulm/status/2126283373580615788",
+   "kind": "x"
+  }
+ ],
+ "popularity": {
+  "platform": "x",
+  "post_id": "2126283373580615788",
+  "author": "@HamonPaulm",
+  "url": "https://x.com/HamonPaulm/status/2126283373580615788",
+  "posted_at": "2026-11-27",
+  "likes": 17,
+  "reposts": 0,
+  "replies": 3,
+  "bookmarks": 15,
+  "views": 943,
+  "measured_at": "2026-11-27"
+ },
+ "tags": [
+  "recipe",
+  "cooking video",
+  "instagram reels",
+  "grocery list",
+  "shopping list",
+  "google keep",
+  "muse",
+  "leftovers",
+  "meal planning"
+ ]
+}

@@ -1,0 +1,116 @@
+{
+ "slug": "get-a-short-lesson-every-morning-on-something-you-want-to-learn",
+ "title": "Get a short lesson every morning on something you want to learn",
+ "category": "family",
+ "source_date": "2026-11-25",
+ "summary": "Tell your bot one thing you want to learn, from painting or a language to how to use the bot itself, and it sends you a 5 to 15 minute lesson every morning, quizzes you on earlier lessons, and keeps a short progress note so each day builds on the last.",
+ "what_the_bot_does": [
+  "Asks what you want to learn, why, and how many minutes a day you have.",
+  "Every morning at the time you pick, sends one short lesson: one idea, one real example, and one small thing to try today.",
+  "Starts the next lesson with a quick question on an earlier one, and brings back the ones you got wrong a few days later.",
+  "Keeps a short progress note (what's covered, what you found hard) so it doesn't repeat itself.",
+  "Once a week, sends a short progress report and asks whether to go faster, slower or switch topics."
+ ],
+ "what_you_end_up_with": "A daily lesson waiting for you each morning, a running list of what you've learned, and regular quick quizzes, without paying for a course.",
+ "difficulty": "Easy",
+ "tools": [
+  {
+   "id": "chatgpt",
+   "note": "Scheduled tasks: free accounts get up to 3 active tasks, at most once a day in a flexible morning/afternoon/night window"
+  },
+  {
+   "id": "grok-bot",
+   "note": "Routines run it every morning; a free tutor template with a Sunday progress report is shared on X"
+  },
+  {
+   "id": "gemini-spark",
+   "note": "Tasks in Gemini can send it on a schedule"
+  },
+  {
+   "id": "claude"
+  },
+  {
+   "id": "meta-muse"
+  }
+ ],
+ "prompt": "Be my tutor for [what you want to learn, e.g. how to use my AI bot / basic Spanish / famous paintings / Excel]. I'm a beginner and have [10] minutes a day. My goal: [e.g. use my bot for real errands by January].\n\nEvery [weekday] at [7:30 AM], send me one lesson:\n1. One idea in under 200 words, in plain language.\n2. One real example (if it's about using you, use something from my real day).\n3. One small thing to try today.\n4. One quick question on an earlier lesson. Bring back anything I got wrong a few days later.\n\nKeep a short progress note of what we've covered and what I found hard, and don't repeat lessons. Every [Sunday], send a 5-line progress report and ask if I want to go faster, slower or change topic. Never ask me for passwords or private details.",
+ "setup": [
+  "Pick an assistant that can run something on a schedule: ChatGPT scheduled tasks, a Grok Bot routine, Tasks in Gemini, or Muse.",
+  "Run the prompt once in a normal chat first and adjust it until you like the first lesson. Then ask it to repeat on your schedule.",
+  "Turn on notifications so the lesson actually reaches you (ChatGPT: Settings > Notifications; choose Push, Email or both).",
+  "Answer the quiz question in the same chat. That's how the bot knows what to bring back.",
+  "After a week, tell it what to change ('shorter', 'more examples', 'harder questions')."
+ ],
+ "watch_out": [
+  "Free ChatGPT runs a repeating task at most once a day, in a flexible window rather than an exact time, and allows 3 active tasks. Each run also uses your plan's allowance (OpenAI Help).",
+  "A task made inside a ChatGPT project can't read that project's files, so put the topic and level in the task itself (OpenAI Help).",
+  "Lessons are only as good as their facts. For history, health or money topics, ask for a source with each lesson and check anything important.",
+  "If it changes your phone or computer wallpaper, plays audio or opens apps (like one founder's daily painting lesson), that needs extra permissions. Start with a plain message."
+ ],
+ "sources": [
+  {
+   "label": "X post by @parker__conrad (2026-11-25): every morning his Grok Bot finds a painting, teaches him a bit about it, then sets it as his phone and desktop background (that day: Winslow Homer's Northeaster) (188 likes / 1 repost / 19 replies / 56 bookmarks / 9,609 views, measured 2026-11-27)",
+   "url": "https://x.com/parker__conrad/status/2125722286216949995",
+   "kind": "x"
+  },
+  {
+   "label": "X post by @guidetoaitool (2026-11-25): one prompt turns a Grok Bot into a tutor that sends a 15-minute lesson every day plus a Sunday progress report; free template by @Mahaximus_, setup takes four answers (0 likes / 2 replies / 36 views, measured 2026-11-27)",
+   "url": "https://x.com/guidetoaitool/status/2125621340350673228",
+   "kind": "x"
+  },
+  {
+   "label": "X post by @SusanVadenMeser (2026-11-26): set up Grok to tutor her in how best to use Grok and Grok Bot, with a lesson every day by appointment (3 likes / 107 views, measured 2026-11-27)",
+   "url": "https://x.com/SusanVadenMeser/status/2125982822909300973",
+   "kind": "x"
+  },
+  {
+   "label": "OpenAI Help, 'Scheduled tasks in ChatGPT' (opened 2026-11-27): ask in a chat or open Scheduled > New task; Free and Go get 3 active tasks, at most once a day in flexible windows; push or email notifications; a completed task uses your allowance even with no update",
+   "url": "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt",
+   "kind": "official"
+  },
+  {
+   "label": "MakeUseOf, 'ChatGPT Tasks Are My Secret to Better Learning and Recall' by Saikat Basu (2025-02-20): spaced repetition with Tasks, e.g. 'Practice Spanish grammar with me every morning at 9 AM' plus a daily exercise, and quizzes built on weak spots",
+   "url": "https://www.makeuseof.com/chatgpt-tasks-better-learning-and-recall/",
+   "kind": "article"
+  },
+  {
+   "label": "dusk.bot guide, 'ChatGPT scheduled tasks: limits by plan and 25 ideas' (checked 2026-11-20): learning prompts such as 'every morning at 8: explain one science concept in 100 words, then ask me to explain it back'",
+   "url": "https://dusk.bot/guides/chatgpt-scheduled-tasks",
+   "kind": "article"
+  },
+  {
+   "label": "FreakyJolly, 'ChatGPT Scheduled Tasks: Full Setup Guide and Limits (2026)' (2026-11-20): learning task idea 'Every evening, teach me one new Spanish phrase with an example', plus how to create and manage tasks",
+   "url": "https://freakyjolly.com/chatgpt-scheduled-tasks/",
+   "kind": "article"
+  },
+  {
+   "label": "LinkedIn post, 'I built an AI agent that briefs me every morning' (2026-11-10): step 5 adds a daily lesson to the morning brief: 'teach me one AI skill in 5 minutes, using a task from today as the example'",
+   "url": "https://www.linkedin.com/feed/update/urn:li:activity:7525774840759250944",
+   "kind": "article"
+  }
+ ],
+ "popularity": {
+  "platform": "x",
+  "post_id": "2125722286216949995",
+  "author": "@parker__conrad",
+  "url": "https://x.com/parker__conrad/status/2125722286216949995",
+  "posted_at": "2026-11-25",
+  "likes": 188,
+  "reposts": 1,
+  "replies": 19,
+  "bookmarks": 56,
+  "views": 9609,
+  "measured_at": "2026-11-27"
+ },
+ "tags": [
+  "learn",
+  "daily lesson",
+  "tutor",
+  "quiz",
+  "spaced repetition",
+  "scheduled",
+  "beginner",
+  "learn to use ai",
+  "routine"
+ ]
+}
