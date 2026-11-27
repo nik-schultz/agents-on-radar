@@ -1463,3 +1463,4 @@ Reviewed every feature claim, plan limit, menu path, command and config key in o
 - Today page: data/today.json untouched. Thursday Nov 26 edition unchanged (billing fix + Codex shared limits + Guided Vision iOS). /news/ header unchanged.
 - 2 BACKLOG notes + skips under "PM news 2026-11-26".
 - Validate 0 errors; build 230 pages; check_links 20,999 links, 0 broken internal; test_today OK; check_today --site site OK (Thursday, Nov 26).
+- Deployed (~2:40 PM CT, no other run in progress, remote main was 58233d87): local main `202e8c3b`, publish `7e956f6d` (`58233d87..7e956f6d`), Actions run 45891751441 succeeded; live scripts/check_today.py OK (Thursday, Nov 26) on the first check; live /news/ shows both new items.
